@@ -464,15 +464,7 @@ pub struct SecondaryAxis {
 
 ///|
 fn copy_secondary_locator(locator : @ticker.Locator) -> @ticker.Locator {
-  match locator {
-    @ticker.Locator::Linear(count~) => @ticker.Locator::Linear(count~)
-    @ticker.Locator::MaxN(count~, integer~, symmetric~, prune~) =>
-      @ticker.Locator::MaxN(count~, integer~, symmetric~, prune~)
-    @ticker.Locator::Fixed(values) => @ticker.Locator::Fixed(values.copy())
-    @ticker.Locator::Log(count~, base~) => @ticker.Locator::Log(count~, base~)
-    @ticker.Locator::LogWithSubs(count~, base~, subs~, numdecs~) =>
-      @ticker.Locator::LogWithSubs(count~, base~, subs=subs.copy(), numdecs~)
-  }
+  locator.copy()
 }
 
 ///|

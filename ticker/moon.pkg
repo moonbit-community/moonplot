@@ -1,4 +1,6 @@
 import {
+  "mathplotlib/mathplotlib/config",
+  "mathplotlib/mathplotlib/internal/tick_grid",
   "mathplotlib/mathplotlib/core",
   "moonbitlang/core/math",
   "moonbitlang/core/bigint",

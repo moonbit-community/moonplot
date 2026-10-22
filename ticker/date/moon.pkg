@@ -1,4 +1,5 @@
 import {
+  "mathplotlib/mathplotlib/internal/tick_grid",
   "mathplotlib/mathplotlib/config",
   "mathplotlib/mathplotlib/internal/date_epoch" @epoch_data,
   "mathplotlib/mathplotlib/internal/date_host",

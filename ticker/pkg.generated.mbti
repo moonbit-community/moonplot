@@ -36,6 +36,8 @@ pub fn log_minor_locator(subdivisions? : Int, base? : Double) -> MinorLocator ra
 
 pub fn maxn_locator(count? : Int, integer? : Bool, symmetric? : Bool, prune? : String) -> Locator raise @core.DataError
 
+pub fn multiple_locator(base? : Double, offset? : Double) -> Locator raise @core.DataError
+
 pub fn null_formatter() -> Formatter
 
 pub fn percent_formatter(xmax? : Double, decimals? : Int, symbol? : String) -> Formatter raise @core.DataError
@@ -70,6 +72,7 @@ pub fn Formatter::offset_label_with_view(Self, Array[Double], @core.Limits?) -> 
 pub fn Formatter::offset_with_view(Self, Array[Double], @core.Limits?) -> Double
 
 pub(all) enum Locator {
+  Multiple(MultipleLocator)
   Linear(count~ : Int)
   MaxN(count~ : Int, integer~ : Bool, symmetric~ : Bool, prune~ : String)
   Fixed(Array[Double])
@@ -78,15 +81,32 @@ pub(all) enum Locator {
 }
 pub fn Locator::copy(Self) -> Self
 pub fn Locator::fixed_values(Self) -> Array[Double]
+pub fn Locator::multiple_locator(Self) -> MultipleLocator?
 pub fn Locator::tick_values(Self, Double, Double) -> Array[Double]
 
 pub(all) enum MinorLocator {
+  Multiple(MultipleLocator)
   Auto(subdivisions~ : Int)
   Fixed(Array[Double])
   Log(subdivisions~ : Int, base~ : Double)
 }
 pub fn MinorLocator::copy(Self) -> Self
+pub fn MinorLocator::multiple_locator(Self) -> MultipleLocator?
 pub fn MinorLocator::tick_values(Self, Array[Double], Double, Double) -> Array[Double]
+
+pub struct MultipleLocator {
+  // private fields
+}
+pub fn MultipleLocator::as_locator(Self) -> Locator
+pub fn MultipleLocator::as_minor_locator(Self) -> MinorLocator
+pub fn MultipleLocator::base(Self) -> Double
+pub fn MultipleLocator::copy(Self) -> Self
+pub fn MultipleLocator::new(base? : Double, offset? : Double) -> Self raise @core.DataError
+pub fn MultipleLocator::nonsingular(Self, Double, Double) -> (Double, Double)
+pub fn MultipleLocator::offset(Self) -> Double
+pub fn MultipleLocator::set_params(Self, base? : Double, offset? : Double) -> Unit raise @core.DataError
+pub fn MultipleLocator::tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
+pub fn MultipleLocator::view_limits(Self, Double, Double) -> (Double, Double)
 
 // Type aliases
 

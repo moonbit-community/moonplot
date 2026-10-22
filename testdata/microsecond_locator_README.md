@@ -50,7 +50,9 @@ with_timezone、主次日期轴、共享轴及 SVG 维持同一精度。
 eager 返回最多 **100000** 个前缀刻度；非有限 alignment/count 抛 DateError。
 极大有限 interval 可以产生无限刻度坐标，直接查询保留原源结果。非正、NaN、无限
 interval 在 typed 构造阶段拒绝；不宣称原 Python 动态参数的全部异常/对象协议。
-通用 `ticker.MultipleLocator` 的完整公开对象及 view_limits/rc 行为仍待后续接入。
+通用 `ticker.MultipleLocator` 的公开对象及 view_limits/rc 接入见
+[数值定位器说明](multiple_locator_README.md)。D20将共用网格移至 `internal/tick_grid`，
+72组divmod参考随之移到该包，日期接口与观察保持原样。
 
 ## 参考覆盖与重现
 

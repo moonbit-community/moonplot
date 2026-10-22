@@ -81,6 +81,7 @@ pub fn Axis::minor_locator(Self) -> @ticker.MinorLocator?
 pub fn Axis::minor_overlap_removal(Self) -> Bool
 pub fn Axis::minor_tick_labels(Self, Array[Double], view? : @core.Limits) -> Array[String]
 pub fn Axis::minor_tick_values(Self, @core.Limits) -> Array[Double]
+pub fn Axis::numeric_nonsingular_bounds(Self, Double, Double) -> @core.Limits
 pub fn Axis::request_autoscale(Self) -> Unit
 pub fn Axis::scale(Self) -> @scale.Scale
 pub fn Axis::set_auto_limits(Self, Double, Double) -> Unit

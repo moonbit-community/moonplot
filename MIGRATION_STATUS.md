@@ -8,19 +8,20 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D20（通用数值MultipleLocator、共享Double网格与view_limits），待定向冻结。
-- 最近完成D19：命名MicrosecondLocator、fractional interval、whole-array日期转换、
-  CPython/NumPy divmod、Auto/axis/共享SVG接线与精确interval_value getter。
-- 最终四目标：wasm/wasm-gc/native各5126/5126，JS5133/5133（7个无Node测试）。
-  info&&fmt、check-all142tasks（8旧Ref warnings）、173named/72divmod/48epoch原源--check通过。
-  D19-interface.diff仅新增MicrosecondLocator与两个getter，无签名删除/foreign类型泄漏。
-- 下一条具体动作：只读固定ticker.py1980–2120 MultipleLocator/_Edge_integer及transforms
-  nonsingular，核对现Locator/axis/contour和config.autolimit链路，冻结D20typed有限正base/
-  offset、mutable set/copy/adapter、view_limits/rc、共享网格抽取与验收，再建立D20-before。
-- 当前无live session。D19 test-all54489、check-all93266、source--check34675已全部exit0；
-  旧生成OOM进程82194已终止，sample16484已完成；勿轮询历史ID。
-- Git仍master暂无HEAD/remote，首次本地基线commit正在准备；用户已授权后续分批commit。
-  整体目标持续，约46%全目标/80%核心二维SVG工程估算暂不变，无阻塞。
+- 当前切片编号：D21（命名LinearLocator/IndexLocator/FixedLocator及data interval接线），待定向冻结。
+- 最近完成D20：命名数值MultipleLocator、live主次adapter、共享internal/tick_grid、动态
+  axes.autolimit_mode/nonsingular/view_limits、axis/contour/shared/secondary及SVG可视过滤。
+- 最终四目标：wasm/wasm-gc/native各5346/5346，JS5353/5353（7个无Node测试）。
+  info&&fmt、check-all180tasks（8旧Ref warnings）、1200数值观察与D19日期原源--check通过。
+  D20-interface.diff为预期新Multiple、config与axis helper；date接口无变化/无foreign类型。
+- 下一条具体动作：收集两个只读agent关于LinearLocator/IndexLocator/FixedLocator的定向
+  合同与axis接线报告，冻结D21（Index必须真实data interval而非view），建立D21-before；
+  再把三个类的独立实现/原源测试交给agent，root负责共同enum与axis/render整合。
+- 当前无live tool session。D20 test-all78599、check-all65736、numeric source --check与
+  micro source --check70461全部exit0，历史ID勿轮询。两个agent正在做D21只读分析。
+- Git本地基线commit 1b61c4b（D01–D19）；D20验收代码与本检查点一并本地提交，
+  当前提交用git log -1读取，无remote。用户已授权分批commit与并行subagents。
+- 整体目标持续，约46%全目标/80%核心二维SVG工程估算暂不变，无阻塞。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
   CPython v3.11.0 timedelta 源码在 .moonagent/upstream/cpython-v3.11.0/，仅行为
   参考。独立参考脚本 scripts/generate_date_range_reference.py 校验 dates.py 哈希，
@@ -33,7 +34,7 @@
 ## 当前目标
 
 - [ ] 持续把 Matplotlib v3.11.2 的公开能力迁移到 MoonBit；本目标仍在进行中。
-- 当前纵向切片：通用数值MultipleLocator；命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
+- 当前纵向切片：命名LinearLocator/IndexLocator/FixedLocator；通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
   TZif/IANA、Axes 位置/选择/移除、numeric aspect、anchor、adjustable 与 box_aspect 已验收。
 - 已确认的用户决定：支持合理复用；保留 `Figure::to_svg` → `internal/render` →
   `backend/svg`，有具体共享需求再增加抽象层。不要反复讨论已解决的架构问题。
@@ -2579,7 +2580,101 @@
 
 ## D20 执行顺序
 
-- [ ] D20-01 定向读取MultipleLocator/view_limits/nonsingular/rc与现ticker/axis/contour，
+- [x] D20-01 定向读取MultipleLocator/view_limits/nonsingular/rc与现ticker/axis/contour，
   冻结构造/更新/adapter copy/倒置、非finite范围、共享Double kernel与typed错误边界。
-- [ ] D20-02 实现命名数值MultipleLocator、实际复用微秒网格、axis/contour接线与原源参考。
-- [ ] D20-03 参考--check、接口/文档与四目标验收并做本地commit。
+- [x] D20-02 实现命名数值MultipleLocator、实际复用微秒网格、axis/contour接线与原源参考。
+- [x] D20-03 参考--check、接口/文档与四目标验收并做本地commit。
+
+### D20-01 契约冻结与首次commit
+
+- 本地首次基线commit 1b61c4b：feat: establish MoonBit Matplotlib migration baseline through D19。
+  644文件全部既有工程/源码/原源fixture/许可证，排除build/upstream/Python缓存；提交后干净。
+- 固定原ticker.py MultipleLocator/Edge与transforms.py _nonsingular、axes._base margin/sticky/
+  locator.view_limits顺序已读。D20-before已建立；无live。
+- 新公开MultipleLocator持有有限正Double base与有限offset；new默认1/0，set_params可选择
+  更新base/offset、None等同省略，typed验证后更新；copy独立。tick_values checked输出源升序
+  及外侧邻接点，Generic Locator adapter按既有输入方向约定输出、错误映射[]。
+- 新Locator::Multiple(handle)/MinorLocator::Multiple(handle)；generic copy为新variant保留live
+  handle，显式MultipleLocator.copy独立。axis主/次/shared/secondary与contour用同adapter；
+  minor adapter沿既有范围clip/去主刻度协议，direct对象保留原源全部点。旧variants不变。
+- 现date Micro与新numeric Multiple有实际共享需求，提取internal/tick_grid：CPython divmod、
+  Edge ge/le、offset multiple ticks，100000前缀/非finite alignment/count错误。date映射DateError，
+  numeric映射DataError；不复制两套算法，D19所有参考作为回归保留。
+- 新config.axes_autolimit_mode data/round_numbers（默认data，RcParams复制/reset/getter）；
+  Multiple.view_limits每次读取rc，round按原始bounds分别le/ge后nonsingular，保留source
+  特殊相等时±1而非±step；data仅_nonsingular(expander=.001)。inherited nonsingular用.05。
+- Axis numeric_nonsingular_bounds仅对新Multiple在margin前展开；Axis.view_limits在自动范围
+  margin/sticky之后调用其view_limits，显式/暂存view优先且方向保留；backend现计算链复用，
+  不改旧date/其他numeric行为。现tight/auto_view限制须在参考/指南明确，不能声称完整autoscale。
+- 原源参考覆盖fraction/offset/负值/倒置/临界ULP/极值、更新失败/独立copy、data/round rc/
+  nonsingular；再补共享轴/secondary/contour/主次SVG及D19全回归，四目标验收后commit。
+
+### D20 并行执行与基础实现
+
+- 用户明确授权将任务分成独立subagents；已启动multiple_reference（原源generator/direct测试）、
+  multiple_integration（axis/secondary/contour/sharedSVG/config测试）、multiple_docs（指南/rootdocs）。
+  root负责生产/共享kernel/整合门禁/commit，三者不运行Moon测试或提交，避免并行改测试输入。
+- 生产已补MultipleLocator、mutable参数/copy/direct/adapter/rc view_limits/nonsingular；
+  Locator/MinorLocator新增Multiple handle，旧variant保持。copy_secondary_locator在scene及IR
+  改委托现有Locator.copy，保留live配置。内部tick_grid抽取D19 arithmetic并供date/numeric调用。
+- D19的72divmod逐bit参考移至internal/tick_grid，D19generator相应调整路径，固定观察不变。
+- config新增axes_autolimit_mode与复制/reset/getter；Axis pre-margin nonsingular与postmargin
+  view_limits已接线。首次check-js39547为IR secondary enum match缺新variant失败，已改copy委托。
+- 无live Moon test；后续等待三agent停止写文件后统一验证。当前未验收，无第二次commit。
+
+- D20第二次static JS exit0：19tasks/8旧warnings/0error；D19原源--check exit0 173named，
+  72divmod移动路径后的生成数据一致。共享ticks已增加NaN/Inf bounds前置拒绝以避免backend
+  min/max差异；checked constructor文档例已补。各subagent仍写独占文件，不启动Moon test。
+
+- 集成预检发现新Multiple邻接点在SVG append_grid/secondary仅做finite筛选，会绘制轴外
+  标签/网格。按固定axis.py::_update_ticks与transforms._interval_contains_close，root新增
+  tick_in_view：变换后的view+1e-10相对容差，主次/secondary绘制过滤，API仍返回原邻接点。
+  integration agent补x/y secondary与轴外邻接点标签回归；源码hash沿既有axis固定hash。
+
+- 三agent已交付并停止写入：reference 198grids/9updates/3ctor错误=1200观察组，202原源test
+  blocks+4typed hand，生成/--check exit0；integration 4独占文件13tests；docs六独占文件已同步
+  仍标D20接入中。没有agent运行Moon test或commit。source budget只观察8前缀，不伪造源错误。
+- 现在开始统一JS门禁，若失败先等进程结束再改输入。root最后补的tick_in_view已纳入13场景回归。
+
+- 统一JS39152 exit1仅编译问题：参考generator用defer try!须加花括号，backend新依赖需for
+  wbtest而非for test；已修generator并再生成（173日期参考不变），独立参考仍1200观察。
+- JS44384确认live；先轮询该ID，期间不改源码/测试输入。所有agents已停止写入。
+
+- JS44384已exit2：5353中5352通过。全部198grid逐bit/1200观察、13集成和D19回归通过；
+  唯一旧lifecycle断言要求在view[5,15]绘制tick1的one标签，与source可视过滤矛盾。
+  保留共享tick[1,10]，测试改核对可见ten、不可见one及detached，原removed/shared目的保持。
+- 没有live test；接下来info&&fmt/接口review，再最终check/test-all及两source --check。
+
+- D20 info&&fmt exit0，接口review符合预期：ticker新增Multiple对象/variant/getters/便利函数，
+  config新增autolimit getter/setter/snapshot getter，axis新增numeric_nonsingular_bounds；
+  date接口无变化，内部tick_grid无foreign类型。D20-interface.diff保留。git diff --check通过。
+- check-all65736确认live；最终test-all现在启动，source--check两脚本并行只读验证。
+
+- 最终check-all65736 exit0：180tasks/8旧Ref warnings/0error；numeric原源--check exit0
+  198grids/9updates/3ctor=1200观察组，日期原源--check70461 exit0 173named。
+  最终test-all78599确认live，先轮询该ID；目前不改源码/测试输入。
+
+- 等待D20最终test-all期间，multiple_reference与multiple_integration接只读D21分析：固定
+  LinearLocator/IndexLocator/FixedLocator合同及现axis/data interval适配，禁止写文件/Moon测试。
+  multiple_docs已完成idle。D21尚未实现/冻结；当前仍以D20验收为优先。
+
+### D20 已验收（2026-10-23）
+
+- 最终test-all78599 exit0：wasm/wasm-gc/native各5346/5346，JS5353/5353。比D19新增220通用
+  （202原源test+4typed hand+13集成+1checked doc）。D19原日期与72逐bitdivmod全部回归通过。
+- info&&fmt完成；check-all65736 exit0 180tasks/8旧warnings/0error；numeric原源--check
+  exit0 198grids/9updates/3ctor错误=1200观察组，D19 micro原源--check70461 exit0 173named。
+- 新Multiple有限正base/finiteoffset/原子set/copy独立与live adapter、倒置与neighbor/offset/
+  ULP/非finite/极值cap/动态rc、nonsingular与view_limits .05/.001、pre-margin/sticky顺序验收。
+- SVG按source变换后view+1e-10容差筛选主次/secondary，formatter保留全ticks；旧lifecycle
+  测试改核对view[5,15]可见ten/不可见one，继续验证移除轴不传播。无截图/输出快照随意刷新。
+- 接口审查符合预期，date接口不变，内部tick_grid跨numeric/date真实复用；无新依赖/C/Python。
+- 三subagents独立交付并全部整合；D21两agent只读分析中，禁止修改源码/测试直至新分派。
+- README/兼容/计划/依赖/许可及两guide同步；本切片本地提交，整体goal仍active。
+
+## D21 执行顺序
+
+- [ ] D21-01 合同定向冻结（Linear/Index/Fixed、None/presets/alias/nbins/错误/view/data边界），
+  真实data interval接线设计与独占文件分派，建立D21-before。
+- [ ] D21-02 三命名类并行实现/各自原源参考，root整合enum/axis/shared/render/secondary/contour。
+- [ ] D21-03 docs/source--check/接口/四目标验收并本地commit。

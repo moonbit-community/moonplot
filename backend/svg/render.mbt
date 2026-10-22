@@ -1246,7 +1246,8 @@ fn append_grid(
     _ => false
   }
   for value in x_minor_ticks {
-    if scale.x_axis_scale.is_valid(value) && x_minor_grid_visible {
+    if tick_in_view(value, scale.x_axis_scale, scale.xmin, scale.xmax) &&
+      x_minor_grid_visible {
       let x = map_x(scale, left, plot_width, value)
       try! writer.empty_element("line", [
         ("x1", float_text(x)),
@@ -1259,7 +1260,8 @@ fn append_grid(
     }
   }
   for value in y_minor_ticks {
-    if scale.y_axis_scale.is_valid(value) && y_minor_grid_visible {
+    if tick_in_view(value, scale.y_axis_scale, scale.ymin, scale.ymax) &&
+      y_minor_grid_visible {
       let y = map_y(scale, top, plot_height, value)
       try! writer.empty_element("line", [
         ("x1", float_text(left)),
@@ -1274,7 +1276,9 @@ fn append_grid(
   for index in 0..<x_minor_ticks.length() {
     let value = x_minor_ticks[index]
     let label = x_minor_labels[index]
-    if label != "" && show_x_tick_labels && scale.x_axis_scale.is_valid(value) {
+    if label != "" &&
+      show_x_tick_labels &&
+      tick_in_view(value, scale.x_axis_scale, scale.xmin, scale.xmax) {
       let x = map_x(scale, left, plot_width, value)
       if x_bottom {
         append_text(writer, x, top + plot_height + 18.0, label, "middle", 10)
@@ -1287,7 +1291,9 @@ fn append_grid(
   for index in 0..<y_minor_ticks.length() {
     let value = y_minor_ticks[index]
     let label = y_minor_labels[index]
-    if label != "" && show_y_tick_labels && scale.y_axis_scale.is_valid(value) {
+    if label != "" &&
+      show_y_tick_labels &&
+      tick_in_view(value, scale.y_axis_scale, scale.ymin, scale.ymax) {
       let y = map_y(scale, top, plot_height, value)
       if y_left {
         append_text(writer, left - 8.0, y + 3.0, label, "end", 10)
@@ -1306,7 +1312,7 @@ fn append_grid(
   }
   for i in 0..<x_ticks.length() {
     let value = x_ticks[i]
-    if scale.x_axis_scale.is_valid(value) {
+    if tick_in_view(value, scale.x_axis_scale, scale.xmin, scale.xmax) {
       let x = map_x(scale, left, plot_width, value)
       if x_grid_visible {
         try! writer.empty_element("line", [
@@ -1357,7 +1363,7 @@ fn append_grid(
   }
   for i in 0..<y_ticks.length() {
     let value = y_ticks[i]
-    if scale.y_axis_scale.is_valid(value) {
+    if tick_in_view(value, scale.y_axis_scale, scale.ymin, scale.ymax) {
       let y = map_y(scale, top, plot_height, value)
       if y_grid_visible {
         try! writer.empty_element("line", [
@@ -1504,7 +1510,7 @@ fn append_secondary_x_axis(
   let labels = secondary_axis_tick_labels(axis, values, scale.xmin, scale.xmax)
   for index, tick in ticks {
     let (primary, value) = tick
-    if scale.x_axis_scale.is_valid(primary) &&
+    if tick_in_view(primary, scale.x_axis_scale, scale.xmin, scale.xmax) &&
       !primary.is_nan() &&
       !primary.is_inf() &&
       !value.is_nan() &&
@@ -1572,7 +1578,7 @@ fn append_secondary_y_axis(
   let labels = secondary_axis_tick_labels(axis, values, scale.ymin, scale.ymax)
   for index, tick in ticks {
     let (primary, value) = tick
-    if scale.y_axis_scale.is_valid(primary) &&
+    if tick_in_view(primary, scale.y_axis_scale, scale.ymin, scale.ymax) &&
       !primary.is_nan() &&
       !primary.is_inf() &&
       !value.is_nan() &&
@@ -3575,4 +3581,25 @@ pub fn render_with_positions(
   }
   try! writer.end_element("svg")
   (try! writer.to_string(), positions)
+}
+
+///|
+// Axis._update_ticks uses transformed view coordinates with interval_contains_close.
+// Keep locator neighbors for formatting, but draw only the visible tick components.
+fn tick_in_view(
+  value : Double,
+  axis_scale : @ticker_scale.Scale,
+  lower : Double,
+  upper : Double,
+) -> Bool {
+  if !axis_scale.is_valid(value) {
+    return false
+  }
+  let first = axis_scale.transform(lower)
+  let last = axis_scale.transform(upper)
+  let position = axis_scale.transform(value)
+  let low = Double::min(first, last)
+  let high = Double::max(first, last)
+  let tolerance = (high - low) * 1.0e-10
+  low - tolerance <= position && position <= high + tolerance
 }

@@ -1,6 +1,7 @@
 ///|
 /// Mutable defaults shared by newly created figures and axes.
 pub struct RcParams {
+  priv mut axes_autolimit_mode : String
   priv mut timezone : String
   priv mut date_converter : String
   priv mut date_interval_multiples : Bool
@@ -25,6 +26,7 @@ fn tab10() -> Array[String] {
 ///|
 fn default_rc_params() -> RcParams {
   {
+    axes_autolimit_mode: "data",
     timezone: "UTC",
     date_converter: "auto",
     date_interval_multiples: true,
@@ -74,6 +76,7 @@ fn validate_color_cycle(colors : Array[String]) -> Unit raise @core.DataError {
 pub fn rc_params() -> RcParams {
   let value = current.val
   {
+    axes_autolimit_mode: value.axes_autolimit_mode,
     timezone: value.timezone,
     date_converter: value.date_converter,
     date_interval_multiples: value.date_interval_multiples,
@@ -224,4 +227,25 @@ pub fn set_date_epoch(value : String) -> Unit raise @core.DataError {
 ///|
 pub fn RcParams::date_epoch(self : RcParams) -> String {
   self.date_epoch
+}
+
+///|
+/// Default behavior of MultipleLocator.view_limits: data or round_numbers.
+pub fn axes_autolimit_mode() -> String {
+  current.val.axes_autolimit_mode
+}
+
+///|
+pub fn set_axes_autolimit_mode(value : String) -> Unit raise @core.DataError {
+  if value != "data" && value != "round_numbers" {
+    raise @core.DataError::InvalidTicks(
+      message="axes.autolimit_mode must be data or round_numbers",
+    )
+  }
+  current.val.axes_autolimit_mode = value
+}
+
+///|
+pub fn RcParams::axes_autolimit_mode(self : RcParams) -> String {
+  self.axes_autolimit_mode
 }

@@ -140,3 +140,12 @@ RRuleDateIterator，不引入外部iterator、线程库或Python运行时。旧R
 由RRuleLocator抽取复用，Auto直接传已解码字段。CPython/NumPy浮点divmod及NumPy首naive
 秒级偏移截断通过固定开发运行时验证，无新增外部依赖、Python运行时或C实现。
 范围、精确间隔getter与173named/72逐bit参考见testdata/microsecond_locator_README.md。
+
+## D20 数值固定间隔定位器
+
+数值MultipleLocator与D19微秒定位器共用新内部包`internal/tick_grid`：把既有CPython/NumPy
+divmod、Edge ge及multiple grid提取并补le/offset，由数值/DataError和日期/DateError入口适配。
+不增加外部依赖、运行时Python或自有C实现，旧日期helper/API保持原行为。
+config增加`axes_autolimit_mode`，axis复用已有margin/sticky/shared/secondary与render链路。
+参考生成仅使用既有开发Python3.12.14、NumPy2.3.5和固定Matplotlib源码；来源、typed边界
+及重现命令见[testdata/multiple_locator_README.md](testdata/multiple_locator_README.md)。

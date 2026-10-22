@@ -137,9 +137,9 @@ def generate(path):
             nq,nr=divmod(np.float64(value),np.float64(step))
             if bits(q)!=bits(float(nq)) or bits(r)!=bits(float(nr)):raise ValueError('float / NumPy divmod differs')
             whitebox+='\n///|\ntest '+moon('CPython microsecond divmod '+repr(value)+' / '+repr(step))+' {\n'
-            whitebox+='  let (q, r) = microsecond_divmod('+moon(value)+', '+moon(step)+')\n  assert_eq(q.reinterpret_as_uint64(), '+str(bits(q))+'UL)\n  assert_eq(r.reinterpret_as_uint64(), '+str(bits(r))+'UL)\n}\n'
+            whitebox+='  let (q, r) = divmod('+moon(value)+', '+moon(step)+')\n  assert_eq(q.reinterpret_as_uint64(), '+str(bits(q))+'UL)\n  assert_eq(r.reinterpret_as_uint64(), '+str(bits(r))+'UL)\n}\n'
             divmod_rows.append(dict(value=repr(value),step=repr(step),quotient_bits=bits(q),remainder_bits=bits(r)))
-    extras={ROOT/'ticker/date/microsecond_divmod_reference_wbtest.mbt':formatted(whitebox)}
+    extras={ROOT/'internal/tick_grid/divmod_reference_wbtest.mbt':formatted(whitebox)}
     epoch_rows=[]
     for name,epoch,year in [('fraction','2000-01-01T00:00:00.123456',2000),('2400','2400-01-01T00:00:00',2400)]:
         selected=load(path,epoch)

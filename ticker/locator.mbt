@@ -1,10 +1,12 @@
 ///|
 /// A contour/tick level generator modeled after Matplotlib's Locator family.
 ///
-/// The type is intentionally small and immutable: callers can choose evenly
+/// The adapter supports immutable configurations and a live MultipleLocator.
+/// Callers can choose fixed spacing with an offset, evenly
 /// spaced linear levels, a MaxN-style "nice" level set, an explicit fixed set,
 /// or logarithmic levels.
 pub(all) enum Locator {
+  Multiple(MultipleLocator)
   Linear(count~ : Int32)
   MaxN(count~ : Int32, integer~ : Bool, symmetric~ : Bool, prune~ : String)
   Fixed(Array[Double])
@@ -20,6 +22,7 @@ pub(all) enum Locator {
 ///|
 /// A minor tick generator used between major locator values.
 pub(all) enum MinorLocator {
+  Multiple(MultipleLocator)
   Auto(subdivisions~ : Int32)
   Fixed(Array[Double])
   Log(subdivisions~ : Int32, base~ : Double)
@@ -186,6 +189,14 @@ pub fn Locator::tick_values(
   let last = Double::max(lower, upper)
   let ascending = lower <= upper
   match self {
+    Locator::Multiple(value) => {
+      let values = value.tick_values(first, last) catch { _ => [] }
+      if ascending {
+        values
+      } else {
+        values.rev()
+      }
+    }
     Locator::Linear(count~) => {
       let values = linear_ticks(@core.limits(first, last), count~)
       if ascending {
@@ -346,6 +357,14 @@ pub fn MinorLocator::tick_values(
   let last = Double::max(lower, upper)
   let result : Array[Double] = []
   match self {
+    MinorLocator::Multiple(value) => {
+      let values = value.tick_values(first, last) catch { _ => [] }
+      for value in values {
+        if value >= first && value <= last && !contains_tick(major, value) {
+          result.push(value)
+        }
+      }
+    }
     MinorLocator::Fixed(values) =>
       for value in values {
         if value >= first && value <= last && !contains_tick(major, value) {
@@ -397,9 +416,11 @@ pub fn MinorLocator::tick_values(
 }
 
 ///|
-/// Copy a locator without sharing mutable level storage.
+/// Copy arrays while retaining any live MultipleLocator handle.
+/// Use MultipleLocator.copy() for an independent mutable configuration.
 pub fn Locator::copy(self : Locator) -> Locator {
   match self {
+    Locator::Multiple(value) => Locator::Multiple(value)
     Locator::Linear(count~) => Locator::Linear(count~)
     Locator::MaxN(count~, integer~, symmetric~, prune~) =>
       Locator::MaxN(count~, integer~, symmetric~, prune~)
@@ -411,9 +432,10 @@ pub fn Locator::copy(self : Locator) -> Locator {
 }
 
 ///|
-/// Copy a minor locator without sharing mutable level storage.
+/// Copy arrays while retaining any live MultipleLocator handle.
 pub fn MinorLocator::copy(self : MinorLocator) -> MinorLocator {
   match self {
+    MinorLocator::Multiple(value) => MinorLocator::Multiple(value)
     MinorLocator::Auto(subdivisions~) => MinorLocator::Auto(subdivisions~)
     MinorLocator::Fixed(values) => MinorLocator::Fixed(values.copy())
     MinorLocator::Log(subdivisions~, base~) =>

@@ -1172,6 +1172,31 @@ try! fig.axes().grid(which="minor", color="#dbeafe", linewidth=0.4)
 `grid(which="major"|"minor", axis="x"|"y"|"both")` 可以分别控制两个方向；旧的
 `which="x"`、`which="y"` 简写继续保留。
 
+`@ticker.MultipleLocator::new(base=0.5, offset=0.25)` 按固定间隔和偏移生成数值刻度。
+`base` 接受有限正 Double，`offset` 接受有限 Double；直接 `tick_values` 返回升序刻度，
+包含范围外的相邻点。`as_locator()` 和 `as_minor_locator()` 可安装到主/次轴，主 adapter
+亦可供 contour 使用；generic adapter 保留输入方向，次刻度还会裁到范围内并去掉主刻度。
+
+```moonbit nocheck
+let locator = try! @ticker.MultipleLocator::new(base=0.5, offset=0.25)
+try! fig.set_x_locator(locator.as_locator())
+try! fig.set_x_minor_locator(try! @ticker.MultipleLocator::new(base=0.25).as_minor_locator())
+try! locator.set_params(base=1.0)
+let independent = locator.copy()
+```
+
+对象的 `set_params` 先验证全部提供的值再更新，省略参数保持原值。轴、shared/secondary
+轴和 generic adapter 的 `copy()` 保留同一可变对象，后续更新立即可见；需要独立配置时
+使用 `MultipleLocator.copy()`。`multiple_locator(base=..., offset=...)` 是返回主刻度 adapter
+的便利入口。
+
+`@config.set_axes_autolimit_mode("round_numbers")` 让 MultipleLocator 的自动范围在边距和
+sticky edges 之后对齐刻度；默认 `"data"` 保留数据范围。`view_limits` 每次读取当前 rc，
+显式范围和图像暂存视图仍优先；当前 `tight` 采用零边距，尚无完整上游 tight 状态机。
+Double 运算、eager 前缀上限及具体接线边界见 [固定间隔定位器说明](testdata/multiple_locator_README.md)。
+SVG 主/次与 secondary 刻度按变换后的视图和上游 `1e-10` 容差筛选绘制，
+直接查询仍返回邻接点，标签布局先使用完整刻度集。
+
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`
 及常见宽度/精度标志，`log_formatter`、`null_formatter` 和 `func_formatter` 分别用于对数、

@@ -1,0 +1,23 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mathplotlib/mathplotlib/internal/tick_grid"
+
+import {
+  "mathplotlib/mathplotlib/core",
+}
+
+// Values
+pub fn divmod(Double, Double) -> (Double, Double)
+
+pub fn ge(Double, Double) -> Double
+
+pub fn le(Double, Double) -> Double
+
+pub fn ticks(Double, Double, Double, offset? : Double) -> Array[Double] raise @core.DataError
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

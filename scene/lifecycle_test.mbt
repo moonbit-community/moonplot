@@ -173,8 +173,11 @@ test "removed shared axes cannot propagate limits ticks scales or margins" {
   panels[0].set_xlim(5.0, 15.0)
   assert_eq(panels[2].get_xlim().unwrap().lower(), 5.0)
   assert_eq(panels[1].get_xlim().unwrap().lower(), 100.0)
-  assert_true(!fig.to_svg().contains(">detached<"))
-  assert_true(fig.to_svg().contains(">one<"))
+  let svg = fig.to_svg()
+  assert_true(!svg.contains(">detached<"))
+  assert_true(svg.contains(">ten<"))
+  // The retained shared fixed ticks remain [1,10], but the view is now [5,15].
+  assert_true(!svg.contains(">one<"))
 }
 
 ///|

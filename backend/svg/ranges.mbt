@@ -475,6 +475,12 @@ fn compute_scale(figure : @render.Figure, target_index : Int32) -> Scale {
   let raw = grouped_raw_scale(figure, target_index)
   let date_x = target.x_axis().date_nonsingular_bounds(raw.xmin, raw.xmax)
   let date_y = target.y_axis().date_nonsingular_bounds(raw.ymin, raw.ymax)
+  let date_x = target
+    .x_axis()
+    .numeric_nonsingular_bounds(date_x.lower(), date_x.upper())
+  let date_y = target
+    .y_axis()
+    .numeric_nonsingular_bounds(date_y.lower(), date_y.upper())
   let normalized = normalize_auto_scale(
     {
       ..raw,

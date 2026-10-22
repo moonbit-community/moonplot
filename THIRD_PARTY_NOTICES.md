@@ -256,3 +256,18 @@ Original-class observations, pinned source hashes, numerical limits and
 reproduction commands are in
 [testdata/microsecond_locator_README.md](testdata/microsecond_locator_README.md).
 No upstream C implementation or additional runtime dependency is distributed.
+
+## Numeric fixed-spacing locator
+
+MultipleLocator reimplements the fixed Matplotlib ticker.MultipleLocator,
+_Edge_integer and transforms._nonsingular behavior. Its shared internal tick
+grid also supplies the date microsecond locator; the binary64 divmod operation
+order follows the existing CPython/NumPy observations. Mutable typed adapters,
+view-limit rc lookup and the existing axis/render chain supply the MoonBit
+integration. The Matplotlib license and notice above apply. Source hashes,
+reference generation and explicit typed/eager/autoscale boundaries are recorded
+in [testdata/multiple_locator_README.md](testdata/multiple_locator_README.md).
+SVG tick visibility follows axis._update_ticks and
+transforms._interval_contains_close after coordinate transformation; formatter
+layout retains the full locator output before drawing is filtered.
+No upstream C implementation or new runtime dependency is distributed.

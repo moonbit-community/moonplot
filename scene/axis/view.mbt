@@ -49,8 +49,15 @@ pub fn Axis::view_limits(self : Axis, automatic : @core.Limits) -> @core.Limits 
   match (self.limits, self.auto_view) {
     (Some(limits), _) | (None, Some(limits)) => limits
     (None, None) => {
-      let lower = Double::min(automatic.lower(), automatic.upper())
-      let upper = Double::max(automatic.lower(), automatic.upper())
+      let (lower, upper) = match self.locator {
+        Some(@ticker.Locator::Multiple(value)) =>
+          value.view_limits(automatic.lower(), automatic.upper())
+        _ =>
+          (
+            Double::min(automatic.lower(), automatic.upper()),
+            Double::max(automatic.lower(), automatic.upper()),
+          )
+      }
       if self.inverted {
         @core.limits(upper, lower)
       } else {
@@ -108,5 +115,22 @@ pub fn Axis::current_view_limits(self : Axis) -> @core.Limits? {
   match self.limits {
     Some(_) => self.limits
     None => self.auto_view
+  }
+}
+
+///|
+/// Apply the numeric MultipleLocator's inherited nonsingular policy before margins.
+/// Other locator families retain their existing range policy.
+pub fn Axis::numeric_nonsingular_bounds(
+  self : Axis,
+  lower : Double,
+  upper : Double,
+) -> @core.Limits {
+  match self.locator {
+    Some(@ticker.Locator::Multiple(value)) => {
+      let (first, last) = value.nonsingular(lower, upper)
+      @core.limits(first, last)
+    }
+    _ => @core.limits(lower, upper)
   }
 }

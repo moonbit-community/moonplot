@@ -5,7 +5,7 @@
 
 最近完成的纵向切片：L03–L08 的 Axes 位置读写、移除/选择、numeric aspect、
 anchor、adjustable=datalim 和 box_aspect 完整组合；四目标各 825/825 测试通过。
-D01–D19 的 TZif/IANA、缓存迭代、时长/数值序列、自定义日期 epoch、日期格式器/定位器、typed 日期 converter、C locale 格式、通用 datestr2num、默认 timezone 与 typed RelativeDelta 构造/应用/normalized/差值/对象运算、公开typed rrulewrapper/named RRuleLocator（含mutable adapter与DST接线）、AutoDateLocator recurrence复用wrapper及负DST fromutc语义、命名YearLocator与自动年分支/host context、scalar月日/混合回退边界、其余六个命名日历/时间locator及同级clock selector构造相位检查、跨级clock masks检查式迭代/查询/计数及快照cache语义以及命名MicrosecondLocator、fractional interval/精确getter/NumPy mixed/date网格与Auto接线已验收（wasm/wasm-gc/native 各5126/5126，JS5133/5133）；下一项D20为数值MultipleLocator及共享网格/view_limits/rc适配，详细边界及证据见执行检查点。
+D01–D20 的 TZif/IANA、缓存迭代、时长/数值序列、自定义日期 epoch、日期格式器/定位器、typed 日期 converter、C locale 格式、通用 datestr2num、默认 timezone 与 typed RelativeDelta 构造/应用/normalized/差值/对象运算、公开typed rrulewrapper/named RRuleLocator（含mutable adapter与DST接线）、AutoDateLocator recurrence复用wrapper及负DST fromutc语义、命名YearLocator与自动年分支/host context、scalar月日/混合回退边界、其余六个命名日历/时间locator及同级clock selector构造相位检查、跨级clock masks检查式迭代/查询/计数及快照cache语义以及命名MicrosecondLocator、fractional interval/精确getter/NumPy mixed/date网格与Auto接线已验收与D20数值MultipleLocator、live主次adapter、共享浮点网格、view_limits/rc及axis/contour/shared/secondary/SVG可视过滤已验收（wasm/wasm-gc/native 各5346/5346，JS5353/5353）。下一项D21为命名LinearLocator/IndexLocator/FixedLocator及真实data interval接线；具体边界与验收见执行检查点。
 
 状态：执行中（2026-10-23）
 
