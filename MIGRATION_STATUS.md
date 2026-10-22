@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D21已验收；下一切片D22候选命名MaxNLocator/AutoLocator，尚未冻结/实现。
+- 当前切片编号：D22（命名MaxNLocator/AutoLocator），只读准备完成，尚未冻结/实现。
 - 最近完成D21：命名Linear/Index/Fixed、真实signed/nested/0stride views、checked axis/SVG、
   本地raw data interval、共享owner/实际Grouper删除顺序与SubFigure分组隔离。旧helpers保留。
 - 最终四目标：wasm/wasm-gc/native各6380/6380，JS6387/6387（7个无Node测试）。
@@ -19,8 +19,8 @@
   tick-space边界；保存D22-before后分派三个独占实现/原源包，root负责公共接线和门禁。
 - 当前无live Moon/source session。最终test-all4524、check-all28603、shared source75085均
   exit0，历史ID勿轮询；三个agents全部交付停止。D22只有只读笔记，不得误报已实现。
-- Git本地基线commit 1b61c4b（D01–D19）；D20验收commit d385718；D21随本检查点本地提交，
-  当前提交用git log读取。无remote。用户已授权分批commit与并行subagents。
+- Git本地基线commit 1b61c4b（D01–D19）；D20验收commit d385718；D21验收commit 2403fcb。
+  无remote。用户已授权分批commit与并行subagents，后续按验收步骤继续本地提交。
 - 整体目标持续，约46%全目标/80%核心二维SVG工程估算暂不变，无阻塞。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
   CPython v3.11.0 timedelta 源码在 .moonagent/upstream/cpython-v3.11.0/，仅行为
@@ -2866,3 +2866,26 @@
   百分比维持46%全目标/80%核心二维SVG，不因测试数膨胀而调整。
 - 三agents全部停止写入。D22 MaxN/Auto只读笔记235行已保存；下一步按head冻结新切片，
   勿重做已完成D21项目survey或重复通过门禁，除非新变更使其失效。
+
+## D22 执行顺序（尚未冻结/实现）
+
+- [ ] D22-01 读取定向笔记后冻结MaxN/Auto及真实tick-space合同、保存D22-before并明确文件所有权。
+- [ ] D22-02 三个独占工作包并行实现/原源参考，root整合numeric kernel/enum/checked axis/render。
+- [ ] D22-03 文档/原源/接口与四目标验收，按通过步骤本地commit。
+
+已确认的方向（完整235行依据在 .moonagent/checkpoints/D22-readonly-notes.md）：
+
+- 旧maxn_locator继续legacy，不能仅改名。源nbins是间隔上限、默认10；默认steps包含1.5/3/4/6/8，
+  允许外邻接ticks，min_n_ticks/integer需按源逐级放宽，scale_range含大offset。
+- MaxN set_params按源顺序逐项写，后续steps错误可能留下早先更新；不套Multiple原子规则。
+  prune的None重置与省略保持需typed区分；steps borrowed输入与extended snapshot的别名分开。
+- 当前tick_grid零offset Edge不足，须补abs(offset)相关容差。tick/view与继承nonsingular的
+  tiny/expander参数不同；完整nticks决定step，prune先按完整raw序列再取前缀，round view要
+  真实full端点，不能用100000 cap改变选择或错误语义。
+- Auto应薄封装共享MaxN，构造捕获classic_mode，后续沿继承set；auto绑定axis时使用真实
+  physical tick-space provider，不能拿现tick_count冒充。X/Y物理尺寸与label size合同仍需
+  定向读原方法后冻结；3D分支留待3D，AutoMinor无刚性依赖可后续独立切片。
+- 建议独占包A：MaxN params/steps alias与原源参数测试；包B：raw grid/scale_range/offset Edge/
+  浮点数值核与原源网格；包C：Auto/classic config/provider/集成。root负责跨文件API与axis/
+  render接线、全门禁，所有Moon tests/info/fullfmt由root在writers停止后统一运行。
+- 当前三个agents idle/已完成，没有live tools；不得把这份准备记录标为D22实现。
