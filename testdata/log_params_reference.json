@@ -1,0 +1,6328 @@
+{
+  "source": "Matplotlib v3.11.2",
+  "ticker_sha256": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+  "transforms_sha256": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+  "api_sha256": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+  "rcsetup_sha256": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+  "matplotlibrc_sha256": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+  "numpy_core_sha256": "44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scope": "Original LogLocator/Locator/_api and decade helpers execute; typed 1D native Float64/Int64 subs, raw numeric/text budgets and provider fixtures. Dynamic coercion, readonly flags and scalar/2D failed-shape mutation remain outside the typed input domain. External warnings use a sink; NumPy runtime warnings/logger routing are not migrated.",
+  "constructors": [
+    {
+      "classic": false,
+      "params": {},
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "subs": null
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": "auto",
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "subs": "auto"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": "auto",
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "subs": "all"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": "all",
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "subs": "AUTO"
+      },
+      "error": "ValueError",
+      "state": null
+    },
+    {
+      "classic": false,
+      "params": {
+        "subs": "bad"
+      },
+      "error": "ValueError",
+      "state": null
+    },
+    {
+      "classic": false,
+      "params": {
+        "subs": []
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "subs": [
+          1.0,
+          2.5
+        ]
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0,
+          2.5
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "subs": [
+          -1.0,
+          0.0,
+          "nan",
+          "inf"
+        ]
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          -1.0,
+          0.0,
+          "nan",
+          "inf"
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "numticks": null
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "numticks": "auto"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "numticks": "AUTO"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "AUTO"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "numticks": 0
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 0
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "numticks": 1
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 1
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "numticks": -1
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": -1
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "numticks": 2.5
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 2.5
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "numticks": 0.5
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 0.5
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "numticks": "nan"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "nan"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "numticks": "inf"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "inf"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "numticks": "-inf"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "-inf"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "numticks": 9223372036854775808
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 9223372036854775808
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "numticks": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      }
+    },
+    {
+      "classic": true,
+      "params": {},
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 15
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "subs": null
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": "auto",
+        "numticks": 15
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "subs": "auto"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": "auto",
+        "numticks": 15
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "subs": "all"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": "all",
+        "numticks": 15
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "subs": "AUTO"
+      },
+      "error": "ValueError",
+      "state": null
+    },
+    {
+      "classic": true,
+      "params": {
+        "subs": "bad"
+      },
+      "error": "ValueError",
+      "state": null
+    },
+    {
+      "classic": true,
+      "params": {
+        "subs": []
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [],
+        "numticks": 15
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "subs": [
+          1.0,
+          2.5
+        ]
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0,
+          2.5
+        ],
+        "numticks": 15
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "subs": [
+          -1.0,
+          0.0,
+          "nan",
+          "inf"
+        ]
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          -1.0,
+          0.0,
+          "nan",
+          "inf"
+        ],
+        "numticks": 15
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "numticks": null
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 15
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "numticks": "auto"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "numticks": "AUTO"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "AUTO"
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "numticks": 0
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 0
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "numticks": 1
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 1
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "numticks": -1
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": -1
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "numticks": 2.5
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 2.5
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "numticks": 0.5
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 0.5
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "numticks": "nan"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "nan"
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "numticks": "inf"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "inf"
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "numticks": "-inf"
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "-inf"
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "numticks": 9223372036854775808
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 9223372036854775808
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "numticks": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      },
+      "error": null,
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "base": 0.0
+      },
+      "error": null,
+      "state": {
+        "base": 0.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "base": 1.0
+      },
+      "error": null,
+      "state": {
+        "base": 1.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "base": -2.0
+      },
+      "error": null,
+      "state": {
+        "base": -2.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "base": "nan"
+      },
+      "error": null,
+      "state": {
+        "base": "nan",
+        "subs": [
+          1.0
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "base": "inf"
+      },
+      "error": null,
+      "state": {
+        "base": "inf",
+        "subs": [
+          1.0
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "base": "-inf"
+      },
+      "error": null,
+      "state": {
+        "base": "-inf",
+        "subs": [
+          1.0
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "base": 2.0
+      },
+      "error": null,
+      "state": {
+        "base": 2.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "base": 2.5
+      },
+      "error": null,
+      "state": {
+        "base": 2.5,
+        "subs": [
+          1.0
+        ],
+        "numticks": "auto"
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "base": 1.0000000000000002
+      },
+      "error": null,
+      "state": {
+        "base": 1.0000000000000002,
+        "subs": [
+          1.0
+        ],
+        "numticks": "auto"
+      }
+    }
+  ],
+  "updates": [
+    {
+      "params": {},
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0,
+          2.0
+        ],
+        "numticks": 9
+      },
+      "values": null,
+      "error": null,
+      "warnings": []
+    },
+    {
+      "params": {
+        "base": null,
+        "subs": null,
+        "numticks": null
+      },
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0,
+          2.0
+        ],
+        "numticks": 9
+      },
+      "values": null,
+      "error": null,
+      "warnings": []
+    },
+    {
+      "params": {
+        "base": 2.0
+      },
+      "state": {
+        "base": 2.0,
+        "subs": [
+          1.0,
+          2.0
+        ],
+        "numticks": 9
+      },
+      "values": null,
+      "error": null,
+      "warnings": []
+    },
+    {
+      "params": {
+        "subs": "auto"
+      },
+      "state": {
+        "base": 10.0,
+        "subs": "auto",
+        "numticks": 9
+      },
+      "values": null,
+      "error": null,
+      "warnings": []
+    },
+    {
+      "params": {
+        "subs": "all"
+      },
+      "state": {
+        "base": 10.0,
+        "subs": "all",
+        "numticks": 9
+      },
+      "values": null,
+      "error": null,
+      "warnings": []
+    },
+    {
+      "params": {
+        "subs": []
+      },
+      "state": {
+        "base": 10.0,
+        "subs": [],
+        "numticks": 9
+      },
+      "values": null,
+      "error": null,
+      "warnings": []
+    },
+    {
+      "params": {
+        "subs": [
+          -1.0,
+          0.0,
+          "nan",
+          "inf"
+        ]
+      },
+      "state": {
+        "base": 10.0,
+        "subs": [
+          -1.0,
+          0.0,
+          "nan",
+          "inf"
+        ],
+        "numticks": 9
+      },
+      "values": null,
+      "error": null,
+      "warnings": []
+    },
+    {
+      "params": {
+        "numticks": 2.5
+      },
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0,
+          2.0
+        ],
+        "numticks": 2.5
+      },
+      "values": null,
+      "error": null,
+      "warnings": []
+    },
+    {
+      "params": {
+        "numticks": "AUTO"
+      },
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0,
+          2.0
+        ],
+        "numticks": "AUTO"
+      },
+      "values": null,
+      "error": null,
+      "warnings": []
+    },
+    {
+      "params": {
+        "numticks": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      },
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0,
+          2.0
+        ],
+        "numticks": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      },
+      "values": null,
+      "error": null,
+      "warnings": []
+    },
+    {
+      "params": {
+        "base": 2.0,
+        "subs": "AUTO",
+        "numticks": 99
+      },
+      "state": {
+        "base": 2.0,
+        "subs": [
+          1.0,
+          2.0
+        ],
+        "numticks": 9
+      },
+      "values": null,
+      "error": "ValueError",
+      "warnings": []
+    },
+    {
+      "params": {
+        "base": -2.0,
+        "subs": "bad",
+        "numticks": 99
+      },
+      "state": {
+        "base": -2.0,
+        "subs": [
+          1.0,
+          2.0
+        ],
+        "numticks": 9
+      },
+      "values": null,
+      "error": "ValueError",
+      "warnings": []
+    },
+    {
+      "params": {
+        "base": "nan",
+        "subs": "all",
+        "numticks": "inf"
+      },
+      "state": {
+        "base": "nan",
+        "subs": "all",
+        "numticks": "inf"
+      },
+      "values": null,
+      "error": null,
+      "warnings": []
+    },
+    {
+      "params": {
+        "base": 0.0,
+        "subs": null,
+        "numticks": -1
+      },
+      "state": {
+        "base": 0.0,
+        "subs": [
+          1.0,
+          2.0
+        ],
+        "numticks": -1
+      },
+      "values": null,
+      "error": null,
+      "warnings": []
+    }
+  ],
+  "aliases": [
+    {
+      "label": "contiguous",
+      "integer": false,
+      "initial": [
+        1.0,
+        2.0,
+        5.0
+      ],
+      "slices": [],
+      "borrowed": true,
+      "stages": [
+        {
+          "owner": [
+            1.0,
+            2.0,
+            5.0
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              1.0,
+              2.0,
+              5.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7.0,
+            2.0,
+            5.0
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              2.0,
+              5.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7.0,
+            2.0,
+            8.25
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7.0,
+            2.0,
+            8.25
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 2.0,
+            "subs": "auto",
+            "numticks": 3
+          }
+        }
+      ]
+    },
+    {
+      "label": "signed",
+      "integer": false,
+      "initial": [
+        5.0,
+        2.0,
+        1.0
+      ],
+      "slices": [
+        [
+          -1,
+          -1,
+          3
+        ]
+      ],
+      "borrowed": true,
+      "stages": [
+        {
+          "owner": [
+            5.0,
+            2.0,
+            1.0
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              1.0,
+              2.0,
+              5.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            5.0,
+            2.0,
+            7.0
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              2.0,
+              5.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            8.25,
+            2.0,
+            7.0
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            8.25,
+            2.0,
+            7.0
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 2.0,
+            "subs": "auto",
+            "numticks": 3
+          }
+        }
+      ]
+    },
+    {
+      "label": "nested",
+      "integer": false,
+      "initial": [
+        1.0,
+        0.0,
+        2.0,
+        0.0,
+        5.0
+      ],
+      "slices": [
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          4,
+          -2,
+          3
+        ]
+      ],
+      "borrowed": true,
+      "stages": [
+        {
+          "owner": [
+            1.0,
+            0.0,
+            2.0,
+            0.0,
+            5.0
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              5.0,
+              2.0,
+              1.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            1.0,
+            0.0,
+            2.0,
+            0.0,
+            7.0
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              2.0,
+              1.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            8.25,
+            0.0,
+            2.0,
+            0.0,
+            7.0
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            8.25,
+            0.0,
+            2.0,
+            0.0,
+            7.0
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 2.0,
+            "subs": "auto",
+            "numticks": 3
+          }
+        }
+      ]
+    },
+    {
+      "label": "zero stride",
+      "integer": false,
+      "initial": [
+        2.0
+      ],
+      "slices": [
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "borrowed": true,
+      "stages": [
+        {
+          "owner": [
+            2.0
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              2.0,
+              2.0,
+              2.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7.0
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              7.0,
+              7.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            8.25
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              8.25,
+              8.25,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 10.0,
+            "subs": [
+              8.25,
+              8.25,
+              8.25
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            8.25
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              8.25,
+              8.25,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 2.0,
+            "subs": "auto",
+            "numticks": 3
+          }
+        }
+      ]
+    },
+    {
+      "label": "empty",
+      "integer": false,
+      "initial": [],
+      "slices": [],
+      "borrowed": true,
+      "stages": [
+        {
+          "owner": [],
+          "state": {
+            "base": 10.0,
+            "subs": [],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [],
+          "state": {
+            "base": 10.0,
+            "subs": [],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [],
+          "state": {
+            "base": 10.0,
+            "subs": [],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 10.0,
+            "subs": [],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [],
+          "state": {
+            "base": 10.0,
+            "subs": [],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 2.0,
+            "subs": "auto",
+            "numticks": 3
+          }
+        }
+      ]
+    },
+    {
+      "label": "nonfinite",
+      "integer": false,
+      "initial": [
+        -1.0,
+        0.0,
+        "nan",
+        "inf"
+      ],
+      "slices": [],
+      "borrowed": true,
+      "stages": [
+        {
+          "owner": [
+            -1.0,
+            0.0,
+            "nan",
+            "inf"
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              -1.0,
+              0.0,
+              "nan",
+              "inf"
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7.0,
+            0.0,
+            "nan",
+            "inf"
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              0.0,
+              "nan",
+              "inf"
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7.0,
+            0.0,
+            "nan",
+            8.25
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              0.0,
+              "nan",
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              0.0,
+              "nan",
+              8.25
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7.0,
+            0.0,
+            "nan",
+            8.25
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              7.0,
+              0.0,
+              "nan",
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 2.0,
+            "subs": "auto",
+            "numticks": 3
+          }
+        }
+      ]
+    },
+    {
+      "label": "integer normalized",
+      "integer": true,
+      "initial": [
+        1,
+        2,
+        5
+      ],
+      "slices": [],
+      "borrowed": false,
+      "stages": [
+        {
+          "owner": [
+            1,
+            2,
+            5
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              1.0,
+              2.0,
+              5.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7,
+            2,
+            5
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              1.0,
+              2.0,
+              5.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7,
+            2,
+            5
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              1.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 10.0,
+            "subs": [
+              1.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7,
+            2,
+            5
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              1.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 2.0,
+            "subs": "auto",
+            "numticks": 3
+          }
+        }
+      ]
+    },
+    {
+      "label": "integer signed normalized",
+      "integer": true,
+      "initial": [
+        5,
+        2,
+        1
+      ],
+      "slices": [
+        [
+          -1,
+          -1,
+          3
+        ]
+      ],
+      "borrowed": false,
+      "stages": [
+        {
+          "owner": [
+            5,
+            2,
+            1
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              1.0,
+              2.0,
+              5.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            5,
+            2,
+            7
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              1.0,
+              2.0,
+              5.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            5,
+            2,
+            7
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              1.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 10.0,
+            "subs": [
+              1.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            5,
+            2,
+            7
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              1.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 2.0,
+            "subs": "auto",
+            "numticks": 3
+          }
+        }
+      ]
+    },
+    {
+      "label": "integer zero stride normalized",
+      "integer": true,
+      "initial": [
+        2
+      ],
+      "slices": [
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "borrowed": false,
+      "stages": [
+        {
+          "owner": [
+            2
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              2.0,
+              2.0,
+              2.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              2.0,
+              2.0,
+              2.0
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              2.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 10.0,
+            "subs": [
+              2.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              2.0,
+              2.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 2.0,
+            "subs": "auto",
+            "numticks": 3
+          }
+        }
+      ]
+    },
+    {
+      "label": "integer large normalized",
+      "integer": true,
+      "initial": [
+        9007199254740993,
+        9223372036854775807
+      ],
+      "slices": [],
+      "borrowed": false,
+      "stages": [
+        {
+          "owner": [
+            9007199254740993,
+            9223372036854775807
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              9007199254740992.0,
+              9.223372036854776e+18
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7,
+            9223372036854775807
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              9007199254740992.0,
+              9.223372036854776e+18
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7,
+            9223372036854775807
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              9007199254740992.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 10.0,
+            "subs": [
+              9007199254740992.0,
+              8.25
+            ],
+            "numticks": "auto"
+          }
+        },
+        {
+          "owner": [
+            7,
+            9223372036854775807
+          ],
+          "state": {
+            "base": 10.0,
+            "subs": [
+              9007199254740992.0,
+              8.25
+            ],
+            "numticks": "auto"
+          },
+          "copy": {
+            "base": 2.0,
+            "subs": "auto",
+            "numticks": 3
+          }
+        }
+      ]
+    }
+  ],
+  "ranges": [
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          0.001,
+          0.001
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.0001,
+            0.01
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.0001,
+            0.01
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.0001,
+            0.1
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          1.0,
+          100.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          "-inf",
+          "inf"
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          "nan",
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          10.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.0,
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            16.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.0,
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.5,
+            2.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.5,
+            2.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.5,
+            2.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.0,
+        "bounds": [
+          0.001,
+          0.001
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.0009765625,
+            0.001953125
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.0009765625,
+            0.001953125
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.0009765625,
+            0.001953125
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.0,
+        "bounds": [
+          1.0,
+          100.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            128.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.0,
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.0078125,
+            16.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.0,
+        "bounds": [
+          "-inf",
+          "inf"
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            16.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.0,
+        "bounds": [
+          "nan",
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            16.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.0,
+        "bounds": [
+          10.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            16.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.5,
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            15.625
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.5,
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.4,
+            2.5
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.4,
+            2.5
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.4,
+            2.5
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.5,
+        "bounds": [
+          0.001,
+          0.001
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.00065536,
+            0.0016384
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.00065536,
+            0.0016384
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.00065536,
+            0.0016384
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.5,
+        "bounds": [
+          1.0,
+          100.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            244.140625
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.5,
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.004096,
+            15.625
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.5,
+        "bounds": [
+          "-inf",
+          "inf"
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            15.625
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.5,
+        "bounds": [
+          "nan",
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            15.625
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 2.5,
+        "bounds": [
+          10.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            15.625
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 1.0,
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 1.0,
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 1.0,
+        "bounds": [
+          0.001,
+          0.001
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 1.0,
+        "bounds": [
+          1.0,
+          100.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 1.0,
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 1.0,
+        "bounds": [
+          "-inf",
+          "inf"
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 1.0,
+        "bounds": [
+          "nan",
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 1.0,
+        "bounds": [
+          10.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 0.0,
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 0.0,
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            "inf",
+            0.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            "inf",
+            0.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            0.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 0.0,
+        "bounds": [
+          0.001,
+          0.001
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 0.0,
+        "bounds": [
+          1.0,
+          100.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 0.0,
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 0.0,
+        "bounds": [
+          "-inf",
+          "inf"
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 0.0,
+        "bounds": [
+          "nan",
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 0.0,
+        "bounds": [
+          10.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": -2.0,
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": -2.0,
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": -2.0,
+        "bounds": [
+          0.001,
+          0.001
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": -2.0,
+        "bounds": [
+          1.0,
+          100.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": -2.0,
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": -2.0,
+        "bounds": [
+          "-inf",
+          "inf"
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": -2.0,
+        "bounds": [
+          "nan",
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": -2.0,
+        "bounds": [
+          10.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "nan",
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "nan",
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "nan",
+        "bounds": [
+          0.001,
+          0.001
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "nan",
+        "bounds": [
+          1.0,
+          100.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "nan",
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "nan",
+        "bounds": [
+          "-inf",
+          "inf"
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "nan",
+        "bounds": [
+          "nan",
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "nan",
+        "bounds": [
+          10.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            "nan",
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "inf",
+        "bounds": [
+          0.0,
+          0.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "inf",
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.0,
+            "inf"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.0,
+            "inf"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.0,
+            "nan"
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "inf",
+        "bounds": [
+          0.001,
+          0.001
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "inf",
+        "bounds": [
+          1.0,
+          100.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            100.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "inf",
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "inf",
+        "bounds": [
+          "-inf",
+          "inf"
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "inf",
+        "bounds": [
+          "nan",
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": []
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": "inf",
+        "bounds": [
+          10.0,
+          1.0
+        ],
+        "shared": [
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            1.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": [
+          "inf"
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1e-300,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1e-300,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1e-300,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": [
+          "inf"
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": [
+          "nan",
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            1e-300,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            1e-300,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            1e-300,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": [
+          "nan",
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": [
+          0.01,
+          "nan"
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.01,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": [
+          0.01,
+          "nan"
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": [
+          0.1,
+          0.0
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": [
+          0.1,
+          0.0
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": [
+          -0.1,
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": [
+          -0.1,
+          0.01
+        ]
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "error": null,
+          "warnings": [],
+          "events": [
+            "shared",
+            "shared 0",
+            "shared 1"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          -1.0,
+          10.0
+        ],
+        "shared": []
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": null,
+          "error": "ValueError",
+          "warnings": [],
+          "events": [
+            "shared"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": null,
+          "error": "ValueError",
+          "warnings": [],
+          "events": [
+            "shared"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": null,
+          "error": "ValueError",
+          "warnings": [],
+          "events": [
+            "shared"
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "bounds": [
+          1.0,
+          1.0
+        ],
+        "shared": []
+      },
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": null,
+          "error": "ValueError",
+          "warnings": [],
+          "events": [
+            "shared"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": null,
+          "error": "ValueError",
+          "warnings": [],
+          "events": [
+            "shared"
+          ]
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": null,
+          "error": "ValueError",
+          "warnings": [],
+          "events": [
+            "shared"
+          ]
+        }
+      ]
+    }
+  ],
+  "providers": [
+    {
+      "spec": {
+        "label": "call view then automatic space"
+      },
+      "values": [
+        0.1,
+        1.0,
+        10.0,
+        100.0,
+        1000.0
+      ],
+      "error": null,
+      "warnings": [],
+      "events": [
+        "view",
+        "space"
+      ]
+    },
+    {
+      "spec": {
+        "label": "call view before space error",
+        "fail": "space"
+      },
+      "values": null,
+      "error": "ValueError",
+      "warnings": [],
+      "events": [
+        "view",
+        "space"
+      ]
+    },
+    {
+      "spec": {
+        "label": "call view error first",
+        "fail": "view"
+      },
+      "values": null,
+      "error": "ValueError",
+      "warnings": [],
+      "events": [
+        "view"
+      ]
+    },
+    {
+      "spec": {
+        "label": "negative call reads own minpos",
+        "view": [
+          -1.0,
+          100.0
+        ]
+      },
+      "values": [
+        0.001,
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0,
+        1000.0
+      ],
+      "error": null,
+      "warnings": [],
+      "events": [
+        "view",
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "spec": {
+        "label": "own minpos error after space",
+        "view": [
+          -1.0,
+          100.0
+        ],
+        "fail": "minpos"
+      },
+      "values": null,
+      "error": "ValueError",
+      "warnings": [],
+      "events": [
+        "view",
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "spec": {
+        "label": "explicit budget skips space",
+        "view": [
+          -1.0,
+          100.0
+        ],
+        "count": 9,
+        "fail": "space"
+      },
+      "values": [
+        0.001,
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0,
+        1000.0
+      ],
+      "error": null,
+      "warnings": [],
+      "events": [
+        "view",
+        "minpos"
+      ]
+    },
+    {
+      "spec": {
+        "label": "reversed positive first does not read own minpos",
+        "view": [
+          100.0,
+          -1.0
+        ]
+      },
+      "values": null,
+      "error": "ValueError",
+      "warnings": [],
+      "events": [
+        "view",
+        "space"
+      ]
+    },
+    {
+      "spec": {
+        "label": "nonsingular shared error",
+        "method": "nonsingular",
+        "fail": "shared"
+      },
+      "values": null,
+      "error": "ValueError",
+      "warnings": [],
+      "events": [
+        "shared"
+      ]
+    },
+    {
+      "spec": {
+        "label": "nonsingular item error",
+        "method": "nonsingular",
+        "shared": [
+          0.01,
+          0.02
+        ],
+        "fail": "shared 1"
+      },
+      "values": null,
+      "error": "ValueError",
+      "warnings": [],
+      "events": [
+        "shared",
+        "shared 0",
+        "shared 1"
+      ]
+    },
+    {
+      "spec": {
+        "label": "nonsingular nonpositive skips errors",
+        "method": "nonsingular",
+        "view": [
+          -1.0,
+          0.0
+        ],
+        "fail": "shared"
+      },
+      "values": [
+        1.0,
+        10.0
+      ],
+      "error": null,
+      "warnings": [
+        "Data has no positive values, and therefore cannot be log-scaled."
+      ],
+      "events": []
+    },
+    {
+      "spec": {
+        "label": "nonsingular nonfinite skips errors",
+        "method": "nonsingular",
+        "view": [
+          "nan",
+          "inf"
+        ],
+        "fail": "shared"
+      },
+      "values": [
+        1.0,
+        10.0
+      ],
+      "error": null,
+      "warnings": [],
+      "events": []
+    }
+  ],
+  "integer_space_transport": [
+    {
+      "value": 0.0,
+      "source_integer": 0,
+      "rejected": false
+    },
+    {
+      "value": -0.0,
+      "source_integer": 0,
+      "rejected": false
+    },
+    {
+      "value": -1.0,
+      "source_integer": -1,
+      "rejected": false
+    },
+    {
+      "value": 2.0,
+      "source_integer": 2,
+      "rejected": false
+    },
+    {
+      "value": 9.0,
+      "source_integer": 9,
+      "rejected": false
+    },
+    {
+      "value": 9007199254740992.0,
+      "source_integer": 9007199254740992,
+      "rejected": false
+    },
+    {
+      "value": 1e+100,
+      "source_integer": 10000000000000000159028911097599180468360808563945281389781327557747838772170381060813469985856815104,
+      "rejected": false
+    },
+    {
+      "value": 1.7976931348623157e+308,
+      "source_integer": 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368,
+      "rejected": false
+    },
+    {
+      "value": 0.5,
+      "source_integer": null,
+      "rejected": true
+    },
+    {
+      "value": -0.5,
+      "source_integer": null,
+      "rejected": true
+    },
+    {
+      "value": "nan",
+      "source_integer": null,
+      "rejected": true
+    },
+    {
+      "value": "inf",
+      "source_integer": null,
+      "rejected": true
+    },
+    {
+      "value": "-inf",
+      "source_integer": null,
+      "rejected": true
+    }
+  ],
+  "classic_copy_states": [
+    {
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 15
+      },
+      "copy": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 15
+      }
+    },
+    {
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 15
+      },
+      "copy": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 15
+      }
+    },
+    {
+      "state": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": "AUTO"
+      },
+      "copy": {
+        "base": 10.0,
+        "subs": [
+          1.0
+        ],
+        "numticks": 15
+      }
+    }
+  ],
+  "unbound_nonsingular": [
+    {
+      "bounds": [
+        1.0,
+        10.0
+      ],
+      "values": null,
+      "error": "AttributeError",
+      "warnings": []
+    },
+    {
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "values": null,
+      "error": "AttributeError",
+      "warnings": []
+    },
+    {
+      "bounds": [
+        -1.0,
+        10.0
+      ],
+      "values": null,
+      "error": "AttributeError",
+      "warnings": []
+    },
+    {
+      "bounds": [
+        -1.0,
+        0.0
+      ],
+      "values": [
+        1.0,
+        10.0
+      ],
+      "error": null,
+      "warnings": [
+        "Data has no positive values, and therefore cannot be log-scaled."
+      ]
+    },
+    {
+      "bounds": [
+        "nan",
+        "inf"
+      ],
+      "values": [
+        1.0,
+        10.0
+      ],
+      "error": null,
+      "warnings": []
+    }
+  ]
+}

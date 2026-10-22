@@ -1,0 +1,3143 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "figure.py": "b440ab0a5be03cb39b13529a2fec497d2d96deb083e3e56d6220593e3ec567da",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "axes/_secondary_axes.py": "b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "image.py": "6e1f61a547b371da9bd3b20b65991a90ec73b370504fd4a87d11d1293b2e2a77",
+    "axes/_axes.py": "f61e1cb43575eca70b01c9c80f16d3015e91a8101fe9ce0cc3fdc3d80441c8a7"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scope": "Original AST methods plus controlled Bbox storage/Path vertices/unit identity/event sinks. Autoscale runs original entire method and actual Axis._set_lim validation with emit=False GUI notifications omitted. Scale transform uses original LogTransform/InvertedLogTransform scalar-array methods. Full renderer/default units/cache lifecycle is not executed.",
+  "data_cases": [
+    {
+      "label": "interior positive",
+      "vertices": [
+        [
+          -2.0,
+          1.0
+        ],
+        [
+          0.001,
+          1.0
+        ],
+        [
+          100.0,
+          1.0
+        ]
+      ],
+      "points": [
+        [
+          -2.0,
+          1.0
+        ],
+        [
+          100.0,
+          1.0
+        ]
+      ],
+      "minpos": [
+        0.001,
+        1.0
+      ]
+    },
+    {
+      "label": "other finite negative remains data",
+      "vertices": [
+        [
+          10.0,
+          -2.0
+        ],
+        [
+          20.0,
+          0.01
+        ],
+        [
+          40.0,
+          4.0
+        ]
+      ],
+      "points": [
+        [
+          10.0,
+          -2.0
+        ],
+        [
+          40.0,
+          4.0
+        ]
+      ],
+      "minpos": [
+        10.0,
+        0.01
+      ]
+    },
+    {
+      "label": "paired nonfinite",
+      "vertices": [
+        [
+          -2.0,
+          1.0
+        ],
+        [
+          0.001,
+          2.0
+        ],
+        [
+          100.0,
+          3.0
+        ],
+        [
+          1e-09,
+          "inf"
+        ],
+        [
+          "nan",
+          1e-12
+        ]
+      ],
+      "points": [
+        [
+          -2.0,
+          1.0
+        ],
+        [
+          100.0,
+          3.0
+        ]
+      ],
+      "minpos": [
+        0.001,
+        1.0
+      ]
+    },
+    {
+      "label": "no positives",
+      "vertices": [
+        [
+          -4.0,
+          -3.0
+        ],
+        [
+          -2.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "points": [
+        [
+          -4.0,
+          -3.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ]
+    },
+    {
+      "label": "subnormal positives",
+      "vertices": [
+        [
+          5e-324,
+          1.0
+        ],
+        [
+          1.0,
+          5e-324
+        ]
+      ],
+      "points": [
+        [
+          5e-324,
+          5e-324
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "minpos": [
+        5e-324,
+        5e-324
+      ]
+    },
+    {
+      "label": "empty data",
+      "vertices": [],
+      "points": [
+        [
+          "inf",
+          "inf"
+        ],
+        [
+          "-inf",
+          "-inf"
+        ]
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ]
+    }
+  ],
+  "image_cases": [
+    {
+      "origin": "upper",
+      "requested": null,
+      "extent": [
+        -0.5,
+        2.5,
+        1.5,
+        -0.5
+      ],
+      "points": [
+        [
+          -0.5,
+          -0.5
+        ],
+        [
+          2.5,
+          1.5
+        ]
+      ],
+      "minpos": [
+        2.5,
+        1.5
+      ],
+      "stickies": {
+        "x": [
+          -0.5,
+          2.5
+        ],
+        "y": [
+          1.5,
+          -0.5
+        ]
+      }
+    },
+    {
+      "origin": "upper",
+      "requested": [
+        -2.0,
+        8.0,
+        -0.1,
+        4.0
+      ],
+      "extent": [
+        -2.0,
+        8.0,
+        -0.1,
+        4.0
+      ],
+      "points": [
+        [
+          -2.0,
+          -0.1
+        ],
+        [
+          8.0,
+          4.0
+        ]
+      ],
+      "minpos": [
+        8.0,
+        4.0
+      ],
+      "stickies": {
+        "x": [
+          -2.0,
+          8.0
+        ],
+        "y": [
+          -0.1,
+          4.0
+        ]
+      }
+    },
+    {
+      "origin": "upper",
+      "requested": [
+        8.0,
+        -2.0,
+        4.0,
+        -0.1
+      ],
+      "extent": [
+        8.0,
+        -2.0,
+        4.0,
+        -0.1
+      ],
+      "points": [
+        [
+          -2.0,
+          -0.1
+        ],
+        [
+          8.0,
+          4.0
+        ]
+      ],
+      "minpos": [
+        8.0,
+        4.0
+      ],
+      "stickies": {
+        "x": [
+          8.0,
+          -2.0
+        ],
+        "y": [
+          4.0,
+          -0.1
+        ]
+      }
+    },
+    {
+      "origin": "upper",
+      "requested": [
+        -8.0,
+        -2.0,
+        -4.0,
+        -0.1
+      ],
+      "extent": [
+        -8.0,
+        -2.0,
+        -4.0,
+        -0.1
+      ],
+      "points": [
+        [
+          -8.0,
+          -4.0
+        ],
+        [
+          -2.0,
+          -0.1
+        ]
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "stickies": {
+        "x": [
+          -8.0,
+          -2.0
+        ],
+        "y": [
+          -4.0,
+          -0.1
+        ]
+      }
+    },
+    {
+      "origin": "lower",
+      "requested": null,
+      "extent": [
+        -0.5,
+        2.5,
+        -0.5,
+        1.5
+      ],
+      "points": [
+        [
+          -0.5,
+          -0.5
+        ],
+        [
+          2.5,
+          1.5
+        ]
+      ],
+      "minpos": [
+        2.5,
+        1.5
+      ],
+      "stickies": {
+        "x": [
+          -0.5,
+          2.5
+        ],
+        "y": [
+          -0.5,
+          1.5
+        ]
+      }
+    },
+    {
+      "origin": "lower",
+      "requested": [
+        -2.0,
+        8.0,
+        -0.1,
+        4.0
+      ],
+      "extent": [
+        -2.0,
+        8.0,
+        -0.1,
+        4.0
+      ],
+      "points": [
+        [
+          -2.0,
+          -0.1
+        ],
+        [
+          8.0,
+          4.0
+        ]
+      ],
+      "minpos": [
+        8.0,
+        4.0
+      ],
+      "stickies": {
+        "x": [
+          -2.0,
+          8.0
+        ],
+        "y": [
+          -0.1,
+          4.0
+        ]
+      }
+    },
+    {
+      "origin": "lower",
+      "requested": [
+        8.0,
+        -2.0,
+        4.0,
+        -0.1
+      ],
+      "extent": [
+        8.0,
+        -2.0,
+        4.0,
+        -0.1
+      ],
+      "points": [
+        [
+          -2.0,
+          -0.1
+        ],
+        [
+          8.0,
+          4.0
+        ]
+      ],
+      "minpos": [
+        8.0,
+        4.0
+      ],
+      "stickies": {
+        "x": [
+          8.0,
+          -2.0
+        ],
+        "y": [
+          4.0,
+          -0.1
+        ]
+      }
+    },
+    {
+      "origin": "lower",
+      "requested": [
+        -8.0,
+        -2.0,
+        -4.0,
+        -0.1
+      ],
+      "extent": [
+        -8.0,
+        -2.0,
+        -4.0,
+        -0.1
+      ],
+      "points": [
+        [
+          -8.0,
+          -4.0
+        ],
+        [
+          -2.0,
+          -0.1
+        ]
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "stickies": {
+        "x": [
+          -8.0,
+          -2.0
+        ],
+        "y": [
+          -4.0,
+          -0.1
+        ]
+      }
+    }
+  ],
+  "boxplots": [
+    {
+      "horizontal": false,
+      "stats": [
+        {
+          "mean": 25.6002,
+          "iqr": 19.999,
+          "cilo": -4.041804773353743,
+          "cihi": 24.041804773353743,
+          "whishi": 20.0,
+          "whislo": -2.0,
+          "fliers": [
+            100.0
+          ],
+          "q1": 0.001,
+          "med": 10.0,
+          "q3": 20.0
+        }
+      ],
+      "drawn_paths": [
+        [
+          [
+            0.7,
+            0.001
+          ],
+          [
+            1.3,
+            0.001
+          ],
+          [
+            1.3,
+            20.0
+          ],
+          [
+            0.7,
+            20.0
+          ],
+          [
+            0.7,
+            0.001
+          ]
+        ],
+        [
+          [
+            1.0,
+            0.001
+          ],
+          [
+            1.0,
+            -2.0
+          ]
+        ],
+        [
+          [
+            1.0,
+            20.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        [
+          [
+            0.9,
+            -2.0
+          ],
+          [
+            1.1,
+            -2.0
+          ]
+        ],
+        [
+          [
+            0.9,
+            20.0
+          ],
+          [
+            1.1,
+            20.0
+          ]
+        ],
+        [
+          [
+            0.7,
+            10.0
+          ],
+          [
+            1.3,
+            10.0
+          ]
+        ],
+        [
+          [
+            1.0,
+            100.0
+          ]
+        ]
+      ],
+      "points": [
+        [
+          0.7,
+          -2.0
+        ],
+        [
+          1.3,
+          100.0
+        ]
+      ],
+      "minpos": [
+        0.7,
+        0.001
+      ],
+      "value_minpos": 0.001
+    },
+    {
+      "horizontal": true,
+      "stats": [
+        {
+          "mean": 25.6002,
+          "iqr": 19.999,
+          "cilo": -4.041804773353743,
+          "cihi": 24.041804773353743,
+          "whishi": 20.0,
+          "whislo": -2.0,
+          "fliers": [
+            100.0
+          ],
+          "q1": 0.001,
+          "med": 10.0,
+          "q3": 20.0
+        }
+      ],
+      "drawn_paths": [
+        [
+          [
+            0.001,
+            0.7
+          ],
+          [
+            0.001,
+            1.3
+          ],
+          [
+            20.0,
+            1.3
+          ],
+          [
+            20.0,
+            0.7
+          ],
+          [
+            0.001,
+            0.7
+          ]
+        ],
+        [
+          [
+            0.001,
+            1.0
+          ],
+          [
+            -2.0,
+            1.0
+          ]
+        ],
+        [
+          [
+            20.0,
+            1.0
+          ],
+          [
+            20.0,
+            1.0
+          ]
+        ],
+        [
+          [
+            -2.0,
+            0.9
+          ],
+          [
+            -2.0,
+            1.1
+          ]
+        ],
+        [
+          [
+            20.0,
+            0.9
+          ],
+          [
+            20.0,
+            1.1
+          ]
+        ],
+        [
+          [
+            10.0,
+            0.7
+          ],
+          [
+            10.0,
+            1.3
+          ]
+        ],
+        [
+          [
+            100.0,
+            1.0
+          ]
+        ]
+      ],
+      "points": [
+        [
+          -2.0,
+          0.7
+        ],
+        [
+          100.0,
+          1.3
+        ]
+      ],
+      "minpos": [
+        0.001,
+        0.7
+      ],
+      "value_minpos": 0.001
+    }
+  ],
+  "blended": [
+    {
+      "kind": "axhline",
+      "values": [
+        0.125
+      ],
+      "minpos": [
+        "inf",
+        0.125
+      ],
+      "points": [
+        [
+          "inf",
+          0.125
+        ],
+        [
+          "-inf",
+          0.125
+        ]
+      ]
+    },
+    {
+      "kind": "axhline",
+      "values": [
+        -2.0
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "points": [
+        [
+          "inf",
+          -2.0
+        ],
+        [
+          "-inf",
+          -2.0
+        ]
+      ]
+    },
+    {
+      "kind": "axvline",
+      "values": [
+        0.125
+      ],
+      "minpos": [
+        0.125,
+        "inf"
+      ],
+      "points": [
+        [
+          0.125,
+          "inf"
+        ],
+        [
+          0.125,
+          "-inf"
+        ]
+      ]
+    },
+    {
+      "kind": "axvline",
+      "values": [
+        -2.0
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "points": [
+        [
+          -2.0,
+          "inf"
+        ],
+        [
+          -2.0,
+          "-inf"
+        ]
+      ]
+    },
+    {
+      "kind": "axhspan",
+      "values": [
+        0.125,
+        4.0
+      ],
+      "minpos": [
+        "inf",
+        0.125
+      ],
+      "points": [
+        [
+          "inf",
+          0.125
+        ],
+        [
+          "-inf",
+          4.0
+        ]
+      ]
+    },
+    {
+      "kind": "axhspan",
+      "values": [
+        -2.0,
+        4.0
+      ],
+      "minpos": [
+        "inf",
+        4.0
+      ],
+      "points": [
+        [
+          "inf",
+          -2.0
+        ],
+        [
+          "-inf",
+          4.0
+        ]
+      ]
+    },
+    {
+      "kind": "axhspan",
+      "values": [
+        -4.0,
+        -2.0
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "points": [
+        [
+          "inf",
+          -4.0
+        ],
+        [
+          "-inf",
+          -2.0
+        ]
+      ]
+    },
+    {
+      "kind": "axvspan",
+      "values": [
+        0.125,
+        4.0
+      ],
+      "minpos": [
+        0.125,
+        "inf"
+      ],
+      "points": [
+        [
+          0.125,
+          "inf"
+        ],
+        [
+          4.0,
+          "-inf"
+        ]
+      ]
+    },
+    {
+      "kind": "axvspan",
+      "values": [
+        -2.0,
+        4.0
+      ],
+      "minpos": [
+        4.0,
+        "inf"
+      ],
+      "points": [
+        [
+          -2.0,
+          "inf"
+        ],
+        [
+          4.0,
+          "-inf"
+        ]
+      ]
+    },
+    {
+      "kind": "axvspan",
+      "values": [
+        -4.0,
+        -2.0
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "points": [
+        [
+          -4.0,
+          "inf"
+        ],
+        [
+          -2.0,
+          "-inf"
+        ]
+      ]
+    }
+  ],
+  "contexts": [
+    {
+      "name": "x",
+      "bounds": [
+        -2.0,
+        100.0
+      ],
+      "own": 0.1,
+      "shared": [
+        0.001,
+        0.1
+      ],
+      "queries": {
+        "data:tick_values": {
+          "result": [
+            0.01,
+            0.1,
+            1.0,
+            10.0,
+            100.0,
+            1000.0
+          ],
+          "error": null,
+          "events": [
+            "first.space.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "data:nonsingular": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "data:view_limits": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:tick_values": {
+          "result": [
+            0.01,
+            0.1,
+            1.0,
+            10.0,
+            100.0,
+            1000.0
+          ],
+          "error": null,
+          "events": [
+            "first.space.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:nonsingular": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:view_limits": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "x",
+      "bounds": [
+        0.1,
+        100.0
+      ],
+      "own": 0.1,
+      "shared": [
+        0.001,
+        0.1
+      ],
+      "queries": {
+        "data:tick_values": {
+          "result": [
+            0.01,
+            0.1,
+            1.0,
+            10.0,
+            100.0,
+            1000.0
+          ],
+          "error": null,
+          "events": [
+            "first.space.x"
+          ],
+          "warnings": []
+        },
+        "data:nonsingular": {
+          "result": [
+            0.1,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "data:view_limits": {
+          "result": [
+            0.1,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:tick_values": {
+          "result": [
+            0.01,
+            0.1,
+            1.0,
+            10.0,
+            100.0,
+            1000.0
+          ],
+          "error": null,
+          "events": [
+            "first.space.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:nonsingular": {
+          "result": [
+            0.1,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:view_limits": {
+          "result": [
+            0.1,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "x",
+      "bounds": [
+        100.0,
+        -2.0
+      ],
+      "own": 0.1,
+      "shared": [
+        0.001,
+        0.1
+      ],
+      "queries": {
+        "data:tick_values": {
+          "result": null,
+          "error": "ValueError",
+          "message": "cannot convert float NaN to integer",
+          "events": [
+            "first.space.x"
+          ],
+          "warnings": []
+        },
+        "data:nonsingular": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "data:view_limits": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:tick_values": {
+          "result": null,
+          "error": "ValueError",
+          "message": "cannot convert float NaN to integer",
+          "events": [
+            "first.space.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:nonsingular": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:view_limits": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "x",
+      "bounds": [
+        5.0,
+        5.0
+      ],
+      "own": 0.1,
+      "shared": [
+        0.001,
+        0.1
+      ],
+      "queries": {
+        "data:tick_values": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "first.space.x"
+          ],
+          "warnings": []
+        },
+        "data:nonsingular": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "data:view_limits": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:tick_values": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "first.space.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:nonsingular": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:view_limits": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "x",
+      "bounds": [
+        "nan",
+        "inf"
+      ],
+      "own": 0.1,
+      "shared": [
+        0.001,
+        0.1
+      ],
+      "queries": {
+        "data:tick_values": {
+          "result": null,
+          "error": "ValueError",
+          "message": "cannot convert float NaN to integer",
+          "events": [
+            "first.space.x"
+          ],
+          "warnings": []
+        },
+        "data:nonsingular": {
+          "result": [
+            1,
+            10
+          ],
+          "error": null,
+          "events": [],
+          "warnings": []
+        },
+        "data:view_limits": {
+          "result": [
+            1,
+            10
+          ],
+          "error": null,
+          "events": [],
+          "warnings": []
+        },
+        "round_numbers:tick_values": {
+          "result": null,
+          "error": "ValueError",
+          "message": "cannot convert float NaN to integer",
+          "events": [
+            "first.space.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:nonsingular": {
+          "result": [
+            1,
+            10
+          ],
+          "error": null,
+          "events": [],
+          "warnings": []
+        },
+        "round_numbers:view_limits": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "x",
+      "bounds": [
+        -2.0,
+        0.0
+      ],
+      "own": 0.1,
+      "shared": [
+        0.001,
+        0.1
+      ],
+      "queries": {
+        "data:tick_values": {
+          "result": null,
+          "error": "OverflowError",
+          "message": "cannot convert float infinity to integer",
+          "events": [
+            "first.space.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "data:nonsingular": {
+          "result": [
+            1,
+            10
+          ],
+          "error": null,
+          "events": [],
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ]
+        },
+        "data:view_limits": {
+          "result": [
+            1,
+            10
+          ],
+          "error": null,
+          "events": [],
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ]
+        },
+        "round_numbers:tick_values": {
+          "result": null,
+          "error": "OverflowError",
+          "message": "cannot convert float infinity to integer",
+          "events": [
+            "first.space.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        "round_numbers:nonsingular": {
+          "result": [
+            1,
+            10
+          ],
+          "error": null,
+          "events": [],
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ]
+        },
+        "round_numbers:view_limits": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [],
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ]
+        }
+      }
+    },
+    {
+      "name": "y",
+      "bounds": [
+        -2.0,
+        100.0
+      ],
+      "own": 0.1,
+      "shared": [
+        0.001,
+        0.1
+      ],
+      "queries": {
+        "data:tick_values": {
+          "result": [
+            0.01,
+            0.1,
+            1.0,
+            10.0,
+            100.0,
+            1000.0
+          ],
+          "error": null,
+          "events": [
+            "first.space.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "data:nonsingular": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "data:view_limits": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:tick_values": {
+          "result": [
+            0.01,
+            0.1,
+            1.0,
+            10.0,
+            100.0,
+            1000.0
+          ],
+          "error": null,
+          "events": [
+            "first.space.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:nonsingular": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:view_limits": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "y",
+      "bounds": [
+        0.1,
+        100.0
+      ],
+      "own": 0.1,
+      "shared": [
+        0.001,
+        0.1
+      ],
+      "queries": {
+        "data:tick_values": {
+          "result": [
+            0.01,
+            0.1,
+            1.0,
+            10.0,
+            100.0,
+            1000.0
+          ],
+          "error": null,
+          "events": [
+            "first.space.y"
+          ],
+          "warnings": []
+        },
+        "data:nonsingular": {
+          "result": [
+            0.1,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "data:view_limits": {
+          "result": [
+            0.1,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:tick_values": {
+          "result": [
+            0.01,
+            0.1,
+            1.0,
+            10.0,
+            100.0,
+            1000.0
+          ],
+          "error": null,
+          "events": [
+            "first.space.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:nonsingular": {
+          "result": [
+            0.1,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:view_limits": {
+          "result": [
+            0.1,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "y",
+      "bounds": [
+        100.0,
+        -2.0
+      ],
+      "own": 0.1,
+      "shared": [
+        0.001,
+        0.1
+      ],
+      "queries": {
+        "data:tick_values": {
+          "result": null,
+          "error": "ValueError",
+          "message": "cannot convert float NaN to integer",
+          "events": [
+            "first.space.y"
+          ],
+          "warnings": []
+        },
+        "data:nonsingular": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "data:view_limits": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:tick_values": {
+          "result": null,
+          "error": "ValueError",
+          "message": "cannot convert float NaN to integer",
+          "events": [
+            "first.space.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:nonsingular": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:view_limits": {
+          "result": [
+            0.001,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "y",
+      "bounds": [
+        5.0,
+        5.0
+      ],
+      "own": 0.1,
+      "shared": [
+        0.001,
+        0.1
+      ],
+      "queries": {
+        "data:tick_values": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "first.space.y"
+          ],
+          "warnings": []
+        },
+        "data:nonsingular": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "data:view_limits": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:tick_values": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "first.space.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:nonsingular": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:view_limits": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "second.minpos.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "y",
+      "bounds": [
+        "nan",
+        "inf"
+      ],
+      "own": 0.1,
+      "shared": [
+        0.001,
+        0.1
+      ],
+      "queries": {
+        "data:tick_values": {
+          "result": null,
+          "error": "ValueError",
+          "message": "cannot convert float NaN to integer",
+          "events": [
+            "first.space.y"
+          ],
+          "warnings": []
+        },
+        "data:nonsingular": {
+          "result": [
+            1,
+            10
+          ],
+          "error": null,
+          "events": [],
+          "warnings": []
+        },
+        "data:view_limits": {
+          "result": [
+            1,
+            10
+          ],
+          "error": null,
+          "events": [],
+          "warnings": []
+        },
+        "round_numbers:tick_values": {
+          "result": null,
+          "error": "ValueError",
+          "message": "cannot convert float NaN to integer",
+          "events": [
+            "first.space.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:nonsingular": {
+          "result": [
+            1,
+            10
+          ],
+          "error": null,
+          "events": [],
+          "warnings": []
+        },
+        "round_numbers:view_limits": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "y",
+      "bounds": [
+        -2.0,
+        0.0
+      ],
+      "own": 0.1,
+      "shared": [
+        0.001,
+        0.1
+      ],
+      "queries": {
+        "data:tick_values": {
+          "result": null,
+          "error": "OverflowError",
+          "message": "cannot convert float infinity to integer",
+          "events": [
+            "first.space.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "data:nonsingular": {
+          "result": [
+            1,
+            10
+          ],
+          "error": null,
+          "events": [],
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ]
+        },
+        "data:view_limits": {
+          "result": [
+            1,
+            10
+          ],
+          "error": null,
+          "events": [],
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ]
+        },
+        "round_numbers:tick_values": {
+          "result": null,
+          "error": "OverflowError",
+          "message": "cannot convert float infinity to integer",
+          "events": [
+            "first.space.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        "round_numbers:nonsingular": {
+          "result": [
+            1,
+            10
+          ],
+          "error": null,
+          "events": [],
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ]
+        },
+        "round_numbers:view_limits": {
+          "result": [
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [],
+          "warnings": [
+            "Data has no positive values, and therefore cannot be log-scaled."
+          ]
+        }
+      }
+    }
+  ],
+  "ownership": [
+    {
+      "name": "x",
+      "stages": [
+        {
+          "stage": "first installed",
+          "owner": "first",
+          "call": {
+            "result": [
+              0.01,
+              0.1,
+              1.0,
+              10.0,
+              100.0,
+              1000.0
+            ],
+            "error": null,
+            "events": [
+              "first.view.x",
+              "first.space.x",
+              "first.minpos.x"
+            ],
+            "warnings": []
+          },
+          "nonsingular": {
+            "result": [
+              0.001,
+              100.0
+            ],
+            "error": null,
+            "events": [
+              "second.minpos.x",
+              "first.minpos.x"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "stage": "second installed",
+          "owner": "second",
+          "call": {
+            "result": [
+              0.0001,
+              0.01,
+              1.0,
+              100.0,
+              10000.0
+            ],
+            "error": null,
+            "events": [
+              "second.view.x",
+              "second.space.x",
+              "second.minpos.x"
+            ],
+            "warnings": []
+          },
+          "nonsingular": {
+            "result": [
+              0.001,
+              100.0
+            ],
+            "error": null,
+            "events": [
+              "second.minpos.x",
+              "first.minpos.x"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "stage": "later local minpos update",
+          "owner": "second",
+          "call": {
+            "result": [
+              1e-06,
+              0.0001,
+              0.01,
+              1.0,
+              100.0,
+              10000.0
+            ],
+            "error": null,
+            "events": [
+              "second.view.x",
+              "second.space.x",
+              "second.minpos.x"
+            ],
+            "warnings": []
+          },
+          "nonsingular": {
+            "result": [
+              1e-05,
+              100.0
+            ],
+            "error": null,
+            "events": [
+              "second.minpos.x",
+              "first.minpos.x"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "stage": "removed owner rebinds installed locator",
+          "owner": "first",
+          "call": {
+            "result": [
+              0.01,
+              0.1,
+              1.0,
+              10.0,
+              100.0,
+              1000.0
+            ],
+            "error": null,
+            "events": [
+              "first.view.x",
+              "first.space.x",
+              "first.minpos.x"
+            ],
+            "warnings": []
+          },
+          "nonsingular": {
+            "result": [
+              0.1,
+              100.0
+            ],
+            "error": null,
+            "events": [
+              "first.minpos.x"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "stage": "external copy keeps removed singleton",
+          "owner": "second",
+          "call": {
+            "result": [
+              1e-06,
+              0.0001,
+              0.01,
+              1.0,
+              100.0,
+              10000.0
+            ],
+            "error": null,
+            "events": [
+              "second.view.x",
+              "second.space.x",
+              "second.minpos.x"
+            ],
+            "warnings": []
+          },
+          "nonsingular": {
+            "result": [
+              1e-05,
+              100.0
+            ],
+            "error": null,
+            "events": [
+              "second.minpos.x"
+            ],
+            "warnings": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "y",
+      "stages": [
+        {
+          "stage": "first installed",
+          "owner": "first",
+          "call": {
+            "result": [
+              0.01,
+              0.1,
+              1.0,
+              10.0,
+              100.0,
+              1000.0
+            ],
+            "error": null,
+            "events": [
+              "first.view.y",
+              "first.space.y",
+              "first.minpos.y"
+            ],
+            "warnings": []
+          },
+          "nonsingular": {
+            "result": [
+              0.001,
+              100.0
+            ],
+            "error": null,
+            "events": [
+              "second.minpos.y",
+              "first.minpos.y"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "stage": "second installed",
+          "owner": "second",
+          "call": {
+            "result": [
+              0.0001,
+              0.01,
+              1.0,
+              100.0,
+              10000.0
+            ],
+            "error": null,
+            "events": [
+              "second.view.y",
+              "second.space.y",
+              "second.minpos.y"
+            ],
+            "warnings": []
+          },
+          "nonsingular": {
+            "result": [
+              0.001,
+              100.0
+            ],
+            "error": null,
+            "events": [
+              "second.minpos.y",
+              "first.minpos.y"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "stage": "later local minpos update",
+          "owner": "second",
+          "call": {
+            "result": [
+              1e-06,
+              0.0001,
+              0.01,
+              1.0,
+              100.0,
+              10000.0
+            ],
+            "error": null,
+            "events": [
+              "second.view.y",
+              "second.space.y",
+              "second.minpos.y"
+            ],
+            "warnings": []
+          },
+          "nonsingular": {
+            "result": [
+              1e-05,
+              100.0
+            ],
+            "error": null,
+            "events": [
+              "second.minpos.y",
+              "first.minpos.y"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "stage": "removed owner rebinds installed locator",
+          "owner": "first",
+          "call": {
+            "result": [
+              0.01,
+              0.1,
+              1.0,
+              10.0,
+              100.0,
+              1000.0
+            ],
+            "error": null,
+            "events": [
+              "first.view.y",
+              "first.space.y",
+              "first.minpos.y"
+            ],
+            "warnings": []
+          },
+          "nonsingular": {
+            "result": [
+              0.1,
+              100.0
+            ],
+            "error": null,
+            "events": [
+              "first.minpos.y"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "stage": "external copy keeps removed singleton",
+          "owner": "second",
+          "call": {
+            "result": [
+              1e-06,
+              0.0001,
+              0.01,
+              1.0,
+              100.0,
+              10000.0
+            ],
+            "error": null,
+            "events": [
+              "second.view.y",
+              "second.space.y",
+              "second.minpos.y"
+            ],
+            "warnings": []
+          },
+          "nonsingular": {
+            "result": [
+              1e-05,
+              100.0
+            ],
+            "error": null,
+            "events": [
+              "second.minpos.y"
+            ],
+            "warnings": []
+          }
+        }
+      ]
+    }
+  ],
+  "secondary": [
+    {
+      "name": "x",
+      "parent_scale": "linear",
+      "shift": 0.0,
+      "view": [
+        1.0,
+        100.0
+      ],
+      "scale_names": [
+        "function"
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "call": {
+        "result": [
+          0.1,
+          1.0,
+          10.0,
+          100.0,
+          1000.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.view.x",
+          "secondary.space.x"
+        ],
+        "warnings": []
+      },
+      "nonsingular": {
+        "result": [
+          1.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.minpos.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "x",
+      "parent_scale": "linear",
+      "shift": -2.0,
+      "view": [
+        -1.0,
+        98.0
+      ],
+      "scale_names": [
+        "function"
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "call": {
+        "result": null,
+        "error": "ValueError",
+        "message": "Data cannot be log-scaled because all values are <= 0.",
+        "events": [
+          "secondary.view.x",
+          "secondary.space.x",
+          "secondary.minpos.x"
+        ],
+        "warnings": []
+      },
+      "nonsingular": {
+        "result": [
+          1e-300,
+          98.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.minpos.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "x",
+      "parent_scale": "log",
+      "shift": 0.0,
+      "view": [
+        1.0,
+        100.0
+      ],
+      "scale_names": [
+        "functionlog"
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "call": {
+        "result": [
+          0.1,
+          1.0,
+          10.0,
+          100.0,
+          1000.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.view.x",
+          "secondary.space.x"
+        ],
+        "warnings": []
+      },
+      "nonsingular": {
+        "result": [
+          1.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.minpos.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "x",
+      "parent_scale": "log",
+      "shift": -2.0,
+      "view": [
+        -1.0,
+        98.0
+      ],
+      "scale_names": [
+        "functionlog"
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "call": {
+        "result": null,
+        "error": "ValueError",
+        "message": "Data cannot be log-scaled because all values are <= 0.",
+        "events": [
+          "secondary.view.x",
+          "secondary.space.x",
+          "secondary.minpos.x"
+        ],
+        "warnings": []
+      },
+      "nonsingular": {
+        "result": [
+          1e-300,
+          98.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.minpos.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "y",
+      "parent_scale": "linear",
+      "shift": 0.0,
+      "view": [
+        1.0,
+        100.0
+      ],
+      "scale_names": [
+        "function"
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "call": {
+        "result": [
+          0.1,
+          1.0,
+          10.0,
+          100.0,
+          1000.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.view.y",
+          "secondary.space.y"
+        ],
+        "warnings": []
+      },
+      "nonsingular": {
+        "result": [
+          1.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.minpos.y"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "y",
+      "parent_scale": "linear",
+      "shift": -2.0,
+      "view": [
+        -1.0,
+        98.0
+      ],
+      "scale_names": [
+        "function"
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "call": {
+        "result": null,
+        "error": "ValueError",
+        "message": "Data cannot be log-scaled because all values are <= 0.",
+        "events": [
+          "secondary.view.y",
+          "secondary.space.y",
+          "secondary.minpos.y"
+        ],
+        "warnings": []
+      },
+      "nonsingular": {
+        "result": [
+          1e-300,
+          98.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.minpos.y"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "y",
+      "parent_scale": "log",
+      "shift": 0.0,
+      "view": [
+        1.0,
+        100.0
+      ],
+      "scale_names": [
+        "functionlog"
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "call": {
+        "result": [
+          0.1,
+          1.0,
+          10.0,
+          100.0,
+          1000.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.view.y",
+          "secondary.space.y"
+        ],
+        "warnings": []
+      },
+      "nonsingular": {
+        "result": [
+          1.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.minpos.y"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "y",
+      "parent_scale": "log",
+      "shift": -2.0,
+      "view": [
+        -1.0,
+        98.0
+      ],
+      "scale_names": [
+        "functionlog"
+      ],
+      "minpos": [
+        "inf",
+        "inf"
+      ],
+      "call": {
+        "result": null,
+        "error": "ValueError",
+        "message": "Data cannot be log-scaled because all values are <= 0.",
+        "events": [
+          "secondary.view.y",
+          "secondary.space.y",
+          "secondary.minpos.y"
+        ],
+        "warnings": []
+      },
+      "nonsingular": {
+        "result": [
+          1e-300,
+          98.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.minpos.y"
+        ],
+        "warnings": []
+      }
+    }
+  ],
+  "overlap": [
+    {
+      "name": "x",
+      "overlap": true,
+      "view": [
+        2.1,
+        40.0
+      ],
+      "raw": {
+        "result": [
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0,
+          50.0
+        ],
+        "error": null,
+        "events": [
+          "minor.view.x",
+          "minor.space.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "result": [
+          2.0,
+          5.0,
+          20.0,
+          50.0
+        ],
+        "error": null,
+        "events": [
+          "minor.view.x",
+          "minor.space.x",
+          "minor.view.x",
+          "minor.space.x",
+          "minor.view.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "x",
+      "overlap": false,
+      "view": [
+        2.1,
+        40.0
+      ],
+      "raw": {
+        "result": [
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0,
+          50.0
+        ],
+        "error": null,
+        "events": [
+          "minor.view.x",
+          "minor.space.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "result": [
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0,
+          50.0
+        ],
+        "error": null,
+        "events": [
+          "minor.view.x",
+          "minor.space.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "y",
+      "overlap": true,
+      "view": [
+        2.1,
+        40.0
+      ],
+      "raw": {
+        "result": [
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0,
+          50.0
+        ],
+        "error": null,
+        "events": [
+          "minor.view.y",
+          "minor.space.y"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "result": [
+          2.0,
+          5.0,
+          20.0,
+          50.0
+        ],
+        "error": null,
+        "events": [
+          "minor.view.y",
+          "minor.space.y",
+          "minor.view.y",
+          "minor.space.y",
+          "minor.view.y"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "y",
+      "overlap": false,
+      "view": [
+        2.1,
+        40.0
+      ],
+      "raw": {
+        "result": [
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0,
+          50.0
+        ],
+        "error": null,
+        "events": [
+          "minor.view.y",
+          "minor.space.y"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "result": [
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0,
+          50.0
+        ],
+        "error": null,
+        "events": [
+          "minor.view.y",
+          "minor.space.y"
+        ],
+        "warnings": []
+      }
+    }
+  ],
+  "nonpositive_overlap": {
+    "raw": {
+      "result": [
+        -0.1,
+        0.0,
+        0.1,
+        0.2,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        -10.0,
+        0.0,
+        10.0,
+        20.0,
+        -100.0,
+        0.0,
+        100.0,
+        200.0
+      ],
+      "error": null,
+      "events": [
+        "nonpositive.view.x"
+      ],
+      "warnings": []
+    },
+    "filtered": {
+      "result": [
+        0.1,
+        0.2,
+        2.0,
+        20.0,
+        200.0
+      ],
+      "error": null,
+      "events": [
+        "nonpositive.view.x",
+        "nonpositive.view.x"
+      ],
+      "warnings": []
+    }
+  },
+  "margins": [
+    {
+      "base": 10.0,
+      "mode": "data",
+      "data": [
+        5.0,
+        5.0
+      ],
+      "margin": 0.05,
+      "query": {
+        "result": null,
+        "error": null,
+        "events": [
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.write.x"
+        ],
+        "warnings": []
+      },
+      "final_view": [
+        0.8912509381337456,
+        11.220184543019636
+      ]
+    },
+    {
+      "base": 10.0,
+      "mode": "round_numbers",
+      "data": [
+        5.0,
+        5.0
+      ],
+      "margin": 0.05,
+      "query": {
+        "result": null,
+        "error": null,
+        "events": [
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.write.x"
+        ],
+        "warnings": []
+      },
+      "final_view": [
+        0.1,
+        100.0
+      ]
+    },
+    {
+      "base": 0.0,
+      "mode": "data",
+      "data": [
+        5.0,
+        5.0
+      ],
+      "margin": 0.05,
+      "query": {
+        "result": null,
+        "error": "ValueError",
+        "message": "Axis limits cannot be NaN or Inf",
+        "events": [
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.minpos.x"
+        ],
+        "warnings": []
+      },
+      "final_view": [
+        1.0,
+        100.0
+      ]
+    },
+    {
+      "base": 0.0,
+      "mode": "round_numbers",
+      "data": [
+        5.0,
+        5.0
+      ],
+      "margin": 0.05,
+      "query": {
+        "result": null,
+        "error": "ValueError",
+        "message": "Axis limits cannot be NaN or Inf",
+        "events": [
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.minpos.x"
+        ],
+        "warnings": []
+      },
+      "final_view": [
+        1.0,
+        100.0
+      ]
+    },
+    {
+      "base": 1.0,
+      "mode": "data",
+      "data": [
+        5.0,
+        5.0
+      ],
+      "margin": 0.05,
+      "query": {
+        "result": null,
+        "error": null,
+        "events": [
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.write.x"
+        ],
+        "warnings": [
+          "Attempting to set identical low and high xlims makes transformation singular; automatically expanding."
+        ]
+      },
+      "final_view": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "base": 1.0,
+      "mode": "round_numbers",
+      "data": [
+        5.0,
+        5.0
+      ],
+      "margin": 0.05,
+      "query": {
+        "result": null,
+        "error": null,
+        "events": [
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.write.x"
+        ],
+        "warnings": [
+          "Attempting to set identical low and high xlims makes transformation singular; automatically expanding."
+        ]
+      },
+      "final_view": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "base": "nan",
+      "mode": "data",
+      "data": [
+        5.0,
+        5.0
+      ],
+      "margin": 0.05,
+      "query": {
+        "result": null,
+        "error": null,
+        "events": [
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.write.x"
+        ],
+        "warnings": []
+      },
+      "final_view": [
+        1.0,
+        10.0
+      ]
+    },
+    {
+      "base": "nan",
+      "mode": "round_numbers",
+      "data": [
+        5.0,
+        5.0
+      ],
+      "margin": 0.05,
+      "query": {
+        "result": null,
+        "error": "ValueError",
+        "message": "Axis limits cannot be NaN or Inf",
+        "events": [
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range"
+        ],
+        "warnings": []
+      },
+      "final_view": [
+        1.0,
+        100.0
+      ]
+    },
+    {
+      "base": 10.0,
+      "mode": "data",
+      "data": [
+        -2.0,
+        100.0
+      ],
+      "minpos": 0.001,
+      "margin": 0.05,
+      "query": {
+        "result": null,
+        "error": null,
+        "events": [
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.write.x"
+        ],
+        "warnings": []
+      },
+      "final_view": [
+        0.0005623413251903486,
+        177.82794100389242
+      ]
+    },
+    {
+      "base": 10.0,
+      "mode": "round_numbers",
+      "data": [
+        -2.0,
+        100.0
+      ],
+      "minpos": 0.001,
+      "margin": 0.05,
+      "query": {
+        "result": null,
+        "error": null,
+        "events": [
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "margin.minpos.x",
+          "scale.limit_range",
+          "margin.write.x"
+        ],
+        "warnings": []
+      },
+      "final_view": [
+        0.0001,
+        1000.0
+      ]
+    }
+  ],
+  "failures": [
+    {
+      "failing_read": 4,
+      "query": {
+        "result": null,
+        "error": "ValueError",
+        "message": "minpos provider failed",
+        "events": [
+          "failure.minpos.x",
+          "failure.minpos.x",
+          "scale.limit_range",
+          "failure.minpos.x",
+          "failure.minpos.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "failing_read": 5,
+      "query": {
+        "result": null,
+        "error": "ValueError",
+        "message": "minpos provider failed",
+        "events": [
+          "failure.minpos.x",
+          "failure.minpos.x",
+          "scale.limit_range",
+          "failure.minpos.x",
+          "failure.minpos.x",
+          "failure.minpos.x"
+        ],
+        "warnings": []
+      }
+    }
+  ],
+  "physical": [
+    {
+      "python_integer": true,
+      "bounds": [
+        5e-324,
+        1.7976931348623157e+308
+      ],
+      "query": {
+        "result": null,
+        "error": "OverflowError",
+        "message": "Python int too large to convert to C long",
+        "events": [
+          "physical.space.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "python_integer": false,
+      "bounds": [
+        5e-324,
+        1.7976931348623157e+308
+      ],
+      "query": {
+        "result": null,
+        "error": "TypeError",
+        "message": "'numpy.float64' object cannot be interpreted as an integer",
+        "events": [
+          "physical.space.x"
+        ],
+        "warnings": []
+      }
+    }
+  ]
+}

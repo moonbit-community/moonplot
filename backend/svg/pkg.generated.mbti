@@ -9,6 +9,8 @@ import {
 // Values
 pub fn artist_data_interval(Array[@render.Artist], Bool) -> @core.Limits
 
+pub fn artist_minpos(Array[@render.Artist], Bool) -> Double
+
 pub fn panel_position(@render.Figure, Int) -> (Double, Double, Double, Double)?
 
 pub fn panel_view(@render.Figure, Int) -> ((Double, Double, Double, Double), @core.Limits, @core.Limits)? raise @core.DataError

@@ -48,6 +48,10 @@ fn SecondaryAxis::bind_numeric_locator_context(
   self : SecondaryAxis,
   locator : @ticker.Locator,
 ) -> Unit {
+  if locator is @ticker.Locator::NamedLog(value) {
+    self.bind_log_context(value)
+    return
+  }
   let value = match locator {
     @ticker.Locator::NamedMaxN(value) => value
     @ticker.Locator::NamedAuto(value) => value.as_maxn_locator()
@@ -55,4 +59,18 @@ fn SecondaryAxis::bind_numeric_locator_context(
   }
   value.bind_tick_space(() => self.get_tick_space())
   value.bind_view_interval(() => self.numeric_view_interval())
+}
+
+///|
+fn SecondaryAxis::bind_log_context(
+  self : SecondaryAxis,
+  value : @ticker.LogLocator,
+) -> Unit {
+  value.bind_tick_space(() => {
+    @ticker.LogTickSpace::from_integer(self.get_tick_space())
+  })
+  value.bind_view_interval(() => self.numeric_view_interval())
+  // A secondary axis transforms a view, but owns an empty dataLim.
+  value.bind_minpos(() => 1.0 / 0.0)
+  value.bind_shared_minpos(() => [1.0 / 0.0])
 }

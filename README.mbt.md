@@ -1263,6 +1263,23 @@ getter 保留邻接点，随后按变换后的范围去重；SVG 在绘制时另
 定位和格式化。旧 `auto_minor_locator` helper 保留原合同；完整参数、整数精度、引用所有权、
 上限与未迁移边界见 [AutoMinor/Null说明](testdata/auto_minor_locator_README.md)。
 
+命名 `LogLocator` 已接入主、次刻度和 secondary，D24 已通过四目标验收：
+
+```moonbit nocheck
+let major = try! @ticker.LogLocator::new()
+let minor = try! @ticker.LogLocator::new(subs=Some(@ticker.LogSubs::Text("auto")))
+try! fig.set_x_locator(major.as_locator())
+try! fig.axes().set_x_minor_locator(minor.as_minor_locator())
+```
+
+省略 `subs` 使用 `[1]`，显式 `subs=None` 选择自动次刻度；数值序列使用
+`LogSubs::Values(TickValues)`，保留 Float64 view 的共享。`LogNumTicks` 区分原始文本、
+Double 与任意精度整数；构造器捕获 classic 默认预算，查询继续读取当前 classic 和
+autolimit 配置。`tick_values` 使用所属轴的局部 minpos，`nonsingular` 和 `view_limits`
+使用共享轴 minpos；非正下界、倒置范围及错误传播保留各自查询顺序。
+普通 log helpers 的旧合同继续保留。参数、所有权、自动范围、数值精度和验收状态见
+[LogLocator说明](testdata/log_locator_README.md)；完整默认 Axis 生命周期仍在后续范围内。
+
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`
 及常见宽度/精度标志，`log_formatter`、`null_formatter` 和 `func_formatter` 分别用于对数、

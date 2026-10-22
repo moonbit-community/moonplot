@@ -1,0 +1,5548 @@
+{
+  "ticker_source_sha256": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+  "numpy_binary_sha256": "44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305",
+  "mathematical_oracle": "Exact Fraction integer power for |exponent|<=2048; otherwise exact binary64 base -> stabilized Decimal180/320 power -> nearest-even binary64. Fraction resolves exact halfway subnormal cases where finite Decimal precision can approach opposite sides.",
+  "source_oracle": "Actual base ** np.array([float64 exponent]) expression, and complete original LogLocator.tick_values AST. No original expected bit is rewritten.",
+  "source_profile_differences": [
+    {
+      "base": 0.9999999999999999,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000002,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": false
+    },
+    {
+      "base": 4.655841924295005e+108,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.147839244244577e-109,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.1478392442445767e-109,
+      "source_matches_mathematical": false
+    }
+  ],
+  "compatibility_boundary": "Portable integer powers deliberately require mathematical nearest-even rounding across all targets. Darwin libm is not always correctly rounded. Source values are retained separately and every known discrepancy asserts exact mathematical bits, never a tolerance or skipped comparison.",
+  "near_one_original_query": {
+    "base": 0.9999999999999999,
+    "bounds": [
+      1.0,
+      1.0
+    ],
+    "source_values": [
+      1.0,
+      1.0,
+      0.9999999999999999
+    ],
+    "mathematical_values": [
+      1.0000000000000002,
+      1.0,
+      0.9999999999999999
+    ]
+  },
+  "cases": [
+    {
+      "base": -10.0,
+      "exponent": -1075.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": -0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": -0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": -1074.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": -1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": -324.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": -308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-308,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-308,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": -100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-100,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-100,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": -6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-06,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-06,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": -4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0001,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0001,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": -3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": -0.001,
+      "exact_fraction_checked": true,
+      "source_array_power": -0.001,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": -2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.01,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.01,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": -0.1,
+      "exact_fraction_checked": true,
+      "source_array_power": -0.1,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": -10.0,
+      "exact_fraction_checked": true,
+      "source_array_power": -10.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": 2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 100.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 100.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": 3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": -1000.0,
+      "exact_fraction_checked": true,
+      "source_array_power": -1000.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": 4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 10000.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 10000.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": 6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1000000.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1000000.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": 100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e+100,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e+100,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": 308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e+308,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e+308,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -10.0,
+      "exponent": 1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": -1075.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": -5.03380647601406e-190,
+      "exact_fraction_checked": true,
+      "source_array_power": -5.03380647601406e-190,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": -1074.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 7.550709714021091e-190,
+      "exact_fraction_checked": true,
+      "source_array_power": 7.550709714021091e-190,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": -1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4.814494855534925e-181,
+      "exact_fraction_checked": true,
+      "source_array_power": 4.814494855534925e-181,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": -324.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 8.839588860806092e-58,
+      "exact_fraction_checked": true,
+      "source_array_power": 8.839588860806092e-58,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": -308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.806202933438532e-55,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.806202933438532e-55,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": -100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.4596544265798292e-18,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.4596544265798292e-18,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": -6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0877914951989026,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0877914951989026,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": -4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.19753086419753085,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.19753086419753085,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": -3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": -0.2962962962962963,
+      "exact_fraction_checked": true,
+      "source_array_power": -0.2962962962962963,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": -2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.4444444444444444,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.4444444444444444,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": -0.6666666666666666,
+      "exact_fraction_checked": true,
+      "source_array_power": -0.6666666666666666,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": -1.5,
+      "exact_fraction_checked": true,
+      "source_array_power": -1.5,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": 2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.25,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.25,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": 3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": -3.375,
+      "exact_fraction_checked": true,
+      "source_array_power": -3.375,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": 4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.0625,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.0625,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": 6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 11.390625,
+      "exact_fraction_checked": true,
+      "source_array_power": 11.390625,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": 100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4.065611775352152e+17,
+      "exact_fraction_checked": true,
+      "source_array_power": 4.065611775352152e+17,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": 308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.7222959849386164e+54,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.7222959849386164e+54,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": -1.5,
+      "exponent": 1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.0770611040332967e+180,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.0770611040332967e+180,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": -1075.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": -1074.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": -1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": -324.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": -308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": -100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": -6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": -4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": -3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": -2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5e-324,
+      "exact_fraction_checked": true,
+      "source_array_power": 5e-324,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": 2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": 3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": 4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": 6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": 100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": 308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5e-324,
+      "exponent": 1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": -1075.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": -1074.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": -1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": -324.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 3.417579257473456e+97,
+      "exact_fraction_checked": true,
+      "source_array_power": 3.417579257473456e+97,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": -308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.2148120994162844e+92,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.2148120994162844e+92,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": -100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.2676506002282294e+30,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.2676506002282294e+30,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": -6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 64.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 64.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": -4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 16.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 16.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": -3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 8.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 8.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": -2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 4.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.5,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.5,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": 2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.25,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.25,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": 3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.125,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.125,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": 4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0625,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0625,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": 6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.015625,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.015625,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": 100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 7.888609052210118e-31,
+      "exact_fraction_checked": true,
+      "source_array_power": 7.888609052210118e-31,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": 308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.9176146348819244e-93,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.9176146348819244e-93,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.5,
+      "exponent": 1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.562684646268003e-309,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.562684646268003e-309,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -1e+308,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": false,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -1e+100,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": false,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -9.223372036854776e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": false,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -6.393154322601328e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": false,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -6.387871561946855e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.000000000000053e+308,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.000000000000053e+308,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -4.986779963944082e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.7825594022073917e+240,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.7825594022073917e+240,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -4.937768279977892e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.205809754798887e+238,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.205809754798887e+238,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -3.5856883659413084e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 7.742636826811466e+172,
+      "exact_fraction_checked": false,
+      "source_array_power": 7.742636826811466e+172,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -3.482382237354456e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 8.088016450479954e+167,
+      "exact_fraction_checked": false,
+      "source_array_power": 8.088016450479954e+167,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -2.1845967679385352e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.1544346900319696e+105,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.1544346900319696e+105,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -2.02699619473102e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.425068908498176e+97,
+      "exact_fraction_checked": false,
+      "source_array_power": 5.425068908498176e+97,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -7.835051699357617e+17,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.994842503189566e+37,
+      "exact_fraction_checked": false,
+      "source_array_power": 5.994842503189566e+37,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -5.7161015210758406e+17,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 3.6388863502135055e+27,
+      "exact_fraction_checked": false,
+      "source_array_power": 3.6388863502135055e+27,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -6.221952820078106e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1000.0000000000001,
+      "exact_fraction_checked": false,
+      "source_array_power": 1000.0000000000001,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -5.530624728958316e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 464.1588833612779,
+      "exact_fraction_checked": false,
+      "source_array_power": 464.1588833612779,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -4.839296637838526e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 215.44346900318834,
+      "exact_fraction_checked": false,
+      "source_array_power": 215.44346900318834,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -4.147968546718737e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 99.99999999999999,
+      "exact_fraction_checked": false,
+      "source_array_power": 99.99999999999999,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -3.4566404555989476e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 46.41588833612779,
+      "exact_fraction_checked": false,
+      "source_array_power": 46.41588833612779,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -2.765312364479158e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 21.54434690031884,
+      "exact_fraction_checked": false,
+      "source_array_power": 21.54434690031884,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -2.0739842733593684e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 9.999999999999998,
+      "exact_fraction_checked": false,
+      "source_array_power": 9.999999999999998,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -1.382656182239579e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4.641588833612779,
+      "exact_fraction_checked": false,
+      "source_array_power": 4.641588833612779,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -9007199254740994.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.718281828459046,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.718281828459046,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -6913280911197895.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.154434690031884,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.154434690031884,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -1075.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000001195,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000001195,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -1074.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000001192,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000001192,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000001137,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000001137,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -324.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.000000000000036,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.000000000000036,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000342,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000342,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.000000000000011,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.000000000000011,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000007,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000007,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000004,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000004,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000004,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000004,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000002,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000002,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000002,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": false
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999999,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999999,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999998,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999998,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999997,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999997,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999996,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999996,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999993,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999993,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999889,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999889,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999658,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999658,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999998863,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999998863,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6913280911197895.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.46415888336127786,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.46415888336127786,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 9007199254740994.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.3678794411714422,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.3678794411714422,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 1.560828692041339e+17,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.980232238769559e-08,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.980232238769559e-08,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6.175864280670118e+17,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.668100537200079e-30,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.668100537200079e-30,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 8.837758905158518e+17,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.4407973600165763e-43,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.4407973600165763e-43,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 2.0186780260697853e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4.641588833612771e-98,
+      "exact_fraction_checked": false,
+      "source_array_power": 4.641588833612771e-98,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 2.3391619331392876e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.637174448252385e-113,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.637174448252385e-113,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 3.4197696240725586e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.2915496650149006e-165,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.2915496650149006e-165,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 3.794547975762724e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0981412131616473e-183,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.0981412131616473e-183,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 4.820861222075333e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 3.59381366380442e-233,
+      "exact_fraction_checked": false,
+      "source_array_power": 3.59381366380442e-233,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 5.24993401838616e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 7.365825464302021e-254,
+      "exact_fraction_checked": false,
+      "source_array_power": 7.365825464302021e-254,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6.221952820078106e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 9.999999999999853e-301,
+      "exact_fraction_checked": false,
+      "source_array_power": 9.999999999999853e-301,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6.275660291292716e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.572885843661214e-303,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.572885843661214e-303,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6.329367762507325e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 6.619741564513126e-306,
+      "exact_fraction_checked": false,
+      "source_array_power": 6.619741564513126e-306,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6.383075233721936e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.7031839360031807e-308,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.7031839360031807e-308,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6.436782704936545e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4.3820978380944e-311,
+      "exact_fraction_checked": false,
+      "source_array_power": 4.3820978380944e-311,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6.490490176151156e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.1274637493e-313,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.1274637493e-313,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6.544197647365765e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.90083554e-316,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.90083554e-316,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6.597905118580376e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 7.4635e-319,
+      "exact_fraction_checked": false,
+      "source_array_power": 7.4635e-319,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6.651612589794985e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.92e-321,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.92e-321,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6.705320061009595e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5e-324,
+      "exact_fraction_checked": false,
+      "source_array_power": 5e-324,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 6.759027532224206e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 7.623044418080879e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 8.160706103633031e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 9.223372036854776e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 1.1071478188879903e+19,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 1.3254557252815057e+19,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 1e+100,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 0.9999999999999999,
+      "exponent": 1e+308,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -1e+308,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -1e+100,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -9.90189722231026e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -9.223372036854776e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -6.627278626407529e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -4.171314679480481e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3.8990904339156137e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3.3828704830630164e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3.352660030504798e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5e-324,
+      "exact_fraction_checked": false,
+      "source_array_power": 5e-324,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3.32244957794658e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4.046e-321,
+      "exact_fraction_checked": false,
+      "source_array_power": 4.046e-321,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3.2922391253883617e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 3.31389e-318,
+      "exact_fraction_checked": false,
+      "source_array_power": 3.31389e-318,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3.262028672830144e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.71403479e-315,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.71403479e-315,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3.231818220271926e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.222758749483e-312,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.222758749483e-312,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3.2016077677137075e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.82041014165551e-309,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.82041014165551e-309,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3.17139731515549e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.4908919308537406e-306,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.4908919308537406e-306,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3.1411868625972716e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.221020856027333e-303,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.221020856027333e-303,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3.1109764100390533e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 9.999999999999868e-301,
+      "exact_fraction_checked": false,
+      "source_array_power": 9.999999999999868e-301,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3.080765957480835e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 8.189868298020194e-298,
+      "exact_fraction_checked": false,
+      "source_array_power": 8.189868298020194e-298,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -2.5340053815291156e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4.354126273026166e-245,
+      "exact_fraction_checked": false,
+      "source_array_power": 4.354126273026166e-245,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -2.322862386162493e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000371e-224,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.0000000000000371e-224,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -1.7153507325534326e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 3.8372260368717005e-166,
+      "exact_fraction_checked": false,
+      "source_array_power": 3.8372260368717005e-166,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -1.534748362285933e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 9.999999999999737e-149,
+      "exact_fraction_checked": false,
+      "source_array_power": 9.999999999999737e-149,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -8.966960835777498e+17,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 3.381689628356071e-87,
+      "exact_fraction_checked": false,
+      "source_array_power": 3.381689628356071e-87,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -7.466343384093727e+17,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000241e-72,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.0000000000000241e-72,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -7.804143460206694e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.9802322387695676e-08,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.9802322387695676e-08,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -9007199254740994.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.13533528323661267,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.13533528323661267,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3888720512548816.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.4216965034285823,
+      "exact_fraction_checked": false,
+      "source_array_power": 0.4216965034285823,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -1075.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999997613,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999997613,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -1074.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999997615,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999997615,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999997726,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999997726,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -324.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999281,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999281,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999316,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999316,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999778,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999778,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999987,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999987,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999991,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999991,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999993,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999993,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999996,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999996,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.9999999999999998,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.9999999999999998,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000002,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000002,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000004,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000004,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000007,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000007,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000009,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000009,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 5.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.000000000000001,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.000000000000001,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000013,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000013,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 7.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000016,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000016,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 8.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000018,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000018,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 9.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.000000000000002,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.000000000000002,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 10.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000022,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000022,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 11.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000024,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000024,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000222,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000222,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000684,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000000684,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000002274,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0000000000002274,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 3888720512548816.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.371373705661655,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.371373705661655,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 7777441025097632.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.623413251903489,
+      "exact_fraction_checked": false,
+      "source_array_power": 5.623413251903489,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 9007199254740994.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 7.389056098930652,
+      "exact_fraction_checked": false,
+      "source_array_power": 7.389056098930652,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 1.1666161537646448e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 13.335214321633234,
+      "exact_fraction_checked": false,
+      "source_array_power": 13.335214321633234,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 1.5554882050195264e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 31.62277660168378,
+      "exact_fraction_checked": false,
+      "source_array_power": 31.62277660168378,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 1.944360256274408e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 74.98942093324554,
+      "exact_fraction_checked": false,
+      "source_array_power": 74.98942093324554,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 2.3332323075292896e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 177.82794100389214,
+      "exact_fraction_checked": false,
+      "source_array_power": 177.82794100389214,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 2.722104358784171e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 421.6965034285819,
+      "exact_fraction_checked": false,
+      "source_array_power": 421.6965034285819,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 3.110976410039053e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 999.999999999999,
+      "exact_fraction_checked": false,
+      "source_array_power": 999.999999999999,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 3.4998484612939344e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2371.3737056616524,
+      "exact_fraction_checked": false,
+      "source_array_power": 2371.3737056616524,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 4.147968546718746e+16,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 10000.000000000176,
+      "exact_fraction_checked": false,
+      "source_array_power": 10000.000000000176,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 7.406132143736159e+17,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.6264338756951916e+71,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.6264338756951916e+71,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 8.295937093437476e+17,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000112e+80,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.0000000000000112e+80,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 1.5592678633492987e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.314636696315744e+150,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.314636696315744e+150,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 1.617707733220308e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000615e+156,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.0000000000000615e+156,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 2.377922512324982e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.0398545288004542e+229,
+      "exact_fraction_checked": false,
+      "source_array_power": 2.0398545288004542e+229,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 2.405821757096868e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 9.999999999999981e+231,
+      "exact_fraction_checked": false,
+      "source_array_power": 9.999999999999981e+231,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 3.193935780973428e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0000000000000485e+308,
+      "exact_fraction_checked": false,
+      "source_array_power": 1.0000000000000485e+308,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 3.1965771613006643e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": false,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 3.9820498048499886e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": false,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 4.015231810276347e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": false,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 6.471195757203396e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": false,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 9.223372036854776e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": false,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 9.745814353106127e+18,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": false,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 1e+100,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": false,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.0000000000000002,
+      "exponent": 1e+308,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": false,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": -1075.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.03380647601406e-190,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.03380647601406e-190,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": -1074.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 7.550709714021091e-190,
+      "exact_fraction_checked": true,
+      "source_array_power": 7.550709714021091e-190,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": -1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4.814494855534925e-181,
+      "exact_fraction_checked": true,
+      "source_array_power": 4.814494855534925e-181,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": -324.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 8.839588860806092e-58,
+      "exact_fraction_checked": true,
+      "source_array_power": 8.839588860806092e-58,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": -308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.806202933438532e-55,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.806202933438532e-55,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": -100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.4596544265798292e-18,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.4596544265798292e-18,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": -6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0877914951989026,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0877914951989026,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": -4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.19753086419753085,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.19753086419753085,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": -3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.2962962962962963,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.2962962962962963,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": -2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.4444444444444444,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.4444444444444444,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.6666666666666666,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.6666666666666666,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.5,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.5,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": 2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.25,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.25,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": 3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 3.375,
+      "exact_fraction_checked": true,
+      "source_array_power": 3.375,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": 4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.0625,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.0625,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": 6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 11.390625,
+      "exact_fraction_checked": true,
+      "source_array_power": 11.390625,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": 100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4.065611775352152e+17,
+      "exact_fraction_checked": true,
+      "source_array_power": 4.065611775352152e+17,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": 308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.7222959849386164e+54,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.7222959849386164e+54,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.5,
+      "exponent": 1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.0770611040332967e+180,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.0770611040332967e+180,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1248.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1080.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1075.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1074.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5e-324,
+      "exact_fraction_checked": true,
+      "source_array_power": 5e-324,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1071.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4e-323,
+      "exact_fraction_checked": true,
+      "source_array_power": 4e-323,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1062.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.0237e-320,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.0237e-320,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1053.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.036131e-317,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.036131e-317,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1044.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.304989477e-315,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.304989477e-315,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1035.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.716154612436e-312,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.716154612436e-312,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1026.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.390671161567e-309,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.390671161567e-309,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.562684646268003e-309,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.562684646268003e-309,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1017.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 7.120236347223045e-307,
+      "exact_fraction_checked": true,
+      "source_array_power": 7.120236347223045e-307,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1008.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 3.645561009778199e-304,
+      "exact_fraction_checked": true,
+      "source_array_power": 3.645561009778199e-304,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -999.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.8665272370064378e-301,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.8665272370064378e-301,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -996.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.4932217896051502e-300,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.4932217896051502e-300,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -990.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 9.556619453472961e-299,
+      "exact_fraction_checked": true,
+      "source_array_power": 9.556619453472961e-299,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -744.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0806454419566534e-224,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0806454419566534e-224,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -492.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 7.820637090558988e-149,
+      "exact_fraction_checked": true,
+      "source_array_power": 7.820637090558988e-149,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -324.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.926047721682624e-98,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.926047721682624e-98,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.9176146348819244e-93,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.9176146348819244e-93,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -240.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.659799424266695e-73,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.659799424266695e-73,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 7.888609052210118e-31,
+      "exact_fraction_checked": true,
+      "source_array_power": 7.888609052210118e-31,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.015625,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.015625,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0625,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0625,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.125,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.125,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.25,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.25,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.5,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.5,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 4.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 8.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 8.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 16.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 16.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 64.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 64.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 8.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 256.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 256.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 10.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1024.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1024.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 12.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4096.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 4096.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.2676506002282294e+30,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.2676506002282294e+30,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 264.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.9642774844752946e+79,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.9642774844752946e+79,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.2148120994162844e+92,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.2148120994162844e+92,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 516.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.1452492687908155e+155,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.1452492687908155e+155,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 768.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.552518092300709e+231,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.552518092300709e+231,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 1020.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.1235582092889474e+307,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.1235582092889474e+307,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 1023.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 8.98846567431158e+307,
+      "exact_fraction_checked": true,
+      "source_array_power": 8.98846567431158e+307,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 1025.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.0,
+      "exponent": 1272.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": -1075.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": -1074.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": -1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": -324.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.9435148500493263e-141,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.9435148500493263e-141,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": -308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.7270287755786585e-134,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.7270287755786585e-134,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": -100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 3.7200759760208555e-44,
+      "exact_fraction_checked": true,
+      "source_array_power": 3.7200759760208555e-44,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": -6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0024787521766663594,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0024787521766663594,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": -4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.018315638888734186,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.018315638888734186,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": -3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.04978706836786395,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.04978706836786395,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": -2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.1353352832366127,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.1353352832366127,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.36787944117144233,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.36787944117144233,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.718281828459045,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.718281828459045,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": 2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 7.3890560989306495,
+      "exact_fraction_checked": true,
+      "source_array_power": 7.3890560989306495,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": 3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 20.085536923187664,
+      "exact_fraction_checked": true,
+      "source_array_power": 20.085536923187664,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": 4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 54.59815003314423,
+      "exact_fraction_checked": true,
+      "source_array_power": 54.59815003314423,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": 5.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 148.41315910257657,
+      "exact_fraction_checked": true,
+      "source_array_power": 148.41315910257657,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": 6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 403.428793492735,
+      "exact_fraction_checked": true,
+      "source_array_power": 403.428793492735,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": 7.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1096.6331584284583,
+      "exact_fraction_checked": true,
+      "source_array_power": 1096.6331584284583,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": 100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.6881171418161212e+43,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.6881171418161212e+43,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": 308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.790291477135e+133,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.790291477135e+133,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 2.718281828459045,
+      "exponent": 1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -1075.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -1074.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -787.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -683.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -677.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-323,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-323,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -671.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 7.105e-321,
+      "exact_fraction_checked": true,
+      "source_array_power": 7.105e-321,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -665.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.180427e-318,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.180427e-318,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -659.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 3.776531746e-315,
+      "exact_fraction_checked": true,
+      "source_array_power": 3.776531746e-315,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -653.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.75309164258e-312,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.75309164258e-312,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -647.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.007003807441054e-309,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.007003807441054e-309,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -641.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.4631057756245283e-306,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.4631057756245283e-306,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -635.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0666041104302812e-303,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0666041104302812e-303,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -629.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 7.77554396503675e-301,
+      "exact_fraction_checked": true,
+      "source_array_power": 7.77554396503675e-301,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -628.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.332663189511025e-300,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.332663189511025e-300,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -623.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.668371550511791e-298,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.668371550511791e-298,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -469.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.6987580840979576e-224,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.6987580840979576e-224,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -324.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.5865058846772766e-155,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.5865058846772766e-155,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -310.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.2371177464728988e-148,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.2371177464728988e-148,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.113405971825609e-147,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.113405971825609e-147,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -151.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 9.00928939184922e-73,
+      "exact_fraction_checked": true,
+      "source_array_power": 9.00928939184922e-73,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.9403252174826328e-48,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.9403252174826328e-48,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0013717421124828531,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0013717421124828531,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.012345679012345678,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.012345679012345678,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.037037037037037035,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.037037037037037035,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.1111111111111111,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.1111111111111111,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.3333333333333333,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.3333333333333333,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 3.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 3.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 9.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 9.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 27.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 27.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 81.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 81.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 5.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 243.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 243.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 729.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 729.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 7.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2187.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 2187.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 8.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 6561.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 6561.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 9.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 19683.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 19683.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 10.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 59049.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 59049.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.153775207320113e+47,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.153775207320113e+47,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 167.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 4.778037326555936e+79,
+      "exact_fraction_checked": true,
+      "source_array_power": 4.778037326555936e+79,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 8.981449941033984e+146,
+      "exact_fraction_checked": true,
+      "source_array_power": 8.981449941033984e+146,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 326.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 3.479597728084407e+155,
+      "exact_fraction_checked": true,
+      "source_array_power": 3.479597728084407e+155,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 485.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.5340112522765627e+231,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.5340112522765627e+231,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 644.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.8453894755814917e+307,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.8453894755814917e+307,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 645.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.536168426744475e+307,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.536168426744475e+307,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 646.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.6608505280233425e+308,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.6608505280233425e+308,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 647.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 803.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 3.0,
+      "exponent": 1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5.0,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.2,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.2,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5.0,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5.0,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5.0,
+      "exponent": 2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 25.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 25.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5.0,
+      "exponent": 3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 125.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 125.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5.0,
+      "exponent": 4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 625.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 625.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 5.0,
+      "exponent": 5.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 3125.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 3125.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -1075.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -1074.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -376.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -324.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -321.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-321,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-321,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -318.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-318,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-318,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -315.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-315,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-315,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -312.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-312,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-312,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -309.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-309,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-309,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-308,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-308,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -306.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-306,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-306,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -303.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-303,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-303,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -300.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-300,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-300,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -297.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-297,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-297,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -224.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-224,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-224,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -148.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-148,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-148,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-100,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-100,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -72.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-72,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-72,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -12.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-12,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-12,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -11.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-11,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-11,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -10.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-10,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-10,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -9.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-09,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-09,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-06,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-06,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -5.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e-05,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e-05,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0001,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0001,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.001,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.001,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.01,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.01,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.1,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.1,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 10.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 10.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 100.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 100.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1000.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1000.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 10000.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 10000.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 5.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 100000.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 100000.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1000000.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1000000.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 7.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 10000000.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 10000000.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 8.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 100000000.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 100000000.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 9.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1000000000.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1000000000.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 10.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 10000000000.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 10000000000.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 11.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 100000000000.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 100000000000.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 12.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1000000000000.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1000000000000.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 80.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e+80,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e+80,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 99.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e+99,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e+99,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e+100,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e+100,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 101.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e+101,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e+101,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 156.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e+156,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e+156,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 232.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e+232,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e+232,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 299.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e+299,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e+299,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 300.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e+300,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e+300,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 301.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e+301,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e+301,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 307.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e+307,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e+307,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1e+308,
+      "exact_fraction_checked": true,
+      "source_array_power": 1e+308,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 309.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 384.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 10.0,
+      "exponent": 1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 62501.0,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.5999744004095935e-05,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.5999744004095935e-05,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 62501.0,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 62501.0,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 62501.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 62501.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 100001.0,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 9.99990000099999e-06,
+      "exact_fraction_checked": true,
+      "source_array_power": 9.99990000099999e-06,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 100001.0,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 100001.0,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 100001.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 100001.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 4.655841924295005e+108,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 2.147839244244577e-109,
+      "exact_fraction_checked": true,
+      "source_array_power": 2.1478392442445767e-109,
+      "source_matches_mathematical": false
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": -1075.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": -1074.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": -1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": -324.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": -308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": -100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": -6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": -4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": -3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": -2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 0.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 0.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": -1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 5.562684646268003e-309,
+      "exact_fraction_checked": true,
+      "source_array_power": 5.562684646268003e-309,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": 0.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.0,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.0,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": 1.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": 1.7976931348623157e+308,
+      "exact_fraction_checked": true,
+      "source_array_power": 1.7976931348623157e+308,
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": 2.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": 3.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": 4.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": 6.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": 100.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": 308.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    },
+    {
+      "base": 1.7976931348623157e+308,
+      "exponent": 1024.0,
+      "decimal_precisions": [
+        180,
+        320
+      ],
+      "mathematical": "inf",
+      "exact_fraction_checked": true,
+      "source_array_power": "inf",
+      "source_matches_mathematical": true
+    }
+  ]
+}

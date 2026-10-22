@@ -11,6 +11,8 @@ pub(all) enum TickPosition {
 ///|
 /// A coordinate axis with limits, tick formatting, and presentation settings.
 pub struct Axis {
+  priv mut minpos_provider : (() -> Double raise @core.DataError)?
+  priv mut shared_minpos_provider : (() -> Array[Double] raise @core.DataError)?
   priv mut data_interval_provider : (() -> (Double, Double))?
   priv mut tick_length_provider : (() -> Double)?
   priv mut numeric_view_provider : (() -> (Double, Double) raise @core.DataError)?
@@ -57,6 +59,8 @@ pub struct Axis {
 /// Construct an automatic axis.
 pub fn axis() -> Axis {
   {
+    minpos_provider: None,
+    shared_minpos_provider: None,
     data_interval_provider: None,
     tick_length_provider: None,
     numeric_view_provider: None,
@@ -1015,7 +1019,8 @@ pub fn Axis::tick_values(
     self.category is None &&
     self.locator
     is Some(
-      @ticker.Locator::Index(_)
+      @ticker.Locator::NamedLog(_)
+      | @ticker.Locator::Index(_)
       | @ticker.Locator::NamedMaxN(_)
       | @ticker.Locator::NamedAuto(_)
     ) {
@@ -1081,7 +1086,8 @@ pub fn Axis::minor_tick_values(
     self.minor_date_locator is None &&
     self.minor_locator
     is Some(
-      @ticker.MinorLocator::Null(_)
+      @ticker.MinorLocator::NamedLog(_)
+      | @ticker.MinorLocator::Null(_)
       | @ticker.MinorLocator::NamedAutoMinor(_)
       | @ticker.MinorLocator::NamedLinear(_)
       | @ticker.MinorLocator::Index(_)

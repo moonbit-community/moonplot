@@ -185,3 +185,15 @@ config 增加核心 bigint/debug 标准库导入，用于精确整数 rc 与公�
 刻度组跳过 getter/formatter。原源参考只依赖开发环境的固定 Python/NumPy，涵盖源 AST、
 Unicode15 整数转换及 NumPy 随机 signed-zero 代表观察；生产不引入 Python、NumPy 或 C。
 固定来源、typed 域与重现见[testdata/auto_minor_locator_README.md](testdata/auto_minor_locator_README.md)。
+
+## D24 命名对数定位器
+
+LogLocator 复用 TickValues、BigInt、数值舍入和既有 AutoLocator fallback；参数对象、
+原始网格、provider 与场景接线分别保存。局部/共享 minpos 复用 artist collector 和现有
+Grouper 所有权；箱线图按固定宽度 .6/cap .2 的实际端点收集范围，参考线/跨度只更新其
+数据坐标方向。Axis、secondary、contour 和 SVG 继续共用现有渲染链路。
+整数幂和新decade helper的ln使用自有BigInt定向区间与已有精确binary64舍入，跨目标采用
+正确舍入数学合同；Darwin libm非正确round的已知差异单独存原源/数学双值，不复制平台库。
+参考生成器仅在开发环境使用固定 Python/NumPy 执行原始 AST，包括完整 autoscale_view、
+Axis._set_lim、LogTransform 及真实 boxplot 路径；生产没有新增 Python、NumPy、C 或外部库。
+数值门禁状态与显式范围见[testdata/log_locator_README.md](testdata/log_locator_README.md)。

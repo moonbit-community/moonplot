@@ -6,6 +6,7 @@ pub fn SecondaryAxis::set_minor_locator(
 ) -> Unit {
   self.minor_locator = Some(locator.copy())
   match locator {
+    @ticker.MinorLocator::NamedLog(value) => self.bind_log_context(value)
     @ticker.MinorLocator::NamedAutoMinor(value) => {
       value.bind_scale(() => self.numeric_scale_name())
       value.bind_axis_name(() => {
@@ -78,7 +79,11 @@ fn SecondaryAxis::numeric_transform(
 ) -> Double {
   let primary = (self.inverse)(value)
   if self.parent_axis is Some(parent) && parent.scale().is_log() {
-    @scale.Scale::Log.transform(primary)
+    if primary <= 0.0 {
+      -1000.0
+    } else {
+      @scale.Scale::Log.transform(primary)
+    }
   } else {
     primary
   }
@@ -96,7 +101,8 @@ fn SecondaryAxis::major_tick_view_checked(
     Some(@ticker.Locator::NamedFixed(value)) =>
       return value.tick_values(0.0, 0.0)
     Some(locator) if locator
-      is (@ticker.Locator::Index(_)
+      is (@ticker.Locator::NamedLog(_)
+      | @ticker.Locator::Index(_)
       | @ticker.Locator::NamedMaxN(_)
       | @ticker.Locator::NamedAuto(_)) =>
       return locator.tick_view_for_axis(0.0, 0.0)
@@ -152,8 +158,14 @@ pub fn SecondaryAxis::minor_tick_values_checked(
     }
     return ticks
   }
-  if locator is @ticker.MinorLocator::NamedAutoMinor(value) {
-    let ticks = value.call()
+  if locator
+    is (@ticker.MinorLocator::NamedAutoMinor(_)
+    | @ticker.MinorLocator::NamedLog(_)) {
+    let ticks = match locator {
+      @ticker.MinorLocator::NamedAutoMinor(value) => value.call()
+      @ticker.MinorLocator::NamedLog(value) => value.call()
+      _ => []
+    }
     if !self.remove_minor_overlap {
       return ticks
     }

@@ -27,6 +27,8 @@ pub fn Axis::bind_locator_data(self : Axis, minor~ : Bool = false) -> Unit {
   }
   if minor {
     match self.minor_locator {
+      Some(@ticker.MinorLocator::NamedLog(value)) =>
+        self.bind_log_context(value)
       Some(@ticker.MinorLocator::NamedAutoMinor(value)) =>
         self.bind_auto_minor_context(value)
       Some(@ticker.MinorLocator::Index(value)) =>
@@ -39,6 +41,7 @@ pub fn Axis::bind_locator_data(self : Axis, minor~ : Bool = false) -> Unit {
     }
   } else {
     match self.locator {
+      Some(@ticker.Locator::NamedLog(value)) => self.bind_log_context(value)
       Some(@ticker.Locator::Index(value)) => value.bind_data_interval(provider)
       Some(@ticker.Locator::NamedMaxN(value)) => self.bind_maxn_context(value)
       Some(@ticker.Locator::NamedAuto(value)) =>
@@ -57,7 +60,8 @@ pub fn Axis::tick_values_checked(
   if self.fixed_ticks is None && self.category is None {
     if self.locator
       is Some(
-        @ticker.Locator::Null(_)
+        @ticker.Locator::NamedLog(_)
+        | @ticker.Locator::Null(_)
         | @ticker.Locator::NamedLinear(_)
         | @ticker.Locator::Index(_)
         | @ticker.Locator::NamedFixed(_)
@@ -95,7 +99,11 @@ pub fn Axis::minor_tick_values_checked(
       }
       return ticks
     }
-    if self.minor_locator is Some(@ticker.MinorLocator::NamedAutoMinor(value)) {
+    if self.minor_locator
+      is Some(
+        @ticker.MinorLocator::NamedAutoMinor(_)
+        | @ticker.MinorLocator::NamedLog(_)
+      ) {
       let limits = self.limits.unwrap_or(automatic)
       let previous = self.tick_layout_view
       if previous is None && self.numeric_view_provider is None {
@@ -105,7 +113,11 @@ pub fn Axis::minor_tick_values_checked(
         self.tick_layout_view = previous
       }
       // Source minor.call reads its own owner first. Axis overlap reads major again.
-      let ticks = value.call()
+      let ticks = match self.minor_locator.unwrap() {
+        @ticker.MinorLocator::NamedAutoMinor(value) => value.call()
+        @ticker.MinorLocator::NamedLog(value) => value.call()
+        _ => []
+      }
       if !self.remove_minor_overlap {
         return ticks
       }
@@ -178,7 +190,8 @@ fn Axis::major_tick_view_checked(
       Some(@ticker.Locator::Null(_)) =>
         return @ticker.TickValues::from_array([])
       Some(locator) if locator
-        is (@ticker.Locator::Index(_)
+        is (@ticker.Locator::NamedLog(_)
+        | @ticker.Locator::Index(_)
         | @ticker.Locator::NamedMaxN(_)
         | @ticker.Locator::NamedAuto(_)) =>
         return locator.tick_view_for_axis(0.0, 0.0)
@@ -203,12 +216,12 @@ fn Axis::filter_numeric_minor_ticks(
   lower : Double,
   upper : Double,
 ) -> Array[Double] {
-  let lo = self.scale.transform(lower)
-  let hi = self.scale.transform(upper)
+  let lo = self.minor_overlap_transform(lower)
+  let hi = self.minor_overlap_transform(upper)
   let tolerance = Double::abs(hi - lo) * 1.0e-5
-  let transformed_major = major.map(value => self.scale.transform(value))
+  let transformed_major = major.map(value => self.minor_overlap_transform(value))
   ticks.filter(value => {
-    let transformed = self.scale.transform(value)
+    let transformed = self.minor_overlap_transform(value)
     !transformed_major.any(other => {
       transformed == other || Double::abs(transformed - other) <= tolerance
     })
@@ -222,5 +235,15 @@ pub fn Axis::tick_group_is_null(self : Axis, minor~ : Bool = false) -> Bool {
     self.minor_locator is Some(@ticker.MinorLocator::Null(_))
   } else {
     self.locator is Some(@ticker.Locator::Null(_))
+  }
+}
+
+///|
+// Source LogTransform uses nonpositive="clip" for tick overlap coordinates.
+fn Axis::minor_overlap_transform(self : Axis, value : Double) -> Double {
+  if self.scale.is_log() && value <= 0.0 {
+    -1000.0
+  } else {
+    self.scale.transform(value)
   }
 }

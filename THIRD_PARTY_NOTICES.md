@@ -327,3 +327,16 @@ implementation, Python runtime or additional third-party library is distributed.
 Matplotlib's license and notice above apply. Pinned hashes, source observations,
 typed boundaries and reproduction commands are in
 [testdata/auto_minor_locator_README.md](testdata/auto_minor_locator_README.md).
+
+## Named logarithmic locator
+
+LogLocator follows the pinned Matplotlib class and decade helpers, preserving
+ordered updates, live owner providers, local/shared minpos and array/scalar
+arithmetic distinctions. Independent references execute original locator,
+Axis overlap, Bbox, LogTransform, complete autoscale/limit and boxplot bodies.
+The scene integration reuses the existing artist collector and rendering chain.
+Matplotlib's license and notice above apply. Pinned hashes, typed boundaries,
+numeric verification status and reproduction commands are documented in
+[testdata/log_locator_README.md](testdata/log_locator_README.md).
+No upstream C implementation, Python runtime or additional third-party library
+is distributed.

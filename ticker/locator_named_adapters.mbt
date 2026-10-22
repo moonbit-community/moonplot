@@ -85,6 +85,7 @@ pub fn Locator::checked_tick_values(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    NamedLog(value) => value.tick_values(lower, upper)
     Null(value) => value.tick_values(lower, upper)
     NamedMaxN(value) => {
       let ticks = value.tick_values(lower, upper)
@@ -118,6 +119,7 @@ pub fn Locator::tick_values_for_axis(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    NamedLog(value) => value.call()
     Index(value) => value.call()
     NamedMaxN(value) => value.call()
     NamedAuto(value) => value.call()
@@ -150,6 +152,7 @@ pub fn MinorLocator::checked_tick_values(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   let values = match self {
+    NamedLog(value) => return value.tick_values(lower, upper)
     Null(value) => return value.tick_values(lower, upper)
     NamedAutoMinor(value) => return value.tick_values(lower, upper)
     NamedMaxN(value) => value.as_locator().checked_tick_values(lower, upper)
@@ -170,6 +173,7 @@ pub fn MinorLocator::tick_values_for_axis(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    NamedLog(value) => value.call()
     Null(value) => value.call()
     NamedAutoMinor(value) => value.call()
     Index(value) => named_minor_values(value.call(), major, lower, upper)
@@ -234,5 +238,31 @@ pub fn Locator::tick_view_for_axis(
     NamedFixed(value) => value.tick_values(lower, upper)
     NamedLinear(value) => value.tick_values(lower, upper)
     _ => TickValues::from_array(self.tick_values_for_axis(lower, upper))
+  }
+}
+
+///|
+pub fn LogLocator::as_locator(self : LogLocator) -> Locator {
+  NamedLog(self)
+}
+
+///|
+pub fn LogLocator::as_minor_locator(self : LogLocator) -> MinorLocator {
+  NamedLog(self)
+}
+
+///|
+pub fn Locator::log_locator(self : Locator) -> LogLocator? {
+  match self {
+    NamedLog(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn MinorLocator::log_locator(self : MinorLocator) -> LogLocator? {
+  match self {
+    NamedLog(value) => Some(value)
+    _ => None
   }
 }

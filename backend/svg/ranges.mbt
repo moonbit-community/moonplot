@@ -26,6 +26,36 @@ fn include_point(scale : Scale, p : @core.Point) -> Scale {
 }
 
 ///|
+// Blended reference artists contribute only their data-coordinate dimension.
+fn include_data_coordinate(
+  scale : Scale,
+  value : Double,
+  horizontal : Bool,
+) -> Scale {
+  let axis_scale = if horizontal {
+    scale.x_axis_scale
+  } else {
+    scale.y_axis_scale
+  }
+  if !axis_scale.is_valid(value) {
+    return scale
+  }
+  if horizontal {
+    {
+      ..scale,
+      xmin: Double::min(scale.xmin, value),
+      xmax: Double::max(scale.xmax, value),
+    }
+  } else {
+    {
+      ..scale,
+      ymin: Double::min(scale.ymin, value),
+      ymax: Double::max(scale.ymax, value),
+    }
+  }
+}
+
+///|
 fn include_artist(scale : Scale, artist : @render.Artist) -> Scale {
   match artist {
     @render.Artist::Line(points, _) =>
@@ -63,11 +93,23 @@ fn include_artist(scale : Scale, artist : @render.Artist) -> Scale {
     }
     @render.Artist::GouraudTriangle(points, _) =>
       points.fold(init=scale, (current, p) => include_point(current, p))
-    @render.Artist::HLine(_, _) => scale
-    @render.Artist::VLine(_, _) => scale
+    @render.Artist::HLine(value, _) =>
+      include_data_coordinate(scale, value, false)
+    @render.Artist::VLine(value, _) =>
+      include_data_coordinate(scale, value, true)
     @render.Artist::AxLine(point, _, _) => include_point(scale, point)
-    @render.Artist::HSpan(_, _, _) => scale
-    @render.Artist::VSpan(_, _, _) => scale
+    @render.Artist::HSpan(lower, upper, _) =>
+      include_data_coordinate(
+        include_data_coordinate(scale, lower, false),
+        upper,
+        false,
+      )
+    @render.Artist::VSpan(lower, upper, _) =>
+      include_data_coordinate(
+        include_data_coordinate(scale, lower, true),
+        upper,
+        true,
+      )
     @render.Artist::Text(_, _, _, _) => scale
     @render.Artist::Annotation(_) => scale
     @render.Artist::ErrorBar(points, yerr, xerr, _) => {
@@ -108,6 +150,16 @@ fn include_artist(scale : Scale, artist : @render.Artist) -> Scale {
             result,
             @core.point(stat.upper_whisker(), position),
           )
+          for coordinate in [stat.q1(), stat.q3(), stat.median()] {
+            result = include_point(
+              result,
+              @core.point(coordinate, position - 0.3),
+            )
+            result = include_point(
+              result,
+              @core.point(coordinate, position + 0.3),
+            )
+          }
           for flier in stat.fliers() {
             result = include_point(result, @core.point(flier, position))
           }
@@ -120,6 +172,16 @@ fn include_artist(scale : Scale, artist : @render.Artist) -> Scale {
             result,
             @core.point(position, stat.upper_whisker()),
           )
+          for coordinate in [stat.q1(), stat.q3(), stat.median()] {
+            result = include_point(
+              result,
+              @core.point(position - 0.3, coordinate),
+            )
+            result = include_point(
+              result,
+              @core.point(position + 0.3, coordinate),
+            )
+          }
           for flier in stat.fliers() {
             result = include_point(result, @core.point(position, flier))
           }
@@ -387,7 +449,26 @@ fn raw_scale(panel : @render.Panel) -> Scale {
         x_axis_scale,
         y_axis_scale,
       }
-    None => artist_data_scale(panel)
+    None => {
+      let data = artist_data_scale(panel)
+      let x = if panel.x_axis().has_named_log_locator() {
+        artist_data_interval(panel.artists(), true)
+      } else {
+        @core.limits(data.xmin, data.xmax)
+      }
+      let y = if panel.y_axis().has_named_log_locator() {
+        artist_data_interval(panel.artists(), false)
+      } else {
+        @core.limits(data.ymin, data.ymax)
+      }
+      {
+        ..data,
+        xmin: x.lower(),
+        xmax: x.upper(),
+        ymin: y.lower(),
+        ymax: y.upper(),
+      }
+    }
   }
   let with_x = match panel.x_axis().limits() {
     Some(limits) => { ..base, xmin: limits.lower(), xmax: limits.upper(), }
@@ -507,14 +588,46 @@ fn compute_scale(
 ) -> Scale raise @core.DataError {
   let target = figure.panels()[target_index]
   let raw = grouped_raw_scale(figure, target_index)
-  let date_x = target.x_axis().date_nonsingular_bounds(raw.xmin, raw.xmax)
-  let date_y = target.y_axis().date_nonsingular_bounds(raw.ymin, raw.ymax)
-  let date_x = target
-    .x_axis()
-    .numeric_nonsingular_bounds(date_x.lower(), date_x.upper())
-  let date_y = target
-    .y_axis()
-    .numeric_nonsingular_bounds(date_y.lower(), date_y.upper())
+  let x_axis = target.x_axis()
+  let y_axis = target.y_axis()
+  let x_log = x_axis.has_named_log_locator()
+  let y_log = y_axis.has_named_log_locator()
+  let x_active = x_log &&
+    group_limit(figure, target_index, true) is None &&
+    x_axis.current_view_limits() is None
+  let y_active = y_log &&
+    group_limit(figure, target_index, false) is None &&
+    y_axis.current_view_limits() is None
+  let date_x = if x_log {
+    @core.limits(raw.xmin, raw.xmax)
+  } else {
+    x_axis.date_nonsingular_bounds(raw.xmin, raw.xmax)
+  }
+  let date_y = if y_log {
+    @core.limits(raw.ymin, raw.ymax)
+  } else {
+    y_axis.date_nonsingular_bounds(raw.ymin, raw.ymax)
+  }
+  let date_x = if x_log && !x_active {
+    date_x
+  } else {
+    x_axis.numeric_nonsingular_bounds_checked(date_x.lower(), date_x.upper())
+  }
+  let date_y = if y_log && !y_active {
+    date_y
+  } else {
+    y_axis.numeric_nonsingular_bounds_checked(date_y.lower(), date_y.upper())
+  }
+  let date_x = if x_active {
+    log_scale_limit_checked(x_axis, date_x)
+  } else {
+    date_x
+  }
+  let date_y = if y_active {
+    log_scale_limit_checked(y_axis, date_y)
+  } else {
+    date_y
+  }
   let normalized = normalize_auto_scale(
     {
       ..raw,
@@ -528,6 +641,30 @@ fn compute_scale(
     image_sticky_edges(figure, target_index, true),
     image_sticky_edges(figure, target_index, false),
   )
+  let normalized = if x_active {
+    let (lower, upper) = normalize_axis_bounds(
+      date_x.lower(),
+      date_x.upper(),
+      raw.x_axis_scale,
+      target.x_margin(),
+      image_sticky_edges(figure, target_index, true),
+    )
+    { ..normalized, xmin: lower, xmax: upper, }
+  } else {
+    normalized
+  }
+  let normalized = if y_active {
+    let (lower, upper) = normalize_axis_bounds(
+      date_y.lower(),
+      date_y.upper(),
+      raw.y_axis_scale,
+      target.y_margin(),
+      image_sticky_edges(figure, target_index, false),
+    )
+    { ..normalized, ymin: lower, ymax: upper, }
+  } else {
+    normalized
+  }
   let x_view = match group_limit(figure, target_index, true) {
     Some(limits) =>
       target.x_axis().date_nonsingular_bounds(limits.lower(), limits.upper())
@@ -543,6 +680,19 @@ fn compute_scale(
       target
       .y_axis()
       .view_limits_checked(@core.limits(normalized.ymin, normalized.ymax))
+  }
+  let x_view = if x_active {
+    finalize_log_view_checked(x_axis, x_view)
+  } else {
+    x_view
+  }
+  let y_view = if y_active {
+    finalize_log_view_checked(y_axis, y_view)
+  } else {
+    y_view
+  }
+  if (x_log && !x_view.is_finite()) || (y_log && !y_view.is_finite()) {
+    raise @core.DataError::NonFiniteLimit(axis="log view")
   }
   {
     ..normalized,
@@ -562,4 +712,83 @@ fn compute_scales(
     result.push(resolve_panel_scale(figure, index))
   }
   result
+}
+
+///|
+// Autoscale separately reads the shared axes' minpos after locator.nonsingular.
+fn log_scale_limit_checked(
+  axis : @axis.Axis,
+  limits : @core.Limits,
+) -> @core.Limits raise @core.DataError {
+  let values = axis.shared_minpos_checked()
+  if values.is_empty() {
+    raise @core.DataError::InvalidTicks(
+      message="shared log axis has no minimum positive data",
+    )
+  }
+  let mut minpos = values[0]
+  for value in values {
+    if value < minpos {
+      minpos = value
+    }
+  }
+  if minpos.is_nan() || minpos.is_inf() {
+    minpos = 1.0e-300
+  }
+  if axis.scale().is_log() {
+    @core.limits(
+      if limits.lower() <= 0.0 {
+        minpos
+      } else {
+        limits.lower()
+      },
+      if limits.upper() <= 0.0 {
+        minpos
+      } else {
+        limits.upper()
+      },
+    )
+  } else {
+    limits
+  }
+}
+
+///|
+// Match the locator/scale work performed by Axis._set_lim after set_bound.
+fn finalize_log_view_checked(
+  axis : @axis.Axis,
+  limits : @core.Limits,
+) -> @core.Limits raise @core.DataError {
+  if !limits.is_finite() {
+    raise @core.DataError::NonFiniteLimit(axis="log view")
+  }
+  let descending = limits.lower() > limits.upper()
+  let bounds = axis.numeric_nonsingular_bounds_checked(
+    limits.lower(),
+    limits.upper(),
+  )
+  let mut minpos = axis.get_minpos()
+  if minpos.is_nan() || minpos.is_inf() {
+    minpos = 1.0e-300
+  }
+  let lower = if axis.scale().is_log() && bounds.lower() <= 0.0 {
+    minpos
+  } else {
+    bounds.lower()
+  }
+  let upper = if axis.scale().is_log() && bounds.upper() <= 0.0 {
+    minpos
+  } else {
+    bounds.upper()
+  }
+  let (lower, upper) = if upper < lower {
+    (upper, lower)
+  } else {
+    (lower, upper)
+  }
+  if descending {
+    @core.limits(upper, lower)
+  } else {
+    @core.limits(lower, upper)
+  }
 }

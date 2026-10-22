@@ -4,6 +4,7 @@ package "mathplotlib/mathplotlib/ticker"
 import {
   "mathplotlib/mathplotlib/config",
   "mathplotlib/mathplotlib/core",
+  "moonbitlang/core/bigint",
   "moonbitlang/core/debug",
 }
 
@@ -181,6 +182,7 @@ pub fn LinearLocatorPresets::set(Self, Double, Double, Array[Double]) -> Unit
 pub fn LinearLocatorPresets::set_view(Self, Double, Double, TickValues) -> Unit
 
 pub(all) enum Locator {
+  NamedLog(LogLocator)
   Null(NullLocator)
   NamedMaxN(MaxNLocator)
   NamedAuto(AutoLocator)
@@ -201,12 +203,64 @@ pub fn Locator::fixed_locator(Self) -> FixedLocator?
 pub fn Locator::fixed_values(Self) -> Array[Double]
 pub fn Locator::index_locator(Self) -> IndexLocator?
 pub fn Locator::linear_locator(Self) -> LinearLocator?
+pub fn Locator::log_locator(Self) -> LogLocator?
 pub fn Locator::maxn_locator(Self) -> MaxNLocator?
 pub fn Locator::multiple_locator(Self) -> MultipleLocator?
 pub fn Locator::null_locator(Self) -> NullLocator?
 pub fn Locator::tick_values(Self, Double, Double) -> Array[Double]
 pub fn Locator::tick_values_for_axis(Self, Double, Double) -> Array[Double] raise @core.DataError
 pub fn Locator::tick_view_for_axis(Self, Double, Double) -> TickValues raise @core.DataError
+
+pub struct LogLocator {
+  // private fields
+}
+pub fn LogLocator::as_locator(Self) -> Locator
+pub fn LogLocator::as_minor_locator(Self) -> MinorLocator
+pub fn LogLocator::base(Self) -> Double
+pub fn LogLocator::bind_minpos(Self, () -> Double raise @core.DataError) -> Unit
+pub fn LogLocator::bind_shared_minpos(Self, () -> Array[Double] raise @core.DataError) -> Unit
+pub fn LogLocator::bind_tick_space(Self, () -> LogTickSpace raise @core.DataError) -> Unit
+pub fn LogLocator::bind_view_interval(Self, () -> (Double, Double) raise @core.DataError) -> Unit
+pub fn LogLocator::call(Self) -> Array[Double] raise @core.DataError
+pub fn LogLocator::copy(Self) -> Self
+pub fn LogLocator::minpos_provider(Self) -> (() -> Double raise @core.DataError)?
+pub fn LogLocator::new(base? : Double, subs? : LogSubs?, numticks? : LogNumTicks?) -> Self raise @core.DataError
+pub fn LogLocator::nonsingular(Self, Double, Double) -> (Double, Double) raise @core.DataError
+pub fn LogLocator::numticks(Self) -> LogNumTicks
+pub fn LogLocator::set_numticks(Self, LogNumTicks) -> Unit
+pub fn LogLocator::set_params(Self, base? : Double?, subs? : LogSubs?, numticks? : LogNumTicks?) -> Unit raise @core.DataError
+pub fn LogLocator::shared_minpos_provider(Self) -> (() -> Array[Double] raise @core.DataError)?
+pub fn LogLocator::subs(Self) -> LogSubs
+pub fn LogLocator::tick_space_provider(Self) -> (() -> LogTickSpace raise @core.DataError)?
+pub fn LogLocator::tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
+pub fn LogLocator::view_interval_provider(Self) -> (() -> (Double, Double) raise @core.DataError)?
+pub fn LogLocator::view_limits(Self, Double, Double) -> (Double, Double) raise @core.DataError
+pub fn LogLocator::warnings(Self) -> Array[String]
+
+pub(all) enum LogNumTicks {
+  Text(String)
+  Number(Double)
+  Integer(@bigint.BigInt)
+} derive(Eq, @debug.Debug)
+pub fn LogNumTicks::equal(Self, Self) -> Bool
+pub fn LogNumTicks::not_equal(Self, Self) -> Bool
+pub fn LogNumTicks::to_repr(Self) -> @debug.Repr
+
+pub(all) enum LogSubs {
+  Text(String)
+  Values(TickValues)
+}
+pub fn LogSubs::to_repr(Self) -> @debug.Repr
+pub impl @debug.Debug for LogSubs
+
+pub(all) enum LogTickSpace {
+  Integer(@bigint.BigInt)
+  Number(Double)
+} derive(Eq, @debug.Debug)
+pub fn LogTickSpace::equal(Self, Self) -> Bool
+pub fn LogTickSpace::from_integer(Double) -> Self raise @core.DataError
+pub fn LogTickSpace::not_equal(Self, Self) -> Bool
+pub fn LogTickSpace::to_repr(Self) -> @debug.Repr
 
 pub(all) enum MaxNBins {
   Auto
@@ -241,6 +295,7 @@ pub fn MaxNLocator::view_interval_provider(Self) -> (() -> (Double, Double) rais
 pub fn MaxNLocator::view_limits(Self, Double, Double) -> (Double, Double) raise @core.DataError
 
 pub(all) enum MinorLocator {
+  NamedLog(LogLocator)
   Null(NullLocator)
   NamedAutoMinor(AutoMinorLocator)
   NamedMaxN(MaxNLocator)
@@ -260,6 +315,7 @@ pub fn MinorLocator::copy(Self) -> Self
 pub fn MinorLocator::fixed_locator(Self) -> FixedLocator?
 pub fn MinorLocator::index_locator(Self) -> IndexLocator?
 pub fn MinorLocator::linear_locator(Self) -> LinearLocator?
+pub fn MinorLocator::log_locator(Self) -> LogLocator?
 pub fn MinorLocator::maxn_locator(Self) -> MaxNLocator?
 pub fn MinorLocator::multiple_locator(Self) -> MultipleLocator?
 pub fn MinorLocator::null_locator(Self) -> NullLocator?
