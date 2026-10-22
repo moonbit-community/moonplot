@@ -6,6 +6,8 @@
 /// spaced linear levels, a MaxN-style "nice" level set, an explicit fixed set,
 /// or logarithmic levels.
 pub(all) enum Locator {
+  NamedMaxN(MaxNLocator)
+  NamedAuto(AutoLocator)
   NamedLinear(LinearLocator)
   Index(IndexLocator)
   NamedFixed(FixedLocator)
@@ -25,6 +27,8 @@ pub(all) enum Locator {
 ///|
 /// A minor tick generator used between major locator values.
 pub(all) enum MinorLocator {
+  NamedMaxN(MaxNLocator)
+  NamedAuto(AutoLocator)
   NamedLinear(LinearLocator)
   Index(IndexLocator)
   NamedFixed(FixedLocator)
@@ -189,7 +193,7 @@ pub fn Locator::tick_values(
   upper : Double,
 ) -> Array[Double] {
   match self {
-    NamedLinear(_) | Index(_) | NamedFixed(_) =>
+    NamedMaxN(_) | NamedAuto(_) | NamedLinear(_) | Index(_) | NamedFixed(_) =>
       return self.checked_tick_values(lower, upper) catch { _ => [] }
     _ => ()
   }
@@ -200,7 +204,11 @@ pub fn Locator::tick_values(
   let last = Double::max(lower, upper)
   let ascending = lower <= upper
   match self {
-    Locator::NamedLinear(_) | Locator::Index(_) | Locator::NamedFixed(_) => []
+    Locator::NamedMaxN(_)
+    | Locator::NamedAuto(_)
+    | Locator::NamedLinear(_)
+    | Locator::Index(_)
+    | Locator::NamedFixed(_) => []
     Locator::Multiple(value) => {
       let values = value.tick_values(first, last) catch { _ => [] }
       if ascending {
@@ -363,7 +371,7 @@ pub fn MinorLocator::tick_values(
   upper : Double,
 ) -> Array[Double] {
   match self {
-    NamedLinear(_) | Index(_) | NamedFixed(_) =>
+    NamedMaxN(_) | NamedAuto(_) | NamedLinear(_) | Index(_) | NamedFixed(_) =>
       return self.checked_tick_values(major, lower, upper) catch { _ => [] }
     _ => ()
   }
@@ -374,7 +382,9 @@ pub fn MinorLocator::tick_values(
   let last = Double::max(lower, upper)
   let result : Array[Double] = []
   match self {
-    MinorLocator::NamedLinear(_)
+    MinorLocator::NamedMaxN(_)
+    | MinorLocator::NamedAuto(_)
+    | MinorLocator::NamedLinear(_)
     | MinorLocator::Index(_)
     | MinorLocator::NamedFixed(_) => ()
     MinorLocator::Multiple(value) => {
@@ -440,6 +450,8 @@ pub fn MinorLocator::tick_values(
 /// Use the named object copy() method for a separate parameter configuration.
 pub fn Locator::copy(self : Locator) -> Locator {
   match self {
+    Locator::NamedMaxN(value) => Locator::NamedMaxN(value)
+    Locator::NamedAuto(value) => Locator::NamedAuto(value)
     Locator::NamedLinear(value) => Locator::NamedLinear(value)
     Locator::Index(value) => Locator::Index(value)
     Locator::NamedFixed(value) => Locator::NamedFixed(value)
@@ -458,6 +470,8 @@ pub fn Locator::copy(self : Locator) -> Locator {
 /// Copy arrays while retaining live named locator handles.
 pub fn MinorLocator::copy(self : MinorLocator) -> MinorLocator {
   match self {
+    MinorLocator::NamedMaxN(value) => MinorLocator::NamedMaxN(value)
+    MinorLocator::NamedAuto(value) => MinorLocator::NamedAuto(value)
     MinorLocator::NamedLinear(value) => MinorLocator::NamedLinear(value)
     MinorLocator::Index(value) => MinorLocator::Index(value)
     MinorLocator::NamedFixed(value) => MinorLocator::NamedFixed(value)

@@ -8,6 +8,8 @@ import {
 // Values
 pub fn axes_autolimit_mode() -> String
 
+pub fn classic_mode() -> Bool
+
 pub fn color_cycle() -> Array[String]
 
 pub fn date_autoformats() -> Array[String]
@@ -31,6 +33,8 @@ pub fn rc_params() -> RcParams
 pub fn reset() -> Unit
 
 pub fn set_axes_autolimit_mode(String) -> Unit raise @core.DataError
+
+pub fn set_classic_mode(Bool) -> Unit
 
 pub fn set_color_cycle(Array[String]) -> Unit raise @core.DataError
 
@@ -70,6 +74,7 @@ pub struct RcParams {
   // private fields
 }
 pub fn RcParams::axes_autolimit_mode(Self) -> String
+pub fn RcParams::classic_mode(Self) -> Bool
 pub fn RcParams::color_cycle(Self) -> Array[String]
 pub fn RcParams::date_autoformats(Self) -> Array[String]
 pub fn RcParams::date_autoformatter(Self, String) -> String raise @core.DataError

@@ -297,7 +297,7 @@ fn contour_levels(
     let (lower, upper) = contour_data_limits(data)
     match locator {
       Some(locator) => {
-        let resolved = locator.tick_values(lower, upper)
+        let resolved = locator.checked_tick_values(lower, upper)
         if resolved.length() == 0 {
           raise @core.DataError::InvalidContour(
             message="contour locator produced no finite levels",

@@ -1,6 +1,7 @@
 ///|
 /// Mutable defaults shared by newly created figures and axes.
 pub struct RcParams {
+  priv mut classic_mode : Bool
   priv mut axes_autolimit_mode : String
   priv mut timezone : String
   priv mut date_converter : String
@@ -26,6 +27,7 @@ fn tab10() -> Array[String] {
 ///|
 fn default_rc_params() -> RcParams {
   {
+    classic_mode: false,
     axes_autolimit_mode: "data",
     timezone: "UTC",
     date_converter: "auto",
@@ -76,6 +78,7 @@ fn validate_color_cycle(colors : Array[String]) -> Unit raise @core.DataError {
 pub fn rc_params() -> RcParams {
   let value = current.val
   {
+    classic_mode: value.classic_mode,
     axes_autolimit_mode: value.axes_autolimit_mode,
     timezone: value.timezone,
     date_converter: value.date_converter,

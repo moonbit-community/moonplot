@@ -1,0 +1,2287 @@
+{
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "numpy_core_sha256": "44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305",
+  "ticker_source_sha256": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+  "profile": "NumPy int64 scalar assignment; public reads/materialization project to binary64; signed/zero/nested views and copy retain Int64 storage",
+  "boundaries": "Only Float64/Int64 storage and Python-float scalar writes; not arbitrary NumPy dtypes, broadcasting or unsafe casts. MaxN fixtures include source-accepted Int64 diff/multiplication wrap at extreme interior values, endpoint completion and Float64 validation differences; Fixed uses exact Int64 absolute/minimum comparisons, including wrapped minimum.",
+  "scalar_assignments": [
+    {
+      "value": 1.25,
+      "source_error": null,
+      "owner": [
+        1,
+        8
+      ],
+      "integer_projection": [
+        1.0,
+        8.0
+      ],
+      "floating_values": [
+        1.25,
+        8.0
+      ]
+    },
+    {
+      "value": -1.25,
+      "source_error": null,
+      "owner": [
+        -1,
+        8
+      ],
+      "integer_projection": [
+        -1.0,
+        8.0
+      ],
+      "floating_values": [
+        -1.25,
+        8.0
+      ]
+    },
+    {
+      "value": 0.999,
+      "source_error": null,
+      "owner": [
+        0,
+        8
+      ],
+      "integer_projection": [
+        0.0,
+        8.0
+      ],
+      "floating_values": [
+        0.999,
+        8.0
+      ]
+    },
+    {
+      "value": -0.999,
+      "source_error": null,
+      "owner": [
+        0,
+        8
+      ],
+      "integer_projection": [
+        0.0,
+        8.0
+      ],
+      "floating_values": [
+        -0.999,
+        8.0
+      ]
+    },
+    {
+      "value": 0.0,
+      "source_error": null,
+      "owner": [
+        0,
+        8
+      ],
+      "integer_projection": [
+        0.0,
+        8.0
+      ],
+      "floating_values": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "value": -0.0,
+      "source_error": null,
+      "owner": [
+        0,
+        8
+      ],
+      "integer_projection": [
+        0.0,
+        8.0
+      ],
+      "floating_values": [
+        -0.0,
+        8.0
+      ]
+    },
+    {
+      "value": 2.5,
+      "source_error": null,
+      "owner": [
+        2,
+        8
+      ],
+      "integer_projection": [
+        2.0,
+        8.0
+      ],
+      "floating_values": [
+        2.5,
+        8.0
+      ]
+    },
+    {
+      "value": -2.5,
+      "source_error": null,
+      "owner": [
+        -2,
+        8
+      ],
+      "integer_projection": [
+        -2.0,
+        8.0
+      ],
+      "floating_values": [
+        -2.5,
+        8.0
+      ]
+    },
+    {
+      "value": 9.223372036854775e+18,
+      "source_error": null,
+      "owner": [
+        9223372036854774784,
+        8
+      ],
+      "integer_projection": [
+        9.223372036854775e+18,
+        8.0
+      ],
+      "floating_values": [
+        9.223372036854775e+18,
+        8.0
+      ]
+    },
+    {
+      "value": -9.223372036854776e+18,
+      "source_error": null,
+      "owner": [
+        -9223372036854775808,
+        8
+      ],
+      "integer_projection": [
+        -9.223372036854776e+18,
+        8.0
+      ],
+      "floating_values": [
+        -9.223372036854776e+18,
+        8.0
+      ]
+    },
+    {
+      "value": 9.223372036854776e+18,
+      "source_error": "OverflowError",
+      "owner": [
+        7,
+        8
+      ],
+      "integer_projection": [
+        7.0,
+        8.0
+      ],
+      "floating_values": [
+        9.223372036854776e+18,
+        8.0
+      ]
+    },
+    {
+      "value": -9.223372036854778e+18,
+      "source_error": "OverflowError",
+      "owner": [
+        7,
+        8
+      ],
+      "integer_projection": [
+        7.0,
+        8.0
+      ],
+      "floating_values": [
+        -9.223372036854778e+18,
+        8.0
+      ]
+    },
+    {
+      "value": "nan",
+      "source_error": "ValueError",
+      "owner": [
+        7,
+        8
+      ],
+      "integer_projection": [
+        7.0,
+        8.0
+      ],
+      "floating_values": [
+        "nan",
+        8.0
+      ]
+    },
+    {
+      "value": "inf",
+      "source_error": "OverflowError",
+      "owner": [
+        7,
+        8
+      ],
+      "integer_projection": [
+        7.0,
+        8.0
+      ],
+      "floating_values": [
+        "inf",
+        8.0
+      ]
+    },
+    {
+      "value": "-inf",
+      "source_error": "OverflowError",
+      "owner": [
+        7,
+        8
+      ],
+      "integer_projection": [
+        7.0,
+        8.0
+      ],
+      "floating_values": [
+        "-inf",
+        8.0
+      ]
+    },
+    {
+      "value": 1e+300,
+      "source_error": "OverflowError",
+      "owner": [
+        7,
+        8
+      ],
+      "integer_projection": [
+        7.0,
+        8.0
+      ],
+      "floating_values": [
+        1e+300,
+        8.0
+      ]
+    },
+    {
+      "value": -1e+300,
+      "source_error": "OverflowError",
+      "owner": [
+        7,
+        8
+      ],
+      "integer_projection": [
+        7.0,
+        8.0
+      ],
+      "floating_values": [
+        -1e+300,
+        8.0
+      ]
+    }
+  ],
+  "view_alias_cases": [
+    {
+      "label": "positive",
+      "slices": [
+        [
+          1,
+          2,
+          5
+        ]
+      ],
+      "initial": [
+        1.0,
+        3.0,
+        5.0,
+        7.0,
+        9.0
+      ],
+      "after_return_write": {
+        "owner": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          1,
+          10,
+          11
+        ],
+        "values": [
+          1.0,
+          3.0,
+          5.0,
+          7.0,
+          1.0
+        ]
+      },
+      "after_owner_write": {
+        "owner": [
+          0,
+          9,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          1,
+          10,
+          11
+        ],
+        "values": [
+          9.0,
+          3.0,
+          5.0,
+          7.0,
+          1.0
+        ]
+      },
+      "final": {
+        "owner": [
+          0,
+          9,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          1,
+          10,
+          11
+        ],
+        "values": [
+          9.0,
+          3.0,
+          5.0,
+          7.0,
+          1.0
+        ],
+        "copied": [
+          -1.0,
+          3.0,
+          5.0,
+          7.0,
+          1.0
+        ],
+        "copy_dtype": "int64",
+        "copy_nan_error": "ValueError"
+      }
+    },
+    {
+      "label": "negative",
+      "slices": [
+        [
+          10,
+          -2,
+          5
+        ]
+      ],
+      "initial": [
+        10.0,
+        8.0,
+        6.0,
+        4.0,
+        2.0
+      ],
+      "after_return_write": {
+        "owner": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "values": [
+          10.0,
+          8.0,
+          6.0,
+          4.0,
+          1.0
+        ]
+      },
+      "after_owner_write": {
+        "owner": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          9,
+          11
+        ],
+        "values": [
+          9.0,
+          8.0,
+          6.0,
+          4.0,
+          1.0
+        ]
+      },
+      "final": {
+        "owner": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          9,
+          11
+        ],
+        "values": [
+          9.0,
+          8.0,
+          6.0,
+          4.0,
+          1.0
+        ],
+        "copied": [
+          -1.0,
+          8.0,
+          6.0,
+          4.0,
+          1.0
+        ],
+        "copy_dtype": "int64",
+        "copy_nan_error": "ValueError"
+      }
+    },
+    {
+      "label": "negative start",
+      "slices": [
+        [
+          -1,
+          -3,
+          4
+        ]
+      ],
+      "initial": [
+        11.0,
+        8.0,
+        5.0,
+        2.0
+      ],
+      "after_return_write": {
+        "owner": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "values": [
+          11.0,
+          8.0,
+          5.0,
+          1.0
+        ]
+      },
+      "after_owner_write": {
+        "owner": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          9
+        ],
+        "values": [
+          9.0,
+          8.0,
+          5.0,
+          1.0
+        ]
+      },
+      "final": {
+        "owner": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          9
+        ],
+        "values": [
+          9.0,
+          8.0,
+          5.0,
+          1.0
+        ],
+        "copied": [
+          -1.0,
+          8.0,
+          5.0,
+          1.0
+        ],
+        "copy_dtype": "int64",
+        "copy_nan_error": "ValueError"
+      }
+    },
+    {
+      "label": "empty",
+      "slices": [
+        [
+          2,
+          3,
+          0
+        ]
+      ],
+      "initial": [],
+      "after_return_write": {
+        "owner": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "values": []
+      },
+      "after_owner_write": {
+        "owner": [
+          9,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "values": []
+      },
+      "final": {
+        "owner": [
+          9,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "values": [],
+        "copied": [],
+        "copy_dtype": "int64",
+        "copy_nan_error": null
+      }
+    },
+    {
+      "label": "nested reverse",
+      "slices": [
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          -1,
+          -2,
+          3
+        ]
+      ],
+      "initial": [
+        9.0,
+        5.0,
+        1.0
+      ],
+      "after_return_write": {
+        "owner": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "values": [
+          9.0,
+          5.0,
+          1.0
+        ]
+      },
+      "after_owner_write": {
+        "owner": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "values": [
+          9.0,
+          5.0,
+          1.0
+        ]
+      },
+      "final": {
+        "owner": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "values": [
+          9.0,
+          5.0,
+          1.0
+        ],
+        "copied": [
+          -1.0,
+          5.0,
+          1.0
+        ],
+        "copy_dtype": "int64",
+        "copy_nan_error": "ValueError"
+      }
+    },
+    {
+      "label": "nested forward",
+      "slices": [
+        [
+          10,
+          -2,
+          5
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "initial": [
+        8.0,
+        4.0
+      ],
+      "after_return_write": {
+        "owner": [
+          0,
+          1,
+          2,
+          3,
+          1,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "values": [
+          8.0,
+          1.0
+        ]
+      },
+      "after_owner_write": {
+        "owner": [
+          0,
+          1,
+          2,
+          3,
+          1,
+          5,
+          6,
+          7,
+          9,
+          9,
+          10,
+          11
+        ],
+        "values": [
+          9.0,
+          1.0
+        ]
+      },
+      "final": {
+        "owner": [
+          0,
+          1,
+          2,
+          3,
+          1,
+          5,
+          6,
+          7,
+          9,
+          9,
+          10,
+          11
+        ],
+        "values": [
+          9.0,
+          1.0
+        ],
+        "copied": [
+          -1.0,
+          1.0
+        ],
+        "copy_dtype": "int64",
+        "copy_nan_error": "ValueError"
+      }
+    },
+    {
+      "label": "writable zero stride",
+      "slices": [
+        [
+          2,
+          0,
+          4
+        ]
+      ],
+      "initial": [
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "after_return_write": {
+        "owner": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "after_owner_write": {
+        "owner": [
+          0,
+          1,
+          9,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "values": [
+          9.0,
+          9.0,
+          9.0,
+          9.0
+        ]
+      },
+      "final": {
+        "owner": [
+          0,
+          1,
+          9,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "values": [
+          9.0,
+          9.0,
+          9.0,
+          9.0
+        ],
+        "copied": [
+          -1.0,
+          9.0,
+          9.0,
+          9.0
+        ],
+        "copy_dtype": "int64",
+        "copy_nan_error": "ValueError"
+      }
+    }
+  ],
+  "maxn_step_cases": [
+    {
+      "input": [
+        1,
+        2,
+        5,
+        10
+      ],
+      "source_differences": [
+        1,
+        3,
+        5
+      ],
+      "integer_dtype": "int64",
+      "floating_dtype": "float64",
+      "floating_constructor_error": null,
+      "reconstructed_values": [
+        1.0,
+        2.0,
+        5.0,
+        10.0
+      ],
+      "stages": [
+        {
+          "stage": "normalized constructor",
+          "integer": [
+            1.0,
+            2.0,
+            5.0,
+            10.0
+          ],
+          "floating": [
+            1.0,
+            2.0,
+            5.0,
+            10.0
+          ],
+          "integer_owner": [
+            1,
+            2,
+            5,
+            10
+          ],
+          "floating_owner": [
+            1.0,
+            2.0,
+            5.0,
+            10.0
+          ],
+          "integer_extended": [
+            0.1,
+            0.2,
+            0.5,
+            1.0,
+            2.0,
+            5.0,
+            10.0,
+            20.0
+          ],
+          "floating_extended": [
+            0.1,
+            0.2,
+            0.5,
+            1.0,
+            2.0,
+            5.0,
+            10.0,
+            20.0
+          ]
+        },
+        {
+          "stage": "fractional write after normalization",
+          "integer": [
+            1.0,
+            1.0,
+            5.0,
+            10.0
+          ],
+          "floating": [
+            1.0,
+            1.25,
+            5.0,
+            10.0
+          ],
+          "integer_owner": [
+            1,
+            1,
+            5,
+            10
+          ],
+          "floating_owner": [
+            1.0,
+            1.25,
+            5.0,
+            10.0
+          ]
+        },
+        {
+          "stage": "fractional final element write",
+          "integer": [
+            1.0,
+            1.0,
+            5.0,
+            9.0
+          ],
+          "floating": [
+            1.0,
+            1.25,
+            5.0,
+            9.75
+          ],
+          "integer_owner": [
+            1,
+            1,
+            5,
+            9
+          ],
+          "floating_owner": [
+            1.0,
+            1.25,
+            5.0,
+            9.75
+          ],
+          "integer_extended": [
+            0.1,
+            0.2,
+            0.5,
+            1.0,
+            2.0,
+            5.0,
+            10.0,
+            20.0
+          ],
+          "floating_extended": [
+            0.1,
+            0.2,
+            0.5,
+            1.0,
+            2.0,
+            5.0,
+            10.0,
+            20.0
+          ]
+        }
+      ]
+    },
+    {
+      "input": [
+        2,
+        4,
+        8
+      ],
+      "source_differences": [
+        2,
+        4
+      ],
+      "integer_dtype": "int64",
+      "floating_dtype": "float64",
+      "floating_constructor_error": null,
+      "reconstructed_values": [
+        1.0,
+        2.0,
+        4.0,
+        8.0,
+        10.0
+      ],
+      "stages": [
+        {
+          "stage": "normalized constructor",
+          "integer": [
+            1.0,
+            2.0,
+            4.0,
+            8.0,
+            10.0
+          ],
+          "floating": [
+            1.0,
+            2.0,
+            4.0,
+            8.0,
+            10.0
+          ],
+          "integer_owner": [
+            2,
+            4,
+            8
+          ],
+          "floating_owner": [
+            2.0,
+            4.0,
+            8.0
+          ],
+          "integer_extended": [
+            0.1,
+            0.2,
+            0.4,
+            0.8,
+            1.0,
+            2.0,
+            4.0,
+            8.0,
+            10.0,
+            20.0
+          ],
+          "floating_extended": [
+            0.1,
+            0.2,
+            0.4,
+            0.8,
+            1.0,
+            2.0,
+            4.0,
+            8.0,
+            10.0,
+            20.0
+          ]
+        },
+        {
+          "stage": "fractional write after normalization",
+          "integer": [
+            1.0,
+            1.0,
+            4.0,
+            8.0,
+            10.0
+          ],
+          "floating": [
+            1.0,
+            1.25,
+            4.0,
+            8.0,
+            10.0
+          ],
+          "integer_owner": [
+            2,
+            4,
+            8
+          ],
+          "floating_owner": [
+            2.0,
+            4.0,
+            8.0
+          ]
+        },
+        {
+          "stage": "fractional final element write",
+          "integer": [
+            1.0,
+            1.0,
+            4.0,
+            8.0,
+            9.0
+          ],
+          "floating": [
+            1.0,
+            1.25,
+            4.0,
+            8.0,
+            9.75
+          ],
+          "integer_owner": [
+            2,
+            4,
+            8
+          ],
+          "floating_owner": [
+            2.0,
+            4.0,
+            8.0
+          ],
+          "integer_extended": [
+            0.1,
+            0.2,
+            0.4,
+            0.8,
+            1.0,
+            2.0,
+            4.0,
+            8.0,
+            10.0,
+            20.0
+          ],
+          "floating_extended": [
+            0.1,
+            0.2,
+            0.4,
+            0.8,
+            1.0,
+            2.0,
+            4.0,
+            8.0,
+            10.0,
+            20.0
+          ]
+        }
+      ]
+    },
+    {
+      "input": [
+        2,
+        4,
+        10
+      ],
+      "source_differences": [
+        2,
+        6
+      ],
+      "integer_dtype": "int64",
+      "floating_dtype": "float64",
+      "floating_constructor_error": null,
+      "reconstructed_values": [
+        1.0,
+        2.0,
+        4.0,
+        10.0
+      ],
+      "stages": [
+        {
+          "stage": "normalized constructor",
+          "integer": [
+            1.0,
+            2.0,
+            4.0,
+            10.0
+          ],
+          "floating": [
+            1.0,
+            2.0,
+            4.0,
+            10.0
+          ],
+          "integer_owner": [
+            2,
+            4,
+            10
+          ],
+          "floating_owner": [
+            2.0,
+            4.0,
+            10.0
+          ],
+          "integer_extended": [
+            0.1,
+            0.2,
+            0.4,
+            1.0,
+            2.0,
+            4.0,
+            10.0,
+            20.0
+          ],
+          "floating_extended": [
+            0.1,
+            0.2,
+            0.4,
+            1.0,
+            2.0,
+            4.0,
+            10.0,
+            20.0
+          ]
+        },
+        {
+          "stage": "fractional write after normalization",
+          "integer": [
+            1.0,
+            1.0,
+            4.0,
+            10.0
+          ],
+          "floating": [
+            1.0,
+            1.25,
+            4.0,
+            10.0
+          ],
+          "integer_owner": [
+            2,
+            4,
+            10
+          ],
+          "floating_owner": [
+            2.0,
+            4.0,
+            10.0
+          ]
+        },
+        {
+          "stage": "fractional final element write",
+          "integer": [
+            1.0,
+            1.0,
+            4.0,
+            9.0
+          ],
+          "floating": [
+            1.0,
+            1.25,
+            4.0,
+            9.75
+          ],
+          "integer_owner": [
+            2,
+            4,
+            10
+          ],
+          "floating_owner": [
+            2.0,
+            4.0,
+            10.0
+          ],
+          "integer_extended": [
+            0.1,
+            0.2,
+            0.4,
+            1.0,
+            2.0,
+            4.0,
+            10.0,
+            20.0
+          ],
+          "floating_extended": [
+            0.1,
+            0.2,
+            0.4,
+            1.0,
+            2.0,
+            4.0,
+            10.0,
+            20.0
+          ]
+        }
+      ]
+    },
+    {
+      "input": [
+        1,
+        2,
+        8
+      ],
+      "source_differences": [
+        1,
+        6
+      ],
+      "integer_dtype": "int64",
+      "floating_dtype": "float64",
+      "floating_constructor_error": null,
+      "reconstructed_values": [
+        1.0,
+        2.0,
+        8.0,
+        10.0
+      ],
+      "stages": [
+        {
+          "stage": "normalized constructor",
+          "integer": [
+            1.0,
+            2.0,
+            8.0,
+            10.0
+          ],
+          "floating": [
+            1.0,
+            2.0,
+            8.0,
+            10.0
+          ],
+          "integer_owner": [
+            1,
+            2,
+            8
+          ],
+          "floating_owner": [
+            1.0,
+            2.0,
+            8.0
+          ],
+          "integer_extended": [
+            0.1,
+            0.2,
+            0.8,
+            1.0,
+            2.0,
+            8.0,
+            10.0,
+            20.0
+          ],
+          "floating_extended": [
+            0.1,
+            0.2,
+            0.8,
+            1.0,
+            2.0,
+            8.0,
+            10.0,
+            20.0
+          ]
+        },
+        {
+          "stage": "fractional write after normalization",
+          "integer": [
+            1.0,
+            1.0,
+            8.0,
+            10.0
+          ],
+          "floating": [
+            1.0,
+            1.25,
+            8.0,
+            10.0
+          ],
+          "integer_owner": [
+            1,
+            2,
+            8
+          ],
+          "floating_owner": [
+            1.0,
+            2.0,
+            8.0
+          ]
+        },
+        {
+          "stage": "fractional final element write",
+          "integer": [
+            1.0,
+            1.0,
+            8.0,
+            9.0
+          ],
+          "floating": [
+            1.0,
+            1.25,
+            8.0,
+            9.75
+          ],
+          "integer_owner": [
+            1,
+            2,
+            8
+          ],
+          "floating_owner": [
+            1.0,
+            2.0,
+            8.0
+          ],
+          "integer_extended": [
+            0.1,
+            0.2,
+            0.8,
+            1.0,
+            2.0,
+            8.0,
+            10.0,
+            20.0
+          ],
+          "floating_extended": [
+            0.1,
+            0.2,
+            0.8,
+            1.0,
+            2.0,
+            8.0,
+            10.0,
+            20.0
+          ]
+        }
+      ]
+    },
+    {
+      "input": [
+        1
+      ],
+      "source_differences": [],
+      "integer_dtype": "int64",
+      "floating_dtype": "float64",
+      "floating_constructor_error": null,
+      "reconstructed_values": [
+        1.0,
+        10.0
+      ],
+      "stages": [
+        {
+          "stage": "normalized constructor",
+          "integer": [
+            1.0,
+            10.0
+          ],
+          "floating": [
+            1.0,
+            10.0
+          ],
+          "integer_owner": [
+            1
+          ],
+          "floating_owner": [
+            1.0
+          ],
+          "integer_extended": [
+            0.1,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "floating_extended": [
+            0.1,
+            1.0,
+            10.0,
+            100.0
+          ]
+        },
+        {
+          "stage": "fractional write after normalization",
+          "integer": [
+            1.0,
+            1.0
+          ],
+          "floating": [
+            1.0,
+            1.25
+          ],
+          "integer_owner": [
+            1
+          ],
+          "floating_owner": [
+            1.0
+          ]
+        },
+        {
+          "stage": "fractional final element write",
+          "integer": [
+            1.0,
+            9.0
+          ],
+          "floating": [
+            1.0,
+            9.75
+          ],
+          "integer_owner": [
+            1
+          ],
+          "floating_owner": [
+            1.0
+          ],
+          "integer_extended": [
+            0.1,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "floating_extended": [
+            0.1,
+            1.0,
+            10.0,
+            100.0
+          ]
+        }
+      ]
+    },
+    {
+      "input": [
+        10
+      ],
+      "source_differences": [],
+      "integer_dtype": "int64",
+      "floating_dtype": "float64",
+      "floating_constructor_error": null,
+      "reconstructed_values": [
+        1.0,
+        10.0
+      ],
+      "stages": [
+        {
+          "stage": "normalized constructor",
+          "integer": [
+            1.0,
+            10.0
+          ],
+          "floating": [
+            1.0,
+            10.0
+          ],
+          "integer_owner": [
+            10
+          ],
+          "floating_owner": [
+            10.0
+          ],
+          "integer_extended": [
+            0.1,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "floating_extended": [
+            0.1,
+            1.0,
+            10.0,
+            100.0
+          ]
+        },
+        {
+          "stage": "fractional write after normalization",
+          "integer": [
+            1.0,
+            1.0
+          ],
+          "floating": [
+            1.0,
+            1.25
+          ],
+          "integer_owner": [
+            10
+          ],
+          "floating_owner": [
+            10.0
+          ]
+        },
+        {
+          "stage": "fractional final element write",
+          "integer": [
+            1.0,
+            9.0
+          ],
+          "floating": [
+            1.0,
+            9.75
+          ],
+          "integer_owner": [
+            10
+          ],
+          "floating_owner": [
+            10.0
+          ],
+          "integer_extended": [
+            0.1,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "floating_extended": [
+            0.1,
+            1.0,
+            10.0,
+            100.0
+          ]
+        }
+      ]
+    },
+    {
+      "input": [
+        1,
+        -9223372036854775808,
+        -1,
+        9223372036854775806,
+        -3,
+        10
+      ],
+      "source_differences": [
+        9223372036854775807,
+        9223372036854775807,
+        9223372036854775807,
+        9223372036854775807,
+        13
+      ],
+      "integer_dtype": "int64",
+      "floating_dtype": null,
+      "floating_constructor_error": "ValueError",
+      "reconstructed_values": [
+        1.0,
+        -9.223372036854776e+18,
+        -1.0,
+        9.223372036854776e+18,
+        -3.0,
+        10.0
+      ],
+      "stages": [
+        {
+          "stage": "normalized constructor",
+          "integer": [
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0
+          ],
+          "floating": null,
+          "integer_owner": [
+            1,
+            -9223372036854775808,
+            -1,
+            9223372036854775806,
+            -3,
+            10
+          ],
+          "floating_owner": [
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0
+          ],
+          "integer_extended": [
+            0.1,
+            -9.223372036854776e+17,
+            -0.1,
+            9.223372036854776e+17,
+            -0.30000000000000004,
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0,
+            0.0
+          ],
+          "floating_extended": null
+        },
+        {
+          "stage": "fractional write after normalization",
+          "integer": [
+            1.0,
+            1.0,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0
+          ],
+          "floating": null,
+          "integer_owner": [
+            1,
+            1,
+            -1,
+            9223372036854775806,
+            -3,
+            10
+          ],
+          "floating_owner": [
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0
+          ]
+        },
+        {
+          "stage": "fractional final element write",
+          "integer": [
+            1.0,
+            1.0,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            9.0
+          ],
+          "floating": null,
+          "integer_owner": [
+            1,
+            1,
+            -1,
+            9223372036854775806,
+            -3,
+            9
+          ],
+          "floating_owner": [
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0
+          ],
+          "integer_extended": [
+            0.1,
+            -9.223372036854776e+17,
+            -0.1,
+            9.223372036854776e+17,
+            -0.30000000000000004,
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0,
+            0.0
+          ],
+          "floating_extended": null
+        }
+      ]
+    },
+    {
+      "input": [
+        1,
+        -9223372036854775808,
+        -1,
+        9223372036854775806,
+        -3,
+        9
+      ],
+      "source_differences": [
+        9223372036854775807,
+        9223372036854775807,
+        9223372036854775807,
+        9223372036854775807,
+        12
+      ],
+      "integer_dtype": "int64",
+      "floating_dtype": null,
+      "floating_constructor_error": "ValueError",
+      "reconstructed_values": [
+        1.0,
+        -9.223372036854776e+18,
+        -1.0,
+        9.223372036854776e+18,
+        -3.0,
+        9.0,
+        10.0
+      ],
+      "stages": [
+        {
+          "stage": "normalized constructor",
+          "integer": [
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            9.0,
+            10.0
+          ],
+          "floating": null,
+          "integer_owner": [
+            1,
+            -9223372036854775808,
+            -1,
+            9223372036854775806,
+            -3,
+            9
+          ],
+          "floating_owner": [
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            9.0
+          ],
+          "integer_extended": [
+            0.1,
+            -9.223372036854776e+17,
+            -0.1,
+            9.223372036854776e+17,
+            -0.30000000000000004,
+            0.9,
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            9.0,
+            10.0,
+            0.0
+          ],
+          "floating_extended": null
+        },
+        {
+          "stage": "fractional write after normalization",
+          "integer": [
+            1.0,
+            1.0,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            9.0,
+            10.0
+          ],
+          "floating": null,
+          "integer_owner": [
+            1,
+            -9223372036854775808,
+            -1,
+            9223372036854775806,
+            -3,
+            9
+          ],
+          "floating_owner": [
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            9.0
+          ]
+        },
+        {
+          "stage": "fractional final element write",
+          "integer": [
+            1.0,
+            1.0,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            9.0,
+            9.0
+          ],
+          "floating": null,
+          "integer_owner": [
+            1,
+            -9223372036854775808,
+            -1,
+            9223372036854775806,
+            -3,
+            9
+          ],
+          "floating_owner": [
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            9.0
+          ],
+          "integer_extended": [
+            0.1,
+            -9.223372036854776e+17,
+            -0.1,
+            9.223372036854776e+17,
+            -0.30000000000000004,
+            0.9,
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            9.0,
+            10.0,
+            0.0
+          ],
+          "floating_extended": null
+        }
+      ]
+    },
+    {
+      "input": [
+        2,
+        -9223372036854775808,
+        -1,
+        9223372036854775806,
+        -3,
+        10
+      ],
+      "source_differences": [
+        9223372036854775806,
+        9223372036854775807,
+        9223372036854775807,
+        9223372036854775807,
+        13
+      ],
+      "integer_dtype": "int64",
+      "floating_dtype": null,
+      "floating_constructor_error": "ValueError",
+      "reconstructed_values": [
+        1.0,
+        2.0,
+        -9.223372036854776e+18,
+        -1.0,
+        9.223372036854776e+18,
+        -3.0,
+        10.0
+      ],
+      "stages": [
+        {
+          "stage": "normalized constructor",
+          "integer": [
+            1.0,
+            2.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0
+          ],
+          "floating": null,
+          "integer_owner": [
+            2,
+            -9223372036854775808,
+            -1,
+            9223372036854775806,
+            -3,
+            10
+          ],
+          "floating_owner": [
+            2.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0
+          ],
+          "integer_extended": [
+            0.1,
+            0.2,
+            -9.223372036854776e+17,
+            -0.1,
+            9.223372036854776e+17,
+            -0.30000000000000004,
+            1.0,
+            2.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0,
+            20.0
+          ],
+          "floating_extended": null
+        },
+        {
+          "stage": "fractional write after normalization",
+          "integer": [
+            1.0,
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0
+          ],
+          "floating": null,
+          "integer_owner": [
+            2,
+            -9223372036854775808,
+            -1,
+            9223372036854775806,
+            -3,
+            10
+          ],
+          "floating_owner": [
+            2.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0
+          ]
+        },
+        {
+          "stage": "fractional final element write",
+          "integer": [
+            1.0,
+            1.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            9.0
+          ],
+          "floating": null,
+          "integer_owner": [
+            2,
+            -9223372036854775808,
+            -1,
+            9223372036854775806,
+            -3,
+            10
+          ],
+          "floating_owner": [
+            2.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0
+          ],
+          "integer_extended": [
+            0.1,
+            0.2,
+            -9.223372036854776e+17,
+            -0.1,
+            9.223372036854776e+17,
+            -0.30000000000000004,
+            1.0,
+            2.0,
+            -9.223372036854776e+18,
+            -1.0,
+            9.223372036854776e+18,
+            -3.0,
+            10.0,
+            20.0
+          ],
+          "floating_extended": null
+        }
+      ]
+    },
+    {
+      "input": [
+        1,
+        9223372036854775807,
+        -2,
+        10
+      ],
+      "source_differences": [
+        9223372036854775806,
+        9223372036854775807,
+        12
+      ],
+      "integer_dtype": "int64",
+      "floating_dtype": null,
+      "floating_constructor_error": "ValueError",
+      "reconstructed_values": [
+        1.0,
+        9.223372036854776e+18,
+        -2.0,
+        10.0
+      ],
+      "stages": [
+        {
+          "stage": "normalized constructor",
+          "integer": [
+            1.0,
+            9.223372036854776e+18,
+            -2.0,
+            10.0
+          ],
+          "floating": null,
+          "integer_owner": [
+            1,
+            9223372036854775807,
+            -2,
+            10
+          ],
+          "floating_owner": [
+            1.0,
+            9.223372036854776e+18,
+            -2.0,
+            10.0
+          ],
+          "integer_extended": [
+            0.1,
+            9.223372036854776e+17,
+            -0.2,
+            1.0,
+            9.223372036854776e+18,
+            -2.0,
+            10.0,
+            -10.0
+          ],
+          "floating_extended": null
+        },
+        {
+          "stage": "fractional write after normalization",
+          "integer": [
+            1.0,
+            1.0,
+            -2.0,
+            10.0
+          ],
+          "floating": null,
+          "integer_owner": [
+            1,
+            1,
+            -2,
+            10
+          ],
+          "floating_owner": [
+            1.0,
+            9.223372036854776e+18,
+            -2.0,
+            10.0
+          ]
+        },
+        {
+          "stage": "fractional final element write",
+          "integer": [
+            1.0,
+            1.0,
+            -2.0,
+            9.0
+          ],
+          "floating": null,
+          "integer_owner": [
+            1,
+            1,
+            -2,
+            9
+          ],
+          "floating_owner": [
+            1.0,
+            9.223372036854776e+18,
+            -2.0,
+            10.0
+          ],
+          "integer_extended": [
+            0.1,
+            9.223372036854776e+17,
+            -0.2,
+            1.0,
+            9.223372036854776e+18,
+            -2.0,
+            10.0,
+            -10.0
+          ],
+          "floating_extended": null
+        }
+      ]
+    }
+  ],
+  "fixed_phase_cases": [
+    {
+      "label": "minimum absolute value wraps",
+      "input": [
+        -9223372036854775808,
+        0,
+        1,
+        2
+      ],
+      "selected_phase": 0,
+      "initial": [
+        -9.223372036854776e+18,
+        1.0
+      ],
+      "after_first": {
+        "owner": [
+          1,
+          0,
+          1,
+          2
+        ],
+        "values": [
+          1.0,
+          1.0
+        ]
+      },
+      "after_last": {
+        "owner": [
+          1,
+          0,
+          -1,
+          2
+        ],
+        "values": [
+          1.0,
+          -1.0
+        ]
+      },
+      "dtype": "int64"
+    },
+    {
+      "label": "phase distinguishes integers above double precision",
+      "input": [
+        9007199254740993,
+        9007199254740992,
+        9007199254740993,
+        9007199254740992
+      ],
+      "selected_phase": 1,
+      "initial": [
+        9007199254740992.0,
+        9007199254740992.0
+      ],
+      "after_first": {
+        "owner": [
+          9007199254740993,
+          1,
+          9007199254740993,
+          9007199254740992
+        ],
+        "values": [
+          1.0,
+          9007199254740992.0
+        ]
+      },
+      "after_last": {
+        "owner": [
+          9007199254740993,
+          1,
+          9007199254740993,
+          -1
+        ],
+        "values": [
+          1.0,
+          -1.0
+        ]
+      },
+      "dtype": "int64"
+    }
+  ]
+}

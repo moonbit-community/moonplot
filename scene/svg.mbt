@@ -228,6 +228,7 @@ fn to_render_secondary_axis(axis : SecondaryAxis) -> @render.SecondaryAxis {
     axis.ticks(),
     axis.locator(),
     axis.formatter(),
+    tick_label_size=axis.tick_label_size(),
   )
 }
 
@@ -255,9 +256,16 @@ fn to_render_spine(spine : Spine) -> @render.Spine {
 }
 
 ///|
-fn Figure::to_render_figure(self : Figure) -> @render.Figure {
-  let panels = Array(capacity=self.axes.length())
-  for state_ref in self.axes {
+fn Figure::to_render_figure(
+  self : Figure,
+  extra? : @ref.Ref[AxesData],
+) -> @render.Figure {
+  let states = self.axes.copy()
+  if extra is Some(state) {
+    states.push(state)
+  }
+  let panels = Array(capacity=states.length())
+  for state_ref in states {
     let state = state_ref.val
     let artists = Array(capacity=state.artists.length())
     for artist in state.artists {

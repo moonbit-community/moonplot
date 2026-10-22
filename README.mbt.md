@@ -1216,8 +1216,34 @@ Linear 与 Fixed 的直接结果是可变 `TickValues`，保留 preset/位置 bu
 `from_list` 复制，`locations()` 返回 TickValues；对象 `copy()` 浅共享位置 buffer，独立保存 nbins。
 Linear 的 `presets().set_view` 可借用同一类 view，`get` 也返回 TickValues。主/次 adapter 保留 live
 handle，generic adapter 物化结果时才应用前缀上限；Index 的轴调用使用真实 data interval。
+`TickValues::from_int64_array` 也可借用真实整数buffer：Double赋值按Int64向零截断，
+NaN/Inf/越界抛checked错误，view/copy保留储存类型；get/to_array仍提供Double访问接口。
 错误传播、preset/更新细节与 shared/secondary 接线状态见
 [命名数值定位器说明](testdata/named_numeric_locator_README.md)，最终门禁记录在迁移检查点。
+
+D22 已验收命名 `MaxNLocator` 与 `AutoLocator`。MaxN 的 nbins 表示间隔上限，
+`MaxNBins::Count(4)` 与 `MaxNBins::Auto` 可分别指定固定预算和物理轴空间预算：
+
+```moonbit nocheck
+let locator = try! @ticker.MaxNLocator::new(nbins=@ticker.MaxNBins::Count(4), integer=true)
+try! fig.set_x_locator(locator.as_locator())
+let automatic = @ticker.AutoLocator::new()
+try! fig.set_y_locator(automatic.as_locator())
+fig.axes().y_axis().set_tick_label_size(12.0)
+```
+
+Auto 在构造时捕获 `config.classic_mode()`，后续参数更新和查询共享 `as_maxn_locator()`
+返回的 live 对象。主/次 adapter 保留 live handle；源错误沿 checked 轴、contour 与 SVG 链传播。
+classic=true的默认steps保留原Int64 buffer，false为Float64；复制后仍共享各自原buffer。
+steps 接收 borrowed `TickValues`，extended staircase 独立捕获；`set_params` 保留上游的
+逐项更新和失败后部分状态，`steps=None` / `prune=None` 与省略参数不同。
+
+自动预算使用实际 plot 长度与实际 tick 字号，并保留原物理换算的舍入顺序，x 为 `floor(width/(3*size))`，y 为
+`floor(height/(2*size))`；secondary 使用父 plot 的主方向长度和自己的字号。
+当前为固定 SVG dpi72/user-unit profile，默认字号10，数值小于1先夹到1，NaN/Inf保留
+原字体比较语义；完整字体 rc、字符串字号和可变dpi仍待迁移。旧 `maxn_locator(count=...)`
+继续原 helper 合同。参数、精度、邻接点、前缀上限和参考见
+[MaxN/Auto说明](testdata/maxn_locator_README.md)；四目标及原源验收记录见检查点。
 
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`

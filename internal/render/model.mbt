@@ -452,6 +452,7 @@ pub(all) enum SecondaryLocation {
 ///|
 /// Immutable secondary axis data consumed by a backend.
 pub struct SecondaryAxis {
+  tick_label_size : Double
   location : SecondaryLocation
   forward : (Double) -> Double
   inverse : (Double) -> Double
@@ -477,8 +478,10 @@ pub fn secondary_axis(
   fixed_ticks : Array[Double]?,
   locator : @ticker.Locator?,
   formatter : @ticker.Formatter?,
+  tick_label_size~ : Double = 10.0,
 ) -> SecondaryAxis {
   {
+    tick_label_size,
     location,
     forward,
     inverse,
@@ -1033,4 +1036,9 @@ pub fn Panel::secondary_y(self : Panel) -> Array[SecondaryAxis] {
 ///|
 pub fn Figure::title(self : Figure) -> String? {
   self.title
+}
+
+///|
+pub fn SecondaryAxis::tick_label_size(self : SecondaryAxis) -> Double {
+  self.tick_label_size
 }

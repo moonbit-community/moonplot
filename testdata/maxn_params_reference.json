@@ -1,0 +1,6311 @@
+{
+  "ticker_source_sha256": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+  "transforms_source_sha256": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+  "api_source_sha256": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+  "matplotlibrc_sha256": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+  "rcsetup_sha256": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "ast_source_bodies": [
+    "MaxNLocator",
+    "TickHelper",
+    "Locator",
+    "_Edge_integer",
+    "scale_range",
+    "_api.check_in_list",
+    "_api.list_suggestion_error_msg",
+    "_api.kwarg_error"
+  ],
+  "typed_domain": "Int32 nbins/min_n_ticks, Bool flags, String/None prune, binary64 one-dimensional TickValues; dynamic coercion/multidimensional/dtype behavior not claimed",
+  "constructors": [
+    {
+      "parameters": {
+        "nbins": null,
+        "min_n_ticks": -2147483648,
+        "integer": true,
+        "symmetric": true,
+        "prune": null
+      },
+      "state": {
+        "nbins": 10,
+        "integer": true,
+        "symmetric": true,
+        "prune": null,
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": null,
+        "min_n_ticks": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower"
+      },
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": null,
+        "min_n_ticks": 1,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper"
+      },
+      "state": {
+        "nbins": 10,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": null,
+        "min_n_ticks": 2,
+        "integer": false,
+        "symmetric": true,
+        "prune": "both"
+      },
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": true,
+        "prune": "both",
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": null,
+        "min_n_ticks": 12,
+        "integer": true,
+        "symmetric": false,
+        "prune": null
+      },
+      "state": {
+        "nbins": 10,
+        "integer": true,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 12,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": null,
+        "min_n_ticks": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower"
+      },
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower",
+        "min_n_ticks": 2147483647,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": "auto",
+        "min_n_ticks": -2147483648,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper"
+      },
+      "state": {
+        "nbins": "auto",
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": "auto",
+        "min_n_ticks": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both"
+      },
+      "state": {
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": "both",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": "auto",
+        "min_n_ticks": 1,
+        "integer": true,
+        "symmetric": false,
+        "prune": null
+      },
+      "state": {
+        "nbins": "auto",
+        "integer": true,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": "auto",
+        "min_n_ticks": 2,
+        "integer": false,
+        "symmetric": true,
+        "prune": "lower"
+      },
+      "state": {
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": true,
+        "prune": "lower",
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": "auto",
+        "min_n_ticks": 12,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper"
+      },
+      "state": {
+        "nbins": "auto",
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper",
+        "min_n_ticks": 12,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": "auto",
+        "min_n_ticks": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both"
+      },
+      "state": {
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": "both",
+        "min_n_ticks": 2147483647,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": -2147483648,
+        "min_n_ticks": -2147483648,
+        "integer": true,
+        "symmetric": true,
+        "prune": null
+      },
+      "state": {
+        "nbins": -2147483648,
+        "integer": true,
+        "symmetric": true,
+        "prune": null,
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": -2147483648,
+        "min_n_ticks": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower"
+      },
+      "state": {
+        "nbins": -2147483648,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": -2147483648,
+        "min_n_ticks": 1,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper"
+      },
+      "state": {
+        "nbins": -2147483648,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": -2147483648,
+        "min_n_ticks": 2,
+        "integer": false,
+        "symmetric": true,
+        "prune": "both"
+      },
+      "state": {
+        "nbins": -2147483648,
+        "integer": false,
+        "symmetric": true,
+        "prune": "both",
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": -2147483648,
+        "min_n_ticks": 12,
+        "integer": true,
+        "symmetric": false,
+        "prune": null
+      },
+      "state": {
+        "nbins": -2147483648,
+        "integer": true,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 12,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": -2147483648,
+        "min_n_ticks": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower"
+      },
+      "state": {
+        "nbins": -2147483648,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower",
+        "min_n_ticks": 2147483647,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": -1,
+        "min_n_ticks": -2147483648,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper"
+      },
+      "state": {
+        "nbins": -1,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": -1,
+        "min_n_ticks": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both"
+      },
+      "state": {
+        "nbins": -1,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": -1,
+        "min_n_ticks": 1,
+        "integer": true,
+        "symmetric": false,
+        "prune": null
+      },
+      "state": {
+        "nbins": -1,
+        "integer": true,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": -1,
+        "min_n_ticks": 2,
+        "integer": false,
+        "symmetric": true,
+        "prune": "lower"
+      },
+      "state": {
+        "nbins": -1,
+        "integer": false,
+        "symmetric": true,
+        "prune": "lower",
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": -1,
+        "min_n_ticks": 12,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper"
+      },
+      "state": {
+        "nbins": -1,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper",
+        "min_n_ticks": 12,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": -1,
+        "min_n_ticks": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both"
+      },
+      "state": {
+        "nbins": -1,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both",
+        "min_n_ticks": 2147483647,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 0,
+        "min_n_ticks": -2147483648,
+        "integer": true,
+        "symmetric": true,
+        "prune": null
+      },
+      "state": {
+        "nbins": 0,
+        "integer": true,
+        "symmetric": true,
+        "prune": null,
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 0,
+        "min_n_ticks": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower"
+      },
+      "state": {
+        "nbins": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 0,
+        "min_n_ticks": 1,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper"
+      },
+      "state": {
+        "nbins": 0,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 0,
+        "min_n_ticks": 2,
+        "integer": false,
+        "symmetric": true,
+        "prune": "both"
+      },
+      "state": {
+        "nbins": 0,
+        "integer": false,
+        "symmetric": true,
+        "prune": "both",
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 0,
+        "min_n_ticks": 12,
+        "integer": true,
+        "symmetric": false,
+        "prune": null
+      },
+      "state": {
+        "nbins": 0,
+        "integer": true,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 12,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 0,
+        "min_n_ticks": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower"
+      },
+      "state": {
+        "nbins": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower",
+        "min_n_ticks": 2147483647,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 1,
+        "min_n_ticks": -2147483648,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper"
+      },
+      "state": {
+        "nbins": 1,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 1,
+        "min_n_ticks": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both"
+      },
+      "state": {
+        "nbins": 1,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 1,
+        "min_n_ticks": 1,
+        "integer": true,
+        "symmetric": false,
+        "prune": null
+      },
+      "state": {
+        "nbins": 1,
+        "integer": true,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 1,
+        "min_n_ticks": 2,
+        "integer": false,
+        "symmetric": true,
+        "prune": "lower"
+      },
+      "state": {
+        "nbins": 1,
+        "integer": false,
+        "symmetric": true,
+        "prune": "lower",
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 1,
+        "min_n_ticks": 12,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper"
+      },
+      "state": {
+        "nbins": 1,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper",
+        "min_n_ticks": 12,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 1,
+        "min_n_ticks": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both"
+      },
+      "state": {
+        "nbins": 1,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both",
+        "min_n_ticks": 2147483647,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 10,
+        "min_n_ticks": -2147483648,
+        "integer": true,
+        "symmetric": true,
+        "prune": null
+      },
+      "state": {
+        "nbins": 10,
+        "integer": true,
+        "symmetric": true,
+        "prune": null,
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 10,
+        "min_n_ticks": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower"
+      },
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 10,
+        "min_n_ticks": 1,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper"
+      },
+      "state": {
+        "nbins": 10,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 10,
+        "min_n_ticks": 2,
+        "integer": false,
+        "symmetric": true,
+        "prune": "both"
+      },
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": true,
+        "prune": "both",
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 10,
+        "min_n_ticks": 12,
+        "integer": true,
+        "symmetric": false,
+        "prune": null
+      },
+      "state": {
+        "nbins": 10,
+        "integer": true,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 12,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 10,
+        "min_n_ticks": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower"
+      },
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower",
+        "min_n_ticks": 2147483647,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 2147483647,
+        "min_n_ticks": -2147483648,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper"
+      },
+      "state": {
+        "nbins": 2147483647,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 2147483647,
+        "min_n_ticks": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both"
+      },
+      "state": {
+        "nbins": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 2147483647,
+        "min_n_ticks": 1,
+        "integer": true,
+        "symmetric": false,
+        "prune": null
+      },
+      "state": {
+        "nbins": 2147483647,
+        "integer": true,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 2147483647,
+        "min_n_ticks": 2,
+        "integer": false,
+        "symmetric": true,
+        "prune": "lower"
+      },
+      "state": {
+        "nbins": 2147483647,
+        "integer": false,
+        "symmetric": true,
+        "prune": "lower",
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 2147483647,
+        "min_n_ticks": 12,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper"
+      },
+      "state": {
+        "nbins": 2147483647,
+        "integer": true,
+        "symmetric": false,
+        "prune": "upper",
+        "min_n_ticks": 12,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "nbins": 2147483647,
+        "min_n_ticks": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both"
+      },
+      "state": {
+        "nbins": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both",
+        "min_n_ticks": 2147483647,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      },
+      "source_error": null
+    },
+    {
+      "parameters": {
+        "prune": ""
+      },
+      "source_error": "ValueError"
+    },
+    {
+      "parameters": {
+        "prune": "invalid"
+      },
+      "source_error": "ValueError"
+    },
+    {
+      "parameters": {
+        "prune": "LOWER"
+      },
+      "source_error": "ValueError"
+    }
+  ],
+  "steps": [
+    {
+      "stage": "constructor",
+      "input": [],
+      "source_error": "IndexError",
+      "state": null
+    },
+    {
+      "stage": "set_params",
+      "input": [],
+      "source_error": "IndexError",
+      "state": {
+        "nbins": 4,
+        "integer": false,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        1.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          1.0,
+          10.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        1.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 4,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          1.0,
+          10.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          1.0,
+          10.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 4,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          1.0,
+          10.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        2.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          1.0,
+          2.0,
+          10.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        2.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 4,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          2.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          1.0,
+          2.0,
+          10.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        2.0,
+        4.0,
+        8.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          4.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.4,
+          0.8,
+          1.0,
+          2.0,
+          4.0,
+          8.0,
+          10.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        2.0,
+        4.0,
+        8.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 4,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          2.0,
+          4.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.4,
+          0.8,
+          1.0,
+          2.0,
+          4.0,
+          8.0,
+          10.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        1.0,
+        2.0,
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          1.0,
+          2.0,
+          10.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        1.0,
+        2.0,
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 4,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          2.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          1.0,
+          2.0,
+          10.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        8.0,
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        8.0,
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 4,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        0.0,
+        2.0,
+        10.0
+      ],
+      "source_error": "ValueError",
+      "state": null
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        0.0,
+        2.0,
+        10.0
+      ],
+      "source_error": "ValueError",
+      "state": {
+        "nbins": 4,
+        "integer": false,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        1.0,
+        2.0,
+        11.0
+      ],
+      "source_error": "ValueError",
+      "state": null
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        1.0,
+        2.0,
+        11.0
+      ],
+      "source_error": "ValueError",
+      "state": {
+        "nbins": 4,
+        "integer": false,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        1.0,
+        2.0,
+        2.0,
+        10.0
+      ],
+      "source_error": "ValueError",
+      "state": null
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        1.0,
+        2.0,
+        2.0,
+        10.0
+      ],
+      "source_error": "ValueError",
+      "state": {
+        "nbins": 4,
+        "integer": false,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        10.0,
+        1.0
+      ],
+      "source_error": "ValueError",
+      "state": null
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        10.0,
+        1.0
+      ],
+      "source_error": "ValueError",
+      "state": {
+        "nbins": 4,
+        "integer": false,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        "nan"
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          "nan",
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          "nan",
+          1.0,
+          "nan",
+          10.0,
+          "nan"
+        ]
+      }
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        "nan"
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 4,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          "nan",
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          "nan",
+          1.0,
+          "nan",
+          10.0,
+          "nan"
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        1.0,
+        "nan",
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          "nan",
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          "nan",
+          1.0,
+          "nan",
+          10.0,
+          "nan"
+        ]
+      }
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        1.0,
+        "nan",
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 4,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          "nan",
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          "nan",
+          1.0,
+          "nan",
+          10.0,
+          "nan"
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        "nan",
+        5.0,
+        "nan"
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          "nan",
+          5.0,
+          "nan",
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          "nan",
+          0.5,
+          "nan",
+          1.0,
+          "nan",
+          5.0,
+          "nan",
+          10.0,
+          "nan"
+        ]
+      }
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        "nan",
+        5.0,
+        "nan"
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 4,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          "nan",
+          5.0,
+          "nan",
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          "nan",
+          0.5,
+          "nan",
+          1.0,
+          "nan",
+          5.0,
+          "nan",
+          10.0,
+          "nan"
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        1.0,
+        "nan",
+        "-inf",
+        "nan",
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          "nan",
+          "-inf",
+          "nan",
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          "nan",
+          "-inf",
+          "nan",
+          1.0,
+          "nan",
+          "-inf",
+          "nan",
+          10.0,
+          "nan"
+        ]
+      }
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        1.0,
+        "nan",
+        "-inf",
+        "nan",
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 4,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          "nan",
+          "-inf",
+          "nan",
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          "nan",
+          "-inf",
+          "nan",
+          1.0,
+          "nan",
+          "-inf",
+          "nan",
+          10.0,
+          "nan"
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        1.0,
+        "nan",
+        "inf",
+        "nan",
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          "nan",
+          "inf",
+          "nan",
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          "nan",
+          "inf",
+          "nan",
+          1.0,
+          "nan",
+          "inf",
+          "nan",
+          10.0,
+          "nan"
+        ]
+      }
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        1.0,
+        "nan",
+        "inf",
+        "nan",
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 4,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          "nan",
+          "inf",
+          "nan",
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          "nan",
+          "inf",
+          "nan",
+          1.0,
+          "nan",
+          "inf",
+          "nan",
+          10.0,
+          "nan"
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        1.0,
+        -0.0,
+        10.0
+      ],
+      "source_error": "ValueError",
+      "state": null
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        1.0,
+        -0.0,
+        10.0
+      ],
+      "source_error": "ValueError",
+      "state": {
+        "nbins": 4,
+        "integer": false,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        1.0,
+        1.0000000000000002,
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          1.0000000000000002,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.10000000000000003,
+          1.0,
+          1.0000000000000002,
+          10.0,
+          10.000000000000002
+        ]
+      }
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        1.0,
+        1.0000000000000002,
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 4,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          1.0000000000000002,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.10000000000000003,
+          1.0,
+          1.0000000000000002,
+          10.0,
+          10.000000000000002
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        1.0,
+        5e-324,
+        10.0
+      ],
+      "source_error": "ValueError",
+      "state": null
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        1.0,
+        5e-324,
+        10.0
+      ],
+      "source_error": "ValueError",
+      "state": {
+        "nbins": 4,
+        "integer": false,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "stage": "constructor",
+      "input": [
+        1.0,
+        9.999999999999998,
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          9.999999999999998,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.9999999999999999,
+          1.0,
+          9.999999999999998,
+          10.0,
+          99.99999999999999
+        ]
+      }
+    },
+    {
+      "stage": "set_params",
+      "input": [
+        1.0,
+        9.999999999999998,
+        10.0
+      ],
+      "source_error": null,
+      "state": {
+        "nbins": 4,
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          9.999999999999998,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.9999999999999999,
+          1.0,
+          9.999999999999998,
+          10.0,
+          99.99999999999999
+        ]
+      }
+    }
+  ],
+  "parameter_updates": [
+    {
+      "parameters": {},
+      "source_error": null,
+      "state": {
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": "upper",
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          1.0,
+          2.0,
+          10.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "parameters": {
+        "nbins": "auto"
+      },
+      "source_error": null,
+      "state": {
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": "upper",
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          1.0,
+          2.0,
+          10.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "parameters": {
+        "nbins": 0
+      },
+      "source_error": null,
+      "state": {
+        "nbins": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": "upper",
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          1.0,
+          2.0,
+          10.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "parameters": {
+        "min_n_ticks": -9
+      },
+      "source_error": null,
+      "state": {
+        "nbins": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": "upper",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          2.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          1.0,
+          2.0,
+          10.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "parameters": {
+        "steps": null
+      },
+      "source_error": null,
+      "state": {
+        "nbins": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": "upper",
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "parameters": {
+        "prune": null
+      },
+      "source_error": null,
+      "state": {
+        "nbins": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "parameters": {
+        "nbins": 7,
+        "symmetric": true,
+        "prune": "bad",
+        "min_n_ticks": 9,
+        "steps": [
+          1.0,
+          5.0,
+          10.0
+        ],
+        "integer": true
+      },
+      "source_error": "ValueError",
+      "state": {
+        "nbins": 7,
+        "integer": false,
+        "symmetric": true,
+        "prune": null,
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "parameters": {
+        "nbins": 9,
+        "symmetric": false,
+        "prune": "both",
+        "min_n_ticks": 5,
+        "steps": [],
+        "integer": true
+      },
+      "source_error": "IndexError",
+      "state": {
+        "nbins": 9,
+        "integer": false,
+        "symmetric": false,
+        "prune": "both",
+        "min_n_ticks": 5,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "parameters": {
+        "steps": [
+          2.0,
+          4.0,
+          8.0
+        ],
+        "min_n_ticks": 3,
+        "integer": true
+      },
+      "source_error": null,
+      "state": {
+        "nbins": 9,
+        "integer": true,
+        "symmetric": false,
+        "prune": "both",
+        "min_n_ticks": 3,
+        "steps": [
+          1.0,
+          2.0,
+          4.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.4,
+          0.8,
+          1.0,
+          2.0,
+          4.0,
+          8.0,
+          10.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "parameters": {
+        "integer": false,
+        "prune": null
+      },
+      "source_error": null,
+      "state": {
+        "nbins": 9,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 3,
+        "steps": [
+          1.0,
+          2.0,
+          4.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.4,
+          0.8,
+          1.0,
+          2.0,
+          4.0,
+          8.0,
+          10.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "parameters": {
+        "steps": null,
+        "prune": "lower"
+      },
+      "source_error": null,
+      "state": {
+        "nbins": 9,
+        "integer": false,
+        "symmetric": false,
+        "prune": "lower",
+        "min_n_ticks": 3,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ]
+      }
+    },
+    {
+      "parameters": {
+        "steps": [
+          1.0,
+          "nan",
+          10.0
+        ],
+        "integer": true
+      },
+      "source_error": null,
+      "state": {
+        "nbins": 9,
+        "integer": true,
+        "symmetric": false,
+        "prune": "lower",
+        "min_n_ticks": 3,
+        "steps": [
+          1.0,
+          "nan",
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          "nan",
+          1.0,
+          "nan",
+          10.0,
+          "nan"
+        ]
+      }
+    }
+  ],
+  "alias_cases": [
+    {
+      "label": "borrowed contiguous",
+      "initial": [
+        1.0,
+        2.0,
+        5.0,
+        10.0
+      ],
+      "slices": [],
+      "steps_borrowed": true,
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            1.0,
+            2.0,
+            5.0,
+            10.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "caller modifies owner",
+          "owner": [
+            1.125,
+            2.0,
+            5.0,
+            10.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              2.0,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "step getter modifies its buffer",
+          "owner": [
+            1.125,
+            2.0,
+            5.0,
+            9.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              2.0,
+              5.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              2.0,
+              5.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "copy replaces step storage",
+          "owner": [
+            1.125,
+            2.0,
+            5.0,
+            9.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              2.0,
+              5.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": true,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "borrowed signed",
+      "initial": [
+        10.0,
+        5.0,
+        2.0,
+        1.0
+      ],
+      "slices": [
+        [
+          -1,
+          -1,
+          4
+        ]
+      ],
+      "steps_borrowed": true,
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            10.0,
+            5.0,
+            2.0,
+            1.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "caller modifies owner",
+          "owner": [
+            10.0,
+            5.0,
+            2.0,
+            1.125
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              2.0,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "step getter modifies its buffer",
+          "owner": [
+            9.0,
+            5.0,
+            2.0,
+            1.125
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              2.0,
+              5.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              2.0,
+              5.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "copy replaces step storage",
+          "owner": [
+            9.0,
+            5.0,
+            2.0,
+            1.125
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              2.0,
+              5.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": true,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "borrowed nested",
+      "initial": [
+        10.0,
+        0.0,
+        5.0,
+        0.0,
+        2.0,
+        0.0,
+        1.0
+      ],
+      "slices": [
+        [
+          0,
+          1,
+          7
+        ],
+        [
+          6,
+          -2,
+          4
+        ]
+      ],
+      "steps_borrowed": true,
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            10.0,
+            0.0,
+            5.0,
+            0.0,
+            2.0,
+            0.0,
+            1.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "caller modifies owner",
+          "owner": [
+            10.0,
+            0.0,
+            5.0,
+            0.0,
+            2.0,
+            0.0,
+            1.125
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              2.0,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "step getter modifies its buffer",
+          "owner": [
+            9.0,
+            0.0,
+            5.0,
+            0.0,
+            2.0,
+            0.0,
+            1.125
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              2.0,
+              5.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              2.0,
+              5.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "copy replaces step storage",
+          "owner": [
+            9.0,
+            0.0,
+            5.0,
+            0.0,
+            2.0,
+            0.0,
+            1.125
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              2.0,
+              5.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": true,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "borrowed NaN interior",
+      "initial": [
+        1.0,
+        "nan",
+        10.0
+      ],
+      "slices": [],
+      "steps_borrowed": true,
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            1.0,
+            "nan",
+            10.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              "nan",
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              "nan",
+              1.0,
+              "nan",
+              10.0,
+              "nan"
+            ]
+          }
+        },
+        {
+          "stage": "caller modifies owner",
+          "owner": [
+            1.125,
+            "nan",
+            10.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              "nan",
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              "nan",
+              1.0,
+              "nan",
+              10.0,
+              "nan"
+            ]
+          }
+        },
+        {
+          "stage": "step getter modifies its buffer",
+          "owner": [
+            1.125,
+            "nan",
+            9.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              "nan",
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              "nan",
+              1.0,
+              "nan",
+              10.0,
+              "nan"
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              "nan",
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              "nan",
+              1.0,
+              "nan",
+              10.0,
+              "nan"
+            ]
+          }
+        },
+        {
+          "stage": "copy replaces step storage",
+          "owner": [
+            1.125,
+            "nan",
+            9.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.125,
+              "nan",
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              "nan",
+              1.0,
+              "nan",
+              10.0,
+              "nan"
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": true,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "prepend copy",
+      "initial": [
+        2.0,
+        4.0,
+        10.0
+      ],
+      "slices": [],
+      "steps_borrowed": false,
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            2.0,
+            4.0,
+            10.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              1.0,
+              2.0,
+              4.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "caller modifies owner",
+          "owner": [
+            1.125,
+            4.0,
+            10.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              1.0,
+              2.0,
+              4.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "step getter modifies its buffer",
+          "owner": [
+            1.125,
+            4.0,
+            10.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              1.0,
+              2.0,
+              4.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              1.0,
+              2.0,
+              4.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "copy replaces step storage",
+          "owner": [
+            1.125,
+            4.0,
+            10.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              1.0,
+              2.0,
+              4.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": true,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "append copy",
+      "initial": [
+        1.0,
+        2.0,
+        8.0
+      ],
+      "slices": [],
+      "steps_borrowed": false,
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            1.0,
+            2.0,
+            8.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.8,
+              1.0,
+              2.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "caller modifies owner",
+          "owner": [
+            1.125,
+            2.0,
+            8.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.8,
+              1.0,
+              2.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "step getter modifies its buffer",
+          "owner": [
+            1.125,
+            2.0,
+            8.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              8.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.8,
+              1.0,
+              2.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              8.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.8,
+              1.0,
+              2.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "copy replaces step storage",
+          "owner": [
+            1.125,
+            2.0,
+            8.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              8.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.8,
+              1.0,
+              2.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": true,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "prepend append copy",
+      "initial": [
+        2.0,
+        4.0,
+        8.0
+      ],
+      "slices": [],
+      "steps_borrowed": false,
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            2.0,
+            4.0,
+            8.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "caller modifies owner",
+          "owner": [
+            1.125,
+            4.0,
+            8.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "step getter modifies its buffer",
+          "owner": [
+            1.125,
+            4.0,
+            8.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "copy replaces step storage",
+          "owner": [
+            1.125,
+            4.0,
+            8.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": true,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "strided normalized copy",
+      "initial": [
+        0.0,
+        2.0,
+        99.0,
+        4.0,
+        99.0,
+        8.0
+      ],
+      "slices": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "steps_borrowed": false,
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            0.0,
+            2.0,
+            99.0,
+            4.0,
+            99.0,
+            8.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "caller modifies owner",
+          "owner": [
+            0.0,
+            1.125,
+            99.0,
+            4.0,
+            99.0,
+            8.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "step getter modifies its buffer",
+          "owner": [
+            0.0,
+            1.125,
+            99.0,
+            4.0,
+            99.0,
+            8.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          }
+        },
+        {
+          "stage": "copy replaces step storage",
+          "owner": [
+            0.0,
+            1.125,
+            99.0,
+            4.0,
+            99.0,
+            8.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": true,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "zero stride NaN copy",
+      "initial": [
+        "nan"
+      ],
+      "slices": [
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "steps_borrowed": false,
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            "nan"
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              "nan",
+              "nan",
+              "nan",
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              "nan",
+              "nan",
+              "nan",
+              1.0,
+              "nan",
+              "nan",
+              "nan",
+              10.0,
+              "nan"
+            ]
+          }
+        },
+        {
+          "stage": "caller modifies owner",
+          "owner": [
+            1.125
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              "nan",
+              "nan",
+              "nan",
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              "nan",
+              "nan",
+              "nan",
+              1.0,
+              "nan",
+              "nan",
+              "nan",
+              10.0,
+              "nan"
+            ]
+          }
+        },
+        {
+          "stage": "step getter modifies its buffer",
+          "owner": [
+            1.125
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              "nan",
+              "nan",
+              "nan",
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              "nan",
+              "nan",
+              "nan",
+              1.0,
+              "nan",
+              "nan",
+              "nan",
+              10.0,
+              "nan"
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              "nan",
+              "nan",
+              "nan",
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              "nan",
+              "nan",
+              "nan",
+              1.0,
+              "nan",
+              "nan",
+              "nan",
+              10.0,
+              "nan"
+            ]
+          }
+        },
+        {
+          "stage": "copy replaces step storage",
+          "owner": [
+            1.125
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              "nan",
+              "nan",
+              "nan",
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              "nan",
+              "nan",
+              "nan",
+              1.0,
+              "nan",
+              "nan",
+              "nan",
+              10.0,
+              "nan"
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": true,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "zero stride single append copy",
+      "initial": [
+        1.0
+      ],
+      "slices": [
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "steps_borrowed": false,
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            1.0
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              1.0,
+              10.0,
+              100.0
+            ]
+          }
+        },
+        {
+          "stage": "caller modifies owner",
+          "owner": [
+            1.125
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              1.0,
+              10.0,
+              100.0
+            ]
+          }
+        },
+        {
+          "stage": "step getter modifies its buffer",
+          "owner": [
+            1.125
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              1.0,
+              10.0,
+              100.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              1.0,
+              10.0,
+              100.0
+            ]
+          }
+        },
+        {
+          "stage": "copy replaces step storage",
+          "owner": [
+            1.125
+          ],
+          "state": {
+            "nbins": 10,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              9.0
+            ],
+            "extended_steps": [
+              0.1,
+              1.0,
+              10.0,
+              100.0
+            ]
+          },
+          "copy": {
+            "nbins": 10,
+            "integer": true,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "provider_stages": [
+    {
+      "stage": "initial shared binding",
+      "original": [
+        5.0,
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "copy": [
+        5.0,
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "stage": "live provider mutation",
+      "original": [
+        7.0,
+        [
+          1.0,
+          5.0
+        ]
+      ],
+      "copy": [
+        7.0,
+        [
+          1.0,
+          5.0
+        ]
+      ]
+    },
+    {
+      "stage": "copy rebind independent",
+      "original": [
+        7.0,
+        [
+          1.0,
+          5.0
+        ]
+      ],
+      "copy": [
+        3.0,
+        [
+          -2.0,
+          4.0
+        ]
+      ]
+    }
+  ]
+}

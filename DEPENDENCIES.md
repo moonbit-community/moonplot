@@ -163,3 +163,15 @@ NumPy linspace/arange的binary64运算
 原Bbox数据边界、Grouper首次join顺序、GridSpec和Axes共享绑定方法也由固定AST独立验证；
 生产复用既有artist collector收集原始finite数据，并以私有rank保留共享组登记顺序。
 SubFigure的行列共享组预留各自ID区间，无新增容器或第三方依赖。
+
+## D22 MaxN 与自动数值定位器
+
+AutoLocator只持有MaxNLocator状态并薄委托，无第二套刻度算法。共享tick_grid新增实际大offset
+Edge容差，nonsingular增加tiny参数并保持旧默认；MaxN复用既有TickValues/BigInt及纯Moon
+numeric_fill，把D21 Index的Darwin NumPy arange单舍入实现提取为真实共享代码。
+TickValues新增真实Float64/Int64双buffer，以核心Int64保存整数别名、截断写入及view/copy类型；
+Auto经典默认沿原Int64数组，不用Double buffer伪造默认dtype写入。
+完整raw grid描述符用于nticks决策、prune与view端点，返回数组仍受100000前缀限制。
+Axis/Secondary字号与physical tick-space复用现有scene/render/SVG尺寸和文字链路，固定
+dpi72 profile；没有运行时Matplotlib、NumPy、Python、新外部库或C实现。新增classic Bool
+配置、参数/数值/Auto/物理源参考及重现命令见[testdata/maxn_locator_README.md](testdata/maxn_locator_README.md)。

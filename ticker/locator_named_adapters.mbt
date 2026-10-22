@@ -85,6 +85,16 @@ pub fn Locator::checked_tick_values(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    NamedMaxN(value) => {
+      let ticks = value.tick_values(lower, upper)
+      if lower > upper {
+        ticks.rev()
+      } else {
+        ticks
+      }
+    }
+    NamedAuto(value) =>
+      value.as_maxn_locator().as_locator().checked_tick_values(lower, upper)
     NamedLinear(value) => {
       let ticks = value.tick_values(lower, upper).eager_prefix()
       if lower > upper {
@@ -108,6 +118,8 @@ pub fn Locator::tick_values_for_axis(
 ) -> Array[Double] raise @core.DataError {
   match self {
     Index(value) => value.call()
+    NamedMaxN(value) => value.call()
+    NamedAuto(value) => value.call()
     _ => self.checked_tick_values(lower, upper)
   }
 }
@@ -137,6 +149,8 @@ pub fn MinorLocator::checked_tick_values(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   let values = match self {
+    NamedMaxN(value) => value.as_locator().checked_tick_values(lower, upper)
+    NamedAuto(value) => value.as_locator().checked_tick_values(lower, upper)
     NamedLinear(value) => value.as_locator().checked_tick_values(lower, upper)
     Index(value) => value.tick_values(lower, upper)
     NamedFixed(value) => value.tick_values(lower, upper).eager_prefix()
@@ -154,6 +168,8 @@ pub fn MinorLocator::tick_values_for_axis(
 ) -> Array[Double] raise @core.DataError {
   match self {
     Index(value) => named_minor_values(value.call(), major, lower, upper)
+    NamedMaxN(value) => named_minor_values(value.call(), major, lower, upper)
+    NamedAuto(value) => named_minor_values(value.call(), major, lower, upper)
     _ => self.checked_tick_values(major, lower, upper)
   }
 }

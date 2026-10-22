@@ -1,0 +1,2175 @@
+{
+  "ticker_source_sha256": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+  "axis_source_sha256": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+  "font_manager_source_sha256": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "profile": "SVG user units are points, dpi72; x text aspect3, y2; font.size10, medium defaults",
+  "harness_boundaries": "Original selected AST methods; supplied post-transform Bbox dimensions and minimal rc map; no full FontProperties/transform/renderer execution; relative names mapped to resolved numeric size for typed API; nonfinite font fixtures only estimate ticks, not render glyphs",
+  "source_bodies": [
+    "XAxis.get_tick_space",
+    "YAxis.get_tick_space",
+    "Axis._get_tick_label_size",
+    "FontProperties.set_size",
+    "FontProperties.get_size",
+    "FontManager.get_default_size",
+    "MaxNLocator",
+    "AutoLocator"
+  ],
+  "cases": [
+    {
+      "length_points": 0.0,
+      "horizontal": true,
+      "input_size": "-inf",
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": false,
+      "input_size": "-inf",
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": true,
+      "input_size": 0.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": false,
+      "input_size": 0.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": true,
+      "input_size": 0.5,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": false,
+      "input_size": 0.5,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": true,
+      "input_size": 1.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": false,
+      "input_size": 1.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": true,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": false,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": true,
+      "input_size": 24.0,
+      "explicit_override": true,
+      "resolved_size": 24.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": false,
+      "input_size": 24.0,
+      "explicit_override": true,
+      "resolved_size": 24.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": true,
+      "input_size": "nan",
+      "explicit_override": true,
+      "resolved_size": "nan",
+      "tick_space": 2147483647.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": false,
+      "input_size": "nan",
+      "explicit_override": true,
+      "resolved_size": "nan",
+      "tick_space": 2147483647.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": true,
+      "input_size": "inf",
+      "explicit_override": true,
+      "resolved_size": "inf",
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 0.0,
+      "horizontal": false,
+      "input_size": "inf",
+      "explicit_override": true,
+      "resolved_size": "inf",
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": true,
+      "input_size": "-inf",
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 10.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": false,
+      "input_size": "-inf",
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 15.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": true,
+      "input_size": 0.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 10.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": false,
+      "input_size": 0.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 15.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": true,
+      "input_size": 0.5,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 10.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": false,
+      "input_size": 0.5,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 15.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": true,
+      "input_size": 1.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 10.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": false,
+      "input_size": 1.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 15.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": true,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 1.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": false,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 1.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": true,
+      "input_size": 24.0,
+      "explicit_override": true,
+      "resolved_size": 24.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": false,
+      "input_size": 24.0,
+      "explicit_override": true,
+      "resolved_size": 24.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": true,
+      "input_size": "nan",
+      "explicit_override": true,
+      "resolved_size": "nan",
+      "tick_space": 2147483647.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": false,
+      "input_size": "nan",
+      "explicit_override": true,
+      "resolved_size": "nan",
+      "tick_space": 2147483647.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": true,
+      "input_size": "inf",
+      "explicit_override": true,
+      "resolved_size": "inf",
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.0,
+      "horizontal": false,
+      "input_size": "inf",
+      "explicit_override": true,
+      "resolved_size": "inf",
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": true,
+      "input_size": "-inf",
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 40.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": false,
+      "input_size": "-inf",
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 60.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": true,
+      "input_size": 0.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 40.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": false,
+      "input_size": 0.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 60.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": true,
+      "input_size": 0.5,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 40.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": false,
+      "input_size": 0.5,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 60.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": true,
+      "input_size": 1.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 40.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": false,
+      "input_size": 1.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 60.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": true,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 4.0,
+      "maxn_ticks": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": false,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 6.0,
+      "maxn_ticks": [
+        0.0,
+        4.0,
+        8.0,
+        12.0,
+        16.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": true,
+      "input_size": 24.0,
+      "explicit_override": true,
+      "resolved_size": 24.0,
+      "tick_space": 1.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": false,
+      "input_size": 24.0,
+      "explicit_override": true,
+      "resolved_size": 24.0,
+      "tick_space": 2.0,
+      "maxn_ticks": [
+        0.0,
+        10.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        10.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": true,
+      "input_size": "nan",
+      "explicit_override": true,
+      "resolved_size": "nan",
+      "tick_space": 2147483647.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": false,
+      "input_size": "nan",
+      "explicit_override": true,
+      "resolved_size": "nan",
+      "tick_space": 2147483647.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": true,
+      "input_size": "inf",
+      "explicit_override": true,
+      "resolved_size": "inf",
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.0,
+      "horizontal": false,
+      "input_size": "inf",
+      "explicit_override": true,
+      "resolved_size": "inf",
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": true,
+      "input_size": "-inf",
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 120.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": false,
+      "input_size": "-inf",
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 180.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": true,
+      "input_size": 0.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 120.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": false,
+      "input_size": 0.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 180.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": true,
+      "input_size": 0.5,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 120.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": false,
+      "input_size": 0.5,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 180.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": true,
+      "input_size": 1.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 120.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": false,
+      "input_size": 1.0,
+      "explicit_override": true,
+      "resolved_size": 1.0,
+      "tick_space": 180.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": true,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 12.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": false,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 18.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": true,
+      "input_size": 24.0,
+      "explicit_override": true,
+      "resolved_size": 24.0,
+      "tick_space": 5.0,
+      "maxn_ticks": [
+        0.0,
+        4.0,
+        8.0,
+        12.0,
+        16.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": false,
+      "input_size": 24.0,
+      "explicit_override": true,
+      "resolved_size": 24.0,
+      "tick_space": 7.0,
+      "maxn_ticks": [
+        0.0,
+        3.0,
+        6.0,
+        9.0,
+        12.0,
+        15.0,
+        18.0,
+        21.0
+      ],
+      "auto_ticks": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": true,
+      "input_size": "nan",
+      "explicit_override": true,
+      "resolved_size": "nan",
+      "tick_space": 2147483647.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": false,
+      "input_size": "nan",
+      "explicit_override": true,
+      "resolved_size": "nan",
+      "tick_space": 2147483647.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": true,
+      "input_size": "inf",
+      "explicit_override": true,
+      "resolved_size": "inf",
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 360.0,
+      "horizontal": false,
+      "input_size": "inf",
+      "explicit_override": true,
+      "resolved_size": "inf",
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 240.0,
+      "horizontal": true,
+      "input_size": null,
+      "explicit_override": false,
+      "resolved_size": 10.0,
+      "tick_space": 8.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 240.0,
+      "horizontal": false,
+      "input_size": null,
+      "explicit_override": false,
+      "resolved_size": 10.0,
+      "tick_space": 12.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 240.0,
+      "horizontal": true,
+      "input_size": "large",
+      "explicit_override": true,
+      "resolved_size": 12.0,
+      "tick_space": 6.0,
+      "maxn_ticks": [
+        0.0,
+        4.0,
+        8.0,
+        12.0,
+        16.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 240.0,
+      "horizontal": false,
+      "input_size": "small",
+      "explicit_override": true,
+      "resolved_size": 8.33,
+      "tick_space": 14.0,
+      "maxn_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    {
+      "length_points": 29.999999999999996,
+      "horizontal": true,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 30.000000000000004,
+      "horizontal": true,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 1.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 59.99999999999999,
+      "horizontal": true,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 1.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 60.00000000000001,
+      "horizontal": true,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 2.0,
+      "maxn_ticks": [
+        0.0,
+        10.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        10.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 89.99999999999999,
+      "horizontal": true,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 2.0,
+      "maxn_ticks": [
+        0.0,
+        10.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        10.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 90.00000000000001,
+      "horizontal": true,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 3.0,
+      "maxn_ticks": [
+        0.0,
+        8.0,
+        16.0,
+        24.0
+      ],
+      "auto_ticks": [
+        0.0,
+        10.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 119.99999999999999,
+      "horizontal": true,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 3.0,
+      "maxn_ticks": [
+        0.0,
+        8.0,
+        16.0,
+        24.0
+      ],
+      "auto_ticks": [
+        0.0,
+        10.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 120.00000000000001,
+      "horizontal": true,
+      "input_size": 10.0,
+      "explicit_override": true,
+      "resolved_size": 10.0,
+      "tick_space": 4.0,
+      "maxn_ticks": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 38.09999999999999,
+      "horizontal": true,
+      "input_size": 12.7,
+      "explicit_override": true,
+      "resolved_size": 12.7,
+      "tick_space": 0.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 38.099999999999994,
+      "horizontal": true,
+      "input_size": 12.7,
+      "explicit_override": true,
+      "resolved_size": 12.7,
+      "tick_space": 1.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "length_points": 38.1,
+      "horizontal": true,
+      "input_size": 12.7,
+      "explicit_override": true,
+      "resolved_size": 12.7,
+      "tick_space": 1.0,
+      "maxn_ticks": [
+        0.0,
+        20.0
+      ],
+      "auto_ticks": [
+        0.0,
+        20.0
+      ]
+    }
+  ],
+  "layout_fixtures": {
+    "auto8": {
+      "length_points": 240.0,
+      "size": 10.0,
+      "horizontal": true,
+      "bounds": [
+        0.0,
+        20.0
+      ],
+      "tick_space": 8,
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    "auto4": {
+      "length_points": 120.0,
+      "size": 10.0,
+      "horizontal": true,
+      "bounds": [
+        0.0,
+        20.0
+      ],
+      "tick_space": 4,
+      "auto_ticks": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ]
+    },
+    "auto2": {
+      "length_points": 60.0,
+      "size": 10.0,
+      "horizontal": true,
+      "bounds": [
+        0.0,
+        20.0
+      ],
+      "tick_space": 2,
+      "auto_ticks": [
+        0.0,
+        10.0,
+        20.0
+      ]
+    },
+    "auto13": {
+      "length_points": 400.0,
+      "size": 10.0,
+      "horizontal": true,
+      "bounds": [
+        0.0,
+        20.0
+      ],
+      "tick_space": 13,
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    "auto6": {
+      "length_points": 200.0,
+      "size": 10.0,
+      "horizontal": true,
+      "bounds": [
+        0.0,
+        20.0
+      ],
+      "tick_space": 6,
+      "auto_ticks": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ]
+    },
+    "auto3": {
+      "length_points": 100.0,
+      "size": 10.0,
+      "horizontal": true,
+      "bounds": [
+        0.0,
+        20.0
+      ],
+      "tick_space": 3,
+      "auto_ticks": [
+        0.0,
+        10.0,
+        20.0
+      ]
+    },
+    "auto12": {
+      "length_points": 360.0,
+      "size": 10.0,
+      "horizontal": true,
+      "bounds": [
+        0.0,
+        20.0
+      ],
+      "tick_space": 12,
+      "auto_ticks": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        12.5,
+        15.0,
+        17.5,
+        20.0
+      ]
+    },
+    "secondary_x": {
+      "length_points": 240.0,
+      "size": 20.0,
+      "horizontal": true,
+      "bounds": [
+        0.0,
+        40.0
+      ],
+      "tick_space": 4,
+      "auto_ticks": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0
+      ]
+    },
+    "secondary_y": {
+      "length_points": 120.0,
+      "size": 20.0,
+      "horizontal": false,
+      "bounds": [
+        0.0,
+        40.0
+      ],
+      "tick_space": 3,
+      "auto_ticks": [
+        0.0,
+        20.0,
+        40.0
+      ]
+    },
+    "secondary_owner": {
+      "length_points": 240.0,
+      "size": 20.0,
+      "horizontal": true,
+      "bounds": [
+        100.0,
+        120.0
+      ],
+      "tick_space": 4,
+      "auto_ticks": [
+        100.0,
+        105.0,
+        110.0,
+        115.0,
+        120.0
+      ]
+    }
+  },
+  "ownership_cases": [
+    {
+      "kind": "maxn",
+      "stages": [
+        {
+          "stage": "last different axis",
+          "view": [
+            100.0,
+            120.0
+          ],
+          "length": 120.0,
+          "original": [
+            100.0,
+            105.0,
+            110.0,
+            115.0,
+            120.0
+          ],
+          "copy": [
+            100.0,
+            105.0,
+            110.0,
+            115.0,
+            120.0
+          ]
+        },
+        {
+          "stage": "last owner length and view change",
+          "view": [
+            200.0,
+            220.0
+          ],
+          "length": 60.0,
+          "original": [
+            200.0,
+            210.0,
+            220.0
+          ],
+          "copy": [
+            200.0,
+            210.0,
+            220.0
+          ]
+        },
+        {
+          "stage": "original rebound while copy retains old owner",
+          "view": [
+            0.0,
+            20.0
+          ],
+          "length": 360.0,
+          "original": [
+            0.0,
+            2.5,
+            5.0,
+            7.5,
+            10.0,
+            12.5,
+            15.0,
+            17.5,
+            20.0
+          ],
+          "copy": [
+            200.0,
+            210.0,
+            220.0
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "auto",
+      "stages": [
+        {
+          "stage": "last different axis",
+          "view": [
+            100.0,
+            120.0
+          ],
+          "length": 120.0,
+          "original": [
+            100.0,
+            105.0,
+            110.0,
+            115.0,
+            120.0
+          ],
+          "copy": [
+            100.0,
+            105.0,
+            110.0,
+            115.0,
+            120.0
+          ]
+        },
+        {
+          "stage": "last owner length and view change",
+          "view": [
+            200.0,
+            220.0
+          ],
+          "length": 60.0,
+          "original": [
+            200.0,
+            210.0,
+            220.0
+          ],
+          "copy": [
+            200.0,
+            210.0,
+            220.0
+          ]
+        },
+        {
+          "stage": "original rebound while copy retains old owner",
+          "view": [
+            0.0,
+            20.0
+          ],
+          "length": 360.0,
+          "original": [
+            0.0,
+            2.5,
+            5.0,
+            7.5,
+            10.0,
+            12.5,
+            15.0,
+            17.5,
+            20.0
+          ],
+          "copy": [
+            200.0,
+            210.0,
+            220.0
+          ]
+        }
+      ]
+    }
+  ]
+}

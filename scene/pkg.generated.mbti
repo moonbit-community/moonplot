@@ -684,11 +684,13 @@ pub struct SecondaryAxis {
   mut fixed_ticks : Array[Double]?
   mut locator : @ticker.Locator?
   mut formatter : @ticker.Formatter?
+  // private fields
 }
 pub fn SecondaryAxis::clear_formatter(Self) -> Unit
 pub fn SecondaryAxis::clear_locator(Self) -> Unit
 pub fn SecondaryAxis::formatter(Self) -> @ticker.Formatter?
 pub fn SecondaryAxis::forward(Self) -> (Double) -> Double
+pub fn SecondaryAxis::get_tick_space(Self) -> Double
 pub fn SecondaryAxis::inverse(Self) -> (Double) -> Double
 pub fn SecondaryAxis::label(Self) -> String?
 pub fn SecondaryAxis::location(Self) -> SecondaryAxisLocation
@@ -697,8 +699,10 @@ pub fn SecondaryAxis::set_formatter(Self, @ticker.Formatter) -> Unit
 pub fn SecondaryAxis::set_label(Self, String) -> Unit
 pub fn SecondaryAxis::set_locator(Self, @ticker.Locator) -> Unit raise @core.DataError
 pub fn SecondaryAxis::set_tick_count(Self, Int) -> Unit
+pub fn SecondaryAxis::set_tick_label_size(Self, Double) -> Unit
 pub fn SecondaryAxis::set_ticks(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn SecondaryAxis::tick_count(Self) -> Int
+pub fn SecondaryAxis::tick_label_size(Self) -> Double
 pub fn SecondaryAxis::ticks(Self) -> Array[Double]?
 
 pub(all) enum SecondaryAxisLocation {

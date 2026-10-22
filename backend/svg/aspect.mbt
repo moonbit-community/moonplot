@@ -181,6 +181,8 @@ pub fn panel_view(
   index : Int32,
 ) -> ((Double, Double, Double, Double), @core.Limits, @core.Limits)? raise @core.DataError {
   guard figure.panels().get(index) is Some(panel) else { return None }
+  begin_tick_layout(figure)
+  defer end_tick_layout(figure)
   let scale = resolve_panel_scale(figure, index)
   Some(
     (

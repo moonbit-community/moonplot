@@ -10,6 +10,8 @@ pub(all) enum SecondaryAxisLocation {
 ///|
 /// A coordinate axis whose values are derived from a primary axis.
 pub struct SecondaryAxis {
+  priv mut parent_axis : @axis.Axis?
+  priv mut tick_label_size : Double
   location : SecondaryAxisLocation
   forward : (Double) -> Double
   inverse : (Double) -> Double
@@ -32,6 +34,8 @@ fn secondary_axis(
   inverse : (Double) -> Double,
 ) -> SecondaryAxis {
   {
+    parent_axis: None,
+    tick_label_size: 10.0,
     location,
     forward,
     inverse,
@@ -130,6 +134,7 @@ pub fn SecondaryAxis::set_locator(
   if locator is @ticker.Locator::Index(value) {
     value.bind_data_interval(fn() { (1.0 / 0.0, -1.0 / 0.0) })
   }
+  self.bind_numeric_locator_context(locator)
 }
 
 ///|
@@ -187,6 +192,7 @@ pub fn Axes::secondary_xaxis(
       )
   }
   let result = secondary_axis(location, forward, inverse)
+  result.parent_axis = Some(self.x_axis())
   self.state.val.secondary_x.push(result)
   result
 }
@@ -207,6 +213,7 @@ pub fn Axes::secondary_yaxis(
       )
   }
   let result = secondary_axis(location, forward, inverse)
+  result.parent_axis = Some(self.y_axis())
   self.state.val.secondary_y.push(result)
   result
 }

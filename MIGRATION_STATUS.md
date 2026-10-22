@@ -8,17 +8,17 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D22（命名MaxNLocator/AutoLocator），只读准备完成，尚未冻结/实现。
-- 最近完成D21：命名Linear/Index/Fixed、真实signed/nested/0stride views、checked axis/SVG、
-  本地raw data interval、共享owner/实际Grouper删除顺序与SubFigure分组隔离。旧helpers保留。
-- 最终四目标：wasm/wasm-gc/native各6380/6380，JS6387/6387（7个无Node测试）。
-  info&&fmt、check-all79tasks（8旧Ref warnings）、八个source --check全部exit0。
-  D21-interface.diff符合预期3类/view/checked/provider，无date接口变化/foreign类型。
-- 下一条具体动作：读取 .moonagent/checkpoints/D22-readonly-notes.md（235行已定向分析），
-  冻结MaxN/Auto typed参数与partial-update、offset Edge/tiny、完整nticks/prune/cap和真实
-  tick-space边界；保存D22-before后分派三个独占实现/原源包，root负责公共接线和门禁。
-- 当前无live Moon/source session。最终test-all4524、check-all28603、shared source75085均
-  exit0，历史ID勿轮询；三个agents全部交付停止。D22只有只读笔记，不得误报已实现。
+- 当前切片编号：D22已验收；下一D23候选命名AutoMinorLocator/NullLocator，尚未冻结/实现。
+- 最近完成D22：MaxN/Auto完整typed参数/partial更新、full grid决策/offset Edge/prune/view、
+  classic构造捕获、实际物理tick-space/checked axis/secondary/contour、真Float64/Int64 views。
+- 最终四目标：wasm/wasm-gc/native各7250/7250，JS7257/7257（7个无Node测试）。
+  info&&fmt、check-all171tasks（8旧Ref warnings）、九个source --check全部exit0。
+  D22-interface.diff符合预期MaxN/Auto/config/physical/Int64入口；date接口无变化，无新外部依赖。
+- 下一条具体动作：读取 .moonagent/checkpoints/D23-readonly-notes.md（229行已定向分析），
+  冻结AutoMinor/Null的ndivs/首次rc、任意精度round/NumPy arange dtype与owner四provider合同；
+  保存D23-before，分派独占实现/原源包，root接线与门禁。默认数值Axis生命周期仍是待迁移项。
+- 当前无live Moon/source session。最终test-all95557、check-all26276、source87609/92172均
+  exit0勿轮询；所有agents交付停止。D23只有ignored只读笔记，不提前标实现。
 - Git本地基线commit 1b61c4b（D01–D19）；D20验收commit d385718；D21验收commit 2403fcb。
   无remote。用户已授权分批commit与并行subagents，后续按验收步骤继续本地提交。
 - 整体目标持续，约46%全目标/80%核心二维SVG工程估算暂不变，无阻塞。
@@ -34,7 +34,7 @@
 ## 当前目标
 
 - [ ] 持续把 Matplotlib v3.11.2 的公开能力迁移到 MoonBit；本目标仍在进行中。
-- 下一纵向切片候选：命名MaxNLocator/AutoLocator；命名LinearLocator/IndexLocator/FixedLocator、通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
+- 下一纵向切片候选：命名AutoMinorLocator/NullLocator；命名MaxNLocator/AutoLocator、命名LinearLocator/IndexLocator/FixedLocator、通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
   TZif/IANA、Axes 位置/选择/移除、numeric aspect、anchor、adjustable 与 box_aspect 已验收。
 - 已确认的用户决定：支持合理复用；保留 `Figure::to_svg` → `internal/render` →
   `backend/svg`，有具体共享需求再增加抽象层。不要反复讨论已解决的架构问题。
@@ -2867,11 +2867,11 @@
 - 三agents全部停止写入。D22 MaxN/Auto只读笔记235行已保存；下一步按head冻结新切片，
   勿重做已完成D21项目survey或重复通过门禁，除非新变更使其失效。
 
-## D22 执行顺序（尚未冻结/实现）
+## D22 执行顺序
 
-- [ ] D22-01 读取定向笔记后冻结MaxN/Auto及真实tick-space合同、保存D22-before并明确文件所有权。
-- [ ] D22-02 三个独占工作包并行实现/原源参考，root整合numeric kernel/enum/checked axis/render。
-- [ ] D22-03 文档/原源/接口与四目标验收，按通过步骤本地commit。
+- [x] D22-01 读取定向笔记后冻结MaxN/Auto及真实tick-space合同、保存D22-before并明确文件所有权。
+- [x] D22-02 三个独占工作包并行实现/原源参考，root整合numeric kernel/enum/checked axis/render。
+- [x] D22-03 文档/原源/接口与四目标验收，按通过步骤本地commit。
 
 已确认的方向（完整235行依据在 .moonagent/checkpoints/D22-readonly-notes.md）：
 
@@ -2889,3 +2889,158 @@
   浮点数值核与原源网格；包C：Auto/classic config/provider/集成。root负责跨文件API与axis/
   render接线、全门禁，所有Moon tests/info/fullfmt由root在writers停止后统一运行。
 - 当前三个agents idle/已完成，没有live tools；不得把这份准备记录标为D22实现。
+
+### D22-01 冻结与独占分派（2026-10-23）
+
+- 上一goal回合分类progress：D21已验收，2403fcb代码+8714983检查点提交，当前开始时工作树干净。
+- 已读取D22全部235行笔记与固定MaxN/Auto/Edge/scale_range/XAxis/YAxis.get_tick_space原方法。
+  D22-before从git HEAD归档ticker/scene/backend/grid/config/docs，未混入新untracked实现。
+- A(multiple_reference)独占locator_maxn.mbt参数/steps/providers/copy及params generator/JSON/2tests；
+  B(multiple_integration)独占maxn_grid/maxn_ticks、数值generator/JSON/2tests，可提取Index FMA到
+  numeric_fill并只改Index调用共享helper；C(multiple_docs)独占Auto薄对象/config classic及其
+  generator/JSON/2tests，附只读physical/secondary原源分析。root独占helper/enum/axis/render。
+- MaxNBins Auto|Count(Int32)，steps传TickValues保留真实view；set_params steps?:TickValues?与
+  prune?:String?区分省略保持/None重置。保留源nbins→symmetric→prune→min→steps→integer
+  的partial-update，不套Multiple原子规则；steps借用/extended snapshot与浅copy分别保留。
+- public get/set/bind协议已发agent：tick-space pure ()->Double，view provider为
+  ()->(Double,Double) raiseCore，call传播自动view/range/aspect源错误，不try!吞没。
+- rawgrid descriptor必须完整nticks决定step、full-prune后prefix cap、round view真实full端点；
+  零/负nbins延迟错误，NaN steps源接受；固定Darwin arange单次舍入之后的乘加独立舍入。
+- root已扩tick_grid.ge/le可选offset容差，locator_nonsingular可选tiny默认保持旧值；config新增
+  私有classic_mode默认false与snapshot复制。尚未编译/验证；不会提前宣布D22验收。
+- actual tick-space根源是plot物理长度/字号（x*3/y*2），root将以SVG实际plot region与同一
+  渲染字体建立dpi72/user-unit profile并按aspect前后阶段更新，禁止tick_count替代。C正核查
+  secondary与FontProperties数值边界；这些接线还未实现。当前没有live Moon session。
+
+- root新增NamedMaxN/NamedAuto主次variants、live getters/adapters与checked dispatch；旧MaxN helper
+  不变。Axis新geometry/view context与MaxN owner绑定接入既有setter/共享删除rank流程；Axis.clear
+  仅重置字号配置，所属geometry/view/data context保留。Scene view callback通过checked panel_view
+  自动解析真实view，tickspace只读物理rect而不递归求view。
+- actual tick-space冻结为SVG dpi72/profile：宽/高与font同userunits，x length/(3*size)、y/(2*size)
+  floor；数值字号按真实FontProperties clamp<1到1，NaN/Inf保留。root已新增Axis/Secondary
+  set_tick_label_size与get_tick_space，renderer正把实际tick文本字号与计算字号保持一致。
+- backend先为所有轴提供初始raw布局尺寸用于autoscale，positions全部算完后为所有轴设置
+  active尺寸再逐panel查询ticks，避免共享owner受绘制顺序影响；defer恢复临时layout状态。
+  Secondary使用父主方向实际长度与自己字号，view按原forward映射/方向；不取tiny厚度。
+- A参数5文件已交付停止：51constructor/40steps/12updates/10alias×4stage/3provider=146观察组，
+  103generated+4hand，source生成/--check通过。A现在独占新增numeric axis物理source/JSON/
+  scene+backend WB四文件，禁止Moon gate。B数值与C Auto source/tests仍在写入。
+- static JS-1 79398已exit255，仅root if表达式缺括号3error与新warnings；root语法/effect注解
+  已修，A enum显式trait extend与B descriptor priv修正。static JS-2 38613已exit0（8旧warnings）；
+  static JS-3正在检查最近secondary/font改动，尚未运行任何D22 Moon test。
+- font_manager.py固定源码已补，SHA d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788。
+  全FontProperties字符串/rc继承与可变dpi仍是字体系统边界，不能把当前固定SVG profile泛称全后端。
+
+- static JS-3 exit255仅root secondary pattern需括号2error；已修，JS-4/5均exit0。
+  C生成/hand三新warnings已修并再生source --check通过，A Debug显式extend新增debug包import，
+  JS-5只剩8旧Ref warnings。当前所有生产包已可编译，D22全源码/tests仍未统一验收。
+- root进一步按source locator.axis所有权修正：NamedMaxN/Auto axis路径必须.call()读取最后
+  owner的view和tickspace，不能拿当前绘制轴的bounds代替。backend给ALL轴resolved view与
+  active几何再画；Scene外call通过checked panel_view自动求view，临时layout.defer恢复。
+  major非checked convenience亦走同context/catch[]；minor按既有裁剪/去主tick合同保持。
+- C Auto source正式交付：308grids×5查询、16updates、8copy/provider；312generated+4hand+1doc。
+  C现只写README/COMPAT/PLAN/DEPENDENCIES/NOTICES和新maxn guide六docs；A参数停止后转
+  physical源与4集成文件（含同对象不同轴/secondary最后owner的view+长度）；B数值source仍写入。
+- 两稳定源maxn_params/auto_numeric --check开始只读复核，日志D22-source-*.log；不用Moon tests。
+
+- B数值已交付停止：314cases/1574观察组、315generated+4hand。16cap查询源完整枚举
+  124999–166668项；Int32.max的3条请求单独预算省略不冒充源错。numeric_fill提取Index原2helper
+  代码不变，Index其余运算未变；Node仅数值开发原型1253原源tick/view查询逐bit匹配，尚非Moon门禁。
+- B现在只读审查root physical/checked owner/secondary接线；A新四物理文件仍writing，C六docs
+  writing，故继续未跑D22 Moon tests。两稳定source maxn_params/auto_numeric root --check exit0；
+  root maxn_grid --check启动，日志D22-source-maxn_grid.log。静态JS-5 exit0仍8旧warnings。
+
+- root检查contour的locator入口仍调用safe tick_values吞named错误，已改checked_tick_values；
+  legacy路径保持旧返回值。新增1项MaxN contour live/旧levels快照/Count0 delayed InvalidTicks
+  回归，避免只有SVG有checked链、contour把源错误误映射成空levels。
+- B数值root --check exit0：314cases/1574观察组/3明确预算省略。当前无live tools；A物理
+  source/integration仍writing，C六docs仍writing，root尚未运行D22 Moon测试。
+
+- A最后4文件已交付停止：79 physical/font profiles（含11个ULP/非整数size边界）、10布局
+  sourcefixtures、2所有权trace×3stage；scene86tests(79source+7integration)+backend3=89。
+  原Axis/font/MaxN/Auto AST实际执行，geometry只供应已变换bbox英寸与最小rc，不冒称原renderer。
+- C六docs已交付停止，README全部nocheck无新checked输入；物理计数待gate后root补指南。
+  B只读review无新实质问题，已转仅ignored D23 AutoMinor/Null定向笔记，禁止实现新slice。
+- root物理helper保留length/72*72原运算次序，A已按原方法补ULP临界参考。
+- root发现移除轴后的Scene view callback找不到state会错误fallback[0,1]；私有to_render_figure
+  现在支持临时extra detached panel，旧locator/copy在脱离Figure后仍按所属axes真实数据/显式view
+  解析，未重新附着或改变图层。另加1项automatic detached/copy后续plot回归（与contour共2tests）。
+- 所有D22源码/tests/docs writers已停止；root首轮统一JS session28454 live，日志D22-test-js-1.log。
+  期间不改源码/测试输入；A/C/B的source --check已各通过，root正式4脚本复核待JS/formatter后。
+
+- 首次统一JS28454已exit2：7221中7220通过；唯一失败AutoLocator provider-copy/rebind classicTrue
+  逐bit1.25 vs1。全数值/params/89physical/两个root集成与D21旧回归全部通过，没放宽比较。
+- C重新独占原Auto source/generator/JSON/tests必要文件调查单case（six docs停止写入）；
+  排查源fixture跨classic循环/alias快照或真实Auto.copy生产问题，必须独立原源证据定责。
+  当前无live测试可编辑；下一动作等C交付停止→相关JS核验→info&&fmt/接口/最终四目标。
+
+- C独立原源确认唯一JS失败是实际dtype差异：classicTrue默认steps np.int64，写1.25截成1；
+  classicFalse含2.5为float64保留1.25，独立True→False→True稳定且copy确实共享，非fixture污染。
+  原期望正确，不排除观察/不改bits/不靠copy局部补丁。
+- root将TickValues升级真实私有Float64/Integer64双buffer，新增from_int64_array(Array[Int64])；
+  整数set按NumPy截断并checked拒绝NaN/Inf/越界，get/to_array仍Double坐标，view/copy保留dtype。
+  私有is_int64/with_values用于MaxN补端点时保留Int64，extended仍独立Float64 snapshot。
+- C仅改Auto classic默认改from_int64_array，不动原期望；A重新独占参数validate步骤的补端点
+  dtype保留，并新增integer tick source/JSON/test三文件（整型view/alias/copy/cast错误/MaxN补端点）。
+  root独占tick_values.mbt，防共享文件冲突；当前无live Moon test，改完统一重验。
+
+- Int64新typed入口也暴露原np.diff/末乘环绕语义，C实际确认源接受极端steps
+  [1,Int64.min,-1,9223372036854775806,-3,10]（np.diff环绕全正），staircase末10*Int64.min环绕0。
+  不把此域排除：A负责validate的Int64环绕diff/末乘及独立source cases；root提供精确private
+  get_int64与with_endpoints，补1/10时原Int64值复制，避免通过Double丢大整数或误报溢出。
+- rootstatic JS-6 exit0：22tasks/8旧warnings（在新增极值整型参考前）。A整型3文件/参数修复
+  与C六docs仍writing；所有其它D22代码/tests停止，无live测试。B D23只读笔记229行已落盘
+  .moonagent/checkpoints/D23-readonly-notes.md，尚未实现，不要跳过D22最终验收。
+
+- 新Int64 typed入口的Fixed.from_view也必须保留整型择phase：C源实证np.abs(Int64.min)环绕仍
+  MIN，Fixed([MIN,0,1,2],nbins2)选[MIN,1]；大于2^53的邻接整数不能先Double abs/min后比较，
+  否则值打印相同也会写回错误owner位置。
+- C新增独占ticker/locator_fixed.mbt：Integer64分支精确get_int64、UInt64环绕abs、Int64 min/
+  strict phase比较，Float64旧路径不变。A整型原源3文件追加上述两case与result.set owner断言；
+  仍保留MaxN overflow diff/尾乘/补端点Integer精确值与Classic默认write截断。root不碰C Fixed文件。
+- 六docs已同步dual buffer、from_int64_array、MaxN wrap与copy/viewcast后停止；整型计数待A交付。
+  当前A参数+整型oracle、C Fixed生产仍writing，无live工具。root TickValues helper与Auto
+  classic修复已落盘，尚未统一重跑JS/四目标，D22仍未验收。
+
+- A整型最终交付停止：17scalar writes+7real view/copy alias+10MaxN dtype/wrap/端点+2Fixed
+  exact phase=36generated，固定NumPy core哈希，生成/--check exit0，原Auto/其它期望未动。
+  MaxN exact wrap diff/尾乘与with_endpoints落盘；C Fixed integer abs/min分支也交付停止。
+- static JS-7 exit0（8旧warnings）；所有writers已停止，当前开始最终info&&fmt后统一重验。
+  首次JS失败唯一dtype已按真Integer64存储修复，尚待运行证据；不提前标通过。
+- 已知后续接线边界：未显式装locator的默认数值Axis仍用旧scale/tick_count原型，新命名Auto
+  目前显式接入；切换默认需连同date units/scale/clear默认locator生命周期定向迁移，不能
+  把新类验收误称所有Matplotlib默认轴对象行为完整。整体goal继续active。
+
+- 最终info&&fmt93325 exit0；D22-interface.diff已保存并审查符合预期：MaxNBins/MaxN/Auto/live
+  adapters与providers，classic config/snapshot，Axis/Secondary physical字号与checked viewcontext，
+  TickValues.from_int64_array、内部ge/le offset可选参数与Secondary IR字号。date接口无变化。
+  无C/Python/外部依赖新增；debug/math为既有Moon core标准库。git diff --check通过。
+- 最终check-all26276已exit0，8旧Ref warnings；final test-all session95557 live，日志
+  D22-test-all-final.log。当前禁止改源码/README/tests。最终九source --check并行验证日志
+  D22-source-*.log；若返回source session需按实际live ID续轮询，不重启已确认进程。
+
+- 最终九source --check的live ID：auto_numeric87609、microsecond92172；其它七脚本已exit0。
+  最终Moon test-all95557仍live，先轮询上述确认的ID，期间不改测试输入。所有agents已停止。
+
+### D22 已验收（2026-10-23）
+
+- 最终test-all95557 exit0：wasm/wasm-gc/native各7250/7250，JS7257/7257；比D21各新增870
+  （103+315+312+36 generated、12hand、1checked doc、89physical集成、2root集成）。
+- info&&fmt93325 exit0；check-all26276 exit0：171tasks/8旧Ref warnings/0error；九份
+  source --check全部exit0（五新脚本+Index/Fixed/Multiple/micro共享代码回归），87609/92172
+  均已结束，无live tool。D22-interface.diff保存并审查，日期接口不变、无外部依赖/自有C。
+- 全部MaxN/Auto参数/None三态/失败partial-state、step alias/extended snapshot、full nticks/
+  prune-before-cap/full view ends、offset Edge/tiny、经典构造捕获、source provider读次数，
+  checked owner view+space、SVG实际尺寸/字体、secondary父长度/自己字号、删除后copy、contour
+  错误链与旧helpers/日期/SVG回归通过。formatter/layout采用相同实际字号。
+- 首次JS7220/7221唯一失败确为经典默认np.int64写小数截断；修复真实Integer64 storage，
+  保留全部原逐bit期望，并覆盖Int64 set/copy/view cast、MaxN wrapped diff/末乘/精确补端点、
+  Fixed wrapped abs(MIN)与>2^53精确phase/owner写回。没有把源默认dtype差异从验收移除。
+- 参考证据：params146观察/103generated+4hand；grid314cases1574观察/315+4hand/3预算省略；
+  Auto308×5查询+16updates+8copy provider/312+4hand+1doc；physical79profiles/10layouts/2traces/
+  89tests；Int64 17writes+7aliases+10MaxN+2Fixed=36tests。原源budget与源错误保持区分。
+- 边界仍明确：typed Count/min Int32、Float64/Int64 steps，其他dtype/动态Python、3D分支、
+  完整font/rc/dpi/非SVG与dataLim cache/relim未完。默认数值Axis尚沿legacy scale/tick_count，
+  新Auto明确安装；隐式默认须与units/scale/clear生命周期后续迁移，不宣称全轴对象已完成。
+- 六docs与新maxn guide同步；本切片本地提交。全目标持续active，46%全目标/80%核心二维
+  工程估算暂不变。D23 AutoMinor/Null只读笔记229行已保存；从head继续，不重启D22survey。

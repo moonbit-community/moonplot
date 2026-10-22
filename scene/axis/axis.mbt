@@ -12,6 +12,13 @@ pub(all) enum TickPosition {
 /// A coordinate axis with limits, tick formatting, and presentation settings.
 pub struct Axis {
   priv mut data_interval_provider : (() -> (Double, Double))?
+  priv mut tick_length_provider : (() -> Double)?
+  priv mut numeric_view_provider : (() -> (Double, Double) raise @core.DataError)?
+  priv mut tick_layout_length : Double?
+  priv mut tick_layout_view : (Double, Double)?
+  priv mut tick_layout_active : Bool
+  priv mut tick_horizontal : Bool
+  priv mut tick_label_size : Double?
   mut limits : @core.Limits?
   mut auto_view : @core.Limits?
   mut inverted : Bool
@@ -51,6 +58,13 @@ pub struct Axis {
 pub fn axis() -> Axis {
   {
     data_interval_provider: None,
+    tick_length_provider: None,
+    numeric_view_provider: None,
+    tick_layout_length: None,
+    tick_layout_view: None,
+    tick_layout_active: false,
+    tick_horizontal: true,
+    tick_label_size: None,
     limits: None,
     auto_view: None,
     inverted: false,
@@ -118,6 +132,7 @@ pub fn Axis::clear_limits(self : Axis) -> Unit {
 ///|
 /// Restore this axis to its initial automatic state.
 pub fn Axis::clear(self : Axis) -> Unit {
+  self.tick_label_size = None
   self.limits = None
   self.auto_view = None
   self.inverted = false
@@ -998,7 +1013,12 @@ pub fn Axis::tick_values(
 ) -> Array[Double] {
   if self.fixed_ticks is None &&
     self.category is None &&
-    self.locator is Some(@ticker.Locator::Index(_)) {
+    self.locator
+    is Some(
+      @ticker.Locator::Index(_)
+      | @ticker.Locator::NamedMaxN(_)
+      | @ticker.Locator::NamedAuto(_)
+    ) {
     return self.tick_values_checked(automatic) catch { _ => [] }
   }
   match self.fixed_ticks {
@@ -1064,6 +1084,8 @@ pub fn Axis::minor_tick_values(
       @ticker.MinorLocator::NamedLinear(_)
       | @ticker.MinorLocator::Index(_)
       | @ticker.MinorLocator::NamedFixed(_)
+      | @ticker.MinorLocator::NamedMaxN(_)
+      | @ticker.MinorLocator::NamedAuto(_)
     ) {
     return self.minor_tick_values_checked(automatic) catch { _ => [] }
   }

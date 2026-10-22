@@ -1226,6 +1226,8 @@ fn append_grid(
   y_minor_grid_visible : Bool,
   y_minor_grid_color : String,
   y_minor_grid_width : Double,
+  x_tick_label_size : Double,
+  y_tick_label_size : Double,
 ) -> Unit {
   let x_top = match x_position {
     Some(@axis.TickPosition::Top) => true
@@ -1281,10 +1283,17 @@ fn append_grid(
       tick_in_view(value, scale.x_axis_scale, scale.xmin, scale.xmax) {
       let x = map_x(scale, left, plot_width, value)
       if x_bottom {
-        append_text(writer, x, top + plot_height + 18.0, label, "middle", 10)
+        append_text(
+          writer,
+          x,
+          top + plot_height + 18.0,
+          label,
+          "middle",
+          x_tick_label_size,
+        )
       }
       if x_top {
-        append_text(writer, x, top - 8.0, label, "middle", 10)
+        append_text(writer, x, top - 8.0, label, "middle", x_tick_label_size)
       }
     }
   }
@@ -1296,7 +1305,14 @@ fn append_grid(
       tick_in_view(value, scale.y_axis_scale, scale.ymin, scale.ymax) {
       let y = map_y(scale, top, plot_height, value)
       if y_left {
-        append_text(writer, left - 8.0, y + 3.0, label, "end", 10)
+        append_text(
+          writer,
+          left - 8.0,
+          y + 3.0,
+          label,
+          "end",
+          y_tick_label_size,
+        )
       }
       if y_right {
         append_text(
@@ -1305,7 +1321,7 @@ fn append_grid(
           y + 3.0,
           label,
           "start",
-          10,
+          y_tick_label_size,
         )
       }
     }
@@ -1331,11 +1347,18 @@ fn append_grid(
           top + plot_height + 18.0,
           x_labels[i],
           "middle",
-          10,
+          x_tick_label_size,
         )
       }
       if x_top && show_x_tick_labels {
-        append_text(writer, x, top - 8.0, x_labels[i], "middle", 10)
+        append_text(
+          writer,
+          x,
+          top - 8.0,
+          x_labels[i],
+          "middle",
+          x_tick_label_size,
+        )
       }
     }
   }
@@ -1376,7 +1399,14 @@ fn append_grid(
         ])
       }
       if y_left && show_y_tick_labels {
-        append_text(writer, left - 8.0, y + 3.0, y_labels[i], "end", 10)
+        append_text(
+          writer,
+          left - 8.0,
+          y + 3.0,
+          y_labels[i],
+          "end",
+          y_tick_label_size,
+        )
       }
       if y_right && show_y_tick_labels {
         append_text(
@@ -1385,7 +1415,7 @@ fn append_grid(
           y + 3.0,
           y_labels[i],
           "start",
-          10,
+          y_tick_label_size,
         )
       }
     }
@@ -1531,7 +1561,7 @@ fn append_secondary_x_axis(
         axis_y + direction * 17.0 + (if at_top { 0.0 } else { 1.0 }),
         labels[index],
         "middle",
-        10,
+        axis.tick_label_size(),
       )
     }
   }
@@ -1603,7 +1633,7 @@ fn append_secondary_y_axis(
         } else {
           "end"
         },
-        10,
+        axis.tick_label_size(),
       )
     }
   }
@@ -1758,14 +1788,14 @@ fn append_text(
   y : Double,
   value : String,
   anchor : String,
-  size : Int32,
+  size : Double,
 ) -> Unit {
   try! writer.start_element("text", [
     ("x", float_text(x)),
     ("y", float_text(y)),
     ("text-anchor", anchor),
     ("font-family", "sans-serif"),
-    ("font-size", size.to_string()),
+    ("font-size", float_text(size)),
   ])
   try! writer.text(value)
   try! writer.end_element("text")
@@ -3270,6 +3300,8 @@ fn render_panel(
       panel.y_axis().minor_grid_visible(),
       panel.y_axis().minor_grid_color(),
       panel.y_axis().minor_grid_width(),
+      panel.x_axis().tick_label_size(),
+      panel.y_axis().tick_label_size(),
     )
     append_axes(
       writer,
@@ -3542,9 +3574,19 @@ pub fn render_with_positions(
 pub fn render_with_positions_checked(
   figure : @render.Figure,
 ) -> (String, Array[(Double, Double, Double, Double)]) raise @core.DataError {
+  begin_tick_layout(figure)
+  defer end_tick_layout(figure)
   let writer = @xml.Writer::new()
   let scales = compute_scales(figure)
   let positions = Array(capacity=figure.panels().length())
+  for index, panel in figure.panels() {
+    let position = positioned_panel_rect(figure, panel, scales[index])
+    positions.push(position)
+    panel.x_axis().set_tick_layout(position.2, true, active=true)
+    panel.y_axis().set_tick_layout(position.3, false, active=true)
+    panel.x_axis().set_tick_view(scales[index].xmin, scales[index].xmax)
+    panel.y_axis().set_tick_view(scales[index].ymin, scales[index].ymax)
+  }
   try! writer.start_element("svg", [
     ("xmlns", "http://www.w3.org/2000/svg"),
     ("width", figure.width().to_string()),
@@ -3557,9 +3599,7 @@ pub fn render_with_positions_checked(
     ("fill", "white"),
   ])
   for index, panel in figure.panels() {
-    let position = positioned_panel_rect(figure, panel, scales[index])
-    positions.push(position)
-    render_panel(writer, figure, panel, scales[index], index, position)
+    render_panel(writer, figure, panel, scales[index], index, positions[index])
   }
   for index, bar in figure.colorbars() {
     append_colorbar(writer, figure, bar, index)

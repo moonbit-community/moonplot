@@ -12,6 +12,8 @@ import {
 // Values
 pub fn axis() -> Axis
 
+pub fn tick_space_from_length(Double, Double, Bool) -> Double
+
 // Errors
 
 // Types and methods
@@ -44,6 +46,8 @@ pub struct Axis {
 pub fn Axis::auto_date_locator(Self) -> @date.AutoDateLocator?
 pub fn Axis::bind_data_interval(Self, () -> (Double, Double)) -> Unit
 pub fn Axis::bind_locator_data(Self, minor? : Bool) -> Unit
+pub fn Axis::bind_tick_geometry(Self, () -> Double, Bool) -> Unit
+pub fn Axis::bind_view_interval(Self, () -> (Double, Double) raise @core.DataError) -> Unit
 pub fn Axis::categories(Self) -> Array[String]?
 pub fn Axis::category_positions(Self, Array[String]) -> Array[Double] raise @core.DataError
 pub fn Axis::clear(Self) -> Unit
@@ -54,6 +58,7 @@ pub fn Axis::clear_limits(Self) -> Unit
 pub fn Axis::clear_locator(Self) -> Unit
 pub fn Axis::clear_minor_date_formatter(Self) -> Unit
 pub fn Axis::clear_minor_locator(Self) -> Unit
+pub fn Axis::clear_tick_layout(Self) -> Unit
 pub fn Axis::clear_tick_position(Self) -> Unit
 pub fn Axis::clear_ticks(Self) -> Unit
 pub fn Axis::current_view_limits(Self) -> @core.Limits?
@@ -68,6 +73,7 @@ pub fn Axis::date_timezone(Self) -> @date.DateTimeZone?
 pub fn Axis::formatter(Self) -> @ticker.Formatter?
 pub fn Axis::formatter_offset_label(Self, Array[Double]) -> String
 pub fn Axis::formatter_offset_label_with_view(Self, Array[Double], @core.Limits?) -> String
+pub fn Axis::get_tick_space(Self) -> Double
 pub fn Axis::grid_color(Self) -> String
 pub fn Axis::grid_visible(Self) -> Bool
 pub fn Axis::grid_width(Self) -> Double
@@ -109,18 +115,24 @@ pub fn Axis::set_minor_locator(Self, @ticker.MinorLocator) -> Unit raise @core.D
 pub fn Axis::set_minor_overlap_removal(Self, Bool) -> Unit
 pub fn Axis::set_scale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Axis::set_tick_count(Self, Int) -> Unit
+pub fn Axis::set_tick_label_size(Self, Double) -> Unit
 pub fn Axis::set_tick_labels(Self, Array[String]) -> Unit raise @core.DataError
+pub fn Axis::set_tick_layout(Self, Double, Bool, active? : Bool) -> Unit
 pub fn Axis::set_tick_position(Self, TickPosition) -> Unit
+pub fn Axis::set_tick_view(Self, Double, Double) -> Unit
 pub fn Axis::set_ticks(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn Axis::set_view_limits(Self, Double, Double) -> Unit raise @core.DataError
 pub fn Axis::tick_count(Self) -> Int
+pub fn Axis::tick_label_size(Self) -> Double
 pub fn Axis::tick_labels(Self, Array[Double]) -> Array[String]
 pub fn Axis::tick_labels_with_view(Self, Array[Double], @core.Limits?) -> Array[String]
 pub fn Axis::tick_position(Self) -> TickPosition?
+pub fn Axis::tick_space_length(Self) -> Double?
 pub fn Axis::tick_values(Self, @core.Limits) -> Array[Double]
 pub fn Axis::tick_values_checked(Self, @core.Limits) -> Array[Double] raise @core.DataError
 pub fn Axis::ticks(Self) -> Array[Double]?
 pub fn Axis::validate_date_converter(Self, converter? : @date.DateConverter) -> Unit raise @core.DataError
+pub fn Axis::view_interval_checked(Self) -> (Double, Double) raise @core.DataError
 pub fn Axis::view_limits(Self, @core.Limits) -> @core.Limits
 pub fn Axis::view_limits_checked(Self, @core.Limits) -> @core.Limits raise @core.DataError
 

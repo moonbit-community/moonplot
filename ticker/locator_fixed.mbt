@@ -91,6 +91,38 @@ fn fixed_minimum_absolute(
 }
 
 ///|
+fn fixed_integer_absolute(value : Int64) -> Int64 {
+  if value < 0L {
+    (0UL - value.reinterpret_as_uint64()).reinterpret_as_int64()
+  } else {
+    value
+  }
+}
+
+///|
+// NumPy abs/min retains Int64 storage: abs(Int64.min) wraps to Int64.min.
+// Comparing through Double would also collapse distinct integers above 2^53.
+fn fixed_minimum_integer_absolute(
+  locations : TickValues,
+  first : Int32,
+  stride : Int32,
+) -> Int64 raise @core.DataError {
+  let mut smallest = fixed_integer_absolute(locations.get_int64(first))
+  let mut index = first
+  while index < locations.length() {
+    let candidate = fixed_integer_absolute(locations.get_int64(index))
+    if candidate < smallest {
+      smallest = candidate
+    }
+    if stride >= locations.length() - index {
+      break
+    }
+    index += stride
+  }
+  smallest
+}
+
+///|
 /// Ignore bounds and return a borrowed, possibly strided view.
 pub fn FixedLocator::tick_values(
   self : FixedLocator,
@@ -118,12 +150,31 @@ pub fn FixedLocator::tick_values(
   let stride = stride.to_int()
   let mut first = 0
   if stride > 1 {
-    let mut smallest = fixed_minimum_absolute(self.locations, 0, stride)
-    for candidate in 1..<stride {
-      let minimum = fixed_minimum_absolute(self.locations, candidate, stride)
-      if minimum < smallest {
-        first = candidate
-        smallest = minimum
+    if self.locations.is_int64() {
+      let mut smallest = fixed_minimum_integer_absolute(
+        self.locations,
+        0,
+        stride,
+      )
+      for candidate in 1..<stride {
+        let minimum = fixed_minimum_integer_absolute(
+          self.locations,
+          candidate,
+          stride,
+        )
+        if minimum < smallest {
+          first = candidate
+          smallest = minimum
+        }
+      }
+    } else {
+      let mut smallest = fixed_minimum_absolute(self.locations, 0, stride)
+      for candidate in 1..<stride {
+        let minimum = fixed_minimum_absolute(self.locations, candidate, stride)
+        if minimum < smallest {
+          first = candidate
+          smallest = minimum
+        }
       }
     }
   }

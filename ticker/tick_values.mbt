@@ -1,11 +1,98 @@
 ///|
-/// A mutable one-dimensional tick view over a shared Double buffer.
+/// A mutable one-dimensional tick view over a shared numeric buffer.
 /// Locations and preset results retain their source buffer and stride.
 pub struct TickValues {
-  priv buffer : Array[Double]
+  priv buffer : TickBuffer
   priv start : Int32
   priv stride : Int64
   priv length : Int32
+}
+
+///|
+priv enum TickBuffer {
+  Float64(Array[Double])
+  Integer64(Array[Int64])
+}
+
+///|
+fn TickBuffer::length(self : TickBuffer) -> Int32 {
+  match self {
+    Float64(values) => values.length()
+    Integer64(values) => values.length()
+  }
+}
+
+///|
+/// Borrow Int64 storage. Fractional assignments truncate; nonfinite or overflow
+/// assignments raise DataError. Views and copies retain the storage type.
+pub fn TickValues::from_int64_array(values : Array[Int64]) -> TickValues {
+  { buffer: Integer64(values), start: 0, stride: 1L, length: values.length(), }
+}
+
+///|
+fn TickValues::is_int64(self : TickValues) -> Bool {
+  self.buffer is Integer64(_)
+}
+
+///|
+fn tick_integer_value(value : Double) -> Int64 raise @core.DataError {
+  if value.is_nan() ||
+    value.is_inf() ||
+    value < -9223372036854775808.0 ||
+    value >= 9223372036854775808.0 {
+    raise @core.DataError::InvalidTicks(
+      message="tick value cannot be assigned to an Int64 buffer",
+    )
+  }
+  value.to_int64()
+}
+
+///|
+fn TickValues::with_endpoints(
+  self : TickValues,
+  prepend : Bool,
+  append : Bool,
+) -> TickValues raise @core.DataError {
+  if self.is_int64() {
+    let integers : Array[Int64] = []
+    if prepend {
+      integers.push(1L)
+    }
+    for index in 0..<self.length {
+      integers.push(self.get_int64(index))
+    }
+    if append {
+      integers.push(10L)
+    }
+    TickValues::from_int64_array(integers)
+  } else {
+    let values : Array[Double] = []
+    if prepend {
+      values.push(1.0)
+    }
+    for index in 0..<self.length {
+      values.push(self.get(index))
+    }
+    if append {
+      values.push(10.0)
+    }
+    TickValues::from_array(values)
+  }
+}
+
+///|
+fn TickValues::get_int64(
+  self : TickValues,
+  index : Int32,
+) -> Int64 raise @core.DataError {
+  let index = self.buffer_index(index)
+  match self.buffer {
+    Integer64(values) => values[index]
+    Float64(_) =>
+      raise @core.DataError::InvalidTicks(
+        message="tick buffer is not Int64 storage",
+      )
+  }
 }
 
 ///|
@@ -21,7 +108,7 @@ fn tick_values_view(
   stride : Int32,
   length : Int32,
 ) -> TickValues {
-  { buffer, start, stride: Int64::from_int(stride), length, }
+  { buffer: Float64(buffer), start, stride: Int64::from_int(stride), length, }
 }
 
 ///|
@@ -65,7 +152,7 @@ pub fn TickValues::view(
     )
   }
   if length == 0 {
-    return tick_values_view(self.buffer, 0, 1, 0)
+    return { buffer: self.buffer, start: 0, stride: 1L, length: 0, }
   }
   let start = if start < 0 { self.length + start } else { start }
   let end = Int64::from_int(start) +
@@ -94,7 +181,11 @@ pub fn TickValues::get(
   self : TickValues,
   index : Int32,
 ) -> Double raise @core.DataError {
-  self.buffer[self.buffer_index(index)]
+  let index = self.buffer_index(index)
+  match self.buffer {
+    Float64(values) => values[index]
+    Integer64(values) => values[index].to_double()
+  }
 }
 
 ///|
@@ -103,7 +194,11 @@ pub fn TickValues::set(
   index : Int32,
   value : Double,
 ) -> Unit raise @core.DataError {
-  self.buffer[self.buffer_index(index)] = value
+  let index = self.buffer_index(index)
+  match self.buffer {
+    Float64(values) => values[index] = value
+    Integer64(values) => values[index] = tick_integer_value(value)
+  }
 }
 
 ///|
@@ -121,7 +216,16 @@ pub fn TickValues::to_array(
 ///|
 /// Copy the view values into an independent contiguous buffer.
 pub fn TickValues::copy(self : TickValues) -> TickValues raise @core.DataError {
-  TickValues::from_array(self.to_array())
+  match self.buffer {
+    Float64(_) => TickValues::from_array(self.to_array())
+    Integer64(values) => {
+      let copied : Array[Int64] = []
+      for index in 0..<self.length {
+        copied.push(values[self.buffer_index(index)])
+      }
+      TickValues::from_int64_array(copied)
+    }
+  }
 }
 
 ///|

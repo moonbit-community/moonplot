@@ -3,6 +3,7 @@ package "mathplotlib/mathplotlib/ticker"
 
 import {
   "mathplotlib/mathplotlib/core",
+  "moonbitlang/core/debug",
 }
 
 // Values
@@ -49,6 +50,31 @@ pub fn str_method_formatter(String) -> Formatter
 // Errors
 
 // Types and methods
+pub struct AutoLocator {
+  // private fields
+}
+pub fn AutoLocator::as_locator(Self) -> Locator
+pub fn AutoLocator::as_maxn_locator(Self) -> MaxNLocator
+pub fn AutoLocator::as_minor_locator(Self) -> MinorLocator
+pub fn AutoLocator::bind_tick_space(Self, () -> Double) -> Unit
+pub fn AutoLocator::bind_view_interval(Self, () -> (Double, Double) raise @core.DataError) -> Unit
+pub fn AutoLocator::call(Self) -> Array[Double] raise @core.DataError
+pub fn AutoLocator::copy(Self) -> Self
+pub fn AutoLocator::extended_steps(Self) -> Array[Double]
+pub fn AutoLocator::integer(Self) -> Bool
+pub fn AutoLocator::min_n_ticks(Self) -> Int
+pub fn AutoLocator::nbins(Self) -> MaxNBins
+pub fn AutoLocator::new() -> Self
+pub fn AutoLocator::nonsingular(Self, Double, Double) -> (Double, Double)
+pub fn AutoLocator::prune(Self) -> String?
+pub fn AutoLocator::set_params(Self, nbins? : MaxNBins, steps? : TickValues?, integer? : Bool, symmetric? : Bool, prune? : String?, min_n_ticks? : Int) -> Unit raise @core.DataError
+pub fn AutoLocator::steps(Self) -> TickValues
+pub fn AutoLocator::symmetric(Self) -> Bool
+pub fn AutoLocator::tick_space_provider(Self) -> (() -> Double)?
+pub fn AutoLocator::tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
+pub fn AutoLocator::view_interval_provider(Self) -> (() -> (Double, Double) raise @core.DataError)?
+pub fn AutoLocator::view_limits(Self, Double, Double) -> (Double, Double) raise @core.DataError
+
 pub struct FixedLocator {
   // private fields
 }
@@ -131,6 +157,8 @@ pub fn LinearLocatorPresets::set(Self, Double, Double, Array[Double]) -> Unit
 pub fn LinearLocatorPresets::set_view(Self, Double, Double, TickValues) -> Unit
 
 pub(all) enum Locator {
+  NamedMaxN(MaxNLocator)
+  NamedAuto(AutoLocator)
   NamedLinear(LinearLocator)
   Index(IndexLocator)
   NamedFixed(FixedLocator)
@@ -141,17 +169,53 @@ pub(all) enum Locator {
   Log(count~ : Int, base~ : Double)
   LogWithSubs(count~ : Int, base~ : Double, subs~ : Array[Double], numdecs~ : Int)
 }
+pub fn Locator::auto_locator(Self) -> AutoLocator?
 pub fn Locator::checked_tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
 pub fn Locator::copy(Self) -> Self
 pub fn Locator::fixed_locator(Self) -> FixedLocator?
 pub fn Locator::fixed_values(Self) -> Array[Double]
 pub fn Locator::index_locator(Self) -> IndexLocator?
 pub fn Locator::linear_locator(Self) -> LinearLocator?
+pub fn Locator::maxn_locator(Self) -> MaxNLocator?
 pub fn Locator::multiple_locator(Self) -> MultipleLocator?
 pub fn Locator::tick_values(Self, Double, Double) -> Array[Double]
 pub fn Locator::tick_values_for_axis(Self, Double, Double) -> Array[Double] raise @core.DataError
 
+pub(all) enum MaxNBins {
+  Auto
+  Count(Int)
+} derive(Eq, @debug.Debug)
+pub fn MaxNBins::equal(Self, Self) -> Bool
+pub fn MaxNBins::not_equal(Self, Self) -> Bool
+pub fn MaxNBins::to_repr(Self) -> @debug.Repr
+
+pub struct MaxNLocator {
+  // private fields
+}
+pub fn MaxNLocator::as_locator(Self) -> Locator
+pub fn MaxNLocator::as_minor_locator(Self) -> MinorLocator
+pub fn MaxNLocator::bind_tick_space(Self, () -> Double) -> Unit
+pub fn MaxNLocator::bind_view_interval(Self, () -> (Double, Double) raise @core.DataError) -> Unit
+pub fn MaxNLocator::call(Self) -> Array[Double] raise @core.DataError
+pub fn MaxNLocator::copy(Self) -> Self
+pub fn MaxNLocator::extended_steps(Self) -> Array[Double]
+pub fn MaxNLocator::integer(Self) -> Bool
+pub fn MaxNLocator::min_n_ticks(Self) -> Int
+pub fn MaxNLocator::nbins(Self) -> MaxNBins
+pub fn MaxNLocator::new(nbins? : MaxNBins, steps? : TickValues, integer? : Bool, symmetric? : Bool, prune? : String, min_n_ticks? : Int) -> Self raise @core.DataError
+pub fn MaxNLocator::nonsingular(Self, Double, Double) -> (Double, Double)
+pub fn MaxNLocator::prune(Self) -> String?
+pub fn MaxNLocator::set_params(Self, nbins? : MaxNBins, steps? : TickValues?, integer? : Bool, symmetric? : Bool, prune? : String?, min_n_ticks? : Int) -> Unit raise @core.DataError
+pub fn MaxNLocator::steps(Self) -> TickValues
+pub fn MaxNLocator::symmetric(Self) -> Bool
+pub fn MaxNLocator::tick_space_provider(Self) -> (() -> Double)?
+pub fn MaxNLocator::tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
+pub fn MaxNLocator::view_interval_provider(Self) -> (() -> (Double, Double) raise @core.DataError)?
+pub fn MaxNLocator::view_limits(Self, Double, Double) -> (Double, Double) raise @core.DataError
+
 pub(all) enum MinorLocator {
+  NamedMaxN(MaxNLocator)
+  NamedAuto(AutoLocator)
   NamedLinear(LinearLocator)
   Index(IndexLocator)
   NamedFixed(FixedLocator)
@@ -160,11 +224,13 @@ pub(all) enum MinorLocator {
   Fixed(Array[Double])
   Log(subdivisions~ : Int, base~ : Double)
 }
+pub fn MinorLocator::auto_locator(Self) -> AutoLocator?
 pub fn MinorLocator::checked_tick_values(Self, Array[Double], Double, Double) -> Array[Double] raise @core.DataError
 pub fn MinorLocator::copy(Self) -> Self
 pub fn MinorLocator::fixed_locator(Self) -> FixedLocator?
 pub fn MinorLocator::index_locator(Self) -> IndexLocator?
 pub fn MinorLocator::linear_locator(Self) -> LinearLocator?
+pub fn MinorLocator::maxn_locator(Self) -> MaxNLocator?
 pub fn MinorLocator::multiple_locator(Self) -> MultipleLocator?
 pub fn MinorLocator::tick_values(Self, Array[Double], Double, Double) -> Array[Double]
 pub fn MinorLocator::tick_values_for_axis(Self, Array[Double], Double, Double) -> Array[Double] raise @core.DataError
@@ -188,6 +254,7 @@ pub struct TickValues {
 }
 pub fn TickValues::copy(Self) -> Self raise @core.DataError
 pub fn TickValues::from_array(Array[Double]) -> Self
+pub fn TickValues::from_int64_array(Array[Int64]) -> Self
 pub fn TickValues::get(Self, Int) -> Double raise @core.DataError
 pub fn TickValues::length(Self) -> Int
 pub fn TickValues::set(Self, Int, Double) -> Unit raise @core.DataError

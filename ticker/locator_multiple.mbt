@@ -88,6 +88,7 @@ fn locator_nonsingular(
   lower : Double,
   upper : Double,
   expander : Double,
+  tiny~ : Double = 1.0e-15,
 ) -> (Double, Double) {
   if lower.is_nan() || lower.is_inf() || upper.is_nan() || upper.is_inf() {
     return (-expander, expander)
@@ -95,10 +96,10 @@ fn locator_nonsingular(
   let mut first = Double::min(lower, upper)
   let mut last = Double::max(lower, upper)
   let largest = Double::max(Double::abs(first), Double::abs(last))
-  if largest < 1.0e6 / 1.0e-15 * 2.2250738585072014e-308 {
+  if largest < 1.0e6 / tiny * 2.2250738585072014e-308 {
     first = -expander
     last = expander
-  } else if last - first <= largest * 1.0e-15 {
+  } else if last - first <= largest * tiny {
     first -= expander * Double::abs(first)
     last += expander * Double::abs(last)
   }

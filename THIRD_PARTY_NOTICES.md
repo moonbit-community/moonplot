@@ -294,3 +294,21 @@ implementation distributed. Pinned hashes, reference cases, ownership and
 typed scope are documented in
 [testdata/named_numeric_locator_README.md](testdata/named_numeric_locator_README.md).
 No new third-party runtime or C dependency is introduced.
+
+## Named MaxN and automatic numeric locators
+
+MaxNLocator and AutoLocator follow the fixed Matplotlib class bodies,
+scale_range, _Edge_integer and their nonsingular policies. AutoLocator shares
+the MaxN implementation and captures the classic-mode flag at construction.
+Classic default steps retain Int64 storage, while modern defaults use Float64;
+the typed tick views preserve integer assignment and view/copy storage behavior.
+Parameter, numerical and provider references execute the original classes and
+Matplotlib validators. Physical tick-space behavior follows XAxis/YAxis and
+FontProperties numeric size handling, with the documented fixed SVG point-unit
+profile; this does not claim the entire font/rc/backend system.
+The existing pure MoonBit NumPy-fill implementation is shared with IndexLocator;
+the following array multiply/add stages retain their separate rounding order.
+Matplotlib's license and notice above apply. Source hashes, alias/update rules,
+typed and eager limits, reference observations and reproduction commands are in
+[testdata/maxn_locator_README.md](testdata/maxn_locator_README.md).
+No additional runtime dependency or upstream C implementation is distributed.

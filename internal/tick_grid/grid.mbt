@@ -29,9 +29,9 @@ pub fn divmod(value : Double, step : Double) -> (Double, Double) {
 
 ///|
 /// Edge_integer.ge with the zero internal tolerance offset used by MultipleLocator.
-pub fn ge(value : Double, step : Double) -> Double {
+pub fn ge(value : Double, step : Double, offset~ : Double = 0.0) -> Double {
   let (quotient, remainder) = divmod(value, step)
-  if Double::abs(remainder / step) < 1.0e-10 {
+  if Double::abs(remainder / step) < edge_tolerance(step, offset) {
     quotient
   } else {
     quotient + 1.0
@@ -40,12 +40,28 @@ pub fn ge(value : Double, step : Double) -> Double {
 
 ///|
 /// Edge_integer.le with the zero internal tolerance offset used by MultipleLocator.
-pub fn le(value : Double, step : Double) -> Double {
+pub fn le(value : Double, step : Double, offset~ : Double = 0.0) -> Double {
   let (quotient, remainder) = divmod(value, step)
-  if Double::abs(remainder / step - 1.0) < 1.0e-10 {
+  if Double::abs(remainder / step - 1.0) < edge_tolerance(step, offset) {
     quotient + 1.0
   } else {
     quotient
+  }
+}
+
+///|
+fn edge_tolerance(step : Double, offset : Double) -> Double {
+  if Double::abs(offset) > 0.0 {
+    let digits = @math.log10(Double::abs(offset) / step)
+    let proposed = @math.pow(10.0, digits - 12.0)
+    let tolerance = if proposed > 1.0e-10 { proposed } else { 1.0e-10 }
+    if tolerance < 0.4999 {
+      tolerance
+    } else {
+      0.4999
+    }
+  } else {
+    1.0e-10
   }
 }
 

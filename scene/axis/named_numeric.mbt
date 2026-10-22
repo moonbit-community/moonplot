@@ -26,11 +26,23 @@ pub fn Axis::bind_locator_data(self : Axis, minor~ : Bool = false) -> Unit {
     (values.lower(), values.upper())
   }
   if minor {
-    if self.minor_locator is Some(@ticker.MinorLocator::Index(value)) {
-      value.bind_data_interval(provider)
+    match self.minor_locator {
+      Some(@ticker.MinorLocator::Index(value)) =>
+        value.bind_data_interval(provider)
+      Some(@ticker.MinorLocator::NamedMaxN(value)) =>
+        self.bind_maxn_context(value)
+      Some(@ticker.MinorLocator::NamedAuto(value)) =>
+        self.bind_maxn_context(value.as_maxn_locator())
+      _ => ()
     }
-  } else if self.locator is Some(@ticker.Locator::Index(value)) {
-    value.bind_data_interval(provider)
+  } else {
+    match self.locator {
+      Some(@ticker.Locator::Index(value)) => value.bind_data_interval(provider)
+      Some(@ticker.Locator::NamedMaxN(value)) => self.bind_maxn_context(value)
+      Some(@ticker.Locator::NamedAuto(value)) =>
+        self.bind_maxn_context(value.as_maxn_locator())
+      _ => ()
+    }
   }
 }
 
@@ -46,8 +58,17 @@ pub fn Axis::tick_values_checked(
         @ticker.Locator::NamedLinear(_)
         | @ticker.Locator::Index(_)
         | @ticker.Locator::NamedFixed(_)
+        | @ticker.Locator::NamedMaxN(_)
+        | @ticker.Locator::NamedAuto(_)
       ) {
       let limits = self.limits.unwrap_or(automatic)
+      let previous = self.tick_layout_view
+      if previous is None && self.numeric_view_provider is None {
+        self.tick_layout_view = Some((limits.lower(), limits.upper()))
+      }
+      defer {
+        self.tick_layout_view = previous
+      }
       return self.locator
         .unwrap()
         .tick_values_for_axis(limits.lower(), limits.upper())
@@ -67,8 +88,17 @@ pub fn Axis::minor_tick_values_checked(
         @ticker.MinorLocator::NamedLinear(_)
         | @ticker.MinorLocator::Index(_)
         | @ticker.MinorLocator::NamedFixed(_)
+        | @ticker.MinorLocator::NamedMaxN(_)
+        | @ticker.MinorLocator::NamedAuto(_)
       ) {
       let limits = self.limits.unwrap_or(automatic)
+      let previous = self.tick_layout_view
+      if previous is None && self.numeric_view_provider is None {
+        self.tick_layout_view = Some((limits.lower(), limits.upper()))
+      }
+      defer {
+        self.tick_layout_view = previous
+      }
       let major = self.tick_values_checked(automatic)
       let ticks = self.minor_locator
         .unwrap()
