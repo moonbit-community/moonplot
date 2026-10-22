@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D27（候选命名LogitLocator），下一步定向只读合同准备；未冻结/实现。
+- 当前切片编号：D28准备（命名基础Formatter）；D27已验收并提交。
 - 最近完成D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -19,13 +19,19 @@
 - D26portable asinh/sinh/log10承接D24正确round合同；原平台8primitive差异与42collection
   差异（39近边界+2tiny+1旧3^34）保留双值，不冒称Darwin bitclone。Core Asinh geometry
   使用现有math，便捷sampler与完整AsinhScale默认安装生命周期明确分开；后者仍待迁移。
-- 下一条具体动作：D26 feature61f768f已提交，补checkpoint后，从原LogitLocator class/所用
-  helpers定向读取，分配A参数/B数值/Caxis与最小geometry notes，交付后再冻结D27；
-  不重survey或重跑D26有效门禁。总体goal持续active，46%全目标/80%核心二维工程估算不变。
-- 当前无live Moon/source工具：D26 final26297/JS82640/source20346/check99335全exit0；
+- D27最终验收：finalall77638 exit0，wasm/wasm-gc/native各11995/11995、JS12002/12002；
+  checkall31tasks/8旧warnings/0error。info&&fmt0、预期接口已审，MaxN/date公共签名不变。
+  三source --check全部exit0（grid最新71661；params/axis此前通过后未变化）。新增879=
+  A参数121+Bgrid633+Caxis124+root独立MaxN回归1；所有tracked writers停写。
+- 下一条具体动作：D27 feature524b673已提交，完成本checkpoint提交；之后定向阅读现有
+  formatter与原Formatter/Null/Fixed/Func的对象生命周期，准备D28命名基础formatter合同。
+  不重做survey；完整默认scale/formatter安装、tight与域外clip renderer仍未完成。
+- D27无live工具；finalall77638与grid-source71661 exit0，95932旧失败exit2、73479 probe exit0、JS30690 exit0均terminal。
+  81493 compileexit1/40418旧5failexit2/62175与29316 sourceexit0都terminal，不轮询。
+  D26 final26297/JS82640/source20346/check99335全exit0；
   过早check65209经主动SIGINT exit130已terminal；所有writers停写，不轮询旧sessions。
 - Git本地基线1b61c4b（D01–D19）；D20 d385718、D21 2403fcb、D22 fee6885、
-  D23 179f365、D24 13ef0b1、D25 c2f6edf；D26 feature61f768f已提交，检查点随后提交。无remote、不push。
+  D23 179f365、D24 13ef0b1、D25 c2f6edf；D26 feature61f768f/checkpoint78b0b68、D27 feature524b673已提交。无remote、不push。
   用户已授权分批commit与独立并行subagents，覆盖历史不commit指令。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
   CPython v3.11.0 timedelta 源码在 .moonagent/upstream/cpython-v3.11.0/，仅行为
@@ -39,7 +45,7 @@
 ## 当前目标
 
 - [ ] 持续把 Matplotlib v3.11.2 的公开能力迁移到 MoonBit；本目标仍在进行中。
-- 下一纵向切片候选：命名AsinhLocator；命名SymmetricalLogLocator、命名LogLocator、命名AutoMinorLocator/NullLocator、命名MaxNLocator/AutoLocator、命名LinearLocator/IndexLocator/FixedLocator、通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
+- 下一纵向切片候选：命名基础Formatter（Null/Fixed/Func及基类生命周期）；命名LogitLocator、最小Logit几何、命名AsinhLocator/最小Asinh几何、命名SymmetricalLogLocator、命名LogLocator、命名AutoMinorLocator/NullLocator、命名MaxNLocator/AutoLocator、命名LinearLocator/IndexLocator/FixedLocator、通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
   TZif/IANA、Axes 位置/选择/移除、numeric aspect、anchor、adjustable 与 box_aspect 已验收。
 - 已确认的用户决定：支持合理复用；保留 `Figure::to_svg` → `internal/render` →
   `backend/svg`，有具体共享需求再增加抽象层。不要反复讨论已解决的架构问题。
@@ -3484,3 +3490,134 @@ infofmt/接口/alltarget全部已通过，不再重复有效检查。总docs与�
 D26 featurecommit61f768f已完成（43files，生产/接口/参考/测试/总体docs与guide）。
 本checkpoint单独提交后Git应clean；无remote、不push。继续D27定向notes，所有D26
 门禁仍有效，任何新实现只在D27合同冻结后开始。
+
+## D27 执行顺序（命名LogitLocator与最小Logit几何）
+
+- [x] D27-01 A252/B221/C296只读原源notes交付，root全文读取并冻结合同。
+- [x] D27-02 root冻结typed合同/所有权/验收，再独占并行实现与原源参考。
+- [x] D27-03 接口/source/四目标验收、最终文档与feature524b673本地提交；本checkpoint紧随提交。
+
+D26 feature61f768f与checkpoint78b0b68已提交，提交后Gitclean。D27仅root本状态更新
+为tracked改动；A/B/C已followup只读ignored D27-logit-{params,grid,axis}-notes.md，
+不得提前tracked实现。root已定向读原LogitLocator2883–3032、必要MaxN tick/view原体及
+本地locator_maxn/maxn_ticks、Logit变换定义，未新survey/不跑有效D26门禁。
+早期共同证据：Logit call需虚派发自kernel不能直接state.call；auto第一次tickspace
+只clamp>=2且不clip9，nonsingular有效域无条件minpos；窄major进原MaxN会再读tickspace，
+minor窄域[]；继承view_limits却仍MaxN固定nonsingular/round grid，不是Logit.nonsingular。
+合法概率Doublegrid索引有限（binf>=-324/bsup<=17），fullshape自然较小，但rawminpos/
+负或零nbins/非finite provider会晚报错，不能统一前validate。具体typed与几何仍待notes
+后冻结；完整默认scale/formatter生命周期仍不提前扩展。当前无live Moon/source工具。
+
+D27补充定向证据：A完整AST getter顺序wide=[projection,space,minpos]，zoommajor=
+[projection,space,minpos,space,projection]，call最前view，minorzoom不进MaxN，polar
+direct只projection就error；继承viewlims data无context，round=[space,projection]且polar
+不reject。ctor nbins省略Auto/显式NoneCount10需区分，setterNone是raw错误槽（现D22typed
+可排除但不可伪作keep）；默认steps必须freshInt64[1,2,5,10]，alias截断与extendedsnapshot
+复用D22。A继续probes/notes，尚未交最终文件。
+Root复用提案（未冻结）：MaxN.grid私有延迟raw_step_transform:(Double)->Double hook，
+在原rawstep处读取projection；如支持3d，必须step*23再/24，不能乘预round23/24。
+抽tick/view薄privatehelpers带hook复用整套symmetric/ns/grid/prune，旧public默认None。
+B已确认可行；提醒steps.is_empty现portguard不能提前吞原projection读取，待可达性证据。
+B实际极值完整AST已更正binf-324/bsup16/numideal339，major341/minor2710，不是17。
+C正验证Logit limit_range_for_scale/clamp与现ranges插点、mask/clip真实几何；未冻结范围。
+
+B找到typed可达emptySteps反例：auto+integerTrue+NaN tickspace+zoom(.49,.51)，
+完整原AST事件[projection,space,minpos,space,projection]后UnboundLocalError；末projection
+若raise则该error优先。未来最小必要修复为把现MaxN steps.is_empty guard移到raw_step
+与延迟hook之后（旧无hook只多pure运算，checkederror类型不变），不提前跳过projection；
+Count(-1)的scale_range math-domainerror仍必须在projection之前，不能全延迟早期error。
+尚无D27实现，等A/B/C最终notes后freeze。
+
+D27 A参数最终252行notes已交付停写，root已全文读取。关键补充bound检测沿D24
+(anycontextSome)=>bound，bound有效nonsingular缺ownminpos必须Coreerror；boundAuto缺space
+亦error，只有全unbound默认9/std1e-7；projection缺失可合法dummy无axes。source Data
+warning可沿D24最近数值操作diagnostics（copy独立）；MAXTICKS logger仍单独未迁移。
+root待冻结effects候选：state沿D22 puretickspace/viewraising，ownminpos/projection
+raising，privatehelper carries projectioneffect + requiretickspaceflag保持partialbound错误；
+不try!桥接，不用“缺单provider就unbound”伪造默认。所有这些只是提案，尚无实现。
+B已完整观察major341（首0）、minor2710只有2702unique（8zero、近1重复），必须保raw
+duplicates/underflow0不套D26sortedset。MaxNfallback真实125001/200001/pruneBoth199999；
+110dualAST与所有341phase Pythonpow/Fraction当前无差异，保正式双profile不强造差异。
+C已证实fullautoscale ownminpos3次/shared raw1次，与D24Log4shared/1own不同。minpos=.9
+原ns倒置(.9,.1)但fullauto约(.0818895,.9181105)；minpos2可保view(1e-12,2)，不能strict
+domain前拒绝。clip Path原体保映射[-1,0,.5,1,2]→[-1000,-1000,0,1000,1000]，公开
+val_in_range两模式都strict(0,1)，现SVG is_valid预过滤会丢clip连接；冻结时需明确Scope
+边界或给renderer共享valid_coordinate加局部clip接线，不能宣称自动parity。
+当前等B/C最终notes交付后root读结论冻结D27；仅MIGRATION_STATUS tracked改动，无live
+Moon/source工具。
+
+D27已冻结D27-contract-frozen.md（含末尾精确cross-writer fnnames），D27-before是
+HEAD78b0b68 archive。Root读完A252/B221/C296；无提前tracked实现。冻结Boolminor子域/
+nbins嵌套None、puretickspace与raisingview/minpos/projection、anyprovider bound检测及缺
+provider lateerrors；root复用MaxN私有context helpers与延迟raw_step_transform(*23再/24)。
+C增Scale::Logit(clipBool)/factoryString maskclip/共享source limiter，sourcegeometry+in-domain
+SVG，明确off-domainclip路径与完整tight/default生命周期不在本片；root真实nontight
+autoscale与Logitsetlim源branch必须保minpos反常有限结果。原sourceClipPath/tight观察
+保JSON/边界，不能伪报完整parity。当前三writer将按合同独占实现，root先MaxN helper。
+
+D27 root主实现已落：ticker/maxn_grid增加optionalraising step-transform与require-space
+参数，emptyguard在原rawstep/hook后；maxn_ticks将旧tick/view体真实抽privatecontext函数，
+旧public默认无hook；logit_context.mbt提供两个promised methods与step*23再/24。
+NamedLogit主次/rawchecked/Axisonlyview/四ctx绑定/secondary ownemptyminpos与rootfactory
+导出已接。Axis Logitset_limits/set_view_limits新源finite→locator NS→actualscale limiter
+→按原方向排序，不pre-is_valid。backend/ranges raw范围、actualScale limiter与finalize
+按namedLogit或ScaleLogit启用，旧Log源ctx仍沿同链。
+首staticrootprivatefn首参self被Moon解析deprecated method导致unbound，已改locator；A
+对象tuplemut非法由A拆两letmut修复。最新staticJS exit0/8旧warnings/0error；没tests/
+info/fullfmt，无liveMoon工具。Aparamssourcegen与--check均0，117generated+4hand=121，
+已停tracked现只读rootreview；B/C仍正式refs，当前不能统一gate。root总docs已同步D27
+“实现/验收中”，精确限制仍记guide由C交付。
+
+D27 B5files已停写，290dualAST+341phases=629generated+4hand=633；每profile241成功/
+47真实error/2budget omissions，actual/math0differences，fallback fullcount证据保留。
+C10files停写，114generated+10hand=124，另4tight/2Path仅JSON source-only范围明确。
+A121+B633+C124共878；root最后infofmt0/8旧warn，接口diff已审仅预期新增，MaxN/date
+public不变。三原源checks root并行复验：params0，grid62175/axis29316 live；JS81493
+live，当前未启动alltargets，无writer改tracked。
+A104行只读roothelper/publicreview无问题，D27-root-review-notes.md；C/B当前也停写。
+
+D27三source checks root复验全0。首JS81493仅Bhand53裸1e-7非法compile exit1，root
+改1.0e-7（不改数值期望），再infofmt0。第二JS40418实跑12001，11996过/5fail，
+已exit2/terminal。两个布局sourcefixture只set当前轴.01/.99，另一Logit轴仍0/1，但
+生成Moon双轴都.01/.99，导致源全NaN不等输入；C独占修fixture双轴一致并重新原AST
+gen/check，不能迎合生产改期望。另3Fixedminor overlap失败是root旧adapter预clip/
+exactdup，已只在actualScaleLogit将NamedFixed纳入raw→major/view→true transform overlap
+分支，旧helpers/其他Scale合同不动。当前C重写ref期间暂停gates，A/B继续停写；root
+暂无其他源数值失败，所有5个目前待修复验收，不能标D27complete。
+
+C fixture修复后sourcegen/check0并再次停写，root readonly --check复验0。旧双轴输入不等价
+NaN观察保留JSON source-only，正式两布局输入双方均.01/.99。Root Fixedminor新路由初
+用ticker私有eager_prefix跨包不可见，info compileerror后改为公开view(0,1,min100k).to_array
+（未暴露新API），再infofmt0；最新JS30690已exit0，12001/12001，全5fail已修。
+finalgate95932 live(checkall→testall)，D27-final-*.log，所有writer停写，三source已0，
+接口仅预期新增MaxNpublic不变。接下来等待alltarget并收尾docs/本地commits。
+
+D27 finalgate95932已exit2：checkall99tasks/8旧warn/0error；JS12001全过，其他三目标
+各11993/11994，只有gridcase200首点差1ULP。B完整AST/Fraction+root真实stage73479
+native/JS均exit0已闭环：旧MaxN scale_range @math.pow(10,-4) nonJS低1ULP；正确scale
+4547007122018943789，nonJS4547007122018943788，传播best_min由.4成nextdown(.4)。
+Root仅两处decimalpow改已有log_grid_numpy_power，NaN/Inf保wrapper；补1standaloneMaxN
+回归，总879newtests，临时ticker/d27_investigate_wbtest.mbt已删除，合同调整存ignored
+D27-contract-frozen.md末尾。B独占generator/JSON/generatedWB更新数学profile边界并重gen/check，
+C独占guide同边界；A只读复核。无liveMoon，不再轮询95932/73479；等待writer停写后
+infofmt/接口/四目标及改动sourcecheck重新验收，未commit，未标complete。
+
+B数学profile更新完成停写，两个10**power AST原位置才替换Fraction primitive；original
+profile保原fn；290双profile结果与341phase/629test body全不变，仅metadata/comment。
+C guide数值边界已同步并停写。Root infofmt0/8旧warnings，接口审仅预期Logit新增，
+MaxN/date公共签名不变；finalall77638 checkall→testall与grid-source71661现live，
+所有tracked writers停止，A只读wrapper复核不影响gates。
+
+D27 finalall77638已exit0：wasm/wasm-gc/native各11995/11995，JS12002/12002，全零失败；
+checkall31tasks/8旧warnings/0error。grid-source71661 exit0；params/axis此前root复验0后
+未变化，三source有效。infofmt0/接口已审，MaxN/date公共不变；A只读boundedpow安全复核
+通过并停写，无live工具。总新增879=A121+B633+C124+root1。实际三目标1ULP旧pow缺陷已
+按完整AST/Fraction/真实Moonstage证据修正，原期望bit全保持；临时probe已删除。
+C正在唯一guide验收状态更新，root总体docs已标accepted。待C停写后featurecommit（排除
+checkpoint）及checkpointcommit；goal仍active，下一D28仅定向基础formatter原源/现有体。
+
+D27已最终验收并提交feature524b673（44files）；C最终guide停写后总体docs/guide已全部
+标accepted，约46%/80%工程估计不因测试数量机械变动。当前仅本checkpoint待提交；无
+remote/push，无live工具/agents writer，goal仍active。下一D28准备命名基础Formatter的
+Null/Fixed/Func对象与基类set_locs/axis/call/format_ticks生命周期；先原源+现有体定向notes，
+再冻结typed/ownership范围，不提前混入完整默认scale生命周期或复杂formatter。
