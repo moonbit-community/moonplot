@@ -8,20 +8,21 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D25（候选命名SymmetricalLogLocator），只读合同准备，尚未冻结/实现。
-- 最近完成D24：命名LogLocator完整参数、dtype/phase、局部/共享minpos、live主次/secondary、
-  Axis/contour/SVG checked自动范围与非正overlap；portable整数pow/decade ln数学正确舍入。
-  已知Apple非正确round差异显式保存原源/数学双值，未改已有locator参考期望。
-- 最终四目标：wasm/wasm-gc/native各9575/9575，JS9582/9582（额外7项）；新增1868。
-  info&&fmt、checkall35tasks（8旧Ref warnings/0error）、五份D24 source --check全部exit0。
-  D24-interface.diff符合预期Log类型/4provider/Axis minpos/checked bounds/SVGhelper；date接口不变。
-- 下一条具体动作：root读已交付D25-symlog-params-notes.md（A207行）与axis-notes.md
-  （C733行）中合同结论；B补独占数值grid/dtype/phase/完整cap的ignored只读notes后停止。
-  三notes齐并冻结后分派D25实现；复用D24 portable power与ln，不重开已解决的数值调查。
-- 当前无live Moon/source session。D24 finalgate64751已exit0（含checkall→testall）；
-  native ticker49773已exit0；此前63551/20315/17049等均终止，勿轮询或重复有效门禁。
+- 当前切片编号：D26（候选命名AsinhLocator），只读合同准备；尚未冻结/实现。
+- 最近完成D25：命名SymmetricalLogLocator、完整Float64 arange负段反转、Int64 subs别名、
+  lateerrors/zero collapse、only-view live主次/shared/secondary/contour/SVG；修正SymLog
+  私有数值顺序、secondary function显示映射、Inf reference overlap及Pythonzero除零协议。
+- 最终四目标：wasm/wasm-gc/native各10055/10055，JS10062/10062（额外7项）；D25新增480。
+  info&&fmt、checkall89tasks（8旧Ref warnings/0error）、三D25 source --check全部exit0。
+  D25-interface.diff仅ticker新增Scale import/SymLogSubs/class/主次/getters，view_limits raising
+  符合原错误合同；Scale/date接口不变，无外部依赖。D24 portable math/source边界继续有效。
+- 下一条具体动作：A/B/C各自独占只读准备D26 Asinh的参数/数值/轴接线notes（ignored），
+  交付后root按原源合同冻结typed范围与实现所有权；不重开已验收D24/D25数值或全项目survey。
+  当前没有D26实现，不扩大为完整default units/scale/clear生命周期。
+- 当前无live Moon/source session。D25 finalgate39228已exit0（含checkall→testall），
+  JS68257已exit0，10006仅初compileexit1已终止；此前失败会话也均终止，不轮询/重跑有效门禁。
 - Git本地基线commit 1b61c4b（D01–D19）；D20验收commit d385718；D21验收commit 2403fcb；
-  D22验收commit fee6885；D23验收commit 179f365；D24验收commit 13ef0b1。
+  D22验收commit fee6885；D23验收commit 179f365；D24验收commit 13ef0b1；D25验收commit c2f6edf。
   无remote。用户已授权分批commit与并行subagents，后续按验收步骤继续本地提交。
 - 整体目标持续，约46%全目标/80%核心二维SVG工程估算暂不变，无阻塞。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
@@ -36,7 +37,7 @@
 ## 当前目标
 
 - [ ] 持续把 Matplotlib v3.11.2 的公开能力迁移到 MoonBit；本目标仍在进行中。
-- 下一纵向切片候选：命名SymmetricalLogLocator；命名LogLocator、命名AutoMinorLocator/NullLocator、命名MaxNLocator/AutoLocator、命名LinearLocator/IndexLocator/FixedLocator、通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
+- 下一纵向切片候选：命名AsinhLocator；命名SymmetricalLogLocator、命名LogLocator、命名AutoMinorLocator/NullLocator、命名MaxNLocator/AutoLocator、命名LinearLocator/IndexLocator/FixedLocator、通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
   TZif/IANA、Axes 位置/选择/移除、numeric aspect、anchor、adjustable 与 box_aspect 已验收。
 - 已确认的用户决定：支持合理复用；保留 `Figure::to_svg` → `internal/render` →
   `backend/svg`，有具体共享需求再增加抽象层。不要反复讨论已解决的架构问题。
@@ -3276,10 +3277,11 @@ compat/plan/dependencies/notices/专门guide均同步，显式数学/source边�
 
 ## D25 执行顺序（候选命名SymmetricalLogLocator，只读准备中）
 
-- [ ] D25-01 汇总A参数207行/C axis733行与B待交gridnotes，冻结typed合同、范围与验收。
-- [ ] D25-02 独占并行参数/数值/axis原源包，root接入live主次/secondary/contour/SVG；
+- [x] D25-01 A207/C733/B172及A合同review齐，C实际secondary变换树4fixture已证实；
+  root冻结D25-contract-frozen.md并从HEAD505d068建D25-before快照。
+- [x] D25-02 独占并行参数/数值/axis原源包，root接入live主次/secondary/contour/SVG；
   复用既有D24 primitive，不扩为完整scale生命周期/Asinh/Logit。
-- [ ] D25-03 原源/接口/四目标验收、总文档与本地分批提交。
+- [x] D25-03 原源/接口/四目标验收、总文档与本地featurecommit c2f6edf。
 
 D25已知候选事实（非API冻结）：transform仅base→linthresh快照、不读linscale/不重校验；
 source Scale默认linthresh2而旧helper1，locator默认numticks15、无classic/physicalrc；
@@ -3288,3 +3290,87 @@ major/minor的None subs均[1]。原raw负subs按decade顺序、不全局sort；�
 overlap profile应独立接入，不把legacy scale重命名为完整迁移。C notes留有secondary
 实际function inverse与当前SVG mapping的差异推断，未跑renderer；冻结前需明确处理范围。
 当前A/C均停写，B需补grid只读notes，root继续合同集成；无live工具。
+
+
+D25-01已冻结/02实现中（未验收）：ignored D25-contract-frozen.md含全部typed合同和写入所有权。
+A=locator_symlog/symlog_parameters/ticker moon.pkg+params reference；B=symlog_grid*及grid
+reference；C=Scale两私有数值体修正、axis/scale/secondary完整源references/tests/guide；
+root=variants/adapters/Axis/secondary/backend render接线及总代码/docs。Root唯一Moongates。
+Ctor ordinaryoptional transform:Scale/base:Double/linthresh:Double，None同omit；subs默认None→
+新[1]，SymLogSubs Text/Number/Values，LogNumTicks复用默认PythonBigInt15，仅viewprovider。
+Sym view先round再equalstrict最后.001，与Log先nonsing不同；rawsimple signedzero/lateerrors、
+Float64完整arange先reverse、每zero只展开一次、全shape再cap；复用D24portableln/pow。
+
+C新ignored secondary-placement-notes已运行原完整transform tree+Secondary/_setscale/_setlims/
+Axis/_setscale/Axes/_set_lim_and_transforms，固定bbox矩阵乘法sink、validlimit直接储存边界明确。
+x/y symlog parent[-100,100]，f=2x+5，secondary105源normalized.75，parentmapping.94643749；
+log parent对照一致.849485。Root在backend render新增secondary_display_scale(privateScale,Bool)
+并用于x/y append入口，log保持Log、其余归Linear，使mapping/visibility同原functionprofile。
+C改现Scale forward为分开ln避免ratiooverflow、inverse为exp(...*lnbase)；旧factory/ticks不变，
+不会新增平行Scalevariant/默认生命周期。对象用既有Scale快照，其他Scale变体Coreerror不fallback。
+
+D25 root初版public接线已落：NamedSymLog主次variants/livecopy/adapters/getters，checkeddirect
+与axis .call sourceorder、only viewcontext、rawminor另取major/view overlap、view/nonsing与
+secondaryownview。初staticJS因新Values枚举使D24裸构造歧义，root只限定LogSubs::Values；
+次staticJS exit0/8旧warnings，未运行tests/info/fullfmt。A/B/C尚写正式reference，不提前gates。
+无live Moon/source工具会话；D24最终门禁仍有效，但D25所有变更尚待独立验收。
+
+D25-A参数生产与reference已交付停写：locator_symlog.mbt、symlog_parameters.mbt、
+ticker/moon.pkg仅Scale import、generate_symlog_params_reference.py、JSON、两testfiles。
+133generated+3hand=136；45构造、21updates×2、10aliases×4、56ranges×3、5view/copy stages。
+独立source生成/--check exit0，单fmt已完；尚未统一Moon tests/info/fullfmt。A现只读审查root
+onlyview/lastowner/rawerror/overlap/secondary接线，不写tracked；B/C仍写各自oracles/tests/guide。
+root README加D25“实现与验收中”示例，总代码其余已接，无新live Moon工具。等B/C停写门禁。
+
+
+D25 root独立review由A完成并停写，ignored D25-root-review-notes.md。唯一实质遗漏已修：
+源np.isclose(a,b,rtol0,atolInf)对reference b非finite非对称，不能直接abs<=Inf吞掉不同Inf。
+ControlledLinear view[-Inf,+Inf] / minor SymLog(tInf) raw[-Inf,0,+Inf]，Fixedmajor[+Inf]
+源[-Inf,0]、major[-Inf]源[0,+Inf]、NaNmajor保raw、finite1major全移除。root Axis与Secondary
+filter均改exactequal || (reference非NaN/Inf&&abs<=tol)，仅guard major不guard minor；
+C正式axis oracle补4profile。其余onlyview/lastowner/rawguard绕过/复制/共享删除/secondary
+placement+visibility sourceflow未发现具体问题。无live Moon/generator工具，B/C尚写inputs。
+B grid首轮250cases：204success/44realerrors/2独立budget，含真实125k/200001full arrays；
+正在补4hand与--check，3个3^34源/数学wronground差异单列承接D24portable合同，不弱化expect。
+
+D25全部三writer首次已停写交付：A136；B248generated+4hand=252（2budget只JSON无空test）；
+C74generated+4hand=78，合计466。C26变换/14overlap含4Inf非对称/12ranges/x/y owner+shared
+remove/4完整secondary placement tree；源gen/check单fmt全0。root info&&fmt exit0、8旧warn；
+D25-interface.diff初审仅ticker导入Scale+SymLogSubs/class/主次变体/getters，无Scale/date接口变更。
+三D25 source --check root复验均exit0。首JS10006 exit1仅测试编译（未运行）：Bhand裸1e50等
+改1.0e50；C minor.checked_tick_values缺major改[]。日志D25-test-js-syntax.log，无live gate。
+
+首compile另unused_try暴露真实合同遗漏：A source paramsrange28 base0/round_numbers view(0,0)
+原Pythonfloat严格decade的0/base0抛ZeroDivisionError，而当前Sym view非raise会NaN→fallback。
+A已独占回修locator_symlog.view_limits raisingCore及Python/NumPy零operand区别，旧expected
+不改；root暂停Moon gates等A停写。C/B继续停写，root手写两语法已修但尚未重验。
+
+
+D25 A zero-provenance修复完成并停写：Sym.view_limits现raiseCore；排序原零下界从helper
+保留Pythonfloat，仅equal strictless遇base±0抛原除零错误；非零经NumPy round产生1/0仍
+IEEE→nonsingular，不全base0拒绝。原56ranges不改，新增14signedzero/nonzero/minsub，
+现70ranges×3、147generated+3hand=150。D25新合计150+252+78=480测试。
+第二info&&fmt exit0/8旧warn；三newsource --check均exit0；接口diff新view_limits raising已审。
+修正后JS68257已exit0，10062/10062；live finalgate39228（checkall→testall），log
+D25-final-check-all.log/D25-final-test-all.log。全部writers停写，不再改源码/tests直到门禁；
+仅总docs/guide与checkpoint收尾。Cguide参数计数需由133/56更新147/70，再填最终实测门禁数。
+
+
+D25验收关闭：finalgate39228已exit0，checkall89tasks/8旧warnings/0error；wasm/wasm-gc/native
+各10055/10055、JS10062/10062。新480= A150(147generated+3hand)+B252(248+4)+C78(74+4)。
+三source --check root复验全exit0，info/fmt exit0且接口diff已审；Moon没有新增warnings。
+root仅修手写测试两语法（B科学记数必须小数点、C minorchecked补major参数），原数据期望
+未改；A view zero-provenance由14新原AST范围证实修复。B3个3^34数学/source差异与2预算
+省略明确保留，未改D24已验收bits或把预算省略伪造为源异常。
+README/compat/plan/dependencies/notices/专门guide已同步480与准确门禁/零协议边界。
+本地featurecommit c2f6edf（36files），待本checkpoint提交，无remote、不push。整体goal仍
+active，46%全目标/80%核心二维工程估算暂不变；D26命名AsinhLocator是新firstunfinished。
+
+## D26 执行顺序（候选命名AsinhLocator，只读准备）
+
+- [ ] D26-01 A参数/B数值/C轴与scale相关原源notes，只读交付后冻结typed合同与验收。
+- [ ] D26-02 独占并行参数/数值/axis原源包，root在现有scene/render/SVG链路集成。
+- [ ] D26-03 source/接口/四目标验收、文档与本地分批提交。
+
+A/B/C上一D25 tracked工作已停写。下一步只写ignored定向notes，不提前新API/实现；
+D24 pow/ln正确舍入与源平台差异合同、共享所有权顺序等已settled，复用并保留边界。
