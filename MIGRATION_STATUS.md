@@ -8,21 +8,20 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D24（候选命名LogLocator），定向只读准备中，尚未冻结/实现。
-- 最近完成D23：命名AutoMinorLocator/NullLocator、首次x/y rc捕获与精确Integer(BigInt)、
-  四provider最后owner、Int64 unique/diff、任意精度round/arange dtype、axis raw/overlap、
-  secondary minor与Null主次独立skip；保留旧helpers及默认numeric生命周期待办。
-- 最终四目标：wasm/wasm-gc/native各7707/7707，JS7714/7714（JS额外7项）。
-  info&&fmt、check-all119tasks（8旧Ref warnings）、三份新source --check全部exit0。
-  D23-interface.diff符合预期config/namedlocators/axis/secondary IR入口；date接口无变化，无新外部依赖。
-- 下一条具体动作：先读ignored D24-log-params-notes.md(195行)、D24-log-grid-notes.md(170行)、
-  D24-log-axis-notes.md(336行)和D24-root-integration-notes.md(44行)，冻结Log参数/partial alias、
-  Pythonint/np.int64/np.float64预算来源、np.power/Pythonpow/巨大exponent/完整phase、own/shared
-  minpos与checked autoscale/secondary合同，再保存D24-before并独占分派；不重启D23门禁/survey。
-- 当前无live Moon/source session。D23 finaltest-all2062、check-all45231已exit0勿轮询；
-  A/B/C D23实现及D24 ignored只读probe均交付停止；D24尚无tracked实现，不提前标通过。
+- 当前切片编号：D25（候选命名SymmetricalLogLocator），只读合同准备，尚未冻结/实现。
+- 最近完成D24：命名LogLocator完整参数、dtype/phase、局部/共享minpos、live主次/secondary、
+  Axis/contour/SVG checked自动范围与非正overlap；portable整数pow/decade ln数学正确舍入。
+  已知Apple非正确round差异显式保存原源/数学双值，未改已有locator参考期望。
+- 最终四目标：wasm/wasm-gc/native各9575/9575，JS9582/9582（额外7项）；新增1868。
+  info&&fmt、checkall35tasks（8旧Ref warnings/0error）、五份D24 source --check全部exit0。
+  D24-interface.diff符合预期Log类型/4provider/Axis minpos/checked bounds/SVGhelper；date接口不变。
+- 下一条具体动作：root读已交付D25-symlog-params-notes.md（A207行）与axis-notes.md
+  （C733行）中合同结论；B补独占数值grid/dtype/phase/完整cap的ignored只读notes后停止。
+  三notes齐并冻结后分派D25实现；复用D24 portable power与ln，不重开已解决的数值调查。
+- 当前无live Moon/source session。D24 finalgate64751已exit0（含checkall→testall）；
+  native ticker49773已exit0；此前63551/20315/17049等均终止，勿轮询或重复有效门禁。
 - Git本地基线commit 1b61c4b（D01–D19）；D20验收commit d385718；D21验收commit 2403fcb；
-  D22验收commit fee6885；D23验收commit 179f365。
+  D22验收commit fee6885；D23验收commit 179f365；D24验收commit 13ef0b1。
   无remote。用户已授权分批commit与并行subagents，后续按验收步骤继续本地提交。
 - 整体目标持续，约46%全目标/80%核心二维SVG工程估算暂不变，无阻塞。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
@@ -37,7 +36,7 @@
 ## 当前目标
 
 - [ ] 持续把 Matplotlib v3.11.2 的公开能力迁移到 MoonBit；本目标仍在进行中。
-- 下一纵向切片候选：命名LogLocator；命名AutoMinorLocator/NullLocator、命名MaxNLocator/AutoLocator、命名LinearLocator/IndexLocator/FixedLocator、通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
+- 下一纵向切片候选：命名SymmetricalLogLocator；命名LogLocator、命名AutoMinorLocator/NullLocator、命名MaxNLocator/AutoLocator、命名LinearLocator/IndexLocator/FixedLocator、通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
   TZif/IANA、Axes 位置/选择/移除、numeric aspect、anchor、adjustable 与 box_aspect 已验收。
 - 已确认的用户决定：支持合理复用；保留 `Figure::to_svg` → `internal/render` →
   `backend/svg`，有具体共享需求再增加抽象层。不要反复讨论已解决的架构问题。
@@ -3140,12 +3139,15 @@ JS72921 exit1为B hand 1e308字面量缺小数点，root改1.0e308；JS69694 exi
   scale/clear生命周期、完整dataLim cache/relim、动态Python/其他dtype与完整backend仍待迁移。
   整体goal持续active，46%全目标/80%核心二维工程估算暂不变。
 
-## D24 执行顺序（候选命名LogLocator，只读准备中）
+## D24 执行顺序（命名LogLocator，实现后数值验收中）
 
-- [ ] D24-01 读取A/B/C定向ignored笔记，冻结完整typed参数/partial状态、经典捕获与动态rc、
-  own/shared minpos/provider、np.power/Pythonpow及巨大exponent/phase/cap协议，保存D24-before。
-- [ ] D24-02 独占并行参数/数值/axis原源包，root集成live named主次/secondary/contour/SVG。
-- [ ] D24-03 文档/原源/接口/四目标验收后本地提交。旧log helpers保留；SymLog/Asinh/Logit
+- [x] D24-01 四notes已读并冻结：LogNumTicks Text/Number/Integer，LogTickSpace Integer/Number
+  区分Pythonint物理与raw Double；LogSubs Text/1D TickValues，Int64 normalizeFloatcopy，明确
+  readonly/动态Python/非1D shape域待NDArray。保留完整Doublebase/count与BigInt相位、源延迟错误，
+  partial base→subs→numticks/构造None与setterNone、四raisingproviders与own/shared minpos、
+  NumPy arraypower/Pythonpow差异、完整dtype/fallback后cap。D24-before从HEAD保存，A/B/C已分派。
+- [x] D24-02 独占并行参数/数值/axis原源包，root集成live named主次/secondary/contour/SVG。
+- [x] D24-03 文档/原源/接口/四目标验收后本地提交13ef0b1。旧log helpers保留；SymLog/Asinh/Logit
   命名类与默认Axis生命周期继续列入后续切片，不扩大本片验收声明。
 
 D23本地实现/参考/文档已提交179f365（45files）；无remote，不push。D24参数只读notes已由A
@@ -3167,3 +3169,122 @@ Pythonint9可成功；不能用统一Double预算冒充全部源域。major NPar
 overflow差异、auto/all提前空、full dtype/fallback/cap与budget/size错误已分别记录。
 D23最终门禁/三原源全通过结果仍有效；之后仅文档/检查点更新，无需重跑。下一轮从D24-01
 合同冻结继续，整体goal保持active，不因完成本切片标complete。
+
+D24写入所有权：A=LogLocator/LogNumTicks/LogSubs/LogTickSpace对象/params原源包；
+B=log_grid*完整dtype/相位/数值helpers与grid原源包；C=backend/svg/minpos.mbt复用collector、
+axis原源/集成tests及专门guide；root=所有variants/adapters/axis/scene/backendranges接线和总docs。
+root唯一Moon gates/committer；writers写入时不跑Moon tests/info/fullfmt。当前无live工具。
+
+D24-02 root初版接线已落（未验收）：NamedLog主次variants/live adapters与raw source order；
+Axis四provider/raising own+shared minpos/context/nonsingular checked、安全旧wrapper；
+Scene复用collector绑定localartist与Grouper rankordered siblings、detached singleton；
+secondary ownInf/shared[Inf]与physical integer、raw Logminor overlap；backend NamedLog raw
+范围不滤负data，activeautoscale checked nonsingular→独立sharedminpos→scale limit→margin→
+view_limits→_set_lim finalnonsingular+ownminpos/方向，explicit/group/storedview跳过无用provider。
+C真实AST证实singleton transport shared4/最后own1，与5次source minpos读取对应；badbase0非finite
+抛Core，baseNaN data恢复1,10而round报错，base1保持1,1后续tick可失败，不用旧finitefallback吞错。
+首static JS exit255先是legacy log_locator_ticks(8args)同名（新kernel改named_log_locator_ticks），
+第二static exit255为B log_grid.mbt322 `is not Some`语法，B已收到修复；未运行tests/info/fullfmt。
+A已交付停写183generated+3hand/367observations，source生成/check exit0，现只读review root。
+B grid/private numeric tags已落盘，继续原源generator；C axis/正式autoscale AST oracle/集成tests写入中。
+当前无live Moon/source tool session；仍需等writers停止统一门禁，不能提前标D24通过。
+
+D24第3次staticJS29460已exit0，10warnings（8旧Ref+root member保留字2）；root已rename
+sibling_axis去新增保留字warnings，尚不跑完整gates。A只读review确认完整provider/lastowner/
+Grouper/deletedcopy/physicalinteger/4shared+1own autoscale链，并抓两实质遗漏：
+1)旧BoxPlot collector只whiskers/fliers漏内部最小正值，root补q1/q3/median数据坐标；C补实际
+bxp源码路径/BoxPlot宽.6/cap.2固定geometry的minpos位置corners与H/V line/span data维metadata。
+2)source LogTransform nonpositive clip=-1000，root仅newrawminor overlap helper与secondary
+functionlog inverse后补clip，不改旧全局Scale.transform；C新增负/0重合源case。
+B source首版494generated（384query+110IEEEhelper），2budget omissions/3完整cap样本；
+新binarysearch自动subs可见计数避免1e12 logical subs扫描且保留完整fallback，补手写证据收尾。
+C正式源执行整个autoscale_view→set_bound→Axis._set_lim+真实Log/Inverse transform，badbase与
+provider次数已观察，继续源/集成tests写入。所有D24实现仍待统一Moon验证，当前无live工具。
+
+D24统一验收进展：全部writer停写后info/fmt exit0/8旧Ref warnings。D24-interface.diff已审查：
+新增Log类型/4provider/named主次、Axis minpos/checked range、SVG minpos；日期接口无变化。
+三份new source--check全部exit0（grid26735也已结束）；JS23453 exit0，8476/8476，新增762。
+check-all94119 exit0：88tasks、8旧Ref warnings/0error。最终test-all启动，按实际live ID续轮询。
+root另外补collector HV data-only范围（10原sourcecases同test加intervals断言）与BoxPlot .6实际
+corners范围（2原bxp cases同test加原Bbox points范围断言），未改原源数值期望/未增测试项。
+B495+4hand，A183+3hand，C69+8hand=762新增。后续源码/README/tests保持冻结直到门禁结束。
+
+D24最终四目标首轮63551已exit2（终止勿再轮询）：JS8476/8476；wasm/wasm-gc/native各
+8444/8469，25个失败均是finite pow结果1ULP。相同cases在JS全过，疑Moon非JS pow vs
+Darwin source/Node libm。失败B grid42/44/45/47/139/164/165/199/201/262/265/286/289/298/
+301/313/326/331/335/336/337、helper26、A range2、C共享x/y，同源多处。原源期望不改，不放宽bit。
+下一步D24优先修portablepow：B已从D25只读转回kernel，调查pureBigInt directed interval
+integer-power(near1 huge exponent也覆盖)再exact binaryround/adaptiveprecision；A独立查
+coremath各target和Darwin source正确舍入profile，ignored D24-pow-investigation-notes.md。
+C仍只读D25 symlog notes，不写tracked。暂无live Moon/source会话，D24未验收/未提交；不可
+因JS绿而提前标通过。三new source--check全exit0，接口review/8旧warnings仍有效但pow改后重验。
+D25只读尚未冻结，不开始实现；D24是active first unfinished task。
+
+D24 pow进一步独立证据：Moon非JS使用纯Moon fdlibm，当前Node24的Math.pow默认std::pow，
+固定Darwin NumPy/CPython导入Apple pow。114个失败phase在Decimal180/320精度下均与原源
+正确舍入一致；但不能推出Apple pow全域正确舍入。已知一般profile反例为nextafter(1,0)
+的-1次方：原Log所用arraypower/np.float64 exponent与Apple/Python/Node均回1.0，精确
+Fraction证明正确round应1.0000000000000002；scalar np.power走另一分支，不能替代原表达式。
+B继续portable interval整数power及独立property，并新增该真实原表达式sourcecase，原期望
+不改；A调查Apple一般算法/近1路径。该已知source差异必须解决或明确范围，不能在验收中
+忽略反例。C仅ignored D25 axisnotes，root修专门guide的Box实际corners文字；无live工具。
+
+D24数值合同明确：A固定seed240024随机50000个正normal base的-1次方发现54个Apple
+非正确round，实际普通路径tablelog/FMA/exptable，无通用reciprocal/near1特例，非单输入问题。
+不复制Apple私有libm/反汇编；portable整数pow采用跨目标正确舍入数学合同，专门guide显式
+记录与源平台非正确round结果的兼容边界。原495grid+其它已存source期望仍全部严格不改；
+B新增独立数学oracle与source_profile_differences分别记录精确数学bits/原表达式sourcebits，
+测试检查数学精确结果，不用tolerance/ignore。这一范围决定不影响原接口/算法查询顺序。
+B新log_grid_power.mbt interval与cache已落，首static因loop语法exit255已告B，待其修复收尾；
+C只读审核interval终止/包围性质，A收尾ignored报告。root总docs已写D24“验收中”，未宣称完成。
+当前无live Moon/source会话；下步待B停止后完整info/fmt及target门禁，再更新准确计数与提交。
+
+D24 portable pow生产与oracle已交付：新log_grid_power.mbt、generate_log_grid_power_reference.py、
+log_grid_power_reference.json、log_grid_power_reference_wbtest.mbt；458pairs×数学/source
+各1test+1完整原Log近1point=917。两处source_profile_differences记录near1与一般normal反例，
+Fraction精确覆盖|e|<=2048（含2^-1075 tie），其余Decimal180/320交叉；不改原sourcebits。
+root修B functional loop语法为for precision=192、generator np.finfo max转float字面量，重生成
+无JSON数值变化。info/fmt exit0/8旧warnings；四D24 source--check全exit0；gitdiffcheck通过。
+C独立ignored pow-review189行，3000组区间运算与600pow Fraction核对无问题，midpoint/early
+proof及huge near1已审。A完整ignored pow-investigation-note已交付停写，未复制Apple实现。
+
+native ticker20315终止exit2：8098/8099，原pow失败与917数学/sourceprofile全通过；唯一
+paramsrange2最后round_numbers(.001,.001)得[.0001,.01]而原源[.0001,.1]，前两data/nonsing
+阶段已通过。A/B独立实证np.log(.01)=-0x1.26bb1bbb55515p+2、ln10=0x1.26bb1bbb55516p+1
+均正确round，ratio=-1.9999999999999996/ceil=-1；非JS core ln多项式跨到-2，之前被首pow
+失败遮住。B现独占新portable ln及四helper接入（不动旧全局math/已通过generic log路径），
+atanh z=(m-1)/(m+1)、BigInt floorceil固定点、几何tail、adaptive192，新增独立数学/source
+oracle。A只读查现110helpers np.log正确round域；C powreview完成。无live Moon/source工具。
+
+D24 portable ln已交付停写：新log_grid_logarithm.mbt、generate_log_grid_logarithm_reference.py、
+log_grid_logarithm_reference.json、WBtests，188高精度/np.log观察+1原AST边界=189测试。
+只替四decadehelpers，不动旧math与tick log10/log2/generic，sample source/math差异0；
+A复核原110helper finite域的8个ln输入均正确round，支持不改旧expected。lninfo/fmt exit0、
+8旧warnings；第五source --check exit0；native ticker49773 exit0，8288/8288。D24合计新增
+762原locator/axis+917power+189ln=1868测试；最终全项目数量等待实际alltarget结果。
+当前live finalgate64751（顺序checkall→testall），C仅ignored lnreview；其它writers均停写。
+
+
+D24最终验收关闭：finalgate64751已exit0，checkall35tasks/8旧warnings/0errors，wasm/gc/native
+各9575/9575、JS9582/9582；新增1868（原源locator/axis762+power917+ln189）。五reference
+--check全exit0；最新info/fmt exit0，接口diff已审且portable kernels不新增公共接口。
+C ln独立review完成（27 Fraction区间+11 Decimal120/240，均p192收敛）无问题，ignored
+D24-ln-review-notes.md；此前pow3000运算+600powers与A原profile报告仍有效。README、
+compat/plan/dependencies/notices/专门guide均同步，显式数学/source边界，不claim全Applebit。
+本地featurecommit13ef0b1（47files），无remote、不push。当前只待checkpoint文档提交；
+整体goal持续active，46%全目标/80%核心二维工程估算暂不变。D25为下一firstunfinished。
+
+## D25 执行顺序（候选命名SymmetricalLogLocator，只读准备中）
+
+- [ ] D25-01 汇总A参数207行/C axis733行与B待交gridnotes，冻结typed合同、范围与验收。
+- [ ] D25-02 独占并行参数/数值/axis原源包，root接入live主次/secondary/contour/SVG；
+  复用既有D24 primitive，不扩为完整scale生命周期/Asinh/Logit。
+- [ ] D25-03 原源/接口/四目标验收、总文档与本地分批提交。
+
+D25已知候选事实（非API冻结）：transform仅base→linthresh快照、不读linscale/不重校验；
+source Scale默认linthresh2而旧helper1，locator默认numticks15、无classic/physicalrc；
+major/minor的None subs均[1]。原raw负subs按decade顺序、不全局sort；原SymLogTransform
+用分开log(abs)/log(base)-log(linthresh)/log(base)可避免旧ratio极端overflow，必要named
+overlap profile应独立接入，不把legacy scale重命名为完整迁移。C notes留有secondary
+实际function inverse与当前SVG mapping的差异推断，未跑renderer；冻结前需明确处理范围。
+当前A/C均停写，B需补grid只读notes，root继续合同集成；无live工具。
