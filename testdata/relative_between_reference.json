@@ -1,0 +1,4768 @@
+{
+  "source_sha256": "218fe6825323a196d87ebbe5a1363671ed366a25633c892265faa03536517ee0",
+  "python": "3.12.14",
+  "fixtures": {
+    "new_york": "e9ed07d7bee0c76a9d442d091ef1f01668fee7c4f26014c0a868b19fe6c18a95",
+    "lord_howe": "a323c5433991a963eb497b7da4d1d09848bf3ef5f5d64d9c9649f388e4bab9df"
+  },
+  "cases": [
+    {
+      "mode": "UTC",
+      "label": "UTC/0/0",
+      "first": "0001-01-01T00:00:00+00:00",
+      "second": "0001-01-01T00:00:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/0/1",
+      "first": "0001-01-01T00:00:00+00:00",
+      "second": "9999-12-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": -9998,
+        "months": -11,
+        "days": -31,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 1
+      },
+      "reconstructed": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/0/2",
+      "first": "0001-01-01T00:00:00+00:00",
+      "second": "2020-01-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": -2019,
+        "months": 0,
+        "days": -31,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 1
+      },
+      "reconstructed": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/0/3",
+      "first": "0001-01-01T00:00:00+00:00",
+      "second": "2020-02-29T00:00:00+00:00",
+      "expected": {
+        "years": -2019,
+        "months": -1,
+        "days": -28,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/0/4",
+      "first": "0001-01-01T00:00:00+00:00",
+      "second": "2021-02-28T23:00:00+00:00",
+      "expected": {
+        "years": -2020,
+        "months": -1,
+        "days": -27,
+        "leapdays": 0,
+        "hours": -23,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/0/5",
+      "first": "0001-01-01T00:00:00+00:00",
+      "second": "2024-03-31T00:00:00+00:00",
+      "expected": {
+        "years": -2023,
+        "months": -2,
+        "days": -30,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/0/6",
+      "first": "0001-01-01T00:00:00+00:00",
+      "second": "2024-04-30T00:00:00+00:00",
+      "expected": {
+        "years": -2023,
+        "months": -3,
+        "days": -29,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/1/0",
+      "first": "9999-12-31T23:59:59.999999+00:00",
+      "second": "0001-01-01T00:00:00+00:00",
+      "expected": {
+        "years": 9998,
+        "months": 11,
+        "days": 30,
+        "leapdays": 0,
+        "hours": 23,
+        "minutes": 59,
+        "seconds": 59,
+        "microseconds": 999999
+      },
+      "reconstructed": [
+        9999,
+        12,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/1/1",
+      "first": "9999-12-31T23:59:59.999999+00:00",
+      "second": "9999-12-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        9999,
+        12,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/1/2",
+      "first": "9999-12-31T23:59:59.999999+00:00",
+      "second": "2020-01-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": 7979,
+        "months": 11,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        9999,
+        12,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/1/3",
+      "first": "9999-12-31T23:59:59.999999+00:00",
+      "second": "2020-02-29T00:00:00+00:00",
+      "expected": {
+        "years": 7979,
+        "months": 10,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 23,
+        "minutes": 59,
+        "seconds": 59,
+        "microseconds": 999999
+      },
+      "reconstructed": [
+        9999,
+        12,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/1/4",
+      "first": "9999-12-31T23:59:59.999999+00:00",
+      "second": "2021-02-28T23:00:00+00:00",
+      "expected": {
+        "years": 7978,
+        "months": 10,
+        "days": 3,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 59,
+        "seconds": 59,
+        "microseconds": 999999
+      },
+      "reconstructed": [
+        9999,
+        12,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/1/5",
+      "first": "9999-12-31T23:59:59.999999+00:00",
+      "second": "2024-03-31T00:00:00+00:00",
+      "expected": {
+        "years": 7975,
+        "months": 9,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 23,
+        "minutes": 59,
+        "seconds": 59,
+        "microseconds": 999999
+      },
+      "reconstructed": [
+        9999,
+        12,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/1/6",
+      "first": "9999-12-31T23:59:59.999999+00:00",
+      "second": "2024-04-30T00:00:00+00:00",
+      "expected": {
+        "years": 7975,
+        "months": 8,
+        "days": 1,
+        "leapdays": 0,
+        "hours": 23,
+        "minutes": 59,
+        "seconds": 59,
+        "microseconds": 999999
+      },
+      "reconstructed": [
+        9999,
+        12,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/2/0",
+      "first": "2020-01-31T23:59:59.999999+00:00",
+      "second": "0001-01-01T00:00:00+00:00",
+      "expected": {
+        "years": 2019,
+        "months": 0,
+        "days": 30,
+        "leapdays": 0,
+        "hours": 23,
+        "minutes": 59,
+        "seconds": 59,
+        "microseconds": 999999
+      },
+      "reconstructed": [
+        2020,
+        1,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/2/1",
+      "first": "2020-01-31T23:59:59.999999+00:00",
+      "second": "9999-12-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": -7979,
+        "months": -11,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2020,
+        1,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/2/2",
+      "first": "2020-01-31T23:59:59.999999+00:00",
+      "second": "2020-01-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2020,
+        1,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/2/3",
+      "first": "2020-01-31T23:59:59.999999+00:00",
+      "second": "2020-02-29T00:00:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -28,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": -1,
+        "microseconds": 999999
+      },
+      "reconstructed": [
+        2020,
+        1,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/2/4",
+      "first": "2020-01-31T23:59:59.999999+00:00",
+      "second": "2021-02-28T23:00:00+00:00",
+      "expected": {
+        "years": -1,
+        "months": 0,
+        "days": -27,
+        "leapdays": 0,
+        "hours": -23,
+        "minutes": 0,
+        "seconds": -1,
+        "microseconds": 999999
+      },
+      "reconstructed": [
+        2020,
+        1,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/2/5",
+      "first": "2020-01-31T23:59:59.999999+00:00",
+      "second": "2024-03-31T00:00:00+00:00",
+      "expected": {
+        "years": -4,
+        "months": -1,
+        "days": -28,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": -1,
+        "microseconds": 999999
+      },
+      "reconstructed": [
+        2020,
+        1,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/2/6",
+      "first": "2020-01-31T23:59:59.999999+00:00",
+      "second": "2024-04-30T00:00:00+00:00",
+      "expected": {
+        "years": -4,
+        "months": -2,
+        "days": -28,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": -1,
+        "microseconds": 999999
+      },
+      "reconstructed": [
+        2020,
+        1,
+        31,
+        23,
+        59,
+        59,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/3/0",
+      "first": "2020-02-29T00:00:00+00:00",
+      "second": "0001-01-01T00:00:00+00:00",
+      "expected": {
+        "years": 2019,
+        "months": 1,
+        "days": 28,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2020,
+        2,
+        29,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/3/1",
+      "first": "2020-02-29T00:00:00+00:00",
+      "second": "9999-12-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": -7979,
+        "months": -10,
+        "days": -1,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 1
+      },
+      "reconstructed": [
+        2020,
+        2,
+        29,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/3/2",
+      "first": "2020-02-29T00:00:00+00:00",
+      "second": "2020-01-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 28,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 1
+      },
+      "reconstructed": [
+        2020,
+        2,
+        29,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/3/3",
+      "first": "2020-02-29T00:00:00+00:00",
+      "second": "2020-02-29T00:00:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2020,
+        2,
+        29,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/3/4",
+      "first": "2020-02-29T00:00:00+00:00",
+      "second": "2021-02-28T23:00:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": -11,
+        "days": -28,
+        "leapdays": 0,
+        "hours": -23,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2020,
+        2,
+        29,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/3/5",
+      "first": "2020-02-29T00:00:00+00:00",
+      "second": "2024-03-31T00:00:00+00:00",
+      "expected": {
+        "years": -4,
+        "months": -1,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2020,
+        2,
+        29,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/3/6",
+      "first": "2020-02-29T00:00:00+00:00",
+      "second": "2024-04-30T00:00:00+00:00",
+      "expected": {
+        "years": -4,
+        "months": -2,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2020,
+        2,
+        29,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/4/0",
+      "first": "2021-02-28T23:00:00+00:00",
+      "second": "0001-01-01T00:00:00+00:00",
+      "expected": {
+        "years": 2020,
+        "months": 1,
+        "days": 27,
+        "leapdays": 0,
+        "hours": 23,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2021,
+        2,
+        28,
+        23,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/4/1",
+      "first": "2021-02-28T23:00:00+00:00",
+      "second": "9999-12-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": -7978,
+        "months": -10,
+        "days": 0,
+        "leapdays": 0,
+        "hours": -1,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 1
+      },
+      "reconstructed": [
+        2021,
+        2,
+        28,
+        23,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/4/2",
+      "first": "2021-02-28T23:00:00+00:00",
+      "second": "2020-01-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": 1,
+        "months": 0,
+        "days": 27,
+        "leapdays": 0,
+        "hours": 23,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 1
+      },
+      "reconstructed": [
+        2021,
+        2,
+        28,
+        23,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/4/3",
+      "first": "2021-02-28T23:00:00+00:00",
+      "second": "2020-02-29T00:00:00+00:00",
+      "expected": {
+        "years": 1,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 23,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2021,
+        2,
+        28,
+        23,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/4/4",
+      "first": "2021-02-28T23:00:00+00:00",
+      "second": "2021-02-28T23:00:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2021,
+        2,
+        28,
+        23,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/4/5",
+      "first": "2021-02-28T23:00:00+00:00",
+      "second": "2024-03-31T00:00:00+00:00",
+      "expected": {
+        "years": -3,
+        "months": 0,
+        "days": -30,
+        "leapdays": 0,
+        "hours": -1,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2021,
+        2,
+        28,
+        23,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/4/6",
+      "first": "2021-02-28T23:00:00+00:00",
+      "second": "2024-04-30T00:00:00+00:00",
+      "expected": {
+        "years": -3,
+        "months": -1,
+        "days": -29,
+        "leapdays": 0,
+        "hours": -1,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2021,
+        2,
+        28,
+        23,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/5/0",
+      "first": "2024-03-31T00:00:00+00:00",
+      "second": "0001-01-01T00:00:00+00:00",
+      "expected": {
+        "years": 2023,
+        "months": 2,
+        "days": 30,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        31,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/5/1",
+      "first": "2024-03-31T00:00:00+00:00",
+      "second": "9999-12-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": -7975,
+        "months": -9,
+        "days": -1,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 1
+      },
+      "reconstructed": [
+        2024,
+        3,
+        31,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/5/2",
+      "first": "2024-03-31T00:00:00+00:00",
+      "second": "2020-01-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": 4,
+        "months": 1,
+        "days": 30,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 1
+      },
+      "reconstructed": [
+        2024,
+        3,
+        31,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/5/3",
+      "first": "2024-03-31T00:00:00+00:00",
+      "second": "2020-02-29T00:00:00+00:00",
+      "expected": {
+        "years": 4,
+        "months": 1,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        31,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/5/4",
+      "first": "2024-03-31T00:00:00+00:00",
+      "second": "2021-02-28T23:00:00+00:00",
+      "expected": {
+        "years": 3,
+        "months": 1,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 1,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        31,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/5/5",
+      "first": "2024-03-31T00:00:00+00:00",
+      "second": "2024-03-31T00:00:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        31,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/5/6",
+      "first": "2024-03-31T00:00:00+00:00",
+      "second": "2024-04-30T00:00:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -30,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        31,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/6/0",
+      "first": "2024-04-30T00:00:00+00:00",
+      "second": "0001-01-01T00:00:00+00:00",
+      "expected": {
+        "years": 2023,
+        "months": 3,
+        "days": 29,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/6/1",
+      "first": "2024-04-30T00:00:00+00:00",
+      "second": "9999-12-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": -7975,
+        "months": -8,
+        "days": -1,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 1
+      },
+      "reconstructed": [
+        2024,
+        4,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/6/2",
+      "first": "2024-04-30T00:00:00+00:00",
+      "second": "2020-01-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": 4,
+        "months": 2,
+        "days": 29,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 1
+      },
+      "reconstructed": [
+        2024,
+        4,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/6/3",
+      "first": "2024-04-30T00:00:00+00:00",
+      "second": "2020-02-29T00:00:00+00:00",
+      "expected": {
+        "years": 4,
+        "months": 2,
+        "days": 1,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/6/4",
+      "first": "2024-04-30T00:00:00+00:00",
+      "second": "2021-02-28T23:00:00+00:00",
+      "expected": {
+        "years": 3,
+        "months": 2,
+        "days": 1,
+        "leapdays": 0,
+        "hours": 1,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/6/5",
+      "first": "2024-04-30T00:00:00+00:00",
+      "second": "2024-03-31T00:00:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 1,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "UTC/6/6",
+      "first": "2024-04-30T00:00:00+00:00",
+      "second": "2024-04-30T00:00:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "FIXED",
+      "label": "fixed second offset",
+      "first": "2020-01-31T23:59:59.999999+00:09:21",
+      "second": "2020-02-29T00:00:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -28,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": -9,
+        "seconds": -22,
+        "microseconds": 999999
+      },
+      "reconstructed": [
+        2020,
+        1,
+        31,
+        23,
+        50,
+        38,
+        999999,
+        0
+      ]
+    },
+    {
+      "mode": "FIXED",
+      "label": "fixed reverse",
+      "first": "2020-02-29T00:00:00+00:00",
+      "second": "2020-01-31T23:59:59.999999+00:09:21",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 28,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 9,
+        "seconds": 21,
+        "microseconds": 1
+      },
+      "reconstructed": [
+        2020,
+        2,
+        29,
+        0,
+        9,
+        21,
+        0,
+        561
+      ]
+    },
+    {
+      "mode": "FIXED",
+      "label": "fixed second offset",
+      "first": "2020-01-31T23:59:59.999999+00:00",
+      "second": "2020-02-29T00:00:00+00:09:21",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -27,
+        "leapdays": 0,
+        "hours": -23,
+        "minutes": -50,
+        "seconds": -40,
+        "microseconds": 999999
+      },
+      "reconstructed": [
+        2020,
+        2,
+        1,
+        0,
+        9,
+        20,
+        999999,
+        561
+      ]
+    },
+    {
+      "mode": "FIXED",
+      "label": "fixed reverse",
+      "first": "2020-02-29T00:00:00+00:09:21",
+      "second": "2020-01-31T23:59:59.999999+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 27,
+        "leapdays": 0,
+        "hours": 23,
+        "minutes": 50,
+        "seconds": 39,
+        "microseconds": 1
+      },
+      "reconstructed": [
+        2020,
+        2,
+        28,
+        23,
+        50,
+        39,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "NY-same",
+      "label": "NY-same",
+      "first": "2024-03-11T01:30:00-04:00",
+      "second": "2024-03-09T01:30:00-05:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        11,
+        1,
+        30,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-same",
+      "label": "NY-same reverse",
+      "first": "2024-03-09T01:30:00-05:00",
+      "second": "2024-03-11T01:30:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        9,
+        1,
+        30,
+        0,
+        0,
+        -18000
+      ]
+    },
+    {
+      "mode": "NY-same",
+      "label": "NY-same",
+      "first": "2024-11-04T01:30:00-05:00",
+      "second": "2024-11-02T01:30:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        4,
+        1,
+        30,
+        0,
+        0,
+        -18000
+      ]
+    },
+    {
+      "mode": "NY-same",
+      "label": "NY-same reverse",
+      "first": "2024-11-02T01:30:00-04:00",
+      "second": "2024-11-04T01:30:00-05:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        2,
+        1,
+        30,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-same",
+      "label": "NY-same",
+      "first": "2024-11-03T01:30:00-04:00",
+      "second": "2024-11-03T01:30:00-05:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        3,
+        1,
+        30,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-same",
+      "label": "NY-same reverse",
+      "first": "2024-11-03T01:30:00-05:00",
+      "second": "2024-11-03T01:30:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        3,
+        1,
+        30,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-same",
+      "label": "NY-same",
+      "first": "2024-04-08T01:45:00-04:00",
+      "second": "2024-04-06T01:45:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        8,
+        1,
+        45,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-same",
+      "label": "NY-same reverse",
+      "first": "2024-04-06T01:45:00-04:00",
+      "second": "2024-04-08T01:45:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        6,
+        1,
+        45,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-same",
+      "label": "NY-same",
+      "first": "2024-10-07T02:15:00-04:00",
+      "second": "2024-10-05T02:15:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        10,
+        7,
+        2,
+        15,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-same",
+      "label": "NY-same reverse",
+      "first": "2024-10-05T02:15:00-04:00",
+      "second": "2024-10-07T02:15:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        10,
+        5,
+        2,
+        15,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-separate",
+      "label": "NY-separate",
+      "first": "2024-03-11T01:30:00-04:00",
+      "second": "2024-03-09T01:30:00-05:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 1,
+        "leapdays": 0,
+        "hours": 23,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        11,
+        0,
+        30,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-separate",
+      "label": "NY-separate reverse",
+      "first": "2024-03-09T01:30:00-05:00",
+      "second": "2024-03-11T01:30:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -1,
+        "leapdays": 0,
+        "hours": -23,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        9,
+        2,
+        30,
+        0,
+        0,
+        -18000
+      ]
+    },
+    {
+      "mode": "NY-separate",
+      "label": "NY-separate",
+      "first": "2024-11-04T01:30:00-05:00",
+      "second": "2024-11-02T01:30:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 1,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        4,
+        2,
+        30,
+        0,
+        0,
+        -18000
+      ]
+    },
+    {
+      "mode": "NY-separate",
+      "label": "NY-separate reverse",
+      "first": "2024-11-02T01:30:00-04:00",
+      "second": "2024-11-04T01:30:00-05:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": -1,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        2,
+        0,
+        30,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-separate",
+      "label": "NY-separate",
+      "first": "2024-11-03T01:30:00-04:00",
+      "second": "2024-11-03T01:30:00-05:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        3,
+        1,
+        30,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-separate",
+      "label": "NY-separate reverse",
+      "first": "2024-11-03T01:30:00-05:00",
+      "second": "2024-11-03T01:30:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 1,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        3,
+        2,
+        30,
+        0,
+        0,
+        -18000
+      ]
+    },
+    {
+      "mode": "NY-separate",
+      "label": "NY-separate",
+      "first": "2024-04-08T01:45:00-04:00",
+      "second": "2024-04-06T01:45:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        8,
+        1,
+        45,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-separate",
+      "label": "NY-separate reverse",
+      "first": "2024-04-06T01:45:00-04:00",
+      "second": "2024-04-08T01:45:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        6,
+        1,
+        45,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-separate",
+      "label": "NY-separate",
+      "first": "2024-10-07T02:15:00-04:00",
+      "second": "2024-10-05T02:15:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        10,
+        7,
+        2,
+        15,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-separate",
+      "label": "NY-separate reverse",
+      "first": "2024-10-05T02:15:00-04:00",
+      "second": "2024-10-07T02:15:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        10,
+        5,
+        2,
+        15,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-UTC",
+      "label": "NY-UTC",
+      "first": "2024-03-11T01:30:00-04:00",
+      "second": "2024-03-09T01:30:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 4,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        11,
+        5,
+        30,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "NY-UTC",
+      "label": "NY-UTC reverse",
+      "first": "2024-03-09T01:30:00+00:00",
+      "second": "2024-03-11T01:30:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": -4,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        8,
+        21,
+        30,
+        0,
+        0,
+        -18000
+      ]
+    },
+    {
+      "mode": "NY-UTC",
+      "label": "NY-UTC",
+      "first": "2024-11-04T01:30:00-05:00",
+      "second": "2024-11-02T01:30:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 5,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        4,
+        6,
+        30,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "NY-UTC",
+      "label": "NY-UTC reverse",
+      "first": "2024-11-02T01:30:00+00:00",
+      "second": "2024-11-04T01:30:00-05:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": -5,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        1,
+        20,
+        30,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-UTC",
+      "label": "NY-UTC",
+      "first": "2024-11-03T01:30:00-04:00",
+      "second": "2024-11-03T01:30:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 4,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        3,
+        5,
+        30,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "NY-UTC",
+      "label": "NY-UTC reverse",
+      "first": "2024-11-03T01:30:00+00:00",
+      "second": "2024-11-03T01:30:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": -4,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        2,
+        21,
+        30,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-UTC",
+      "label": "NY-UTC",
+      "first": "2024-04-08T01:45:00-04:00",
+      "second": "2024-04-06T01:45:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 4,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        8,
+        5,
+        45,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "NY-UTC",
+      "label": "NY-UTC reverse",
+      "first": "2024-04-06T01:45:00+00:00",
+      "second": "2024-04-08T01:45:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": -4,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        5,
+        21,
+        45,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "NY-UTC",
+      "label": "NY-UTC",
+      "first": "2024-10-07T02:15:00-04:00",
+      "second": "2024-10-05T02:15:00+00:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 4,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        10,
+        7,
+        6,
+        15,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "NY-UTC",
+      "label": "NY-UTC reverse",
+      "first": "2024-10-05T02:15:00+00:00",
+      "second": "2024-10-07T02:15:00-04:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": -4,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        10,
+        4,
+        22,
+        15,
+        0,
+        0,
+        -14400
+      ]
+    },
+    {
+      "mode": "LH-same",
+      "label": "LH-same",
+      "first": "2024-03-11T01:30:00+11:00",
+      "second": "2024-03-09T01:30:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        11,
+        1,
+        30,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-same",
+      "label": "LH-same reverse",
+      "first": "2024-03-09T01:30:00+11:00",
+      "second": "2024-03-11T01:30:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        9,
+        1,
+        30,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-same",
+      "label": "LH-same",
+      "first": "2024-11-04T01:30:00+11:00",
+      "second": "2024-11-02T01:30:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        4,
+        1,
+        30,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-same",
+      "label": "LH-same reverse",
+      "first": "2024-11-02T01:30:00+11:00",
+      "second": "2024-11-04T01:30:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        2,
+        1,
+        30,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-same",
+      "label": "LH-same",
+      "first": "2024-11-03T01:30:00+11:00",
+      "second": "2024-11-03T01:30:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        3,
+        1,
+        30,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-same",
+      "label": "LH-same reverse",
+      "first": "2024-11-03T01:30:00+11:00",
+      "second": "2024-11-03T01:30:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        3,
+        1,
+        30,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-same",
+      "label": "LH-same",
+      "first": "2024-04-08T01:45:00+10:30",
+      "second": "2024-04-06T01:45:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        8,
+        1,
+        45,
+        0,
+        0,
+        37800
+      ]
+    },
+    {
+      "mode": "LH-same",
+      "label": "LH-same reverse",
+      "first": "2024-04-06T01:45:00+11:00",
+      "second": "2024-04-08T01:45:00+10:30",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        6,
+        1,
+        45,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-same",
+      "label": "LH-same",
+      "first": "2024-10-07T02:15:00+11:00",
+      "second": "2024-10-05T02:15:00+10:30",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        10,
+        7,
+        2,
+        15,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-same",
+      "label": "LH-same reverse",
+      "first": "2024-10-05T02:15:00+10:30",
+      "second": "2024-10-07T02:15:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        10,
+        5,
+        2,
+        15,
+        0,
+        0,
+        37800
+      ]
+    },
+    {
+      "mode": "LH-separate",
+      "label": "LH-separate",
+      "first": "2024-03-11T01:30:00+11:00",
+      "second": "2024-03-09T01:30:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        11,
+        1,
+        30,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-separate",
+      "label": "LH-separate reverse",
+      "first": "2024-03-09T01:30:00+11:00",
+      "second": "2024-03-11T01:30:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        3,
+        9,
+        1,
+        30,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-separate",
+      "label": "LH-separate",
+      "first": "2024-11-04T01:30:00+11:00",
+      "second": "2024-11-02T01:30:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        4,
+        1,
+        30,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-separate",
+      "label": "LH-separate reverse",
+      "first": "2024-11-02T01:30:00+11:00",
+      "second": "2024-11-04T01:30:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        2,
+        1,
+        30,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-separate",
+      "label": "LH-separate",
+      "first": "2024-11-03T01:30:00+11:00",
+      "second": "2024-11-03T01:30:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        3,
+        1,
+        30,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-separate",
+      "label": "LH-separate reverse",
+      "first": "2024-11-03T01:30:00+11:00",
+      "second": "2024-11-03T01:30:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 0,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 0,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        11,
+        3,
+        1,
+        30,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-separate",
+      "label": "LH-separate",
+      "first": "2024-04-08T01:45:00+10:30",
+      "second": "2024-04-06T01:45:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 30,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        8,
+        2,
+        15,
+        0,
+        0,
+        37800
+      ]
+    },
+    {
+      "mode": "LH-separate",
+      "label": "LH-separate reverse",
+      "first": "2024-04-06T01:45:00+11:00",
+      "second": "2024-04-08T01:45:00+10:30",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": -30,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        4,
+        6,
+        1,
+        15,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-separate",
+      "label": "LH-separate",
+      "first": "2024-10-07T02:15:00+11:00",
+      "second": "2024-10-05T02:15:00+10:30",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": 1,
+        "leapdays": 0,
+        "hours": 23,
+        "minutes": 30,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        10,
+        7,
+        1,
+        45,
+        0,
+        0,
+        39600
+      ]
+    },
+    {
+      "mode": "LH-separate",
+      "label": "LH-separate reverse",
+      "first": "2024-10-05T02:15:00+10:30",
+      "second": "2024-10-07T02:15:00+11:00",
+      "expected": {
+        "years": 0,
+        "months": 0,
+        "days": -1,
+        "leapdays": 0,
+        "hours": -23,
+        "minutes": -30,
+        "seconds": 0,
+        "microseconds": 0
+      },
+      "reconstructed": [
+        2024,
+        10,
+        5,
+        2,
+        45,
+        0,
+        0,
+        37800
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1986-06-20T15:10:02.936374+00:00",
+      "second": "1992-01-17T20:40:20.016454+00:00",
+      "expected": {
+        "years": -5,
+        "months": -6,
+        "days": -27,
+        "leapdays": 0,
+        "hours": -5,
+        "minutes": -30,
+        "seconds": -18,
+        "microseconds": 919920
+      },
+      "reconstructed": [
+        1986,
+        6,
+        20,
+        15,
+        10,
+        2,
+        936374,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2024-08-07T20:41:23.245733+00:00",
+      "second": "2031-10-01T14:04:30.539129+00:00",
+      "expected": {
+        "years": -7,
+        "months": -1,
+        "days": -24,
+        "leapdays": 0,
+        "hours": -17,
+        "minutes": -23,
+        "seconds": -8,
+        "microseconds": 706604
+      },
+      "reconstructed": [
+        2024,
+        8,
+        7,
+        20,
+        41,
+        23,
+        245733,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1998-04-03T17:45:43.522494+00:00",
+      "second": "2014-11-04T06:00:23.390334+00:00",
+      "expected": {
+        "years": -16,
+        "months": -7,
+        "days": 0,
+        "leapdays": 0,
+        "hours": -12,
+        "minutes": -14,
+        "seconds": -40,
+        "microseconds": 132160
+      },
+      "reconstructed": [
+        1998,
+        4,
+        3,
+        17,
+        45,
+        43,
+        522494,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2036-06-16T04:21:20.216783+00:00",
+      "second": "2037-11-14T12:05:18.798659+00:00",
+      "expected": {
+        "years": -1,
+        "months": -4,
+        "days": -28,
+        "leapdays": 0,
+        "hours": -7,
+        "minutes": -43,
+        "seconds": -59,
+        "microseconds": 418124
+      },
+      "reconstructed": [
+        2036,
+        6,
+        16,
+        4,
+        21,
+        20,
+        216783,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2036-02-22T06:06:11.552053+00:00",
+      "second": "2047-07-20T07:44:30.038284+00:00",
+      "expected": {
+        "years": -11,
+        "months": -4,
+        "days": -27,
+        "leapdays": 0,
+        "hours": -1,
+        "minutes": -38,
+        "seconds": -19,
+        "microseconds": 513769
+      },
+      "reconstructed": [
+        2036,
+        2,
+        22,
+        6,
+        6,
+        11,
+        552053,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1995-11-18T13:24:51.384270+00:00",
+      "second": "1999-01-03T22:30:12.472555+00:00",
+      "expected": {
+        "years": -3,
+        "months": -1,
+        "days": -15,
+        "leapdays": 0,
+        "hours": -9,
+        "minutes": -5,
+        "seconds": -22,
+        "microseconds": 911715
+      },
+      "reconstructed": [
+        1995,
+        11,
+        18,
+        13,
+        24,
+        51,
+        384270,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1972-05-03T06:37:33.246375+00:00",
+      "second": "2037-12-06T08:42:23.575978+00:00",
+      "expected": {
+        "years": -65,
+        "months": -7,
+        "days": -3,
+        "leapdays": 0,
+        "hours": -2,
+        "minutes": -4,
+        "seconds": -51,
+        "microseconds": 670397
+      },
+      "reconstructed": [
+        1972,
+        5,
+        3,
+        6,
+        37,
+        33,
+        246375,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2014-06-18T23:32:03.212004+00:00",
+      "second": "1997-02-17T05:38:56.784261+00:00",
+      "expected": {
+        "years": 17,
+        "months": 4,
+        "days": 1,
+        "leapdays": 0,
+        "hours": 17,
+        "minutes": 53,
+        "seconds": 6,
+        "microseconds": 427743
+      },
+      "reconstructed": [
+        2014,
+        6,
+        18,
+        23,
+        32,
+        3,
+        212004,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2042-02-22T17:15:00.949226+00:00",
+      "second": "1956-10-05T17:11:44.253793+00:00",
+      "expected": {
+        "years": 85,
+        "months": 4,
+        "days": 17,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 3,
+        "seconds": 16,
+        "microseconds": 695433
+      },
+      "reconstructed": [
+        2042,
+        2,
+        22,
+        17,
+        15,
+        0,
+        949226,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2033-06-09T13:01:02.306527+00:00",
+      "second": "1978-03-26T07:32:24.474218+00:00",
+      "expected": {
+        "years": 55,
+        "months": 2,
+        "days": 14,
+        "leapdays": 0,
+        "hours": 5,
+        "minutes": 28,
+        "seconds": 37,
+        "microseconds": 832309
+      },
+      "reconstructed": [
+        2033,
+        6,
+        9,
+        13,
+        1,
+        2,
+        306527,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2016-08-26T18:26:57.922927+00:00",
+      "second": "1997-09-27T17:21:54.660537+00:00",
+      "expected": {
+        "years": 18,
+        "months": 10,
+        "days": 30,
+        "leapdays": 0,
+        "hours": 1,
+        "minutes": 5,
+        "seconds": 3,
+        "microseconds": 262390
+      },
+      "reconstructed": [
+        2016,
+        8,
+        26,
+        18,
+        26,
+        57,
+        922927,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1988-02-24T12:27:25.649292+00:00",
+      "second": "1963-12-10T22:33:14.586608+00:00",
+      "expected": {
+        "years": 24,
+        "months": 2,
+        "days": 13,
+        "leapdays": 0,
+        "hours": 13,
+        "minutes": 54,
+        "seconds": 11,
+        "microseconds": 62684
+      },
+      "reconstructed": [
+        1988,
+        2,
+        24,
+        12,
+        27,
+        25,
+        649292,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2003-06-24T22:42:56.604990+00:00",
+      "second": "2044-03-17T09:59:13.844196+00:00",
+      "expected": {
+        "years": -40,
+        "months": -8,
+        "days": -22,
+        "leapdays": 0,
+        "hours": -11,
+        "minutes": -16,
+        "seconds": -18,
+        "microseconds": 760794
+      },
+      "reconstructed": [
+        2003,
+        6,
+        24,
+        22,
+        42,
+        56,
+        604990,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2009-12-11T17:20:07.153657+00:00",
+      "second": "1983-02-19T02:25:00.514306+00:00",
+      "expected": {
+        "years": 26,
+        "months": 9,
+        "days": 22,
+        "leapdays": 0,
+        "hours": 14,
+        "minutes": 55,
+        "seconds": 6,
+        "microseconds": 639351
+      },
+      "reconstructed": [
+        2009,
+        12,
+        11,
+        17,
+        20,
+        7,
+        153657,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1957-08-10T23:00:48.076906+00:00",
+      "second": "1999-10-19T11:40:38.118715+00:00",
+      "expected": {
+        "years": -42,
+        "months": -2,
+        "days": -8,
+        "leapdays": 0,
+        "hours": -12,
+        "minutes": -39,
+        "seconds": -51,
+        "microseconds": 958191
+      },
+      "reconstructed": [
+        1957,
+        8,
+        10,
+        23,
+        0,
+        48,
+        76906,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2018-06-14T06:06:47.691912+00:00",
+      "second": "2031-04-20T00:58:59.813264+00:00",
+      "expected": {
+        "years": -12,
+        "months": -10,
+        "days": -5,
+        "leapdays": 0,
+        "hours": -18,
+        "minutes": -52,
+        "seconds": -13,
+        "microseconds": 878648
+      },
+      "reconstructed": [
+        2018,
+        6,
+        14,
+        6,
+        6,
+        47,
+        691912,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1959-05-13T10:22:56.671702+00:00",
+      "second": "1986-05-16T01:30:47.145252+00:00",
+      "expected": {
+        "years": -27,
+        "months": 0,
+        "days": -2,
+        "leapdays": 0,
+        "hours": -15,
+        "minutes": -7,
+        "seconds": -51,
+        "microseconds": 526450
+      },
+      "reconstructed": [
+        1959,
+        5,
+        13,
+        10,
+        22,
+        56,
+        671702,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2031-10-16T05:44:58.122537+00:00",
+      "second": "2025-12-12T12:49:30.900552+00:00",
+      "expected": {
+        "years": 5,
+        "months": 10,
+        "days": 3,
+        "leapdays": 0,
+        "hours": 16,
+        "minutes": 55,
+        "seconds": 27,
+        "microseconds": 221985
+      },
+      "reconstructed": [
+        2031,
+        10,
+        16,
+        5,
+        44,
+        58,
+        122537,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1996-04-12T22:23:49.613333+00:00",
+      "second": "1957-01-08T08:10:10.046672+00:00",
+      "expected": {
+        "years": 39,
+        "months": 3,
+        "days": 4,
+        "leapdays": 0,
+        "hours": 14,
+        "minutes": 13,
+        "seconds": 39,
+        "microseconds": 566661
+      },
+      "reconstructed": [
+        1996,
+        4,
+        12,
+        22,
+        23,
+        49,
+        613333,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1997-04-20T16:37:41.733008+00:00",
+      "second": "1951-01-01T21:37:35.057947+00:00",
+      "expected": {
+        "years": 46,
+        "months": 3,
+        "days": 18,
+        "leapdays": 0,
+        "hours": 19,
+        "minutes": 0,
+        "seconds": 6,
+        "microseconds": 675061
+      },
+      "reconstructed": [
+        1997,
+        4,
+        20,
+        16,
+        37,
+        41,
+        733008,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2026-05-11T12:58:32.164645+00:00",
+      "second": "2024-01-24T07:49:20.402907+00:00",
+      "expected": {
+        "years": 2,
+        "months": 3,
+        "days": 17,
+        "leapdays": 0,
+        "hours": 5,
+        "minutes": 9,
+        "seconds": 11,
+        "microseconds": 761738
+      },
+      "reconstructed": [
+        2026,
+        5,
+        11,
+        12,
+        58,
+        32,
+        164645,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2033-03-09T05:50:03.021170+00:00",
+      "second": "2011-12-19T09:51:24.519791+00:00",
+      "expected": {
+        "years": 21,
+        "months": 2,
+        "days": 17,
+        "leapdays": 0,
+        "hours": 19,
+        "minutes": 58,
+        "seconds": 38,
+        "microseconds": 501379
+      },
+      "reconstructed": [
+        2033,
+        3,
+        9,
+        5,
+        50,
+        3,
+        21170,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2043-01-12T18:08:22.573541+00:00",
+      "second": "1959-10-17T23:09:38.204517+00:00",
+      "expected": {
+        "years": 83,
+        "months": 2,
+        "days": 25,
+        "leapdays": 0,
+        "hours": 18,
+        "minutes": 58,
+        "seconds": 44,
+        "microseconds": 369024
+      },
+      "reconstructed": [
+        2043,
+        1,
+        12,
+        18,
+        8,
+        22,
+        573541,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1999-05-26T16:51:52.920256+00:00",
+      "second": "2006-03-05T10:49:10.238765+00:00",
+      "expected": {
+        "years": -6,
+        "months": -9,
+        "days": -9,
+        "leapdays": 0,
+        "hours": -17,
+        "minutes": -57,
+        "seconds": -18,
+        "microseconds": 681491
+      },
+      "reconstructed": [
+        1999,
+        5,
+        26,
+        16,
+        51,
+        52,
+        920256,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1993-12-03T22:18:32.060930+00:00",
+      "second": "2040-07-18T04:16:15.712080+00:00",
+      "expected": {
+        "years": -46,
+        "months": -7,
+        "days": -14,
+        "leapdays": 0,
+        "hours": -5,
+        "minutes": -57,
+        "seconds": -44,
+        "microseconds": 348850
+      },
+      "reconstructed": [
+        1993,
+        12,
+        3,
+        22,
+        18,
+        32,
+        60930,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1975-11-13T12:55:48.576867+00:00",
+      "second": "1973-12-08T03:05:38.454321+00:00",
+      "expected": {
+        "years": 1,
+        "months": 11,
+        "days": 5,
+        "leapdays": 0,
+        "hours": 9,
+        "minutes": 50,
+        "seconds": 10,
+        "microseconds": 122546
+      },
+      "reconstructed": [
+        1975,
+        11,
+        13,
+        12,
+        55,
+        48,
+        576867,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1983-04-27T10:12:44.697296+00:00",
+      "second": "2018-12-11T10:08:19.653211+00:00",
+      "expected": {
+        "years": -35,
+        "months": -7,
+        "days": -13,
+        "leapdays": 0,
+        "hours": -23,
+        "minutes": -55,
+        "seconds": -35,
+        "microseconds": 44085
+      },
+      "reconstructed": [
+        1983,
+        4,
+        27,
+        10,
+        12,
+        44,
+        697296,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1964-05-14T18:17:28.590769+00:00",
+      "second": "2038-03-20T22:33:44.684585+00:00",
+      "expected": {
+        "years": -73,
+        "months": -10,
+        "days": -6,
+        "leapdays": 0,
+        "hours": -4,
+        "minutes": -16,
+        "seconds": -17,
+        "microseconds": 906184
+      },
+      "reconstructed": [
+        1964,
+        5,
+        14,
+        18,
+        17,
+        28,
+        590769,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1969-10-26T16:34:30.636867+00:00",
+      "second": "2013-10-01T20:45:21.146643+00:00",
+      "expected": {
+        "years": -43,
+        "months": -11,
+        "days": -6,
+        "leapdays": 0,
+        "hours": -4,
+        "minutes": -10,
+        "seconds": -51,
+        "microseconds": 490224
+      },
+      "reconstructed": [
+        1969,
+        10,
+        26,
+        16,
+        34,
+        30,
+        636867,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2033-11-03T04:41:08.568933+00:00",
+      "second": "2032-12-14T13:09:14.105596+00:00",
+      "expected": {
+        "years": 0,
+        "months": 10,
+        "days": 19,
+        "leapdays": 0,
+        "hours": 15,
+        "minutes": 31,
+        "seconds": 54,
+        "microseconds": 463337
+      },
+      "reconstructed": [
+        2033,
+        11,
+        3,
+        4,
+        41,
+        8,
+        568933,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1977-08-22T20:34:01.594924+00:00",
+      "second": "2012-02-01T20:59:33.909441+00:00",
+      "expected": {
+        "years": -34,
+        "months": -5,
+        "days": -10,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": -25,
+        "seconds": -33,
+        "microseconds": 685483
+      },
+      "reconstructed": [
+        1977,
+        8,
+        22,
+        20,
+        34,
+        1,
+        594924,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2043-02-14T19:59:43.442191+00:00",
+      "second": "2001-08-21T03:21:10.637282+00:00",
+      "expected": {
+        "years": 41,
+        "months": 5,
+        "days": 24,
+        "leapdays": 0,
+        "hours": 16,
+        "minutes": 38,
+        "seconds": 32,
+        "microseconds": 804909
+      },
+      "reconstructed": [
+        2043,
+        2,
+        14,
+        19,
+        59,
+        43,
+        442191,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2020-03-05T06:12:37.605078+00:00",
+      "second": "2024-04-22T06:29:49.893022+00:00",
+      "expected": {
+        "years": -4,
+        "months": -1,
+        "days": -17,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": -17,
+        "seconds": -13,
+        "microseconds": 712056
+      },
+      "reconstructed": [
+        2020,
+        3,
+        5,
+        6,
+        12,
+        37,
+        605078,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2023-12-20T03:01:42.299068+00:00",
+      "second": "1975-10-10T04:25:49.162567+00:00",
+      "expected": {
+        "years": 48,
+        "months": 2,
+        "days": 9,
+        "leapdays": 0,
+        "hours": 22,
+        "minutes": 35,
+        "seconds": 53,
+        "microseconds": 136501
+      },
+      "reconstructed": [
+        2023,
+        12,
+        20,
+        3,
+        1,
+        42,
+        299068,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2015-04-15T02:22:39.405808+00:00",
+      "second": "2049-08-04T20:48:11.399952+00:00",
+      "expected": {
+        "years": -34,
+        "months": -3,
+        "days": -19,
+        "leapdays": 0,
+        "hours": -18,
+        "minutes": -25,
+        "seconds": -32,
+        "microseconds": 5856
+      },
+      "reconstructed": [
+        2015,
+        4,
+        15,
+        2,
+        22,
+        39,
+        405808,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1969-07-27T01:49:36.390221+00:00",
+      "second": "1964-02-23T20:00:51.523776+00:00",
+      "expected": {
+        "years": 5,
+        "months": 5,
+        "days": 3,
+        "leapdays": 0,
+        "hours": 5,
+        "minutes": 48,
+        "seconds": 44,
+        "microseconds": 866445
+      },
+      "reconstructed": [
+        1969,
+        7,
+        27,
+        1,
+        49,
+        36,
+        390221,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2046-12-23T16:54:10.056767+00:00",
+      "second": "1992-04-08T22:28:18.659848+00:00",
+      "expected": {
+        "years": 54,
+        "months": 8,
+        "days": 14,
+        "leapdays": 0,
+        "hours": 18,
+        "minutes": 25,
+        "seconds": 51,
+        "microseconds": 396919
+      },
+      "reconstructed": [
+        2046,
+        12,
+        23,
+        16,
+        54,
+        10,
+        56767,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2002-03-23T15:31:34.394798+00:00",
+      "second": "1951-10-11T12:38:05.704534+00:00",
+      "expected": {
+        "years": 50,
+        "months": 5,
+        "days": 12,
+        "leapdays": 0,
+        "hours": 2,
+        "minutes": 53,
+        "seconds": 28,
+        "microseconds": 690264
+      },
+      "reconstructed": [
+        2002,
+        3,
+        23,
+        15,
+        31,
+        34,
+        394798,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1962-07-23T15:03:02.617024+00:00",
+      "second": "2021-03-09T13:41:45.212318+00:00",
+      "expected": {
+        "years": -58,
+        "months": -7,
+        "days": -16,
+        "leapdays": 0,
+        "hours": -22,
+        "minutes": -38,
+        "seconds": -43,
+        "microseconds": 404706
+      },
+      "reconstructed": [
+        1962,
+        7,
+        23,
+        15,
+        3,
+        2,
+        617024,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2041-01-27T03:05:32.650958+00:00",
+      "second": "1954-01-08T21:06:44.616172+00:00",
+      "expected": {
+        "years": 87,
+        "months": 0,
+        "days": 18,
+        "leapdays": 0,
+        "hours": 5,
+        "minutes": 58,
+        "seconds": 48,
+        "microseconds": 34786
+      },
+      "reconstructed": [
+        2041,
+        1,
+        27,
+        3,
+        5,
+        32,
+        650958,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2035-11-13T02:58:10.165049+00:00",
+      "second": "2006-07-20T08:43:44.094221+00:00",
+      "expected": {
+        "years": 29,
+        "months": 3,
+        "days": 23,
+        "leapdays": 0,
+        "hours": 18,
+        "minutes": 14,
+        "seconds": 26,
+        "microseconds": 70828
+      },
+      "reconstructed": [
+        2035,
+        11,
+        13,
+        2,
+        58,
+        10,
+        165049,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1978-07-07T19:50:42.172026+00:00",
+      "second": "2002-09-19T08:46:58.311297+00:00",
+      "expected": {
+        "years": -24,
+        "months": -2,
+        "days": -11,
+        "leapdays": 0,
+        "hours": -12,
+        "minutes": -56,
+        "seconds": -17,
+        "microseconds": 860729
+      },
+      "reconstructed": [
+        1978,
+        7,
+        7,
+        19,
+        50,
+        42,
+        172026,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1956-04-12T14:49:31.494046+00:00",
+      "second": "1958-04-05T13:19:07.950794+00:00",
+      "expected": {
+        "years": -1,
+        "months": -11,
+        "days": -22,
+        "leapdays": 0,
+        "hours": -22,
+        "minutes": -29,
+        "seconds": -37,
+        "microseconds": 543252
+      },
+      "reconstructed": [
+        1956,
+        4,
+        12,
+        14,
+        49,
+        31,
+        494046,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2038-10-26T11:55:01.386876+00:00",
+      "second": "1993-01-07T10:21:47.059248+00:00",
+      "expected": {
+        "years": 45,
+        "months": 9,
+        "days": 19,
+        "leapdays": 0,
+        "hours": 1,
+        "minutes": 33,
+        "seconds": 14,
+        "microseconds": 327628
+      },
+      "reconstructed": [
+        2038,
+        10,
+        26,
+        11,
+        55,
+        1,
+        386876,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1992-08-13T09:01:34.935712+00:00",
+      "second": "2028-09-27T18:04:20.718062+00:00",
+      "expected": {
+        "years": -36,
+        "months": -1,
+        "days": -14,
+        "leapdays": 0,
+        "hours": -9,
+        "minutes": -2,
+        "seconds": -46,
+        "microseconds": 217650
+      },
+      "reconstructed": [
+        1992,
+        8,
+        13,
+        9,
+        1,
+        34,
+        935712,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2037-03-02T13:41:47.294049+00:00",
+      "second": "2007-08-01T09:10:56.573238+00:00",
+      "expected": {
+        "years": 29,
+        "months": 7,
+        "days": 1,
+        "leapdays": 0,
+        "hours": 4,
+        "minutes": 30,
+        "seconds": 50,
+        "microseconds": 720811
+      },
+      "reconstructed": [
+        2037,
+        3,
+        2,
+        13,
+        41,
+        47,
+        294049,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1987-03-27T10:39:24.610304+00:00",
+      "second": "1999-06-18T01:07:24.062666+00:00",
+      "expected": {
+        "years": -12,
+        "months": -2,
+        "days": -21,
+        "leapdays": 0,
+        "hours": -14,
+        "minutes": -28,
+        "seconds": 0,
+        "microseconds": 547638
+      },
+      "reconstructed": [
+        1987,
+        3,
+        27,
+        10,
+        39,
+        24,
+        610304,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2001-06-09T06:20:11.818824+00:00",
+      "second": "2018-11-01T22:12:56.432182+00:00",
+      "expected": {
+        "years": -17,
+        "months": -4,
+        "days": -22,
+        "leapdays": 0,
+        "hours": -15,
+        "minutes": -52,
+        "seconds": -45,
+        "microseconds": 386642
+      },
+      "reconstructed": [
+        2001,
+        6,
+        9,
+        6,
+        20,
+        11,
+        818824,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1980-07-01T05:51:36.823230+00:00",
+      "second": "2043-02-16T18:57:51.073436+00:00",
+      "expected": {
+        "years": -62,
+        "months": -7,
+        "days": -15,
+        "leapdays": 0,
+        "hours": -13,
+        "minutes": -6,
+        "seconds": -15,
+        "microseconds": 749794
+      },
+      "reconstructed": [
+        1980,
+        7,
+        1,
+        5,
+        51,
+        36,
+        823230,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1967-08-24T22:28:07.818619+00:00",
+      "second": "2033-05-18T15:57:49.655486+00:00",
+      "expected": {
+        "years": -65,
+        "months": -8,
+        "days": -24,
+        "leapdays": 0,
+        "hours": -17,
+        "minutes": -29,
+        "seconds": -42,
+        "microseconds": 163133
+      },
+      "reconstructed": [
+        1967,
+        8,
+        24,
+        22,
+        28,
+        7,
+        818619,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2024-09-16T20:50:41.297174+00:00",
+      "second": "1974-01-15T08:31:20.037663+00:00",
+      "expected": {
+        "years": 50,
+        "months": 8,
+        "days": 1,
+        "leapdays": 0,
+        "hours": 12,
+        "minutes": 19,
+        "seconds": 21,
+        "microseconds": 259511
+      },
+      "reconstructed": [
+        2024,
+        9,
+        16,
+        20,
+        50,
+        41,
+        297174,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2019-11-14T04:57:40.192055+00:00",
+      "second": "1955-10-18T20:10:52.382815+00:00",
+      "expected": {
+        "years": 64,
+        "months": 0,
+        "days": 26,
+        "leapdays": 0,
+        "hours": 8,
+        "minutes": 46,
+        "seconds": 47,
+        "microseconds": 809240
+      },
+      "reconstructed": [
+        2019,
+        11,
+        14,
+        4,
+        57,
+        40,
+        192055,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2021-08-28T18:23:26.958884+00:00",
+      "second": "1991-02-17T23:51:48.163840+00:00",
+      "expected": {
+        "years": 30,
+        "months": 6,
+        "days": 10,
+        "leapdays": 0,
+        "hours": 18,
+        "minutes": 31,
+        "seconds": 38,
+        "microseconds": 795044
+      },
+      "reconstructed": [
+        2021,
+        8,
+        28,
+        18,
+        23,
+        26,
+        958884,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1989-01-18T04:31:44.087847+00:00",
+      "second": "1967-12-25T06:38:40.720181+00:00",
+      "expected": {
+        "years": 21,
+        "months": 0,
+        "days": 23,
+        "leapdays": 0,
+        "hours": 21,
+        "minutes": 53,
+        "seconds": 3,
+        "microseconds": 367666
+      },
+      "reconstructed": [
+        1989,
+        1,
+        18,
+        4,
+        31,
+        44,
+        87847,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2045-02-08T20:59:53.728819+00:00",
+      "second": "2011-06-19T16:02:58.510173+00:00",
+      "expected": {
+        "years": 33,
+        "months": 7,
+        "days": 20,
+        "leapdays": 0,
+        "hours": 4,
+        "minutes": 56,
+        "seconds": 55,
+        "microseconds": 218646
+      },
+      "reconstructed": [
+        2045,
+        2,
+        8,
+        20,
+        59,
+        53,
+        728819,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2010-09-27T12:40:17.138196+00:00",
+      "second": "2009-09-21T12:19:17.773972+00:00",
+      "expected": {
+        "years": 1,
+        "months": 0,
+        "days": 6,
+        "leapdays": 0,
+        "hours": 0,
+        "minutes": 20,
+        "seconds": 59,
+        "microseconds": 364224
+      },
+      "reconstructed": [
+        2010,
+        9,
+        27,
+        12,
+        40,
+        17,
+        138196,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1970-01-25T06:30:44.603845+00:00",
+      "second": "1987-05-27T14:25:34.718489+00:00",
+      "expected": {
+        "years": -17,
+        "months": -4,
+        "days": -2,
+        "leapdays": 0,
+        "hours": -7,
+        "minutes": -54,
+        "seconds": -51,
+        "microseconds": 885356
+      },
+      "reconstructed": [
+        1970,
+        1,
+        25,
+        6,
+        30,
+        44,
+        603845,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2045-03-18T21:38:28.539928+00:00",
+      "second": "1966-02-17T15:46:59.673765+00:00",
+      "expected": {
+        "years": 79,
+        "months": 1,
+        "days": 1,
+        "leapdays": 0,
+        "hours": 5,
+        "minutes": 51,
+        "seconds": 28,
+        "microseconds": 866163
+      },
+      "reconstructed": [
+        2045,
+        3,
+        18,
+        21,
+        38,
+        28,
+        539928,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1951-07-09T03:32:53.661574+00:00",
+      "second": "1981-06-06T13:44:04.851036+00:00",
+      "expected": {
+        "years": -29,
+        "months": -10,
+        "days": -28,
+        "leapdays": 0,
+        "hours": -10,
+        "minutes": -11,
+        "seconds": -12,
+        "microseconds": 810538
+      },
+      "reconstructed": [
+        1951,
+        7,
+        9,
+        3,
+        32,
+        53,
+        661574,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1978-11-19T07:04:41.644832+00:00",
+      "second": "2013-02-27T03:17:48.024943+00:00",
+      "expected": {
+        "years": -34,
+        "months": -3,
+        "days": -7,
+        "leapdays": 0,
+        "hours": -20,
+        "minutes": -13,
+        "seconds": -7,
+        "microseconds": 619889
+      },
+      "reconstructed": [
+        1978,
+        11,
+        19,
+        7,
+        4,
+        41,
+        644832,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2048-06-20T01:25:47.932700+00:00",
+      "second": "1974-11-26T02:04:14.124464+00:00",
+      "expected": {
+        "years": 73,
+        "months": 6,
+        "days": 24,
+        "leapdays": 0,
+        "hours": 23,
+        "minutes": 21,
+        "seconds": 33,
+        "microseconds": 808236
+      },
+      "reconstructed": [
+        2048,
+        6,
+        20,
+        1,
+        25,
+        47,
+        932700,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1958-05-22T02:11:28.895326+00:00",
+      "second": "2038-12-06T07:31:13.118167+00:00",
+      "expected": {
+        "years": -80,
+        "months": -6,
+        "days": -15,
+        "leapdays": 0,
+        "hours": -5,
+        "minutes": -19,
+        "seconds": -45,
+        "microseconds": 777159
+      },
+      "reconstructed": [
+        1958,
+        5,
+        22,
+        2,
+        11,
+        28,
+        895326,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2002-11-10T05:11:47.404635+00:00",
+      "second": "1970-09-06T15:44:25.501740+00:00",
+      "expected": {
+        "years": 32,
+        "months": 2,
+        "days": 3,
+        "leapdays": 0,
+        "hours": 13,
+        "minutes": 27,
+        "seconds": 21,
+        "microseconds": 902895
+      },
+      "reconstructed": [
+        2002,
+        11,
+        10,
+        5,
+        11,
+        47,
+        404635,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2015-06-15T23:00:06.189543+00:00",
+      "second": "1981-11-18T00:53:22.377618+00:00",
+      "expected": {
+        "years": 33,
+        "months": 6,
+        "days": 28,
+        "leapdays": 0,
+        "hours": 22,
+        "minutes": 6,
+        "seconds": 43,
+        "microseconds": 811925
+      },
+      "reconstructed": [
+        2015,
+        6,
+        15,
+        23,
+        0,
+        6,
+        189543,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1972-10-04T13:38:43.195194+00:00",
+      "second": "1994-12-04T23:41:55.845383+00:00",
+      "expected": {
+        "years": -22,
+        "months": -2,
+        "days": 0,
+        "leapdays": 0,
+        "hours": -10,
+        "minutes": -3,
+        "seconds": -13,
+        "microseconds": 349811
+      },
+      "reconstructed": [
+        1972,
+        10,
+        4,
+        13,
+        38,
+        43,
+        195194,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1972-11-26T11:35:10.767819+00:00",
+      "second": "1955-02-12T23:41:50.590719+00:00",
+      "expected": {
+        "years": 17,
+        "months": 9,
+        "days": 13,
+        "leapdays": 0,
+        "hours": 11,
+        "minutes": 53,
+        "seconds": 20,
+        "microseconds": 177100
+      },
+      "reconstructed": [
+        1972,
+        11,
+        26,
+        11,
+        35,
+        10,
+        767819,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1973-09-16T04:37:03.463036+00:00",
+      "second": "2031-03-14T16:38:47.088311+00:00",
+      "expected": {
+        "years": -57,
+        "months": -5,
+        "days": -28,
+        "leapdays": 0,
+        "hours": -12,
+        "minutes": -1,
+        "seconds": -44,
+        "microseconds": 374725
+      },
+      "reconstructed": [
+        1973,
+        9,
+        16,
+        4,
+        37,
+        3,
+        463036,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1987-09-03T01:28:26.896405+00:00",
+      "second": "1958-01-26T18:08:43.853435+00:00",
+      "expected": {
+        "years": 29,
+        "months": 7,
+        "days": 7,
+        "leapdays": 0,
+        "hours": 7,
+        "minutes": 19,
+        "seconds": 43,
+        "microseconds": 42970
+      },
+      "reconstructed": [
+        1987,
+        9,
+        3,
+        1,
+        28,
+        26,
+        896405,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2017-11-27T21:28:51.172137+00:00",
+      "second": "1976-11-09T16:59:23.200931+00:00",
+      "expected": {
+        "years": 41,
+        "months": 0,
+        "days": 18,
+        "leapdays": 0,
+        "hours": 4,
+        "minutes": 29,
+        "seconds": 27,
+        "microseconds": 971206
+      },
+      "reconstructed": [
+        2017,
+        11,
+        27,
+        21,
+        28,
+        51,
+        172137,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1984-03-19T11:38:01.008055+00:00",
+      "second": "1984-06-01T15:15:27.607631+00:00",
+      "expected": {
+        "years": 0,
+        "months": -2,
+        "days": -13,
+        "leapdays": 0,
+        "hours": -3,
+        "minutes": -37,
+        "seconds": -27,
+        "microseconds": 400424
+      },
+      "reconstructed": [
+        1984,
+        3,
+        19,
+        11,
+        38,
+        1,
+        8055,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1971-04-20T05:36:03.192880+00:00",
+      "second": "2005-02-07T08:20:25.698742+00:00",
+      "expected": {
+        "years": -33,
+        "months": -9,
+        "days": -17,
+        "leapdays": 0,
+        "hours": -2,
+        "minutes": -44,
+        "seconds": -23,
+        "microseconds": 494138
+      },
+      "reconstructed": [
+        1971,
+        4,
+        20,
+        5,
+        36,
+        3,
+        192880,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1981-05-06T15:22:59.108502+00:00",
+      "second": "1995-04-07T18:12:19.706364+00:00",
+      "expected": {
+        "years": -13,
+        "months": -11,
+        "days": -1,
+        "leapdays": 0,
+        "hours": -2,
+        "minutes": -49,
+        "seconds": -21,
+        "microseconds": 402138
+      },
+      "reconstructed": [
+        1981,
+        5,
+        6,
+        15,
+        22,
+        59,
+        108502,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2047-03-19T12:43:33.721168+00:00",
+      "second": "1959-11-10T13:17:17.227698+00:00",
+      "expected": {
+        "years": 87,
+        "months": 4,
+        "days": 8,
+        "leapdays": 0,
+        "hours": 23,
+        "minutes": 26,
+        "seconds": 16,
+        "microseconds": 493470
+      },
+      "reconstructed": [
+        2047,
+        3,
+        19,
+        12,
+        43,
+        33,
+        721168,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1983-11-03T23:47:21.725291+00:00",
+      "second": "1956-12-09T21:15:45.259171+00:00",
+      "expected": {
+        "years": 26,
+        "months": 10,
+        "days": 25,
+        "leapdays": 0,
+        "hours": 2,
+        "minutes": 31,
+        "seconds": 36,
+        "microseconds": 466120
+      },
+      "reconstructed": [
+        1983,
+        11,
+        3,
+        23,
+        47,
+        21,
+        725291,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1995-02-09T21:16:40.696696+00:00",
+      "second": "2033-08-12T19:25:01.289572+00:00",
+      "expected": {
+        "years": -38,
+        "months": -6,
+        "days": -2,
+        "leapdays": 0,
+        "hours": -22,
+        "minutes": -8,
+        "seconds": -21,
+        "microseconds": 407124
+      },
+      "reconstructed": [
+        1995,
+        2,
+        9,
+        21,
+        16,
+        40,
+        696696,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2049-08-01T04:15:13.132134+00:00",
+      "second": "1989-04-28T00:53:05.074996+00:00",
+      "expected": {
+        "years": 60,
+        "months": 3,
+        "days": 4,
+        "leapdays": 0,
+        "hours": 3,
+        "minutes": 22,
+        "seconds": 8,
+        "microseconds": 57138
+      },
+      "reconstructed": [
+        2049,
+        8,
+        1,
+        4,
+        15,
+        13,
+        132134,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1978-12-02T09:50:01.455958+00:00",
+      "second": "1981-09-04T23:41:04.489813+00:00",
+      "expected": {
+        "years": -2,
+        "months": -9,
+        "days": -2,
+        "leapdays": 0,
+        "hours": -13,
+        "minutes": -51,
+        "seconds": -4,
+        "microseconds": 966145
+      },
+      "reconstructed": [
+        1978,
+        12,
+        2,
+        9,
+        50,
+        1,
+        455958,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1986-03-27T08:38:42.738868+00:00",
+      "second": "2025-07-25T07:49:46.300948+00:00",
+      "expected": {
+        "years": -39,
+        "months": -3,
+        "days": -28,
+        "leapdays": 0,
+        "hours": -23,
+        "minutes": -11,
+        "seconds": -4,
+        "microseconds": 437920
+      },
+      "reconstructed": [
+        1986,
+        3,
+        27,
+        8,
+        38,
+        42,
+        738868,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "1967-01-15T07:25:36.827155+00:00",
+      "second": "1993-12-12T02:35:17.833252+00:00",
+      "expected": {
+        "years": -26,
+        "months": -10,
+        "days": -27,
+        "leapdays": 0,
+        "hours": -19,
+        "minutes": -9,
+        "seconds": -42,
+        "microseconds": 993903
+      },
+      "reconstructed": [
+        1967,
+        1,
+        15,
+        7,
+        25,
+        36,
+        827155,
+        0
+      ]
+    },
+    {
+      "mode": "UTC",
+      "label": "random UTC",
+      "first": "2013-05-19T12:46:17.587346+00:00",
+      "second": "1997-08-09T02:05:15.528664+00:00",
+      "expected": {
+        "years": 15,
+        "months": 9,
+        "days": 10,
+        "leapdays": 0,
+        "hours": 10,
+        "minutes": 41,
+        "seconds": 2,
+        "microseconds": 58682
+      },
+      "reconstructed": [
+        2013,
+        5,
+        19,
+        12,
+        46,
+        17,
+        587346,
+        0
+      ]
+    }
+  ]
+}

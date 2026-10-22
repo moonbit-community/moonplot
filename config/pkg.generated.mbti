@@ -1,0 +1,83 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mathplotlib/mathplotlib/config"
+
+import {
+  "mathplotlib/mathplotlib/core",
+}
+
+// Values
+pub fn color_cycle() -> Array[String]
+
+pub fn date_autoformats() -> Array[String]
+
+pub fn date_autoformatter(String) -> String raise @core.DataError
+
+pub fn date_converter() -> String
+
+pub fn date_epoch() -> String
+
+pub fn date_interval_multiples() -> Bool
+
+pub fn grid_color() -> String
+
+pub fn grid_linewidth() -> Double
+
+pub fn grid_visible() -> Bool
+
+pub fn rc_params() -> RcParams
+
+pub fn reset() -> Unit
+
+pub fn set_color_cycle(Array[String]) -> Unit raise @core.DataError
+
+pub fn set_date_autoformatter(String, String) -> Unit raise @core.DataError
+
+pub fn set_date_converter(String) -> Unit raise @core.DataError
+
+pub fn set_date_epoch(String) -> Unit raise @core.DataError
+
+pub fn set_date_interval_multiples(Bool) -> Unit
+
+pub fn set_grid(Bool, String, Double) -> Unit raise @core.DataError
+
+pub fn set_timezone(String) -> Unit
+
+pub fn set_x_margin(Double) -> Unit raise @core.DataError
+
+pub fn set_y_margin(Double) -> Unit raise @core.DataError
+
+pub fn timezone() -> String
+
+pub fn x_margin() -> Double
+
+pub fn y_margin() -> Double
+
+// Errors
+
+// Types and methods
+pub struct RcParams {
+  mut date_epoch : String
+  color_cycle : Array[String]
+  mut x_margin : Double
+  mut y_margin : Double
+  mut grid_visible : Bool
+  mut grid_color : String
+  mut grid_linewidth : Double
+  // private fields
+}
+pub fn RcParams::color_cycle(Self) -> Array[String]
+pub fn RcParams::date_autoformats(Self) -> Array[String]
+pub fn RcParams::date_autoformatter(Self, String) -> String raise @core.DataError
+pub fn RcParams::date_converter(Self) -> String
+pub fn RcParams::date_epoch(Self) -> String
+pub fn RcParams::date_interval_multiples(Self) -> Bool
+pub fn RcParams::grid_color(Self) -> String
+pub fn RcParams::grid_linewidth(Self) -> Double
+pub fn RcParams::grid_visible(Self) -> Bool
+pub fn RcParams::timezone(Self) -> String
+pub fn RcParams::x_margin(Self) -> Double
+pub fn RcParams::y_margin(Self) -> Double
+
+// Type aliases
+
+// Traits

@@ -1,0 +1,112 @@
+///|
+/// Set a provisional view without disabling automatic limits.
+///
+/// Images use this to fit their extent immediately. A later autoscale request
+/// discards the provisional view and retains its direction. Explicit limits
+/// take precedence. Both endpoints must be valid for this axis scale.
+///
+/// ```mbt check
+/// test {
+///   let axis = @axis.axis()
+///   axis.set_auto_limits(1.5, -0.5)
+///   assert_true(axis.inverted())
+///   axis.request_autoscale()
+///   let view = axis.view_limits(@core.limits(-2.0, 3.0))
+///   assert_eq((view.lower(), view.upper()), (3.0, -2.0))
+/// }
+/// ```
+pub fn Axis::set_auto_limits(
+  self : Axis,
+  lower : Double,
+  upper : Double,
+) -> Unit {
+  if self.limits is None &&
+    self.scale.is_valid(lower) &&
+    self.scale.is_valid(upper) &&
+    lower != upper {
+    self.auto_view = Some(@core.limits(lower, upper))
+    self.inverted = lower > upper
+  }
+}
+
+///|
+/// Recompute the automatic view on its next use while retaining explicit
+/// limits and the axis direction.
+pub fn Axis::request_autoscale(self : Axis) -> Unit {
+  self.auto_view = None
+}
+
+///|
+/// Whether this axis displays larger values before smaller values.
+pub fn Axis::inverted(self : Axis) -> Bool {
+  self.inverted
+}
+
+///|
+/// Resolve explicit or provisional limits before using an automatic range.
+/// Automatic endpoints are sorted and then oriented to match the axis.
+pub fn Axis::view_limits(self : Axis, automatic : @core.Limits) -> @core.Limits {
+  match (self.limits, self.auto_view) {
+    (Some(limits), _) | (None, Some(limits)) => limits
+    (None, None) => {
+      let lower = Double::min(automatic.lower(), automatic.upper())
+      let upper = Double::max(automatic.lower(), automatic.upper())
+      if self.inverted {
+        @core.limits(upper, lower)
+      } else {
+        @core.limits(lower, upper)
+      }
+    }
+  }
+}
+
+///|
+/// Store a resolved view while retaining explicit or automatic limit selection.
+/// Invalid endpoints raise DataError before changing the view. In automatic
+/// mode a later request_autoscale() discards this provisional range.
+///
+/// ```mbt check
+/// test {
+///   let axis = @axis.axis()
+///   try! axis.set_view_limits(-1.0, 2.0)
+///   assert_true(axis.limits() is None)
+///   assert_eq(axis.current_view_limits().unwrap().lower(), -1.0)
+///   axis.request_autoscale()
+///   assert_true(axis.current_view_limits() is None)
+/// }
+/// ```
+pub fn Axis::set_view_limits(
+  self : Axis,
+  lower : Double,
+  upper : Double,
+) -> Unit raise @core.DataError {
+  if !self.scale.is_valid(lower) || !self.scale.is_valid(upper) {
+    raise @core.DataError::NonFiniteLimit(axis="view")
+  }
+  let view = @core.limits(lower, upper)
+  if self.limits is Some(_) {
+    self.limits = Some(view)
+    self.auto_view = None
+  } else {
+    self.auto_view = Some(view)
+  }
+  self.inverted = lower > upper
+}
+
+///|
+/// Return a stored explicit/provisional view without computing automatic limits.
+///
+/// ```mbt check
+/// test {
+///   let axis = @axis.axis()
+///   assert_true(axis.current_view_limits() is None)
+///   try! axis.set_limits(2.0, -1.0)
+///   assert_eq(axis.current_view_limits().unwrap().upper(), -1.0)
+/// }
+/// ```
+pub fn Axis::current_view_limits(self : Axis) -> @core.Limits? {
+  match self.limits {
+    Some(_) => self.limits
+    None => self.auto_view
+  }
+}

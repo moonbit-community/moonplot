@@ -1,0 +1,24 @@
+{
+  "unicode_version": "15.0.0",
+  "python": "3.12.14",
+  "properties": {
+    "word": {
+      "range_count": 659,
+      "scalar_count": 136104
+    },
+    "digit": {
+      "range_count": 83,
+      "scalar_count": 808
+    },
+    "space": {
+      "range_count": 10,
+      "scalar_count": 29
+    },
+    "decimal": {
+      "range_count": 64,
+      "scalar_count": 680
+    }
+  },
+  "generated_sha256": "51a19ada1ae99347d370d15fd5da0b8f6800afba8c54a8914f5bda6048488ccd",
+  "note": "CPython str.isalpha/isdigit/isspace and Unicode Nd; no runtime Python dependency."
+}

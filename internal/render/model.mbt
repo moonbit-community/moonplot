@@ -1,0 +1,1044 @@
+///|
+/// Backend input for a rendered figure. This package is intentionally internal;
+/// public callers use scene.Figure instead.
+pub(all) enum Artist {
+  Line(Array[@core.Point], @core.Style)
+  Scatter(Array[@core.Point], @core.Style)
+  PathCollection(Array[@core.Point], Array[@core.Style])
+  Bar(Array[@core.Point], @core.Style)
+  BarH(Array[@core.Point], @core.Style)
+  FillBetween(Array[@core.Point], Array[@core.Point], @core.Style)
+  Polygon(Array[@core.Point], @core.Style)
+  CompoundPolygon(Array[Array[@core.Point]], @core.Style)
+  GouraudTriangle(Array[@core.Point], Array[String])
+  HLine(Double, @core.Style)
+  VLine(Double, @core.Style)
+  AxLine(@core.Point, @core.Point, @core.Style)
+  HSpan(Double, Double, @core.Style)
+  VSpan(Double, Double, @core.Style)
+  Text(Double, Double, String, @core.Style)
+  Annotation(Annotation)
+  ErrorBar(Array[@core.Point], Array[Double], Array[Double], @core.Style)
+  Image(Array[Array[Double]], Double?, Double?, @colors.ColorMap)
+  ImageNorm(
+    Array[Array[Double]],
+    @colors.ColorNorm,
+    @colors.ColorMap,
+    ImageOrigin,
+    (Double, Double, Double, Double)?,
+    Double,
+    ImageInterpolation
+  )
+  /// An image whose pixels already carry RGB or RGBA colors.
+  ColorImage(
+    Array[Array[@colors.Rgba]],
+    ImageOrigin,
+    (Double, Double, Double, Double)?,
+    Double,
+    ImageInterpolation
+  )
+  Table(Table)
+  Pie(Array[Double], Array[String], Array[String], Double)
+  BoxPlot(Array[@boxplot.BoxStats], Bool, @core.Style)
+  Quiver(Array[@core.Point], Array[@core.Point], @core.Style)
+  Violin(
+    Array[ViolinStats],
+    Array[Double],
+    Array[Double],
+    Bool,
+    ViolinSide,
+    Bool,
+    Bool,
+    Bool,
+    @core.Style,
+    @core.Style,
+    Double
+  )
+}
+
+///|
+/// Row orientation for raster images in the backend model.
+pub(all) enum ImageOrigin {
+  Upper
+  Lower
+}
+
+///|
+/// Image sampling policy forwarded from the scene package.
+pub(all) enum ImageInterpolation {
+  Nearest
+  NoInterpolation
+  Bilinear
+  Bicubic
+  Spline16
+  Spline36
+  Hanning
+  Hamming
+  Hermite
+  Kaiser
+  Quadric
+  Catrom
+  Gaussian
+  Bessel
+  Mitchell
+  Sinc
+  Lanczos
+  Blackman
+  Auto
+  Antialiased
+}
+
+///|
+pub struct Annotation {
+  x : Double
+  y : Double
+  text_x : Double
+  text_y : Double
+  value : String
+  xycoords : String
+  textcoords : String
+  connector : String
+  arrow : Bool
+  arrowcolor : String
+  linewidth : Double
+  head_length : Double
+  head_width : Double
+  style : @core.Style
+}
+
+///|
+pub fn annotation(
+  x : Double,
+  y : Double,
+  text_x : Double,
+  text_y : Double,
+  value : String,
+  xycoords : String,
+  textcoords : String,
+  connector : String,
+  arrow : Bool,
+  arrowcolor : String,
+  linewidth : Double,
+  head_length : Double,
+  head_width : Double,
+  style : @core.Style,
+) -> Annotation {
+  {
+    x,
+    y,
+    text_x,
+    text_y,
+    value,
+    xycoords,
+    textcoords,
+    connector,
+    arrow,
+    arrowcolor,
+    linewidth,
+    head_length,
+    head_width,
+    style,
+  }
+}
+
+///|
+pub fn Annotation::x(self : Annotation) -> Double {
+  self.x
+}
+
+///|
+pub fn Annotation::y(self : Annotation) -> Double {
+  self.y
+}
+
+///|
+pub fn Annotation::text_x(self : Annotation) -> Double {
+  self.text_x
+}
+
+///|
+pub fn Annotation::text_y(self : Annotation) -> Double {
+  self.text_y
+}
+
+///|
+pub fn Annotation::value(self : Annotation) -> String {
+  self.value
+}
+
+///|
+pub fn Annotation::xycoords(self : Annotation) -> String {
+  self.xycoords
+}
+
+///|
+pub fn Annotation::textcoords(self : Annotation) -> String {
+  self.textcoords
+}
+
+///|
+pub fn Annotation::connector(self : Annotation) -> String {
+  self.connector
+}
+
+///|
+pub fn Annotation::arrow(self : Annotation) -> Bool {
+  self.arrow
+}
+
+///|
+pub fn Annotation::arrowcolor(self : Annotation) -> String {
+  self.arrowcolor
+}
+
+///|
+pub fn Annotation::linewidth(self : Annotation) -> Double {
+  self.linewidth
+}
+
+///|
+pub fn Annotation::head_length(self : Annotation) -> Double {
+  self.head_length
+}
+
+///|
+pub fn Annotation::head_width(self : Annotation) -> Double {
+  self.head_width
+}
+
+///|
+pub fn Annotation::style(self : Annotation) -> @core.Style {
+  self.style
+}
+
+///|
+pub struct TableCell {
+  row : Int32
+  column : Int32
+  text : String
+  facecolor : String
+  edgecolor : String
+  align : String
+  visible_edges : String
+}
+
+///|
+pub struct Table {
+  cells : Array[TableCell]
+  rows : Int32
+  columns : Int32
+  x : Double
+  y : Double
+  width : Double
+  height : Double
+  column_widths : Array[Double]
+}
+
+///|
+pub fn table_cell(
+  row : Int32,
+  column : Int32,
+  text : String,
+  facecolor : String,
+  edgecolor : String,
+  align : String,
+  visible_edges : String,
+) -> TableCell {
+  { row, column, text, facecolor, edgecolor, align, visible_edges, }
+}
+
+///|
+pub fn table(
+  cells : Array[TableCell],
+  rows : Int32,
+  columns : Int32,
+  x : Double,
+  y : Double,
+  width : Double,
+  height : Double,
+  column_widths : Array[Double],
+) -> Table {
+  { cells, rows, columns, x, y, width, height, column_widths, }
+}
+
+///|
+pub fn Table::cells(self : Table) -> Array[TableCell] {
+  self.cells
+}
+
+///|
+pub fn TableCell::row(self : TableCell) -> Int32 {
+  self.row
+}
+
+///|
+pub fn TableCell::column(self : TableCell) -> Int32 {
+  self.column
+}
+
+///|
+pub fn TableCell::text(self : TableCell) -> String {
+  self.text
+}
+
+///|
+pub fn TableCell::facecolor(self : TableCell) -> String {
+  self.facecolor
+}
+
+///|
+pub fn TableCell::edgecolor(self : TableCell) -> String {
+  self.edgecolor
+}
+
+///|
+pub fn TableCell::align(self : TableCell) -> String {
+  self.align
+}
+
+///|
+pub fn TableCell::visible_edges(self : TableCell) -> String {
+  self.visible_edges
+}
+
+///|
+pub fn Table::rows(self : Table) -> Int32 {
+  self.rows
+}
+
+///|
+pub fn Table::columns(self : Table) -> Int32 {
+  self.columns
+}
+
+///|
+pub fn Table::x(self : Table) -> Double {
+  self.x
+}
+
+///|
+pub fn Table::y(self : Table) -> Double {
+  self.y
+}
+
+///|
+pub fn Table::width(self : Table) -> Double {
+  self.width
+}
+
+///|
+pub fn Table::height(self : Table) -> Double {
+  self.height
+}
+
+///|
+pub fn Table::column_widths(self : Table) -> Array[Double] {
+  self.column_widths
+}
+
+///|
+pub(all) enum ViolinSide {
+  Both
+  Low
+  High
+}
+
+///|
+pub struct ViolinStats {
+  coords : Array[Double]
+  vals : Array[Double]
+  mean : Double
+  median : Double
+  min : Double
+  max : Double
+  quantiles : Array[Double]
+}
+
+///|
+pub fn violin_stats(
+  coords : Array[Double],
+  vals : Array[Double],
+  mean : Double,
+  median : Double,
+  min : Double,
+  max : Double,
+  quantiles : Array[Double],
+) -> ViolinStats {
+  { coords, vals, mean, median, min, max, quantiles, }
+}
+
+///|
+pub fn ViolinStats::coords(self : ViolinStats) -> Array[Double] {
+  self.coords
+}
+
+///|
+pub fn ViolinStats::vals(self : ViolinStats) -> Array[Double] {
+  self.vals
+}
+
+///|
+pub fn ViolinStats::mean(self : ViolinStats) -> Double {
+  self.mean
+}
+
+///|
+pub fn ViolinStats::median(self : ViolinStats) -> Double {
+  self.median
+}
+
+///|
+pub fn ViolinStats::min(self : ViolinStats) -> Double {
+  self.min
+}
+
+///|
+pub fn ViolinStats::max(self : ViolinStats) -> Double {
+  self.max
+}
+
+///|
+pub fn ViolinStats::quantiles(self : ViolinStats) -> Array[Double] {
+  self.quantiles
+}
+
+///|
+pub(all) enum LegendKind {
+  Line
+  Marker
+  Patch
+}
+
+///|
+pub struct LegendEntry {
+  label : String
+  color : String
+  kind : LegendKind
+}
+
+///|
+pub fn legend_entry(
+  label : String,
+  color : String,
+  kind : LegendKind,
+) -> LegendEntry {
+  { label, color, kind, }
+}
+
+///|
+pub fn LegendEntry::label(self : LegendEntry) -> String {
+  self.label
+}
+
+///|
+pub fn LegendEntry::color(self : LegendEntry) -> String {
+  self.color
+}
+
+///|
+pub fn LegendEntry::kind(self : LegendEntry) -> LegendKind {
+  self.kind
+}
+
+///|
+/// Location of a secondary coordinate axis in the backend model.
+pub(all) enum SecondaryLocation {
+  Top
+  Bottom
+  Left
+  Right
+}
+
+///|
+/// Immutable secondary axis data consumed by a backend.
+pub struct SecondaryAxis {
+  location : SecondaryLocation
+  forward : (Double) -> Double
+  inverse : (Double) -> Double
+  label : String?
+  tick_count : Int32
+  fixed_ticks : Array[Double]?
+  locator : @ticker.Locator?
+  formatter : @ticker.Formatter?
+}
+
+///|
+fn copy_secondary_locator(locator : @ticker.Locator) -> @ticker.Locator {
+  match locator {
+    @ticker.Locator::Linear(count~) => @ticker.Locator::Linear(count~)
+    @ticker.Locator::MaxN(count~, integer~, symmetric~, prune~) =>
+      @ticker.Locator::MaxN(count~, integer~, symmetric~, prune~)
+    @ticker.Locator::Fixed(values) => @ticker.Locator::Fixed(values.copy())
+    @ticker.Locator::Log(count~, base~) => @ticker.Locator::Log(count~, base~)
+    @ticker.Locator::LogWithSubs(count~, base~, subs~, numdecs~) =>
+      @ticker.Locator::LogWithSubs(count~, base~, subs=subs.copy(), numdecs~)
+  }
+}
+
+///|
+pub fn secondary_axis(
+  location : SecondaryLocation,
+  forward : (Double) -> Double,
+  inverse : (Double) -> Double,
+  label : String?,
+  tick_count : Int32,
+  fixed_ticks : Array[Double]?,
+  locator : @ticker.Locator?,
+  formatter : @ticker.Formatter?,
+) -> SecondaryAxis {
+  {
+    location,
+    forward,
+    inverse,
+    label,
+    tick_count,
+    fixed_ticks: match fixed_ticks {
+      Some(values) => Some(values.copy())
+      None => None
+    },
+    locator: match locator {
+      Some(value) => Some(copy_secondary_locator(value))
+      None => None
+    },
+    formatter: match formatter {
+      Some(value) => Some(value.copy())
+      None => None
+    },
+  }
+}
+
+///|
+pub fn SecondaryAxis::location(self : SecondaryAxis) -> SecondaryLocation {
+  self.location
+}
+
+///|
+pub fn SecondaryAxis::forward(self : SecondaryAxis) -> (Double) -> Double {
+  self.forward
+}
+
+///|
+pub fn SecondaryAxis::inverse(self : SecondaryAxis) -> (Double) -> Double {
+  self.inverse
+}
+
+///|
+pub fn SecondaryAxis::label(self : SecondaryAxis) -> String? {
+  self.label
+}
+
+///|
+pub fn SecondaryAxis::tick_count(self : SecondaryAxis) -> Int32 {
+  self.tick_count
+}
+
+///|
+pub fn SecondaryAxis::fixed_ticks(self : SecondaryAxis) -> Array[Double]? {
+  match self.fixed_ticks {
+    Some(values) => Some(values.copy())
+    None => None
+  }
+}
+
+///|
+pub fn SecondaryAxis::locator(self : SecondaryAxis) -> @ticker.Locator? {
+  match self.locator {
+    Some(value) => Some(copy_secondary_locator(value))
+    None => None
+  }
+}
+
+///|
+pub fn SecondaryAxis::formatter(self : SecondaryAxis) -> @ticker.Formatter? {
+  match self.formatter {
+    Some(value) => Some(value.copy())
+    None => None
+  }
+}
+
+///|
+/// One axes border consumed by a backend renderer.
+pub(all) enum SpineSide {
+  Left
+  Right
+  Bottom
+  Top
+}
+
+///|
+pub(all) enum SpinePosition {
+  Axes
+  Data(Double)
+  Outward(Double)
+}
+
+///|
+pub struct Spine {
+  side : SpineSide
+  visible : Bool
+  color : String
+  linewidth : Double
+  position : SpinePosition
+  bounds : (Double, Double)?
+}
+
+///|
+pub fn spine(
+  side : SpineSide,
+  visible : Bool,
+  color : String,
+  linewidth : Double,
+  position : SpinePosition,
+  bounds : (Double, Double)?,
+) -> Spine {
+  { side, visible, color, linewidth, position, bounds, }
+}
+
+///|
+pub fn Spine::side(self : Spine) -> SpineSide {
+  self.side
+}
+
+///|
+pub fn Spine::visible(self : Spine) -> Bool {
+  self.visible
+}
+
+///|
+pub fn Spine::color(self : Spine) -> String {
+  self.color
+}
+
+///|
+pub fn Spine::linewidth(self : Spine) -> Double {
+  self.linewidth
+}
+
+///|
+pub fn Spine::position(self : Spine) -> SpinePosition {
+  self.position
+}
+
+///|
+pub fn Spine::bounds(self : Spine) -> (Double, Double)? {
+  self.bounds
+}
+
+///|
+/// Immutable render input for one axes panel.
+pub struct Panel {
+  rect : @gridspec.Rect?
+  artists : Array[Artist]
+  title : String?
+  legend : Array[LegendEntry]
+  explicit_bounds : @core.Bounds?
+  x_axis : @axis.Axis
+  y_axis : @axis.Axis
+  share_x_group : Int32?
+  share_y_group : Int32?
+  show_x_tick_labels : Bool
+  show_y_tick_labels : Bool
+  frame_visible : Bool
+  spines : Array[Spine]
+  x_margin : Double
+  y_margin : Double
+  data_aspect : Double?
+  anchor : (Double, Double)
+  adjustable : String
+  box_aspect : Double?
+  secondary_x : Array[SecondaryAxis]
+  secondary_y : Array[SecondaryAxis]
+}
+
+///|
+/// Construct panel input. aspect overrides the legacy equal_aspect flag and
+/// must be a positive finite y/x display ratio when supplied.
+/// anchor uses lower-left fractions within the free space after shrinking.
+/// box_aspect constrains physical dimensions when adjustable="datalim".
+pub fn panel(
+  rect : @gridspec.Rect?,
+  artists : Array[Artist],
+  title : String?,
+  legend : Array[LegendEntry],
+  explicit_bounds : @core.Bounds?,
+  x_axis : @axis.Axis,
+  y_axis : @axis.Axis,
+  equal_aspect : Bool,
+  secondary_x : Array[SecondaryAxis],
+  secondary_y : Array[SecondaryAxis],
+  aspect? : Double,
+  anchor~ : (Double, Double) = (0.5, 0.5),
+  adjustable~ : String = "box",
+  box_aspect? : Double,
+) -> Panel {
+  panel_with_sharing(
+    rect,
+    artists,
+    title,
+    legend,
+    explicit_bounds,
+    x_axis,
+    y_axis,
+    None,
+    None,
+    equal_aspect,
+    secondary_x,
+    secondary_y,
+    aspect?,
+    anchor~,
+    adjustable~,
+    box_aspect?,
+  )
+}
+
+///|
+/// Construct panel input with explicit shared-axis group identifiers.
+/// aspect overrides the legacy equal_aspect flag when supplied.
+/// anchor uses lower-left fractions within the free space after shrinking.
+/// box_aspect constrains physical dimensions when adjustable="datalim".
+pub fn panel_with_sharing(
+  rect : @gridspec.Rect?,
+  artists : Array[Artist],
+  title : String?,
+  legend : Array[LegendEntry],
+  explicit_bounds : @core.Bounds?,
+  x_axis : @axis.Axis,
+  y_axis : @axis.Axis,
+  share_x_group : Int32?,
+  share_y_group : Int32?,
+  equal_aspect : Bool,
+  secondary_x : Array[SecondaryAxis],
+  secondary_y : Array[SecondaryAxis],
+  show_x_tick_labels~ : Bool = true,
+  show_y_tick_labels~ : Bool = true,
+  frame_visible~ : Bool = true,
+  x_margin~ : Double = 0.05,
+  y_margin~ : Double = 0.05,
+  spines~ : Array[Spine] = [],
+  aspect? : Double,
+  anchor~ : (Double, Double) = (0.5, 0.5),
+  adjustable~ : String = "box",
+  box_aspect? : Double,
+) -> Panel {
+  {
+    rect,
+    artists,
+    title,
+    legend,
+    explicit_bounds,
+    x_axis,
+    y_axis,
+    share_x_group,
+    share_y_group,
+    show_x_tick_labels,
+    show_y_tick_labels,
+    frame_visible,
+    spines,
+    x_margin,
+    y_margin,
+    data_aspect: match aspect {
+      Some(_) => aspect
+      None => if equal_aspect { Some(1.0) } else { None }
+    },
+    anchor,
+    adjustable,
+    box_aspect,
+    secondary_x,
+    secondary_y,
+  }
+}
+
+///|
+/// Return whether the primary x-axis tick labels are visible.
+pub fn Panel::show_x_tick_labels(self : Panel) -> Bool {
+  self.show_x_tick_labels
+}
+
+///|
+/// Return whether the primary y-axis tick labels are visible.
+pub fn Panel::show_y_tick_labels(self : Panel) -> Bool {
+  self.show_y_tick_labels
+}
+
+///|
+/// Return whether primary axis decorations should be rendered.
+pub fn Panel::frame_visible(self : Panel) -> Bool {
+  self.frame_visible
+}
+
+///|
+/// Return the configured axes spines.
+pub fn Panel::spines(self : Panel) -> Array[Spine] {
+  self.spines
+}
+
+///|
+/// Return the automatic x-axis margin for this panel.
+pub fn Panel::x_margin(self : Panel) -> Double {
+  self.x_margin
+}
+
+///|
+/// Return the automatic y-axis margin for this panel.
+pub fn Panel::y_margin(self : Panel) -> Double {
+  self.y_margin
+}
+
+///|
+/// Immutable render input for one nested figure region.
+pub struct SubFigure {
+  rect : @gridspec.Rect
+  title : String?
+}
+
+///|
+pub fn subfigure(rect : @gridspec.Rect, title : String?) -> SubFigure {
+  { rect, title, }
+}
+
+///|
+pub fn SubFigure::rect(self : SubFigure) -> @gridspec.Rect {
+  self.rect
+}
+
+///|
+pub fn SubFigure::title(self : SubFigure) -> String? {
+  self.title
+}
+
+///|
+/// Immutable render input shared by backend implementations.
+pub struct Figure {
+  width : Int32
+  height : Int32
+  margin : Int32
+  panels : Array[Panel]
+  colorbars : Array[@colorbar.Colorbar]
+  subfigures : Array[SubFigure]
+  title : String?
+}
+
+///|
+pub fn figure(
+  width : Int32,
+  height : Int32,
+  margin : Int32,
+  panels : Array[Panel],
+  colorbars : Array[@colorbar.Colorbar],
+  title : String?,
+) -> Figure {
+  figure_with_subfigures(width, height, margin, panels, colorbars, [], title)
+}
+
+///|
+pub fn figure_with_subfigures(
+  width : Int32,
+  height : Int32,
+  margin : Int32,
+  panels : Array[Panel],
+  colorbars : Array[@colorbar.Colorbar],
+  subfigures : Array[SubFigure],
+  title : String?,
+) -> Figure {
+  { width, height, margin, panels, colorbars, subfigures, title, }
+}
+
+///|
+pub fn Figure::width(self : Figure) -> Int32 {
+  self.width
+}
+
+///|
+pub fn Figure::height(self : Figure) -> Int32 {
+  self.height
+}
+
+///|
+pub fn Figure::margin(self : Figure) -> Int32 {
+  self.margin
+}
+
+///|
+pub fn Figure::panels(self : Figure) -> Array[Panel] {
+  self.panels
+}
+
+///|
+pub fn Figure::colorbars(self : Figure) -> Array[@colorbar.Colorbar] {
+  self.colorbars
+}
+
+///|
+pub fn Figure::subfigures(self : Figure) -> Array[SubFigure] {
+  self.subfigures
+}
+
+///|
+pub fn Panel::rect(self : Panel) -> @gridspec.Rect? {
+  self.rect
+}
+
+///|
+pub fn Panel::artists(self : Panel) -> Array[Artist] {
+  self.artists
+}
+
+///|
+pub fn Panel::title(self : Panel) -> String? {
+  self.title
+}
+
+///|
+pub fn Panel::legend(self : Panel) -> Array[LegendEntry] {
+  self.legend
+}
+
+///|
+pub fn Panel::explicit_bounds(self : Panel) -> @core.Bounds? {
+  self.explicit_bounds
+}
+
+///|
+pub fn Panel::x_axis(self : Panel) -> @axis.Axis {
+  self.x_axis
+}
+
+///|
+pub fn Panel::y_axis(self : Panel) -> @axis.Axis {
+  self.y_axis
+}
+
+///|
+/// Return the shared x-axis group, if this panel belongs to one.
+pub fn Panel::share_x_group(self : Panel) -> Int32? {
+  self.share_x_group
+}
+
+///|
+/// Return the shared y-axis group, if this panel belongs to one.
+pub fn Panel::share_y_group(self : Panel) -> Int32? {
+  self.share_y_group
+}
+
+///|
+/// Return whether the panel requests equal data scaling.
+pub fn Panel::equal_aspect(self : Panel) -> Bool {
+  self.data_aspect == Some(1.0)
+}
+
+///|
+/// Return the numeric y/x display scale ratio, or None for automatic aspect.
+///
+/// ```mbt check
+/// test {
+///   let panel = @render.panel(
+///     None,
+///     [],
+///     None,
+///     [],
+///     None,
+///     @axis.axis(),
+///     @axis.axis(),
+///     false,
+///     [],
+///     [],
+///     aspect=2.0,
+///   )
+///   assert_eq(panel.aspect(), Some(2.0))
+///   assert_true(!panel.equal_aspect())
+/// }
+/// ```
+pub fn Panel::aspect(self : Panel) -> Double? {
+  self.data_aspect
+}
+
+///|
+/// Return the anchor fractions relative to the allocated box's lower left.
+///
+/// ```mbt check
+/// test {
+///   let panel = @render.panel(
+///     None,
+///     [],
+///     None,
+///     [],
+///     None,
+///     @axis.axis(),
+///     @axis.axis(),
+///     true,
+///     [],
+///     [],
+///     anchor=(0.0, 1.0),
+///   )
+///   assert_eq(panel.anchor(), (0.0, 1.0))
+/// }
+/// ```
+pub fn Panel::anchor(self : Panel) -> (Double, Double) {
+  self.anchor
+}
+
+///|
+/// Return whether aspect changes the box ("box") or view limits ("datalim").
+///
+/// ```mbt check
+/// test {
+///   let panel = @render.panel(
+///     None,
+///     [],
+///     None,
+///     [],
+///     None,
+///     @axis.axis(),
+///     @axis.axis(),
+///     true,
+///     [],
+///     [],
+///     adjustable="datalim",
+///   )
+///   assert_eq(panel.adjustable(), "datalim")
+/// }
+/// ```
+pub fn Panel::adjustable(self : Panel) -> String {
+  self.adjustable
+}
+
+///|
+/// Return a physical height/width constraint, independently of data aspect.
+///
+/// ```mbt check
+/// test {
+///   let panel = @render.panel(
+///     None,
+///     [],
+///     None,
+///     [],
+///     None,
+///     @axis.axis(),
+///     @axis.axis(),
+///     false,
+///     [],
+///     [],
+///     adjustable="datalim",
+///     box_aspect=1.0,
+///   )
+///   assert_eq(panel.box_aspect(), Some(1.0))
+/// }
+/// ```
+pub fn Panel::box_aspect(self : Panel) -> Double? {
+  self.box_aspect
+}
+
+///|
+pub fn Panel::secondary_x(self : Panel) -> Array[SecondaryAxis] {
+  self.secondary_x
+}
+
+///|
+pub fn Panel::secondary_y(self : Panel) -> Array[SecondaryAxis] {
+  self.secondary_y
+}
+
+///|
+pub fn Figure::title(self : Figure) -> String? {
+  self.title
+}

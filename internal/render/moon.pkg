@@ -1,0 +1,9 @@
+import {
+  "mathplotlib/mathplotlib/core",
+  "mathplotlib/mathplotlib/core/colors",
+  "mathplotlib/mathplotlib/scene/axis",
+  "mathplotlib/mathplotlib/scene/boxplot",
+  "mathplotlib/mathplotlib/scene/colorbar",
+  "mathplotlib/mathplotlib/scene/gridspec",
+  "mathplotlib/mathplotlib/ticker",
+}

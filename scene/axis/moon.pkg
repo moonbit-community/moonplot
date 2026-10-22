@@ -1,0 +1,8 @@
+import {
+  "mathplotlib/mathplotlib/config",
+  "mathplotlib/mathplotlib/core",
+  "mathplotlib/mathplotlib/ticker/category",
+  "mathplotlib/mathplotlib/ticker/date",
+  "mathplotlib/mathplotlib/ticker",
+  "mathplotlib/mathplotlib/ticker/scale",
+}

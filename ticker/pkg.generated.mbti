@@ -1,0 +1,93 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mathplotlib/mathplotlib/ticker"
+
+import {
+  "mathplotlib/mathplotlib/core",
+}
+
+// Values
+pub fn auto_minor_locator(subdivisions? : Int) -> MinorLocator raise @core.DataError
+
+pub fn eng_formatter(unit? : String, places? : Int, sep? : String) -> Formatter raise @core.DataError
+
+pub fn fixed_formatter(Array[String]) -> Formatter
+
+pub fn fixed_locator(Array[Double]) -> Locator raise @core.DataError
+
+pub fn fixed_minor_locator(Array[Double]) -> MinorLocator raise @core.DataError
+
+pub fn format_str_formatter(String) -> Formatter
+
+pub fn format_tick(Double) -> String
+
+pub fn func_formatter((Double) -> String) -> Formatter
+
+pub fn index_formatter(Array[String]) -> Formatter
+
+pub fn linear_locator(count? : Int) -> Locator
+
+pub fn linear_ticks(@core.Limits, count? : Int) -> Array[Double]
+
+pub fn log_formatter(base? : Double, label_only_base? : Bool) -> Formatter raise @core.DataError
+
+pub fn log_locator(count? : Int, base? : Double, subs? : Array[Double], numdecs? : Int) -> Locator raise @core.DataError
+
+pub fn log_minor_locator(subdivisions? : Int, base? : Double) -> MinorLocator raise @core.DataError
+
+pub fn maxn_locator(count? : Int, integer? : Bool, symmetric? : Bool, prune? : String) -> Locator raise @core.DataError
+
+pub fn null_formatter() -> Formatter
+
+pub fn percent_formatter(xmax? : Double, decimals? : Int, symbol? : String) -> Formatter raise @core.DataError
+
+pub fn scalar_formatter(use_offset? : Bool, use_math_text? : Bool, power_min? : Int, power_max? : Int) -> Formatter raise @core.DataError
+
+pub fn str_method_formatter(String) -> Formatter
+
+// Errors
+
+// Types and methods
+pub(all) enum Formatter {
+  Scalar(use_offset~ : Bool, use_math_text~ : Bool, power_min~ : Int, power_max~ : Int)
+  Fixed(Array[String])
+  Index(Array[String])
+  Format(String)
+  StrMethod(String)
+  Eng(unit~ : String, places~ : Int, sep~ : String)
+  Percent(xmax~ : Double, decimals~ : Int, symbol~ : String)
+  Log(base~ : Double, label_only_base~ : Bool)
+  Null
+  Func((Double) -> String)
+}
+pub fn Formatter::copy(Self) -> Self
+pub fn Formatter::format_value(Self, Double) -> String
+pub fn Formatter::format_values(Self, Array[Double]) -> Array[String]
+pub fn Formatter::format_values_with_range(Self, Array[Double], Double) -> Array[String]
+pub fn Formatter::format_values_with_view(Self, Array[Double], @core.Limits?) -> Array[String]
+pub fn Formatter::offset(Self, Array[Double]) -> Double
+pub fn Formatter::offset_label(Self, Array[Double]) -> String
+pub fn Formatter::offset_label_with_view(Self, Array[Double], @core.Limits?) -> String
+pub fn Formatter::offset_with_view(Self, Array[Double], @core.Limits?) -> Double
+
+pub(all) enum Locator {
+  Linear(count~ : Int)
+  MaxN(count~ : Int, integer~ : Bool, symmetric~ : Bool, prune~ : String)
+  Fixed(Array[Double])
+  Log(count~ : Int, base~ : Double)
+  LogWithSubs(count~ : Int, base~ : Double, subs~ : Array[Double], numdecs~ : Int)
+}
+pub fn Locator::copy(Self) -> Self
+pub fn Locator::fixed_values(Self) -> Array[Double]
+pub fn Locator::tick_values(Self, Double, Double) -> Array[Double]
+
+pub(all) enum MinorLocator {
+  Auto(subdivisions~ : Int)
+  Fixed(Array[Double])
+  Log(subdivisions~ : Int, base~ : Double)
+}
+pub fn MinorLocator::copy(Self) -> Self
+pub fn MinorLocator::tick_values(Self, Array[Double], Double, Double) -> Array[Double]
+
+// Type aliases
+
+// Traits

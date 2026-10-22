@@ -1,0 +1,329 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mathplotlib/mathplotlib/internal/render"
+
+import {
+  "mathplotlib/mathplotlib/core",
+  "mathplotlib/mathplotlib/core/colors",
+  "mathplotlib/mathplotlib/scene/axis",
+  "mathplotlib/mathplotlib/scene/boxplot",
+  "mathplotlib/mathplotlib/scene/colorbar",
+  "mathplotlib/mathplotlib/scene/gridspec",
+  "mathplotlib/mathplotlib/ticker",
+}
+
+// Values
+pub fn annotation(Double, Double, Double, Double, String, String, String, String, Bool, String, Double, Double, Double, @core.Style) -> Annotation
+
+pub fn figure(Int, Int, Int, Array[Panel], Array[@colorbar.Colorbar], String?) -> Figure
+
+pub fn figure_with_subfigures(Int, Int, Int, Array[Panel], Array[@colorbar.Colorbar], Array[SubFigure], String?) -> Figure
+
+pub fn legend_entry(String, String, LegendKind) -> LegendEntry
+
+pub fn panel(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.Bounds?, @axis.Axis, @axis.Axis, Bool, Array[SecondaryAxis], Array[SecondaryAxis], aspect? : Double, anchor? : (Double, Double), adjustable? : String, box_aspect? : Double) -> Panel
+
+pub fn panel_with_sharing(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.Bounds?, @axis.Axis, @axis.Axis, Int?, Int?, Bool, Array[SecondaryAxis], Array[SecondaryAxis], show_x_tick_labels? : Bool, show_y_tick_labels? : Bool, frame_visible? : Bool, x_margin? : Double, y_margin? : Double, spines? : Array[Spine], aspect? : Double, anchor? : (Double, Double), adjustable? : String, box_aspect? : Double) -> Panel
+
+pub fn secondary_axis(SecondaryLocation, (Double) -> Double, (Double) -> Double, String?, Int, Array[Double]?, @ticker.Locator?, @ticker.Formatter?) -> SecondaryAxis
+
+pub fn spine(SpineSide, Bool, String, Double, SpinePosition, (Double, Double)?) -> Spine
+
+pub fn subfigure(@gridspec.Rect, String?) -> SubFigure
+
+pub fn table(Array[TableCell], Int, Int, Double, Double, Double, Double, Array[Double]) -> Table
+
+pub fn table_cell(Int, Int, String, String, String, String, String) -> TableCell
+
+pub fn violin_stats(Array[Double], Array[Double], Double, Double, Double, Double, Array[Double]) -> ViolinStats
+
+// Errors
+
+// Types and methods
+pub struct Annotation {
+  x : Double
+  y : Double
+  text_x : Double
+  text_y : Double
+  value : String
+  xycoords : String
+  textcoords : String
+  connector : String
+  arrow : Bool
+  arrowcolor : String
+  linewidth : Double
+  head_length : Double
+  head_width : Double
+  style : @core.Style
+}
+pub fn Annotation::arrow(Self) -> Bool
+pub fn Annotation::arrowcolor(Self) -> String
+pub fn Annotation::connector(Self) -> String
+pub fn Annotation::head_length(Self) -> Double
+pub fn Annotation::head_width(Self) -> Double
+pub fn Annotation::linewidth(Self) -> Double
+pub fn Annotation::style(Self) -> @core.Style
+pub fn Annotation::text_x(Self) -> Double
+pub fn Annotation::text_y(Self) -> Double
+pub fn Annotation::textcoords(Self) -> String
+pub fn Annotation::value(Self) -> String
+pub fn Annotation::x(Self) -> Double
+pub fn Annotation::xycoords(Self) -> String
+pub fn Annotation::y(Self) -> Double
+
+pub(all) enum Artist {
+  Line(Array[@core.Point], @core.Style)
+  Scatter(Array[@core.Point], @core.Style)
+  PathCollection(Array[@core.Point], Array[@core.Style])
+  Bar(Array[@core.Point], @core.Style)
+  BarH(Array[@core.Point], @core.Style)
+  FillBetween(Array[@core.Point], Array[@core.Point], @core.Style)
+  Polygon(Array[@core.Point], @core.Style)
+  CompoundPolygon(Array[Array[@core.Point]], @core.Style)
+  GouraudTriangle(Array[@core.Point], Array[String])
+  HLine(Double, @core.Style)
+  VLine(Double, @core.Style)
+  AxLine(@core.Point, @core.Point, @core.Style)
+  HSpan(Double, Double, @core.Style)
+  VSpan(Double, Double, @core.Style)
+  Text(Double, Double, String, @core.Style)
+  Annotation(Annotation)
+  ErrorBar(Array[@core.Point], Array[Double], Array[Double], @core.Style)
+  Image(Array[Array[Double]], Double?, Double?, @colors.ColorMap)
+  ImageNorm(Array[Array[Double]], @colors.ColorNorm, @colors.ColorMap, ImageOrigin, (Double, Double, Double, Double)?, Double, ImageInterpolation)
+  ColorImage(Array[Array[@colors.Rgba]], ImageOrigin, (Double, Double, Double, Double)?, Double, ImageInterpolation)
+  Table(Table)
+  Pie(Array[Double], Array[String], Array[String], Double)
+  BoxPlot(Array[@boxplot.BoxStats], Bool, @core.Style)
+  Quiver(Array[@core.Point], Array[@core.Point], @core.Style)
+  Violin(Array[ViolinStats], Array[Double], Array[Double], Bool, ViolinSide, Bool, Bool, Bool, @core.Style, @core.Style, Double)
+}
+
+pub struct Figure {
+  width : Int
+  height : Int
+  margin : Int
+  panels : Array[Panel]
+  colorbars : Array[@colorbar.Colorbar]
+  subfigures : Array[SubFigure]
+  title : String?
+}
+pub fn Figure::colorbars(Self) -> Array[@colorbar.Colorbar]
+pub fn Figure::height(Self) -> Int
+pub fn Figure::margin(Self) -> Int
+pub fn Figure::panels(Self) -> Array[Panel]
+pub fn Figure::subfigures(Self) -> Array[SubFigure]
+pub fn Figure::title(Self) -> String?
+pub fn Figure::width(Self) -> Int
+
+pub(all) enum ImageInterpolation {
+  Nearest
+  NoInterpolation
+  Bilinear
+  Bicubic
+  Spline16
+  Spline36
+  Hanning
+  Hamming
+  Hermite
+  Kaiser
+  Quadric
+  Catrom
+  Gaussian
+  Bessel
+  Mitchell
+  Sinc
+  Lanczos
+  Blackman
+  Auto
+  Antialiased
+}
+
+pub(all) enum ImageOrigin {
+  Upper
+  Lower
+}
+
+pub struct LegendEntry {
+  label : String
+  color : String
+  kind : LegendKind
+}
+pub fn LegendEntry::color(Self) -> String
+pub fn LegendEntry::kind(Self) -> LegendKind
+pub fn LegendEntry::label(Self) -> String
+
+pub(all) enum LegendKind {
+  Line
+  Marker
+  Patch
+}
+
+pub struct Panel {
+  rect : @gridspec.Rect?
+  artists : Array[Artist]
+  title : String?
+  legend : Array[LegendEntry]
+  explicit_bounds : @core.Bounds?
+  x_axis : @axis.Axis
+  y_axis : @axis.Axis
+  share_x_group : Int?
+  share_y_group : Int?
+  show_x_tick_labels : Bool
+  show_y_tick_labels : Bool
+  frame_visible : Bool
+  spines : Array[Spine]
+  x_margin : Double
+  y_margin : Double
+  data_aspect : Double?
+  anchor : (Double, Double)
+  adjustable : String
+  box_aspect : Double?
+  secondary_x : Array[SecondaryAxis]
+  secondary_y : Array[SecondaryAxis]
+}
+pub fn Panel::adjustable(Self) -> String
+pub fn Panel::anchor(Self) -> (Double, Double)
+pub fn Panel::artists(Self) -> Array[Artist]
+pub fn Panel::aspect(Self) -> Double?
+pub fn Panel::box_aspect(Self) -> Double?
+pub fn Panel::equal_aspect(Self) -> Bool
+pub fn Panel::explicit_bounds(Self) -> @core.Bounds?
+pub fn Panel::frame_visible(Self) -> Bool
+pub fn Panel::legend(Self) -> Array[LegendEntry]
+pub fn Panel::rect(Self) -> @gridspec.Rect?
+pub fn Panel::secondary_x(Self) -> Array[SecondaryAxis]
+pub fn Panel::secondary_y(Self) -> Array[SecondaryAxis]
+pub fn Panel::share_x_group(Self) -> Int?
+pub fn Panel::share_y_group(Self) -> Int?
+pub fn Panel::show_x_tick_labels(Self) -> Bool
+pub fn Panel::show_y_tick_labels(Self) -> Bool
+pub fn Panel::spines(Self) -> Array[Spine]
+pub fn Panel::title(Self) -> String?
+pub fn Panel::x_axis(Self) -> @axis.Axis
+pub fn Panel::x_margin(Self) -> Double
+pub fn Panel::y_axis(Self) -> @axis.Axis
+pub fn Panel::y_margin(Self) -> Double
+
+pub struct SecondaryAxis {
+  location : SecondaryLocation
+  forward : (Double) -> Double
+  inverse : (Double) -> Double
+  label : String?
+  tick_count : Int
+  fixed_ticks : Array[Double]?
+  locator : @ticker.Locator?
+  formatter : @ticker.Formatter?
+}
+pub fn SecondaryAxis::fixed_ticks(Self) -> Array[Double]?
+pub fn SecondaryAxis::formatter(Self) -> @ticker.Formatter?
+pub fn SecondaryAxis::forward(Self) -> (Double) -> Double
+pub fn SecondaryAxis::inverse(Self) -> (Double) -> Double
+pub fn SecondaryAxis::label(Self) -> String?
+pub fn SecondaryAxis::location(Self) -> SecondaryLocation
+pub fn SecondaryAxis::locator(Self) -> @ticker.Locator?
+pub fn SecondaryAxis::tick_count(Self) -> Int
+
+pub(all) enum SecondaryLocation {
+  Top
+  Bottom
+  Left
+  Right
+}
+
+pub struct Spine {
+  side : SpineSide
+  visible : Bool
+  color : String
+  linewidth : Double
+  position : SpinePosition
+  bounds : (Double, Double)?
+}
+pub fn Spine::bounds(Self) -> (Double, Double)?
+pub fn Spine::color(Self) -> String
+pub fn Spine::linewidth(Self) -> Double
+pub fn Spine::position(Self) -> SpinePosition
+pub fn Spine::side(Self) -> SpineSide
+pub fn Spine::visible(Self) -> Bool
+
+pub(all) enum SpinePosition {
+  Axes
+  Data(Double)
+  Outward(Double)
+}
+
+pub(all) enum SpineSide {
+  Left
+  Right
+  Bottom
+  Top
+}
+
+pub struct SubFigure {
+  rect : @gridspec.Rect
+  title : String?
+}
+pub fn SubFigure::rect(Self) -> @gridspec.Rect
+pub fn SubFigure::title(Self) -> String?
+
+pub struct Table {
+  cells : Array[TableCell]
+  rows : Int
+  columns : Int
+  x : Double
+  y : Double
+  width : Double
+  height : Double
+  column_widths : Array[Double]
+}
+pub fn Table::cells(Self) -> Array[TableCell]
+pub fn Table::column_widths(Self) -> Array[Double]
+pub fn Table::columns(Self) -> Int
+pub fn Table::height(Self) -> Double
+pub fn Table::rows(Self) -> Int
+pub fn Table::width(Self) -> Double
+pub fn Table::x(Self) -> Double
+pub fn Table::y(Self) -> Double
+
+pub struct TableCell {
+  row : Int
+  column : Int
+  text : String
+  facecolor : String
+  edgecolor : String
+  align : String
+  visible_edges : String
+}
+pub fn TableCell::align(Self) -> String
+pub fn TableCell::column(Self) -> Int
+pub fn TableCell::edgecolor(Self) -> String
+pub fn TableCell::facecolor(Self) -> String
+pub fn TableCell::row(Self) -> Int
+pub fn TableCell::text(Self) -> String
+pub fn TableCell::visible_edges(Self) -> String
+
+pub(all) enum ViolinSide {
+  Both
+  Low
+  High
+}
+
+pub struct ViolinStats {
+  coords : Array[Double]
+  vals : Array[Double]
+  mean : Double
+  median : Double
+  min : Double
+  max : Double
+  quantiles : Array[Double]
+}
+pub fn ViolinStats::coords(Self) -> Array[Double]
+pub fn ViolinStats::max(Self) -> Double
+pub fn ViolinStats::mean(Self) -> Double
+pub fn ViolinStats::median(Self) -> Double
+pub fn ViolinStats::min(Self) -> Double
+pub fn ViolinStats::quantiles(Self) -> Array[Double]
+pub fn ViolinStats::vals(Self) -> Array[Double]
+
+// Type aliases
+
+// Traits

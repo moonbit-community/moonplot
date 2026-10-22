@@ -1,0 +1,10 @@
+{
+  "matplotlib_commit": "d3ca9172e392048ec242b90e8423e88d1a3000b2",
+  "dates_py_sha256": "fb8d673fbc57c2499f2dd138c87c6c9520a59b38b60b01a6d59d5eb6540ef233",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "dateutil": "2.9.0.post0",
+  "duration_cases": 340,
+  "range_cases": 51,
+  "note": "Pinned helper AST only; no installed Matplotlib imported. UTC epoch 1970; same retained tzinfo for same named endpoints."
+}

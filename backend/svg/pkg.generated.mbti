@@ -1,0 +1,24 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mathplotlib/mathplotlib/backend/svg"
+
+import {
+  "mathplotlib/mathplotlib/core",
+  "mathplotlib/mathplotlib/internal/render",
+}
+
+// Values
+pub fn panel_position(@render.Figure, Int) -> (Double, Double, Double, Double)?
+
+pub fn panel_view(@render.Figure, Int) -> ((Double, Double, Double, Double), @core.Limits, @core.Limits)? raise @core.DataError
+
+pub fn render(@render.Figure) -> String
+
+pub fn render_with_positions(@render.Figure) -> (String, Array[(Double, Double, Double, Double)])
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

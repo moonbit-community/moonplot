@@ -1,0 +1,6 @@
+import {
+  "mathplotlib/mathplotlib/core",
+  "moonbitlang/core/double",
+  "moonbitlang/core/debug",
+  "moonbitlang/core/math",
+}

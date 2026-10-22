@@ -1,0 +1,1027 @@
+{
+  "matplotlib_commit": "d3ca9172e392048ec242b90e8423e88d1a3000b2",
+  "dates_py_sha256": "fb8d673fbc57c2499f2dd138c87c6c9520a59b38b60b01a6d59d5eb6540ef233",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "dateutil": "2.9.0.post0",
+  "locale": "C",
+  "axis_py_sha256": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+  "matplotlibrc_sha256": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+  "defaults": {
+    "date.autoformatter.year": "%Y",
+    "date.autoformatter.month": "%Y-%m",
+    "date.autoformatter.day": "%Y-%m-%d",
+    "date.autoformatter.hour": "%m-%d %H",
+    "date.autoformatter.minute": "%d %H:%M",
+    "date.autoformatter.second": "%H:%M:%S",
+    "date.autoformatter.microsecond": "%M:%S.%f"
+  },
+  "cases": [
+    {
+      "unit": "365.0",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "2024",
+        "2024"
+      ],
+      "single": "2024"
+    },
+    {
+      "unit": "365.0",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "$\\mathdefault{2024}$",
+        "$\\mathdefault{2024}$"
+      ],
+      "single": "$\\mathdefault{2024}$"
+    },
+    {
+      "unit": "365.0",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "INFINITE 2024",
+        "INFINITE 2024"
+      ],
+      "single": "INFINITE 2024"
+    },
+    {
+      "unit": "365.0",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "30.0",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "2024-05",
+        "2024-05"
+      ],
+      "single": "2024-05"
+    },
+    {
+      "unit": "30.0",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "$\\mathdefault{2024{-}05}$",
+        "$\\mathdefault{2024{-}05}$"
+      ],
+      "single": "$\\mathdefault{2024{-}05}$"
+    },
+    {
+      "unit": "30.0",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "MONTH 2024-05",
+        "MONTH 2024-05"
+      ],
+      "single": "MONTH 2024-05"
+    },
+    {
+      "unit": "30.0",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "7.0",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "2024-05",
+        "2024-05"
+      ],
+      "single": "2024-05"
+    },
+    {
+      "unit": "7.0",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "$\\mathdefault{2024{-}05}$",
+        "$\\mathdefault{2024{-}05}$"
+      ],
+      "single": "$\\mathdefault{2024{-}05}$"
+    },
+    {
+      "unit": "7.0",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "MONTH 2024-05",
+        "MONTH 2024-05"
+      ],
+      "single": "MONTH 2024-05"
+    },
+    {
+      "unit": "7.0",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "1.0",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "2024-05-06",
+        "2024-05-06"
+      ],
+      "single": "2024-05-06"
+    },
+    {
+      "unit": "1.0",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "$\\mathdefault{2024{-}05{-}06}$",
+        "$\\mathdefault{2024{-}05{-}06}$"
+      ],
+      "single": "$\\mathdefault{2024{-}05{-}06}$"
+    },
+    {
+      "unit": "1.0",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "REPLACED 06",
+        "REPLACED 06"
+      ],
+      "single": "REPLACED 06"
+    },
+    {
+      "unit": "1.0",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "0.041666666666666664",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "05-06 12",
+        "05-06 13"
+      ],
+      "single": "05-06 12"
+    },
+    {
+      "unit": "0.041666666666666664",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "$\\mathdefault{05{-}06\\;12}$",
+        "$\\mathdefault{05{-}06\\;13}$"
+      ],
+      "single": "$\\mathdefault{05{-}06\\;12}$"
+    },
+    {
+      "unit": "0.041666666666666664",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "SHORT 12:34",
+        "SHORT 13:34"
+      ],
+      "single": "SHORT 12:34"
+    },
+    {
+      "unit": "0.041666666666666664",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "0.0006944444444444445",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "06 12:34",
+        "06 13:34"
+      ],
+      "single": "06 12:34"
+    },
+    {
+      "unit": "0.0006944444444444445",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "$\\mathdefault{06\\;12{:}34}$",
+        "$\\mathdefault{06\\;13{:}34}$"
+      ],
+      "single": "$\\mathdefault{06\\;12{:}34}$"
+    },
+    {
+      "unit": "0.0006944444444444445",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "SHORT 12:34",
+        "SHORT 13:34"
+      ],
+      "single": "SHORT 12:34"
+    },
+    {
+      "unit": "0.0006944444444444445",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "1.1574074074074073e-05",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "12:34:56",
+        "13:34:56"
+      ],
+      "single": "12:34:56"
+    },
+    {
+      "unit": "1.1574074074074073e-05",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "$\\mathdefault{12{:}34{:}56}$",
+        "$\\mathdefault{13{:}34{:}56}$"
+      ],
+      "single": "$\\mathdefault{12{:}34{:}56}$"
+    },
+    {
+      "unit": "1.1574074074074073e-05",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "SHORT 12:34",
+        "SHORT 13:34"
+      ],
+      "single": "SHORT 12:34"
+    },
+    {
+      "unit": "1.1574074074074073e-05",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "1.1574074074074074e-11",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "34:56.123456",
+        "34:56.123456"
+      ],
+      "single": "34:56.123456"
+    },
+    {
+      "unit": "1.1574074074074074e-11",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "$\\mathdefault{34{:}56.123456}$",
+        "$\\mathdefault{34{:}56.123456}$"
+      ],
+      "single": "$\\mathdefault{34{:}56.123456}$"
+    },
+    {
+      "unit": "1.1574074074074074e-11",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "SHORT 12:34",
+        "SHORT 13:34"
+      ],
+      "single": "SHORT 12:34"
+    },
+    {
+      "unit": "1.1574074074074074e-11",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "400.0",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "400.0",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback$\\mathdefault{\\;2024}$",
+        "fallback$\\mathdefault{\\;2024}$"
+      ],
+      "single": "fallback$\\mathdefault{\\;2024}$"
+    },
+    {
+      "unit": "400.0",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "INFINITE 2024",
+        "INFINITE 2024"
+      ],
+      "single": "INFINITE 2024"
+    },
+    {
+      "unit": "400.0",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "-11.0",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "34:56.123456",
+        "34:56.123456"
+      ],
+      "single": "34:56.123456"
+    },
+    {
+      "unit": "-11.0",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "$\\mathdefault{34{:}56.123456}$",
+        "$\\mathdefault{34{:}56.123456}$"
+      ],
+      "single": "$\\mathdefault{34{:}56.123456}$"
+    },
+    {
+      "unit": "-11.0",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "NEG 12",
+        "NEG 13"
+      ],
+      "single": "NEG 12"
+    },
+    {
+      "unit": "-11.0",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "0.0",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "34:56.123456",
+        "34:56.123456"
+      ],
+      "single": "34:56.123456"
+    },
+    {
+      "unit": "0.0",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "$\\mathdefault{34{:}56.123456}$",
+        "$\\mathdefault{34{:}56.123456}$"
+      ],
+      "single": "$\\mathdefault{34{:}56.123456}$"
+    },
+    {
+      "unit": "0.0",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "ZERO 12:34",
+        "ZERO 13:34"
+      ],
+      "single": "ZERO 12:34"
+    },
+    {
+      "unit": "0.0",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "2.3148148148148147e-11",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "12:34:56",
+        "13:34:56"
+      ],
+      "single": "12:34:56"
+    },
+    {
+      "unit": "2.3148148148148147e-11",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "$\\mathdefault{12{:}34{:}56}$",
+        "$\\mathdefault{13{:}34{:}56}$"
+      ],
+      "single": "$\\mathdefault{12{:}34{:}56}$"
+    },
+    {
+      "unit": "2.3148148148148147e-11",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "SHORT 12:34",
+        "SHORT 13:34"
+      ],
+      "single": "SHORT 12:34"
+    },
+    {
+      "unit": "2.3148148148148147e-11",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "0.0006944444444444446",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "05-06 12",
+        "05-06 13"
+      ],
+      "single": "05-06 12"
+    },
+    {
+      "unit": "0.0006944444444444446",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "$\\mathdefault{05{-}06\\;12}$",
+        "$\\mathdefault{05{-}06\\;13}$"
+      ],
+      "single": "$\\mathdefault{05{-}06\\;12}$"
+    },
+    {
+      "unit": "0.0006944444444444446",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "SHORT 12:34",
+        "SHORT 13:34"
+      ],
+      "single": "SHORT 12:34"
+    },
+    {
+      "unit": "0.0006944444444444446",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "0.0006944444444444444",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "06 12:34",
+        "06 13:34"
+      ],
+      "single": "06 12:34"
+    },
+    {
+      "unit": "0.0006944444444444444",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "$\\mathdefault{06\\;12{:}34}$",
+        "$\\mathdefault{06\\;13{:}34}$"
+      ],
+      "single": "$\\mathdefault{06\\;12{:}34}$"
+    },
+    {
+      "unit": "0.0006944444444444444",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "SHORT 12:34",
+        "SHORT 13:34"
+      ],
+      "single": "SHORT 12:34"
+    },
+    {
+      "unit": "0.0006944444444444444",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "inf",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "inf",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback$\\mathdefault{\\;2024}$",
+        "fallback$\\mathdefault{\\;2024}$"
+      ],
+      "single": "fallback$\\mathdefault{\\;2024}$"
+    },
+    {
+      "unit": "inf",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "INFINITE 2024",
+        "INFINITE 2024"
+      ],
+      "single": "INFINITE 2024"
+    },
+    {
+      "unit": "inf",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "nan",
+      "variant": "default",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "nan",
+      "variant": "tex",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback$\\mathdefault{\\;2024}$",
+        "fallback$\\mathdefault{\\;2024}$"
+      ],
+      "single": "fallback$\\mathdefault{\\;2024}$"
+    },
+    {
+      "unit": "nan",
+      "variant": "scaled",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    },
+    {
+      "unit": "nan",
+      "variant": "empty",
+      "values": [
+        19849.524260688147,
+        19849.565927354815
+      ],
+      "labels": [
+        "fallback 2024",
+        "fallback 2024"
+      ],
+      "single": "fallback 2024"
+    }
+  ],
+  "recurrence_units": [
+    365.0,
+    30.0,
+    7.0,
+    1.0,
+    0.041666666666666664,
+    0.0006944444444444445,
+    1.1574074074074073e-05
+  ],
+  "minor_overlap_cases": [
+    {
+      "major": [
+        0.0,
+        1.0
+      ],
+      "minor": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "view": [
+        0.0,
+        1.0
+      ],
+      "enabled": true,
+      "expected": [
+        0.5
+      ]
+    },
+    {
+      "major": [
+        0.0,
+        1.0
+      ],
+      "minor": [
+        9e-06,
+        1.1e-05,
+        0.999989,
+        0.999991
+      ],
+      "view": [
+        1.0,
+        0.0
+      ],
+      "enabled": true,
+      "expected": [
+        1.1e-05,
+        0.999989
+      ]
+    },
+    {
+      "major": [
+        19847.5
+      ],
+      "minor": [
+        19847.500009,
+        19847.500011,
+        19847.4
+      ],
+      "view": [
+        19847.0,
+        19848.0
+      ],
+      "enabled": true,
+      "expected": [
+        19847.500011,
+        19847.4
+      ]
+    },
+    {
+      "major": [
+        0.0
+      ],
+      "minor": [
+        0.0,
+        1e-06
+      ],
+      "view": [
+        0.0,
+        0.0
+      ],
+      "enabled": true,
+      "expected": [
+        1e-06
+      ]
+    },
+    {
+      "major": [],
+      "minor": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "view": [
+        0.0,
+        1.0
+      ],
+      "enabled": true,
+      "expected": [
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "major": [
+        0.0,
+        1.0
+      ],
+      "minor": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "view": [
+        0.0,
+        1.0
+      ],
+      "enabled": false,
+      "expected": [
+        0.0,
+        0.5,
+        1.0
+      ]
+    }
+  ],
+  "callbacks": {
+    "values": [
+      19849.524260688147,
+      19849.565927354815
+    ],
+    "scalar_labels": [
+      "v:0:12:34",
+      "v:1:13:34"
+    ],
+    "scalar_single": "v:none:12:34",
+    "raw_date": "2014-12-25T00:00:00+23:00",
+    "date_labels": [
+      "25-12//2014"
+    ],
+    "array_labels": [
+      "9",
+      "10"
+    ]
+  },
+  "epoch_cases": [
+    {
+      "epoch": "2400-01-01T00:00:00",
+      "values": [
+        0.0,
+        1.1574074074074074e-09,
+        1.0416666666666666e-08
+      ],
+      "labels": [
+        "00:00.000000",
+        "00:00.000100",
+        "00:00.000900"
+      ]
+    },
+    {
+      "epoch": "2000-01-01T00:00:00.123456",
+      "values": [
+        0.0,
+        1.1574074074074074e-09,
+        1.0416666666666666e-08
+      ],
+      "labels": [
+        "00:00.123456",
+        "00:00.123556",
+        "00:00.124356"
+      ]
+    }
+  ],
+  "note": "Pinned AutoDateFormatter, get_unit_generic and get_minorticklocs AST; no installed Matplotlib."
+}

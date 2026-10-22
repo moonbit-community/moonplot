@@ -1,0 +1,3023 @@
+{
+  "matplotlib_commit": "d3ca9172e392048ec242b90e8423e88d1a3000b2",
+  "dates_py_sha256": "fb8d673fbc57c2499f2dd138c87c6c9520a59b38b60b01a6d59d5eb6540ef233",
+  "ticker_py_sha256": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+  "matplotlibrc_sha256": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "dateutil": "2.9.0.post0",
+  "locale": "C",
+  "case_count": 94,
+  "named_case_count": 104,
+  "epoch_selection_count": 8,
+  "cases": [
+    {
+      "label": "upstream spans False/0",
+      "multiples": false,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1990-01-01T00:00:00+00:00",
+      "last": "2189-04-27T00:00:00+00:00",
+      "numbers": [
+        7305.0,
+        80105.0
+      ],
+      "frequency": "Year",
+      "selected_interval": 20,
+      "selected_unit": 365.0,
+      "ticks": [
+        7305.0,
+        14610.0,
+        21915.0,
+        29220.0,
+        36525.0,
+        43830.0,
+        51134.0,
+        58439.0,
+        65744.0,
+        73049.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans False/1",
+      "multiples": false,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1990-01-01T00:00:00+00:00",
+      "last": "1990-12-31T00:00:00+00:00",
+      "numbers": [
+        7305.0,
+        7669.0
+      ],
+      "frequency": "Month",
+      "selected_interval": 1,
+      "selected_unit": 30.0,
+      "ticks": [
+        7305.0,
+        7336.0,
+        7364.0,
+        7395.0,
+        7425.0,
+        7456.0,
+        7486.0,
+        7517.0,
+        7548.0,
+        7578.0,
+        7609.0,
+        7639.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans False/2",
+      "multiples": false,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1990-01-01T00:00:00+00:00",
+      "last": "1990-05-22T00:00:00+00:00",
+      "numbers": [
+        7305.0,
+        7446.0
+      ],
+      "frequency": "Day",
+      "selected_interval": 21,
+      "selected_unit": 1.0,
+      "ticks": [
+        7309.0,
+        7330.0,
+        7351.0,
+        7372.0,
+        7393.0,
+        7414.0,
+        7435.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans False/3",
+      "multiples": false,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1990-01-01T00:00:00+00:00",
+      "last": "1990-02-10T00:00:00+00:00",
+      "numbers": [
+        7305.0,
+        7345.0
+      ],
+      "frequency": "Day",
+      "selected_interval": 7,
+      "selected_unit": 1.0,
+      "ticks": [
+        7307.0,
+        7314.0,
+        7321.0,
+        7328.0,
+        7335.0,
+        7342.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans False/4",
+      "multiples": false,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1990-01-01T00:00:00+00:00",
+      "last": "1990-01-02T16:00:00+00:00",
+      "numbers": [
+        7305.0,
+        7306.666666666667
+      ],
+      "frequency": "Hour",
+      "selected_interval": 4,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        7305.0,
+        7305.166666666667,
+        7305.333333333333,
+        7305.5,
+        7305.666666666667,
+        7305.833333333333,
+        7306.0,
+        7306.166666666667,
+        7306.333333333333,
+        7306.5,
+        7306.666666666667
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans False/5",
+      "multiples": false,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1990-01-01T00:00:00+00:00",
+      "last": "1990-01-01T00:20:00+00:00",
+      "numbers": [
+        7305.0,
+        7305.013888888889
+      ],
+      "frequency": "Minute",
+      "selected_interval": 5,
+      "selected_unit": 0.0006944444444444445,
+      "ticks": [
+        7305.0,
+        7305.003472222223,
+        7305.006944444444,
+        7305.010416666667,
+        7305.013888888889
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans False/6",
+      "multiples": false,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1990-01-01T00:00:00+00:00",
+      "last": "1990-01-01T00:00:40+00:00",
+      "numbers": [
+        7305.0,
+        7305.000462962963
+      ],
+      "frequency": "Second",
+      "selected_interval": 5,
+      "selected_unit": 1.1574074074074073e-05,
+      "ticks": [
+        7305.0,
+        7305.00005787037,
+        7305.0001157407405,
+        7305.000173611111,
+        7305.000231481482,
+        7305.000289351852,
+        7305.000347222222,
+        7305.000405092593,
+        7305.000462962963
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans False/7",
+      "multiples": false,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1990-01-01T00:00:00+00:00",
+      "last": "1990-01-01T00:00:00.001500+00:00",
+      "numbers": [
+        7305.0,
+        7305.000000017361
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 500,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        7304.999999994213,
+        7305.0,
+        7305.000000005787,
+        7305.000000011574,
+        7305.000000017361,
+        7305.0000000231485
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans True/0",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1997-01-01T00:00:00+00:00",
+      "last": "2196-04-27T00:00:00+00:00",
+      "numbers": [
+        9862.0,
+        82662.0
+      ],
+      "frequency": "Year",
+      "selected_interval": 20,
+      "selected_unit": 365.0,
+      "ticks": [
+        3652.0,
+        10957.0,
+        18262.0,
+        25567.0,
+        32872.0,
+        40177.0,
+        47482.0,
+        54786.0,
+        62091.0,
+        69396.0,
+        76701.0,
+        84006.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans True/1",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1997-01-01T00:00:00+00:00",
+      "last": "1997-12-31T00:00:00+00:00",
+      "numbers": [
+        9862.0,
+        10226.0
+      ],
+      "frequency": "Month",
+      "selected_interval": 1,
+      "selected_unit": 30.0,
+      "ticks": [
+        9862.0,
+        9893.0,
+        9921.0,
+        9952.0,
+        9982.0,
+        10013.0,
+        10043.0,
+        10074.0,
+        10105.0,
+        10135.0,
+        10166.0,
+        10196.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans True/2",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1997-01-01T00:00:00+00:00",
+      "last": "1997-05-22T00:00:00+00:00",
+      "numbers": [
+        9862.0,
+        10003.0
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        9862.0,
+        9876.0,
+        9893.0,
+        9907.0,
+        9921.0,
+        9935.0,
+        9952.0,
+        9966.0,
+        9982.0,
+        9996.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans True/3",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1997-01-01T00:00:00+00:00",
+      "last": "1997-02-10T00:00:00+00:00",
+      "numbers": [
+        9862.0,
+        9902.0
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        9862.0,
+        9866.0,
+        9870.0,
+        9874.0,
+        9878.0,
+        9882.0,
+        9886.0,
+        9890.0,
+        9893.0,
+        9897.0,
+        9901.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans True/4",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1997-01-01T00:00:00+00:00",
+      "last": "1997-01-02T16:00:00+00:00",
+      "numbers": [
+        9862.0,
+        9863.666666666666
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        9862.0,
+        9862.166666666666,
+        9862.333333333334,
+        9862.5,
+        9862.666666666666,
+        9862.833333333334,
+        9863.0,
+        9863.166666666666,
+        9863.333333333334,
+        9863.5,
+        9863.666666666666
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans True/5",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1997-01-01T00:00:00+00:00",
+      "last": "1997-01-01T00:20:00+00:00",
+      "numbers": [
+        9862.0,
+        9862.013888888889
+      ],
+      "frequency": "Minute",
+      "selected_interval": 1,
+      "selected_unit": 0.0006944444444444445,
+      "ticks": [
+        9862.0,
+        9862.003472222223,
+        9862.006944444445,
+        9862.010416666666,
+        9862.013888888889
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans True/6",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1997-01-01T00:00:00+00:00",
+      "last": "1997-01-01T00:00:40+00:00",
+      "numbers": [
+        9862.0,
+        9862.000462962964
+      ],
+      "frequency": "Second",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074073e-05,
+      "ticks": [
+        9862.0,
+        9862.000057870371,
+        9862.00011574074,
+        9862.000173611112,
+        9862.000231481481,
+        9862.000289351852,
+        9862.000347222222,
+        9862.000405092593,
+        9862.000462962964
+      ],
+      "warnings": []
+    },
+    {
+      "label": "upstream spans True/7",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1997-01-01T00:00:00+00:00",
+      "last": "1997-01-01T00:00:00.001500+00:00",
+      "numbers": [
+        9862.0,
+        9862.00000001736
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 500,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        9861.999999994214,
+        9862.0,
+        9862.000000005786,
+        9862.000000011574,
+        9862.00000001736,
+        9862.000000023148
+      ],
+      "warnings": []
+    },
+    {
+      "label": "maxticks 1/182 days, 0:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 1,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-07-10T03:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19914.129989854813
+      ],
+      "frequency": "Month",
+      "selected_interval": 1,
+      "selected_unit": 30.0,
+      "ticks": [
+        19905.0
+      ],
+      "warnings": [
+        "interval"
+      ]
+    },
+    {
+      "label": "maxticks 1/17:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 1,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-10T20:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19732.83832318815
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19732.5
+      ],
+      "warnings": [
+        "interval"
+      ]
+    },
+    {
+      "label": "maxticks 1/0:00:00.000117",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 1,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-10T03:07:11.123573+00:00",
+      "numbers": [
+        19732.129989854813,
+        19732.12998985617
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 1000000,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        19732.129988425924,
+        19732.13
+      ],
+      "warnings": [
+        "interval"
+      ]
+    },
+    {
+      "label": "maxticks 2/182 days, 0:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 2,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-07-10T03:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19914.129989854813
+      ],
+      "frequency": "Month",
+      "selected_interval": 1,
+      "selected_unit": 30.0,
+      "ticks": [
+        19905.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "maxticks 2/17:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 2,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-10T20:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19732.83832318815
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19732.5
+      ],
+      "warnings": [
+        "interval"
+      ]
+    },
+    {
+      "label": "maxticks 2/0:00:00.000117",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 2,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-10T03:07:11.123573+00:00",
+      "numbers": [
+        19732.129989854813,
+        19732.12998985617
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 200,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        19732.129989854166,
+        19732.129989856483
+      ],
+      "warnings": []
+    },
+    {
+      "label": "maxticks 5/182 days, 0:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 5,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-07-10T03:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19914.129989854813
+      ],
+      "frequency": "Month",
+      "selected_interval": 1,
+      "selected_unit": 30.0,
+      "ticks": [
+        19783.0,
+        19844.0,
+        19905.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "maxticks 5/17:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 5,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-10T20:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19732.83832318815
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19732.25,
+        19732.5,
+        19732.75
+      ],
+      "warnings": []
+    },
+    {
+      "label": "maxticks 5/0:00:00.000117",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 5,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-10T03:07:11.123573+00:00",
+      "numbers": [
+        19732.129989854813,
+        19732.12998985617
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 50,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        19732.129989854744,
+        19732.129989855322,
+        19732.129989855905,
+        19732.129989856483
+      ],
+      "warnings": []
+    },
+    {
+      "label": "maxticks 8/182 days, 0:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 8,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-07-10T03:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19914.129989854813
+      ],
+      "frequency": "Month",
+      "selected_interval": 1,
+      "selected_unit": 30.0,
+      "ticks": [
+        19754.0,
+        19783.0,
+        19814.0,
+        19844.0,
+        19875.0,
+        19905.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "maxticks 8/17:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 8,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-10T20:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19732.83832318815
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19732.25,
+        19732.375,
+        19732.5,
+        19732.625,
+        19732.75
+      ],
+      "warnings": []
+    },
+    {
+      "label": "maxticks 8/0:00:00.000117",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 8,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-10T03:07:11.123573+00:00",
+      "numbers": [
+        19732.129989854813,
+        19732.12998985617
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 20,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        19732.12998985463,
+        19732.12998985486,
+        19732.129989855093,
+        19732.129989855322,
+        19732.129989855555,
+        19732.129989855788,
+        19732.129989856017,
+        19732.12998985625
+      ],
+      "warnings": []
+    },
+    {
+      "label": "maxticks 20/182 days, 0:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 20,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-07-10T03:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19914.129989854813
+      ],
+      "frequency": "Month",
+      "selected_interval": 1,
+      "selected_unit": 30.0,
+      "ticks": [
+        19754.0,
+        19783.0,
+        19814.0,
+        19844.0,
+        19875.0,
+        19905.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "maxticks 20/17:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 20,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-10T20:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19732.83832318815
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19732.166666666668,
+        19732.208333333332,
+        19732.25,
+        19732.291666666668,
+        19732.333333333332,
+        19732.375,
+        19732.416666666668,
+        19732.458333333332,
+        19732.5,
+        19732.541666666668,
+        19732.583333333332,
+        19732.625,
+        19732.666666666668,
+        19732.708333333332,
+        19732.75,
+        19732.791666666668,
+        19732.833333333332
+      ],
+      "warnings": []
+    },
+    {
+      "label": "maxticks 20/0:00:00.000117",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": 20,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-10T03:07:11.123573+00:00",
+      "numbers": [
+        19732.129989854813,
+        19732.12998985617
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 10,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        19732.129989854744,
+        19732.12998985486,
+        19732.129989854977,
+        19732.129989855093,
+        19732.12998985521,
+        19732.129989855322,
+        19732.12998985544,
+        19732.129989855555,
+        19732.12998985567,
+        19732.129989855788,
+        19732.129989855905,
+        19732.129989856017,
+        19732.129989856134,
+        19732.12998985625
+      ],
+      "warnings": []
+    },
+    {
+      "label": "minticks 1",
+      "multiples": true,
+      "minticks": 1,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-02-29T03:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19782.129989854813
+      ],
+      "frequency": "Month",
+      "selected_interval": 1,
+      "selected_unit": 30.0,
+      "ticks": [
+        19754.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "minticks 2",
+      "multiples": true,
+      "minticks": 2,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-02-29T03:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19782.129989854813
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        19737.0,
+        19744.0,
+        19754.0,
+        19761.0,
+        19768.0,
+        19775.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "minticks 9",
+      "multiples": true,
+      "minticks": 9,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-02-29T03:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19782.129989854813
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        19737.0,
+        19744.0,
+        19754.0,
+        19761.0,
+        19768.0,
+        19775.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "minticks 25",
+      "multiples": true,
+      "minticks": 25,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-02-29T03:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19782.129989854813
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        19737.0,
+        19744.0,
+        19754.0,
+        19761.0,
+        19768.0,
+        19775.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "per frequency maxima",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": {
+        "0": 3,
+        "1": 5,
+        "3": 7
+      },
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2025-05-24T03:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        20232.129989854813
+      ],
+      "frequency": "Month",
+      "selected_interval": 1,
+      "selected_unit": 30.0,
+      "ticks": [
+        19844.0,
+        19967.0,
+        20089.0,
+        20209.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "custom intervals 4/[3]/True",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {
+        "4": [
+          3
+        ]
+      },
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-11T19:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19733.79665652148
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19732.25,
+        19732.375,
+        19732.5,
+        19732.625,
+        19732.75,
+        19732.875,
+        19733.0,
+        19733.125,
+        19733.25,
+        19733.375,
+        19733.5,
+        19733.625,
+        19733.75
+      ],
+      "warnings": [
+        "interval"
+      ]
+    },
+    {
+      "label": "custom intervals 4/[3]/False",
+      "multiples": false,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {
+        "4": [
+          3
+        ]
+      },
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-11T19:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19733.79665652148
+      ],
+      "frequency": "Hour",
+      "selected_interval": 3,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19732.208333333332,
+        19732.333333333332,
+        19732.458333333332,
+        19732.583333333332,
+        19732.708333333332,
+        19732.833333333332,
+        19732.958333333332,
+        19733.083333333332,
+        19733.208333333332,
+        19733.333333333332,
+        19733.458333333332,
+        19733.583333333332,
+        19733.708333333332
+      ],
+      "warnings": [
+        "interval"
+      ]
+    },
+    {
+      "label": "custom intervals 4/[7]/True",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {
+        "4": [
+          7
+        ]
+      },
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-11T19:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19733.79665652148
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19732.333333333332,
+        19732.625,
+        19732.916666666668,
+        19733.041666666668,
+        19733.333333333332,
+        19733.625
+      ],
+      "warnings": []
+    },
+    {
+      "label": "custom intervals 4/[7]/False",
+      "multiples": false,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {
+        "4": [
+          7
+        ]
+      },
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-11T19:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19733.79665652148
+      ],
+      "frequency": "Hour",
+      "selected_interval": 7,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19732.208333333332,
+        19732.5,
+        19732.791666666668,
+        19733.083333333332,
+        19733.375,
+        19733.666666666668
+      ],
+      "warnings": []
+    },
+    {
+      "label": "custom intervals 4/[14]/True",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {
+        "4": [
+          14
+        ]
+      },
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-11T19:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19733.79665652148
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19732.625,
+        19733.041666666668,
+        19733.625
+      ],
+      "warnings": []
+    },
+    {
+      "label": "custom intervals 4/[14]/False",
+      "multiples": false,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {
+        "4": [
+          14
+        ]
+      },
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-11T19:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19733.79665652148
+      ],
+      "frequency": "Hour",
+      "selected_interval": 14,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19732.208333333332,
+        19732.791666666668,
+        19733.375
+      ],
+      "warnings": []
+    },
+    {
+      "label": "custom intervals 4/[6, 3]/True",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {
+        "4": [
+          6,
+          3
+        ]
+      },
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-11T19:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19733.79665652148
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19732.25,
+        19732.5,
+        19732.75,
+        19733.0,
+        19733.25,
+        19733.5,
+        19733.75
+      ],
+      "warnings": []
+    },
+    {
+      "label": "custom intervals 4/[6, 3]/False",
+      "multiples": false,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {
+        "4": [
+          6,
+          3
+        ]
+      },
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-01-11T19:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19733.79665652148
+      ],
+      "frequency": "Hour",
+      "selected_interval": 6,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19732.208333333332,
+        19732.458333333332,
+        19732.708333333332,
+        19732.958333333332,
+        19733.208333333332,
+        19733.458333333332,
+        19733.708333333332
+      ],
+      "warnings": []
+    },
+    {
+      "label": "custom intervals 3/[2]/True",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {
+        "3": [
+          2
+        ]
+      },
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-05-30T03:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19873.129989854813
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        19733.0,
+        19735.0,
+        19737.0,
+        19739.0,
+        19741.0,
+        19743.0,
+        19745.0,
+        19747.0,
+        19749.0,
+        19751.0,
+        19753.0,
+        19754.0,
+        19756.0,
+        19758.0,
+        19760.0,
+        19762.0,
+        19764.0,
+        19766.0,
+        19768.0,
+        19770.0,
+        19772.0,
+        19774.0,
+        19776.0,
+        19778.0,
+        19780.0,
+        19782.0,
+        19783.0,
+        19785.0,
+        19787.0,
+        19789.0,
+        19791.0,
+        19793.0,
+        19795.0,
+        19797.0,
+        19799.0,
+        19801.0,
+        19803.0,
+        19805.0,
+        19807.0,
+        19809.0,
+        19811.0,
+        19813.0,
+        19814.0,
+        19816.0,
+        19818.0,
+        19820.0,
+        19822.0,
+        19824.0,
+        19826.0,
+        19828.0,
+        19830.0,
+        19832.0,
+        19834.0,
+        19836.0,
+        19838.0,
+        19840.0,
+        19842.0,
+        19844.0,
+        19846.0,
+        19848.0,
+        19850.0,
+        19852.0,
+        19854.0,
+        19856.0,
+        19858.0,
+        19860.0,
+        19862.0,
+        19864.0,
+        19866.0,
+        19868.0,
+        19870.0,
+        19872.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "custom intervals 3/[2]/False",
+      "multiples": false,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {
+        "3": [
+          2
+        ]
+      },
+      "zone": "",
+      "first": "2024-01-10T03:07:11.123456+00:00",
+      "last": "2024-05-30T03:07:11.123456+00:00",
+      "numbers": [
+        19732.129989854813,
+        19873.129989854813
+      ],
+      "frequency": "Day",
+      "selected_interval": 2,
+      "selected_unit": 1.0,
+      "ticks": [
+        19734.0,
+        19736.0,
+        19738.0,
+        19740.0,
+        19742.0,
+        19744.0,
+        19746.0,
+        19748.0,
+        19750.0,
+        19752.0,
+        19754.0,
+        19756.0,
+        19758.0,
+        19760.0,
+        19762.0,
+        19764.0,
+        19766.0,
+        19768.0,
+        19770.0,
+        19772.0,
+        19774.0,
+        19776.0,
+        19778.0,
+        19780.0,
+        19782.0,
+        19784.0,
+        19786.0,
+        19788.0,
+        19790.0,
+        19792.0,
+        19794.0,
+        19796.0,
+        19798.0,
+        19800.0,
+        19802.0,
+        19804.0,
+        19806.0,
+        19808.0,
+        19810.0,
+        19812.0,
+        19814.0,
+        19816.0,
+        19818.0,
+        19820.0,
+        19822.0,
+        19824.0,
+        19826.0,
+        19828.0,
+        19830.0,
+        19832.0,
+        19834.0,
+        19836.0,
+        19838.0,
+        19840.0,
+        19842.0,
+        19844.0,
+        19846.0,
+        19848.0,
+        19850.0,
+        19852.0,
+        19854.0,
+        19856.0,
+        19858.0,
+        19860.0,
+        19862.0,
+        19864.0,
+        19866.0,
+        19868.0,
+        19870.0,
+        19872.0
+      ],
+      "warnings": [
+        "interval"
+      ]
+    },
+    {
+      "label": "month boundary 2024-01-31/2024-02-29",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-31T00:00:00+00:00",
+      "last": "2024-02-29T00:00:00+00:00",
+      "numbers": [
+        19753.0,
+        19782.0
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        19754.0,
+        19758.0,
+        19762.0,
+        19766.0,
+        19770.0,
+        19774.0,
+        19778.0,
+        19782.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "month boundary 2023-01-31/2023-03-01",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2023-01-31T00:00:00+00:00",
+      "last": "2023-03-01T00:00:00+00:00",
+      "numbers": [
+        19388.0,
+        19417.0
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        19389.0,
+        19393.0,
+        19397.0,
+        19401.0,
+        19405.0,
+        19409.0,
+        19413.0,
+        19417.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "month boundary 2024-02-28T23:30/2024-03-31T00:15",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-02-28T23:30:00+00:00",
+      "last": "2024-03-31T00:15:00+00:00",
+      "numbers": [
+        19781.979166666668,
+        19813.010416666668
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        19782.0,
+        19783.0,
+        19787.0,
+        19791.0,
+        19795.0,
+        19799.0,
+        19803.0,
+        19807.0,
+        19811.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "month boundary 1900-02-28/1900-03-31",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1900-02-28T00:00:00+00:00",
+      "last": "1900-03-31T00:00:00+00:00",
+      "numbers": [
+        -25509.0,
+        -25478.0
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        -25508.0,
+        -25504.0,
+        -25500.0,
+        -25496.0,
+        -25492.0,
+        -25488.0,
+        -25484.0,
+        -25480.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "month boundary 2000-02-29/2005-02-28",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2000-02-29T00:00:00+00:00",
+      "last": "2005-02-28T00:00:00+00:00",
+      "numbers": [
+        11016.0,
+        12842.0
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 365.0,
+      "ticks": [
+        10957.0,
+        11323.0,
+        11688.0,
+        12053.0,
+        12418.0,
+        12784.0
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1800/0",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1800-01-01T00:00:00+00:00",
+      "last": "1800-01-01T00:00:00+00:00",
+      "numbers": [
+        -62091.0,
+        -62091.0
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -62091.000000000015,
+        -62091.0,
+        -62090.999999999985
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1800/1",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1800-01-01T00:00:00+00:00",
+      "last": "1800-01-01T00:00:00.000001+00:00",
+      "numbers": [
+        -62091.0,
+        -62090.999999999985
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -62091.000000000015,
+        -62091.0,
+        -62090.999999999985
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1800/4",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1800-01-01T00:00:00+00:00",
+      "last": "1800-01-01T00:00:00.000004+00:00",
+      "numbers": [
+        -62091.0,
+        -62090.999999999956
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -62091.000000000015,
+        -62091.0,
+        -62090.999999999985
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1800/5",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1800-01-01T00:00:00+00:00",
+      "last": "1800-01-01T00:00:00.000005+00:00",
+      "numbers": [
+        -62091.0,
+        -62090.99999999994
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -62091.000000000015,
+        -62091.0,
+        -62090.999999999985
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1800/9",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1800-01-01T00:00:00+00:00",
+      "last": "1800-01-01T00:00:00.000009+00:00",
+      "numbers": [
+        -62091.0,
+        -62090.9999999999
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -62091.000000000015,
+        -62091.0,
+        -62090.999999999985
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1800/500",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1800-01-01T00:00:00+00:00",
+      "last": "1800-01-01T00:00:00.000500+00:00",
+      "numbers": [
+        -62091.0,
+        -62090.999999994216
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 100,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -62091.00000000116,
+        -62091.0,
+        -62090.99999999884,
+        -62090.999999997686,
+        -62090.99999999653,
+        -62090.99999999537,
+        -62090.999999994216
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1800/1001",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1800-01-01T00:00:00+00:00",
+      "last": "1800-01-01T00:00:00.001001+00:00",
+      "numbers": [
+        -62091.0,
+        -62090.99999998841
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 200,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -62091.000000002314,
+        -62091.0,
+        -62090.999999997686,
+        -62090.99999999537,
+        -62090.99999999306,
+        -62090.99999999074,
+        -62090.999999988424,
+        -62090.99999998611
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1970/0",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1970-01-01T00:00:00+00:00",
+      "last": "1970-01-01T00:00:00+00:00",
+      "numbers": [
+        0.0,
+        0.0
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -1.1574074074074074e-11,
+        0.0,
+        1.1574074074074074e-11
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1970/1",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1970-01-01T00:00:00+00:00",
+      "last": "1970-01-01T00:00:00.000001+00:00",
+      "numbers": [
+        0.0,
+        1.1574074074074074e-11
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -1.1574074074074074e-11,
+        0.0,
+        1.1574074074074074e-11,
+        2.3148148148148147e-11
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1970/4",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1970-01-01T00:00:00+00:00",
+      "last": "1970-01-01T00:00:00.000004+00:00",
+      "numbers": [
+        0.0,
+        4.6296296296296294e-11
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -1.1574074074074074e-11,
+        0.0,
+        1.1574074074074074e-11,
+        2.3148148148148147e-11,
+        3.472222222222222e-11,
+        4.6296296296296294e-11,
+        5.787037037037037e-11
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1970/5",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1970-01-01T00:00:00+00:00",
+      "last": "1970-01-01T00:00:00.000005+00:00",
+      "numbers": [
+        0.0,
+        5.7870370370370374e-11
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -1.1574074074074074e-11,
+        0.0,
+        1.1574074074074074e-11,
+        2.3148148148148147e-11,
+        3.472222222222222e-11,
+        4.6296296296296294e-11,
+        5.787037037037037e-11,
+        6.944444444444444e-11
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1970/9",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1970-01-01T00:00:00+00:00",
+      "last": "1970-01-01T00:00:00.000009+00:00",
+      "numbers": [
+        0.0,
+        1.0416666666666667e-10
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 2,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -2.3148148148148147e-11,
+        0.0,
+        2.3148148148148147e-11,
+        4.6296296296296294e-11,
+        6.944444444444444e-11,
+        9.259259259259259e-11,
+        1.1574074074074074e-10
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1970/500",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1970-01-01T00:00:00+00:00",
+      "last": "1970-01-01T00:00:00.000500+00:00",
+      "numbers": [
+        0.0,
+        5.787037037037037e-09
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 100,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -1.1574074074074074e-09,
+        0.0,
+        1.1574074074074074e-09,
+        2.3148148148148148e-09,
+        3.472222222222222e-09,
+        4.6296296296296295e-09,
+        5.787037037037037e-09,
+        6.944444444444444e-09
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 1970/1001",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "1970-01-01T00:00:00+00:00",
+      "last": "1970-01-01T00:00:00.001001+00:00",
+      "numbers": [
+        0.0,
+        1.1585648148148148e-08
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 200,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        -2.3148148148148148e-09,
+        0.0,
+        2.3148148148148148e-09,
+        4.6296296296296295e-09,
+        6.944444444444444e-09,
+        9.259259259259259e-09,
+        1.1574074074074074e-08,
+        1.3888888888888889e-08
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 2024/0",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-01T00:00:00+00:00",
+      "last": "2024-01-01T00:00:00+00:00",
+      "numbers": [
+        19723.0,
+        19723.0
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        19722.99999999999,
+        19723.0,
+        19723.00000000001
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 2024/1",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-01T00:00:00+00:00",
+      "last": "2024-01-01T00:00:00.000001+00:00",
+      "numbers": [
+        19723.0,
+        19723.00000000001
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        19722.99999999999,
+        19723.0,
+        19723.00000000001
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 2024/4",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-01T00:00:00+00:00",
+      "last": "2024-01-01T00:00:00.000004+00:00",
+      "numbers": [
+        19723.0,
+        19723.000000000047
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        19722.99999999999,
+        19723.0,
+        19723.00000000001,
+        19723.000000000022,
+        19723.000000000036,
+        19723.000000000047,
+        19723.00000000006
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 2024/5",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-01T00:00:00+00:00",
+      "last": "2024-01-01T00:00:00.000005+00:00",
+      "numbers": [
+        19723.0,
+        19723.00000000006
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        19722.99999999999,
+        19723.0,
+        19723.00000000001,
+        19723.000000000022,
+        19723.000000000036,
+        19723.000000000047,
+        19723.00000000006,
+        19723.00000000007
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 2024/9",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-01T00:00:00+00:00",
+      "last": "2024-01-01T00:00:00.000009+00:00",
+      "numbers": [
+        19723.0,
+        19723.000000000106
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 2,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        19722.999999999978,
+        19723.0,
+        19723.000000000022,
+        19723.000000000047,
+        19723.00000000007,
+        19723.00000000009,
+        19723.000000000116
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 2024/500",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-01T00:00:00+00:00",
+      "last": "2024-01-01T00:00:00.000500+00:00",
+      "numbers": [
+        19723.0,
+        19723.000000005788
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 100,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        19722.999999998843,
+        19723.0,
+        19723.000000001157,
+        19723.000000002314,
+        19723.00000000347,
+        19723.00000000463,
+        19723.000000005788,
+        19723.000000006945
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 2024/1001",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2024-01-01T00:00:00+00:00",
+      "last": "2024-01-01T00:00:00.001001+00:00",
+      "numbers": [
+        19723.0,
+        19723.000000011583
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 200,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        19722.999999997686,
+        19723.0,
+        19723.000000002314,
+        19723.00000000463,
+        19723.000000006945,
+        19723.00000000926,
+        19723.000000011572,
+        19723.00000001389
+      ],
+      "warnings": []
+    },
+    {
+      "label": "micro/point 2400/0",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2400-01-01T00:00:00+00:00",
+      "last": "2400-01-01T00:00:00+00:00",
+      "numbers": [
+        157054.0,
+        157054.0
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        157054.0,
+        157054.0,
+        157054.0
+      ],
+      "warnings": [
+        "precision"
+      ]
+    },
+    {
+      "label": "micro/point 2400/1",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2400-01-01T00:00:00+00:00",
+      "last": "2400-01-01T00:00:00.000001+00:00",
+      "numbers": [
+        157054.0,
+        157054.00000000003
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        157054.0,
+        157054.0,
+        157054.0
+      ],
+      "warnings": [
+        "precision"
+      ]
+    },
+    {
+      "label": "micro/point 2400/4",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2400-01-01T00:00:00+00:00",
+      "last": "2400-01-01T00:00:00.000004+00:00",
+      "numbers": [
+        157054.0,
+        157054.00000000006
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        157054.0,
+        157054.0,
+        157054.0
+      ],
+      "warnings": [
+        "precision"
+      ]
+    },
+    {
+      "label": "micro/point 2400/5",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2400-01-01T00:00:00+00:00",
+      "last": "2400-01-01T00:00:00.000005+00:00",
+      "numbers": [
+        157054.0,
+        157054.00000000006
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        157054.0,
+        157054.0,
+        157054.0
+      ],
+      "warnings": [
+        "precision"
+      ]
+    },
+    {
+      "label": "micro/point 2400/9",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2400-01-01T00:00:00+00:00",
+      "last": "2400-01-01T00:00:00.000009+00:00",
+      "numbers": [
+        157054.0,
+        157054.00000000012
+      ],
+      "frequency": "Year",
+      "selected_interval": 1,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        157054.0,
+        157054.0,
+        157054.0
+      ],
+      "warnings": [
+        "precision"
+      ]
+    },
+    {
+      "label": "micro/point 2400/500",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2400-01-01T00:00:00+00:00",
+      "last": "2400-01-01T00:00:00.000500+00:00",
+      "numbers": [
+        157054.0,
+        157054.0000000058
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 100,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        157053.99999999884,
+        157054.0,
+        157054.00000000116,
+        157054.00000000233,
+        157054.00000000346,
+        157054.00000000463,
+        157054.0000000058,
+        157054.00000000696
+      ],
+      "warnings": [
+        "precision"
+      ]
+    },
+    {
+      "label": "micro/point 2400/1001",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "",
+      "first": "2400-01-01T00:00:00+00:00",
+      "last": "2400-01-01T00:00:00.001001+00:00",
+      "numbers": [
+        157054.0,
+        157054.00000001158
+      ],
+      "frequency": "Microsecond",
+      "selected_interval": 200,
+      "selected_unit": 1.1574074074074074e-11,
+      "ticks": [
+        157053.99999999767,
+        157054.0,
+        157054.00000000233,
+        157054.00000000463,
+        157054.00000000696,
+        157054.00000000926,
+        157054.00000001158
+      ],
+      "warnings": [
+        "precision"
+      ]
+    },
+    {
+      "label": "timezone PARIS/141 days, 0:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "PARIS",
+      "first": "1900-01-01T00:00:00+00:09:21",
+      "last": "1900-05-22T00:00:00+00:09:21",
+      "numbers": [
+        -25567.006493055556,
+        -25426.006493055556
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        -25567.006493055556,
+        -25553.006493055556,
+        -25536.006493055556,
+        -25522.006493055556,
+        -25508.006493055556,
+        -25494.006493055556,
+        -25477.006493055556,
+        -25463.006493055556,
+        -25447.006493055556,
+        -25433.006493055556
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone PARIS/1 day, 16:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "PARIS",
+      "first": "1900-01-01T00:00:00+00:09:21",
+      "last": "1900-01-02T16:00:00+00:09:21",
+      "numbers": [
+        -25567.006493055556,
+        -25565.33982638889
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        -25567.006493055556,
+        -25566.83982638889,
+        -25566.67315972222,
+        -25566.506493055556,
+        -25566.33982638889,
+        -25566.17315972222,
+        -25566.006493055556,
+        -25565.83982638889,
+        -25565.67315972222,
+        -25565.506493055556,
+        -25565.33982638889
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone PARIS/0:20:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "PARIS",
+      "first": "1900-01-01T00:00:00+00:09:21",
+      "last": "1900-01-01T00:20:00+00:09:21",
+      "numbers": [
+        -25567.006493055556,
+        -25566.992604166666
+      ],
+      "frequency": "Minute",
+      "selected_interval": 1,
+      "selected_unit": 0.0006944444444444445,
+      "ticks": [
+        -25567.006493055556,
+        -25567.003020833334,
+        -25566.99954861111,
+        -25566.99607638889,
+        -25566.992604166666
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone NY/141 days, 0:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "NY",
+      "first": "2024-01-01T00:00:00-05:00",
+      "last": "2024-05-21T00:00:00-04:00",
+      "numbers": [
+        19723.208333333332,
+        19864.166666666668
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        19723.208333333332,
+        19737.208333333332,
+        19754.208333333332,
+        19768.208333333332,
+        19783.208333333332,
+        19797.166666666668,
+        19814.166666666668,
+        19828.166666666668,
+        19844.166666666668,
+        19858.166666666668
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone NY/1 day, 16:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "NY",
+      "first": "2024-01-01T00:00:00-05:00",
+      "last": "2024-01-02T16:00:00-05:00",
+      "numbers": [
+        19723.208333333332,
+        19724.875
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19723.208333333332,
+        19723.375,
+        19723.541666666668,
+        19723.708333333332,
+        19723.875,
+        19724.041666666668,
+        19724.208333333332,
+        19724.375,
+        19724.541666666668,
+        19724.708333333332,
+        19724.875
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone NY/0:20:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "NY",
+      "first": "2024-01-01T00:00:00-05:00",
+      "last": "2024-01-01T00:20:00-05:00",
+      "numbers": [
+        19723.208333333332,
+        19723.222222222223
+      ],
+      "frequency": "Minute",
+      "selected_interval": 1,
+      "selected_unit": 0.0006944444444444445,
+      "ticks": [
+        19723.208333333332,
+        19723.211805555555,
+        19723.215277777777,
+        19723.21875,
+        19723.222222222223
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone 561/141 days, 0:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "561",
+      "first": "2024-01-01T00:00:00+00:09:21",
+      "last": "2024-05-21T00:00:00+00:09:21",
+      "numbers": [
+        19722.993506944444,
+        19863.993506944444
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        19722.993506944444,
+        19736.993506944444,
+        19753.993506944444,
+        19767.993506944444,
+        19782.993506944444,
+        19796.993506944444,
+        19813.993506944444,
+        19827.993506944444,
+        19843.993506944444,
+        19857.993506944444
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone 561/1 day, 16:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "561",
+      "first": "2024-01-01T00:00:00+00:09:21",
+      "last": "2024-01-02T16:00:00+00:09:21",
+      "numbers": [
+        19722.993506944444,
+        19724.66017361111
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19722.993506944444,
+        19723.16017361111,
+        19723.32684027778,
+        19723.493506944444,
+        19723.66017361111,
+        19723.82684027778,
+        19723.993506944444,
+        19724.16017361111,
+        19724.32684027778,
+        19724.493506944444,
+        19724.66017361111
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone 561/0:20:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "561",
+      "first": "2024-01-01T00:00:00+00:09:21",
+      "last": "2024-01-01T00:20:00+00:09:21",
+      "numbers": [
+        19722.993506944444,
+        19723.007395833334
+      ],
+      "frequency": "Minute",
+      "selected_interval": 1,
+      "selected_unit": 0.0006944444444444445,
+      "ticks": [
+        19722.993506944444,
+        19722.996979166666,
+        19723.00045138889,
+        19723.00392361111,
+        19723.007395833334
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone -17762/141 days, 0:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "-17762",
+      "first": "2024-01-01T00:00:00-04:56:02",
+      "last": "2024-05-21T00:00:00-04:56:02",
+      "numbers": [
+        19723.205578703702,
+        19864.205578703702
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        19723.205578703702,
+        19737.205578703702,
+        19754.205578703702,
+        19768.205578703702,
+        19783.205578703702,
+        19797.205578703702,
+        19814.205578703702,
+        19828.205578703702,
+        19844.205578703702,
+        19858.205578703702
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone -17762/1 day, 16:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "-17762",
+      "first": "2024-01-01T00:00:00-04:56:02",
+      "last": "2024-01-02T16:00:00-04:56:02",
+      "numbers": [
+        19723.205578703702,
+        19724.87224537037
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19723.205578703702,
+        19723.37224537037,
+        19723.53891203704,
+        19723.705578703702,
+        19723.87224537037,
+        19724.03891203704,
+        19724.205578703702,
+        19724.37224537037,
+        19724.53891203704,
+        19724.705578703702,
+        19724.87224537037
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone -17762/0:20:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "-17762",
+      "first": "2024-01-01T00:00:00-04:56:02",
+      "last": "2024-01-01T00:20:00-04:56:02",
+      "numbers": [
+        19723.205578703702,
+        19723.219467592593
+      ],
+      "frequency": "Minute",
+      "selected_interval": 1,
+      "selected_unit": 0.0006944444444444445,
+      "ticks": [
+        19723.205578703702,
+        19723.209050925925,
+        19723.212523148148,
+        19723.21599537037,
+        19723.219467592593
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone 10800/141 days, 0:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "10800",
+      "first": "2024-01-01T00:00:00+03:00",
+      "last": "2024-05-21T00:00:00+03:00",
+      "numbers": [
+        19722.875,
+        19863.875
+      ],
+      "frequency": "Day",
+      "selected_interval": 1,
+      "selected_unit": 1.0,
+      "ticks": [
+        19722.875,
+        19736.875,
+        19753.875,
+        19767.875,
+        19782.875,
+        19796.875,
+        19813.875,
+        19827.875,
+        19843.875,
+        19857.875
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone 10800/1 day, 16:00:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "10800",
+      "first": "2024-01-01T00:00:00+03:00",
+      "last": "2024-01-02T16:00:00+03:00",
+      "numbers": [
+        19722.875,
+        19724.541666666668
+      ],
+      "frequency": "Hour",
+      "selected_interval": 1,
+      "selected_unit": 0.041666666666666664,
+      "ticks": [
+        19722.875,
+        19723.041666666668,
+        19723.208333333332,
+        19723.375,
+        19723.541666666668,
+        19723.708333333332,
+        19723.875,
+        19724.041666666668,
+        19724.208333333332,
+        19724.375,
+        19724.541666666668
+      ],
+      "warnings": []
+    },
+    {
+      "label": "timezone 10800/0:20:00",
+      "multiples": true,
+      "minticks": 5,
+      "maxticks": null,
+      "intervals": {},
+      "zone": "10800",
+      "first": "2024-01-01T00:00:00+03:00",
+      "last": "2024-01-01T00:20:00+03:00",
+      "numbers": [
+        19722.875,
+        19722.88888888889
+      ],
+      "frequency": "Minute",
+      "selected_interval": 1,
+      "selected_unit": 0.0006944444444444445,
+      "ticks": [
+        19722.875,
+        19722.878472222223,
+        19722.881944444445,
+        19722.885416666668,
+        19722.88888888889
+      ],
+      "warnings": []
+    }
+  ],
+  "concise_three_day_view": {
+    "ticks": [
+      19752.0,
+      19752.5,
+      19753.0,
+      19753.5,
+      19754.0,
+      19754.5,
+      19755.0
+    ],
+    "labels": [
+      "Jan-30",
+      "12:00",
+      "Jan-31",
+      "12:00",
+      "Feb-01",
+      "12:00",
+      "Feb-02"
+    ],
+    "offset": "2024-Feb-02",
+    "inverted_offset": "2024-Jan-30"
+  },
+  "direct_cases": [
+    {
+      "label": "mixed offset month/year",
+      "first": "2024-01-01T00:00:00+23:00",
+      "last": "2023-12-31T00:00:00-23:00",
+      "frequency": "Hour",
+      "selected_interval": 2
+    },
+    {
+      "label": "reverse month-end",
+      "first": "2024-03-31T00:00:00+00:00",
+      "last": "2024-02-28T23:59:59.500000+00:00",
+      "frequency": "Day",
+      "selected_interval": 7
+    },
+    {
+      "label": "reverse signed residual hour",
+      "first": "2024-03-31T00:00:00+00:00",
+      "last": "2024-02-28T23:00:00.500000+00:00",
+      "frequency": "Hour",
+      "selected_interval": 24
+    },
+    {
+      "label": "historical seconds offsets",
+      "first": "1900-01-01T00:00:00+00:09:21",
+      "last": "1900-01-02T00:00:00-04:56:02",
+      "frequency": "Hour",
+      "selected_interval": 3
+    }
+  ],
+  "nonsingular_cases": [
+    {
+      "lower": "nan",
+      "upper": "inf",
+      "expected": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "lower": "inf",
+      "upper": "-inf",
+      "expected": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "lower": "0.0",
+      "upper": "0.0",
+      "expected": [
+        -730.0,
+        730.0
+      ]
+    },
+    {
+      "lower": "100.0",
+      "upper": "100.0",
+      "expected": [
+        -630.0,
+        830.0
+      ]
+    },
+    {
+      "lower": "-1.0",
+      "upper": "-2.0",
+      "expected": [
+        -2.0,
+        -1.0
+      ]
+    },
+    {
+      "lower": "1e+100",
+      "upper": "1e+100",
+      "expected": [
+        1e+100,
+        1e+100
+      ]
+    }
+  ],
+  "epoch_cases": [
+    {
+      "epoch": "2400-01-01T00:00:00",
+      "numbers": [
+        0.0,
+        9.259259259259259e-09
+      ],
+      "ticks": [
+        -2.3148148148148148e-09,
+        0.0,
+        2.3148148148148148e-09,
+        4.6296296296296295e-09,
+        6.944444444444444e-09,
+        9.259259259259259e-09,
+        1.1574074074074074e-08
+      ],
+      "frequency": "Microsecond",
+      "labels": [
+        "59:59.999800",
+        "00:00.000000",
+        "00:00.000200",
+        "00:00.000400",
+        "00:00.000600",
+        "00:00.000800",
+        "00:00.001000"
+      ]
+    },
+    {
+      "epoch": "2400-01-01T00:00:00",
+      "numbers": [
+        0.0,
+        1.6666666666666667
+      ],
+      "ticks": [
+        0.0,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0,
+        1.1666666666666667,
+        1.3333333333333333,
+        1.5,
+        1.6666666666666667
+      ],
+      "frequency": "Hour",
+      "labels": [
+        "01-01 00",
+        "01-01 04",
+        "01-01 08",
+        "01-01 12",
+        "01-01 16",
+        "01-01 20",
+        "01-02 00",
+        "01-02 04",
+        "01-02 08",
+        "01-02 12",
+        "01-02 16"
+      ]
+    },
+    {
+      "epoch": "2400-01-01T00:00:00",
+      "numbers": [
+        0.0,
+        1.1574074074074074e-11
+      ],
+      "ticks": [
+        -1.1574074074074074e-11,
+        0.0,
+        1.1574074074074074e-11,
+        2.3148148148148147e-11
+      ],
+      "frequency": "Hour",
+      "labels": [
+        "12-31 23",
+        "01-01 00",
+        "01-01 00",
+        "01-01 00"
+      ]
+    },
+    {
+      "epoch": "2400-01-01T00:00:00",
+      "numbers": [
+        0.0,
+        0.0
+      ],
+      "ticks": [
+        -1.1574074074074074e-11,
+        0.0,
+        1.1574074074074074e-11
+      ],
+      "frequency": "Hour",
+      "labels": [
+        "12-31 23",
+        "01-01 00",
+        "01-01 00"
+      ]
+    },
+    {
+      "epoch": "2000-01-01T00:00:00.123456",
+      "numbers": [
+        0.0,
+        9.259259259259259e-09
+      ],
+      "ticks": [
+        1.4282407407407408e-06,
+        1.4305555555555555e-06,
+        1.4328703703703704e-06,
+        1.435185185185185e-06,
+        1.4375e-06,
+        1.439814814814815e-06
+      ],
+      "frequency": "Microsecond",
+      "labels": [
+        "00:00.246856",
+        "00:00.247056",
+        "00:00.247256",
+        "00:00.247456",
+        "00:00.247656",
+        "00:00.247856"
+      ]
+    },
+    {
+      "epoch": "2000-01-01T00:00:00.123456",
+      "numbers": [
+        0.0,
+        1.6666666666666667
+      ],
+      "ticks": [
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0,
+        1.1666666666666667,
+        1.3333333333333333,
+        1.5,
+        1.6666666666666667
+      ],
+      "frequency": "Hour",
+      "labels": [
+        "01-01 04",
+        "01-01 08",
+        "01-01 12",
+        "01-01 16",
+        "01-01 20",
+        "01-02 00",
+        "01-02 04",
+        "01-02 08",
+        "01-02 12",
+        "01-02 16"
+      ]
+    },
+    {
+      "epoch": "2000-01-01T00:00:00.123456",
+      "numbers": [
+        0.0,
+        1.1574074074074074e-11
+      ],
+      "ticks": [
+        1.4288773148148148e-06,
+        1.4288888888888888e-06,
+        1.428900462962963e-06,
+        1.428912037037037e-06
+      ],
+      "frequency": "Hour",
+      "labels": [
+        "01-01 00",
+        "01-01 00",
+        "01-01 00",
+        "01-01 00"
+      ]
+    },
+    {
+      "epoch": "2000-01-01T00:00:00.123456",
+      "numbers": [
+        0.0,
+        0.0
+      ],
+      "ticks": [
+        1.4288773148148148e-06,
+        1.4288888888888888e-06,
+        1.428900462962963e-06
+      ],
+      "frequency": "Hour",
+      "labels": [
+        "01-01 00",
+        "01-01 00",
+        "01-01 00"
+      ]
+    }
+  ],
+  "note": "Pinned classes and exact MultipleLocator/_Edge_integer AST. IANA references use ZoneInfo for unambiguous local candidates; existing port gap/fold extensions are tested separately."
+}

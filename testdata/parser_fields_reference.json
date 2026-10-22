@@ -1,0 +1,3076 @@
+{
+  "dateutil_version": "2.9.0.post0",
+  "parser_sha256": "ee494377289c92c401fd7825fb7500981c33098a2bd40219aa4948713e9d1fff",
+  "test_parser_sha256": "95b9f01f8d2f4091fea049f90f9ebc05991ccf0c3455144d50778a888ceeefb0",
+  "python": "3.12.14",
+  "reference_year": 2026,
+  "decimal_precision": 28,
+  "field_names": [
+    "year",
+    "month",
+    "day",
+    "weekday",
+    "hour",
+    "minute",
+    "second",
+    "microsecond",
+    "tzname",
+    "tzoffset",
+    "century",
+    "ampm"
+  ],
+  "cases": [
+    {
+      "text": "Thu Sep 25 10:36:28 2003",
+      "fields": [
+        2003,
+        9,
+        25,
+        3,
+        10,
+        36,
+        28,
+        0,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "Thu Sep 25 2003",
+      "fields": [
+        2003,
+        9,
+        25,
+        3,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2003-09-25T10:49:41",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        10,
+        49,
+        41,
+        0,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2003-09-25T10:49",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        10,
+        49,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2003-09-25T10",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        10,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2003-09-25",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "20030925T104941",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        10,
+        49,
+        41,
+        0,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "20030925T1049",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        10,
+        49,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "20030925T10",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        10,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "20030925",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2003-09-25 10:49:41,502",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        10,
+        49,
+        41,
+        502000,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "199709020908",
+      "fields": [
+        1997,
+        9,
+        2,
+        null,
+        9,
+        8,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "19970902090807",
+      "fields": [
+        1997,
+        9,
+        2,
+        null,
+        9,
+        8,
+        7,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "09-25-2003",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "25-09-2003",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "10-09-2003",
+      "fields": [
+        2003,
+        10,
+        9,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "10-09-03",
+      "fields": [
+        2003,
+        10,
+        9,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "2003.09.25",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "09.25.2003",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "25.09.2003",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "10.09.2003",
+      "fields": [
+        2003,
+        10,
+        9,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "10.09.03",
+      "fields": [
+        2003,
+        10,
+        9,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "2003/09/25",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "09/25/2003",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "25/09/2003",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "10/09/2003",
+      "fields": [
+        2003,
+        10,
+        9,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "10/09/03",
+      "fields": [
+        2003,
+        10,
+        9,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "2003 09 25",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "09 25 2003",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "25 09 2003",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "10 09 2003",
+      "fields": [
+        2003,
+        10,
+        9,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "10 09 03",
+      "fields": [
+        2003,
+        10,
+        9,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "25 09 03",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "03 25 Sep",
+      "fields": [
+        2003,
+        9,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "25 03 Sep",
+      "fields": [
+        2025,
+        9,
+        3,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "  July   4 ,  1976   12:01:02   am  ",
+      "fields": [
+        1976,
+        7,
+        4,
+        null,
+        0,
+        1,
+        2,
+        0,
+        null,
+        null,
+        true,
+        0
+      ]
+    },
+    {
+      "text": "Wed, July 10, '96",
+      "fields": [
+        1996,
+        7,
+        10,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "1996.July.10 AD 12:08 PM",
+      "fields": [
+        1996,
+        7,
+        10,
+        null,
+        12,
+        8,
+        null,
+        null,
+        null,
+        null,
+        true,
+        1
+      ]
+    },
+    {
+      "text": "July 4, 1976",
+      "fields": [
+        1976,
+        7,
+        4,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "7 4 1976",
+      "fields": [
+        1976,
+        7,
+        4,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "4 jul 1976",
+      "fields": [
+        1976,
+        7,
+        4,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "4 Jul 1976",
+      "fields": [
+        1976,
+        7,
+        4,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "7-4-76",
+      "fields": [
+        1976,
+        7,
+        4,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "19760704",
+      "fields": [
+        1976,
+        7,
+        4,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "0:01:02 on July 4, 1976",
+      "fields": [
+        1976,
+        7,
+        4,
+        null,
+        0,
+        1,
+        2,
+        0,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "July 4, 1976 12:01:02 am",
+      "fields": [
+        1976,
+        7,
+        4,
+        null,
+        0,
+        1,
+        2,
+        0,
+        null,
+        null,
+        true,
+        0
+      ]
+    },
+    {
+      "text": "Mon Jan  2 04:24:27 1995",
+      "fields": [
+        1995,
+        1,
+        2,
+        0,
+        4,
+        24,
+        27,
+        0,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "04.04.95 00:22",
+      "fields": [
+        1995,
+        4,
+        4,
+        null,
+        0,
+        22,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "Jan 1 1999 11:23:34.578",
+      "fields": [
+        1999,
+        1,
+        1,
+        null,
+        11,
+        23,
+        34,
+        578000,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "950404 122212",
+      "fields": [
+        1995,
+        4,
+        4,
+        null,
+        12,
+        22,
+        12,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "3rd of May 2001",
+      "fields": [
+        2001,
+        5,
+        3,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "5th of March 2001",
+      "fields": [
+        2001,
+        3,
+        5,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "1st of May 2003",
+      "fields": [
+        2003,
+        5,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "0099-01-01T00:00:00",
+      "fields": [
+        99,
+        1,
+        1,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "0031-01-01T00:00:00",
+      "fields": [
+        31,
+        1,
+        1,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "20080227T21:26:01.123456789",
+      "fields": [
+        2008,
+        2,
+        27,
+        null,
+        21,
+        26,
+        1,
+        123456,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "13NOV2017",
+      "fields": [
+        2017,
+        11,
+        13,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "0003-03-04",
+      "fields": [
+        3,
+        3,
+        4,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "December.0031.30",
+      "fields": [
+        31,
+        12,
+        30,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2016-12-21 04.2h",
+      "fields": [
+        2016,
+        12,
+        21,
+        null,
+        4,
+        12,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "Thu Sep 25 10:36:28",
+      "fields": [
+        null,
+        9,
+        25,
+        3,
+        10,
+        36,
+        28,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "Thu Sep 10:36:28",
+      "fields": [
+        null,
+        9,
+        null,
+        3,
+        10,
+        36,
+        28,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "Thu 10:36:28",
+      "fields": [
+        null,
+        null,
+        null,
+        3,
+        10,
+        36,
+        28,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "Sep 10:36:28",
+      "fields": [
+        null,
+        9,
+        null,
+        null,
+        10,
+        36,
+        28,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "10:36:28",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        36,
+        28,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "10:36",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        36,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "Sep 2003",
+      "fields": [
+        2003,
+        9,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "Sep",
+      "fields": [
+        null,
+        9,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "2003",
+      "fields": [
+        2003,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "10h36m28.5s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        36,
+        28,
+        500000,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "10h36m28s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        36,
+        28,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "10h36m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        36,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "10h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "10 h 36",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        36,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "10 h 36.5",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        36,
+        30,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "36 m 5",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        36,
+        5,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "36 m 5 s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        36,
+        5,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "36 m 05",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        36,
+        5,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "36 m 05 s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        36,
+        5,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "10h am",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        0
+      ]
+    },
+    {
+      "text": "10h pm",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        22,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        1
+      ]
+    },
+    {
+      "text": "10am",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "10pm",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        22,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "10:00 am",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        0,
+        null,
+        null,
+        null,
+        null,
+        false,
+        0
+      ]
+    },
+    {
+      "text": "10:00 pm",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        22,
+        0,
+        null,
+        null,
+        null,
+        null,
+        false,
+        1
+      ]
+    },
+    {
+      "text": "10:00am",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        0,
+        null,
+        null,
+        null,
+        null,
+        false,
+        0
+      ]
+    },
+    {
+      "text": "10:00pm",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        22,
+        0,
+        null,
+        null,
+        null,
+        null,
+        false,
+        1
+      ]
+    },
+    {
+      "text": "10:00a.m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        0,
+        null,
+        null,
+        null,
+        null,
+        false,
+        0
+      ]
+    },
+    {
+      "text": "10:00p.m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        22,
+        0,
+        null,
+        null,
+        null,
+        null,
+        false,
+        1
+      ]
+    },
+    {
+      "text": "10:00a.m.",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        0,
+        null,
+        null,
+        null,
+        null,
+        false,
+        0
+      ]
+    },
+    {
+      "text": "10:00p.m.",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        22,
+        0,
+        null,
+        null,
+        null,
+        null,
+        false,
+        1
+      ]
+    },
+    {
+      "text": "Wed",
+      "fields": [
+        null,
+        null,
+        null,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "Wednesday",
+      "fields": [
+        null,
+        null,
+        null,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "October",
+      "fields": [
+        null,
+        10,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "31-Dec-00",
+      "fields": [
+        2000,
+        12,
+        31,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0:01:02",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        0,
+        1,
+        2,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "12h 01m02s am",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        0,
+        1,
+        2,
+        0,
+        null,
+        null,
+        false,
+        0
+      ]
+    },
+    {
+      "text": "12:08 PM",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        12,
+        8,
+        null,
+        null,
+        null,
+        null,
+        false,
+        1
+      ]
+    },
+    {
+      "text": "01h02m03",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        1,
+        2,
+        3,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "01h02",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "01h02s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        2,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "01m02",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        2,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "01m02h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        2,
+        1,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "2004 10 Apr 11h30m",
+      "fields": [
+        2004,
+        4,
+        10,
+        null,
+        11,
+        30,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": " ",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "ad",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "AM",
+      "fields": null
+    },
+    {
+      "text": "25 PM",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0 am",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "12 am",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "13 PM",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        13,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "13pm",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        13,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "23 pm",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        23,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "Jan of 01",
+      "fields": [
+        2001,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "Jan of 76",
+      "fields": [
+        1976,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "Jan of 77",
+      "fields": [
+        1977,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "Jan of 25",
+      "fields": [
+        2025,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "Feb 31",
+      "fields": [
+        null,
+        2,
+        31,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "2000-00-01",
+      "fields": [
+        2000,
+        0,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2024-01-32",
+      "fields": [
+        2024,
+        1,
+        32,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "２０２４-０２-２９ １３:０５:２９,１２３４５６７",
+      "fields": [
+        2024,
+        2,
+        29,
+        null,
+        13,
+        5,
+        29,
+        123456,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "٢٠٢٤-٠٢-٢٩ ١٣:٠٥",
+      "fields": [
+        2024,
+        2,
+        29,
+        null,
+        13,
+        5,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "² Jan 2024",
+      "fields": null
+    },
+    {
+      "text": "2024-01-01 10:00 UTC",
+      "fields": [
+        2024,
+        1,
+        1,
+        null,
+        10,
+        0,
+        null,
+        null,
+        "UTC",
+        0,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2024-01-01 10:00 GMT",
+      "fields": [
+        2024,
+        1,
+        1,
+        null,
+        10,
+        0,
+        null,
+        null,
+        "GMT",
+        0,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2024-01-01 10:00 z",
+      "fields": [
+        2024,
+        1,
+        1,
+        null,
+        10,
+        0,
+        null,
+        null,
+        "UTC",
+        0,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2024-01-01 10:00 BRST",
+      "fields": [
+        2024,
+        1,
+        1,
+        null,
+        10,
+        0,
+        null,
+        null,
+        "BRST",
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2024-01-01 10:00 GMT+3",
+      "fields": [
+        2024,
+        1,
+        1,
+        null,
+        10,
+        0,
+        null,
+        null,
+        null,
+        -10800,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2024-01-01 10:00 BRST-3",
+      "fields": [
+        2024,
+        1,
+        1,
+        null,
+        10,
+        0,
+        null,
+        null,
+        "BRST",
+        10800,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2024-01-01 10:00 -0300 (BRST)",
+      "fields": [
+        2024,
+        1,
+        1,
+        null,
+        10,
+        0,
+        null,
+        null,
+        "BRST",
+        -10800,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2024-01-01 10:00 +00:99",
+      "fields": [
+        2024,
+        1,
+        1,
+        null,
+        10,
+        0,
+        null,
+        null,
+        null,
+        5940,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2024-01-01 10:00 +24:00",
+      "fields": [
+        2024,
+        1,
+        1,
+        null,
+        10,
+        0,
+        null,
+        null,
+        null,
+        86400,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2024-01-01 10:00 NAN",
+      "fields": null
+    },
+    {
+      "text": "2024-01-01 10:00 INF",
+      "fields": null
+    },
+    {
+      "text": "2024-01-01 10:00 UTC+00",
+      "fields": [
+        2024,
+        1,
+        1,
+        null,
+        10,
+        0,
+        null,
+        null,
+        "UTC",
+        0,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2024-01-01 10:00:60",
+      "fields": [
+        2024,
+        1,
+        1,
+        null,
+        10,
+        0,
+        60,
+        0,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "99h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        99,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "1: test",
+      "fields": null
+    },
+    {
+      "text": "NaN",
+      "fields": null
+    },
+    {
+      "text": "2024-01-01 12:30:45.1234567890123456789",
+      "fields": [
+        2024,
+        1,
+        1,
+        null,
+        12,
+        30,
+        45,
+        123456,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "2000-01",
+      "fields": [
+        2000,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "0001-01",
+      "fields": [
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "text": "24-12-31",
+      "fields": [
+        2031,
+        12,
+        24,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "76-01-01",
+      "fields": [
+        1976,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "77-01-01",
+      "fields": [
+        1977,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "Jan 77",
+      "fields": [
+        1977,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "Jan 76",
+      "fields": [
+        1976,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "4.2h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        4,
+        12,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "4.2m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        4,
+        12,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "4.2s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        4,
+        200000,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "5.6h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        5,
+        36,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "5.6m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        5,
+        36,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "5.6s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        5,
+        600000,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.29h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        0,
+        17,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.29m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        17,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.29s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        290000,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "1.00000000000000000000000000001h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "1.00000000000000000000000000001m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "1.00000000000000000000000000001s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.999999999999999999999999999h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        0,
+        59,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.999999999999999999999999999m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        59,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.999999999999999999999999999s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        999999,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.9999999999999999999999999999h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        0,
+        59,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.9999999999999999999999999999m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        59,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.9999999999999999999999999999s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        999999,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.99999999999999999999999999999h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        0,
+        60,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.99999999999999999999999999999m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        60,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.99999999999999999999999999999s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        999999,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.000000000000000000000000000000000000000000000000001h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.000000000000000000000000000000000000000000000000001m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "0.000000000000000000000000000000000000000000000000001s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        0,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "5.5999999999999999999999999999h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        5,
+        35,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "5.5999999999999999999999999999m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        5,
+        35,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "5.5999999999999999999999999999s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        5,
+        599999,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "5.6000000000000000000000000001h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        5,
+        36,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "5.6000000000000000000000000001m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        5,
+        36,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "5.6000000000000000000000000001s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        5,
+        600000,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "100.1h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        100,
+        6,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "100.1m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        100,
+        6,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "100.1s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        100,
+        100000,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "23.99999999999999999999999999999h",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        23,
+        60,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "23.99999999999999999999999999999m",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        23,
+        60,
+        null,
+        null,
+        null,
+        false,
+        null
+      ]
+    },
+    {
+      "text": "23.99999999999999999999999999999s",
+      "fields": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        23,
+        999999,
+        null,
+        null,
+        false,
+        null
+      ]
+    }
+  ],
+  "named_case_count": 184,
+  "note": "Raw _parse fields, including invalid calendar values; default filling, DateTime validation, timezone construction and numeric epoch conversion remain separate acceptance requirements."
+}

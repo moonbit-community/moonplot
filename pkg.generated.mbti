@@ -1,0 +1,135 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mathplotlib/mathplotlib"
+
+import {
+  "mathplotlib/mathplotlib/core",
+  "mathplotlib/mathplotlib/core/colors",
+  "mathplotlib/mathplotlib/scene",
+  "mathplotlib/mathplotlib/scene/axis",
+  "mathplotlib/mathplotlib/scene/gridspec",
+  "mathplotlib/mathplotlib/ticker",
+  "mathplotlib/mathplotlib/ticker/category",
+  "mathplotlib/mathplotlib/ticker/scale",
+}
+
+// Values
+pub fn axis() -> @axis.Axis
+
+pub fn bounds(Double, Double, Double, Double) -> @core.Bounds
+
+pub fn bounds_from_points(Array[@core.Point]) -> @core.Bounds?
+
+pub fn category() -> @category.CategoryAxis
+
+pub fn eng_formatter(unit? : String, places? : Int, sep? : String) -> @ticker.Formatter raise @core.DataError
+
+pub fn figure(width? : Int, height? : Int) -> @scene.Figure
+
+pub fn fixed_formatter(Array[String]) -> @ticker.Formatter
+
+pub fn format_str_formatter(String) -> @ticker.Formatter
+
+pub fn func_formatter((Double) -> String) -> @ticker.Formatter
+
+pub fn gridspec(Int, Int, hspace? : Double, vspace? : Double, width_ratios? : Array[Double], height_ratios? : Array[Double]) -> @gridspec.GridSpec raise @gridspec.LayoutError
+
+pub fn index_formatter(Array[String]) -> @ticker.Formatter
+
+pub fn limits(Double, Double) -> @core.Limits
+
+pub fn linear_scale() -> @scale.Scale
+
+pub fn log_formatter(base? : Double, label_only_base? : Bool) -> @ticker.Formatter raise @core.DataError
+
+pub fn log_scale() -> @scale.Scale
+
+pub fn masked_array(Array[Double], mask? : Array[Bool]) -> @core.MaskedArray raise @core.MaskError
+
+pub fn masked_matrix(Array[Array[Double]], mask? : Array[Array[Bool]]) -> @core.MaskedMatrix raise @core.MaskError
+
+pub fn null_formatter() -> @ticker.Formatter
+
+pub fn percent_formatter(xmax? : Double, decimals? : Int, symbol? : String) -> @ticker.Formatter raise @core.DataError
+
+pub fn plot_svg(Array[Double], Array[Double]) -> String raise @core.DataError
+
+pub fn point(Double, Double) -> @core.Point
+
+pub fn rgb(Double, Double, Double) -> @colors.Rgb raise @colors.ColorError
+
+pub fn rgba(Double, Double, Double, alpha? : Double) -> @colors.Rgba raise @colors.ColorError
+
+pub fn scalar_formatter(use_offset? : Bool, use_math_text? : Bool, power_min? : Int, power_max? : Int) -> @ticker.Formatter raise @core.DataError
+
+pub fn series(Array[Double], Array[Double]) -> @core.Series raise @core.DataError
+
+pub fn str_method_formatter(String) -> @ticker.Formatter
+
+pub fn style(String, width? : Double, radius? : Double, fill? : String, font_size? : Double, marker? : String) -> @core.Style
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+pub using @scene {type Artist}
+
+pub using @scene {type Axes}
+
+pub using @axis {type Axis}
+
+pub using @core {type Bounds}
+
+pub using @category {type CategoryAxis}
+
+pub using @scene {type ContourSet}
+
+pub using @core {type DataError}
+
+pub using @scene {type Figure}
+
+pub using @ticker {type Formatter}
+
+pub using @gridspec {type GridSpec}
+
+pub using @scene {type Histogram}
+
+pub using @gridspec {type LayoutError}
+
+pub using @core {type Limits}
+
+pub using @core {type MaskError}
+
+pub using @core {type MaskedArray}
+
+pub using @core {type MaskedMatrix}
+
+pub using @core {type Point}
+
+pub using @gridspec {type Rect}
+
+pub using @colors {type Rgb}
+
+pub using @colors {type Rgba}
+
+pub using @scale {type Scale}
+
+pub using @scene {type SecondaryAxis}
+
+pub using @scene {type SecondaryAxisLocation}
+
+pub using @core {type Series}
+
+pub using @scene {type StreamplotSet}
+
+pub using @core {type Style}
+
+pub using @scene {type SubFigure}
+
+pub using @scene {type ViolinBandwidth}
+
+pub using @scene {type ViolinSide}
+
+pub using @scene {type ViolinStats}
+
+// Traits

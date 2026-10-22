@@ -1,0 +1,22 @@
+{
+  "new_york": {
+    "zone": "America/New_York",
+    "release": "2026e",
+    "sha256": "e9ed07d7bee0c76a9d442d091ef1f01668fee7c4f26014c0a868b19fe6c18a95"
+  },
+  "paris": {
+    "zone": "Europe/Paris",
+    "release": "2026e",
+    "sha256": "ab77a1488a2dd4667a4f23072236e0d2845fe208405eec1b4834985629ba7af8"
+  },
+  "lord_howe": {
+    "zone": "Australia/Lord_Howe",
+    "release": "2026e",
+    "sha256": "a323c5433991a963eb497b7da4d1d09848bf3ef5f5d64d9c9649f388e4bab9df"
+  },
+  "nuuk": {
+    "zone": "America/Nuuk",
+    "release": "2026e",
+    "sha256": "2865eb30df98918a550a02dda5c7f030543bec4b11006b235021b7c8052f55fc"
+  }
+}

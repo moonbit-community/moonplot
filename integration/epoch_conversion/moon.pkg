@@ -1,0 +1,4 @@
+import {
+  "mathplotlib/mathplotlib/ticker/date",
+  "mathplotlib/mathplotlib/config",
+} for "test"

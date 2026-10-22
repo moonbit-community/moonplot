@@ -1,0 +1,17 @@
+import {
+  "Milky2018/xml",
+  "mathplotlib/mathplotlib/core",
+  "mathplotlib/mathplotlib/core/colors",
+  "mathplotlib/mathplotlib/scene/axis",
+  "mathplotlib/mathplotlib/scene/boxplot",
+  "mathplotlib/mathplotlib/scene/colorbar",
+  "mathplotlib/mathplotlib/internal/render",
+  "mathplotlib/mathplotlib/internal/png",
+  "mathplotlib/mathplotlib/ticker/scale" @ticker_scale,
+  "moonbitlang/core/buffer",
+  "moonbitlang/core/math",
+}
+
+import {
+  "mathplotlib/mathplotlib/scene/axis",
+} for "test"
