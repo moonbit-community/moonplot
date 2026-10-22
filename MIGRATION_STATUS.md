@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D22已验收；下一D23候选命名AutoMinorLocator/NullLocator，尚未冻结/实现。
+- 当前切片编号：D23（命名AutoMinorLocator/NullLocator），只读准备完成，尚未冻结/实现。
 - 最近完成D22：MaxN/Auto完整typed参数/partial更新、full grid决策/offset Edge/prune/view、
   classic构造捕获、实际物理tick-space/checked axis/secondary/contour、真Float64/Int64 views。
 - 最终四目标：wasm/wasm-gc/native各7250/7250，JS7257/7257（7个无Node测试）。
@@ -19,7 +19,8 @@
   保存D23-before，分派独占实现/原源包，root接线与门禁。默认数值Axis生命周期仍是待迁移项。
 - 当前无live Moon/source session。最终test-all95557、check-all26276、source87609/92172均
   exit0勿轮询；所有agents交付停止。D23只有ignored只读笔记，不提前标实现。
-- Git本地基线commit 1b61c4b（D01–D19）；D20验收commit d385718；D21验收commit 2403fcb。
+- Git本地基线commit 1b61c4b（D01–D19）；D20验收commit d385718；D21验收commit 2403fcb；
+  D22验收commit fee6885。
   无remote。用户已授权分批commit与并行subagents，后续按验收步骤继续本地提交。
 - 整体目标持续，约46%全目标/80%核心二维SVG工程估算暂不变，无阻塞。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
@@ -3044,3 +3045,26 @@
   新Auto明确安装；隐式默认须与units/scale/clear生命周期后续迁移，不宣称全轴对象已完成。
 - 六docs与新maxn guide同步；本切片本地提交。全目标持续active，46%全目标/80%核心二维
   工程估算暂不变。D23 AutoMinor/Null只读笔记229行已保存；从head继续，不重启D22survey。
+
+## D23 执行顺序（尚未冻结/实现）
+
+- [ ] D23-01 读取229行定向笔记并核查D22新Int64主刻度域的影响，冻结AutoMinor/Null及四provider、
+  ndivs首次rc/所有权、Python任意精度round/NumPy arange dtype合同；保存D23-before后独占分派。
+- [ ] D23-02 并行对象/数值/原源包与root checked axis/render整合，旧auto_minor helper保留。
+- [ ] D23-03 文档/原源/接口/四目标验收后本地提交。
+
+已确认的只读事实（完整依据 .moonagent/checkpoints/D23-readonly-notes.md，勿重做全survey）：
+
+- AutoMinor None只有非log且至少2个unique major时才捕获本axis x/y ndivs rc；捕获的auto token
+  后续仍随majorstep选4或5，rc改变/rebind不reset。0源返回[NaN]，负数可能空/一个点，2.5有效；
+  不能擅自把ndivs类型/验证收缩为有限正Int。rc validator可接受保留'AUTO'但消费会TypeError。
+- Python round产生任意精度整数；np.arange在2^63/2^64/round(1e308)分别可能float64/object，
+  n1且viewpoint1e308源能实际返回[1e308]。不能简单Int64 guard或无条件D21 float fill替代。
+  计数、完整phase、prune/重合与eager cap要按原源区分，预算省略不是源错。
+- source调用保留major重合/外邻接，源Axis后续处理与当前generic minor裁剪协议分别记录。
+  绑定context需要axis name、scale、major tick values与view四provider，最后set_axis owner生效。
+- D22新增Int64 TickValues会影响Fixed/Linear-preset返回的major dtype；下一步必须定向核查
+  AutoMinor unique/diff的原Int64行为，不能在provider先丢成Double再泛称支持全部typed域。
+- Null direct/call无axis均[]，继承view/nonsingular .001/.05；源Axis._update_ticks有Null类型分支。
+- 隐式默认numeric locator、units/scale/clear生命周期与完整dataLim cache仍在总目标待办；
+  不因显式named类已验收而把整体迁移目标标完成。当前agents全部idle，无live工具。
