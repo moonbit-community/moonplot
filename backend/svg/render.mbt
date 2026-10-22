@@ -1470,6 +1470,9 @@ fn secondary_axis_ticks(
   primary_lower : Double,
   primary_upper : Double,
 ) -> Array[(Double, Double)] raise @core.DataError {
+  if axis.tick_group_is_null() {
+    return []
+  }
   match axis.fixed_ticks() {
     Some(values) => values.map(value => (axis.inverse()(value), value))
     None =>
@@ -1496,6 +1499,9 @@ fn secondary_axis_tick_labels(
   primary_lower : Double,
   primary_upper : Double,
 ) -> Array[String] {
+  if axis.tick_group_is_null() {
+    return []
+  }
   match axis.formatter() {
     Some(formatter) =>
       formatter.format_values_with_view(
@@ -1538,6 +1544,25 @@ fn append_secondary_x_axis(
   let ticks = secondary_axis_ticks(axis, primary_ticks, scale.xmin, scale.xmax)
   let values = ticks.map(tick => tick.1)
   let labels = secondary_axis_tick_labels(axis, values, scale.xmin, scale.xmax)
+  for value in axis.minor_tick_values() {
+    let primary = axis.inverse()(value)
+    if tick_in_view(primary, scale.x_axis_scale, scale.xmin, scale.xmax) &&
+      !primary.is_nan() &&
+      !primary.is_inf() &&
+      !value.is_nan() &&
+      !value.is_inf() {
+      let x = map_x(scale, left, plot_width, primary)
+      let direction = if at_top { -1.0 } else { 1.0 }
+      try! writer.empty_element("line", [
+        ("x1", float_text(x)),
+        ("y1", float_text(axis_y)),
+        ("x2", float_text(x)),
+        ("y2", float_text(axis_y + direction * 3.0)),
+        ("stroke", "#374151"),
+        ("stroke-width", "0.7"),
+      ])
+    }
+  }
   for index, tick in ticks {
     let (primary, value) = tick
     if tick_in_view(primary, scale.x_axis_scale, scale.xmin, scale.xmax) &&
@@ -1606,6 +1631,25 @@ fn append_secondary_y_axis(
   let ticks = secondary_axis_ticks(axis, primary_ticks, scale.ymin, scale.ymax)
   let values = ticks.map(tick => tick.1)
   let labels = secondary_axis_tick_labels(axis, values, scale.ymin, scale.ymax)
+  for value in axis.minor_tick_values() {
+    let primary = axis.inverse()(value)
+    if tick_in_view(primary, scale.y_axis_scale, scale.ymin, scale.ymax) &&
+      !primary.is_nan() &&
+      !primary.is_inf() &&
+      !value.is_nan() &&
+      !value.is_inf() {
+      let y = map_y(scale, top, plot_height, primary)
+      let direction = if at_right { 1.0 } else { -1.0 }
+      try! writer.empty_element("line", [
+        ("x1", float_text(axis_x)),
+        ("y1", float_text(y)),
+        ("x2", float_text(axis_x + direction * 3.0)),
+        ("y2", float_text(y)),
+        ("stroke", "#374151"),
+        ("stroke-width", "0.7"),
+      ])
+    }
+  }
   for index, tick in ticks {
     let (primary, value) = tick
     if tick_in_view(primary, scale.y_axis_scale, scale.ymin, scale.ymax) &&
@@ -3238,34 +3282,66 @@ fn render_panel(
   position : (Double, Double, Double, Double),
 ) -> Unit raise @core.DataError {
   let (left, top, plot_width, plot_height) = position
-  let x_ticks = panel
-    .x_axis()
-    .tick_values_checked(@core.limits(scale.xmin, scale.xmax))
-  let y_ticks = panel
-    .y_axis()
-    .tick_values_checked(@core.limits(scale.ymin, scale.ymax))
-  let x_minor_ticks = panel
+  let x_null = panel.x_axis().tick_group_is_null()
+  let y_null = panel.y_axis().tick_group_is_null()
+  let x_minor_null = panel.x_axis().tick_group_is_null(minor=true)
+  let y_minor_null = panel.y_axis().tick_group_is_null(minor=true)
+  let x_ticks = if x_null {
+    []
+  } else {
+    panel.x_axis().tick_values_checked(@core.limits(scale.xmin, scale.xmax))
+  }
+  let y_ticks = if y_null {
+    []
+  } else {
+    panel.y_axis().tick_values_checked(@core.limits(scale.ymin, scale.ymax))
+  }
+  let x_minor_ticks = if x_minor_null {
+    []
+  } else {
+    panel
     .x_axis()
     .minor_tick_values_checked(@core.limits(scale.xmin, scale.xmax))
-  let y_minor_ticks = panel
+  }
+  let y_minor_ticks = if y_minor_null {
+    []
+  } else {
+    panel
     .y_axis()
     .minor_tick_values_checked(@core.limits(scale.ymin, scale.ymax))
+  }
   let viewport = @core.limits(scale.xmin, scale.xmax)
   let y_viewport = @core.limits(scale.ymin, scale.ymax)
-  let x_minor_labels = panel
-    .x_axis()
-    .minor_tick_labels(x_minor_ticks, view=viewport)
-  let y_minor_labels = panel
-    .y_axis()
-    .minor_tick_labels(y_minor_ticks, view=y_viewport)
-  let x_labels = panel.x_axis().tick_labels_with_view(x_ticks, Some(viewport))
-  let y_labels = panel.y_axis().tick_labels_with_view(y_ticks, Some(y_viewport))
-  let x_offset_label = panel
-    .x_axis()
-    .formatter_offset_label_with_view(x_ticks, Some(viewport))
-  let y_offset_label = panel
-    .y_axis()
-    .formatter_offset_label_with_view(y_ticks, Some(y_viewport))
+  let x_minor_labels = if x_minor_null {
+    []
+  } else {
+    panel.x_axis().minor_tick_labels(x_minor_ticks, view=viewport)
+  }
+  let y_minor_labels = if y_minor_null {
+    []
+  } else {
+    panel.y_axis().minor_tick_labels(y_minor_ticks, view=y_viewport)
+  }
+  let x_labels = if x_null {
+    []
+  } else {
+    panel.x_axis().tick_labels_with_view(x_ticks, Some(viewport))
+  }
+  let y_labels = if y_null {
+    []
+  } else {
+    panel.y_axis().tick_labels_with_view(y_ticks, Some(y_viewport))
+  }
+  let x_offset_label = if x_null {
+    ""
+  } else {
+    panel.x_axis().formatter_offset_label_with_view(x_ticks, Some(viewport))
+  }
+  let y_offset_label = if y_null {
+    ""
+  } else {
+    panel.y_axis().formatter_offset_label_with_view(y_ticks, Some(y_viewport))
+  }
   if panel.frame_visible() {
     append_grid(
       writer,

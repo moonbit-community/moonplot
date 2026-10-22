@@ -312,3 +312,18 @@ Matplotlib's license and notice above apply. Source hashes, alias/update rules,
 typed and eager limits, reference observations and reproduction commands are in
 [testdata/maxn_locator_README.md](testdata/maxn_locator_README.md).
 No additional runtime dependency or upstream C implementation is distributed.
+
+## Named automatic minor and null locators
+
+AutoMinorLocator and NullLocator follow the pinned Matplotlib class bodies,
+rc validators, Axis minor-overlap and Null-group selection, shared-axis removal,
+and secondary scale/view protocols. Independent references execute those source
+AST bodies using the fixed development Python/NumPy runtime. The typed port
+preserves integer tick storage, arbitrary-sized rounded indices, arange dtype
+selection and separate multiply/add rounding using existing MoonBit primitives.
+Observed randomized NumPy signed-zero representatives are documented separately
+from deterministic finite-value comparisons. No upstream sorting network, C
+implementation, Python runtime or additional third-party library is distributed.
+Matplotlib's license and notice above apply. Pinned hashes, source observations,
+typed boundaries and reproduction commands are in
+[testdata/auto_minor_locator_README.md](testdata/auto_minor_locator_README.md).

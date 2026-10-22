@@ -1,6 +1,8 @@
 ///|
 /// Mutable defaults shared by newly created figures and axes.
 pub struct RcParams {
+  priv mut x_minor_tick_divisions : MinorTickDivisions
+  priv mut y_minor_tick_divisions : MinorTickDivisions
   priv mut classic_mode : Bool
   priv mut axes_autolimit_mode : String
   priv mut timezone : String
@@ -27,6 +29,8 @@ fn tab10() -> Array[String] {
 ///|
 fn default_rc_params() -> RcParams {
   {
+    x_minor_tick_divisions: Text("auto"),
+    y_minor_tick_divisions: Text("auto"),
     classic_mode: false,
     axes_autolimit_mode: "data",
     timezone: "UTC",
@@ -78,6 +82,8 @@ fn validate_color_cycle(colors : Array[String]) -> Unit raise @core.DataError {
 pub fn rc_params() -> RcParams {
   let value = current.val
   {
+    x_minor_tick_divisions: value.x_minor_tick_divisions,
+    y_minor_tick_divisions: value.y_minor_tick_divisions,
     classic_mode: value.classic_mode,
     axes_autolimit_mode: value.axes_autolimit_mode,
     timezone: value.timezone,

@@ -2,6 +2,7 @@
 package "mathplotlib/mathplotlib/ticker"
 
 import {
+  "mathplotlib/mathplotlib/config",
   "mathplotlib/mathplotlib/core",
   "moonbitlang/core/debug",
 }
@@ -74,6 +75,29 @@ pub fn AutoLocator::tick_space_provider(Self) -> (() -> Double)?
 pub fn AutoLocator::tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
 pub fn AutoLocator::view_interval_provider(Self) -> (() -> (Double, Double) raise @core.DataError)?
 pub fn AutoLocator::view_limits(Self, Double, Double) -> (Double, Double) raise @core.DataError
+
+pub struct AutoMinorLocator {
+  // private fields
+}
+pub fn AutoMinorLocator::as_minor_locator(Self) -> MinorLocator
+pub fn AutoMinorLocator::axis_name_provider(Self) -> (() -> String raise @core.DataError)?
+pub fn AutoMinorLocator::bind_axis_name(Self, () -> String raise @core.DataError) -> Unit
+pub fn AutoMinorLocator::bind_major_ticks(Self, () -> TickValues raise @core.DataError) -> Unit
+pub fn AutoMinorLocator::bind_scale(Self, () -> String raise @core.DataError) -> Unit
+pub fn AutoMinorLocator::bind_view_interval(Self, () -> (Double, Double) raise @core.DataError) -> Unit
+pub fn AutoMinorLocator::call(Self) -> Array[Double] raise @core.DataError
+pub fn AutoMinorLocator::copy(Self) -> Self
+pub fn AutoMinorLocator::major_ticks_provider(Self) -> (() -> TickValues raise @core.DataError)?
+pub fn AutoMinorLocator::ndivs(Self) -> @config.MinorTickDivisions?
+pub fn AutoMinorLocator::new(ndivs? : @config.MinorTickDivisions?) -> Self
+pub fn AutoMinorLocator::nonsingular(Self, Double, Double) -> (Double, Double)
+pub fn AutoMinorLocator::scale_provider(Self) -> (() -> String raise @core.DataError)?
+pub fn AutoMinorLocator::set_ndivs(Self, @config.MinorTickDivisions?) -> Unit
+pub fn AutoMinorLocator::set_params(Self) -> Unit
+pub fn AutoMinorLocator::tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
+pub fn AutoMinorLocator::view_interval_provider(Self) -> (() -> (Double, Double) raise @core.DataError)?
+pub fn AutoMinorLocator::view_limits(Self, Double, Double) -> (Double, Double)
+pub fn AutoMinorLocator::warnings(Self) -> Array[String]
 
 pub struct FixedLocator {
   // private fields
@@ -157,6 +181,7 @@ pub fn LinearLocatorPresets::set(Self, Double, Double, Array[Double]) -> Unit
 pub fn LinearLocatorPresets::set_view(Self, Double, Double, TickValues) -> Unit
 
 pub(all) enum Locator {
+  Null(NullLocator)
   NamedMaxN(MaxNLocator)
   NamedAuto(AutoLocator)
   NamedLinear(LinearLocator)
@@ -178,8 +203,10 @@ pub fn Locator::index_locator(Self) -> IndexLocator?
 pub fn Locator::linear_locator(Self) -> LinearLocator?
 pub fn Locator::maxn_locator(Self) -> MaxNLocator?
 pub fn Locator::multiple_locator(Self) -> MultipleLocator?
+pub fn Locator::null_locator(Self) -> NullLocator?
 pub fn Locator::tick_values(Self, Double, Double) -> Array[Double]
 pub fn Locator::tick_values_for_axis(Self, Double, Double) -> Array[Double] raise @core.DataError
+pub fn Locator::tick_view_for_axis(Self, Double, Double) -> TickValues raise @core.DataError
 
 pub(all) enum MaxNBins {
   Auto
@@ -214,6 +241,8 @@ pub fn MaxNLocator::view_interval_provider(Self) -> (() -> (Double, Double) rais
 pub fn MaxNLocator::view_limits(Self, Double, Double) -> (Double, Double) raise @core.DataError
 
 pub(all) enum MinorLocator {
+  Null(NullLocator)
+  NamedAutoMinor(AutoMinorLocator)
   NamedMaxN(MaxNLocator)
   NamedAuto(AutoLocator)
   NamedLinear(LinearLocator)
@@ -225,6 +254,7 @@ pub(all) enum MinorLocator {
   Log(subdivisions~ : Int, base~ : Double)
 }
 pub fn MinorLocator::auto_locator(Self) -> AutoLocator?
+pub fn MinorLocator::auto_minor_locator(Self) -> AutoMinorLocator?
 pub fn MinorLocator::checked_tick_values(Self, Array[Double], Double, Double) -> Array[Double] raise @core.DataError
 pub fn MinorLocator::copy(Self) -> Self
 pub fn MinorLocator::fixed_locator(Self) -> FixedLocator?
@@ -232,6 +262,7 @@ pub fn MinorLocator::index_locator(Self) -> IndexLocator?
 pub fn MinorLocator::linear_locator(Self) -> LinearLocator?
 pub fn MinorLocator::maxn_locator(Self) -> MaxNLocator?
 pub fn MinorLocator::multiple_locator(Self) -> MultipleLocator?
+pub fn MinorLocator::null_locator(Self) -> NullLocator?
 pub fn MinorLocator::tick_values(Self, Array[Double], Double, Double) -> Array[Double]
 pub fn MinorLocator::tick_values_for_axis(Self, Array[Double], Double, Double) -> Array[Double] raise @core.DataError
 
@@ -248,6 +279,20 @@ pub fn MultipleLocator::offset(Self) -> Double
 pub fn MultipleLocator::set_params(Self, base? : Double, offset? : Double) -> Unit raise @core.DataError
 pub fn MultipleLocator::tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
 pub fn MultipleLocator::view_limits(Self, Double, Double) -> (Double, Double)
+
+pub struct NullLocator {
+  // private fields
+}
+pub fn NullLocator::as_locator(Self) -> Locator
+pub fn NullLocator::as_minor_locator(Self) -> MinorLocator
+pub fn NullLocator::call(Self) -> Array[Double]
+pub fn NullLocator::copy(Self) -> Self
+pub fn NullLocator::new() -> Self
+pub fn NullLocator::nonsingular(Self, Double, Double) -> (Double, Double)
+pub fn NullLocator::set_params(Self) -> Unit
+pub fn NullLocator::tick_values(Self, Double, Double) -> Array[Double]
+pub fn NullLocator::view_limits(Self, Double, Double) -> (Double, Double)
+pub fn NullLocator::warnings(Self) -> Array[String]
 
 pub struct TickValues {
   // private fields

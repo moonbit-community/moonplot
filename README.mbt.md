@@ -1245,6 +1245,24 @@ steps 接收 borrowed `TickValues`，extended staircase 独立捕获；`set_para
 继续原 helper 合同。参数、精度、邻接点、前缀上限和参考见
 [MaxN/Auto说明](testdata/maxn_locator_README.md)；四目标及原源验收记录见检查点。
 
+命名 `AutoMinorLocator` 从排序去重后的前两个主刻度确定统一网格；首次有效查询才捕获
+x/y 的 `minor_tick_divisions` 配置，之后重绑轴或修改配置不会重置捕获值：
+
+```moonbit nocheck
+let minor = @ticker.AutoMinorLocator::new()
+try! fig.axes().set_x_minor_locator(minor.as_minor_locator())
+minor.set_ndivs(Some(@config.MinorTickDivisions::Number(2.5)))
+try! fig.axes().set_y_locator(@ticker.NullLocator::new().as_locator())
+```
+
+`Number(Double)` 保留原构造器的零、负数、小数和非有限值；rc 验证则转换成非负的
+`Integer(BigInt)`，`Text("auto")` 按主间隔自动选择四或五段。`set_ndivs(None)` 可以重新捕获。
+直接 `tick_values` 保留上游“不支持”错误，绑定后的 `call` 才执行查询。Axis 的 raw minor
+getter 保留邻接点，随后按变换后的范围去重；SVG 在绘制时另做可视过滤。secondary 支持自己
+的主刻度、minor locator 与 overlap 配置。`NullLocator` 可用于主、次刻度，SVG 分别跳过其
+定位和格式化。旧 `auto_minor_locator` helper 保留原合同；完整参数、整数精度、引用所有权、
+上限与未迁移边界见 [AutoMinor/Null说明](testdata/auto_minor_locator_README.md)。
+
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`
 及常见宽度/精度标志，`log_formatter`、`null_formatter` 和 `func_formatter` 分别用于对数、

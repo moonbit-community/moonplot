@@ -24,7 +24,7 @@ pub fn panel(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.
 
 pub fn panel_with_sharing(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.Bounds?, @axis.Axis, @axis.Axis, Int?, Int?, Bool, Array[SecondaryAxis], Array[SecondaryAxis], show_x_tick_labels? : Bool, show_y_tick_labels? : Bool, frame_visible? : Bool, x_margin? : Double, y_margin? : Double, spines? : Array[Spine], aspect? : Double, anchor? : (Double, Double), adjustable? : String, box_aspect? : Double) -> Panel
 
-pub fn secondary_axis(SecondaryLocation, (Double) -> Double, (Double) -> Double, String?, Int, Array[Double]?, @ticker.Locator?, @ticker.Formatter?, tick_label_size? : Double) -> SecondaryAxis
+pub fn secondary_axis(SecondaryLocation, (Double) -> Double, (Double) -> Double, String?, Int, Array[Double]?, @ticker.Locator?, @ticker.Formatter?, tick_label_size? : Double, minor_locator? : @ticker.MinorLocator?, minor_ticks_provider? : (() -> Array[Double] raise @core.DataError)?) -> SecondaryAxis
 
 pub fn spine(SpineSide, Bool, String, Double, SpinePosition, (Double, Double)?) -> Spine
 
@@ -205,6 +205,8 @@ pub fn Panel::y_axis(Self) -> @axis.Axis
 pub fn Panel::y_margin(Self) -> Double
 
 pub struct SecondaryAxis {
+  minor_locator : @ticker.MinorLocator?
+  minor_ticks_provider : (() -> Array[Double] raise @core.DataError)?
   tick_label_size : Double
   location : SecondaryLocation
   forward : (Double) -> Double
@@ -222,7 +224,9 @@ pub fn SecondaryAxis::inverse(Self) -> (Double) -> Double
 pub fn SecondaryAxis::label(Self) -> String?
 pub fn SecondaryAxis::location(Self) -> SecondaryLocation
 pub fn SecondaryAxis::locator(Self) -> @ticker.Locator?
+pub fn SecondaryAxis::minor_tick_values(Self) -> Array[Double] raise @core.DataError
 pub fn SecondaryAxis::tick_count(Self) -> Int
+pub fn SecondaryAxis::tick_group_is_null(Self) -> Bool
 pub fn SecondaryAxis::tick_label_size(Self) -> Double
 
 pub(all) enum SecondaryLocation {

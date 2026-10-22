@@ -452,6 +452,8 @@ pub(all) enum SecondaryLocation {
 ///|
 /// Immutable secondary axis data consumed by a backend.
 pub struct SecondaryAxis {
+  minor_locator : @ticker.MinorLocator?
+  minor_ticks_provider : (() -> Array[Double] raise @core.DataError)?
   tick_label_size : Double
   location : SecondaryLocation
   forward : (Double) -> Double
@@ -479,8 +481,12 @@ pub fn secondary_axis(
   locator : @ticker.Locator?,
   formatter : @ticker.Formatter?,
   tick_label_size~ : Double = 10.0,
+  minor_locator~ : @ticker.MinorLocator? = None,
+  minor_ticks_provider~ : (() -> Array[Double] raise @core.DataError)? = None,
 ) -> SecondaryAxis {
   {
+    minor_locator: minor_locator.map(value => value.copy()),
+    minor_ticks_provider,
     tick_label_size,
     location,
     forward,
@@ -1041,4 +1047,22 @@ pub fn Figure::title(self : Figure) -> String? {
 ///|
 pub fn SecondaryAxis::tick_label_size(self : SecondaryAxis) -> Double {
   self.tick_label_size
+}
+
+///|
+pub fn SecondaryAxis::minor_tick_values(
+  self : SecondaryAxis,
+) -> Array[Double] raise @core.DataError {
+  if self.minor_locator is Some(@ticker.MinorLocator::Null(_)) {
+    return []
+  }
+  match self.minor_ticks_provider {
+    Some(provider) => provider()
+    None => []
+  }
+}
+
+///|
+pub fn SecondaryAxis::tick_group_is_null(self : SecondaryAxis) -> Bool {
+  self.locator is Some(@ticker.Locator::Null(_))
 }

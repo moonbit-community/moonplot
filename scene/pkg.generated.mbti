@@ -688,6 +688,7 @@ pub struct SecondaryAxis {
 }
 pub fn SecondaryAxis::clear_formatter(Self) -> Unit
 pub fn SecondaryAxis::clear_locator(Self) -> Unit
+pub fn SecondaryAxis::clear_minor_locator(Self) -> Unit
 pub fn SecondaryAxis::formatter(Self) -> @ticker.Formatter?
 pub fn SecondaryAxis::forward(Self) -> (Double) -> Double
 pub fn SecondaryAxis::get_tick_space(Self) -> Double
@@ -695,14 +696,20 @@ pub fn SecondaryAxis::inverse(Self) -> (Double) -> Double
 pub fn SecondaryAxis::label(Self) -> String?
 pub fn SecondaryAxis::location(Self) -> SecondaryAxisLocation
 pub fn SecondaryAxis::locator(Self) -> @ticker.Locator?
+pub fn SecondaryAxis::minor_locator(Self) -> @ticker.MinorLocator?
+pub fn SecondaryAxis::minor_overlap_removal(Self) -> Bool
+pub fn SecondaryAxis::minor_tick_values_checked(Self) -> Array[Double] raise @core.DataError
 pub fn SecondaryAxis::set_formatter(Self, @ticker.Formatter) -> Unit
 pub fn SecondaryAxis::set_label(Self, String) -> Unit
 pub fn SecondaryAxis::set_locator(Self, @ticker.Locator) -> Unit raise @core.DataError
+pub fn SecondaryAxis::set_minor_locator(Self, @ticker.MinorLocator) -> Unit
+pub fn SecondaryAxis::set_minor_overlap_removal(Self, Bool) -> Unit
 pub fn SecondaryAxis::set_tick_count(Self, Int) -> Unit
 pub fn SecondaryAxis::set_tick_label_size(Self, Double) -> Unit
 pub fn SecondaryAxis::set_ticks(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn SecondaryAxis::tick_count(Self) -> Int
 pub fn SecondaryAxis::tick_label_size(Self) -> Double
+pub fn SecondaryAxis::tick_values_checked(Self) -> Array[Double] raise @core.DataError
 pub fn SecondaryAxis::ticks(Self) -> Array[Double]?
 
 pub(all) enum SecondaryAxisLocation {

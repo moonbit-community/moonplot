@@ -85,6 +85,7 @@ pub fn Locator::checked_tick_values(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    Null(value) => value.tick_values(lower, upper)
     NamedMaxN(value) => {
       let ticks = value.tick_values(lower, upper)
       if lower > upper {
@@ -149,6 +150,8 @@ pub fn MinorLocator::checked_tick_values(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   let values = match self {
+    Null(value) => return value.tick_values(lower, upper)
+    NamedAutoMinor(value) => return value.tick_values(lower, upper)
     NamedMaxN(value) => value.as_locator().checked_tick_values(lower, upper)
     NamedAuto(value) => value.as_locator().checked_tick_values(lower, upper)
     NamedLinear(value) => value.as_locator().checked_tick_values(lower, upper)
@@ -167,9 +170,69 @@ pub fn MinorLocator::tick_values_for_axis(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    Null(value) => value.call()
+    NamedAutoMinor(value) => value.call()
     Index(value) => named_minor_values(value.call(), major, lower, upper)
     NamedMaxN(value) => named_minor_values(value.call(), major, lower, upper)
     NamedAuto(value) => named_minor_values(value.call(), major, lower, upper)
     _ => self.checked_tick_values(major, lower, upper)
+  }
+}
+
+///|
+pub fn NullLocator::as_locator(self : NullLocator) -> Locator {
+  Null(self)
+}
+
+///|
+pub fn NullLocator::as_minor_locator(self : NullLocator) -> MinorLocator {
+  Null(self)
+}
+
+///|
+pub fn AutoMinorLocator::as_minor_locator(
+  self : AutoMinorLocator,
+) -> MinorLocator {
+  NamedAutoMinor(self)
+}
+
+///|
+pub fn Locator::null_locator(self : Locator) -> NullLocator? {
+  match self {
+    Null(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn MinorLocator::null_locator(self : MinorLocator) -> NullLocator? {
+  match self {
+    Null(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn MinorLocator::auto_minor_locator(
+  self : MinorLocator,
+) -> AutoMinorLocator? {
+  match self {
+    NamedAutoMinor(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+/// Preserve the source dtype and order for a major getter consumed by AutoMinor.
+pub fn Locator::tick_view_for_axis(
+  self : Locator,
+  lower : Double,
+  upper : Double,
+) -> TickValues raise @core.DataError {
+  match self {
+    Null(_) => TickValues::from_array([])
+    NamedFixed(value) => value.tick_values(lower, upper)
+    NamedLinear(value) => value.tick_values(lower, upper)
+    _ => TickValues::from_array(self.tick_values_for_axis(lower, upper))
   }
 }

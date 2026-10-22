@@ -11,6 +11,8 @@ pub(all) enum SecondaryAxisLocation {
 /// A coordinate axis whose values are derived from a primary axis.
 pub struct SecondaryAxis {
   priv mut parent_axis : @axis.Axis?
+  priv mut minor_locator : @ticker.MinorLocator?
+  priv mut remove_minor_overlap : Bool
   priv mut tick_label_size : Double
   location : SecondaryAxisLocation
   forward : (Double) -> Double
@@ -35,6 +37,8 @@ fn secondary_axis(
 ) -> SecondaryAxis {
   {
     parent_axis: None,
+    minor_locator: None,
+    remove_minor_overlap: true,
     tick_label_size: 10.0,
     location,
     forward,

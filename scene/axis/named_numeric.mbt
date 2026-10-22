@@ -27,6 +27,8 @@ pub fn Axis::bind_locator_data(self : Axis, minor~ : Bool = false) -> Unit {
   }
   if minor {
     match self.minor_locator {
+      Some(@ticker.MinorLocator::NamedAutoMinor(value)) =>
+        self.bind_auto_minor_context(value)
       Some(@ticker.MinorLocator::Index(value)) =>
         value.bind_data_interval(provider)
       Some(@ticker.MinorLocator::NamedMaxN(value)) =>
@@ -55,7 +57,8 @@ pub fn Axis::tick_values_checked(
   if self.fixed_ticks is None && self.category is None {
     if self.locator
       is Some(
-        @ticker.Locator::NamedLinear(_)
+        @ticker.Locator::Null(_)
+        | @ticker.Locator::NamedLinear(_)
         | @ticker.Locator::Index(_)
         | @ticker.Locator::NamedFixed(_)
         | @ticker.Locator::NamedMaxN(_)
@@ -83,6 +86,33 @@ pub fn Axis::minor_tick_values_checked(
   automatic : @core.Limits,
 ) -> Array[Double] raise @core.DataError {
   if self.minor_date_locator is None && self.category is None {
+    if self.minor_locator is Some(@ticker.MinorLocator::Null(value)) {
+      let ticks = value.call()
+      if self.remove_minor_overlap {
+        // Direct Axis getters still read majors/view; rendering skips Null earlier.
+        ignore(self.major_tick_view_checked())
+        ignore(self.view_interval_checked())
+      }
+      return ticks
+    }
+    if self.minor_locator is Some(@ticker.MinorLocator::NamedAutoMinor(value)) {
+      let limits = self.limits.unwrap_or(automatic)
+      let previous = self.tick_layout_view
+      if previous is None && self.numeric_view_provider is None {
+        self.tick_layout_view = Some((limits.lower(), limits.upper()))
+      }
+      defer {
+        self.tick_layout_view = previous
+      }
+      // Source minor.call reads its own owner first. Axis overlap reads major again.
+      let ticks = value.call()
+      if !self.remove_minor_overlap {
+        return ticks
+      }
+      let major = self.major_tick_view_checked().to_array()
+      let (lower, upper) = self.view_interval_checked()
+      return self.filter_numeric_minor_ticks(ticks, major, lower, upper)
+    }
     if self.minor_locator
       is Some(
         @ticker.MinorLocator::NamedLinear(_)
@@ -111,4 +141,86 @@ pub fn Axis::minor_tick_values_checked(
     }
   }
   self.minor_tick_values(automatic)
+}
+
+///|
+fn Axis::bind_auto_minor_context(
+  self : Axis,
+  value : @ticker.AutoMinorLocator,
+) -> Unit {
+  value.bind_scale(() => self.numeric_scale_name())
+  value.bind_axis_name(() => if self.tick_horizontal { "x" } else { "y" })
+  value.bind_major_ticks(() => self.major_tick_view_checked())
+  value.bind_view_interval(() => self.view_interval_checked())
+}
+
+///|
+fn Axis::numeric_scale_name(self : Axis) -> String {
+  match self.scale {
+    @scale.Linear => "linear"
+    @scale.Log => "log"
+    @scale.SymLog(..) => "symlog"
+  }
+}
+
+///|
+/// Obtain majors in source order while preserving borrowed integer storage.
+fn Axis::major_tick_view_checked(
+  self : Axis,
+) -> @ticker.TickValues raise @core.DataError {
+  if self.fixed_ticks is Some(values) {
+    return @ticker.TickValues::from_array(values.copy())
+  }
+  if self.category is None && self.date_locator is None {
+    match self.locator {
+      Some(@ticker.Locator::NamedFixed(value)) =>
+        return value.tick_values(0.0, 0.0)
+      Some(@ticker.Locator::Null(_)) =>
+        return @ticker.TickValues::from_array([])
+      Some(locator) if locator
+        is (@ticker.Locator::Index(_)
+        | @ticker.Locator::NamedMaxN(_)
+        | @ticker.Locator::NamedAuto(_)) =>
+        return locator.tick_view_for_axis(0.0, 0.0)
+      Some(@ticker.Locator::NamedLinear(value)) => {
+        let (lower, upper) = self.view_interval_checked()
+        return value.tick_values(lower, upper)
+      }
+      _ => ()
+    }
+  }
+  let (lower, upper) = self.view_interval_checked()
+  @ticker.TickValues::from_array(
+    self.tick_values_checked(@core.limits(lower, upper)),
+  )
+}
+
+///|
+fn Axis::filter_numeric_minor_ticks(
+  self : Axis,
+  ticks : Array[Double],
+  major : Array[Double],
+  lower : Double,
+  upper : Double,
+) -> Array[Double] {
+  let lo = self.scale.transform(lower)
+  let hi = self.scale.transform(upper)
+  let tolerance = Double::abs(hi - lo) * 1.0e-5
+  let transformed_major = major.map(value => self.scale.transform(value))
+  ticks.filter(value => {
+    let transformed = self.scale.transform(value)
+    !transformed_major.any(other => {
+      transformed == other || Double::abs(transformed - other) <= tolerance
+    })
+  })
+}
+
+///|
+/// Rendering skips each NullLocator tick group before asking for labels or offsets.
+pub fn Axis::tick_group_is_null(self : Axis, minor~ : Bool = false) -> Bool {
+  if minor {
+    self.minor_locator is Some(@ticker.MinorLocator::Null(_))
+  } else {
+    self.locator is Some(@ticker.Locator::Null(_))
+  }
 }

@@ -2,4 +2,6 @@ import {
   "mathplotlib/mathplotlib/internal/date_epoch",
   "mathplotlib/mathplotlib/core",
   "moonbitlang/core/ref",
+  "moonbitlang/core/bigint",
+  "moonbitlang/core/debug",
 }

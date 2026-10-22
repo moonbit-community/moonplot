@@ -3,6 +3,8 @@ package "mathplotlib/mathplotlib/config"
 
 import {
   "mathplotlib/mathplotlib/core",
+  "moonbitlang/core/bigint",
+  "moonbitlang/core/debug",
 }
 
 // Values
@@ -28,6 +30,8 @@ pub fn grid_linewidth() -> Double
 
 pub fn grid_visible() -> Bool
 
+pub fn minor_tick_divisions(horizontal? : Bool) -> MinorTickDivisions
+
 pub fn rc_params() -> RcParams
 
 pub fn reset() -> Unit
@@ -48,6 +52,8 @@ pub fn set_date_interval_multiples(Bool) -> Unit
 
 pub fn set_grid(Bool, String, Double) -> Unit raise @core.DataError
 
+pub fn set_minor_tick_divisions(MinorTickDivisions, horizontal? : Bool) -> Unit raise @core.DataError
+
 pub fn set_timezone(String) -> Unit
 
 pub fn set_x_margin(Double) -> Unit raise @core.DataError
@@ -63,6 +69,15 @@ pub fn y_margin() -> Double
 // Errors
 
 // Types and methods
+pub(all) enum MinorTickDivisions {
+  Text(String)
+  Number(Double)
+  Integer(@bigint.BigInt)
+} derive(Eq, @debug.Debug)
+pub fn MinorTickDivisions::equal(Self, Self) -> Bool
+pub fn MinorTickDivisions::not_equal(Self, Self) -> Bool
+pub fn MinorTickDivisions::to_repr(Self) -> @debug.Repr
+
 pub struct RcParams {
   mut date_epoch : String
   color_cycle : Array[String]
@@ -84,6 +99,7 @@ pub fn RcParams::date_interval_multiples(Self) -> Bool
 pub fn RcParams::grid_color(Self) -> String
 pub fn RcParams::grid_linewidth(Self) -> Double
 pub fn RcParams::grid_visible(Self) -> Bool
+pub fn RcParams::minor_tick_divisions(Self, horizontal? : Bool) -> MinorTickDivisions
 pub fn RcParams::timezone(Self) -> String
 pub fn RcParams::x_margin(Self) -> Double
 pub fn RcParams::y_margin(Self) -> Double

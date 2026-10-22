@@ -1081,7 +1081,9 @@ pub fn Axis::minor_tick_values(
     self.minor_date_locator is None &&
     self.minor_locator
     is Some(
-      @ticker.MinorLocator::NamedLinear(_)
+      @ticker.MinorLocator::Null(_)
+      | @ticker.MinorLocator::NamedAutoMinor(_)
+      | @ticker.MinorLocator::NamedLinear(_)
       | @ticker.MinorLocator::Index(_)
       | @ticker.MinorLocator::NamedFixed(_)
       | @ticker.MinorLocator::NamedMaxN(_)

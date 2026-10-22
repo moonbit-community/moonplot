@@ -8,19 +8,20 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D23（命名AutoMinorLocator/NullLocator），只读准备完成，尚未冻结/实现。
-- 最近完成D22：MaxN/Auto完整typed参数/partial更新、full grid决策/offset Edge/prune/view、
-  classic构造捕获、实际物理tick-space/checked axis/secondary/contour、真Float64/Int64 views。
-- 最终四目标：wasm/wasm-gc/native各7250/7250，JS7257/7257（7个无Node测试）。
-  info&&fmt、check-all171tasks（8旧Ref warnings）、九个source --check全部exit0。
-  D22-interface.diff符合预期MaxN/Auto/config/physical/Int64入口；date接口无变化，无新外部依赖。
-- 下一条具体动作：读取 .moonagent/checkpoints/D23-readonly-notes.md（229行已定向分析），
-  冻结AutoMinor/Null的ndivs/首次rc、任意精度round/NumPy arange dtype与owner四provider合同；
-  保存D23-before，分派独占实现/原源包，root接线与门禁。默认数值Axis生命周期仍是待迁移项。
-- 当前无live Moon/source session。最终test-all95557、check-all26276、source87609/92172均
-  exit0勿轮询；所有agents交付停止。D23只有ignored只读笔记，不提前标实现。
+- 当前切片编号：D24（候选命名LogLocator），定向只读准备中，尚未冻结/实现。
+- 最近完成D23：命名AutoMinorLocator/NullLocator、首次x/y rc捕获与精确Integer(BigInt)、
+  四provider最后owner、Int64 unique/diff、任意精度round/arange dtype、axis raw/overlap、
+  secondary minor与Null主次独立skip；保留旧helpers及默认numeric生命周期待办。
+- 最终四目标：wasm/wasm-gc/native各7707/7707，JS7714/7714（JS额外7项）。
+  info&&fmt、check-all119tasks（8旧Ref warnings）、三份新source --check全部exit0。
+  D23-interface.diff符合预期config/namedlocators/axis/secondary IR入口；date接口无变化，无新外部依赖。
+- 下一条具体动作：等A/B/C仅ignored的D24-log-{params,grid,axis}-notes.md交付，核查Log参数
+  partial更新/alias、np.power与Pythonpow/巨大exponent/完整phase、own/shared minpos与secondary，
+  冻结typed LogLocator合同后保存D24-before并独占分派；不重启D23测试或全项目survey。
+- 当前无live Moon/source session。D23 finaltest-all2062、check-all45231已exit0勿轮询；
+  A/B/C D23实现全部停写，现仅D24 ignored只读probe，不写tracked源码/tests/docs。
 - Git本地基线commit 1b61c4b（D01–D19）；D20验收commit d385718；D21验收commit 2403fcb；
-  D22验收commit fee6885。
+  D22验收commit fee6885；D23已验收，待本地提交记录hash。
   无remote。用户已授权分批commit与并行subagents，后续按验收步骤继续本地提交。
 - 整体目标持续，约46%全目标/80%核心二维SVG工程估算暂不变，无阻塞。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
@@ -35,7 +36,7 @@
 ## 当前目标
 
 - [ ] 持续把 Matplotlib v3.11.2 的公开能力迁移到 MoonBit；本目标仍在进行中。
-- 下一纵向切片候选：命名AutoMinorLocator/NullLocator；命名MaxNLocator/AutoLocator、命名LinearLocator/IndexLocator/FixedLocator、通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
+- 下一纵向切片候选：命名LogLocator；命名AutoMinorLocator/NullLocator、命名MaxNLocator/AutoLocator、命名LinearLocator/IndexLocator/FixedLocator、通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
   TZif/IANA、Axes 位置/选择/移除、numeric aspect、anchor、adjustable 与 box_aspect 已验收。
 - 已确认的用户决定：支持合理复用；保留 `Figure::to_svg` → `internal/render` →
   `backend/svg`，有具体共享需求再增加抽象层。不要反复讨论已解决的架构问题。
@@ -3048,10 +3049,12 @@
 
 ## D23 执行顺序（尚未冻结/实现）
 
-- [ ] D23-01 读取229行定向笔记并核查D22新Int64主刻度域的影响，冻结AutoMinor/Null及四provider、
-  ndivs首次rc/所有权、Python任意精度round/NumPy arange dtype合同；保存D23-before后独占分派。
-- [ ] D23-02 并行对象/数值/原源包与root checked axis/render整合，旧auto_minor helper保留。
-- [ ] D23-03 文档/原源/接口/四目标验收后本地提交。
+- [x] D23-01 冻结：保留Int64 TickValues major，四独立raise Core providers，None首次rc捕获，
+  Text/Number（rc精确整数补Integer BigInt）参数，warnings为last-op复制诊断，继承set_params noop。
+  unique/step/grid私有kernel拆分保证view读取顺序；Python round任意精度、dtype/full phase后cap，
+  新AutoMinor axis raw不clip且transformed overlap，Null独立skip。D23-before从HEAD保存、A/B/C已独占分派。
+- [x] D23-02 并行对象/数值/原源包与root checked axis/render整合，旧auto_minor helper保留。
+- [x] D23-03 文档/原源/接口/四目标验收；本地提交随后记录hash。
 
 已确认的只读事实（完整依据 .moonagent/checkpoints/D23-readonly-notes.md，勿重做全survey）：
 
@@ -3068,3 +3071,78 @@
 - Null direct/call无axis均[]，继承view/nonsingular .001/.05；源Axis._update_ticks有Null类型分支。
 - 隐式默认numeric locator、units/scale/clear生命周期与完整dataLim cache仍在总目标待办；
   不因显式named类已验收而把整体迁移目标标完成。当前agents全部idle，无live工具。
+
+D23 当前写入所有权：A /root/multiple_reference=config与AutoMinor对象/params oracle；
+B /root/multiple_integration=auto_minor_grid* kernel/grid oracle；C /root/multiple_docs=Null与axis原源
+集成tests/README；root=variants/adapters/axis/secondary/render/总docs与门禁。无live Moon session。
+
+D23-02 root公共接线已写入（未验收）：ticker Locator::Null/MinorLocator::Null、NamedAutoMinor，
+explicit tick_values错误与axis call分开，major tick_view_for_axis保留Fixed/Linear整数dtype；
+Axis绑定scale/name/major/view四provider，AutoMinor先call再第二次major/view做transformed
+span1e-5 overlap，raw不clip，复用set_minor_overlap_removal；shared删除复用既有rebinding。
+Secondary新增minor APIs、自身function/functionlog与inverse(+parentlog) overlap、IR minor
+provider与SVG短刻度；Null主次独立跳过getter/formatter/offset，并接view/nonsingular。
+A config已落盘Text/Number/Integer(BigInt)与x/y rc验证/reset/copy，AutoMinor对象已落盘；
+C Null core/11range+26raw+12owner+2shared+8secondary+9skip源证据生成中。
+首轮static JS check session27232已exit255，仅3个B kernel未落盘unbound错误，日志
+D23-check-js-1.log；配置Number封装警告已改pub(all)，尚不声称编译/测试通过。无live tool。
+B发现原NumPy大数组VQSort随机signedzero representative：重复源运行可产±0，单独记录allowed
+bitset；小数组确定profile与其它finite bit仍严格比较，不将随机单次输出当确定规范。
+
+D23 static集成更新：B kernel初版已落盘，第二次check-js5554 exit255为root backend未import
+@ticker显式Null pattern一错；改用IR tick_group_is_null封装后第三次check-js exit0，15warnings
+（8旧Ref、6 A生成raising lambda语法、1root secondary unused raise）。root移除setter无用raise，
+A重新生成explicit effect callbacks，未跑tests且B/C仍写入。不提前作为最终验证。
+A交付180generated（137rc+43对象）+4hand，sourcegen/--check exit0。
+
+D23交付/自审更新：B已停写，209generated+4hand、2budget omissions、3完整source大数组cap、
+2组各1000次VQSort signedzero观测；source --check exit0，exact(first+1)再float的arange第二项
+已修正（halfULP first虽非AutoMinor可达，内部仍忠实源）。A已修6callback annotations并停写。
+C收尾Null直接Axis getter/secondary Nullskip手写测试，README有scope和待验收计数。
+root自审修正：Null minor的直接Axis/secondary getter在overlap开启时仍读major再view；只有
+renderer提前Null skip。A只读review修正secondary_axis_ticks入口Null guard，避免先读forward。
+所有D23代码尚未跑统一Moon tests；下一步等C停写，info&&fmt→test JS→四目标检查/验收。
+
+D23统一门禁进展：全writers已停写；info&&fmt首轮exit0/8旧Ref warnings；D23-interface.diff
+已审查，新增typed config、AutoMinor/Null/live adapters、TickValues source-major入口、secondary
+minor和internal IR provider，日期接口无变化/无新外部依赖。三份新source --check全exit0。
+JS72921 exit1为B hand 1e308字面量缺小数点，root改1.0e308；JS69694 exit2实跑7713/7714，
+唯一失败C hand误把共享ndivs算独立，原AST确认reset后x/y各一个点总2；安装external copy到y后
+才共4，C在同一test补两阶段并停写。所有180+209+50 generated源期望未更改，生产数值无变动。
+最终info/fmt/check-all开始，下一步四目标test-all；源码/README/tests保持冻结直至门禁完成。
+
+最终info/fmt/check-all45231已exit0：check-all119tasks、8旧Ref warnings/0error；接口diff再次
+保存，无日期API或外部依赖改变。final test-all session2062 live，日志D23-test-all.log；
+源码/tests/README冻结。A/B/C均停写。源三check此前全exit0，无live source session。
+
+### D23 已验收（2026-10-23）
+
+- final test-all2062已exit0：wasm/wasm-gc/native各7707/7707，JS7714/7714；每目标新增457。
+  最终info/fmt/check-all45231 exit0，119tasks、8旧Ref warnings/0error；三份新原源--check
+  全exit0。D23-interface.diff符合预期typed config/AutoMinor/Null/adapters/axis/secondary IR；
+  date接口无变化，无外部依赖、Python运行时或自有C。git diff --check通过。
+- A：137rc+43object generated=180，另4hand；rc包括完整finiteDouble精确截断、Python3.12
+  Unicode15的68Nd组/整数空白/underscore/4300位、AUTO原样；原构造不校验，rc转Integer，
+  None首次有效查询捕获、错误后不回滚、独立copy/closures、严格provider顺序与warning noop。
+- B：209generated+4hand，2独立budget omissions，3完整source125k/200k/125001数组cap；
+  Int64真实unique/wrap差、Python BigInt round、int64/float64/object arange与分步mul/add。
+  原VQSort两组各1000次证明大等值区±0随机代表，仅该实际不稳定值用allowed bitset；其余
+  finite值保持逐bit。未为通过测试放宽确定profile，未把budget省略报成源异常。
+- C：12ticker+38scene generated=50，另2ticker+5scene+3SVG hand=10；11Null范围×4方法、
+  26raw/axis×2、12owner stages、2真实Grouper删除×3query、8secondary×2、9Nullskip，
+  以及直接Null-minor overlap/二次major错误链。Null raw Axis getter仍读major/view，SVG才
+  提前skip；secondary自身function/functionlog、inverse(+log) overlap与minor短线已接。
+- 首轮JS仅hand字面量语法；次轮7713/7714唯一hand断言误以共享ndivs独立，原AST确认共享
+  reset后x/y总2，装回external copy到y后总4，补两阶段assert后最终四目标通过。
+  全部生成期望未更改，数值生产无需针对失败弱化。A复核还补secondary Null入口跳forward。
+- README/compatibility/plan/dependencies/notices/专门guide同步。默认numeric locator的units/
+  scale/clear生命周期、完整dataLim cache/relim、动态Python/其他dtype与完整backend仍待迁移。
+  整体goal持续active，46%全目标/80%核心二维工程估算暂不变。
+
+## D24 执行顺序（候选命名LogLocator，只读准备中）
+
+- [ ] D24-01 读取A/B/C定向ignored笔记，冻结完整typed参数/partial状态、经典捕获与动态rc、
+  own/shared minpos/provider、np.power/Pythonpow及巨大exponent/phase/cap协议，保存D24-before。
+- [ ] D24-02 独占并行参数/数值/axis原源包，root集成live named主次/secondary/contour/SVG。
+- [ ] D24-03 文档/原源/接口/四目标验收后本地提交。旧log helpers保留；SymLog/Asinh/Logit
+  命名类与默认Axis生命周期继续列入后续切片，不扩大本片验收声明。

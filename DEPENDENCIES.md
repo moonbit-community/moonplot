@@ -175,3 +175,13 @@ Auto经典默认沿原Int64数组，不用Double buffer伪造默认dtype写入�
 Axis/Secondary字号与physical tick-space复用现有scene/render/SVG尺寸和文字链路，固定
 dpi72 profile；没有运行时Matplotlib、NumPy、Python、新外部库或C实现。新增classic Bool
 配置、参数/数值/Auto/物理源参考及重现命令见[testdata/maxn_locator_README.md](testdata/maxn_locator_README.md)。
+
+## D23 自动次刻度与空定位器
+
+AutoMinorLocator 复用真实 Float64/Int64 TickValues、nonsingular 与既有 BigInt/binary64
+舍入工具，保留整数 unique/diff、任意精度 Python round 相位和 NumPy arange dtype 分支。
+config 增加核心 bigint/debug 标准库导入，用于精确整数 rc 与公开 typed 参数；不新增外部库。
+轴与 secondary 使用现有 provider、共享绑定、变换和 scene/render/SVG 链路；Null 按独立
+刻度组跳过 getter/formatter。原源参考只依赖开发环境的固定 Python/NumPy，涵盖源 AST、
+Unicode15 整数转换及 NumPy 随机 signed-zero 代表观察；生产不引入 Python、NumPy 或 C。
+固定来源、typed 域与重现见[testdata/auto_minor_locator_README.md](testdata/auto_minor_locator_README.md)。

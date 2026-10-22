@@ -1,0 +1,2273 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "figure.py": "b440ab0a5be03cb39b13529a2fec497d2d96deb083e3e56d6220593e3ec567da",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "axes/_secondary_axes.py": "b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "numpy_binary_sha256": "44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305",
+  "methods": [
+    "full TickHelper/Locator/NullLocator/AutoMinorLocator",
+    "Axis.set_major_locator/set_minor_locator/get_majorticklocs/get_minorticklocs/_update_ticks",
+    "Grouper",
+    "FigureBase._remove_axes",
+    "SecondaryAxis._set_lims/_set_scale",
+    "transforms._nonsingular/_interval_contains_close"
+  ],
+  "fixture_boundaries": "controlled axis Ticker containers, live major callbacks, rc mapping, known identity/log10/function transforms, Tick/formatter sinks; secondary scale setter captures source scale name/functions but does not implement scale-default lifecycle or full renderer",
+  "null_ranges": [
+    {
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "call": [],
+      "ticks": [],
+      "view": [
+        -0.001,
+        0.001
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "call": [],
+      "ticks": [],
+      "view": [
+        0.999,
+        1.001
+      ],
+      "nonsingular": [
+        0.95,
+        1.05
+      ]
+    },
+    {
+      "bounds": [
+        -1.0,
+        -1.0
+      ],
+      "call": [],
+      "ticks": [],
+      "view": [
+        -1.001,
+        -0.999
+      ],
+      "nonsingular": [
+        -1.05,
+        -0.95
+      ]
+    },
+    {
+      "bounds": [
+        2.0,
+        -3.0
+      ],
+      "call": [],
+      "ticks": [],
+      "view": [
+        -3.0,
+        2.0
+      ],
+      "nonsingular": [
+        -3.0,
+        2.0
+      ]
+    },
+    {
+      "bounds": [
+        "nan",
+        "inf"
+      ],
+      "call": [],
+      "ticks": [],
+      "view": [
+        -0.001,
+        0.001
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "bounds": [
+        "inf",
+        "-inf"
+      ],
+      "call": [],
+      "ticks": [],
+      "view": [
+        -0.001,
+        0.001
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "bounds": [
+        -0.0,
+        0.0
+      ],
+      "call": [],
+      "ticks": [],
+      "view": [
+        -0.001,
+        0.001
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "bounds": [
+        5e-324,
+        5e-324
+      ],
+      "call": [],
+      "ticks": [],
+      "view": [
+        -0.001,
+        0.001
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "bounds": [
+        1e-300,
+        2e-300
+      ],
+      "call": [],
+      "ticks": [],
+      "view": [
+        -0.001,
+        0.001
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "bounds": [
+        1000000000000.0,
+        1000000000000.0001
+      ],
+      "call": [],
+      "ticks": [],
+      "view": [
+        999000000000.0,
+        1001000000000.0001
+      ],
+      "nonsingular": [
+        950000000000.0,
+        1050000000000.0001
+      ]
+    },
+    {
+      "bounds": [
+        -1e+308,
+        1e+308
+      ],
+      "call": [],
+      "ticks": [],
+      "view": [
+        -1e+308,
+        1e+308
+      ],
+      "nonsingular": [
+        -1e+308,
+        1e+308
+      ]
+    }
+  ],
+  "null_warning": [
+    "'set_params()' not defined for locator of type <class 'matplotlib.ticker.NullLocator'>"
+  ],
+  "axis_cases": [
+    {
+      "label": "unique irregular neighbors",
+      "name": "x",
+      "majors": [
+        3.0,
+        1.0,
+        0.0,
+        1.0,
+        3.0
+      ],
+      "view": [
+        0.75,
+        1.75
+      ],
+      "n": 2.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    },
+    {
+      "label": "raw retains outer neighbor",
+      "name": "x",
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "view": [
+        0.75,
+        1.75
+      ],
+      "n": 2.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    },
+    {
+      "label": "overlap disabled",
+      "name": "x",
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "view": [
+        0.75,
+        1.75
+      ],
+      "n": 2.0,
+      "overlap": false,
+      "raw": {
+        "values": [
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    },
+    {
+      "label": "span tolerance removes nearby irregular major",
+      "name": "x",
+      "majors": [
+        0.0,
+        1.0,
+        1.50001
+      ],
+      "view": [
+        0.0,
+        2.0
+      ],
+      "n": 2.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    },
+    {
+      "label": "span tolerance keeps farther irregular major",
+      "name": "x",
+      "majors": [
+        0.0,
+        1.0,
+        1.50003
+      ],
+      "view": [
+        0.0,
+        2.0
+      ],
+      "n": 2.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.5,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    },
+    {
+      "label": "reversed view source remains ascending",
+      "name": "x",
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "view": [
+        1.75,
+        0.75
+      ],
+      "n": 2.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    },
+    {
+      "label": "auto 4",
+      "name": "x",
+      "majors": [
+        0.0,
+        3.0
+      ],
+      "view": [
+        0.0,
+        3.0
+      ],
+      "n": "auto",
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0,
+          0.75,
+          1.5,
+          2.25,
+          3.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.75,
+          1.5,
+          2.25
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": "auto"
+    },
+    {
+      "label": "auto 5",
+      "name": "x",
+      "majors": [
+        0.0,
+        2.5
+      ],
+      "view": [
+        0.0,
+        2.5
+      ],
+      "n": "auto",
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.5,
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": "auto"
+    },
+    {
+      "label": "only one major",
+      "name": "x",
+      "majors": [
+        2.0,
+        2.0
+      ],
+      "view": [
+        0.0,
+        1.0
+      ],
+      "n": null,
+      "overlap": true,
+      "raw": {
+        "values": [],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": null
+    },
+    {
+      "label": "zero returns NaN",
+      "name": "x",
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "view": [
+        0.0,
+        1.0
+      ],
+      "n": 0.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          "nan"
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          "nan"
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 0.0
+    },
+    {
+      "label": "negative short interval",
+      "name": "x",
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "view": [
+        0.1,
+        0.4
+      ],
+      "n": -1.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": -1.0
+    },
+    {
+      "label": "fractional divisions",
+      "name": "x",
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "view": [
+        0.0,
+        1.0
+      ],
+      "n": 2.5,
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0,
+          0.4,
+          0.8
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.4,
+          0.8
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.5
+    },
+    {
+      "label": "NaN later major",
+      "name": "x",
+      "majors": [
+        0.0,
+        1.0,
+        "nan"
+      ],
+      "view": [
+        0.0,
+        1.0
+      ],
+      "n": 2.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.5
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    },
+    {
+      "label": "unique irregular neighbors",
+      "name": "y",
+      "majors": [
+        3.0,
+        1.0,
+        0.0,
+        1.0,
+        3.0
+      ],
+      "view": [
+        0.75,
+        1.75
+      ],
+      "n": 2.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    },
+    {
+      "label": "raw retains outer neighbor",
+      "name": "y",
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "view": [
+        0.75,
+        1.75
+      ],
+      "n": 2.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    },
+    {
+      "label": "overlap disabled",
+      "name": "y",
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "view": [
+        0.75,
+        1.75
+      ],
+      "n": 2.0,
+      "overlap": false,
+      "raw": {
+        "values": [
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    },
+    {
+      "label": "span tolerance removes nearby irregular major",
+      "name": "y",
+      "majors": [
+        0.0,
+        1.0,
+        1.50001
+      ],
+      "view": [
+        0.0,
+        2.0
+      ],
+      "n": 2.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    },
+    {
+      "label": "span tolerance keeps farther irregular major",
+      "name": "y",
+      "majors": [
+        0.0,
+        1.0,
+        1.50003
+      ],
+      "view": [
+        0.0,
+        2.0
+      ],
+      "n": 2.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.5,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    },
+    {
+      "label": "reversed view source remains ascending",
+      "name": "y",
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "view": [
+        1.75,
+        0.75
+      ],
+      "n": 2.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    },
+    {
+      "label": "auto 4",
+      "name": "y",
+      "majors": [
+        0.0,
+        3.0
+      ],
+      "view": [
+        0.0,
+        3.0
+      ],
+      "n": "auto",
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0,
+          0.75,
+          1.5,
+          2.25,
+          3.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.75,
+          1.5,
+          2.25
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": "auto"
+    },
+    {
+      "label": "auto 5",
+      "name": "y",
+      "majors": [
+        0.0,
+        2.5
+      ],
+      "view": [
+        0.0,
+        2.5
+      ],
+      "n": "auto",
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.5,
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": "auto"
+    },
+    {
+      "label": "only one major",
+      "name": "y",
+      "majors": [
+        2.0,
+        2.0
+      ],
+      "view": [
+        0.0,
+        1.0
+      ],
+      "n": null,
+      "overlap": true,
+      "raw": {
+        "values": [],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": null
+    },
+    {
+      "label": "zero returns NaN",
+      "name": "y",
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "view": [
+        0.0,
+        1.0
+      ],
+      "n": 0.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          "nan"
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          "nan"
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 0.0
+    },
+    {
+      "label": "negative short interval",
+      "name": "y",
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "view": [
+        0.1,
+        0.4
+      ],
+      "n": -1.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": -1.0
+    },
+    {
+      "label": "fractional divisions",
+      "name": "y",
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "view": [
+        0.0,
+        1.0
+      ],
+      "n": 2.5,
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0,
+          0.4,
+          0.8
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.4,
+          0.8
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.5
+    },
+    {
+      "label": "NaN later major",
+      "name": "y",
+      "majors": [
+        0.0,
+        1.0,
+        "nan"
+      ],
+      "view": [
+        0.0,
+        1.0
+      ],
+      "n": 2.0,
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.5
+        ],
+        "error": null,
+        "events": [
+          "axis.scale",
+          "axis.major.provider",
+          "axis.view",
+          "axis.major.provider",
+          "axis.view"
+        ],
+        "warnings": []
+      },
+      "captured": 2.0
+    }
+  ],
+  "late_major_error": {
+    "values": null,
+    "error": "ValueError",
+    "events": [
+      "late.scale",
+      "late.major.provider",
+      "late.view",
+      "late.major.provider"
+    ],
+    "warnings": []
+  },
+  "ownership": [
+    {
+      "name": "x",
+      "stages": [
+        {
+          "stage": "first install captures own rc",
+          "owner": "first",
+          "captured": null,
+          "query": {
+            "values": [
+              0.0,
+              0.5,
+              1.0
+            ],
+            "error": null,
+            "events": [
+              "first.scale",
+              "first.major.provider",
+              "first.name",
+              "first.view"
+            ],
+            "warnings": []
+          },
+          "after": 2
+        },
+        {
+          "stage": "second install changes all owner providers",
+          "owner": "second",
+          "captured": 2,
+          "query": {
+            "values": [
+              10.0,
+              11.0,
+              12.0
+            ],
+            "error": null,
+            "events": [
+              "second.scale",
+              "second.major.provider",
+              "second.view"
+            ],
+            "warnings": []
+          },
+          "after": 2
+        },
+        {
+          "stage": "later major and view updates are live",
+          "owner": "second",
+          "captured": 2,
+          "query": {
+            "values": [
+              20.0,
+              22.0,
+              24.0
+            ],
+            "error": null,
+            "events": [
+              "second.scale",
+              "second.major.provider",
+              "second.view"
+            ],
+            "warnings": []
+          },
+          "after": 2
+        },
+        {
+          "stage": "log is allowed at setter and warns only on call",
+          "owner": "second",
+          "captured": 2,
+          "query": {
+            "values": [],
+            "error": null,
+            "events": [
+              "second.scale"
+            ],
+            "warnings": [
+              "AutoMinorLocator does not work on logarithmic scales"
+            ]
+          },
+          "after": 2
+        },
+        {
+          "stage": "manual reset captures current owner rc",
+          "owner": "second",
+          "captured": null,
+          "query": {
+            "values": [
+              20.0,
+              21.0,
+              22.0,
+              23.0,
+              24.0
+            ],
+            "error": null,
+            "events": [
+              "second.scale",
+              "second.major.provider",
+              "second.name",
+              "second.view"
+            ],
+            "warnings": []
+          },
+          "after": 4
+        },
+        {
+          "stage": "outside copy retains first owner and old captured divisions",
+          "owner": "first",
+          "captured": 2,
+          "query": {
+            "values": [
+              0.0,
+              0.5,
+              1.0
+            ],
+            "error": null,
+            "events": [
+              "first.scale",
+              "first.major.provider",
+              "first.view"
+            ],
+            "warnings": []
+          },
+          "after": 2
+        }
+      ]
+    },
+    {
+      "name": "y",
+      "stages": [
+        {
+          "stage": "first install captures own rc",
+          "owner": "first",
+          "captured": null,
+          "query": {
+            "values": [
+              0.0,
+              0.3333333333333333,
+              0.6666666666666666,
+              1.0
+            ],
+            "error": null,
+            "events": [
+              "first.scale",
+              "first.major.provider",
+              "first.name",
+              "first.view"
+            ],
+            "warnings": []
+          },
+          "after": 3
+        },
+        {
+          "stage": "second install changes all owner providers",
+          "owner": "second",
+          "captured": 3,
+          "query": {
+            "values": [
+              10.0,
+              10.666666666666666,
+              11.333333333333334,
+              12.0
+            ],
+            "error": null,
+            "events": [
+              "second.scale",
+              "second.major.provider",
+              "second.view"
+            ],
+            "warnings": []
+          },
+          "after": 3
+        },
+        {
+          "stage": "later major and view updates are live",
+          "owner": "second",
+          "captured": 3,
+          "query": {
+            "values": [
+              20.0,
+              21.333333333333332,
+              22.666666666666668,
+              24.0
+            ],
+            "error": null,
+            "events": [
+              "second.scale",
+              "second.major.provider",
+              "second.view"
+            ],
+            "warnings": []
+          },
+          "after": 3
+        },
+        {
+          "stage": "log is allowed at setter and warns only on call",
+          "owner": "second",
+          "captured": 3,
+          "query": {
+            "values": [],
+            "error": null,
+            "events": [
+              "second.scale"
+            ],
+            "warnings": [
+              "AutoMinorLocator does not work on logarithmic scales"
+            ]
+          },
+          "after": 3
+        },
+        {
+          "stage": "manual reset captures current owner rc",
+          "owner": "second",
+          "captured": null,
+          "query": {
+            "values": [
+              20.0,
+              21.0,
+              22.0,
+              23.0,
+              24.0
+            ],
+            "error": null,
+            "events": [
+              "second.scale",
+              "second.major.provider",
+              "second.name",
+              "second.view"
+            ],
+            "warnings": []
+          },
+          "after": 4
+        },
+        {
+          "stage": "outside copy retains first owner and old captured divisions",
+          "owner": "first",
+          "captured": 3,
+          "query": {
+            "values": [
+              0.0,
+              0.3333333333333333,
+              0.6666666666666666,
+              1.0
+            ],
+            "error": null,
+            "events": [
+              "first.scale",
+              "first.major.provider",
+              "first.view"
+            ],
+            "warnings": []
+          },
+          "after": 3
+        }
+      ]
+    }
+  ],
+  "shared": [
+    {
+      "name": "x",
+      "before": {
+        "values": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "error": null,
+        "events": [
+          "second.scale",
+          "first.major.provider",
+          "second.view"
+        ],
+        "warnings": []
+      },
+      "after": {
+        "values": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "error": null,
+        "events": [
+          "first.scale",
+          "first.major.provider",
+          "first.view"
+        ],
+        "warnings": []
+      },
+      "outside": {
+        "values": [
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "second.scale",
+          "first.major.provider",
+          "second.view"
+        ],
+        "warnings": []
+      },
+      "owner": "first",
+      "copy_owner": "second"
+    },
+    {
+      "name": "y",
+      "before": {
+        "values": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "error": null,
+        "events": [
+          "second.scale",
+          "first.major.provider",
+          "second.view"
+        ],
+        "warnings": []
+      },
+      "after": {
+        "values": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "error": null,
+        "events": [
+          "first.scale",
+          "first.major.provider",
+          "first.view"
+        ],
+        "warnings": []
+      },
+      "outside": {
+        "values": [
+          1.0,
+          1.5,
+          2.0
+        ],
+        "error": null,
+        "events": [
+          "second.scale",
+          "first.major.provider",
+          "second.view"
+        ],
+        "warnings": []
+      },
+      "owner": "first",
+      "copy_owner": "second"
+    }
+  ],
+  "secondary": [
+    {
+      "name": "x",
+      "parent_scale": "linear",
+      "parent_view": [
+        1.0,
+        3.0
+      ],
+      "secondary_view": [
+        12.0,
+        16.0
+      ],
+      "secondary_scale": "function",
+      "major_values": [
+        12.0,
+        14.0,
+        15.00005
+      ],
+      "scale_writes": [
+        "function"
+      ],
+      "raw": {
+        "values": [
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          13.0,
+          15.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view",
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "x",
+      "parent_scale": "linear",
+      "parent_view": [
+        3.0,
+        1.0
+      ],
+      "secondary_view": [
+        16.0,
+        12.0
+      ],
+      "secondary_scale": "function",
+      "major_values": [
+        12.0,
+        14.0,
+        15.00005
+      ],
+      "scale_writes": [
+        "function"
+      ],
+      "raw": {
+        "values": [
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          13.0,
+          15.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view",
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "x",
+      "parent_scale": "log",
+      "parent_view": [
+        1.0,
+        3.0
+      ],
+      "secondary_view": [
+        12.0,
+        16.0
+      ],
+      "secondary_scale": "functionlog",
+      "major_values": [
+        12.0,
+        14.0,
+        15.00005
+      ],
+      "scale_writes": [
+        "functionlog"
+      ],
+      "raw": {
+        "values": [
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          13.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view",
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "x",
+      "parent_scale": "log",
+      "parent_view": [
+        3.0,
+        1.0
+      ],
+      "secondary_view": [
+        16.0,
+        12.0
+      ],
+      "secondary_scale": "functionlog",
+      "major_values": [
+        12.0,
+        14.0,
+        15.00005
+      ],
+      "scale_writes": [
+        "functionlog"
+      ],
+      "raw": {
+        "values": [
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          13.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view",
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "y",
+      "parent_scale": "linear",
+      "parent_view": [
+        1.0,
+        3.0
+      ],
+      "secondary_view": [
+        12.0,
+        16.0
+      ],
+      "secondary_scale": "function",
+      "major_values": [
+        12.0,
+        14.0,
+        15.00005
+      ],
+      "scale_writes": [
+        "function"
+      ],
+      "raw": {
+        "values": [
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          13.0,
+          15.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view",
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "y",
+      "parent_scale": "linear",
+      "parent_view": [
+        3.0,
+        1.0
+      ],
+      "secondary_view": [
+        16.0,
+        12.0
+      ],
+      "secondary_scale": "function",
+      "major_values": [
+        12.0,
+        14.0,
+        15.00005
+      ],
+      "scale_writes": [
+        "function"
+      ],
+      "raw": {
+        "values": [
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          13.0,
+          15.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view",
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "y",
+      "parent_scale": "log",
+      "parent_view": [
+        1.0,
+        3.0
+      ],
+      "secondary_view": [
+        12.0,
+        16.0
+      ],
+      "secondary_scale": "functionlog",
+      "major_values": [
+        12.0,
+        14.0,
+        15.00005
+      ],
+      "scale_writes": [
+        "functionlog"
+      ],
+      "raw": {
+        "values": [
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          13.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view",
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "y",
+      "parent_scale": "log",
+      "parent_view": [
+        3.0,
+        1.0
+      ],
+      "secondary_view": [
+        16.0,
+        12.0
+      ],
+      "secondary_scale": "functionlog",
+      "major_values": [
+        12.0,
+        14.0,
+        15.00005
+      ],
+      "scale_writes": [
+        "functionlog"
+      ],
+      "raw": {
+        "values": [
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          13.0,
+          16.0
+        ],
+        "error": null,
+        "events": [
+          "secondary.major.provider",
+          "secondary.view",
+          "secondary.major.provider",
+          "secondary.view"
+        ],
+        "warnings": []
+      }
+    }
+  ],
+  "null_getter": [
+    {
+      "overlap": true,
+      "values": null,
+      "error": "ValueError",
+      "events": [
+        "null-getter.data"
+      ],
+      "warnings": []
+    },
+    {
+      "overlap": false,
+      "values": [],
+      "error": null,
+      "events": [],
+      "warnings": []
+    }
+  ],
+  "null_skip": [
+    {
+      "null_major": true,
+      "null_minor": true,
+      "poison": false,
+      "values": [],
+      "error": null,
+      "events": [],
+      "warnings": []
+    },
+    {
+      "null_major": true,
+      "null_minor": true,
+      "poison": true,
+      "values": [],
+      "error": null,
+      "events": [],
+      "warnings": []
+    },
+    {
+      "null_major": true,
+      "null_minor": false,
+      "poison": false,
+      "values": [
+        0.5
+      ],
+      "error": null,
+      "events": [
+        "draw.minor.provider",
+        "draw.view",
+        "draw.minor.formatter",
+        "draw.view"
+      ],
+      "warnings": []
+    },
+    {
+      "null_major": true,
+      "null_minor": false,
+      "poison": true,
+      "values": [
+        0.5
+      ],
+      "error": null,
+      "events": [
+        "draw.minor.provider",
+        "draw.view",
+        "draw.minor.formatter",
+        "draw.view"
+      ],
+      "warnings": []
+    },
+    {
+      "null_major": false,
+      "null_minor": true,
+      "poison": false,
+      "values": [
+        0.0,
+        1.0
+      ],
+      "error": null,
+      "events": [
+        "draw.major.provider",
+        "draw.major.formatter",
+        "draw.view"
+      ],
+      "warnings": []
+    },
+    {
+      "null_major": false,
+      "null_minor": true,
+      "poison": true,
+      "values": [
+        0.0,
+        1.0
+      ],
+      "error": null,
+      "events": [
+        "draw.major.provider",
+        "draw.major.formatter",
+        "draw.view"
+      ],
+      "warnings": []
+    },
+    {
+      "null_major": false,
+      "null_minor": false,
+      "poison": false,
+      "values": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "error": null,
+      "events": [
+        "draw.major.provider",
+        "draw.major.formatter",
+        "draw.minor.provider",
+        "draw.major.provider",
+        "draw.view",
+        "draw.minor.formatter",
+        "draw.view"
+      ],
+      "warnings": []
+    },
+    {
+      "null_major": false,
+      "null_minor": false,
+      "poison": true,
+      "values": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "error": null,
+      "events": [
+        "draw.major.provider",
+        "draw.major.formatter",
+        "draw.minor.provider",
+        "draw.major.provider",
+        "draw.view",
+        "draw.minor.formatter",
+        "draw.view"
+      ],
+      "warnings": []
+    },
+    {
+      "label": "empty ordinary locator still invokes formatter",
+      "values": null,
+      "error": "ValueError",
+      "events": [
+        "empty.major.provider",
+        "empty.major.formatter"
+      ],
+      "warnings": []
+    }
+  ]
+}

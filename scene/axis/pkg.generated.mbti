@@ -123,6 +123,7 @@ pub fn Axis::set_tick_view(Self, Double, Double) -> Unit
 pub fn Axis::set_ticks(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn Axis::set_view_limits(Self, Double, Double) -> Unit raise @core.DataError
 pub fn Axis::tick_count(Self) -> Int
+pub fn Axis::tick_group_is_null(Self, minor? : Bool) -> Bool
 pub fn Axis::tick_label_size(Self) -> Double
 pub fn Axis::tick_labels(Self, Array[Double]) -> Array[String]
 pub fn Axis::tick_labels_with_view(Self, Array[Double], @core.Limits?) -> Array[String]
