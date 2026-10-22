@@ -15,13 +15,14 @@
 - 最终四目标：wasm/wasm-gc/native各7707/7707，JS7714/7714（JS额外7项）。
   info&&fmt、check-all119tasks（8旧Ref warnings）、三份新source --check全部exit0。
   D23-interface.diff符合预期config/namedlocators/axis/secondary IR入口；date接口无变化，无新外部依赖。
-- 下一条具体动作：等A/B/C仅ignored的D24-log-{params,grid,axis}-notes.md交付，核查Log参数
-  partial更新/alias、np.power与Pythonpow/巨大exponent/完整phase、own/shared minpos与secondary，
-  冻结typed LogLocator合同后保存D24-before并独占分派；不重启D23测试或全项目survey。
+- 下一条具体动作：先读ignored D24-log-params-notes.md(195行)、D24-log-grid-notes.md(170行)、
+  D24-log-axis-notes.md(336行)和D24-root-integration-notes.md(44行)，冻结Log参数/partial alias、
+  Pythonint/np.int64/np.float64预算来源、np.power/Pythonpow/巨大exponent/完整phase、own/shared
+  minpos与checked autoscale/secondary合同，再保存D24-before并独占分派；不重启D23门禁/survey。
 - 当前无live Moon/source session。D23 finaltest-all2062、check-all45231已exit0勿轮询；
-  A/B/C D23实现全部停写，现仅D24 ignored只读probe，不写tracked源码/tests/docs。
+  A/B/C D23实现及D24 ignored只读probe均交付停止；D24尚无tracked实现，不提前标通过。
 - Git本地基线commit 1b61c4b（D01–D19）；D20验收commit d385718；D21验收commit 2403fcb；
-  D22验收commit fee6885；D23已验收，待本地提交记录hash。
+  D22验收commit fee6885；D23验收commit 179f365。
   无remote。用户已授权分批commit与并行subagents，后续按验收步骤继续本地提交。
 - 整体目标持续，约46%全目标/80%核心二维SVG工程估算暂不变，无阻塞。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
@@ -3054,7 +3055,7 @@
   unique/step/grid私有kernel拆分保证view读取顺序；Python round任意精度、dtype/full phase后cap，
   新AutoMinor axis raw不clip且transformed overlap，Null独立skip。D23-before从HEAD保存、A/B/C已独占分派。
 - [x] D23-02 并行对象/数值/原源包与root checked axis/render整合，旧auto_minor helper保留。
-- [x] D23-03 文档/原源/接口/四目标验收；本地提交随后记录hash。
+- [x] D23-03 文档/原源/接口/四目标验收，本地提交179f365。
 
 已确认的只读事实（完整依据 .moonagent/checkpoints/D23-readonly-notes.md，勿重做全survey）：
 
@@ -3146,3 +3147,23 @@ JS72921 exit1为B hand 1e308字面量缺小数点，root改1.0e308；JS69694 exi
 - [ ] D24-02 独占并行参数/数值/axis原源包，root集成live named主次/secondary/contour/SVG。
 - [ ] D24-03 文档/原源/接口/四目标验收后本地提交。旧log helpers保留；SymLog/Asinh/Logit
   命名类与默认Axis生命周期继续列入后续切片，不扩大本片验收声明。
+
+D23本地实现/参考/文档已提交179f365（45files）；无remote，不push。D24参数只读notes已由A
+交付195行并停写：Float64 subs真实借用/Int64输入转Doublecopy、partial base→subs→numticks、
+ndim失败装入新bad array而转换失败保留old、constructorNone与setterNone不同、numticks完整
+Double域延迟断言/错误、经典构造捕获已实证。B/C仍仅ignored定向只读；暂无live工具。
+
+D24-C只读axis notes已交付336行并停写：17原AST probes，own tick_minpos vs shared nonsingular、
+反向positive-first错误、不绑定positive nonsingular错误、secondary空minpos Inf差异、删除后
+installed owner与external copy singleton均已观察。新增固定scale.py源hash在notes中。
+root只读integration notes也存ignored：TickSpace原int/自定义Double dtype待Bprobe决定；
+shared顺序/detached singleton/pairedfinite minpos/checked nonsingular/已知cache边界明确待冻结。
+B仍只读grid probes，不能提前开实现；无live Moon/source session需轮询。
+
+D24只读准备全部交付并停止：A195行/B170行/C336行/root44行。未冻结/实现D24，原源候选
+probe无live工具。B实证自动tick-space的Pythonint→np.int64与raw Double→np.float64差异，
+near-one且n_avail超Int64时，bound integer/float分别可源OverflowError/TypeError，而unbound
+Pythonint9可成功；不能用统一Double预算冒充全部源域。major NParraypow与minor Pythonpow的
+overflow差异、auto/all提前空、full dtype/fallback/cap与budget/size错误已分别记录。
+D23最终门禁/三原源全通过结果仍有效；之后仅文档/检查点更新，无需重跑。下一轮从D24-01
+合同冻结继续，整体goal保持active，不因完成本切片标complete。
