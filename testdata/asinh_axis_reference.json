@@ -1,0 +1,1984 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "figure.py": "b440ab0a5be03cb39b13529a2fec497d2d96deb083e3e56d6220593e3ec567da",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "axes/_secondary_axes.py": "b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "image.py": "6e1f61a547b371da9bd3b20b65991a90ec73b370504fd4a87d11d1293b2e2a77",
+    "axes/_axes.py": "f61e1cb43575eca70b01c9c80f16d3015e91a8101fe9ce0cc3fdc3d80441c8a7"
+  },
+  "scope": "Complete original Asinh/Transform/Axis/Secondary bodies, original autoscale_view\u2192set_bound\u2192Axis._set_lim, original get_data_ratio/apply_aspect. Known Bboxes/physical dimensions; identity units, formatter/tick/GUI and active-position sinks; no full default lifecycle or installed Matplotlib renderer.",
+  "geometry_assertions": "relative1e-12 without absolute floor, zero signs and NaN/Inf explicit; direct common locator arrays strict bits. Portable locator full-collection source/math differences are separately covered by grid owner.",
+  "profiles": [
+    {
+      "width": 0.0,
+      "error": "ValueError",
+      "message": "Scale parameter 'linear_width' must be strictly positive"
+    },
+    {
+      "width": -0.0,
+      "error": "ValueError",
+      "message": "Scale parameter 'linear_width' must be strictly positive"
+    },
+    {
+      "width": -1.0,
+      "error": "ValueError",
+      "message": "Scale parameter 'linear_width' must be strictly positive"
+    },
+    {
+      "width": "-inf",
+      "error": "ValueError",
+      "message": "Scale parameter 'linear_width' must be strictly positive"
+    },
+    {
+      "width": "nan",
+      "inverse": false,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan"
+      ],
+      "error": null
+    },
+    {
+      "width": "nan",
+      "inverse": true,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan"
+      ],
+      "error": null
+    },
+    {
+      "width": "inf",
+      "inverse": false,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan"
+      ],
+      "error": null
+    },
+    {
+      "width": "inf",
+      "inverse": true,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan"
+      ],
+      "error": null
+    },
+    {
+      "width": 1e-308,
+      "inverse": false,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        "-inf",
+        "-inf",
+        -7.098893558227259e-306,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        7.098893558227259e-306,
+        "inf",
+        "inf",
+        "inf",
+        "nan"
+      ],
+      "error": null
+    },
+    {
+      "width": 1e-308,
+      "inverse": true,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        "-inf",
+        "-inf",
+        "-inf",
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        "inf",
+        "inf",
+        "inf",
+        "inf",
+        "nan"
+      ],
+      "error": null
+    },
+    {
+      "width": 1.0,
+      "inverse": false,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        -709.889355822726,
+        -5.298342365610589,
+        -0.881373587019543,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        0.881373587019543,
+        5.298342365610589,
+        709.889355822726,
+        "inf",
+        "nan"
+      ],
+      "error": null
+    },
+    {
+      "width": 1.0,
+      "inverse": true,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        "-inf",
+        -1.3440585709080678e+43,
+        -1.1752011936438014,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.1752011936438014,
+        1.3440585709080678e+43,
+        "inf",
+        "inf",
+        "nan"
+      ],
+      "error": null
+    },
+    {
+      "width": 2.0,
+      "inverse": false,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        -1418.392417284332,
+        -9.210540341982847,
+        -0.9624236501192069,
+        -0.0,
+        -0.0,
+        0.0,
+        0.0,
+        0.9624236501192069,
+        9.210540341982847,
+        1418.392417284332,
+        "inf",
+        "nan"
+      ],
+      "error": null
+    },
+    {
+      "width": 2.0,
+      "inverse": true,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        "-inf",
+        -5.184705528587072e+21,
+        -1.0421906109874948,
+        -0.0,
+        -0.0,
+        0.0,
+        0.0,
+        1.0421906109874948,
+        5.184705528587072e+21,
+        "inf",
+        "inf",
+        "nan"
+      ],
+      "error": null
+    },
+    {
+      "width": 1e+308,
+      "inverse": false,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        -8.81373587019543e+307,
+        -100.0,
+        -0.9999999999999999,
+        -0.0,
+        -0.0,
+        0.0,
+        0.0,
+        0.9999999999999999,
+        100.0,
+        8.81373587019543e+307,
+        "inf",
+        "nan"
+      ],
+      "error": null
+    },
+    {
+      "width": 1e+308,
+      "inverse": true,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        -1.1752011936438015e+308,
+        -100.0,
+        -0.9999999999999999,
+        -0.0,
+        -0.0,
+        0.0,
+        0.0,
+        0.9999999999999999,
+        100.0,
+        1.1752011936438015e+308,
+        "inf",
+        "nan"
+      ],
+      "error": null
+    }
+  ],
+  "axis": [
+    {
+      "label": "linear comparison",
+      "scale": "linear",
+      "width": 1.0,
+      "view": [
+        -100.0,
+        100.0
+      ],
+      "majors": [
+        100.005
+      ],
+      "subs": null,
+      "overlap": true,
+      "raw": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [],
+      "visible_minor": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0
+      ]
+    },
+    {
+      "label": "actual asinh transformed overlap",
+      "scale": "asinh",
+      "width": 1.0,
+      "view": [
+        -100.0,
+        100.0
+      ],
+      "majors": [
+        100.005
+      ],
+      "subs": null,
+      "overlap": true,
+      "raw": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [],
+      "visible_minor": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0
+      ]
+    },
+    {
+      "label": "negative positive default minors",
+      "scale": "asinh",
+      "width": 1.0,
+      "view": [
+        -100.0,
+        100.0
+      ],
+      "majors": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "subs": [
+        2,
+        5
+      ],
+      "overlap": true,
+      "raw": {
+        "values": [
+          -500.0,
+          -200.0,
+          -50.0,
+          -20.0,
+          -5.0,
+          -2.0,
+          0.0,
+          2.0,
+          5.0,
+          20.0,
+          50.0,
+          200.0,
+          500.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -500.0,
+          -200.0,
+          -50.0,
+          -20.0,
+          -5.0,
+          -2.0,
+          2.0,
+          5.0,
+          20.0,
+          50.0,
+          200.0,
+          500.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "visible_minor": [
+        -50.0,
+        -20.0,
+        -5.0,
+        -2.0,
+        2.0,
+        5.0,
+        20.0,
+        50.0
+      ]
+    },
+    {
+      "label": "raw overlap disabled",
+      "scale": "asinh",
+      "width": 1.0,
+      "view": [
+        -100.0,
+        100.0
+      ],
+      "majors": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "subs": [
+        2,
+        5
+      ],
+      "overlap": false,
+      "raw": {
+        "values": [
+          -500.0,
+          -200.0,
+          -50.0,
+          -20.0,
+          -5.0,
+          -2.0,
+          0.0,
+          2.0,
+          5.0,
+          20.0,
+          50.0,
+          200.0,
+          500.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -500.0,
+          -200.0,
+          -50.0,
+          -20.0,
+          -5.0,
+          -2.0,
+          0.0,
+          2.0,
+          5.0,
+          20.0,
+          50.0,
+          200.0,
+          500.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "visible_minor": [
+        -50.0,
+        -20.0,
+        -5.0,
+        -2.0,
+        0.0,
+        2.0,
+        5.0,
+        20.0,
+        50.0
+      ]
+    },
+    {
+      "label": "reversed view retains source set ordering",
+      "scale": "asinh",
+      "width": 1.0,
+      "view": [
+        100.0,
+        -100.0
+      ],
+      "majors": [
+        100.0,
+        0.0,
+        -100.0
+      ],
+      "subs": [
+        2,
+        5
+      ],
+      "overlap": true,
+      "raw": {
+        "values": [
+          -500.0,
+          -200.0,
+          -50.0,
+          -20.0,
+          -5.0,
+          -2.0,
+          0.0,
+          2.0,
+          5.0,
+          20.0,
+          50.0,
+          200.0,
+          500.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -500.0,
+          -200.0,
+          -50.0,
+          -20.0,
+          -5.0,
+          -2.0,
+          2.0,
+          5.0,
+          20.0,
+          50.0,
+          200.0,
+          500.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        100.0,
+        0.0,
+        -100.0
+      ],
+      "visible_minor": [
+        -50.0,
+        -20.0,
+        -5.0,
+        -2.0,
+        2.0,
+        5.0,
+        20.0,
+        50.0
+      ]
+    },
+    {
+      "label": "axis width independent of locator width",
+      "scale": "asinh",
+      "width": 2.0,
+      "view": [
+        -100.0,
+        100.0
+      ],
+      "majors": [
+        100.005
+      ],
+      "subs": null,
+      "overlap": true,
+      "raw": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [],
+      "visible_minor": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0
+      ]
+    },
+    {
+      "label": "narrow view and zero",
+      "scale": "asinh",
+      "width": 1.0,
+      "view": [
+        -0.5,
+        0.5
+      ],
+      "majors": [
+        0.0
+      ],
+      "subs": [
+        2,
+        5
+      ],
+      "overlap": true,
+      "raw": {
+        "values": [
+          -0.5,
+          -0.2,
+          -0.05,
+          -0.02,
+          0.0,
+          0.02,
+          0.05,
+          0.2,
+          0.5
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -0.5,
+          -0.2,
+          -0.05,
+          -0.02,
+          0.02,
+          0.05,
+          0.2,
+          0.5
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        0.0
+      ],
+      "visible_minor": [
+        -0.5,
+        -0.2,
+        -0.05,
+        -0.02,
+        0.02,
+        0.05,
+        0.2,
+        0.5
+      ]
+    },
+    {
+      "label": "positive asymmetric view",
+      "scale": "asinh",
+      "width": 1.0,
+      "view": [
+        1.0,
+        100.0
+      ],
+      "majors": [
+        1.0,
+        10.0,
+        100.0
+      ],
+      "subs": [
+        2,
+        5
+      ],
+      "overlap": true,
+      "raw": {
+        "values": [
+          2.0,
+          5.0,
+          20.0,
+          50.0,
+          200.0,
+          500.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          2.0,
+          5.0,
+          20.0,
+          50.0,
+          200.0,
+          500.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        1.0,
+        10.0,
+        100.0
+      ],
+      "visible_minor": [
+        2.0,
+        5.0,
+        20.0,
+        50.0
+      ]
+    }
+  ],
+  "ranges": [
+    {
+      "mode": "data",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "view": {
+        "values": [
+          -0.001,
+          0.001
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "data",
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "view": {
+        "values": [
+          0.999,
+          1.001
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          0.95,
+          1.05
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "data",
+      "bounds": [
+        10.0,
+        -10.0
+      ],
+      "view": {
+        "values": [
+          -10.0,
+          10.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -10.0,
+          10.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "data",
+      "bounds": [
+        "nan",
+        "inf"
+      ],
+      "view": {
+        "values": [
+          -0.001,
+          0.001
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "view": {
+        "values": [
+          -0.001,
+          0.001
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "view": {
+        "values": [
+          0.999,
+          1.001
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          0.95,
+          1.05
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "bounds": [
+        10.0,
+        -10.0
+      ],
+      "view": {
+        "values": [
+          -10.0,
+          10.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -10.0,
+          10.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "bounds": [
+        "nan",
+        "inf"
+      ],
+      "view": {
+        "values": [
+          -0.001,
+          0.001
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    }
+  ],
+  "owners": [
+    {
+      "name": "x",
+      "stages": [
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -0.1,
+            -0.01,
+            0.0,
+            0.01,
+            0.1
+          ],
+          "error": null,
+          "events": [
+            "second.view.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -10.0,
+            -1.0,
+            -0.1,
+            0.0,
+            0.1,
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "second.view.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.x"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "name": "y",
+      "stages": [
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -0.1,
+            -0.01,
+            0.0,
+            0.01,
+            0.1
+          ],
+          "error": null,
+          "events": [
+            "second.view.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -10.0,
+            -1.0,
+            -0.1,
+            0.0,
+            0.1,
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "second.view.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.y"
+          ],
+          "warnings": []
+        }
+      ]
+    }
+  ],
+  "shared": [
+    {
+      "name": "x",
+      "before": [
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.view.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -500.0,
+            -200.0,
+            -50.0,
+            -20.0,
+            -5.0,
+            -2.0,
+            0.0,
+            2.0,
+            5.0,
+            20.0,
+            50.0,
+            200.0,
+            500.0
+          ],
+          "error": null,
+          "events": [
+            "second.view.x"
+          ],
+          "warnings": []
+        }
+      ],
+      "after": [
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -500.0,
+            -200.0,
+            -50.0,
+            -20.0,
+            -5.0,
+            -2.0,
+            0.0,
+            2.0,
+            5.0,
+            20.0,
+            50.0,
+            200.0,
+            500.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.x"
+          ],
+          "warnings": []
+        }
+      ],
+      "outside": [
+        {
+          "values": [
+            -0.1,
+            -0.01,
+            0.0,
+            0.01,
+            0.1
+          ],
+          "error": null,
+          "events": [
+            "second.view.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -0.5,
+            -0.2,
+            -0.05,
+            -0.02,
+            0.0,
+            0.02,
+            0.05,
+            0.2,
+            0.5
+          ],
+          "error": null,
+          "events": [
+            "second.view.x"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "name": "y",
+      "before": [
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.view.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -500.0,
+            -200.0,
+            -50.0,
+            -20.0,
+            -5.0,
+            -2.0,
+            0.0,
+            2.0,
+            5.0,
+            20.0,
+            50.0,
+            200.0,
+            500.0
+          ],
+          "error": null,
+          "events": [
+            "second.view.y"
+          ],
+          "warnings": []
+        }
+      ],
+      "after": [
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -500.0,
+            -200.0,
+            -50.0,
+            -20.0,
+            -5.0,
+            -2.0,
+            0.0,
+            2.0,
+            5.0,
+            20.0,
+            50.0,
+            200.0,
+            500.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.y"
+          ],
+          "warnings": []
+        }
+      ],
+      "outside": [
+        {
+          "values": [
+            -0.1,
+            -0.01,
+            0.0,
+            0.01,
+            0.1
+          ],
+          "error": null,
+          "events": [
+            "second.view.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -0.5,
+            -0.2,
+            -0.05,
+            -0.02,
+            0.0,
+            0.02,
+            0.05,
+            0.2,
+            0.5
+          ],
+          "error": null,
+          "events": [
+            "second.view.y"
+          ],
+          "warnings": []
+        }
+      ]
+    }
+  ],
+  "secondary": [
+    {
+      "name": "x",
+      "own_view": [
+        -195.0,
+        205.0
+      ],
+      "own_scale": "function",
+      "raw_major": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "raw_minor": {
+        "values": [
+          -500.0,
+          -200.0,
+          -50.0,
+          -20.0,
+          -5.0,
+          -2.0,
+          0.0,
+          2.0,
+          5.0,
+          20.0,
+          50.0,
+          200.0,
+          500.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -500.0,
+          -200.0,
+          -50.0,
+          -20.0,
+          -5.0,
+          -2.0,
+          2.0,
+          5.0,
+          20.0,
+          50.0,
+          200.0,
+          500.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "values": [
+        -215.0,
+        -195.0,
+        -95.0,
+        5.0,
+        105.0,
+        205.0,
+        225.0
+      ],
+      "visible": [
+        -195.0,
+        -95.0,
+        5.0,
+        105.0,
+        205.0
+      ],
+      "normalized": [
+        -0.05,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.05
+      ]
+    },
+    {
+      "name": "y",
+      "own_view": [
+        -195.0,
+        205.0
+      ],
+      "own_scale": "function",
+      "raw_major": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.y"
+        ],
+        "warnings": []
+      },
+      "raw_minor": {
+        "values": [
+          -500.0,
+          -200.0,
+          -50.0,
+          -20.0,
+          -5.0,
+          -2.0,
+          0.0,
+          2.0,
+          5.0,
+          20.0,
+          50.0,
+          200.0,
+          500.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.y"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -500.0,
+          -200.0,
+          -50.0,
+          -20.0,
+          -5.0,
+          -2.0,
+          2.0,
+          5.0,
+          20.0,
+          50.0,
+          200.0,
+          500.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.y",
+          "axes.view.y",
+          "axes.view.y"
+        ],
+        "warnings": []
+      },
+      "values": [
+        -215.0,
+        -195.0,
+        -95.0,
+        5.0,
+        105.0,
+        205.0,
+        225.0
+      ],
+      "visible": [
+        -195.0,
+        -95.0,
+        5.0,
+        105.0,
+        205.0
+      ],
+      "normalized": [
+        -0.05,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.05
+      ]
+    }
+  ],
+  "margins": [
+    {
+      "width": 1.0,
+      "data": [
+        -100.0,
+        100.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          -169.86784591068982,
+          169.86784591068982
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "width": 2.0,
+      "data": [
+        -1.0,
+        100.0
+      ],
+      "margin": 0.1,
+      "result": {
+        "values": [
+          -2.3192290860309193,
+          166.3147737266857
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "width": 1.0,
+      "data": [
+        5.0,
+        5.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          4.726239799114395,
+          5.2762861368801195
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "width": 1e-308,
+      "data": [
+        -1.0,
+        1.0
+      ],
+      "margin": 0.0,
+      "result": {
+        "values": [
+          -0.9999999999999584,
+          0.9999999999999584
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "width": "nan",
+      "data": [
+        1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          -0.001,
+          0.001
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "width": "inf",
+      "data": [
+        1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          -0.001,
+          0.001
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    }
+  ],
+  "aspects": [
+    {
+      "width": 1.0,
+      "aspect": 1.0,
+      "adjustable": "box",
+      "position": [
+        0.0,
+        0.3741744831376447,
+        1.0,
+        0.25165103372471054
+      ],
+      "view": [
+        -100.0,
+        100.0,
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "width": 2.0,
+      "aspect": 2.0,
+      "adjustable": "box",
+      "position": [
+        0.0,
+        0.35523831568753617,
+        1.0,
+        0.28952336862492756
+      ],
+      "view": [
+        -100.0,
+        100.0,
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "width": 1.0,
+      "aspect": 1.0,
+      "adjustable": "datalim",
+      "position": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "view": [
+        -100.0,
+        100.0,
+        -3.9737567742079416,
+        3.9737567742079416
+      ]
+    },
+    {
+      "width": 2.0,
+      "aspect": 2.0,
+      "adjustable": "datalim",
+      "position": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "view": [
+        -100.0,
+        100.0,
+        -3.4539526282435675,
+        3.4539526282435675
+      ]
+    }
+  ],
+  "layout": [
+    {
+      "width": 1.0,
+      "values": [
+        -100.0,
+        -1.0,
+        -0.0,
+        0.0,
+        1.0,
+        100.0
+      ],
+      "normalized": [
+        0.0,
+        0.41682553464832844,
+        0.5,
+        0.5,
+        0.5831744653516716,
+        1.0
+      ]
+    },
+    {
+      "width": 2.0,
+      "values": [
+        -100.0,
+        -1.0,
+        -0.0,
+        0.0,
+        1.0,
+        100.0
+      ],
+      "normalized": [
+        7.105427357601002e-17,
+        0.44775422426997286,
+        0.5,
+        0.5,
+        0.5522457757300272,
+        1.0
+      ]
+    }
+  ]
+}

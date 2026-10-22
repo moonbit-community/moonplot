@@ -355,3 +355,13 @@ Matplotlib's license and notice above apply. Evidence, numeric boundaries and
 reproduction commands are in
 [testdata/symlog_locator_README.md](testdata/symlog_locator_README.md).
 No new third-party runtime dependency is introduced.
+
+## Named inverse-hyperbolic-sine locator
+
+AsinhLocator and minimal Asinh geometry follow the pinned Matplotlib classes.
+References execute original AST bodies; primitive mathematical expectations are
+independent Decimal evaluations. The portable BigInt interval implementation
+preserves correctly rounded binary64 values, with source-platform differences
+retained explicitly. No upstream C hyperbolic implementation or new third-party
+runtime is distributed. Matplotlib's license and notice above apply; scope and
+reproduction are in [testdata/asinh_locator_README.md](testdata/asinh_locator_README.md).

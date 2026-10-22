@@ -85,6 +85,7 @@ pub fn Locator::checked_tick_values(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    NamedAsinh(value) => value.tick_values(lower, upper)
     NamedSymLog(value) => value.tick_values(lower, upper)
     NamedLog(value) => value.tick_values(lower, upper)
     Null(value) => value.tick_values(lower, upper)
@@ -120,6 +121,7 @@ pub fn Locator::tick_values_for_axis(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    NamedAsinh(value) => value.call()
     NamedSymLog(value) => value.call()
     NamedLog(value) => value.call()
     Index(value) => value.call()
@@ -154,6 +156,7 @@ pub fn MinorLocator::checked_tick_values(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   let values = match self {
+    NamedAsinh(value) => return value.tick_values(lower, upper)
     NamedSymLog(value) => return value.tick_values(lower, upper)
     NamedLog(value) => return value.tick_values(lower, upper)
     Null(value) => return value.tick_values(lower, upper)
@@ -176,6 +179,7 @@ pub fn MinorLocator::tick_values_for_axis(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    NamedAsinh(value) => value.call()
     NamedSymLog(value) => value.call()
     NamedLog(value) => value.call()
     Null(value) => value.call()
@@ -299,6 +303,32 @@ pub fn MinorLocator::symlog_locator(
 ) -> SymmetricalLogLocator? {
   match self {
     NamedSymLog(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn AsinhLocator::as_locator(self : AsinhLocator) -> Locator {
+  NamedAsinh(self)
+}
+
+///|
+pub fn AsinhLocator::as_minor_locator(self : AsinhLocator) -> MinorLocator {
+  NamedAsinh(self)
+}
+
+///|
+pub fn Locator::asinh_locator(self : Locator) -> AsinhLocator? {
+  match self {
+    NamedAsinh(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn MinorLocator::asinh_locator(self : MinorLocator) -> AsinhLocator? {
+  match self {
+    NamedAsinh(value) => Some(value)
     _ => None
   }
 }

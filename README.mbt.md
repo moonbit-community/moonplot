@@ -1294,6 +1294,22 @@ locator.set_params(subs=@ticker.SymLogSubs::Values(@ticker.TickValues::from_arra
 旧默认阈值与验证继续保留；完整默认 locator/formatter 生命周期仍待迁移。参数、数值
 边界和 secondary 放置证据见 [SymmetricalLogLocator说明](testdata/symlog_locator_README.md)。
 
+D26 已验收命名 `AsinhLocator` 与最小 Asinh 坐标几何。两者显式配对，locator 的
+`linear_width` 独立于坐标变换，构造器默认请求 11 个采样点：
+
+```moonbit nocheck
+let geometry = try! @mathplotlib.asinh_scale(linear_width=1.0)
+let locator = @ticker.AsinhLocator::new(1.0)
+try! fig.set_x_scale(geometry)
+try! fig.set_x_locator(locator.as_locator())
+```
+
+原始 `subs` 区分共享 sequence 与 ndarray view；显式 `numticks=None` 会保留到查询时报错。
+数值原语采用跨目标正确舍入数学合同，近底数幂处可能与 Darwin 源平台生成不同的整组刻度；
+含 NaN 的源集合排序非确定，本移植保留 NaN 数量并将其置于数值刻度之后。完整 AsinhScale
+默认 locator/formatter 生命周期仍在后续。四目标新增 1061 项测试及原源复验均通过，精确范围见
+[AsinhLocator说明](testdata/asinh_locator_README.md)。
+
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`
 及常见宽度/精度标志，`log_formatter`、`null_formatter` 和 `func_formatter` 分别用于对数、

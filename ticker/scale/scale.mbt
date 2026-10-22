@@ -4,6 +4,7 @@ pub(all) enum Scale {
   Linear
   Log
   SymLog(linthresh~ : Double, linscale~ : Double, base~ : Double)
+  Asinh(linear_width~ : Double)
 }
 
 ///|
@@ -16,6 +17,19 @@ pub fn linear_scale() -> Scale {
 /// Return a base-ten logarithmic scale.
 pub fn log_scale() -> Scale {
   Scale::Log
+}
+
+///|
+/// Construct inverse-hyperbolic-sine coordinate geometry.
+/// Source width validation rejects nonpositive values; NaN and positive
+/// infinity remain representable. Tick defaults require an explicit locator.
+pub fn asinh_scale(linear_width~ : Double = 1.0) -> Scale raise @core.DataError {
+  if linear_width <= 0.0 {
+    raise @core.DataError::InvalidTicks(
+      message="Scale parameter 'linear_width' must be strictly positive",
+    )
+  }
+  Scale::Asinh(linear_width~)
 }
 
 ///|
@@ -54,7 +68,7 @@ pub fn Scale::is_log(self : Scale) -> Bool {
 pub fn Scale::is_nonlinear(self : Scale) -> Bool {
   match self {
     Linear => false
-    Log | SymLog(..) => true
+    Log | SymLog(..) | Asinh(..) => true
   }
 }
 
@@ -62,6 +76,21 @@ pub fn Scale::is_nonlinear(self : Scale) -> Bool {
 /// Whether this scale is symmetric logarithmic.
 pub fn Scale::is_symlog(self : Scale) -> Bool {
   self is SymLog(..)
+}
+
+///|
+/// Whether this scale uses inverse-hyperbolic-sine coordinates.
+pub fn Scale::is_asinh(self : Scale) -> Bool {
+  self is Asinh(..)
+}
+
+///|
+/// Return the Asinh coordinate width, if configured.
+pub fn Scale::asinh_linear_width(self : Scale) -> Double? {
+  match self {
+    Asinh(linear_width~) => Some(linear_width)
+    _ => None
+  }
 }
 
 ///|
@@ -135,7 +164,7 @@ pub fn Scale::is_valid(self : Scale, value : Double) -> Bool {
   match self {
     Linear => !value.is_nan() && !value.is_inf()
     Log => value > 0.0 && !value.is_nan() && !value.is_inf()
-    SymLog(..) => !value.is_nan() && !value.is_inf()
+    SymLog(..) | Asinh(..) => !value.is_nan() && !value.is_inf()
   }
 }
 
@@ -147,6 +176,7 @@ pub fn Scale::transform(self : Scale, value : Double) -> Double {
     Log => @math.log10(value)
     SymLog(linthresh~, linscale~, base~) =>
       symlog_transform_value(value, linthresh, linscale, base)
+    Asinh(linear_width~) => linear_width * @math.asinh(value / linear_width)
   }
 }
 
@@ -158,6 +188,7 @@ pub fn Scale::inverse(self : Scale, value : Double) -> Double {
     Log => @math.pow(10.0, value)
     SymLog(linthresh~, linscale~, base~) =>
       symlog_inverse_value(value, linthresh, linscale, base)
+    Asinh(linear_width~) => linear_width * @math.sinh(value / linear_width)
   }
 }
 
@@ -219,6 +250,56 @@ fn linear_ticks(limits : @core.Limits, count : Int32) -> Array[Double] {
 }
 
 ///|
+// A display-uniform convenience grid, independent from the named Asinh locator.
+fn asinh_display_ticks(
+  scale : Scale,
+  limits : @core.Limits,
+  count : Int32,
+) -> Array[Double] {
+  let lower = limits.lower()
+  let upper = limits.upper()
+  if lower.is_nan() || lower.is_inf() || upper.is_nan() || upper.is_inf() {
+    return []
+  }
+  let transformed_lower = scale.transform(lower)
+  let transformed_upper = scale.transform(upper)
+  if transformed_lower.is_nan() ||
+    transformed_lower.is_inf() ||
+    transformed_upper.is_nan() ||
+    transformed_upper.is_inf() {
+    return []
+  }
+  if lower == upper {
+    return [lower]
+  }
+  let actual = if count < 2 { 2 } else { count }
+  let returned = Int32::min(actual, 100000)
+  let denominator = Double::from_int(actual - 1)
+  let delta = transformed_upper - transformed_lower
+  let result = Array(capacity=returned)
+  for index in 0..<returned {
+    let value = if index == 0 {
+      lower
+    } else if index == actual - 1 {
+      upper
+    } else {
+      let fraction = Double::from_int(index) / denominator
+      let transformed = if delta.is_inf() {
+        transformed_lower * (1.0 - fraction) + transformed_upper * fraction
+      } else {
+        transformed_lower + fraction * delta
+      }
+      scale.inverse(transformed)
+    }
+    if value.is_nan() || value.is_inf() {
+      return []
+    }
+    result.push(value)
+  }
+  result
+}
+
+///|
 fn log_ticks(limits : @core.Limits, count : Int32) -> Array[Double] {
   ignore(count)
   let lower = Double::min(limits.lower(), limits.upper())
@@ -266,7 +347,9 @@ fn log_ticks(limits : @core.Limits, count : Int32) -> Array[Double] {
 }
 
 ///|
-/// Generate deterministic major ticks for this scale.
+/// Generate deterministic convenience ticks for this scale.
+/// Asinh uses a display-uniform sampler; explicitly install a named locator
+/// for the original AsinhLocator rounding, subs and default count policy.
 pub fn Scale::tick_values(
   self : Scale,
   limits : @core.Limits,
@@ -279,6 +362,7 @@ pub fn Scale::tick_values(
       ignore(linscale)
       symlog_ticks(limits, linthresh, base)
     }
+    Asinh(..) => asinh_display_ticks(self, limits, count)
   }
 }
 

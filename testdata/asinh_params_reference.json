@@ -1,0 +1,2784 @@
+{
+  "ticker_sha256": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+  "transforms_sha256": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+  "numpy_core_sha256": "44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scope": "Complete original AsinhLocator AST and inherited ranges. Double fields project Python floats; Integer counts project Python integers, raw None and float/text are distinct. Sequence is borrowed mutable list of Double, NdArray native 1D Float64/Int64. Other dynamic types, NumPy scalar counts, multidimensional/readonly/resizing ndarray and heterogeneous/Int64 lists are outside typed domain. Numeric math/source collection evidence is independent. No warnings/logger source protocol is synthesized.",
+  "constructors": [
+    {
+      "spec": {},
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "linear_width": 0.0
+      },
+      "state": {
+        "linear_width": 0.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "linear_width": -0.0
+      },
+      "state": {
+        "linear_width": -0.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "linear_width": -1.0
+      },
+      "state": {
+        "linear_width": -1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "linear_width": "nan"
+      },
+      "state": {
+        "linear_width": "nan",
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "linear_width": "inf"
+      },
+      "state": {
+        "linear_width": "inf",
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "linear_width": "-inf"
+      },
+      "state": {
+        "linear_width": "-inf",
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "linear_width": 5e-324
+      },
+      "state": {
+        "linear_width": 5e-324,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "linear_width": 1.7976931348623157e+308
+      },
+      "state": {
+        "linear_width": 1.7976931348623157e+308,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "symthresh": 0.0
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.0,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "symthresh": -0.2
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": -0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "symthresh": "nan"
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": "nan",
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "symthresh": "inf"
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": "inf",
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "symthresh": "-inf"
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": "-inf",
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "base": 0.0
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 0.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "base": -0.0
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": -0.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "base": -1.0
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": -1.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "base": 1.0
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 1.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "base": 2.0
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 2.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "base": 2.5
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 2.5,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "base": "nan"
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": "nan",
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "base": "inf"
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": "inf",
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "base": "-inf"
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": "-inf",
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "numticks": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": null,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "numticks": 0
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 0,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "numticks": 1
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 1,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "numticks": -1
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": -1,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "numticks": 11.0
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11.0,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "numticks": 2.5
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 2.5,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "numticks": "nan"
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": "nan",
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "numticks": "inf"
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": "inf",
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "numticks": "auto"
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": "auto",
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "numticks": 9223372036854775808
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 9223372036854775808,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "numticks": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "subs": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "sequence",
+          "values": []
+        }
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "sequence",
+          "values": []
+        }
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            0.0
+          ]
+        }
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "ndarray",
+          "values": [],
+          "integer": false
+        }
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "ndarray",
+          "values": [],
+          "integer": false
+        }
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "ndarray",
+          "values": [
+            0.0
+          ],
+          "integer": false
+        }
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "ndarray",
+          "values": [
+            0.0
+          ],
+          "integer": false
+        }
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "ndarray",
+          "values": [
+            2.0,
+            5.0
+          ],
+          "integer": false
+        }
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "ndarray",
+          "values": [
+            2.0,
+            5.0
+          ],
+          "integer": false
+        }
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "ndarray",
+          "values": [
+            2,
+            5
+          ],
+          "integer": true
+        }
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "ndarray",
+          "values": [
+            2,
+            5
+          ],
+          "integer": true
+        }
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "number",
+          "value": 0.0
+        }
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "number",
+          "value": 0.0
+        }
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "number",
+          "value": 2.0
+        }
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "number",
+          "value": 2.0
+        }
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "number",
+          "value": "nan"
+        }
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "number",
+          "value": "nan"
+        }
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "text",
+          "value": ""
+        }
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "text",
+          "value": ""
+        }
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "text",
+          "value": "auto"
+        }
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "text",
+          "value": "auto"
+        }
+      }
+    }
+  ],
+  "updates": [
+    {
+      "params": {},
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": null,
+        "symthresh": null,
+        "base": null,
+        "subs": null
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": null
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "sequence",
+          "values": []
+        }
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": null
+      }
+    },
+    {
+      "params": {
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            0.0
+          ]
+        }
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "ndarray",
+          "values": [],
+          "integer": false
+        }
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": null
+      }
+    },
+    {
+      "params": {
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "ndarray",
+          "values": [
+            0
+          ],
+          "integer": true
+        }
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "ndarray",
+          "values": [
+            0
+          ],
+          "integer": true
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "ndarray",
+          "values": [
+            2,
+            5
+          ],
+          "integer": true
+        }
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "ndarray",
+          "values": [
+            2,
+            5
+          ],
+          "integer": true
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "number",
+          "value": 0.0
+        }
+      },
+      "observation": {
+        "values": null,
+        "source_error": "TypeError"
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "number",
+          "value": 2.0
+        }
+      },
+      "observation": {
+        "values": null,
+        "source_error": "TypeError"
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "number",
+          "value": "nan"
+        }
+      },
+      "observation": {
+        "values": null,
+        "source_error": "TypeError"
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "text",
+          "value": ""
+        }
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": null
+      }
+    },
+    {
+      "params": {
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "text",
+          "value": "auto"
+        }
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 3,
+        "symthresh": 0.4,
+        "base": 2.0,
+        "subs": {
+          "kind": "text",
+          "value": "auto"
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": 0
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 0,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": -1
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": -1,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": 11.0
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 11.0,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": "nan"
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": "nan",
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": "auto"
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": "auto",
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": 9223372036854775808
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 9223372036854775808,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    },
+    {
+      "params": {
+        "numticks": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      },
+      "observation": {
+        "values": null,
+        "source_error": null
+      },
+      "state": {
+        "linear_width": 1.0,
+        "numticks": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            2.0,
+            5.0
+          ]
+        }
+      }
+    }
+  ],
+  "consumption": [
+    {
+      "spec": {
+        "numticks": null
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "TypeError"
+      }
+    },
+    {
+      "spec": {
+        "numticks": -1
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "ValueError"
+      }
+    },
+    {
+      "spec": {
+        "numticks": 11.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "TypeError"
+      }
+    },
+    {
+      "spec": {
+        "numticks": 2.5
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "TypeError"
+      }
+    },
+    {
+      "spec": {
+        "numticks": "nan"
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "TypeError"
+      }
+    },
+    {
+      "spec": {
+        "numticks": "inf"
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "TypeError"
+      }
+    },
+    {
+      "spec": {
+        "numticks": "auto"
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "TypeError"
+      }
+    },
+    {
+      "spec": {
+        "numticks": 9223372036854775808
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "ValueError"
+      }
+    },
+    {
+      "spec": {
+        "numticks": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "ValueError"
+      }
+    },
+    {
+      "spec": {
+        "numticks": 0
+      },
+      "bounds": [
+        -1.0,
+        1.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "ZeroDivisionError"
+      }
+    },
+    {
+      "spec": {
+        "numticks": 0
+      },
+      "bounds": [
+        1.0,
+        2.0
+      ],
+      "observation": {
+        "values": [],
+        "source_error": null
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "sequence",
+          "values": []
+        }
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "sequence",
+          "values": [
+            0.0
+          ]
+        }
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "ndarray",
+          "values": [],
+          "integer": false
+        }
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "ValueError"
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "ndarray",
+          "values": [
+            0.0
+          ],
+          "integer": false
+        }
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "ndarray",
+          "values": [
+            2.0,
+            5.0
+          ],
+          "integer": false
+        }
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "ValueError"
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "ndarray",
+          "values": [
+            2,
+            5
+          ],
+          "integer": true
+        }
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "ValueError"
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "number",
+          "value": 0.0
+        }
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "number",
+          "value": 2.0
+        }
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "text",
+          "value": ""
+        }
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "spec": {
+        "subs": {
+          "kind": "text",
+          "value": "auto"
+        }
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observation": {
+        "values": null,
+        "source_error": "UFuncTypeError"
+      }
+    }
+  ],
+  "aliases": [
+    {
+      "label": "Float64 signed",
+      "integer": false,
+      "slices": [
+        [
+          -1,
+          -1,
+          3
+        ]
+      ],
+      "exact_input_alias": true,
+      "stages": [
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                1.0,
+                2.0,
+                5.0
+              ],
+              "integer": false
+            }
+          },
+          "owner": [
+            5.0,
+            2.0,
+            1.0
+          ]
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                3.75,
+                2.0,
+                7.75
+              ],
+              "integer": false
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                3.75,
+                2.0,
+                7.75
+              ],
+              "integer": false
+            }
+          },
+          "owner": [
+            7.75,
+            2.0,
+            3.75
+          ]
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                3.75,
+                2.0,
+                7.75
+              ],
+              "integer": false
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 3,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          },
+          "owner": [
+            7.75,
+            2.0,
+            3.75
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Float64 nested",
+      "integer": false,
+      "slices": [
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          4,
+          -2,
+          3
+        ]
+      ],
+      "exact_input_alias": true,
+      "stages": [
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                5.0,
+                2.0,
+                1.0
+              ],
+              "integer": false
+            }
+          },
+          "owner": [
+            1.0,
+            0.0,
+            2.0,
+            0.0,
+            5.0
+          ]
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                3.75,
+                2.0,
+                7.75
+              ],
+              "integer": false
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                3.75,
+                2.0,
+                7.75
+              ],
+              "integer": false
+            }
+          },
+          "owner": [
+            7.75,
+            0.0,
+            2.0,
+            0.0,
+            3.75
+          ]
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                3.75,
+                2.0,
+                7.75
+              ],
+              "integer": false
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 3,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          },
+          "owner": [
+            7.75,
+            0.0,
+            2.0,
+            0.0,
+            3.75
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Int64 signed",
+      "integer": true,
+      "slices": [
+        [
+          -1,
+          -1,
+          3
+        ]
+      ],
+      "exact_input_alias": true,
+      "stages": [
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                1,
+                2,
+                5
+              ],
+              "integer": true
+            }
+          },
+          "owner": [
+            5,
+            2,
+            1
+          ]
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                3,
+                2,
+                7
+              ],
+              "integer": true
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                3,
+                2,
+                7
+              ],
+              "integer": true
+            }
+          },
+          "owner": [
+            7,
+            2,
+            3
+          ]
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                3,
+                2,
+                7
+              ],
+              "integer": true
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 3,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          },
+          "owner": [
+            7,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Int64 exact",
+      "integer": true,
+      "slices": [],
+      "exact_input_alias": true,
+      "stages": [
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                9007199254740993,
+                9223372036854775807
+              ],
+              "integer": true
+            }
+          },
+          "owner": [
+            9007199254740993,
+            9223372036854775807
+          ]
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                3,
+                7
+              ],
+              "integer": true
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                3,
+                7
+              ],
+              "integer": true
+            }
+          },
+          "owner": [
+            3,
+            7
+          ]
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                3,
+                7
+              ],
+              "integer": true
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 3,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          },
+          "owner": [
+            3,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Int64 zero stride",
+      "integer": true,
+      "slices": [
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "exact_input_alias": true,
+      "stages": [
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                2,
+                2,
+                2
+              ],
+              "integer": true
+            }
+          },
+          "owner": [
+            2
+          ]
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                7,
+                7,
+                7
+              ],
+              "integer": true
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                7,
+                7,
+                7
+              ],
+              "integer": true
+            }
+          },
+          "owner": [
+            7
+          ]
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [
+                7,
+                7,
+                7
+              ],
+              "integer": true
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 3,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          },
+          "owner": [
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Float64 empty",
+      "integer": false,
+      "slices": [],
+      "exact_input_alias": true,
+      "stages": [
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [],
+              "integer": false
+            }
+          },
+          "owner": []
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [],
+              "integer": false
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [],
+              "integer": false
+            }
+          },
+          "owner": []
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "ndarray",
+              "values": [],
+              "integer": false
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 3,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          },
+          "owner": []
+        }
+      ]
+    }
+  ],
+  "sequence_aliases": [
+    {
+      "initial": [],
+      "stages": [
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": []
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": []
+            }
+          }
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                3.75
+              ]
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                3.75
+              ]
+            }
+          }
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                7.75
+              ]
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                7.75
+              ]
+            }
+          }
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                7.75
+              ]
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          }
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                2.0
+              ]
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          }
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          }
+        }
+      ]
+    },
+    {
+      "initial": [
+        2.0,
+        5.0
+      ],
+      "stages": [
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                2.0,
+                5.0
+              ]
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                2.0,
+                5.0
+              ]
+            }
+          }
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                2.0,
+                5.0,
+                3.75
+              ]
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                2.0,
+                5.0,
+                3.75
+              ]
+            }
+          }
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                2.0,
+                5.0,
+                7.75
+              ]
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                2.0,
+                5.0,
+                7.75
+              ]
+            }
+          }
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                2.0,
+                5.0,
+                7.75
+              ]
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          }
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": {
+              "kind": "sequence",
+              "values": [
+                2.0
+              ]
+            }
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          }
+        },
+        {
+          "state": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          },
+          "copy": {
+            "linear_width": 1.0,
+            "numticks": 11,
+            "symthresh": 0.2,
+            "base": 10.0,
+            "subs": null
+          }
+        }
+      ]
+    }
+  ],
+  "raw_property_stages": [
+    {
+      "state": {
+        "linear_width": -0.0,
+        "numticks": null,
+        "symthresh": "inf",
+        "base": "nan",
+        "subs": {
+          "kind": "number",
+          "value": 0.0
+        }
+      },
+      "copy": {
+        "linear_width": 1.0,
+        "numticks": 11,
+        "symthresh": 0.2,
+        "base": 10.0,
+        "subs": null
+      }
+    },
+    {
+      "state": {
+        "linear_width": -0.0,
+        "numticks": null,
+        "symthresh": "inf",
+        "base": "nan",
+        "subs": {
+          "kind": "number",
+          "value": 0.0
+        }
+      },
+      "copy": {
+        "linear_width": 2.0,
+        "numticks": 2.5,
+        "symthresh": -1.0,
+        "base": 0.0,
+        "subs": {
+          "kind": "sequence",
+          "values": []
+        }
+      }
+    }
+  ],
+  "ranges": [
+    {
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "mode": "data",
+          "method": "nonsingular",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "method": "view_limits",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "method": "nonsingular",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "method": "view_limits",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "mode": "data",
+          "method": "nonsingular",
+          "values": [
+            0.95,
+            1.05
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "method": "view_limits",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "method": "nonsingular",
+          "values": [
+            0.95,
+            1.05
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "method": "view_limits",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "bounds": [
+        10.0,
+        -2.0
+      ],
+      "observations": [
+        {
+          "mode": "data",
+          "method": "nonsingular",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "method": "view_limits",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "method": "nonsingular",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "method": "view_limits",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "bounds": [
+        "-inf",
+        "inf"
+      ],
+      "observations": [
+        {
+          "mode": "data",
+          "method": "nonsingular",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "method": "view_limits",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "method": "nonsingular",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "method": "view_limits",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "bounds": [
+        "nan",
+        1.0
+      ],
+      "observations": [
+        {
+          "mode": "data",
+          "method": "nonsingular",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "method": "view_limits",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "method": "nonsingular",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "method": "view_limits",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "bounds": [
+        5e-324,
+        5e-324
+      ],
+      "observations": [
+        {
+          "mode": "data",
+          "method": "nonsingular",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "method": "view_limits",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "method": "nonsingular",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "method": "view_limits",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    }
+  ],
+  "view_copy_stages": [
+    {
+      "name": "locator",
+      "observation": {
+        "values": [
+          8.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "name": "shallow",
+      "observation": {
+        "values": [
+          -10.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "name": "locator",
+      "observation": {
+        "values": [
+          1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "name": "shallow",
+      "observation": {
+        "values": [
+          -10.0
+        ],
+        "source_error": null
+      }
+    }
+  ],
+  "view_events": [
+    "first",
+    "first",
+    "second",
+    "first"
+  ]
+}

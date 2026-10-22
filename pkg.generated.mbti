@@ -13,6 +13,8 @@ import {
 }
 
 // Values
+pub fn asinh_scale(linear_width? : Double) -> @scale.Scale raise @core.DataError
+
 pub fn axis() -> @axis.Axis
 
 pub fn bounds(Double, Double, Double, Double) -> @core.Bounds

@@ -53,6 +53,40 @@ pub fn str_method_formatter(String) -> Formatter
 // Errors
 
 // Types and methods
+pub struct AsinhLocator {
+  // private fields
+}
+pub fn AsinhLocator::as_locator(Self) -> Locator
+pub fn AsinhLocator::as_minor_locator(Self) -> MinorLocator
+pub fn AsinhLocator::base(Self) -> Double
+pub fn AsinhLocator::bind_view_interval(Self, () -> (Double, Double) raise @core.DataError) -> Unit
+pub fn AsinhLocator::call(Self) -> Array[Double] raise @core.DataError
+pub fn AsinhLocator::copy(Self) -> Self
+pub fn AsinhLocator::linear_width(Self) -> Double
+pub fn AsinhLocator::new(Double, numticks? : LogNumTicks?, symthresh? : Double, base? : Double, subs? : AsinhSubs?) -> Self
+pub fn AsinhLocator::nonsingular(Self, Double, Double) -> (Double, Double)
+pub fn AsinhLocator::numticks(Self) -> LogNumTicks?
+pub fn AsinhLocator::set_base(Self, Double) -> Unit
+pub fn AsinhLocator::set_linear_width(Self, Double) -> Unit
+pub fn AsinhLocator::set_numticks(Self, LogNumTicks?) -> Unit
+pub fn AsinhLocator::set_params(Self, numticks? : LogNumTicks?, symthresh? : Double?, base? : Double?, subs? : AsinhSubs?) -> Unit raise @core.DataError
+pub fn AsinhLocator::set_subs(Self, AsinhSubs?) -> Unit
+pub fn AsinhLocator::set_symthresh(Self, Double) -> Unit
+pub fn AsinhLocator::subs(Self) -> AsinhSubs?
+pub fn AsinhLocator::symthresh(Self) -> Double
+pub fn AsinhLocator::tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
+pub fn AsinhLocator::view_interval_provider(Self) -> (() -> (Double, Double) raise @core.DataError)?
+pub fn AsinhLocator::view_limits(Self, Double, Double) -> (Double, Double)
+
+pub(all) enum AsinhSubs {
+  Sequence(Array[Double])
+  NdArray(TickValues)
+  Number(Double)
+  Text(String)
+}
+pub fn AsinhSubs::to_repr(Self) -> @debug.Repr
+pub impl @debug.Debug for AsinhSubs
+
 pub struct AutoLocator {
   // private fields
 }
@@ -183,6 +217,7 @@ pub fn LinearLocatorPresets::set(Self, Double, Double, Array[Double]) -> Unit
 pub fn LinearLocatorPresets::set_view(Self, Double, Double, TickValues) -> Unit
 
 pub(all) enum Locator {
+  NamedAsinh(AsinhLocator)
   NamedSymLog(SymmetricalLogLocator)
   NamedLog(LogLocator)
   Null(NullLocator)
@@ -198,6 +233,7 @@ pub(all) enum Locator {
   Log(count~ : Int, base~ : Double)
   LogWithSubs(count~ : Int, base~ : Double, subs~ : Array[Double], numdecs~ : Int)
 }
+pub fn Locator::asinh_locator(Self) -> AsinhLocator?
 pub fn Locator::auto_locator(Self) -> AutoLocator?
 pub fn Locator::checked_tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
 pub fn Locator::copy(Self) -> Self
@@ -298,6 +334,7 @@ pub fn MaxNLocator::view_interval_provider(Self) -> (() -> (Double, Double) rais
 pub fn MaxNLocator::view_limits(Self, Double, Double) -> (Double, Double) raise @core.DataError
 
 pub(all) enum MinorLocator {
+  NamedAsinh(AsinhLocator)
   NamedSymLog(SymmetricalLogLocator)
   NamedLog(LogLocator)
   Null(NullLocator)
@@ -312,6 +349,7 @@ pub(all) enum MinorLocator {
   Fixed(Array[Double])
   Log(subdivisions~ : Int, base~ : Double)
 }
+pub fn MinorLocator::asinh_locator(Self) -> AsinhLocator?
 pub fn MinorLocator::auto_locator(Self) -> AutoLocator?
 pub fn MinorLocator::auto_minor_locator(Self) -> AutoMinorLocator?
 pub fn MinorLocator::checked_tick_values(Self, Array[Double], Double, Double) -> Array[Double] raise @core.DataError

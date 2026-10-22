@@ -27,6 +27,8 @@ pub fn Axis::bind_locator_data(self : Axis, minor~ : Bool = false) -> Unit {
   }
   if minor {
     match self.minor_locator {
+      Some(@ticker.MinorLocator::NamedAsinh(value)) =>
+        value.bind_view_interval(() => self.view_interval_checked())
       Some(@ticker.MinorLocator::NamedSymLog(value)) =>
         value.bind_view_interval(() => self.view_interval_checked())
       Some(@ticker.MinorLocator::NamedLog(value)) =>
@@ -43,6 +45,8 @@ pub fn Axis::bind_locator_data(self : Axis, minor~ : Bool = false) -> Unit {
     }
   } else {
     match self.locator {
+      Some(@ticker.Locator::NamedAsinh(value)) =>
+        value.bind_view_interval(() => self.view_interval_checked())
       Some(@ticker.Locator::NamedSymLog(value)) =>
         value.bind_view_interval(() => self.view_interval_checked())
       Some(@ticker.Locator::NamedLog(value)) => self.bind_log_context(value)
@@ -64,7 +68,8 @@ pub fn Axis::tick_values_checked(
   if self.fixed_ticks is None && self.category is None {
     if self.locator
       is Some(
-        @ticker.Locator::NamedSymLog(_)
+        @ticker.Locator::NamedAsinh(_)
+        | @ticker.Locator::NamedSymLog(_)
         | @ticker.Locator::NamedLog(_)
         | @ticker.Locator::Null(_)
         | @ticker.Locator::NamedLinear(_)
@@ -108,6 +113,7 @@ pub fn Axis::minor_tick_values_checked(
       is Some(
         @ticker.MinorLocator::NamedAutoMinor(_)
         | @ticker.MinorLocator::NamedLog(_)
+        | @ticker.MinorLocator::NamedAsinh(_)
         | @ticker.MinorLocator::NamedSymLog(_)
       ) {
       let limits = self.limits.unwrap_or(automatic)
@@ -122,6 +128,7 @@ pub fn Axis::minor_tick_values_checked(
       let ticks = match self.minor_locator.unwrap() {
         @ticker.MinorLocator::NamedAutoMinor(value) => value.call()
         @ticker.MinorLocator::NamedLog(value) => value.call()
+        @ticker.MinorLocator::NamedAsinh(value) => value.call()
         @ticker.MinorLocator::NamedSymLog(value) => value.call()
         _ => []
       }
@@ -179,6 +186,7 @@ fn Axis::numeric_scale_name(self : Axis) -> String {
     @scale.Linear => "linear"
     @scale.Log => "log"
     @scale.SymLog(..) => "symlog"
+    @scale.Asinh(..) => "asinh"
   }
 }
 
@@ -197,7 +205,8 @@ fn Axis::major_tick_view_checked(
       Some(@ticker.Locator::Null(_)) =>
         return @ticker.TickValues::from_array([])
       Some(locator) if locator
-        is (@ticker.Locator::NamedSymLog(_)
+        is (@ticker.Locator::NamedAsinh(_)
+        | @ticker.Locator::NamedSymLog(_)
         | @ticker.Locator::NamedLog(_)
         | @ticker.Locator::Index(_)
         | @ticker.Locator::NamedMaxN(_)

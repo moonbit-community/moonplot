@@ -207,3 +207,12 @@ ticker 新导入内部 ticker/scale 包以捕获既有 Scale 值，没有外部�
 Scale 两个私有数值体和 SVG secondary mapping 直接复用原链路修正；原源证据执行完整
 变换树，C affine 内核以明确的矩阵乘法 sink 供应，未分发上游 C 或增加 Python 运行时。
 固定输入域、源/数学差异与重现见[testdata/symlog_locator_README.md](testdata/symlog_locator_README.md)。
+
+## D26 命名 Asinh 定位器
+
+AsinhLocator 复用真实 TickValues、任意精度参数、nonsingular、D24 ln/pow 和精确
+binary64舍入。新asinh/sinh/log10使用BigInt定向区间与自适应精度，数学profile跨目标一致，
+并保留Darwin源平台整组刻度差异。完整linspace/outer通过逻辑分段与plateau跳跃求值。
+最小Scale::Asinh使用现有核心math变换，Axis/secondary/contour/SVG沿用现有链路；
+没有新增外部运行时依赖。原始Python/NumPy只参与开发参考生成，独立Decimal证据与
+重现见[testdata/asinh_locator_README.md](testdata/asinh_locator_README.md)。

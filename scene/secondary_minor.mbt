@@ -6,6 +6,8 @@ pub fn SecondaryAxis::set_minor_locator(
 ) -> Unit {
   self.minor_locator = Some(locator.copy())
   match locator {
+    @ticker.MinorLocator::NamedAsinh(value) =>
+      value.bind_view_interval(() => self.numeric_view_interval())
     @ticker.MinorLocator::NamedSymLog(value) =>
       value.bind_view_interval(() => self.numeric_view_interval())
     @ticker.MinorLocator::NamedLog(value) => self.bind_log_context(value)
@@ -103,7 +105,8 @@ fn SecondaryAxis::major_tick_view_checked(
     Some(@ticker.Locator::NamedFixed(value)) =>
       return value.tick_values(0.0, 0.0)
     Some(locator) if locator
-      is (@ticker.Locator::NamedSymLog(_)
+      is (@ticker.Locator::NamedAsinh(_)
+      | @ticker.Locator::NamedSymLog(_)
       | @ticker.Locator::NamedLog(_)
       | @ticker.Locator::Index(_)
       | @ticker.Locator::NamedMaxN(_)
@@ -164,10 +167,12 @@ pub fn SecondaryAxis::minor_tick_values_checked(
   if locator
     is (@ticker.MinorLocator::NamedAutoMinor(_)
     | @ticker.MinorLocator::NamedLog(_)
+    | @ticker.MinorLocator::NamedAsinh(_)
     | @ticker.MinorLocator::NamedSymLog(_)) {
     let ticks = match locator {
       @ticker.MinorLocator::NamedAutoMinor(value) => value.call()
       @ticker.MinorLocator::NamedLog(value) => value.call()
+      @ticker.MinorLocator::NamedAsinh(value) => value.call()
       @ticker.MinorLocator::NamedSymLog(value) => value.call()
       _ => []
     }

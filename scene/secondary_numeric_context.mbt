@@ -48,6 +48,10 @@ fn SecondaryAxis::bind_numeric_locator_context(
   self : SecondaryAxis,
   locator : @ticker.Locator,
 ) -> Unit {
+  if locator is @ticker.Locator::NamedAsinh(value) {
+    value.bind_view_interval(() => self.numeric_view_interval())
+    return
+  }
   if locator is @ticker.Locator::NamedSymLog(value) {
     value.bind_view_interval(() => self.numeric_view_interval())
     return
