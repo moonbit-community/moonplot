@@ -59,6 +59,8 @@ pub fn Axis::view_limits_checked(
     (Some(limits), _) | (None, Some(limits)) => limits
     (None, None) => {
       let (lower, upper) = match self.locator {
+        Some(@ticker.Locator::NamedLogit(value)) =>
+          value.view_limits(automatic.lower(), automatic.upper())
         Some(@ticker.Locator::NamedAsinh(value)) =>
           value.view_limits(automatic.lower(), automatic.upper())
         Some(@ticker.Locator::NamedSymLog(value)) =>
@@ -114,6 +116,17 @@ pub fn Axis::set_view_limits(
   lower : Double,
   upper : Double,
 ) -> Unit raise @core.DataError {
+  if self.scale.is_logit() {
+    let view = self.logit_limit_bounds_checked(lower, upper)
+    if self.limits is Some(_) {
+      self.limits = Some(view)
+      self.auto_view = None
+    } else {
+      self.auto_view = Some(view)
+    }
+    self.inverted = view.lower() > view.upper()
+    return
+  }
   if !self.scale.is_valid(lower) || !self.scale.is_valid(upper) {
     raise @core.DataError::NonFiniteLimit(axis="view")
   }
@@ -154,6 +167,12 @@ pub fn Axis::numeric_nonsingular_bounds(
   upper : Double,
 ) -> @core.Limits {
   match self.locator {
+    Some(@ticker.Locator::NamedLogit(value)) => {
+      let (first, last) = value.nonsingular(lower, upper) catch {
+        _ => (lower, upper)
+      }
+      @core.limits(first, last)
+    }
     Some(@ticker.Locator::NamedAsinh(value)) => {
       let (first, last) = value.nonsingular(lower, upper)
       @core.limits(first, last)

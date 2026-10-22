@@ -1,4 +1,30 @@
 ///|
+test "MaxN decimal scale keeps the original source grid origin across targets" {
+  let previous = @config.axes_autolimit_mode()
+  defer (try! @config.set_axes_autolimit_mode(previous))
+  @config.set_axes_autolimit_mode("data")
+  let locator = @ticker.MaxNLocator::new(
+    nbins=@ticker.MaxNBins::Count(1000),
+    steps=@ticker.TickValues::from_array([1.0, 2.0, 5.0, 10.0]),
+  )
+  // Original scale_range and _raw_ticks give scale=1e-4, step=2e-4,
+  // best_vmin=.4, low=0 and high=1000. A one-ULP low power moves the origin.
+  let ticks = locator.tick_values(0.4, 0.6)
+  assert_eq(ticks.length(), 1001)
+  let prefix = [0.4, 0.4002, 0.40040000000000003, 0.4006]
+  for index, expected in prefix {
+    assert_eq(
+      ticks[index].reinterpret_as_uint64(),
+      expected.reinterpret_as_uint64(),
+    )
+  }
+  assert_eq(
+    ticks[1000].reinterpret_as_uint64(),
+    0.6000000000000001.reinterpret_as_uint64(),
+  )
+}
+
+///|
 test "MaxN full grid pruning keeps a complete eager prefix and full round endpoints" {
   let previous = @config.axes_autolimit_mode()
   defer (try! @config.set_axes_autolimit_mode(previous))

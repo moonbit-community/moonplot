@@ -365,3 +365,16 @@ preserves correctly rounded binary64 values, with source-platform differences
 retained explicitly. No upstream C hyperbolic implementation or new third-party
 runtime is distributed. Matplotlib's license and notice above apply; scope and
 reproduction are in [testdata/asinh_locator_README.md](testdata/asinh_locator_README.md).
+
+## Named probability locator
+
+LogitLocator and minimal Logit geometry follow the pinned Matplotlib source
+classes. Independent references execute the original locator, MaxN fallback,
+Axis limit/overlap, autoscale and transform bodies; original and correctly rounded
+primitive observations are retained separately. The two integer decimal powers
+in MaxN scale_range now reuse the portable power implementation, correcting a
+non-JS one-ULP grid-origin error; other MaxN arithmetic is unchanged. No
+upstream C code or new third-party runtime is distributed. Matplotlib's license
+and notice above apply. Explicit default/tight/clip-renderer boundaries and
+reproduction are documented in
+[testdata/logit_locator_README.md](testdata/logit_locator_README.md).

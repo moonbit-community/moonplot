@@ -51,8 +51,8 @@ pub using @axis {type Axis, axis}
 pub using @category {type CategoryAxis, category}
 
 ///|
-/// Linear, logarithmic and explicit Asinh coordinate scales.
-pub using @scale {type Scale, linear_scale, log_scale, asinh_scale}
+/// Linear, logarithmic, Asinh and Logit coordinate scales.
+pub using @scale {type Scale, linear_scale, log_scale, asinh_scale, logit_scale}
 
 ///|
 /// Numeric tick formatters and the main Matplotlib-style formatter helpers.

@@ -81,6 +81,7 @@ pub fn Axis::grid_color(Self) -> String
 pub fn Axis::grid_visible(Self) -> Bool
 pub fn Axis::grid_width(Self) -> Double
 pub fn Axis::has_named_log_locator(Self) -> Bool
+pub fn Axis::has_named_logit_locator(Self) -> Bool
 pub fn Axis::inverted(Self) -> Bool
 pub fn Axis::label(Self) -> String?
 pub fn Axis::limits(Self) -> @core.Limits?

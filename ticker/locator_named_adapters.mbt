@@ -85,6 +85,7 @@ pub fn Locator::checked_tick_values(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    NamedLogit(value) => value.tick_values(lower, upper)
     NamedAsinh(value) => value.tick_values(lower, upper)
     NamedSymLog(value) => value.tick_values(lower, upper)
     NamedLog(value) => value.tick_values(lower, upper)
@@ -121,6 +122,7 @@ pub fn Locator::tick_values_for_axis(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    NamedLogit(value) => value.call()
     NamedAsinh(value) => value.call()
     NamedSymLog(value) => value.call()
     NamedLog(value) => value.call()
@@ -156,6 +158,7 @@ pub fn MinorLocator::checked_tick_values(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   let values = match self {
+    NamedLogit(value) => return value.tick_values(lower, upper)
     NamedAsinh(value) => return value.tick_values(lower, upper)
     NamedSymLog(value) => return value.tick_values(lower, upper)
     NamedLog(value) => return value.tick_values(lower, upper)
@@ -179,6 +182,7 @@ pub fn MinorLocator::tick_values_for_axis(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    NamedLogit(value) => value.call()
     NamedAsinh(value) => value.call()
     NamedSymLog(value) => value.call()
     NamedLog(value) => value.call()
@@ -329,6 +333,32 @@ pub fn Locator::asinh_locator(self : Locator) -> AsinhLocator? {
 pub fn MinorLocator::asinh_locator(self : MinorLocator) -> AsinhLocator? {
   match self {
     NamedAsinh(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn LogitLocator::as_locator(self : LogitLocator) -> Locator {
+  NamedLogit(self)
+}
+
+///|
+pub fn LogitLocator::as_minor_locator(self : LogitLocator) -> MinorLocator {
+  NamedLogit(self)
+}
+
+///|
+pub fn Locator::logit_locator(self : Locator) -> LogitLocator? {
+  match self {
+    NamedLogit(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn MinorLocator::logit_locator(self : MinorLocator) -> LogitLocator? {
+  match self {
+    NamedLogit(value) => Some(value)
     _ => None
   }
 }

@@ -1,0 +1,4594 @@
+{
+  "ticker_sha256": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+  "transforms_sha256": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+  "numpy_core_sha256": "44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scope": "Complete original LogitLocator/MaxN methods and real API validation. Bool minor, Auto/Int32 nbins, existing Bool/Int32/nullable prune/Float64 or Int64 1D steps. Constructor nbins omission differs from explicit None. Raw unsupported nbins None/text/hugeinteger setter slots and dynamic minor truthiness are excluded, not mapped to keep. Projection/view/minpos fixtures may raise; tick-space fixture follows existing pure Double domain. Recent-operation copied warnings are a typed port protocol around the source warning sink; MAXTICKS logger remains separate. Portable math profile is covered independently by the numerical generator.",
+  "constructors": [
+    {
+      "classic": false,
+      "params": {
+        "minor": false
+      },
+      "state": {
+        "minor": false,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": false,
+        "nbins": null
+      },
+      "state": {
+        "minor": false,
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": false,
+        "nbins": "auto"
+      },
+      "state": {
+        "minor": false,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": false,
+        "nbins": 0
+      },
+      "state": {
+        "minor": false,
+        "nbins": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": false,
+        "nbins": -1
+      },
+      "state": {
+        "minor": false,
+        "nbins": -1,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": false,
+        "nbins": 1
+      },
+      "state": {
+        "minor": false,
+        "nbins": 1,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": false,
+        "nbins": 3
+      },
+      "state": {
+        "minor": false,
+        "nbins": 3,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": false,
+        "nbins": 2147483647
+      },
+      "state": {
+        "minor": false,
+        "nbins": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": true
+      },
+      "state": {
+        "minor": true,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": true,
+        "nbins": null
+      },
+      "state": {
+        "minor": true,
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": true,
+        "nbins": "auto"
+      },
+      "state": {
+        "minor": true,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": true,
+        "nbins": 0
+      },
+      "state": {
+        "minor": true,
+        "nbins": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": true,
+        "nbins": -1
+      },
+      "state": {
+        "minor": true,
+        "nbins": -1,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": true,
+        "nbins": 1
+      },
+      "state": {
+        "minor": true,
+        "nbins": 1,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": true,
+        "nbins": 3
+      },
+      "state": {
+        "minor": true,
+        "nbins": 3,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": false,
+      "params": {
+        "minor": true,
+        "nbins": 2147483647
+      },
+      "state": {
+        "minor": true,
+        "nbins": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": false
+      },
+      "state": {
+        "minor": false,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": false,
+        "nbins": null
+      },
+      "state": {
+        "minor": false,
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": false,
+        "nbins": "auto"
+      },
+      "state": {
+        "minor": false,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": false,
+        "nbins": 0
+      },
+      "state": {
+        "minor": false,
+        "nbins": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": false,
+        "nbins": -1
+      },
+      "state": {
+        "minor": false,
+        "nbins": -1,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": false,
+        "nbins": 1
+      },
+      "state": {
+        "minor": false,
+        "nbins": 1,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": false,
+        "nbins": 3
+      },
+      "state": {
+        "minor": false,
+        "nbins": 3,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": false,
+        "nbins": 2147483647
+      },
+      "state": {
+        "minor": false,
+        "nbins": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": false,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": true
+      },
+      "state": {
+        "minor": true,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": true,
+        "nbins": null
+      },
+      "state": {
+        "minor": true,
+        "nbins": 10,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": true,
+        "nbins": "auto"
+      },
+      "state": {
+        "minor": true,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": true,
+        "nbins": 0
+      },
+      "state": {
+        "minor": true,
+        "nbins": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": true,
+        "nbins": -1
+      },
+      "state": {
+        "minor": true,
+        "nbins": -1,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": true,
+        "nbins": 1
+      },
+      "state": {
+        "minor": true,
+        "nbins": 1,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": true,
+        "nbins": 3
+      },
+      "state": {
+        "minor": true,
+        "nbins": 3,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    },
+    {
+      "classic": true,
+      "params": {
+        "minor": true,
+        "nbins": 2147483647
+      },
+      "state": {
+        "minor": true,
+        "nbins": 2147483647,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      },
+      "virtual_dispatch": {
+        "minor_before": true,
+        "keys": [
+          "nbins",
+          "steps",
+          "integer",
+          "symmetric",
+          "prune",
+          "min_n_ticks"
+        ]
+      }
+    }
+  ],
+  "updates": [
+    {
+      "params": {},
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": false,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "minor": null
+      },
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": false,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "minor": true
+      },
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": true,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "minor": false,
+        "nbins": 3
+      },
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": false,
+        "nbins": 3,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "minor": true,
+        "steps": null,
+        "prune": null
+      },
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": true,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ],
+        "steps_dtype": "float64"
+      }
+    },
+    {
+      "params": {
+        "minor": true,
+        "nbins": 3,
+        "symmetric": true,
+        "prune": "bad",
+        "min_n_ticks": 7,
+        "steps": [
+          1,
+          2,
+          10
+        ],
+        "integer": true
+      },
+      "observation": {
+        "values": null,
+        "source_error": "ValueError",
+        "warnings": []
+      },
+      "state": {
+        "minor": true,
+        "nbins": 3,
+        "integer": false,
+        "symmetric": true,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "minor": true,
+        "nbins": 3,
+        "symmetric": true,
+        "prune": "both",
+        "min_n_ticks": 7,
+        "steps": [
+          2,
+          1
+        ],
+        "integer": true
+      },
+      "observation": {
+        "values": null,
+        "source_error": "ValueError",
+        "warnings": []
+      },
+      "state": {
+        "minor": true,
+        "nbins": 3,
+        "integer": false,
+        "symmetric": true,
+        "prune": "both",
+        "min_n_ticks": 7,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "minor": true,
+        "steps": []
+      },
+      "observation": {
+        "values": null,
+        "source_error": "IndexError",
+        "warnings": []
+      },
+      "state": {
+        "minor": true,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "minor": true,
+        "steps": [
+          1
+        ]
+      },
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": true,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "minor": true,
+        "steps": [
+          2,
+          4,
+          8
+        ],
+        "integer": true
+      },
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": true,
+        "nbins": "auto",
+        "integer": true,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          4.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.4,
+          0.8,
+          1.0,
+          2.0,
+          4.0,
+          8.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "minor": true,
+        "steps": [
+          1,
+          "nan",
+          10
+        ]
+      },
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": true,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          "nan",
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          "nan",
+          1.0,
+          "nan",
+          10.0,
+          "nan"
+        ],
+        "steps_dtype": "float64"
+      }
+    },
+    {
+      "params": {
+        "minor": true,
+        "min_n_ticks": 0
+      },
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": true,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "minor": true,
+        "min_n_ticks": -3
+      },
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": true,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 1,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "minor": true,
+        "nbins": 0
+      },
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": true,
+        "nbins": 0,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "minor": true,
+        "nbins": -1
+      },
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": true,
+        "nbins": -1,
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "prune": "upper",
+        "integer": true,
+        "symmetric": true
+      },
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": false,
+        "nbins": "auto",
+        "integer": true,
+        "symmetric": true,
+        "prune": "upper",
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          2.0,
+          5.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.2,
+          0.5,
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0
+        ],
+        "steps_dtype": "int64"
+      }
+    },
+    {
+      "params": {
+        "steps": null
+      },
+      "observation": {
+        "values": null,
+        "source_error": null,
+        "warnings": []
+      },
+      "state": {
+        "minor": false,
+        "nbins": "auto",
+        "integer": false,
+        "symmetric": false,
+        "prune": null,
+        "min_n_ticks": 2,
+        "steps": [
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0
+        ],
+        "extended_steps": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.8,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          8.0,
+          10.0,
+          15.0
+        ],
+        "steps_dtype": "float64"
+      }
+    }
+  ],
+  "minor_property_stages": [
+    {
+      "minor": false,
+      "nbins": "auto",
+      "integer": false,
+      "symmetric": false,
+      "prune": null,
+      "min_n_ticks": 2,
+      "steps": [
+        1.0,
+        2.0,
+        5.0,
+        10.0
+      ],
+      "extended_steps": [
+        0.1,
+        0.2,
+        0.5,
+        1.0,
+        2.0,
+        5.0,
+        10.0,
+        20.0
+      ],
+      "steps_dtype": "int64"
+    },
+    {
+      "minor": true,
+      "nbins": "auto",
+      "integer": false,
+      "symmetric": false,
+      "prune": null,
+      "min_n_ticks": 2,
+      "steps": [
+        1.0,
+        2.0,
+        5.0,
+        10.0
+      ],
+      "extended_steps": [
+        0.1,
+        0.2,
+        0.5,
+        1.0,
+        2.0,
+        5.0,
+        10.0,
+        20.0
+      ],
+      "steps_dtype": "int64"
+    },
+    {
+      "minor": true,
+      "nbins": "auto",
+      "integer": false,
+      "symmetric": false,
+      "prune": null,
+      "min_n_ticks": 2,
+      "steps": [
+        1.0,
+        2.0,
+        5.0,
+        10.0
+      ],
+      "extended_steps": [
+        0.1,
+        0.2,
+        0.5,
+        1.0,
+        2.0,
+        5.0,
+        10.0,
+        20.0
+      ],
+      "steps_dtype": "int64"
+    },
+    {
+      "minor": false,
+      "nbins": "auto",
+      "integer": false,
+      "symmetric": false,
+      "prune": null,
+      "min_n_ticks": 2,
+      "steps": [
+        1.0,
+        2.0,
+        5.0,
+        10.0
+      ],
+      "extended_steps": [
+        0.1,
+        0.2,
+        0.5,
+        1.0,
+        2.0,
+        5.0,
+        10.0,
+        20.0
+      ],
+      "steps_dtype": "int64"
+    }
+  ],
+  "aliases": [
+    {
+      "label": "float signed",
+      "integer": false,
+      "initial": [
+        10.0,
+        5.0,
+        2.0,
+        1.0
+      ],
+      "slices": [
+        [
+          -1,
+          -1,
+          4
+        ]
+      ],
+      "shares_memory": true,
+      "stages": [
+        {
+          "state": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "copy": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "owner": [
+            10.0,
+            5.0,
+            2.0,
+            1.0
+          ]
+        },
+        {
+          "state": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.25,
+              3.75,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "copy": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.25,
+              3.75,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "owner": [
+            10.0,
+            5.0,
+            3.75,
+            1.25
+          ]
+        },
+        {
+          "state": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.25,
+              3.75,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "copy": {
+            "minor": true,
+            "nbins": 4,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "owner": [
+            10.0,
+            5.0,
+            3.75,
+            1.25
+          ]
+        }
+      ]
+    },
+    {
+      "label": "integer signed",
+      "integer": true,
+      "initial": [
+        10,
+        5,
+        2,
+        1
+      ],
+      "slices": [
+        [
+          -1,
+          -1,
+          4
+        ]
+      ],
+      "shares_memory": true,
+      "stages": [
+        {
+          "state": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "int64"
+          },
+          "copy": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "int64"
+          },
+          "owner": [
+            10,
+            5,
+            2,
+            1
+          ]
+        },
+        {
+          "state": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              3.0,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "int64"
+          },
+          "copy": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              3.0,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "int64"
+          },
+          "owner": [
+            10,
+            5,
+            3,
+            1
+          ]
+        },
+        {
+          "state": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              3.0,
+              5.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.5,
+              1.0,
+              2.0,
+              5.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "int64"
+          },
+          "copy": {
+            "minor": true,
+            "nbins": 4,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "owner": [
+            10,
+            5,
+            3,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "float normalized copy",
+      "integer": false,
+      "initial": [
+        2.0,
+        4.0,
+        8.0
+      ],
+      "slices": [],
+      "shares_memory": false,
+      "stages": [
+        {
+          "state": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "copy": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "owner": [
+            2.0,
+            4.0,
+            8.0
+          ]
+        },
+        {
+          "state": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              3.75,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "copy": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              3.75,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "owner": [
+            1.25,
+            4.0,
+            8.0
+          ]
+        },
+        {
+          "state": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              3.75,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "copy": {
+            "minor": true,
+            "nbins": 4,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "owner": [
+            1.25,
+            4.0,
+            8.0
+          ]
+        }
+      ]
+    },
+    {
+      "label": "integer normalized copy",
+      "integer": true,
+      "initial": [
+        2,
+        4,
+        8
+      ],
+      "slices": [],
+      "shares_memory": false,
+      "stages": [
+        {
+          "state": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "int64"
+          },
+          "copy": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "int64"
+          },
+          "owner": [
+            2,
+            4,
+            8
+          ]
+        },
+        {
+          "state": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              3.0,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "int64"
+          },
+          "copy": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              3.0,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "int64"
+          },
+          "owner": [
+            1,
+            4,
+            8
+          ]
+        },
+        {
+          "state": {
+            "minor": false,
+            "nbins": "auto",
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              3.0,
+              4.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.2,
+              0.4,
+              0.8,
+              1.0,
+              2.0,
+              4.0,
+              8.0,
+              10.0,
+              20.0
+            ],
+            "steps_dtype": "int64"
+          },
+          "copy": {
+            "minor": true,
+            "nbins": 4,
+            "integer": false,
+            "symmetric": false,
+            "prune": null,
+            "min_n_ticks": 2,
+            "steps": [
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0
+            ],
+            "extended_steps": [
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.4,
+              0.5,
+              0.6000000000000001,
+              0.8,
+              1.0,
+              1.5,
+              2.0,
+              2.5,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              8.0,
+              10.0,
+              15.0
+            ],
+            "steps_dtype": "float64"
+          },
+          "owner": [
+            1,
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "context": {},
+      "observation": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "source_error": null,
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ]
+      },
+      "events": []
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "context": {},
+      "observation": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "source_error": null,
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ]
+      },
+      "events": []
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        -2.0,
+        -1.0
+      ],
+      "context": {},
+      "observation": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "source_error": null,
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ]
+      },
+      "events": []
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        1.0,
+        2.0
+      ],
+      "context": {},
+      "observation": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "source_error": null,
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ]
+      },
+      "events": []
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        "nan",
+        0.8
+      ],
+      "context": {},
+      "observation": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": []
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        "-inf",
+        "inf"
+      ],
+      "context": {},
+      "observation": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": []
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.2,
+        0.8
+      ],
+      "context": {},
+      "observation": {
+        "values": [
+          0.2,
+          0.8
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": []
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.5,
+        0.5
+      ],
+      "context": {},
+      "observation": {
+        "values": [
+          0.05,
+          0.95
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": []
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.0,
+        1.0
+      ],
+      "context": {},
+      "observation": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": []
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.8,
+        0.2
+      ],
+      "context": {},
+      "observation": {
+        "values": [
+          0.2,
+          0.8
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": []
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.0,
+        1.0
+      ],
+      "context": {
+        "minpos": 0.0
+      },
+      "observation": {
+        "values": [
+          0.0,
+          1.0
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "minpos"
+      ]
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.0,
+        1.0
+      ],
+      "context": {
+        "minpos": -0.1
+      },
+      "observation": {
+        "values": [
+          -0.1,
+          1.1
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "minpos"
+      ]
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.0,
+        1.0
+      ],
+      "context": {
+        "minpos": 0.01
+      },
+      "observation": {
+        "values": [
+          0.01,
+          0.99
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "minpos"
+      ]
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.0,
+        1.0
+      ],
+      "context": {
+        "minpos": "nan"
+      },
+      "observation": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "minpos"
+      ]
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.0,
+        1.0
+      ],
+      "context": {
+        "minpos": "inf"
+      },
+      "observation": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "minpos"
+      ]
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.0,
+        1.0
+      ],
+      "context": {
+        "minpos": "-inf"
+      },
+      "observation": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "minpos"
+      ]
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.0,
+        1.0
+      ],
+      "context": {
+        "minpos": 1.0
+      },
+      "observation": {
+        "values": [
+          1.0,
+          0.0
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "minpos"
+      ]
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.0,
+        1.0
+      ],
+      "context": {
+        "minpos": 2.0
+      },
+      "observation": {
+        "values": [
+          2.0,
+          -1.0
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "minpos"
+      ]
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        0.2,
+        0.8
+      ],
+      "context": {
+        "projection": "rectilinear"
+      },
+      "observation": {
+        "values": null,
+        "source_error": "AttributeError",
+        "warnings": []
+      },
+      "events": []
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        "nan",
+        0.8
+      ],
+      "context": {
+        "projection": "rectilinear"
+      },
+      "observation": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": []
+    },
+    {
+      "method": "nonsingular",
+      "bounds": [
+        -2.0,
+        -1.0
+      ],
+      "context": {
+        "projection": "rectilinear"
+      },
+      "observation": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "source_error": null,
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ]
+      },
+      "events": []
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.01,
+        0.99
+      ],
+      "context": {
+        "projection": "rectilinear",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": [
+          0.01,
+          0.1,
+          0.5,
+          0.9,
+          0.99
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "projection",
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "rectilinear",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": true,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": [],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "projection",
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "rectilinear",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": [
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6000000000000001
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "projection",
+        "space",
+        "minpos",
+        "space",
+        "projection"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "rectilinear",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": 4,
+      "mode": "data",
+      "observation": {
+        "values": [
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6000000000000001
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "projection",
+        "minpos",
+        "projection"
+      ]
+    },
+    {
+      "method": "call",
+      "bounds": [],
+      "context": {
+        "projection": "rectilinear",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": [
+          0.01,
+          0.1,
+          0.5,
+          0.9,
+          0.99
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "view",
+        "projection",
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "method": "view_limits",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "rectilinear",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": [
+          0.4,
+          0.6
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": []
+    },
+    {
+      "method": "view_limits",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "rectilinear",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "round_numbers",
+      "observation": {
+        "values": [
+          0.4,
+          0.6000000000000001
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "projection"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.01,
+        0.99
+      ],
+      "context": {
+        "projection": "polar",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": null,
+        "source_error": "NotImplementedError",
+        "warnings": []
+      },
+      "events": [
+        "projection"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "polar",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": true,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": null,
+        "source_error": "NotImplementedError",
+        "warnings": []
+      },
+      "events": [
+        "projection"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "polar",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": null,
+        "source_error": "NotImplementedError",
+        "warnings": []
+      },
+      "events": [
+        "projection"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "polar",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": 4,
+      "mode": "data",
+      "observation": {
+        "values": null,
+        "source_error": "NotImplementedError",
+        "warnings": []
+      },
+      "events": [
+        "projection"
+      ]
+    },
+    {
+      "method": "call",
+      "bounds": [],
+      "context": {
+        "projection": "polar",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": null,
+        "source_error": "NotImplementedError",
+        "warnings": []
+      },
+      "events": [
+        "view",
+        "projection"
+      ]
+    },
+    {
+      "method": "view_limits",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "polar",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": [
+          0.4,
+          0.6
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": []
+    },
+    {
+      "method": "view_limits",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "polar",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "round_numbers",
+      "observation": {
+        "values": [
+          0.4,
+          0.6000000000000001
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "projection"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.01,
+        0.99
+      ],
+      "context": {
+        "projection": "3d",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": [
+          0.01,
+          0.1,
+          0.5,
+          0.9,
+          0.99
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "projection",
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "3d",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": true,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": [],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "projection",
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "3d",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": [
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6000000000000001
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "projection",
+        "space",
+        "minpos",
+        "space",
+        "projection"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "3d",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": 4,
+      "mode": "data",
+      "observation": {
+        "values": [
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6000000000000001
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "projection",
+        "minpos",
+        "projection"
+      ]
+    },
+    {
+      "method": "call",
+      "bounds": [],
+      "context": {
+        "projection": "3d",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": [
+          0.01,
+          0.1,
+          0.5,
+          0.9,
+          0.99
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "view",
+        "projection",
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "method": "view_limits",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "3d",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "data",
+      "observation": {
+        "values": [
+          0.4,
+          0.6
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": []
+    },
+    {
+      "method": "view_limits",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "3d",
+        "space": 9.0,
+        "minpos": 0.01,
+        "view": [
+          0.01,
+          0.99
+        ]
+      },
+      "minor": false,
+      "nbins": "auto",
+      "mode": "round_numbers",
+      "observation": {
+        "values": [
+          0.4,
+          0.6000000000000001
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "projection"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.01,
+        0.99
+      ],
+      "context": {
+        "space": 0.0,
+        "minpos": 0.01
+      },
+      "observation": {
+        "values": [
+          0.01,
+          0.5,
+          0.99
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "space": 0.0,
+        "minpos": 0.01
+      },
+      "observation": {
+        "values": [
+          0.4,
+          0.5,
+          0.6000000000000001
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "minpos",
+        "space"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.01,
+        0.99
+      ],
+      "context": {
+        "space": 2.5,
+        "minpos": 0.01
+      },
+      "observation": {
+        "values": [
+          0.01,
+          0.5,
+          0.99
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "space": 2.5,
+        "minpos": 0.01
+      },
+      "observation": {
+        "values": [
+          0.4,
+          0.5,
+          0.6000000000000001
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "minpos",
+        "space"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.01,
+        0.99
+      ],
+      "context": {
+        "space": 100.0,
+        "minpos": 0.01
+      },
+      "observation": {
+        "values": [
+          0.01,
+          0.1,
+          0.5,
+          0.9,
+          0.99
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "space": 100.0,
+        "minpos": 0.01
+      },
+      "observation": {
+        "values": [
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6000000000000001
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "minpos",
+        "space"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.01,
+        0.99
+      ],
+      "context": {
+        "space": "nan",
+        "minpos": 0.01
+      },
+      "observation": {
+        "values": [
+          0.01,
+          0.1,
+          0.5,
+          0.9,
+          0.99
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "space": "nan",
+        "minpos": 0.01
+      },
+      "observation": {
+        "values": null,
+        "source_error": "ValueError",
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "minpos",
+        "space"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.01,
+        0.99
+      ],
+      "context": {
+        "space": "inf",
+        "minpos": 0.01
+      },
+      "observation": {
+        "values": [
+          0.01,
+          0.1,
+          0.5,
+          0.9,
+          0.99
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "space": "inf",
+        "minpos": 0.01
+      },
+      "observation": {
+        "values": [
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6000000000000001
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "minpos",
+        "space"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.01,
+        0.99
+      ],
+      "context": {
+        "space": "-inf",
+        "minpos": 0.01
+      },
+      "observation": {
+        "values": [
+          0.01,
+          0.5,
+          0.99
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "space": "-inf",
+        "minpos": 0.01
+      },
+      "observation": {
+        "values": [
+          0.4,
+          0.5,
+          0.6000000000000001
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "minpos",
+        "space"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.2,
+        0.8
+      ],
+      "context": {
+        "minpos": 0.01
+      },
+      "mode": "data",
+      "observation": {
+        "values": null,
+        "source_error": "AttributeError",
+        "warnings": []
+      },
+      "events": []
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.2,
+        0.8
+      ],
+      "context": {
+        "space": 9.0
+      },
+      "mode": "data",
+      "observation": {
+        "values": null,
+        "source_error": "AttributeError",
+        "warnings": []
+      },
+      "events": [
+        "space"
+      ]
+    },
+    {
+      "method": "call",
+      "bounds": [],
+      "context": {
+        "view": [
+          0.2,
+          0.8
+        ]
+      },
+      "mode": "data",
+      "observation": {
+        "values": null,
+        "source_error": "AttributeError",
+        "warnings": []
+      },
+      "events": [
+        "view"
+      ]
+    },
+    {
+      "method": "call",
+      "bounds": [],
+      "context": {
+        "view": [
+          0.2,
+          0.8
+        ],
+        "projection": "rectilinear",
+        "space": 9.0,
+        "minpos": 0.01,
+        "fail": "view"
+      },
+      "mode": "data",
+      "observation": {
+        "values": null,
+        "source_error": "ValueError",
+        "warnings": []
+      },
+      "events": [
+        "view"
+      ]
+    },
+    {
+      "method": "call",
+      "bounds": [],
+      "context": {
+        "view": [
+          0.2,
+          0.8
+        ],
+        "projection": "rectilinear",
+        "space": 9.0,
+        "minpos": 0.01,
+        "fail": "projection"
+      },
+      "mode": "data",
+      "observation": {
+        "values": null,
+        "source_error": "ValueError",
+        "warnings": []
+      },
+      "events": [
+        "view",
+        "projection"
+      ]
+    },
+    {
+      "method": "call",
+      "bounds": [],
+      "context": {
+        "view": [
+          0.2,
+          0.8
+        ],
+        "projection": "rectilinear",
+        "space": 9.0,
+        "minpos": 0.01,
+        "fail": "minpos"
+      },
+      "mode": "data",
+      "observation": {
+        "values": null,
+        "source_error": "ValueError",
+        "warnings": []
+      },
+      "events": [
+        "view",
+        "projection",
+        "space",
+        "minpos"
+      ]
+    },
+    {
+      "method": "tick_values",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "rectilinear",
+        "space": 9.0,
+        "minpos": 0.01,
+        "fail": "projection",
+        "fail_at": 2
+      },
+      "mode": "data",
+      "observation": {
+        "values": null,
+        "source_error": "ValueError",
+        "warnings": []
+      },
+      "events": [
+        "projection",
+        "space",
+        "minpos",
+        "space",
+        "projection"
+      ]
+    },
+    {
+      "method": "view_limits",
+      "bounds": [
+        0.4,
+        0.6
+      ],
+      "context": {
+        "projection": "rectilinear",
+        "space": 9.0,
+        "minpos": 0.01,
+        "fail": "projection"
+      },
+      "mode": "round_numbers",
+      "observation": {
+        "values": null,
+        "source_error": "ValueError",
+        "warnings": []
+      },
+      "events": [
+        "space",
+        "projection"
+      ]
+    }
+  ],
+  "provider_copy_stages": [
+    {
+      "name": "locator",
+      "observation": {
+        "values": [
+          0.01,
+          0.99
+        ],
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "name": "shallow",
+      "observation": {
+        "values": [
+          0.02,
+          0.98
+        ],
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "name": "locator",
+      "observation": {
+        "values": [
+          0.2,
+          0.8
+        ],
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "name": "shallow",
+      "observation": {
+        "values": [
+          0.02,
+          0.98
+        ],
+        "source_error": null,
+        "warnings": []
+      }
+    }
+  ],
+  "provider_events": [
+    "first",
+    "first",
+    "second",
+    "first"
+  ]
+}

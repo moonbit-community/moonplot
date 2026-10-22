@@ -1,4 +1,11 @@
 ///|
+fn source_numeric_limits(axis : @axis.Axis) -> Bool {
+  axis.has_named_log_locator() ||
+  axis.has_named_logit_locator() ||
+  axis.scale().is_logit()
+}
+
+///|
 fn finite_or(value : Double, fallback : Double) -> Double {
   if value.is_nan() || value.is_inf() {
     fallback
@@ -451,12 +458,12 @@ fn raw_scale(panel : @render.Panel) -> Scale {
       }
     None => {
       let data = artist_data_scale(panel)
-      let x = if panel.x_axis().has_named_log_locator() {
+      let x = if source_numeric_limits(panel.x_axis()) {
         artist_data_interval(panel.artists(), true)
       } else {
         @core.limits(data.xmin, data.xmax)
       }
-      let y = if panel.y_axis().has_named_log_locator() {
+      let y = if source_numeric_limits(panel.y_axis()) {
         artist_data_interval(panel.artists(), false)
       } else {
         @core.limits(data.ymin, data.ymax)
@@ -590,8 +597,8 @@ fn compute_scale(
   let raw = grouped_raw_scale(figure, target_index)
   let x_axis = target.x_axis()
   let y_axis = target.y_axis()
-  let x_log = x_axis.has_named_log_locator()
-  let y_log = y_axis.has_named_log_locator()
+  let x_log = source_numeric_limits(x_axis)
+  let y_log = source_numeric_limits(y_axis)
   let x_active = x_log &&
     group_limit(figure, target_index, true) is None &&
     x_axis.current_view_limits() is None
@@ -732,25 +739,10 @@ fn log_scale_limit_checked(
       minpos = value
     }
   }
-  if minpos.is_nan() || minpos.is_inf() {
-    minpos = 1.0e-300
-  }
-  if axis.scale().is_log() {
-    @core.limits(
-      if limits.lower() <= 0.0 {
-        minpos
-      } else {
-        limits.lower()
-      },
-      if limits.upper() <= 0.0 {
-        minpos
-      } else {
-        limits.upper()
-      },
-    )
-  } else {
-    limits
-  }
+  let (lower, upper) = axis
+    .scale()
+    .limit_range_for_scale(limits.lower(), limits.upper(), minpos)
+  @core.limits(lower, upper)
 }
 
 ///|
@@ -767,20 +759,10 @@ fn finalize_log_view_checked(
     limits.lower(),
     limits.upper(),
   )
-  let mut minpos = axis.get_minpos()
-  if minpos.is_nan() || minpos.is_inf() {
-    minpos = 1.0e-300
-  }
-  let lower = if axis.scale().is_log() && bounds.lower() <= 0.0 {
-    minpos
-  } else {
-    bounds.lower()
-  }
-  let upper = if axis.scale().is_log() && bounds.upper() <= 0.0 {
-    minpos
-  } else {
-    bounds.upper()
-  }
+  let minpos = axis.get_minpos()
+  let (lower, upper) = axis
+    .scale()
+    .limit_range_for_scale(bounds.lower(), bounds.upper(), minpos)
   let (lower, upper) = if upper < lower {
     (upper, lower)
   } else {

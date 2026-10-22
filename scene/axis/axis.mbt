@@ -115,6 +115,13 @@ pub fn Axis::set_limits(
   if !limits.is_finite() {
     raise @core.DataError::NonFiniteLimit(axis="axis")
   }
+  if self.scale.is_logit() {
+    let resolved = self.logit_limit_bounds_checked(lower, upper)
+    self.limits = Some(resolved)
+    self.auto_view = None
+    self.inverted = resolved.lower() > resolved.upper()
+    return
+  }
   if self.scale.is_log() && (lower <= 0.0 || upper <= 0.0) {
     raise @core.DataError::InvalidTicks(
       message="log scale limits must be positive",
@@ -1019,7 +1026,8 @@ pub fn Axis::tick_values(
     self.category is None &&
     self.locator
     is Some(
-      @ticker.Locator::NamedAsinh(_)
+      @ticker.Locator::NamedLogit(_)
+      | @ticker.Locator::NamedAsinh(_)
       | @ticker.Locator::NamedSymLog(_)
       | @ticker.Locator::NamedLog(_)
       | @ticker.Locator::Index(_)
@@ -1088,7 +1096,8 @@ pub fn Axis::minor_tick_values(
     self.minor_date_locator is None &&
     self.minor_locator
     is Some(
-      @ticker.MinorLocator::NamedAsinh(_)
+      @ticker.MinorLocator::NamedLogit(_)
+      | @ticker.MinorLocator::NamedAsinh(_)
       | @ticker.MinorLocator::NamedSymLog(_)
       | @ticker.MinorLocator::NamedLog(_)
       | @ticker.MinorLocator::Null(_)

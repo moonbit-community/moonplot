@@ -48,6 +48,10 @@ fn SecondaryAxis::bind_numeric_locator_context(
   self : SecondaryAxis,
   locator : @ticker.Locator,
 ) -> Unit {
+  if locator is @ticker.Locator::NamedLogit(value) {
+    self.bind_logit_context(value)
+    return
+  }
   if locator is @ticker.Locator::NamedAsinh(value) {
     value.bind_view_interval(() => self.numeric_view_interval())
     return
@@ -81,4 +85,15 @@ fn SecondaryAxis::bind_log_context(
   // A secondary axis transforms a view, but owns an empty dataLim.
   value.bind_minpos(() => 1.0 / 0.0)
   value.bind_shared_minpos(() => [1.0 / 0.0])
+}
+
+///|
+fn SecondaryAxis::bind_logit_context(
+  self : SecondaryAxis,
+  value : @ticker.LogitLocator,
+) -> Unit {
+  value.bind_tick_space(() => self.get_tick_space())
+  value.bind_view_interval(() => self.numeric_view_interval())
+  value.bind_minpos(() => 1.0 / 0.0)
+  value.bind_projection(() => "rectilinear")
 }

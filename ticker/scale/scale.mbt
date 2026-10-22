@@ -5,6 +5,7 @@ pub(all) enum Scale {
   Log
   SymLog(linthresh~ : Double, linscale~ : Double, base~ : Double)
   Asinh(linear_width~ : Double)
+  Logit(clip~ : Bool)
 }
 
 ///|
@@ -17,6 +18,22 @@ pub fn linear_scale() -> Scale {
 /// Return a base-ten logarithmic scale.
 pub fn log_scale() -> Scale {
   Scale::Log
+}
+
+///|
+/// Construct base-ten probability geometry. Tick defaults require an explicit
+/// locator; the clip mode does not change the strict valid-data domain.
+pub fn logit_scale(
+  nonpositive~ : String = "mask",
+) -> Scale raise @core.DataError {
+  match nonpositive {
+    "mask" => Scale::Logit(clip=false)
+    "clip" => Scale::Logit(clip=true)
+    _ =>
+      raise @core.DataError::InvalidTicks(
+        message="'\{nonpositive}' is not a valid value for nonpositive; supported values are 'mask', 'clip'",
+      )
+  }
 }
 
 ///|
@@ -68,7 +85,7 @@ pub fn Scale::is_log(self : Scale) -> Bool {
 pub fn Scale::is_nonlinear(self : Scale) -> Bool {
   match self {
     Linear => false
-    Log | SymLog(..) | Asinh(..) => true
+    Log | SymLog(..) | Asinh(..) | Logit(..) => true
   }
 }
 
@@ -82,6 +99,22 @@ pub fn Scale::is_symlog(self : Scale) -> Bool {
 /// Whether this scale uses inverse-hyperbolic-sine coordinates.
 pub fn Scale::is_asinh(self : Scale) -> Bool {
   self is Asinh(..)
+}
+
+///|
+/// Whether this scale uses log-odds probability coordinates.
+pub fn Scale::is_logit(self : Scale) -> Bool {
+  self is Logit(..)
+}
+
+///|
+/// Return the Logit nonpositive mode, if configured.
+pub fn Scale::logit_nonpositive(self : Scale) -> String? {
+  match self {
+    Logit(clip=true) => Some("clip")
+    Logit(clip=false) => Some("mask")
+    _ => None
+  }
 }
 
 ///|
@@ -165,6 +198,7 @@ pub fn Scale::is_valid(self : Scale, value : Double) -> Bool {
     Linear => !value.is_nan() && !value.is_inf()
     Log => value > 0.0 && !value.is_nan() && !value.is_inf()
     SymLog(..) | Asinh(..) => !value.is_nan() && !value.is_inf()
+    Logit(..) => value > 0.0 && value < 1.0
   }
 }
 
@@ -177,6 +211,16 @@ pub fn Scale::transform(self : Scale, value : Double) -> Double {
     SymLog(linthresh~, linscale~, base~) =>
       symlog_transform_value(value, linthresh, linscale, base)
     Asinh(linear_width~) => linear_width * @math.asinh(value / linear_width)
+    Logit(clip~) => {
+      let result = @math.log10(value / (1.0 - value))
+      if clip && value <= 0.0 {
+        -1000.0
+      } else if clip && value >= 1.0 {
+        1000.0
+      } else {
+        result
+      }
+    }
   }
 }
 
@@ -189,6 +233,59 @@ pub fn Scale::inverse(self : Scale, value : Double) -> Double {
     SymLog(linthresh~, linscale~, base~) =>
       symlog_inverse_value(value, linthresh, linscale, base)
     Asinh(linear_width~) => linear_width * @math.sinh(value / linear_width)
+    Logit(..) => 1.0 / (1.0 + @math.pow(10.0, -value))
+  }
+}
+
+///|
+/// Apply the scale's source domain restriction using raw minimum-positive data.
+/// Finite minpos is preserved, including values outside the usual data domain.
+pub fn Scale::limit_range_for_scale(
+  self : Scale,
+  lower : Double,
+  upper : Double,
+  minpos : Double,
+) -> (Double, Double) {
+  match self {
+    Linear | SymLog(..) | Asinh(..) => (lower, upper)
+    Log => {
+      let minpos = if minpos.is_nan() || minpos.is_inf() {
+        1.0e-300
+      } else {
+        minpos
+      }
+      (
+        if lower <= 0.0 {
+          minpos
+        } else {
+          lower
+        },
+        if upper <= 0.0 {
+          minpos
+        } else {
+          upper
+        },
+      )
+    }
+    Logit(..) => {
+      let minpos = if minpos.is_nan() || minpos.is_inf() {
+        1.0e-7
+      } else {
+        minpos
+      }
+      (
+        if lower <= 0.0 {
+          minpos
+        } else {
+          lower
+        },
+        if upper >= 1.0 {
+          1.0 - minpos
+        } else {
+          upper
+        },
+      )
+    }
   }
 }
 
@@ -250,8 +347,8 @@ fn linear_ticks(limits : @core.Limits, count : Int32) -> Array[Double] {
 }
 
 ///|
-// A display-uniform convenience grid, independent from the named Asinh locator.
-fn asinh_display_ticks(
+// Display-uniform convenience grids, independent from named locator policies.
+fn nonlinear_display_ticks(
   scale : Scale,
   limits : @core.Limits,
   count : Int32,
@@ -259,6 +356,9 @@ fn asinh_display_ticks(
   let lower = limits.lower()
   let upper = limits.upper()
   if lower.is_nan() || lower.is_inf() || upper.is_nan() || upper.is_inf() {
+    return []
+  }
+  if scale.is_logit() && (!scale.is_valid(lower) || !scale.is_valid(upper)) {
     return []
   }
   let transformed_lower = scale.transform(lower)
@@ -292,6 +392,9 @@ fn asinh_display_ticks(
       scale.inverse(transformed)
     }
     if value.is_nan() || value.is_inf() {
+      return []
+    }
+    if scale.is_logit() && !scale.is_valid(value) {
       return []
     }
     result.push(value)
@@ -348,8 +451,8 @@ fn log_ticks(limits : @core.Limits, count : Int32) -> Array[Double] {
 
 ///|
 /// Generate deterministic convenience ticks for this scale.
-/// Asinh uses a display-uniform sampler; explicitly install a named locator
-/// for the original AsinhLocator rounding, subs and default count policy.
+/// Asinh and Logit use display-uniform samplers; explicitly install a named
+/// locator for the corresponding source locator's rounding and count policy.
 pub fn Scale::tick_values(
   self : Scale,
   limits : @core.Limits,
@@ -362,7 +465,7 @@ pub fn Scale::tick_values(
       ignore(linscale)
       symlog_ticks(limits, linthresh, base)
     }
-    Asinh(..) => asinh_display_ticks(self, limits, count)
+    Asinh(..) | Logit(..) => nonlinear_display_ticks(self, limits, count)
   }
 }
 

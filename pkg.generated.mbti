@@ -45,6 +45,8 @@ pub fn log_formatter(base? : Double, label_only_base? : Bool) -> @ticker.Formatt
 
 pub fn log_scale() -> @scale.Scale
 
+pub fn logit_scale(nonpositive? : String) -> @scale.Scale raise @core.DataError
+
 pub fn masked_array(Array[Double], mask? : Array[Bool]) -> @core.MaskedArray raise @core.MaskError
 
 pub fn masked_matrix(Array[Array[Double]], mask? : Array[Array[Bool]]) -> @core.MaskedMatrix raise @core.MaskError

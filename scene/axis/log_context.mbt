@@ -54,10 +54,27 @@ pub fn Axis::numeric_nonsingular_bounds_checked(
   upper : Double,
 ) -> @core.Limits raise @core.DataError {
   match self.locator {
+    Some(@ticker.Locator::NamedLogit(value)) => {
+      let (first, last) = value.nonsingular(lower, upper)
+      @core.limits(first, last)
+    }
     Some(@ticker.Locator::NamedLog(value)) => {
       let (first, last) = value.nonsingular(lower, upper)
       @core.limits(first, last)
     }
     _ => self.numeric_nonsingular_bounds(lower, upper)
   }
+}
+
+///|
+fn Axis::bind_logit_context(self : Axis, value : @ticker.LogitLocator) -> Unit {
+  value.bind_tick_space(() => self.get_tick_space())
+  value.bind_view_interval(() => self.view_interval_checked())
+  value.bind_minpos(() => self.get_minpos())
+  value.bind_projection(() => "rectilinear")
+}
+
+///|
+pub fn Axis::has_named_logit_locator(self : Axis) -> Bool {
+  self.locator is Some(@ticker.Locator::NamedLogit(_))
 }

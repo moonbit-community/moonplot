@@ -107,7 +107,7 @@ fn maxn_scale_range(
     0.0
   } else {
     let power = @tick_grid.divmod(maxn_log10(Double::abs(mean)), 1.0).0
-    let value = @math.pow(10.0, power)
+    let value = log_grid_numpy_power(10.0, power)
     if mean.reinterpret_as_uint64() >> 63 == 0UL {
       value
     } else {
@@ -115,7 +115,9 @@ fn maxn_scale_range(
     }
   }
   let power = @tick_grid.divmod(maxn_log10(difference / bins), 1.0).0
-  (@math.pow(10.0, power), offset)
+  // Decimal integer powers use the shared correctly-rounded primitive. A libm
+  // error here changes the selected step and its floored grid origin.
+  (log_grid_numpy_power(10.0, power), offset)
 }
 
 ///|
@@ -123,12 +125,21 @@ fn MaxNLocator::grid(
   self : MaxNLocator,
   lower : Double,
   upper : Double,
+  raw_step_transform? : (Double) -> Double raise @core.DataError,
+  require_tick_space~ : Bool = false,
 ) -> MaxNGrid raise @core.DataError {
   let bins = match self.nbins {
     Count(value) => Double::from_int(value)
     Auto =>
       match self.tick_space_provider {
-        None => 9.0
+        None => {
+          if require_tick_space {
+            raise @core.DataError::InvalidTicks(
+              message="bound logit locator has no tick-space provider",
+            )
+          }
+          9.0
+        }
         Some(provider) => {
           let space = provider()
           let minimum = Double::from_int(Int32::max(1, self.min_n_ticks - 1))
@@ -158,12 +169,18 @@ fn MaxNLocator::grid(
   } else {
     steps
   }
+  let raw_step = (last - first) / bins
+  let raw_step = match raw_step_transform {
+    Some(transform) => transform(raw_step)
+    None => raw_step
+  }
+  // The source reads projection after filtering, even when no step remains.
+  // Earlier scale-range failures still precede this optional context read.
   if steps.is_empty() {
     raise @core.DataError::InvalidTicks(
       message="MaxN integer filtering leaves no candidate step",
     )
   }
-  let raw_step = (last - first) / bins
   let round_numbers = @config.axes_autolimit_mode() == "round_numbers"
   let mut first_large = steps.length() - 1
   for index, step in steps {

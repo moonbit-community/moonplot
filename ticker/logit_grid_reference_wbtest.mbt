@@ -1,0 +1,12509 @@
+// Complete original Logit AST; MaxN scale_range has only its bounded decimal-power correction.
+
+///|
+fn verify_logit_grid_bits(
+  actual : Array[Double],
+  expected : Array[Double],
+) -> Unit raise {
+  assert_eq(actual.length(), expected.length())
+  for index, value in expected {
+    if value.is_nan() {
+      assert_true(actual[index].is_nan())
+    } else {
+      assert_eq(
+        actual[index].reinterpret_as_uint64(),
+        value.reinterpret_as_uint64(),
+      )
+    }
+  }
+}
+
+///|
+test "Logit grid 0 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0, 1.0), [
+    1.0e-06, 0.0001, 0.01, 0.5, 0.99, 0.9999, 0.999999, 0.99999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 1 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0, 1.0), [
+    1.0e-07, 1.0e-05, 0.001, 0.1, 0.9, 0.999, 0.99999, 0.9999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 2 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(1.0, 0.0), [
+    1.0e-06, 0.0001, 0.01, 0.5, 0.99, 0.9999, 0.999999, 0.99999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 3 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(1.0, 0.0), [
+    1.0e-07, 1.0e-05, 0.001, 0.1, 0.9, 0.999, 0.99999, 0.9999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 4 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(-1.0, 0.0), [
+    1.0e-06, 0.0001, 0.01, 0.5, 0.99, 0.9999, 0.999999, 0.99999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [
+    "Data has no values between 0 and 1, and therefore cannot be logit-scaled.",
+  ])
+}
+
+///|
+test "Logit grid 5 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(-1.0, 0.0), [
+    1.0e-07, 1.0e-05, 0.001, 0.1, 0.9, 0.999, 0.99999, 0.9999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [
+    "Data has no values between 0 and 1, and therefore cannot be logit-scaled.",
+  ])
+}
+
+///|
+test "Logit grid 6 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(1.0, 2.0), [
+    1.0e-06, 0.0001, 0.01, 0.5, 0.99, 0.9999, 0.999999, 0.99999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [
+    "Data has no values between 0 and 1, and therefore cannot be logit-scaled.",
+  ])
+}
+
+///|
+test "Logit grid 7 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(1.0, 2.0), [
+    1.0e-07, 1.0e-05, 0.001, 0.1, 0.9, 0.999, 0.99999, 0.9999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [
+    "Data has no values between 0 and 1, and therefore cannot be logit-scaled.",
+  ])
+}
+
+///|
+test "Logit grid 8 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(-1.0, 0.9), [
+    1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.5, 0.9,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 9 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(-1.0, 0.9), [
+    2.0e-07, 3.0e-07, 4.0e-07, 5.0e-07, 6.0e-07, 7.0e-07, 8.0e-07, 9.0e-07, 2.0e-06,
+    3.0e-06, 4.0e-06, 4.9999999999999996e-06, 6.0e-06, 7.0e-06, 8.0e-06, 9.0e-06,
+    2.0e-05, 3.0000000000000004e-05, 4.0e-05, 5.0e-05, 6.000000000000001e-05, 7.000000000000001e-05,
+    8.0e-05, 9.0e-05, 0.0002, 0.00030000000000000003, 0.0004, 0.0005, 0.0006000000000000001,
+    0.0007, 0.0008, 0.0009000000000000001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007,
+    0.008, 0.009000000000000001, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,
+    0.2, 0.3, 0.4, 0.6, 0.7, 0.8,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 10 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.1, 2.0), [
+    0.1, 0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999, 0.999999, 0.9999999, 0.99999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 11 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.1, 2.0), [
+    0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 0.91, 0.92, 0.9299999999999999, 0.94, 0.95, 0.96,
+    0.97, 0.98, 0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.998, 0.9991, 0.9992,
+    0.9993, 0.9994, 0.9995, 0.9996, 0.9997, 0.9998, 0.99991, 0.99992, 0.99993, 0.99994,
+    0.99995, 0.99996, 0.99997, 0.99998, 0.999991, 0.999992, 0.999993, 0.999994, 0.999995,
+    0.999996, 0.999997, 0.999998, 0.9999991, 0.9999992, 0.9999993, 0.9999994, 0.9999995,
+    0.9999996, 0.9999997, 0.9999998, 0.99999991, 0.99999992, 0.99999993, 0.99999994,
+    0.99999995, 0.99999996, 0.99999997, 0.99999998,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 12 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.5, 0.5), [
+    0.01, 0.1, 0.5, 0.9, 0.99,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 13 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.5, 0.5), [
+    0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8,
+    0.91, 0.92, 0.9299999999999999, 0.94, 0.95, 0.96, 0.97, 0.98,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 14 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.1), [
+    0.01, 0.1, 0.5, 0.9, 0.99,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 15 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.1), [
+    0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8,
+    0.91, 0.92, 0.9299999999999999, 0.94, 0.95, 0.96, 0.97, 0.98,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 16 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.9, 0.9), [
+    0.01, 0.1, 0.5, 0.9, 0.99,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 17 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.9, 0.9), [
+    0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8,
+    0.91, 0.92, 0.9299999999999999, 0.94, 0.95, 0.96, 0.97, 0.98,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 18 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(5.0e-324, 0.9999999999999999), [
+    1.0e-304, 1.0e-266, 1.0e-228, 1.0e-190, 1.0e-152, 1.0e-114, 1.0e-76, 1.0e-38,
+    0.5,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 19 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(5.0e-324, 0.9999999999999999), [
+    0.0, 1.0e-323, 1.0e-322, 1.0e-321, 1.0e-320, 1.0e-319, 1.0e-318, 1.0e-317, 1.0e-316,
+    1.0e-315, 1.0e-314, 1.0e-313, 1.0e-312, 1.0e-311, 1.0e-310, 1.0e-309, 1.0e-308,
+    1.0e-307, 1.0e-306, 1.0e-305, 1.0e-303, 1.0e-302, 1.0e-301, 1.0e-300, 1.0e-299,
+    1.0e-298, 1.0e-297, 1.0e-296, 1.0e-295, 1.0e-294, 1.0e-293, 1.0e-292, 1.0e-291,
+    1.0e-290, 1.0e-289, 1.0e-288, 1.0e-287, 1.0e-286, 1.0e-285, 1.0e-284, 1.0e-283,
+    1.0e-282, 1.0e-281, 1.0e-280, 1.0e-279, 1.0e-278, 1.0e-277, 1.0e-276, 1.0e-275,
+    1.0e-274, 1.0e-273, 1.0e-272, 1.0e-271, 1.0e-270, 1.0e-269, 1.0e-268, 1.0e-267,
+    1.0e-265, 1.0e-264, 1.0e-263, 1.0e-262, 1.0e-261, 1.0e-260, 1.0e-259, 1.0e-258,
+    1.0e-257, 1.0e-256, 1.0e-255, 1.0e-254, 1.0e-253, 1.0e-252, 1.0e-251, 1.0e-250,
+    1.0e-249, 1.0e-248, 1.0e-247, 1.0e-246, 1.0e-245, 1.0e-244, 1.0e-243, 1.0e-242,
+    1.0e-241, 1.0e-240, 1.0e-239, 1.0e-238, 1.0e-237, 1.0e-236, 1.0e-235, 1.0e-234,
+    1.0e-233, 1.0e-232, 1.0e-231, 1.0e-230, 1.0e-229, 1.0e-227, 1.0e-226, 1.0e-225,
+    1.0e-224, 1.0e-223, 1.0e-222, 1.0e-221, 1.0e-220, 1.0e-219, 1.0e-218, 1.0e-217,
+    1.0e-216, 1.0e-215, 1.0e-214, 1.0e-213, 1.0e-212, 1.0e-211, 1.0e-210, 1.0e-209,
+    1.0e-208, 1.0e-207, 1.0e-206, 1.0e-205, 1.0e-204, 1.0e-203, 1.0e-202, 1.0e-201,
+    1.0e-200, 1.0e-199, 1.0e-198, 1.0e-197, 1.0e-196, 1.0e-195, 1.0e-194, 1.0e-193,
+    1.0e-192, 1.0e-191, 1.0e-189, 1.0e-188, 1.0e-187, 1.0e-186, 1.0e-185, 1.0e-184,
+    1.0e-183, 1.0e-182, 1.0e-181, 1.0e-180, 1.0e-179, 1.0e-178, 1.0e-177, 1.0e-176,
+    1.0e-175, 1.0e-174, 1.0e-173, 1.0e-172, 1.0e-171, 1.0e-170, 1.0e-169, 1.0e-168,
+    1.0e-167, 1.0e-166, 1.0e-165, 1.0e-164, 1.0e-163, 1.0e-162, 1.0e-161, 1.0e-160,
+    1.0e-159, 1.0e-158, 1.0e-157, 1.0e-156, 1.0e-155, 1.0e-154, 1.0e-153, 1.0e-151,
+    1.0e-150, 1.0e-149, 1.0e-148, 1.0e-147, 1.0e-146, 1.0e-145, 1.0e-144, 1.0e-143,
+    1.0e-142, 1.0e-141, 1.0e-140, 1.0e-139, 1.0e-138, 1.0e-137, 1.0e-136, 1.0e-135,
+    1.0e-134, 1.0e-133, 1.0e-132, 1.0e-131, 1.0e-130, 1.0e-129, 1.0e-128, 1.0e-127,
+    1.0e-126, 1.0e-125, 1.0e-124, 1.0e-123, 1.0e-122, 1.0e-121, 1.0e-120, 1.0e-119,
+    1.0e-118, 1.0e-117, 1.0e-116, 1.0e-115, 1.0e-113, 1.0e-112, 1.0e-111, 1.0e-110,
+    1.0e-109, 1.0e-108, 1.0e-107, 1.0e-106, 1.0e-105, 1.0e-104, 1.0e-103, 1.0e-102,
+    1.0e-101, 1.0e-100, 1.0e-99, 1.0e-98, 1.0e-97, 1.0e-96, 1.0e-95, 1.0e-94, 1.0e-93,
+    1.0e-92, 1.0e-91, 1.0e-90, 1.0e-89, 1.0e-88, 1.0e-87, 1.0e-86, 1.0e-85, 1.0e-84,
+    1.0e-83, 1.0e-82, 1.0e-81, 1.0e-80, 1.0e-79, 1.0e-78, 1.0e-77, 1.0e-75, 1.0e-74,
+    1.0e-73, 1.0e-72, 1.0e-71, 1.0e-70, 1.0e-69, 1.0e-68, 1.0e-67, 1.0e-66, 1.0e-65,
+    1.0e-64, 1.0e-63, 1.0e-62, 1.0e-61, 1.0e-60, 1.0e-59, 1.0e-58, 1.0e-57, 1.0e-56,
+    1.0e-55, 1.0e-54, 1.0e-53, 1.0e-52, 1.0e-51, 1.0e-50, 1.0e-49, 1.0e-48, 1.0e-47,
+    1.0e-46, 1.0e-45, 1.0e-44, 1.0e-43, 1.0e-42, 1.0e-41, 1.0e-40, 1.0e-39, 1.0e-37,
+    1.0e-36, 1.0e-35, 1.0e-34, 1.0e-33, 1.0e-32, 1.0e-31, 1.0e-30, 1.0e-29, 1.0e-28,
+    1.0e-27, 1.0e-26, 1.0e-25, 1.0e-24, 1.0e-23, 1.0e-22, 1.0e-21, 1.0e-20, 1.0e-19,
+    1.0e-18, 1.0e-17, 1.0e-16, 1.0e-15, 1.0e-14, 1.0e-13, 1.0e-12, 1.0e-11, 1.0e-10,
+    1.0e-09, 1.0e-08, 1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.9, 0.99,
+    0.999, 0.9999, 0.99999, 0.999999, 0.9999999, 0.99999999, 0.999999999, 0.9999999999,
+    0.99999999999, 0.999999999999, 0.9999999999999, 0.99999999999999, 0.999999999999999,
+    0.9999999999999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 20 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0 / 0.0, 0.5), [
+    1.0e-06, 0.0001, 0.01, 0.5, 0.99, 0.9999, 0.999999, 0.99999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 21 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0 / 0.0, 0.5), [
+    1.0e-07, 1.0e-05, 0.001, 0.1, 0.9, 0.999, 0.99999, 0.9999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 22 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.1, 1.0 / 0.0), [
+    1.0e-06, 0.0001, 0.01, 0.5, 0.99, 0.9999, 0.999999, 0.99999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 23 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.1, 1.0 / 0.0), [
+    1.0e-07, 1.0e-05, 0.001, 0.1, 0.9, 0.999, 0.99999, 0.9999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 24 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    0.49, 0.495, 0.5, 0.505, 0.51,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 25 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 26 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.2), [
+    0.1, 0.12000000000000001, 0.14, 0.16, 0.18, 0.2,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 27 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.2), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 28 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.8, 0.9), [
+    0.8, 0.8200000000000001, 0.8400000000000001, 0.8600000000000001, 0.88, 0.9,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 29 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.8, 0.9), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 30 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(
+    locator.tick_values(0.8999999999999999, 0.9000000000000001),
+    [
+      0.8999999999999, 0.89999999999995, 0.9, 0.90000000000005, 0.9000000000000999,
+    ],
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 31 nonsingular phases and raw neighbor preservation" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  verify_logit_grid_bits(
+    locator.tick_values(0.8999999999999999, 0.9000000000000001),
+    [],
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 32 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(-2147483648)),
+  )
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 33 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(-2147483648)),
+  )
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 34 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=true,
+    nbins=Some(MaxNBins::Count(-2147483648)),
+  )
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 35 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=true,
+    nbins=Some(MaxNBins::Count(-2147483648)),
+  )
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 36 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(-1000)),
+  )
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 37 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(-1000)),
+  )
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 38 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=true,
+    nbins=Some(MaxNBins::Count(-1000)),
+  )
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 39 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=true,
+    nbins=Some(MaxNBins::Count(-1000)),
+  )
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 40 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(-20)))
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 41 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(-20)))
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 42 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(-20)))
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 43 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(-20)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 44 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(-5)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 45 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(-5)))
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 46 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(-5)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 47 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(-5)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 48 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(-2)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.5, 0.9999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 49 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(-2)))
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 50 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(-2)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.01, 0.1, 0.9, 0.99, 0.999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 51 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(-2)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 52 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(-1)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [0.5])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 53 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(-1)))
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 54 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(-1)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.001, 0.01, 0.1, 0.9, 0.99, 0.999, 0.9999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 55 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(-1)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 56 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(0)))
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 57 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(0)))
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 58 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(0)))
+  let events : Array[String] = []
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 59 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(0)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 60 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(1)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [0.5])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 61 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(1)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 62 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(1)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.001, 0.01, 0.1, 0.9, 0.99, 0.999, 0.9999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 63 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(1)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 64 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(2)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.5, 0.9999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 65 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(2)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 66 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(2)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.01, 0.1, 0.9, 0.99, 0.999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 67 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(2)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 68 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(3)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.5, 0.999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 69 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(3)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 70 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(3)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.01, 0.1, 0.9, 0.99, 0.9999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 71 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(3)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 72 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(4)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.01, 0.5, 0.99, 0.9999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 73 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(4)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 74 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(4)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.1, 0.9, 0.999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 75 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(4)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 76 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(9)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 77 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(9)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    0.49, 0.495, 0.5, 0.505, 0.51,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 78 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(9)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0002, 0.00030000000000000003, 0.0004, 0.0005, 0.0006000000000000001, 0.0007,
+    0.0008, 0.0009000000000000001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008,
+    0.009000000000000001, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.2, 0.3,
+    0.4, 0.6, 0.7, 0.8, 0.91, 0.92, 0.9299999999999999, 0.94, 0.95, 0.96, 0.97, 0.98,
+    0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.998, 0.9991, 0.9992, 0.9993,
+    0.9994, 0.9995, 0.9996, 0.9997, 0.9998, 0.99991, 0.99992, 0.99993, 0.99994, 0.99995,
+    0.99996, 0.99997, 0.99998,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 79 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(9)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 80 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(100)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 81 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(100)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    0.49, 0.4905, 0.491, 0.4915, 0.492, 0.4925, 0.493, 0.4935, 0.494, 0.4945, 0.495,
+    0.4955, 0.496, 0.4965, 0.497, 0.4975, 0.498, 0.4985, 0.499, 0.4995, 0.5, 0.5005,
+    0.501, 0.5015, 0.502, 0.5025, 0.503, 0.5035, 0.504, 0.5045, 0.505, 0.5055, 0.506,
+    0.5065, 0.507, 0.5075, 0.508, 0.5085, 0.509, 0.5095, 0.51,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 82 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(100)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0002, 0.00030000000000000003, 0.0004, 0.0005, 0.0006000000000000001, 0.0007,
+    0.0008, 0.0009000000000000001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008,
+    0.009000000000000001, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.2, 0.3,
+    0.4, 0.6, 0.7, 0.8, 0.91, 0.92, 0.9299999999999999, 0.94, 0.95, 0.96, 0.97, 0.98,
+    0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.998, 0.9991, 0.9992, 0.9993,
+    0.9994, 0.9995, 0.9996, 0.9997, 0.9998, 0.99991, 0.99992, 0.99993, 0.99994, 0.99995,
+    0.99996, 0.99997, 0.99998,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 83 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(100)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 84 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(2147483647)),
+  )
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 86 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=true,
+    nbins=Some(MaxNBins::Count(2147483647)),
+  )
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0002, 0.00030000000000000003, 0.0004, 0.0005, 0.0006000000000000001, 0.0007,
+    0.0008, 0.0009000000000000001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008,
+    0.009000000000000001, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.2, 0.3,
+    0.4, 0.6, 0.7, 0.8, 0.91, 0.92, 0.9299999999999999, 0.94, 0.95, 0.96, 0.97, 0.98,
+    0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.998, 0.9991, 0.9992, 0.9993,
+    0.9994, 0.9995, 0.9996, 0.9997, 0.9998, 0.99991, 0.99992, 0.99993, 0.99994, 0.99995,
+    0.99996, 0.99997, 0.99998,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 87 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=true,
+    nbins=Some(MaxNBins::Count(2147483647)),
+  )
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 88 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=None)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 89 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=None)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    0.49, 0.495, 0.5, 0.505, 0.51,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 90 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=None)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0002, 0.00030000000000000003, 0.0004, 0.0005, 0.0006000000000000001, 0.0007,
+    0.0008, 0.0009000000000000001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008,
+    0.009000000000000001, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.2, 0.3,
+    0.4, 0.6, 0.7, 0.8, 0.91, 0.92, 0.9299999999999999, 0.94, 0.95, 0.96, 0.97, 0.98,
+    0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.998, 0.9991, 0.9992, 0.9993,
+    0.9994, 0.9995, 0.9996, 0.9997, 0.9998, 0.99991, 0.99992, 0.99993, 0.99994, 0.99995,
+    0.99996, 0.99997, 0.99998,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 91 explicit budget and sparse minor strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=None)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 92 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [-1.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.5, 0.9999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 93 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [-1.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.01, 0.1, 0.9, 0.99, 0.999, 0.99999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 94 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [-1.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 95 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [-1.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 96 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [-10.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.5, 0.9999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 97 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [-10.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.01, 0.1, 0.9, 0.99, 0.999, 0.99999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 98 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [-10.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 99 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [-10.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 100 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.5, 0.9999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 101 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.01, 0.1, 0.9, 0.99, 0.999, 0.99999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 102 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 103 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 104 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [1.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.5, 0.9999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 105 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [1.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.01, 0.1, 0.9, 0.99, 0.999, 0.99999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 106 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [1.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 107 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [1.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 108 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [1.5]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.5, 0.9999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 109 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [1.5]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.01, 0.1, 0.9, 0.99, 0.999, 0.99999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 110 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [1.5]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 111 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [1.5]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 112 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [2.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.5, 0.9999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 113 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [2.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.01, 0.1, 0.9, 0.99, 0.999, 0.99999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 114 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [2.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 115 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [2.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 116 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [2.5]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.5, 0.9999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 117 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [2.5]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.01, 0.1, 0.9, 0.99, 0.999, 0.99999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 118 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [2.5]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 119 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [2.5]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 120 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [3.5]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.5, 0.999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 121 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [3.5]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.01, 0.1, 0.9, 0.99, 0.9999, 0.99999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 122 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [3.5]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 123 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [3.5]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 124 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [10.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 125 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [10.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0002, 0.00030000000000000003, 0.0004, 0.0005, 0.0006000000000000001, 0.0007,
+    0.0008, 0.0009000000000000001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008,
+    0.009000000000000001, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.2, 0.3,
+    0.4, 0.6, 0.7, 0.8, 0.91, 0.92, 0.9299999999999999, 0.94, 0.95, 0.96, 0.97, 0.98,
+    0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.998, 0.9991, 0.9992, 0.9993,
+    0.9994, 0.9995, 0.9996, 0.9997, 0.9998, 0.99991, 0.99992, 0.99993, 0.99994, 0.99995,
+    0.99996, 0.99997, 0.99998,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 126 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [10.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    0.49, 0.495, 0.5, 0.505, 0.51,
+  ])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 127 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [10.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 128 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [100.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 129 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [100.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0002, 0.00030000000000000003, 0.0004, 0.0005, 0.0006000000000000001, 0.0007,
+    0.0008, 0.0009000000000000001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008,
+    0.009000000000000001, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.2, 0.3,
+    0.4, 0.6, 0.7, 0.8, 0.91, 0.92, 0.9299999999999999, 0.94, 0.95, 0.96, 0.97, 0.98,
+    0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.998, 0.9991, 0.9992, 0.9993,
+    0.9994, 0.9995, 0.9996, 0.9997, 0.9998, 0.99991, 0.99992, 0.99993, 0.99994, 0.99995,
+    0.99996, 0.99997, 0.99998,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 130 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [100.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    0.49, 0.495, 0.5, 0.505, 0.51,
+  ])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 131 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [100.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 132 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [0.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 133 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [0.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0002, 0.00030000000000000003, 0.0004, 0.0005, 0.0006000000000000001, 0.0007,
+    0.0008, 0.0009000000000000001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008,
+    0.009000000000000001, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.2, 0.3,
+    0.4, 0.6, 0.7, 0.8, 0.91, 0.92, 0.9299999999999999, 0.94, 0.95, 0.96, 0.97, 0.98,
+    0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.998, 0.9991, 0.9992, 0.9993,
+    0.9994, 0.9995, 0.9996, 0.9997, 0.9998, 0.99991, 0.99992, 0.99993, 0.99994, 0.99995,
+    0.99996, 0.99997, 0.99998,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 134 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [0.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 135 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [0.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 136 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [1.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 137 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [1.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0002, 0.00030000000000000003, 0.0004, 0.0005, 0.0006000000000000001, 0.0007,
+    0.0008, 0.0009000000000000001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008,
+    0.009000000000000001, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.2, 0.3,
+    0.4, 0.6, 0.7, 0.8, 0.91, 0.92, 0.9299999999999999, 0.94, 0.95, 0.96, 0.97, 0.98,
+    0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.998, 0.9991, 0.9992, 0.9993,
+    0.9994, 0.9995, 0.9996, 0.9997, 0.9998, 0.99991, 0.99992, 0.99993, 0.99994, 0.99995,
+    0.99996, 0.99997, 0.99998,
+  ])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 138 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [1.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    0.49, 0.495, 0.5, 0.505, 0.51,
+  ])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 139 first auto space only minimum two" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [1.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 140 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -1.0 / 0.0
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0, 1.0), [
+    1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999,
+    0.99999, 0.999999, 0.9999999, 0.99999999,
+  ])
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 141 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -1.0 / 0.0
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [1.0e-07, 0.9999999])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 142 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -1.0 / 0.0
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 143 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -1.0 / 0.0
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 144 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -1.0 / 0.0
+  })
+  verify_logit_grid_bits(locator.tick_values(-1.0, 0.9), [
+    1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.5, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 145 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -1.0 / 0.0
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [1.0e-07, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 146 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0 / 0.0
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0, 1.0), [
+    1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999,
+    0.99999, 0.999999, 0.9999999, 0.99999999,
+  ])
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 147 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0 / 0.0
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [1.0e-07, 0.9999999])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 148 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0 / 0.0
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 149 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0 / 0.0
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 150 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0 / 0.0
+  })
+  verify_logit_grid_bits(locator.tick_values(-1.0, 0.9), [
+    1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.5, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 151 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0 / 0.0
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [1.0e-07, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 152 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.0 / 0.0
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0, 1.0), [
+    1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999,
+    0.99999, 0.999999, 0.9999999, 0.99999999,
+  ])
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 153 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.0 / 0.0
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [1.0e-07, 0.9999999])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 154 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.0 / 0.0
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 155 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.0 / 0.0
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 156 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.0 / 0.0
+  })
+  verify_logit_grid_bits(locator.tick_values(-1.0, 0.9), [
+    1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.5, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 157 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.0 / 0.0
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [1.0e-07, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 158 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -1.0
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0, 1.0))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 159 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -1.0
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [-1.0, 2.0])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 160 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -1.0
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 161 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -1.0
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 162 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -1.0
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(-1.0, 0.9))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 163 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -1.0
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [-1.0, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 164 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -0.0
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0, 1.0))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 165 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -0.0
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [-0.0, 1.0])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 166 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -0.0
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 167 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -0.0
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 168 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -0.0
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(-1.0, 0.9))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 169 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    -0.0
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [-0.0, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 170 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.0
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0, 1.0))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 171 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.0
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [0.0, 1.0])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 172 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.0
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 173 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.0
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 174 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.0
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(-1.0, 0.9))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 175 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.0
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.0, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 176 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    5.0e-324
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0, 1.0))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 177 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    5.0e-324
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [5.0e-324, 1.0])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 178 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    5.0e-324
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 179 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    5.0e-324
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 180 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    5.0e-324
+  })
+  verify_logit_grid_bits(locator.tick_values(-1.0, 0.9), [
+    0.0, 1.0e-323, 1.0e-322, 1.0e-321, 1.0e-320, 1.0e-319, 1.0e-318, 1.0e-317, 1.0e-316,
+    1.0e-315, 1.0e-314, 1.0e-313, 1.0e-312, 1.0e-311, 1.0e-310, 1.0e-309, 1.0e-308,
+    1.0e-307, 1.0e-306, 1.0e-305, 1.0e-304, 1.0e-303, 1.0e-302, 1.0e-301, 1.0e-300,
+    1.0e-299, 1.0e-298, 1.0e-297, 1.0e-296, 1.0e-295, 1.0e-294, 1.0e-293, 1.0e-292,
+    1.0e-291, 1.0e-290, 1.0e-289, 1.0e-288, 1.0e-287, 1.0e-286, 1.0e-285, 1.0e-284,
+    1.0e-283, 1.0e-282, 1.0e-281, 1.0e-280, 1.0e-279, 1.0e-278, 1.0e-277, 1.0e-276,
+    1.0e-275, 1.0e-274, 1.0e-273, 1.0e-272, 1.0e-271, 1.0e-270, 1.0e-269, 1.0e-268,
+    1.0e-267, 1.0e-266, 1.0e-265, 1.0e-264, 1.0e-263, 1.0e-262, 1.0e-261, 1.0e-260,
+    1.0e-259, 1.0e-258, 1.0e-257, 1.0e-256, 1.0e-255, 1.0e-254, 1.0e-253, 1.0e-252,
+    1.0e-251, 1.0e-250, 1.0e-249, 1.0e-248, 1.0e-247, 1.0e-246, 1.0e-245, 1.0e-244,
+    1.0e-243, 1.0e-242, 1.0e-241, 1.0e-240, 1.0e-239, 1.0e-238, 1.0e-237, 1.0e-236,
+    1.0e-235, 1.0e-234, 1.0e-233, 1.0e-232, 1.0e-231, 1.0e-230, 1.0e-229, 1.0e-228,
+    1.0e-227, 1.0e-226, 1.0e-225, 1.0e-224, 1.0e-223, 1.0e-222, 1.0e-221, 1.0e-220,
+    1.0e-219, 1.0e-218, 1.0e-217, 1.0e-216, 1.0e-215, 1.0e-214, 1.0e-213, 1.0e-212,
+    1.0e-211, 1.0e-210, 1.0e-209, 1.0e-208, 1.0e-207, 1.0e-206, 1.0e-205, 1.0e-204,
+    1.0e-203, 1.0e-202, 1.0e-201, 1.0e-200, 1.0e-199, 1.0e-198, 1.0e-197, 1.0e-196,
+    1.0e-195, 1.0e-194, 1.0e-193, 1.0e-192, 1.0e-191, 1.0e-190, 1.0e-189, 1.0e-188,
+    1.0e-187, 1.0e-186, 1.0e-185, 1.0e-184, 1.0e-183, 1.0e-182, 1.0e-181, 1.0e-180,
+    1.0e-179, 1.0e-178, 1.0e-177, 1.0e-176, 1.0e-175, 1.0e-174, 1.0e-173, 1.0e-172,
+    1.0e-171, 1.0e-170, 1.0e-169, 1.0e-168, 1.0e-167, 1.0e-166, 1.0e-165, 1.0e-164,
+    1.0e-163, 1.0e-162, 1.0e-161, 1.0e-160, 1.0e-159, 1.0e-158, 1.0e-157, 1.0e-156,
+    1.0e-155, 1.0e-154, 1.0e-153, 1.0e-152, 1.0e-151, 1.0e-150, 1.0e-149, 1.0e-148,
+    1.0e-147, 1.0e-146, 1.0e-145, 1.0e-144, 1.0e-143, 1.0e-142, 1.0e-141, 1.0e-140,
+    1.0e-139, 1.0e-138, 1.0e-137, 1.0e-136, 1.0e-135, 1.0e-134, 1.0e-133, 1.0e-132,
+    1.0e-131, 1.0e-130, 1.0e-129, 1.0e-128, 1.0e-127, 1.0e-126, 1.0e-125, 1.0e-124,
+    1.0e-123, 1.0e-122, 1.0e-121, 1.0e-120, 1.0e-119, 1.0e-118, 1.0e-117, 1.0e-116,
+    1.0e-115, 1.0e-114, 1.0e-113, 1.0e-112, 1.0e-111, 1.0e-110, 1.0e-109, 1.0e-108,
+    1.0e-107, 1.0e-106, 1.0e-105, 1.0e-104, 1.0e-103, 1.0e-102, 1.0e-101, 1.0e-100,
+    1.0e-99, 1.0e-98, 1.0e-97, 1.0e-96, 1.0e-95, 1.0e-94, 1.0e-93, 1.0e-92, 1.0e-91,
+    1.0e-90, 1.0e-89, 1.0e-88, 1.0e-87, 1.0e-86, 1.0e-85, 1.0e-84, 1.0e-83, 1.0e-82,
+    1.0e-81, 1.0e-80, 1.0e-79, 1.0e-78, 1.0e-77, 1.0e-76, 1.0e-75, 1.0e-74, 1.0e-73,
+    1.0e-72, 1.0e-71, 1.0e-70, 1.0e-69, 1.0e-68, 1.0e-67, 1.0e-66, 1.0e-65, 1.0e-64,
+    1.0e-63, 1.0e-62, 1.0e-61, 1.0e-60, 1.0e-59, 1.0e-58, 1.0e-57, 1.0e-56, 1.0e-55,
+    1.0e-54, 1.0e-53, 1.0e-52, 1.0e-51, 1.0e-50, 1.0e-49, 1.0e-48, 1.0e-47, 1.0e-46,
+    1.0e-45, 1.0e-44, 1.0e-43, 1.0e-42, 1.0e-41, 1.0e-40, 1.0e-39, 1.0e-38, 1.0e-37,
+    1.0e-36, 1.0e-35, 1.0e-34, 1.0e-33, 1.0e-32, 1.0e-31, 1.0e-30, 1.0e-29, 1.0e-28,
+    1.0e-27, 1.0e-26, 1.0e-25, 1.0e-24, 1.0e-23, 1.0e-22, 1.0e-21, 1.0e-20, 1.0e-19,
+    1.0e-18, 1.0e-17, 1.0e-16, 1.0e-15, 1.0e-14, 1.0e-13, 1.0e-12, 1.0e-11, 1.0e-10,
+    1.0e-09, 1.0e-08, 1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.5, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 181 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    5.0e-324
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [5.0e-324, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 182 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-100
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0, 1.0))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 183 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-100
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [1.0e-100, 1.0])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 184 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-100
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 185 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-100
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 186 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-100
+  })
+  verify_logit_grid_bits(locator.tick_values(-1.0, 0.9), [
+    1.0e-100, 1.0e-99, 1.0e-98, 1.0e-97, 1.0e-96, 1.0e-95, 1.0e-94, 1.0e-93, 1.0e-92,
+    1.0e-91, 1.0e-90, 1.0e-89, 1.0e-88, 1.0e-87, 1.0e-86, 1.0e-85, 1.0e-84, 1.0e-83,
+    1.0e-82, 1.0e-81, 1.0e-80, 1.0e-79, 1.0e-78, 1.0e-77, 1.0e-76, 1.0e-75, 1.0e-74,
+    1.0e-73, 1.0e-72, 1.0e-71, 1.0e-70, 1.0e-69, 1.0e-68, 1.0e-67, 1.0e-66, 1.0e-65,
+    1.0e-64, 1.0e-63, 1.0e-62, 1.0e-61, 1.0e-60, 1.0e-59, 1.0e-58, 1.0e-57, 1.0e-56,
+    1.0e-55, 1.0e-54, 1.0e-53, 1.0e-52, 1.0e-51, 1.0e-50, 1.0e-49, 1.0e-48, 1.0e-47,
+    1.0e-46, 1.0e-45, 1.0e-44, 1.0e-43, 1.0e-42, 1.0e-41, 1.0e-40, 1.0e-39, 1.0e-38,
+    1.0e-37, 1.0e-36, 1.0e-35, 1.0e-34, 1.0e-33, 1.0e-32, 1.0e-31, 1.0e-30, 1.0e-29,
+    1.0e-28, 1.0e-27, 1.0e-26, 1.0e-25, 1.0e-24, 1.0e-23, 1.0e-22, 1.0e-21, 1.0e-20,
+    1.0e-19, 1.0e-18, 1.0e-17, 1.0e-16, 1.0e-15, 1.0e-14, 1.0e-13, 1.0e-12, 1.0e-11,
+    1.0e-10, 1.0e-09, 1.0e-08, 1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1,
+    0.5, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 187 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-100
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [1.0e-100, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 188 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0, 1.0), [
+    1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999,
+    0.99999, 0.999999, 0.9999999, 0.99999999,
+  ])
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 189 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [1.0e-07, 0.9999999])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 190 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 191 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 192 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(-1.0, 0.9), [
+    1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.5, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 193 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [1.0e-07, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 194 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.5
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0, 1.0), [
+    0.01, 0.1, 0.5, 0.9, 0.99,
+  ])
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 195 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.5
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [0.05, 0.95])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 196 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.5
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 197 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.5
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 198 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.5
+  })
+  verify_logit_grid_bits(locator.tick_values(-1.0, 0.9), [
+    0.5, 0.5005, 0.501, 0.5015, 0.502, 0.5025, 0.503, 0.5035, 0.504, 0.5045, 0.505,
+    0.5055, 0.506, 0.5065, 0.507, 0.5075, 0.508, 0.5085, 0.509, 0.5095, 0.51, 0.5105,
+    0.511, 0.5115, 0.512, 0.5125, 0.513, 0.5135, 0.514, 0.5145, 0.515, 0.5155, 0.516,
+    0.5165, 0.517, 0.5175, 0.518, 0.5185, 0.519, 0.5195, 0.52, 0.5205, 0.521, 0.5215,
+    0.522, 0.5225, 0.523, 0.5235, 0.524, 0.5245, 0.525, 0.5255, 0.526, 0.5265, 0.527,
+    0.5275, 0.528, 0.5285, 0.529, 0.5295, 0.53, 0.5305, 0.531, 0.5315, 0.532, 0.5325,
+    0.533, 0.5335, 0.534, 0.5345, 0.535, 0.5355, 0.536, 0.5365, 0.537, 0.5375, 0.538,
+    0.5385, 0.539, 0.5395, 0.54, 0.5405, 0.541, 0.5415, 0.542, 0.5425, 0.543, 0.5435,
+    0.544, 0.5445, 0.545, 0.5455, 0.546, 0.5465, 0.547, 0.5475, 0.548, 0.5485, 0.549,
+    0.5495, 0.55, 0.5505, 0.551, 0.5515, 0.552, 0.5525, 0.553, 0.5535, 0.554, 0.5545,
+    0.555, 0.5555, 0.556, 0.5565, 0.557, 0.5575, 0.558, 0.5585, 0.559, 0.5595, 0.56,
+    0.5605, 0.5609999999999999, 0.5615, 0.562, 0.5625, 0.563, 0.5635, 0.5640000000000001,
+    0.5645, 0.565, 0.5655, 0.5660000000000001, 0.5665, 0.567, 0.5675, 0.5680000000000001,
+    0.5685, 0.569, 0.5695, 0.5700000000000001, 0.5705, 0.571, 0.5715, 0.572, 0.5725,
+    0.573, 0.5735, 0.574, 0.5745, 0.575, 0.5755, 0.576, 0.5765, 0.577, 0.5775, 0.578,
+    0.5785, 0.579, 0.5795, 0.58, 0.5805, 0.581, 0.5815, 0.582, 0.5825, 0.583, 0.5835,
+    0.584, 0.5845, 0.585, 0.5855, 0.586, 0.5865, 0.587, 0.5875, 0.588, 0.5885, 0.589,
+    0.5895, 0.59, 0.5905, 0.591, 0.5915, 0.592, 0.5925, 0.593, 0.5935, 0.594, 0.5945,
+    0.595, 0.5955, 0.596, 0.5965, 0.597, 0.5975, 0.598, 0.5985, 0.599, 0.5995, 0.6,
+    0.6005, 0.601, 0.6015, 0.602, 0.6025, 0.603, 0.6035, 0.604, 0.6045, 0.605, 0.6055,
+    0.606, 0.6065, 0.607, 0.6075, 0.608, 0.6085, 0.609, 0.6095, 0.61, 0.6105, 0.611,
+    0.6115, 0.612, 0.6125, 0.613, 0.6135, 0.614, 0.6145, 0.615, 0.6155, 0.616, 0.6165,
+    0.617, 0.6175, 0.618, 0.6185, 0.619, 0.6194999999999999, 0.62, 0.6205, 0.621,
+    0.6214999999999999, 0.622, 0.6225, 0.623, 0.6234999999999999, 0.624, 0.6245,
+    0.625, 0.6255, 0.626, 0.6265000000000001, 0.627, 0.6275, 0.628, 0.6285000000000001,
+    0.629, 0.6295, 0.63, 0.6305000000000001, 0.631, 0.6315, 0.632, 0.6325000000000001,
+    0.633, 0.6335, 0.634, 0.6345000000000001, 0.635, 0.6355, 0.636, 0.6365000000000001,
+    0.637, 0.6375, 0.638, 0.6385000000000001, 0.639, 0.6395, 0.64, 0.6405000000000001,
+    0.641, 0.6415, 0.642, 0.6425000000000001, 0.643, 0.6435, 0.644, 0.6445, 0.645,
+    0.6455, 0.646, 0.6465, 0.647, 0.6475, 0.648, 0.6485, 0.649, 0.6495, 0.65, 0.6505,
+    0.651, 0.6515, 0.652, 0.6525, 0.653, 0.6535, 0.654, 0.6545, 0.655, 0.6555, 0.656,
+    0.6565, 0.657, 0.6575, 0.658, 0.6585, 0.659, 0.6595, 0.66, 0.6605, 0.661, 0.6615,
+    0.662, 0.6625, 0.663, 0.6635, 0.664, 0.6645, 0.665, 0.6655, 0.666, 0.6665, 0.667,
+    0.6675, 0.668, 0.6685, 0.669, 0.6695, 0.67, 0.6705, 0.671, 0.6715, 0.672, 0.6725,
+    0.673, 0.6735, 0.674, 0.6745, 0.675, 0.6755, 0.6759999999999999, 0.6765, 0.677,
+    0.6775, 0.6779999999999999, 0.6785, 0.679, 0.6795, 0.6799999999999999, 0.6805,
+    0.681, 0.6815, 0.6819999999999999, 0.6825, 0.683, 0.6835, 0.6839999999999999,
+    0.6845, 0.685, 0.6855, 0.6859999999999999, 0.6865, 0.687, 0.6875, 0.688, 0.6885,
+    0.6890000000000001, 0.6895, 0.69, 0.6905, 0.6910000000000001, 0.6915, 0.692,
+    0.6925, 0.6930000000000001, 0.6935, 0.694, 0.6945, 0.6950000000000001, 0.6955,
+    0.696, 0.6965, 0.6970000000000001, 0.6975, 0.698, 0.6985, 0.6990000000000001,
+    0.6995, 0.7, 0.7005, 0.7010000000000001, 0.7015, 0.702, 0.7025, 0.7030000000000001,
+    0.7035, 0.704, 0.7045, 0.7050000000000001, 0.7055, 0.706, 0.7065, 0.7070000000000001,
+    0.7075, 0.708, 0.7085, 0.709, 0.7095, 0.71, 0.7105, 0.711, 0.7115, 0.712, 0.7125,
+    0.713, 0.7135, 0.714, 0.7145, 0.715, 0.7155, 0.716, 0.7165, 0.717, 0.7175, 0.718,
+    0.7185, 0.719, 0.7195, 0.72, 0.7205, 0.721, 0.7215, 0.722, 0.7225, 0.723, 0.7235,
+    0.724, 0.7245, 0.725, 0.7255, 0.726, 0.7265, 0.727, 0.7275, 0.728, 0.7285, 0.729,
+    0.7295, 0.73, 0.7305, 0.731, 0.7315, 0.732, 0.7325, 0.733, 0.7335, 0.734, 0.7345,
+    0.735, 0.7355, 0.736, 0.7365, 0.737, 0.7375, 0.738, 0.7385, 0.739, 0.7395, 0.74,
+    0.7404999999999999, 0.741, 0.7415, 0.742, 0.7424999999999999, 0.743, 0.7435,
+    0.744, 0.7444999999999999, 0.745, 0.7455, 0.746, 0.7464999999999999, 0.747, 0.7475,
+    0.748, 0.7484999999999999, 0.749, 0.7495, 0.75, 0.7505, 0.751, 0.7515000000000001,
+    0.752, 0.7525, 0.753, 0.7535000000000001, 0.754, 0.7545, 0.755, 0.7555000000000001,
+    0.756, 0.7565, 0.757, 0.7575000000000001, 0.758, 0.7585, 0.759, 0.7595000000000001,
+    0.76, 0.7605, 0.761, 0.7615000000000001, 0.762, 0.7625, 0.763, 0.7635000000000001,
+    0.764, 0.7645, 0.765, 0.7655000000000001, 0.766, 0.7665, 0.767, 0.7675000000000001,
+    0.768, 0.7685, 0.769, 0.7695000000000001, 0.77, 0.7705, 0.771, 0.7715000000000001,
+    0.772, 0.7725, 0.773, 0.7735000000000001, 0.774, 0.7745, 0.775, 0.7755000000000001,
+    0.776, 0.7765, 0.777, 0.7775000000000001, 0.778, 0.7785, 0.779, 0.7795000000000001,
+    0.78, 0.7805, 0.781, 0.7815000000000001, 0.782, 0.7825, 0.783, 0.7835000000000001,
+    0.784, 0.7845, 0.785, 0.7855000000000001, 0.786, 0.7865, 0.787, 0.7875000000000001,
+    0.788, 0.7885, 0.7889999999999999, 0.7895, 0.79, 0.7905, 0.7909999999999999,
+    0.7915, 0.792, 0.7925, 0.7929999999999999, 0.7935, 0.794, 0.7945, 0.7949999999999999,
+    0.7955, 0.796, 0.7965, 0.7969999999999999, 0.7975, 0.798, 0.7985, 0.7989999999999999,
+    0.7995, 0.8, 0.8005, 0.8009999999999999, 0.8015, 0.802, 0.8025, 0.8029999999999999,
+    0.8035, 0.804, 0.8045, 0.8049999999999999, 0.8055, 0.806, 0.8065, 0.8069999999999999,
+    0.8075, 0.808, 0.8085, 0.8089999999999999, 0.8095, 0.81, 0.8105, 0.8109999999999999,
+    0.8115, 0.812, 0.8125, 0.813, 0.8135, 0.8140000000000001, 0.8145, 0.815, 0.8155,
+    0.8160000000000001, 0.8165, 0.817, 0.8175, 0.8180000000000001, 0.8185, 0.819,
+    0.8195, 0.8200000000000001, 0.8205, 0.821, 0.8215, 0.8220000000000001, 0.8225,
+    0.823, 0.8235, 0.8240000000000001, 0.8245, 0.825, 0.8255, 0.8260000000000001,
+    0.8265, 0.827, 0.8275, 0.8280000000000001, 0.8285, 0.829, 0.8295, 0.8300000000000001,
+    0.8305, 0.831, 0.8315, 0.8320000000000001, 0.8325, 0.833, 0.8335, 0.8340000000000001,
+    0.8345, 0.835, 0.8355, 0.8360000000000001, 0.8365, 0.837, 0.8375, 0.8380000000000001,
+    0.8385, 0.839, 0.8395, 0.8400000000000001, 0.8405, 0.841, 0.8415, 0.8420000000000001,
+    0.8425, 0.843, 0.8435, 0.8440000000000001, 0.8445, 0.845, 0.8455, 0.8460000000000001,
+    0.8465, 0.847, 0.8475, 0.8480000000000001, 0.8485, 0.849, 0.8495, 0.8500000000000001,
+    0.8505, 0.851, 0.8514999999999999, 0.852, 0.8525, 0.853, 0.8534999999999999,
+    0.854, 0.8545, 0.855, 0.8554999999999999, 0.856, 0.8565, 0.857, 0.8574999999999999,
+    0.858, 0.8585, 0.859, 0.8594999999999999, 0.86, 0.8605, 0.861, 0.8614999999999999,
+    0.862, 0.8625, 0.863, 0.8634999999999999, 0.864, 0.8645, 0.865, 0.8654999999999999,
+    0.866, 0.8665, 0.867, 0.8674999999999999, 0.868, 0.8685, 0.869, 0.8694999999999999,
+    0.87, 0.8705, 0.871, 0.8714999999999999, 0.872, 0.8725, 0.873, 0.8734999999999999,
+    0.874, 0.8745, 0.875, 0.8755, 0.876, 0.8765000000000001, 0.877, 0.8775, 0.878,
+    0.8785000000000001, 0.879, 0.8795, 0.88, 0.8805000000000001, 0.881, 0.8815, 0.882,
+    0.8825000000000001, 0.883, 0.8835, 0.884, 0.8845000000000001, 0.885, 0.8855,
+    0.886, 0.8865000000000001, 0.887, 0.8875, 0.888, 0.8885000000000001, 0.889, 0.8895,
+    0.89, 0.8905000000000001, 0.891, 0.8915, 0.892, 0.8925000000000001, 0.893, 0.8935,
+    0.894, 0.8945000000000001, 0.895, 0.8955, 0.896, 0.8965000000000001, 0.897, 0.8975,
+    0.898, 0.8985000000000001, 0.899, 0.8995, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 199 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.5
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.5, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 200 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.6
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0, 1.0), [
+    0.4, 0.4002, 0.40040000000000003, 0.4006, 0.40080000000000005, 0.401, 0.4012,
+    0.40140000000000003, 0.4016, 0.40180000000000005, 0.402, 0.4022, 0.40240000000000004,
+    0.4026, 0.40280000000000005, 0.403, 0.4032, 0.40340000000000004, 0.4036, 0.40380000000000005,
+    0.404, 0.4042, 0.40440000000000004, 0.4046, 0.40480000000000005, 0.405, 0.4052,
+    0.40540000000000004, 0.4056, 0.40580000000000005, 0.406, 0.4062, 0.40640000000000004,
+    0.4066, 0.40680000000000005, 0.40700000000000003, 0.4072, 0.40740000000000004,
+    0.4076, 0.4078, 0.40800000000000003, 0.4082, 0.40840000000000004, 0.4086, 0.4088,
+    0.40900000000000003, 0.4092, 0.40940000000000004, 0.4096, 0.4098, 0.41000000000000003,
+    0.4102, 0.41040000000000004, 0.4106, 0.4108, 0.41100000000000003, 0.4112, 0.41140000000000004,
+    0.4116, 0.4118, 0.41200000000000003, 0.4122, 0.41240000000000004, 0.4126, 0.4128,
+    0.41300000000000003, 0.4132, 0.41340000000000005, 0.4136, 0.4138, 0.41400000000000003,
+    0.4142, 0.41440000000000005, 0.4146, 0.4148, 0.41500000000000004, 0.4152, 0.41540000000000005,
+    0.4156, 0.4158, 0.41600000000000004, 0.4162, 0.41640000000000005, 0.4166, 0.4168,
+    0.41700000000000004, 0.4172, 0.41740000000000005, 0.4176, 0.4178, 0.41800000000000004,
+    0.4182, 0.4184, 0.4186, 0.4188, 0.41900000000000004, 0.4192, 0.4194, 0.41960000000000003,
+    0.4198, 0.42000000000000004, 0.4202, 0.4204, 0.42060000000000003, 0.4208, 0.42100000000000004,
+    0.4212, 0.4214, 0.42160000000000003, 0.4218, 0.42200000000000004, 0.4222, 0.4224,
+    0.42260000000000003, 0.4228, 0.42300000000000004, 0.4232, 0.4234, 0.42360000000000003,
+    0.4238, 0.42400000000000004, 0.4242, 0.4244, 0.42460000000000003, 0.4248, 0.42500000000000004,
+    0.4252, 0.4254, 0.42560000000000003, 0.4258, 0.42600000000000005, 0.4262, 0.4264,
+    0.42660000000000003, 0.4268, 0.42700000000000005, 0.4272, 0.4274, 0.42760000000000004,
+    0.4278, 0.42800000000000005, 0.4282, 0.4284, 0.42860000000000004, 0.4288, 0.42900000000000005,
+    0.4292, 0.4294, 0.42960000000000004, 0.4298, 0.43000000000000005, 0.4302, 0.4304,
+    0.43060000000000004, 0.4308, 0.43100000000000005, 0.4312, 0.4314, 0.43160000000000004,
+    0.4318, 0.43200000000000005, 0.43220000000000003, 0.4324, 0.43260000000000004,
+    0.4328, 0.43300000000000005, 0.43320000000000003, 0.4334, 0.43360000000000004,
+    0.4338, 0.43400000000000005, 0.43420000000000003, 0.4344, 0.43460000000000004,
+    0.4348, 0.43500000000000005, 0.43520000000000003, 0.4354, 0.43560000000000004,
+    0.4358, 0.43600000000000005, 0.43620000000000003, 0.4364, 0.43660000000000004,
+    0.4368, 0.43700000000000006, 0.43720000000000003, 0.4374, 0.43760000000000004,
+    0.4378, 0.438, 0.43820000000000003, 0.4384, 0.43860000000000005, 0.4388, 0.439,
+    0.43920000000000003, 0.4394, 0.43960000000000005, 0.4398, 0.44, 0.44020000000000004,
+    0.4404, 0.44060000000000005, 0.4408, 0.441, 0.44120000000000004, 0.4414, 0.44160000000000005,
+    0.4418, 0.442, 0.44220000000000004, 0.4424, 0.4426, 0.4428, 0.443, 0.44320000000000004,
+    0.4434, 0.4436, 0.44380000000000003, 0.444, 0.44420000000000004, 0.4444, 0.4446,
+    0.44480000000000003, 0.445, 0.44520000000000004, 0.4454, 0.4456, 0.44580000000000003,
+    0.446, 0.44620000000000004, 0.4464, 0.4466, 0.44680000000000003, 0.447, 0.44720000000000004,
+    0.4474, 0.4476, 0.44780000000000003, 0.448, 0.44820000000000004, 0.4484, 0.4486,
+    0.44880000000000003, 0.449, 0.44920000000000004, 0.4494, 0.4496, 0.44980000000000003,
+    0.45, 0.45020000000000004, 0.4504, 0.4506, 0.45080000000000003, 0.451, 0.45120000000000005,
+    0.4514, 0.4516, 0.45180000000000003, 0.452, 0.45220000000000005, 0.4524, 0.4526,
+    0.45280000000000004, 0.453, 0.45320000000000005, 0.4534, 0.4536, 0.45380000000000004,
+    0.454, 0.45420000000000005, 0.4544, 0.4546, 0.45480000000000004, 0.455, 0.45520000000000005,
+    0.4554, 0.4556, 0.45580000000000004, 0.456, 0.45620000000000005, 0.45640000000000003,
+    0.4566, 0.45680000000000004, 0.457, 0.45720000000000005, 0.45740000000000003,
+    0.4576, 0.45780000000000004, 0.458, 0.45820000000000005, 0.45840000000000003,
+    0.4586, 0.45880000000000004, 0.459, 0.45920000000000005, 0.45940000000000003,
+    0.4596, 0.45980000000000004, 0.46, 0.46020000000000005, 0.46040000000000003,
+    0.4606, 0.46080000000000004, 0.461, 0.46120000000000005, 0.46140000000000003,
+    0.4616, 0.46180000000000004, 0.462, 0.46220000000000006, 0.46240000000000003,
+    0.4626, 0.46280000000000004, 0.463, 0.46320000000000006, 0.46340000000000003,
+    0.4636, 0.46380000000000005, 0.464, 0.46420000000000006, 0.46440000000000003,
+    0.4646, 0.4648, 0.465, 0.46520000000000006, 0.46540000000000004, 0.4656, 0.4658,
+    0.466, 0.46620000000000006, 0.46640000000000004, 0.4666, 0.4668, 0.467, 0.46720000000000006,
+    0.46740000000000004, 0.4676, 0.4678, 0.468, 0.4682, 0.46840000000000004, 0.4686,
+    0.4688, 0.46900000000000003, 0.4692, 0.46940000000000004, 0.4696, 0.4698, 0.47000000000000003,
+    0.4702, 0.47040000000000004, 0.4706, 0.4708, 0.47100000000000003, 0.4712, 0.47140000000000004,
+    0.4716, 0.4718, 0.47200000000000003, 0.4722, 0.47240000000000004, 0.4726, 0.4728,
+    0.47300000000000003, 0.4732, 0.47340000000000004, 0.4736, 0.4738, 0.47400000000000003,
+    0.4742, 0.47440000000000004, 0.4746, 0.4748, 0.47500000000000003, 0.4752, 0.47540000000000004,
+    0.4756, 0.4758, 0.47600000000000003, 0.4762, 0.47640000000000005, 0.4766, 0.4768,
+    0.47700000000000004, 0.4772, 0.47740000000000005, 0.4776, 0.4778, 0.47800000000000004,
+    0.4782, 0.47840000000000005, 0.4786, 0.4788, 0.47900000000000004, 0.4792, 0.47940000000000005,
+    0.4796, 0.4798, 0.48000000000000004, 0.4802, 0.48040000000000005, 0.4806, 0.4808,
+    0.48100000000000004, 0.4812, 0.48140000000000005, 0.48160000000000003, 0.4818,
+    0.48200000000000004, 0.4822, 0.48240000000000005, 0.48260000000000003, 0.4828,
+    0.48300000000000004, 0.4832, 0.48340000000000005, 0.48360000000000003, 0.4838,
+    0.48400000000000004, 0.4842, 0.48440000000000005, 0.48460000000000003, 0.4848,
+    0.48500000000000004, 0.4852, 0.48540000000000005, 0.48560000000000003, 0.4858,
+    0.48600000000000004, 0.4862, 0.48640000000000005, 0.48660000000000003, 0.4868,
+    0.48700000000000004, 0.4872, 0.48740000000000006, 0.48760000000000003, 0.4878,
+    0.48800000000000004, 0.4882, 0.48840000000000006, 0.48860000000000003, 0.4888,
+    0.48900000000000005, 0.4892, 0.48940000000000006, 0.48960000000000004, 0.4898,
+    0.49000000000000005, 0.4902, 0.49040000000000006, 0.49060000000000004, 0.4908,
+    0.491, 0.4912, 0.49140000000000006, 0.49160000000000004, 0.4918, 0.492, 0.4922,
+    0.49240000000000006, 0.49260000000000004, 0.4928, 0.493, 0.4932, 0.49340000000000006,
+    0.49360000000000004, 0.4938, 0.494, 0.49420000000000003, 0.4944, 0.49460000000000004,
+    0.4948, 0.495, 0.49520000000000003, 0.4954, 0.49560000000000004, 0.4958, 0.496,
+    0.49620000000000003, 0.4964, 0.49660000000000004, 0.4968, 0.497, 0.49720000000000003,
+    0.4974, 0.49760000000000004, 0.4978, 0.498, 0.49820000000000003, 0.4984, 0.49860000000000004,
+    0.4988, 0.499, 0.49920000000000003, 0.4994, 0.49960000000000004, 0.4998, 0.5,
+    0.5002, 0.5004000000000001, 0.5006, 0.5008, 0.501, 0.5012, 0.5014000000000001,
+    0.5016, 0.5018, 0.502, 0.5022, 0.5024000000000001, 0.5026, 0.5028, 0.503, 0.5032,
+    0.5034000000000001, 0.5036, 0.5038, 0.504, 0.5042, 0.5044000000000001, 0.5046,
+    0.5048, 0.505, 0.5052, 0.5054000000000001, 0.5056, 0.5058, 0.506, 0.5062, 0.5064000000000001,
+    0.5066, 0.5068, 0.507, 0.5072, 0.5074000000000001, 0.5076, 0.5078, 0.508, 0.5082,
+    0.5084000000000001, 0.5086, 0.5088, 0.509, 0.5092, 0.5094000000000001, 0.5096,
+    0.5098, 0.51, 0.5102, 0.5104000000000001, 0.5106, 0.5108, 0.511, 0.5112, 0.5114000000000001,
+    0.5116, 0.5118, 0.512, 0.5122, 0.5124, 0.5126000000000001, 0.5128, 0.513, 0.5132,
+    0.5134000000000001, 0.5136000000000001, 0.5138, 0.514, 0.5142, 0.5144, 0.5146000000000001,
+    0.5148, 0.515, 0.5152, 0.5154000000000001, 0.5156000000000001, 0.5158, 0.516,
+    0.5162, 0.5164, 0.5166000000000001, 0.5168, 0.517, 0.5172, 0.5174000000000001,
+    0.5176000000000001, 0.5178, 0.518, 0.5182, 0.5184, 0.5186000000000001, 0.5188,
+    0.519, 0.5192, 0.5194000000000001, 0.5196000000000001, 0.5198, 0.52, 0.5202,
+    0.5204, 0.5206000000000001, 0.5208, 0.521, 0.5212, 0.5214000000000001, 0.5216000000000001,
+    0.5218, 0.522, 0.5222, 0.5224, 0.5226000000000001, 0.5228, 0.523, 0.5232, 0.5234000000000001,
+    0.5236000000000001, 0.5238, 0.524, 0.5242, 0.5244, 0.5246000000000001, 0.5248,
+    0.525, 0.5252, 0.5254000000000001, 0.5256000000000001, 0.5258, 0.526, 0.5262,
+    0.5264, 0.5266000000000001, 0.5268, 0.527, 0.5272, 0.5274000000000001, 0.5276000000000001,
+    0.5278, 0.528, 0.5282, 0.5284, 0.5286000000000001, 0.5288, 0.529, 0.5292, 0.5294000000000001,
+    0.5296000000000001, 0.5298, 0.53, 0.5302, 0.5304, 0.5306, 0.5308, 0.531, 0.5312,
+    0.5314000000000001, 0.5316000000000001, 0.5318, 0.532, 0.5322, 0.5324, 0.5326,
+    0.5328, 0.533, 0.5332, 0.5334000000000001, 0.5336000000000001, 0.5338, 0.534,
+    0.5342, 0.5344, 0.5346, 0.5348, 0.535, 0.5352, 0.5354000000000001, 0.5356000000000001,
+    0.5358, 0.536, 0.5362, 0.5364, 0.5366, 0.5368, 0.537, 0.5372, 0.5374, 0.5376000000000001,
+    0.5378000000000001, 0.538, 0.5382, 0.5384, 0.5386, 0.5388000000000001, 0.539,
+    0.5392, 0.5394, 0.5396000000000001, 0.5398000000000001, 0.54, 0.5402, 0.5404,
+    0.5406, 0.5408000000000001, 0.541, 0.5412, 0.5414, 0.5416000000000001, 0.5418000000000001,
+    0.542, 0.5422, 0.5424, 0.5426, 0.5428000000000001, 0.543, 0.5432, 0.5434, 0.5436000000000001,
+    0.5438000000000001, 0.544, 0.5442, 0.5444, 0.5446, 0.5448000000000001, 0.545,
+    0.5452, 0.5454, 0.5456000000000001, 0.5458000000000001, 0.546, 0.5462, 0.5464,
+    0.5466, 0.5468000000000001, 0.547, 0.5472, 0.5474, 0.5476000000000001, 0.5478000000000001,
+    0.548, 0.5482, 0.5484, 0.5486, 0.5488000000000001, 0.549, 0.5492, 0.5494, 0.5496000000000001,
+    0.5498000000000001, 0.55, 0.5502, 0.5504, 0.5506, 0.5508000000000001, 0.551,
+    0.5512, 0.5514, 0.5516000000000001, 0.5518000000000001, 0.552, 0.5522, 0.5524,
+    0.5526, 0.5528000000000001, 0.553, 0.5532, 0.5534, 0.5536000000000001, 0.5538000000000001,
+    0.554, 0.5542, 0.5544, 0.5546, 0.5548000000000001, 0.555, 0.5552, 0.5554, 0.5556000000000001,
+    0.5558000000000001, 0.556, 0.5562, 0.5564, 0.5566, 0.5568, 0.557, 0.5572, 0.5574,
+    0.5576000000000001, 0.5578000000000001, 0.558, 0.5582, 0.5584, 0.5586, 0.5588,
+    0.559, 0.5592, 0.5594, 0.5596000000000001, 0.5598000000000001, 0.56, 0.5602,
+    0.5604, 0.5606, 0.5608, 0.561, 0.5612, 0.5614, 0.5616000000000001, 0.5618000000000001,
+    0.562, 0.5622, 0.5624, 0.5626, 0.5628, 0.5630000000000001, 0.5632, 0.5634, 0.5636,
+    0.5638000000000001, 0.5640000000000001, 0.5642, 0.5644, 0.5646, 0.5648, 0.5650000000000001,
+    0.5652, 0.5654, 0.5656, 0.5658000000000001, 0.5660000000000001, 0.5662, 0.5664,
+    0.5666, 0.5668, 0.5670000000000001, 0.5672, 0.5674, 0.5676, 0.5678000000000001,
+    0.5680000000000001, 0.5682, 0.5684, 0.5686, 0.5688, 0.5690000000000001, 0.5692,
+    0.5694, 0.5696, 0.5698000000000001, 0.5700000000000001, 0.5702, 0.5704, 0.5706,
+    0.5708, 0.5710000000000001, 0.5712, 0.5714, 0.5716, 0.5718000000000001, 0.5720000000000001,
+    0.5722, 0.5724, 0.5726, 0.5728, 0.5730000000000001, 0.5732, 0.5734, 0.5736, 0.5738000000000001,
+    0.5740000000000001, 0.5742, 0.5744, 0.5746, 0.5748, 0.5750000000000001, 0.5752,
+    0.5754, 0.5756, 0.5758000000000001, 0.5760000000000001, 0.5762, 0.5764, 0.5766,
+    0.5768, 0.5770000000000001, 0.5772, 0.5774, 0.5776, 0.5778000000000001, 0.5780000000000001,
+    0.5782, 0.5784, 0.5786, 0.5788, 0.5790000000000001, 0.5792, 0.5794, 0.5796, 0.5798000000000001,
+    0.5800000000000001, 0.5802, 0.5804, 0.5806, 0.5808, 0.5810000000000001, 0.5812,
+    0.5814, 0.5816, 0.5818000000000001, 0.5820000000000001, 0.5822, 0.5824, 0.5826,
+    0.5828, 0.583, 0.5832, 0.5834, 0.5836, 0.5838000000000001, 0.5840000000000001,
+    0.5842, 0.5844, 0.5846, 0.5848, 0.585, 0.5852, 0.5854, 0.5856, 0.5858000000000001,
+    0.5860000000000001, 0.5862, 0.5864, 0.5866, 0.5868, 0.587, 0.5872, 0.5874, 0.5876,
+    0.5878000000000001, 0.5880000000000001, 0.5882000000000001, 0.5884, 0.5886, 0.5888,
+    0.589, 0.5892000000000001, 0.5894, 0.5896, 0.5898, 0.5900000000000001, 0.5902000000000001,
+    0.5904, 0.5906, 0.5908, 0.591, 0.5912000000000001, 0.5914, 0.5916, 0.5918, 0.5920000000000001,
+    0.5922000000000001, 0.5924, 0.5926, 0.5928, 0.593, 0.5932000000000001, 0.5934,
+    0.5936, 0.5938, 0.5940000000000001, 0.5942000000000001, 0.5944, 0.5946, 0.5948,
+    0.595, 0.5952000000000001, 0.5954, 0.5956, 0.5958, 0.5960000000000001, 0.5962000000000001,
+    0.5964, 0.5966, 0.5968, 0.597, 0.5972000000000001, 0.5974, 0.5976, 0.5978, 0.5980000000000001,
+    0.5982000000000001, 0.5984, 0.5986, 0.5988, 0.599, 0.5992000000000001, 0.5994,
+    0.5996, 0.5998, 0.6000000000000001,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 201 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.6
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [0.6, 0.4])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 202 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.6
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 203 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.6
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 204 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.6
+  })
+  verify_logit_grid_bits(locator.tick_values(-1.0, 0.9), [
+    0.6, 0.6005, 0.601, 0.6015, 0.602, 0.6025, 0.603, 0.6035, 0.604, 0.6045, 0.605,
+    0.6055, 0.606, 0.6065, 0.607, 0.6075, 0.608, 0.6085, 0.609, 0.6095, 0.61, 0.6105,
+    0.611, 0.6115, 0.612, 0.6125, 0.613, 0.6135, 0.614, 0.6145, 0.615, 0.6155, 0.616,
+    0.6165, 0.617, 0.6175, 0.618, 0.6185, 0.619, 0.6195, 0.62, 0.6205, 0.621, 0.6215,
+    0.622, 0.6225, 0.623, 0.6235, 0.624, 0.6245, 0.625, 0.6255000000000001, 0.626,
+    0.6265000000000001, 0.627, 0.6275000000000001, 0.628, 0.6285000000000001, 0.629,
+    0.6295000000000001, 0.63, 0.6305000000000001, 0.631, 0.6315000000000001, 0.632,
+    0.6325000000000001, 0.633, 0.6335000000000001, 0.634, 0.6345000000000001, 0.635,
+    0.6355000000000001, 0.636, 0.6365000000000001, 0.637, 0.6375000000000001, 0.638,
+    0.6385000000000001, 0.639, 0.6395000000000001, 0.64, 0.6405000000000001, 0.641,
+    0.6415000000000001, 0.642, 0.6425000000000001, 0.643, 0.6435000000000001, 0.644,
+    0.6445000000000001, 0.645, 0.6455000000000001, 0.646, 0.6465000000000001, 0.647,
+    0.6475000000000001, 0.648, 0.6485000000000001, 0.649, 0.6495000000000001, 0.65,
+    0.6505000000000001, 0.651, 0.6515000000000001, 0.652, 0.6525000000000001, 0.653,
+    0.6535000000000001, 0.654, 0.6545000000000001, 0.655, 0.6555000000000001, 0.656,
+    0.6565000000000001, 0.657, 0.6575000000000001, 0.658, 0.6585000000000001, 0.659,
+    0.6595, 0.66, 0.6605000000000001, 0.661, 0.6615, 0.662, 0.6625000000000001, 0.663,
+    0.6635, 0.664, 0.6645000000000001, 0.665, 0.6655, 0.666, 0.6665000000000001,
+    0.667, 0.6675, 0.668, 0.6685000000000001, 0.669, 0.6695, 0.67, 0.6705000000000001,
+    0.671, 0.6715, 0.672, 0.6725, 0.673, 0.6735, 0.674, 0.6745, 0.675, 0.6755, 0.676,
+    0.6765, 0.677, 0.6775, 0.678, 0.6785, 0.679, 0.6795, 0.68, 0.6805, 0.681, 0.6815,
+    0.682, 0.6825, 0.683, 0.6835, 0.684, 0.6845, 0.685, 0.6855, 0.686, 0.6865, 0.687,
+    0.6875, 0.6880000000000001, 0.6885, 0.6890000000000001, 0.6895, 0.6900000000000001,
+    0.6905, 0.6910000000000001, 0.6915, 0.6920000000000001, 0.6925, 0.6930000000000001,
+    0.6935, 0.6940000000000001, 0.6945, 0.6950000000000001, 0.6955, 0.6960000000000001,
+    0.6965, 0.6970000000000001, 0.6975, 0.6980000000000001, 0.6985, 0.6990000000000001,
+    0.6995, 0.7000000000000001, 0.7005, 0.7010000000000001, 0.7015, 0.7020000000000001,
+    0.7025, 0.7030000000000001, 0.7035, 0.7040000000000001, 0.7045, 0.7050000000000001,
+    0.7055, 0.7060000000000001, 0.7065, 0.7070000000000001, 0.7075, 0.7080000000000001,
+    0.7085, 0.7090000000000001, 0.7095, 0.7100000000000001, 0.7105, 0.7110000000000001,
+    0.7115, 0.7120000000000001, 0.7125, 0.7130000000000001, 0.7135, 0.7140000000000001,
+    0.7145, 0.7150000000000001, 0.7155, 0.7160000000000001, 0.7165, 0.7170000000000001,
+    0.7175, 0.7180000000000001, 0.7185, 0.7190000000000001, 0.7195, 0.72, 0.7205,
+    0.7210000000000001, 0.7215, 0.722, 0.7225, 0.7230000000000001, 0.7235, 0.724,
+    0.7245, 0.7250000000000001, 0.7255, 0.726, 0.7265, 0.7270000000000001, 0.7275,
+    0.728, 0.7285, 0.7290000000000001, 0.7295, 0.73, 0.7305, 0.7310000000000001,
+    0.7315, 0.732, 0.7325, 0.7330000000000001, 0.7335, 0.734, 0.7345, 0.7350000000000001,
+    0.7355, 0.736, 0.7365, 0.7370000000000001, 0.7375, 0.738, 0.7385, 0.7390000000000001,
+    0.7395, 0.74, 0.7405, 0.7410000000000001, 0.7415, 0.742, 0.7425, 0.7430000000000001,
+    0.7435, 0.744, 0.7445, 0.745, 0.7455, 0.746, 0.7465, 0.747, 0.7475, 0.748, 0.7485,
+    0.749, 0.7495, 0.75, 0.7505000000000001, 0.751, 0.7515000000000001, 0.752, 0.7525000000000001,
+    0.753, 0.7535000000000001, 0.754, 0.7545000000000001, 0.755, 0.7555000000000001,
+    0.756, 0.7565000000000001, 0.757, 0.7575000000000001, 0.758, 0.7585000000000001,
+    0.759, 0.7595000000000001, 0.76, 0.7605000000000001, 0.761, 0.7615000000000001,
+    0.762, 0.7625000000000001, 0.763, 0.7635000000000001, 0.764, 0.7645000000000001,
+    0.765, 0.7655000000000001, 0.766, 0.7665000000000001, 0.767, 0.7675000000000001,
+    0.768, 0.7685000000000001, 0.769, 0.7695000000000001, 0.77, 0.7705000000000001,
+    0.771, 0.7715000000000001, 0.772, 0.7725000000000001, 0.773, 0.7735000000000001,
+    0.774, 0.7745000000000001, 0.775, 0.7755000000000001, 0.776, 0.7765, 0.777, 0.7775000000000001,
+    0.778, 0.7785, 0.779, 0.7795000000000001, 0.78, 0.7805, 0.781, 0.7815000000000001,
+    0.782, 0.7825, 0.783, 0.7835000000000001, 0.784, 0.7845, 0.785, 0.7855000000000001,
+    0.786, 0.7865, 0.787, 0.7875000000000001, 0.788, 0.7885, 0.789, 0.7895000000000001,
+    0.79, 0.7905, 0.791, 0.7915000000000001, 0.792, 0.7925, 0.793, 0.7935000000000001,
+    0.794, 0.7945, 0.795, 0.7955000000000001, 0.796, 0.7965, 0.797, 0.7975000000000001,
+    0.798, 0.7985, 0.799, 0.7995000000000001, 0.8, 0.8005, 0.801, 0.8015000000000001,
+    0.802, 0.8025, 0.803, 0.8035000000000001, 0.804, 0.8045, 0.805, 0.8055000000000001,
+    0.806, 0.8065, 0.807, 0.8075000000000001, 0.808, 0.8085, 0.809, 0.8095, 0.81,
+    0.8105, 0.811, 0.8115, 0.812, 0.8125, 0.8130000000000001, 0.8135, 0.8140000000000001,
+    0.8145, 0.8150000000000001, 0.8155, 0.8160000000000001, 0.8165, 0.8170000000000001,
+    0.8175, 0.8180000000000001, 0.8185, 0.8190000000000001, 0.8195, 0.8200000000000001,
+    0.8205, 0.8210000000000001, 0.8215, 0.8220000000000001, 0.8225, 0.8230000000000001,
+    0.8235, 0.8240000000000001, 0.8245, 0.8250000000000001, 0.8255, 0.8260000000000001,
+    0.8265, 0.8270000000000001, 0.8275, 0.8280000000000001, 0.8285, 0.8290000000000001,
+    0.8295, 0.8300000000000001, 0.8305, 0.8310000000000001, 0.8315, 0.8320000000000001,
+    0.8325, 0.8330000000000001, 0.8335, 0.8340000000000001, 0.8345, 0.8350000000000001,
+    0.8355, 0.8360000000000001, 0.8365, 0.8370000000000001, 0.8375, 0.8380000000000001,
+    0.8385, 0.8390000000000001, 0.8395, 0.8400000000000001, 0.8405, 0.841, 0.8415,
+    0.8420000000000001, 0.8425, 0.843, 0.8435, 0.8440000000000001, 0.8445, 0.845,
+    0.8455, 0.8460000000000001, 0.8465, 0.847, 0.8475, 0.8480000000000001, 0.8485,
+    0.849, 0.8495, 0.8500000000000001, 0.8505, 0.851, 0.8515, 0.8520000000000001,
+    0.8525, 0.853, 0.8535, 0.8540000000000001, 0.8545, 0.855, 0.8555, 0.8560000000000001,
+    0.8565, 0.857, 0.8575, 0.8580000000000001, 0.8585, 0.859, 0.8595, 0.8600000000000001,
+    0.8605, 0.861, 0.8615, 0.8620000000000001, 0.8625, 0.863, 0.8635, 0.8640000000000001,
+    0.8645, 0.865, 0.8655, 0.8660000000000001, 0.8665, 0.867, 0.8675, 0.8680000000000001,
+    0.8685, 0.869, 0.8695, 0.8700000000000001, 0.8705, 0.871, 0.8715, 0.8720000000000001,
+    0.8725, 0.873, 0.8735, 0.8740000000000001, 0.8745, 0.875, 0.8755000000000001,
+    0.8760000000000001, 0.8765000000000001, 0.877, 0.8775000000000001, 0.8780000000000001,
+    0.8785000000000001, 0.879, 0.8795000000000001, 0.8800000000000001, 0.8805000000000001,
+    0.881, 0.8815000000000001, 0.8820000000000001, 0.8825000000000001, 0.883, 0.8835000000000001,
+    0.8840000000000001, 0.8845000000000001, 0.885, 0.8855000000000001, 0.8860000000000001,
+    0.8865000000000001, 0.887, 0.8875000000000001, 0.888, 0.8885000000000001, 0.889,
+    0.8895, 0.89, 0.8905000000000001, 0.891, 0.8915, 0.892, 0.8925000000000001, 0.893,
+    0.8935, 0.894, 0.8945000000000001, 0.895, 0.8955, 0.896, 0.8965000000000001,
+    0.897, 0.8975, 0.898, 0.8985000000000001, 0.899, 0.8995, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 205 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.6
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.6, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 206 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.9
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0, 1.0), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.109, 0.11, 0.111,
+    0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.121, 0.122, 0.123, 0.124, 0.125, 0.126, 0.127, 0.128,
+    0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138, 0.139, 0.14,
+    0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.152, 0.153,
+    0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164, 0.165,
+    0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.172, 0.173, 0.174, 0.175, 0.176, 0.177,
+    0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186, 0.187, 0.188, 0.189,
+    0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198, 0.199, 0.2, 0.201,
+    0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.219, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228, 0.229, 0.23,
+    0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002, 0.23700000000000002,
+    0.23800000000000002, 0.23900000000000002, 0.24000000000000002, 0.24100000000000002,
+    0.24200000000000002, 0.24300000000000002, 0.244, 0.245, 0.246, 0.247, 0.248,
+    0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256, 0.257, 0.258, 0.259, 0.26,
+    0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268, 0.269, 0.27, 0.271, 0.272,
+    0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28, 0.281, 0.28200000000000003,
+    0.28300000000000003, 0.28400000000000003, 0.28500000000000003, 0.28600000000000003,
+    0.28700000000000003, 0.28800000000000003, 0.28900000000000003, 0.29000000000000004,
+    0.29100000000000004, 0.29200000000000004, 0.29300000000000004, 0.29400000000000004,
+    0.29500000000000004, 0.29600000000000004, 0.29700000000000004, 0.29800000000000004,
+    0.29900000000000004, 0.30000000000000004, 0.30100000000000005, 0.30200000000000005,
+    0.30300000000000005, 0.30400000000000005, 0.30500000000000005, 0.30600000000000005,
+    0.30700000000000005, 0.308, 0.309, 0.31, 0.311, 0.312, 0.313, 0.314, 0.315, 0.316,
+    0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323, 0.324, 0.325, 0.326, 0.327, 0.328,
+    0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335, 0.336, 0.337, 0.338, 0.33899999999999997,
+    0.33999999999999997, 0.34099999999999997, 0.34199999999999997, 0.34299999999999997,
+    0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352, 0.353, 0.354, 0.355,
+    0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364, 0.365, 0.366, 0.367,
+    0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376, 0.377, 0.378, 0.379,
+    0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388, 0.389, 0.39, 0.391,
+    0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4, 0.401, 0.402, 0.403,
+    0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003, 0.40900000000000003,
+    0.41000000000000003, 0.41100000000000003, 0.41200000000000003, 0.41300000000000003,
+    0.41400000000000003, 0.41500000000000004, 0.41600000000000004, 0.41700000000000004,
+    0.41800000000000004, 0.41900000000000004, 0.42000000000000004, 0.42100000000000004,
+    0.42200000000000004, 0.42300000000000004, 0.42400000000000004, 0.42500000000000004,
+    0.42600000000000005, 0.42700000000000005, 0.42800000000000005, 0.42900000000000005,
+    0.43000000000000005, 0.43100000000000005, 0.43200000000000005, 0.43300000000000005,
+    0.43400000000000005, 0.43500000000000005, 0.43600000000000005, 0.43700000000000006,
+    0.43800000000000006, 0.43900000000000006, 0.44000000000000006, 0.44100000000000006,
+    0.44200000000000006, 0.44300000000000006, 0.44400000000000006, 0.44500000000000006,
+    0.44600000000000006, 0.44700000000000006, 0.44800000000000006, 0.44900000000000007,
+    0.45000000000000007, 0.45099999999999996, 0.45199999999999996, 0.45299999999999996,
+    0.45399999999999996, 0.45499999999999996, 0.45599999999999996, 0.45699999999999996,
+    0.45799999999999996, 0.45899999999999996, 0.45999999999999996, 0.46099999999999997,
+    0.46199999999999997, 0.46299999999999997, 0.46399999999999997, 0.46499999999999997,
+    0.46599999999999997, 0.46699999999999997, 0.46799999999999997, 0.469, 0.47, 0.471,
+    0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48, 0.481, 0.482, 0.483,
+    0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492, 0.493, 0.494, 0.495,
+    0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504, 0.505, 0.506, 0.507,
+    0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516, 0.517, 0.518, 0.519,
+    0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528, 0.529, 0.53, 0.531,
+    0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54, 0.541, 0.542, 0.543,
+    0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552, 0.553, 0.554, 0.555,
+    0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001, 0.5640000000000001,
+    0.5650000000000001, 0.5660000000000001, 0.5670000000000001, 0.5680000000000001,
+    0.5690000000000001, 0.5700000000000001, 0.5710000000000001, 0.5720000000000001,
+    0.5730000000000001, 0.5740000000000001, 0.5750000000000001, 0.5760000000000001,
+    0.5770000000000001, 0.5780000000000001, 0.579, 0.58, 0.581, 0.582, 0.583, 0.584,
+    0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591, 0.592, 0.593, 0.594, 0.595, 0.596,
+    0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603, 0.604, 0.605, 0.606, 0.607, 0.608,
+    0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615, 0.616, 0.617, 0.618, 0.619, 0.62,
+    0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627, 0.628, 0.629, 0.63, 0.631, 0.632,
+    0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639, 0.64, 0.641, 0.642, 0.643, 0.644,
+    0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651, 0.652, 0.653, 0.654, 0.655, 0.656,
+    0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663, 0.664, 0.665, 0.666, 0.667, 0.668,
+    0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675, 0.6759999999999999, 0.6769999999999999,
+    0.6779999999999999, 0.6789999999999999, 0.6799999999999999, 0.6809999999999999,
+    0.6819999999999999, 0.6829999999999999, 0.6839999999999999, 0.6849999999999999,
+    0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69, 0.691, 0.692, 0.693,
+    0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702, 0.703, 0.704, 0.705,
+    0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714, 0.715, 0.716, 0.717,
+    0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726, 0.727, 0.728, 0.729,
+    0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738, 0.739, 0.74, 0.741,
+    0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75, 0.751, 0.752, 0.753,
+    0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762, 0.763, 0.764, 0.765,
+    0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774, 0.775, 0.776, 0.777,
+    0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786, 0.787, 0.788, 0.789,
+    0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798, 0.799, 0.8, 0.801,
+    0.802, 0.8029999999999999, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 207 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.9
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [0.9, 0.09999999999999998])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 208 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.9
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 209 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.9
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 210 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.9
+  })
+  verify_logit_grid_bits(locator.tick_values(-1.0, 0.9), [
+    0.01, 0.1, 0.5, 0.9, 0.99,
+  ])
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 211 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.9
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.09000000000000001, 0.91])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 212 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0, 1.0))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 213 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [1.0, 0.0])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 214 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 215 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 216 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(-1.0, 0.9))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 217 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [1.0, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 218 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    2.0
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0, 1.0))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 219 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    2.0
+  })
+  let (lower, upper) = locator.nonsingular(0.0, 1.0)
+  verify_logit_grid_bits([lower, upper], [2.0, -1.0])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 220 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    2.0
+  })
+  verify_logit_grid_bits(locator.tick_values(0.1, 0.9), [
+    0.1, 0.101, 0.10200000000000001, 0.10300000000000001, 0.10400000000000001, 0.10500000000000001,
+    0.10600000000000001, 0.10700000000000001, 0.10800000000000001, 0.10900000000000001,
+    0.11, 0.111, 0.112, 0.113, 0.114, 0.115, 0.116, 0.117, 0.11800000000000001, 0.11900000000000001,
+    0.12000000000000001, 0.12100000000000001, 0.122, 0.123, 0.124, 0.125, 0.126,
+    0.127, 0.128, 0.129, 0.13, 0.131, 0.132, 0.133, 0.134, 0.135, 0.136, 0.137, 0.138,
+    0.139, 0.14, 0.14100000000000001, 0.14200000000000002, 0.14300000000000002, 0.14400000000000002,
+    0.14500000000000002, 0.14600000000000002, 0.14700000000000002, 0.14800000000000002,
+    0.14900000000000002, 0.15000000000000002, 0.15100000000000002, 0.15200000000000002,
+    0.153, 0.154, 0.155, 0.156, 0.157, 0.158, 0.159, 0.16, 0.161, 0.162, 0.163, 0.164,
+    0.165, 0.166, 0.167, 0.168, 0.169, 0.17, 0.171, 0.17200000000000001, 0.173, 0.174,
+    0.175, 0.176, 0.177, 0.178, 0.179, 0.18, 0.181, 0.182, 0.183, 0.184, 0.185, 0.186,
+    0.187, 0.188, 0.189, 0.19, 0.191, 0.192, 0.193, 0.194, 0.195, 0.196, 0.197, 0.198,
+    0.199, 0.2, 0.201, 0.202, 0.203, 0.20400000000000001, 0.20500000000000002, 0.20600000000000002,
+    0.20700000000000002, 0.20800000000000002, 0.20900000000000002, 0.21000000000000002,
+    0.21100000000000002, 0.21200000000000002, 0.21300000000000002, 0.21400000000000002,
+    0.21500000000000002, 0.21600000000000003, 0.21700000000000003, 0.21800000000000003,
+    0.21900000000000003, 0.22, 0.221, 0.222, 0.223, 0.224, 0.225, 0.226, 0.227, 0.228,
+    0.229, 0.23, 0.231, 0.232, 0.233, 0.234, 0.23500000000000001, 0.23600000000000002,
+    0.23700000000000002, 0.23800000000000002, 0.23900000000000002, 0.24000000000000002,
+    0.24100000000000002, 0.24200000000000002, 0.24300000000000002, 0.24400000000000002,
+    0.245, 0.246, 0.247, 0.248, 0.249, 0.25, 0.251, 0.252, 0.253, 0.254, 0.255, 0.256,
+    0.257, 0.258, 0.259, 0.26, 0.261, 0.262, 0.263, 0.264, 0.265, 0.266, 0.267, 0.268,
+    0.269, 0.27, 0.271, 0.272, 0.273, 0.274, 0.275, 0.276, 0.277, 0.278, 0.279, 0.28,
+    0.281, 0.28200000000000003, 0.28300000000000003, 0.28400000000000003, 0.28500000000000003,
+    0.28600000000000003, 0.28700000000000003, 0.28800000000000003, 0.28900000000000003,
+    0.29000000000000004, 0.29100000000000004, 0.29200000000000004, 0.29300000000000004,
+    0.29400000000000004, 0.29500000000000004, 0.29600000000000004, 0.29700000000000004,
+    0.29800000000000004, 0.29900000000000004, 0.30000000000000004, 0.30100000000000005,
+    0.30200000000000005, 0.30300000000000005, 0.30400000000000005, 0.30500000000000005,
+    0.30600000000000005, 0.30700000000000005, 0.30800000000000005, 0.309, 0.31, 0.311,
+    0.312, 0.313, 0.314, 0.315, 0.316, 0.317, 0.318, 0.319, 0.32, 0.321, 0.322, 0.323,
+    0.324, 0.325, 0.326, 0.327, 0.328, 0.329, 0.33, 0.331, 0.332, 0.333, 0.334, 0.335,
+    0.336, 0.337, 0.338, 0.339, 0.33999999999999997, 0.34099999999999997, 0.34199999999999997,
+    0.34299999999999997, 0.344, 0.345, 0.346, 0.347, 0.348, 0.349, 0.35, 0.351, 0.352,
+    0.353, 0.354, 0.355, 0.356, 0.357, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364,
+    0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376,
+    0.377, 0.378, 0.379, 0.38, 0.381, 0.382, 0.383, 0.384, 0.385, 0.386, 0.387, 0.388,
+    0.389, 0.39, 0.391, 0.392, 0.393, 0.394, 0.395, 0.396, 0.397, 0.398, 0.399, 0.4,
+    0.401, 0.402, 0.403, 0.404, 0.405, 0.406, 0.40700000000000003, 0.40800000000000003,
+    0.40900000000000003, 0.41000000000000003, 0.41100000000000003, 0.41200000000000003,
+    0.41300000000000003, 0.41400000000000003, 0.41500000000000004, 0.41600000000000004,
+    0.41700000000000004, 0.41800000000000004, 0.41900000000000004, 0.42000000000000004,
+    0.42100000000000004, 0.42200000000000004, 0.42300000000000004, 0.42400000000000004,
+    0.42500000000000004, 0.42600000000000005, 0.42700000000000005, 0.42800000000000005,
+    0.42900000000000005, 0.43000000000000005, 0.43100000000000005, 0.43200000000000005,
+    0.43300000000000005, 0.43400000000000005, 0.43500000000000005, 0.43600000000000005,
+    0.43700000000000006, 0.43800000000000006, 0.43900000000000006, 0.44000000000000006,
+    0.44100000000000006, 0.44200000000000006, 0.44300000000000006, 0.44400000000000006,
+    0.44500000000000006, 0.44600000000000006, 0.44700000000000006, 0.44800000000000006,
+    0.44900000000000007, 0.45000000000000007, 0.45100000000000007, 0.45199999999999996,
+    0.45299999999999996, 0.45399999999999996, 0.45499999999999996, 0.45599999999999996,
+    0.45699999999999996, 0.45799999999999996, 0.45899999999999996, 0.45999999999999996,
+    0.46099999999999997, 0.46199999999999997, 0.46299999999999997, 0.46399999999999997,
+    0.46499999999999997, 0.46599999999999997, 0.46699999999999997, 0.46799999999999997,
+    0.469, 0.47, 0.471, 0.472, 0.473, 0.474, 0.475, 0.476, 0.477, 0.478, 0.479, 0.48,
+    0.481, 0.482, 0.483, 0.484, 0.485, 0.486, 0.487, 0.488, 0.489, 0.49, 0.491, 0.492,
+    0.493, 0.494, 0.495, 0.496, 0.497, 0.498, 0.499, 0.5, 0.501, 0.502, 0.503, 0.504,
+    0.505, 0.506, 0.507, 0.508, 0.509, 0.51, 0.511, 0.512, 0.513, 0.514, 0.515, 0.516,
+    0.517, 0.518, 0.519, 0.52, 0.521, 0.522, 0.523, 0.524, 0.525, 0.526, 0.527, 0.528,
+    0.529, 0.53, 0.531, 0.532, 0.533, 0.534, 0.535, 0.536, 0.537, 0.538, 0.539, 0.54,
+    0.541, 0.542, 0.543, 0.544, 0.545, 0.546, 0.547, 0.548, 0.549, 0.55, 0.551, 0.552,
+    0.553, 0.554, 0.555, 0.556, 0.557, 0.558, 0.559, 0.56, 0.561, 0.562, 0.5630000000000001,
+    0.5640000000000001, 0.5650000000000001, 0.5660000000000001, 0.5670000000000001,
+    0.5680000000000001, 0.5690000000000001, 0.5700000000000001, 0.5710000000000001,
+    0.5720000000000001, 0.5730000000000001, 0.5740000000000001, 0.5750000000000001,
+    0.5760000000000001, 0.5770000000000001, 0.5780000000000001, 0.5790000000000001,
+    0.58, 0.581, 0.582, 0.583, 0.584, 0.585, 0.586, 0.587, 0.588, 0.589, 0.59, 0.591,
+    0.592, 0.593, 0.594, 0.595, 0.596, 0.597, 0.598, 0.599, 0.6, 0.601, 0.602, 0.603,
+    0.604, 0.605, 0.606, 0.607, 0.608, 0.609, 0.61, 0.611, 0.612, 0.613, 0.614, 0.615,
+    0.616, 0.617, 0.618, 0.619, 0.62, 0.621, 0.622, 0.623, 0.624, 0.625, 0.626, 0.627,
+    0.628, 0.629, 0.63, 0.631, 0.632, 0.633, 0.634, 0.635, 0.636, 0.637, 0.638, 0.639,
+    0.64, 0.641, 0.642, 0.643, 0.644, 0.645, 0.646, 0.647, 0.648, 0.649, 0.65, 0.651,
+    0.652, 0.653, 0.654, 0.655, 0.656, 0.657, 0.658, 0.659, 0.66, 0.661, 0.662, 0.663,
+    0.664, 0.665, 0.666, 0.667, 0.668, 0.669, 0.67, 0.671, 0.672, 0.673, 0.674, 0.675,
+    0.676, 0.6769999999999999, 0.6779999999999999, 0.6789999999999999, 0.6799999999999999,
+    0.6809999999999999, 0.6819999999999999, 0.6829999999999999, 0.6839999999999999,
+    0.6849999999999999, 0.6859999999999999, 0.6869999999999999, 0.688, 0.689, 0.69,
+    0.691, 0.692, 0.693, 0.694, 0.695, 0.696, 0.697, 0.698, 0.699, 0.7, 0.701, 0.702,
+    0.703, 0.704, 0.705, 0.706, 0.707, 0.708, 0.709, 0.71, 0.711, 0.712, 0.713, 0.714,
+    0.715, 0.716, 0.717, 0.718, 0.719, 0.72, 0.721, 0.722, 0.723, 0.724, 0.725, 0.726,
+    0.727, 0.728, 0.729, 0.73, 0.731, 0.732, 0.733, 0.734, 0.735, 0.736, 0.737, 0.738,
+    0.739, 0.74, 0.741, 0.742, 0.743, 0.744, 0.745, 0.746, 0.747, 0.748, 0.749, 0.75,
+    0.751, 0.752, 0.753, 0.754, 0.755, 0.756, 0.757, 0.758, 0.759, 0.76, 0.761, 0.762,
+    0.763, 0.764, 0.765, 0.766, 0.767, 0.768, 0.769, 0.77, 0.771, 0.772, 0.773, 0.774,
+    0.775, 0.776, 0.777, 0.778, 0.779, 0.78, 0.781, 0.782, 0.783, 0.784, 0.785, 0.786,
+    0.787, 0.788, 0.789, 0.79, 0.791, 0.792, 0.793, 0.794, 0.795, 0.796, 0.797, 0.798,
+    0.799, 0.8, 0.801, 0.802, 0.803, 0.8039999999999999, 0.8049999999999999, 0.8059999999999999,
+    0.8069999999999999, 0.8079999999999999, 0.8089999999999999, 0.8099999999999999,
+    0.8109999999999999, 0.8119999999999999, 0.813, 0.814, 0.815, 0.816, 0.817, 0.818,
+    0.819, 0.82, 0.821, 0.822, 0.823, 0.824, 0.825, 0.826, 0.827, 0.828, 0.829, 0.83,
+    0.831, 0.832, 0.833, 0.834, 0.835, 0.836, 0.837, 0.838, 0.839, 0.84, 0.841, 0.842,
+    0.843, 0.844, 0.845, 0.846, 0.847, 0.848, 0.849, 0.85, 0.851, 0.852, 0.853, 0.854,
+    0.855, 0.856, 0.857, 0.858, 0.859, 0.86, 0.861, 0.862, 0.863, 0.864, 0.865, 0.866,
+    0.867, 0.868, 0.869, 0.87, 0.871, 0.872, 0.873, 0.874, 0.875, 0.876, 0.877, 0.878,
+    0.879, 0.88, 0.881, 0.882, 0.883, 0.884, 0.885, 0.886, 0.887, 0.888, 0.889, 0.89,
+    0.891, 0.892, 0.893, 0.894, 0.895, 0.896, 0.897, 0.898, 0.899, 0.9,
+  ])
+  assert_eq(events, ["projection", "minpos", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 221 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    2.0
+  })
+  let (lower, upper) = locator.nonsingular(0.1, 0.9)
+  verify_logit_grid_bits([lower, upper], [0.1, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 222 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    2.0
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(-1.0, 0.9))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 223 raw own minpos and late integer errors" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    2.0
+  })
+  let (lower, upper) = locator.nonsingular(-1.0, 0.9)
+  verify_logit_grid_bits([lower, upper], [2.0, 0.9])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 224 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(integer=true)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.01, 0.5, 0.99, 0.9999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 225 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(integer=true)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.1, 0.9, 0.999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 226 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(integer=true)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    0.49, 0.495, 0.5, 0.505, 0.51,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 227 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(integer=true)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 228 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(symmetric=true)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.01, 0.5, 0.99, 0.9999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 229 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(symmetric=true)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.1, 0.9, 0.999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 230 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(symmetric=true)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    -0.6000000000000001, -0.4000000000000001, -0.20000000000000007, 0.0, 0.19999999999999996,
+    0.3999999999999999, 0.6000000000000001,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 231 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(symmetric=true)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 232 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(prune=Some("both"))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.01, 0.5, 0.99, 0.9999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 233 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(prune=Some("both"))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.1, 0.9, 0.999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 234 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(prune=Some("both"))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.495, 0.5, 0.505])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 235 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(prune=Some("both"))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 236 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(steps=Some(TickValues::from_array([1.0, 3.0, 10.0])))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.01, 0.5, 0.99, 0.9999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 237 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(steps=Some(TickValues::from_array([1.0, 3.0, 10.0])))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.1, 0.9, 0.999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 238 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(steps=Some(TickValues::from_array([1.0, 3.0, 10.0])))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    0.489, 0.492, 0.495, 0.498, 0.501, 0.504, 0.507, 0.51,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 239 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(steps=Some(TickValues::from_array([1.0, 3.0, 10.0])))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 240 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(steps=None)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.01, 0.5, 0.99, 0.9999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 241 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(steps=None)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.1, 0.9, 0.999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 242 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(steps=None)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    0.489, 0.492, 0.495, 0.498, 0.501, 0.504, 0.507, 0.51,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 243 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(steps=None)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 244 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(min_n_ticks=10)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.01, 0.5, 0.99, 0.9999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 245 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(min_n_ticks=10)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.001, 0.1, 0.9, 0.999, 0.99999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 246 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(min_n_ticks=10)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    0.49, 0.492, 0.494, 0.496, 0.498, 0.5, 0.502, 0.504, 0.506, 0.508, 0.51,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 247 inherited fields affect fallback only" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(7)))
+  locator.set_params(min_n_ticks=10)
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 248 dynamic fallback context and deferred empty guard" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  locator.set_params(integer=false)
+  let events : Array[String] = []
+  let space_values = [9.0, 2.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 249 dynamic fallback context and deferred empty guard" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  locator.set_params(integer=true)
+  let events : Array[String] = []
+  let space_values = [9.0, 2.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [0.49, 0.5, 0.51])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 250 dynamic fallback context and deferred empty guard" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  locator.set_params(integer=false)
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear", "3d"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    0.49, 0.495, 0.5, 0.505, 0.51,
+  ])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 251 dynamic fallback context and deferred empty guard" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  locator.set_params(integer=true)
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear", "3d"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.49, 0.51), [
+    0.49, 0.495, 0.5, 0.505, 0.51,
+  ])
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 252 dynamic fallback context and deferred empty guard" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  locator.set_params(integer=false)
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear", "FAIL"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 253 dynamic fallback context and deferred empty guard" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  locator.set_params(integer=true)
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear", "FAIL"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 254 dynamic fallback context and deferred empty guard" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  locator.set_params(integer=false)
+  let events : Array[String] = []
+  let space_values = [0.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 255 dynamic fallback context and deferred empty guard" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  locator.set_params(integer=true)
+  let events : Array[String] = []
+  let space_values = [0.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 256 dynamic fallback context and deferred empty guard" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  locator.set_params(integer=false)
+  let events : Array[String] = []
+  let space_values = [0.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear", "FAIL"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 257 dynamic fallback context and deferred empty guard" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  locator.set_params(integer=true)
+  let events : Array[String] = []
+  let space_values = [0.0 / 0.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear", "FAIL"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.49, 0.51))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "space", "minpos", "space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 258 projection gate and missing bound providers" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let projection_values = ["polar"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 259 projection gate and missing bound providers" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(9)))
+  let events : Array[String] = []
+  let projection_values = ["polar"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 260 projection gate and missing bound providers" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 261 projection gate and missing bound providers" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(9)))
+  let events : Array[String] = []
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 262 projection gate and missing bound providers" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["space"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 263 projection gate and missing bound providers" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(9)))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 264 projection gate and missing bound providers" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 265 projection gate and missing bound providers" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(9)))
+  let events : Array[String] = []
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  verify_logit_grid_bits(locator.tick_values(0.0001, 0.9999), [
+    0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999,
+  ])
+  assert_eq(events, ["minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 266 projection gate and missing bound providers" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    raise @core.DataError::InvalidTicks(message="fixture minpos")
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 267 projection gate and missing bound providers" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(9)))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    raise @core.DataError::InvalidTicks(message="fixture minpos")
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 268 projection gate and missing bound providers" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["FAIL"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 269 projection gate and missing bound providers" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(9)))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["FAIL"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  assert_true(
+    try {
+      ignore(locator.tick_values(0.0001, 0.9999))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 270 inherited view limits bypass own logit gates" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["3d"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  let (lower, upper) = locator.view_limits(-0.1, 1.1)
+  verify_logit_grid_bits([lower, upper], [-0.1, 1.1])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 271 inherited view limits bypass own logit gates" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["polar"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  let (lower, upper) = locator.view_limits(-0.1, 1.1)
+  verify_logit_grid_bits([lower, upper], [-0.1, 1.1])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 272 inherited view limits bypass own logit gates" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["FAIL"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  let (lower, upper) = locator.view_limits(-0.1, 1.1)
+  verify_logit_grid_bits([lower, upper], [-0.1, 1.1])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 273 inherited view limits bypass own logit gates" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.5
+  })
+  let (lower, upper) = locator.view_limits(-0.1, 1.1)
+  verify_logit_grid_bits([lower, upper], [-0.1, 1.1])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 274 inherited view limits bypass own logit gates" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("round_numbers")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["3d"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  let (lower, upper) = locator.view_limits(-0.1, 1.1)
+  verify_logit_grid_bits([lower, upper], [-0.2, 1.2000000000000002])
+  assert_eq(events, ["space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 275 inherited view limits bypass own logit gates" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("round_numbers")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["polar"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  let (lower, upper) = locator.view_limits(-0.1, 1.1)
+  verify_logit_grid_bits([lower, upper], [-0.2, 1.2000000000000002])
+  assert_eq(events, ["space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 276 inherited view limits bypass own logit gates" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("round_numbers")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["FAIL"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  assert_true(
+    try {
+      ignore(locator.view_limits(-0.1, 1.1))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, ["space", "projection"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 277 inherited view limits bypass own logit gates" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("round_numbers")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    0.5
+  })
+  assert_true(
+    try {
+      ignore(locator.view_limits(-0.1, 1.1))
+      false
+    } catch {
+      @core.DataError::InvalidTicks(..) => true
+      _ => false
+    },
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 278 complete extreme double raw ideals" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(2)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(5.0e-324, 0.9999999999999999), [
+    1.0e-170, 0.5,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 279 complete extreme double raw ideals" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Count(9)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(5.0e-324, 0.9999999999999999), [
+    1.0e-304, 1.0e-266, 1.0e-228, 1.0e-190, 1.0e-152, 1.0e-114, 1.0e-76, 1.0e-38,
+    0.5,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 280 complete extreme double raw ideals" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(1000)),
+  )
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(5.0e-324, 0.9999999999999999), [
+    0.0, 1.0e-323, 1.0e-322, 1.0e-321, 1.0e-320, 1.0e-319, 1.0e-318, 1.0e-317, 1.0e-316,
+    1.0e-315, 1.0e-314, 1.0e-313, 1.0e-312, 1.0e-311, 1.0e-310, 1.0e-309, 1.0e-308,
+    1.0e-307, 1.0e-306, 1.0e-305, 1.0e-304, 1.0e-303, 1.0e-302, 1.0e-301, 1.0e-300,
+    1.0e-299, 1.0e-298, 1.0e-297, 1.0e-296, 1.0e-295, 1.0e-294, 1.0e-293, 1.0e-292,
+    1.0e-291, 1.0e-290, 1.0e-289, 1.0e-288, 1.0e-287, 1.0e-286, 1.0e-285, 1.0e-284,
+    1.0e-283, 1.0e-282, 1.0e-281, 1.0e-280, 1.0e-279, 1.0e-278, 1.0e-277, 1.0e-276,
+    1.0e-275, 1.0e-274, 1.0e-273, 1.0e-272, 1.0e-271, 1.0e-270, 1.0e-269, 1.0e-268,
+    1.0e-267, 1.0e-266, 1.0e-265, 1.0e-264, 1.0e-263, 1.0e-262, 1.0e-261, 1.0e-260,
+    1.0e-259, 1.0e-258, 1.0e-257, 1.0e-256, 1.0e-255, 1.0e-254, 1.0e-253, 1.0e-252,
+    1.0e-251, 1.0e-250, 1.0e-249, 1.0e-248, 1.0e-247, 1.0e-246, 1.0e-245, 1.0e-244,
+    1.0e-243, 1.0e-242, 1.0e-241, 1.0e-240, 1.0e-239, 1.0e-238, 1.0e-237, 1.0e-236,
+    1.0e-235, 1.0e-234, 1.0e-233, 1.0e-232, 1.0e-231, 1.0e-230, 1.0e-229, 1.0e-228,
+    1.0e-227, 1.0e-226, 1.0e-225, 1.0e-224, 1.0e-223, 1.0e-222, 1.0e-221, 1.0e-220,
+    1.0e-219, 1.0e-218, 1.0e-217, 1.0e-216, 1.0e-215, 1.0e-214, 1.0e-213, 1.0e-212,
+    1.0e-211, 1.0e-210, 1.0e-209, 1.0e-208, 1.0e-207, 1.0e-206, 1.0e-205, 1.0e-204,
+    1.0e-203, 1.0e-202, 1.0e-201, 1.0e-200, 1.0e-199, 1.0e-198, 1.0e-197, 1.0e-196,
+    1.0e-195, 1.0e-194, 1.0e-193, 1.0e-192, 1.0e-191, 1.0e-190, 1.0e-189, 1.0e-188,
+    1.0e-187, 1.0e-186, 1.0e-185, 1.0e-184, 1.0e-183, 1.0e-182, 1.0e-181, 1.0e-180,
+    1.0e-179, 1.0e-178, 1.0e-177, 1.0e-176, 1.0e-175, 1.0e-174, 1.0e-173, 1.0e-172,
+    1.0e-171, 1.0e-170, 1.0e-169, 1.0e-168, 1.0e-167, 1.0e-166, 1.0e-165, 1.0e-164,
+    1.0e-163, 1.0e-162, 1.0e-161, 1.0e-160, 1.0e-159, 1.0e-158, 1.0e-157, 1.0e-156,
+    1.0e-155, 1.0e-154, 1.0e-153, 1.0e-152, 1.0e-151, 1.0e-150, 1.0e-149, 1.0e-148,
+    1.0e-147, 1.0e-146, 1.0e-145, 1.0e-144, 1.0e-143, 1.0e-142, 1.0e-141, 1.0e-140,
+    1.0e-139, 1.0e-138, 1.0e-137, 1.0e-136, 1.0e-135, 1.0e-134, 1.0e-133, 1.0e-132,
+    1.0e-131, 1.0e-130, 1.0e-129, 1.0e-128, 1.0e-127, 1.0e-126, 1.0e-125, 1.0e-124,
+    1.0e-123, 1.0e-122, 1.0e-121, 1.0e-120, 1.0e-119, 1.0e-118, 1.0e-117, 1.0e-116,
+    1.0e-115, 1.0e-114, 1.0e-113, 1.0e-112, 1.0e-111, 1.0e-110, 1.0e-109, 1.0e-108,
+    1.0e-107, 1.0e-106, 1.0e-105, 1.0e-104, 1.0e-103, 1.0e-102, 1.0e-101, 1.0e-100,
+    1.0e-99, 1.0e-98, 1.0e-97, 1.0e-96, 1.0e-95, 1.0e-94, 1.0e-93, 1.0e-92, 1.0e-91,
+    1.0e-90, 1.0e-89, 1.0e-88, 1.0e-87, 1.0e-86, 1.0e-85, 1.0e-84, 1.0e-83, 1.0e-82,
+    1.0e-81, 1.0e-80, 1.0e-79, 1.0e-78, 1.0e-77, 1.0e-76, 1.0e-75, 1.0e-74, 1.0e-73,
+    1.0e-72, 1.0e-71, 1.0e-70, 1.0e-69, 1.0e-68, 1.0e-67, 1.0e-66, 1.0e-65, 1.0e-64,
+    1.0e-63, 1.0e-62, 1.0e-61, 1.0e-60, 1.0e-59, 1.0e-58, 1.0e-57, 1.0e-56, 1.0e-55,
+    1.0e-54, 1.0e-53, 1.0e-52, 1.0e-51, 1.0e-50, 1.0e-49, 1.0e-48, 1.0e-47, 1.0e-46,
+    1.0e-45, 1.0e-44, 1.0e-43, 1.0e-42, 1.0e-41, 1.0e-40, 1.0e-39, 1.0e-38, 1.0e-37,
+    1.0e-36, 1.0e-35, 1.0e-34, 1.0e-33, 1.0e-32, 1.0e-31, 1.0e-30, 1.0e-29, 1.0e-28,
+    1.0e-27, 1.0e-26, 1.0e-25, 1.0e-24, 1.0e-23, 1.0e-22, 1.0e-21, 1.0e-20, 1.0e-19,
+    1.0e-18, 1.0e-17, 1.0e-16, 1.0e-15, 1.0e-14, 1.0e-13, 1.0e-12, 1.0e-11, 1.0e-10,
+    1.0e-09, 1.0e-08, 1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.5, 0.9,
+    0.99, 0.999, 0.9999, 0.99999, 0.999999, 0.9999999, 0.99999999, 0.999999999, 0.9999999999,
+    0.99999999999, 0.999999999999, 0.9999999999999, 0.99999999999999, 0.999999999999999,
+    0.9999999999999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 281 complete extreme double raw ideals" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(2)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(5.0e-324, 0.9999999999999999), [
+    0.0, 1.0e-323, 1.0e-322, 1.0e-321, 1.0e-320, 1.0e-319, 1.0e-318, 1.0e-317, 1.0e-316,
+    1.0e-315, 1.0e-314, 1.0e-313, 1.0e-312, 1.0e-311, 1.0e-310, 1.0e-309, 1.0e-308,
+    1.0e-307, 1.0e-306, 1.0e-305, 1.0e-304, 1.0e-303, 1.0e-302, 1.0e-301, 1.0e-300,
+    1.0e-299, 1.0e-298, 1.0e-297, 1.0e-296, 1.0e-295, 1.0e-294, 1.0e-293, 1.0e-292,
+    1.0e-291, 1.0e-290, 1.0e-289, 1.0e-288, 1.0e-287, 1.0e-286, 1.0e-285, 1.0e-284,
+    1.0e-283, 1.0e-282, 1.0e-281, 1.0e-280, 1.0e-279, 1.0e-278, 1.0e-277, 1.0e-276,
+    1.0e-275, 1.0e-274, 1.0e-273, 1.0e-272, 1.0e-271, 1.0e-270, 1.0e-269, 1.0e-268,
+    1.0e-267, 1.0e-266, 1.0e-265, 1.0e-264, 1.0e-263, 1.0e-262, 1.0e-261, 1.0e-260,
+    1.0e-259, 1.0e-258, 1.0e-257, 1.0e-256, 1.0e-255, 1.0e-254, 1.0e-253, 1.0e-252,
+    1.0e-251, 1.0e-250, 1.0e-249, 1.0e-248, 1.0e-247, 1.0e-246, 1.0e-245, 1.0e-244,
+    1.0e-243, 1.0e-242, 1.0e-241, 1.0e-240, 1.0e-239, 1.0e-238, 1.0e-237, 1.0e-236,
+    1.0e-235, 1.0e-234, 1.0e-233, 1.0e-232, 1.0e-231, 1.0e-230, 1.0e-229, 1.0e-228,
+    1.0e-227, 1.0e-226, 1.0e-225, 1.0e-224, 1.0e-223, 1.0e-222, 1.0e-221, 1.0e-220,
+    1.0e-219, 1.0e-218, 1.0e-217, 1.0e-216, 1.0e-215, 1.0e-214, 1.0e-213, 1.0e-212,
+    1.0e-211, 1.0e-210, 1.0e-209, 1.0e-208, 1.0e-207, 1.0e-206, 1.0e-205, 1.0e-204,
+    1.0e-203, 1.0e-202, 1.0e-201, 1.0e-200, 1.0e-199, 1.0e-198, 1.0e-197, 1.0e-196,
+    1.0e-195, 1.0e-194, 1.0e-193, 1.0e-192, 1.0e-191, 1.0e-190, 1.0e-189, 1.0e-188,
+    1.0e-187, 1.0e-186, 1.0e-185, 1.0e-184, 1.0e-183, 1.0e-182, 1.0e-181, 1.0e-180,
+    1.0e-179, 1.0e-178, 1.0e-177, 1.0e-176, 1.0e-175, 1.0e-174, 1.0e-173, 1.0e-172,
+    1.0e-171, 1.0e-169, 1.0e-168, 1.0e-167, 1.0e-166, 1.0e-165, 1.0e-164, 1.0e-163,
+    1.0e-162, 1.0e-161, 1.0e-160, 1.0e-159, 1.0e-158, 1.0e-157, 1.0e-156, 1.0e-155,
+    1.0e-154, 1.0e-153, 1.0e-152, 1.0e-151, 1.0e-150, 1.0e-149, 1.0e-148, 1.0e-147,
+    1.0e-146, 1.0e-145, 1.0e-144, 1.0e-143, 1.0e-142, 1.0e-141, 1.0e-140, 1.0e-139,
+    1.0e-138, 1.0e-137, 1.0e-136, 1.0e-135, 1.0e-134, 1.0e-133, 1.0e-132, 1.0e-131,
+    1.0e-130, 1.0e-129, 1.0e-128, 1.0e-127, 1.0e-126, 1.0e-125, 1.0e-124, 1.0e-123,
+    1.0e-122, 1.0e-121, 1.0e-120, 1.0e-119, 1.0e-118, 1.0e-117, 1.0e-116, 1.0e-115,
+    1.0e-114, 1.0e-113, 1.0e-112, 1.0e-111, 1.0e-110, 1.0e-109, 1.0e-108, 1.0e-107,
+    1.0e-106, 1.0e-105, 1.0e-104, 1.0e-103, 1.0e-102, 1.0e-101, 1.0e-100, 1.0e-99,
+    1.0e-98, 1.0e-97, 1.0e-96, 1.0e-95, 1.0e-94, 1.0e-93, 1.0e-92, 1.0e-91, 1.0e-90,
+    1.0e-89, 1.0e-88, 1.0e-87, 1.0e-86, 1.0e-85, 1.0e-84, 1.0e-83, 1.0e-82, 1.0e-81,
+    1.0e-80, 1.0e-79, 1.0e-78, 1.0e-77, 1.0e-76, 1.0e-75, 1.0e-74, 1.0e-73, 1.0e-72,
+    1.0e-71, 1.0e-70, 1.0e-69, 1.0e-68, 1.0e-67, 1.0e-66, 1.0e-65, 1.0e-64, 1.0e-63,
+    1.0e-62, 1.0e-61, 1.0e-60, 1.0e-59, 1.0e-58, 1.0e-57, 1.0e-56, 1.0e-55, 1.0e-54,
+    1.0e-53, 1.0e-52, 1.0e-51, 1.0e-50, 1.0e-49, 1.0e-48, 1.0e-47, 1.0e-46, 1.0e-45,
+    1.0e-44, 1.0e-43, 1.0e-42, 1.0e-41, 1.0e-40, 1.0e-39, 1.0e-38, 1.0e-37, 1.0e-36,
+    1.0e-35, 1.0e-34, 1.0e-33, 1.0e-32, 1.0e-31, 1.0e-30, 1.0e-29, 1.0e-28, 1.0e-27,
+    1.0e-26, 1.0e-25, 1.0e-24, 1.0e-23, 1.0e-22, 1.0e-21, 1.0e-20, 1.0e-19, 1.0e-18,
+    1.0e-17, 1.0e-16, 1.0e-15, 1.0e-14, 1.0e-13, 1.0e-12, 1.0e-11, 1.0e-10, 1.0e-09,
+    1.0e-08, 1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.9, 0.99, 0.999,
+    0.9999, 0.99999, 0.999999, 0.9999999, 0.99999999, 0.999999999, 0.9999999999,
+    0.99999999999, 0.999999999999, 0.9999999999999, 0.99999999999999, 0.999999999999999,
+    0.9999999999999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 282 complete extreme double raw ideals" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(9)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(5.0e-324, 0.9999999999999999), [
+    0.0, 1.0e-323, 1.0e-322, 1.0e-321, 1.0e-320, 1.0e-319, 1.0e-318, 1.0e-317, 1.0e-316,
+    1.0e-315, 1.0e-314, 1.0e-313, 1.0e-312, 1.0e-311, 1.0e-310, 1.0e-309, 1.0e-308,
+    1.0e-307, 1.0e-306, 1.0e-305, 1.0e-303, 1.0e-302, 1.0e-301, 1.0e-300, 1.0e-299,
+    1.0e-298, 1.0e-297, 1.0e-296, 1.0e-295, 1.0e-294, 1.0e-293, 1.0e-292, 1.0e-291,
+    1.0e-290, 1.0e-289, 1.0e-288, 1.0e-287, 1.0e-286, 1.0e-285, 1.0e-284, 1.0e-283,
+    1.0e-282, 1.0e-281, 1.0e-280, 1.0e-279, 1.0e-278, 1.0e-277, 1.0e-276, 1.0e-275,
+    1.0e-274, 1.0e-273, 1.0e-272, 1.0e-271, 1.0e-270, 1.0e-269, 1.0e-268, 1.0e-267,
+    1.0e-265, 1.0e-264, 1.0e-263, 1.0e-262, 1.0e-261, 1.0e-260, 1.0e-259, 1.0e-258,
+    1.0e-257, 1.0e-256, 1.0e-255, 1.0e-254, 1.0e-253, 1.0e-252, 1.0e-251, 1.0e-250,
+    1.0e-249, 1.0e-248, 1.0e-247, 1.0e-246, 1.0e-245, 1.0e-244, 1.0e-243, 1.0e-242,
+    1.0e-241, 1.0e-240, 1.0e-239, 1.0e-238, 1.0e-237, 1.0e-236, 1.0e-235, 1.0e-234,
+    1.0e-233, 1.0e-232, 1.0e-231, 1.0e-230, 1.0e-229, 1.0e-227, 1.0e-226, 1.0e-225,
+    1.0e-224, 1.0e-223, 1.0e-222, 1.0e-221, 1.0e-220, 1.0e-219, 1.0e-218, 1.0e-217,
+    1.0e-216, 1.0e-215, 1.0e-214, 1.0e-213, 1.0e-212, 1.0e-211, 1.0e-210, 1.0e-209,
+    1.0e-208, 1.0e-207, 1.0e-206, 1.0e-205, 1.0e-204, 1.0e-203, 1.0e-202, 1.0e-201,
+    1.0e-200, 1.0e-199, 1.0e-198, 1.0e-197, 1.0e-196, 1.0e-195, 1.0e-194, 1.0e-193,
+    1.0e-192, 1.0e-191, 1.0e-189, 1.0e-188, 1.0e-187, 1.0e-186, 1.0e-185, 1.0e-184,
+    1.0e-183, 1.0e-182, 1.0e-181, 1.0e-180, 1.0e-179, 1.0e-178, 1.0e-177, 1.0e-176,
+    1.0e-175, 1.0e-174, 1.0e-173, 1.0e-172, 1.0e-171, 1.0e-170, 1.0e-169, 1.0e-168,
+    1.0e-167, 1.0e-166, 1.0e-165, 1.0e-164, 1.0e-163, 1.0e-162, 1.0e-161, 1.0e-160,
+    1.0e-159, 1.0e-158, 1.0e-157, 1.0e-156, 1.0e-155, 1.0e-154, 1.0e-153, 1.0e-151,
+    1.0e-150, 1.0e-149, 1.0e-148, 1.0e-147, 1.0e-146, 1.0e-145, 1.0e-144, 1.0e-143,
+    1.0e-142, 1.0e-141, 1.0e-140, 1.0e-139, 1.0e-138, 1.0e-137, 1.0e-136, 1.0e-135,
+    1.0e-134, 1.0e-133, 1.0e-132, 1.0e-131, 1.0e-130, 1.0e-129, 1.0e-128, 1.0e-127,
+    1.0e-126, 1.0e-125, 1.0e-124, 1.0e-123, 1.0e-122, 1.0e-121, 1.0e-120, 1.0e-119,
+    1.0e-118, 1.0e-117, 1.0e-116, 1.0e-115, 1.0e-113, 1.0e-112, 1.0e-111, 1.0e-110,
+    1.0e-109, 1.0e-108, 1.0e-107, 1.0e-106, 1.0e-105, 1.0e-104, 1.0e-103, 1.0e-102,
+    1.0e-101, 1.0e-100, 1.0e-99, 1.0e-98, 1.0e-97, 1.0e-96, 1.0e-95, 1.0e-94, 1.0e-93,
+    1.0e-92, 1.0e-91, 1.0e-90, 1.0e-89, 1.0e-88, 1.0e-87, 1.0e-86, 1.0e-85, 1.0e-84,
+    1.0e-83, 1.0e-82, 1.0e-81, 1.0e-80, 1.0e-79, 1.0e-78, 1.0e-77, 1.0e-75, 1.0e-74,
+    1.0e-73, 1.0e-72, 1.0e-71, 1.0e-70, 1.0e-69, 1.0e-68, 1.0e-67, 1.0e-66, 1.0e-65,
+    1.0e-64, 1.0e-63, 1.0e-62, 1.0e-61, 1.0e-60, 1.0e-59, 1.0e-58, 1.0e-57, 1.0e-56,
+    1.0e-55, 1.0e-54, 1.0e-53, 1.0e-52, 1.0e-51, 1.0e-50, 1.0e-49, 1.0e-48, 1.0e-47,
+    1.0e-46, 1.0e-45, 1.0e-44, 1.0e-43, 1.0e-42, 1.0e-41, 1.0e-40, 1.0e-39, 1.0e-37,
+    1.0e-36, 1.0e-35, 1.0e-34, 1.0e-33, 1.0e-32, 1.0e-31, 1.0e-30, 1.0e-29, 1.0e-28,
+    1.0e-27, 1.0e-26, 1.0e-25, 1.0e-24, 1.0e-23, 1.0e-22, 1.0e-21, 1.0e-20, 1.0e-19,
+    1.0e-18, 1.0e-17, 1.0e-16, 1.0e-15, 1.0e-14, 1.0e-13, 1.0e-12, 1.0e-11, 1.0e-10,
+    1.0e-09, 1.0e-08, 1.0e-07, 1.0e-06, 1.0e-05, 0.0001, 0.001, 0.01, 0.1, 0.9, 0.99,
+    0.999, 0.9999, 0.99999, 0.999999, 0.9999999, 0.99999999, 0.999999999, 0.9999999999,
+    0.99999999999, 0.999999999999, 0.9999999999999, 0.99999999999999, 0.999999999999999,
+    0.9999999999999999,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 283 complete extreme double raw ideals" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=true, nbins=Some(MaxNBins::Count(1000)))
+  let events : Array[String] = []
+  verify_logit_grid_bits(locator.tick_values(5.0e-324, 0.9999999999999999), [
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0e-323, 3.0e-323, 4.0e-323, 5.0e-323,
+    6.0e-323, 7.0e-323, 8.0e-323, 9.0e-323, 2.0e-322, 2.96e-322, 3.95e-322, 4.94e-322,
+    5.93e-322, 6.9e-322, 7.9e-322, 8.9e-322, 1.996e-321, 2.994e-321, 3.99e-321, 4.99e-321,
+    5.99e-321, 6.986e-321, 7.984e-321, 8.98e-321, 2.0e-320, 3.0e-320, 4.0e-320, 5.0e-320,
+    6.0e-320, 7.0e-320, 8.0e-320, 9.0e-320, 2.0e-319, 2.99997e-319, 3.99996e-319,
+    4.99994e-319, 5.99993e-319, 6.9999e-319, 7.9999e-319, 8.9999e-319, 1.999997e-318,
+    2.999996e-318, 3.999995e-318, 4.999994e-318, 5.999992e-318, 6.99999e-318, 7.99999e-318,
+    8.99999e-318, 2.0000005e-317, 3.0000007e-317, 4.000001e-317, 5.000001e-317, 6.0000014e-317,
+    7.0000016e-317, 8.000002e-317, 9.000002e-317, 1.99999997e-316, 2.99999995e-316,
+    3.99999993e-316, 4.9999999e-316, 5.9999999e-316, 6.9999999e-316, 7.99999987e-316,
+    8.99999985e-316, 1.999999997e-315, 2.999999995e-315, 3.999999994e-315, 4.99999999e-315,
+    5.99999999e-315, 6.99999999e-315, 7.99999999e-315, 8.999999986e-315, 2.0e-314,
+    3.0e-314, 4.0e-314, 5.0e-314, 6.0e-314, 6.9999999997e-314, 7.9999999997e-314,
+    8.9999999997e-314, 2.00000000003e-313, 3.00000000004e-313, 4.00000000005e-313,
+    5.00000000007e-313, 6.0000000001e-313, 7.0000000001e-313, 8.0000000001e-313,
+    9.0000000001e-313, 1.999999999997e-312, 2.999999999995e-312, 3.999999999994e-312,
+    4.99999999999e-312, 5.99999999999e-312, 6.99999999999e-312, 7.99999999999e-312,
+    8.999999999986e-312, 2.0e-311, 3.0e-311, 4.0e-311, 4.9999999999997e-311, 5.9999999999997e-311,
+    6.9999999999996e-311, 7.9999999999996e-311, 8.9999999999995e-311, 2.0e-310, 3.0e-310,
+    4.0e-310, 5.0e-310, 6.0e-310, 7.0e-310, 8.0e-310, 8.99999999999997e-310, 2.000000000000004e-309,
+    3.000000000000006e-309, 4.00000000000001e-309, 5.00000000000001e-309, 6.00000000000001e-309,
+    7.000000000000013e-309, 8.000000000000015e-309, 9.000000000000017e-309, 2.0e-308,
+    2.9999999999999997e-308, 3.9999999999999996e-308, 5.0e-308, 5.999999999999999e-308,
+    6.999999999999999e-308, 7.999999999999999e-308, 8.999999999999998e-308, 2.0e-307,
+    3.0e-307, 4.0e-307, 4.999999999999999e-307, 6.0e-307, 6.9999999999999996e-307,
+    8.0e-307, 9.0e-307, 2.0e-306, 3.0e-306, 4.0e-306, 5.0e-306, 6.0e-306, 7.0e-306,
+    8.0e-306, 9.0e-306, 2.0e-305, 3.0e-305, 4.0e-305, 5.0e-305, 6.0e-305, 7.0e-305,
+    8.0e-305, 9.0e-305, 2.0e-304, 3.0e-304, 4.0e-304, 5.0e-304, 6.0e-304, 7.0e-304,
+    8.0e-304, 9.0e-304, 2.0e-303, 2.9999999999999996e-303, 4.0e-303, 5.0e-303, 5.999999999999999e-303,
+    7.0e-303, 8.0e-303, 8.999999999999999e-303, 2.0e-302, 3.0e-302, 4.0e-302, 4.999999999999999e-302,
+    6.0e-302, 7.0e-302, 8.0e-302, 8.999999999999999e-302, 2.0e-301, 3.0000000000000004e-301,
+    4.0e-301, 5.0e-301, 6.000000000000001e-301, 7.000000000000001e-301, 8.0e-301,
+    9.0e-301, 2.0e-300, 3.0e-300, 4.0e-300, 5.0e-300, 6.0e-300, 7.0e-300, 8.0e-300,
+    9.0e-300, 2.0e-299, 3.0e-299, 4.0e-299, 5.0e-299, 6.0e-299, 7.0e-299, 8.0e-299,
+    9.0e-299, 2.0e-298, 3.0e-298, 4.0e-298, 4.999999999999999e-298, 6.0e-298, 7.0e-298,
+    8.0e-298, 9.0e-298, 2.0e-297, 3.0000000000000003e-297, 4.0e-297, 5.0e-297, 6.0000000000000006e-297,
+    7.0e-297, 8.0e-297, 9.000000000000001e-297, 2.0e-296, 3.0e-296, 4.0e-296, 5.0e-296,
+    6.0e-296, 7.0e-296, 8.0e-296, 9.0e-296, 2.0e-295, 3.0000000000000004e-295, 4.0e-295,
+    5.0e-295, 6.000000000000001e-295, 7.000000000000001e-295, 8.0e-295, 9.0e-295,
+    2.0e-294, 3.0e-294, 4.0e-294, 5.0e-294, 6.0e-294, 7.0e-294, 8.0e-294, 9.0e-294,
+    2.0e-293, 3.0e-293, 4.0e-293, 5.0e-293, 6.0e-293, 7.0e-293, 8.0e-293, 9.0e-293,
+    2.0e-292, 3.0e-292, 4.0e-292, 5.000000000000001e-292, 6.0e-292, 7.0e-292, 8.0e-292,
+    9.000000000000001e-292, 2.0e-291, 3.0e-291, 4.0e-291, 4.9999999999999996e-291,
+    6.0e-291, 7.0e-291, 8.0e-291, 9.0e-291, 2.0e-290, 3.0000000000000005e-290, 4.0e-290,
+    5.0e-290, 6.000000000000001e-290, 7.000000000000001e-290, 8.0e-290, 9.0e-290,
+    2.0e-289, 3.0e-289, 4.0e-289, 5.0e-289, 6.0e-289, 7.0e-289, 8.0e-289, 9.0e-289,
+    2.0e-288, 3.0000000000000004e-288, 4.0e-288, 5.0e-288, 6.000000000000001e-288,
+    7.0e-288, 8.0e-288, 9.0e-288, 2.0e-287, 3.0e-287, 4.0e-287, 5.0e-287, 6.0e-287,
+    7.0e-287, 8.0e-287, 9.0e-287, 2.0e-286, 3.0e-286, 4.0e-286, 5.0e-286, 6.0e-286,
+    7.000000000000001e-286, 8.0e-286, 9.0e-286, 2.0e-285, 3.0000000000000004e-285,
+    4.0e-285, 5.0e-285, 6.000000000000001e-285, 7.0e-285, 8.0e-285, 9.0e-285, 2.0e-284,
+    3.0e-284, 4.0e-284, 5.0000000000000003e-284, 6.0e-284, 7.000000000000001e-284,
+    8.0e-284, 9.0e-284, 2.0e-283, 3.0e-283, 4.0e-283, 5.0e-283, 6.0e-283, 7.0e-283,
+    8.0e-283, 9.0e-283, 2.0e-282, 3.0e-282, 4.0e-282, 5.0e-282, 6.0e-282, 7.0e-282,
+    8.0e-282, 9.0e-282, 2.0e-281, 3.0000000000000004e-281, 4.0e-281, 5.0e-281, 6.000000000000001e-281,
+    7.0e-281, 8.0e-281, 9.0e-281, 2.0e-280, 3.0e-280, 4.0e-280, 4.999999999999999e-280,
+    6.0e-280, 7.0e-280, 8.0e-280, 9.0e-280, 2.0e-279, 3.0e-279, 4.0e-279, 5.0000000000000005e-279,
+    6.0e-279, 7.0e-279, 8.0e-279, 9.0e-279, 2.0e-278, 2.9999999999999997e-278, 4.0e-278,
+    5.0e-278, 5.999999999999999e-278, 7.0e-278, 8.0e-278, 9.0e-278, 2.0e-277, 3.0e-277,
+    4.0e-277, 4.999999999999999e-277, 6.0e-277, 7.0e-277, 8.0e-277, 9.0e-277, 2.0e-276,
+    3.0000000000000003e-276, 4.0e-276, 5.0000000000000005e-276, 6.0000000000000006e-276,
+    7.000000000000001e-276, 8.0e-276, 9.000000000000001e-276, 2.0e-275, 2.9999999999999996e-275,
+    4.0e-275, 5.0e-275, 5.999999999999999e-275, 7.0e-275, 8.0e-275, 9.0e-275, 2.0e-274,
+    3.0e-274, 4.0e-274, 4.999999999999999e-274, 6.0e-274, 7.0e-274, 8.0e-274, 9.0e-274,
+    2.0e-273, 3.0000000000000003e-273, 4.0e-273, 5.0000000000000005e-273, 6.0000000000000006e-273,
+    7.000000000000001e-273, 8.0e-273, 9.000000000000001e-273, 2.0e-272, 2.9999999999999996e-272,
+    4.0e-272, 5.0e-272, 5.999999999999999e-272, 7.0e-272, 8.0e-272, 9.0e-272, 2.0e-271,
+    3.0e-271, 4.0e-271, 5.0e-271, 6.0e-271, 7.0e-271, 8.0e-271, 9.0e-271, 2.0e-270,
+    3.0e-270, 4.0e-270, 5.0e-270, 6.0e-270, 7.000000000000001e-270, 8.0e-270, 9.0e-270,
+    2.0e-269, 3.0e-269, 4.0e-269, 5.0e-269, 6.0e-269, 6.999999999999999e-269, 8.0e-269,
+    9.0e-269, 2.0e-268, 3.0e-268, 4.0e-268, 5.0e-268, 6.0e-268, 7.0e-268, 8.0e-268,
+    8.999999999999999e-268, 2.0e-267, 3.0e-267, 4.0e-267, 5.0e-267, 6.0e-267, 7.0e-267,
+    8.0e-267, 9.0e-267, 2.0e-266, 3.0e-266, 4.0e-266, 5.0e-266, 6.0e-266, 6.999999999999999e-266,
+    8.0e-266, 9.0e-266, 2.0e-265, 3.0e-265, 4.0e-265, 5.0e-265, 6.0e-265, 7.0e-265,
+    8.0e-265, 8.999999999999999e-265, 2.0e-264, 3.0e-264, 4.0e-264, 5.0e-264, 6.0e-264,
+    7.0e-264, 8.0e-264, 9.0e-264, 2.0e-263, 3.0e-263, 4.0e-263, 5.0e-263, 6.0e-263,
+    7.000000000000001e-263, 8.0e-263, 9.0e-263, 2.0e-262, 3.0e-262, 4.0e-262, 5.0e-262,
+    6.0e-262, 7.0e-262, 8.0e-262, 9.0e-262, 2.0e-261, 3.0e-261, 4.0e-261, 5.0e-261,
+    6.0e-261, 7.0e-261, 8.0e-261, 9.0e-261, 2.0e-260, 3.0e-260, 4.0e-260, 4.9999999999999996e-260,
+    6.0e-260, 7.0e-260, 8.0e-260, 9.0e-260, 2.0e-259, 3.0e-259, 4.0e-259, 5.0000000000000003e-259,
+    6.0e-259, 7.0e-259, 8.0e-259, 9.000000000000001e-259, 2.0e-258, 2.9999999999999997e-258,
+    4.0e-258, 5.0e-258, 5.9999999999999995e-258, 7.0e-258, 8.0e-258, 9.0e-258, 2.0e-257,
+    3.0e-257, 4.0e-257, 5.0e-257, 6.0e-257, 6.999999999999999e-257, 8.0e-257, 9.0e-257,
+    2.0e-256, 3.0e-256, 4.0e-256, 5.0e-256, 6.0e-256, 7.0e-256, 8.0e-256, 8.999999999999999e-256,
+    2.0e-255, 3.0e-255, 4.0e-255, 5.0e-255, 6.0e-255, 7.0000000000000005e-255, 8.0e-255,
+    9.0e-255, 2.0e-254, 2.9999999999999997e-254, 4.0e-254, 4.9999999999999996e-254,
+    5.9999999999999995e-254, 6.999999999999999e-254, 8.0e-254, 9.0e-254, 2.0e-253,
+    3.0e-253, 4.0e-253, 5.0000000000000003e-253, 6.0e-253, 7.0e-253, 8.0e-253, 9.0e-253,
+    2.0e-252, 3.0e-252, 4.0e-252, 5.0e-252, 6.0e-252, 7.0e-252, 8.0e-252, 9.0e-252,
+    2.0e-251, 3.0e-251, 4.0e-251, 5.0e-251, 6.0e-251, 7.0e-251, 8.0e-251, 9.0e-251,
+    2.0e-250, 3.0e-250, 4.0e-250, 5.0e-250, 6.0e-250, 7.0e-250, 8.0e-250, 9.000000000000001e-250,
+    2.0e-249, 3.0e-249, 4.0e-249, 5.0e-249, 6.0e-249, 7.0e-249, 8.0e-249, 9.0e-249,
+    2.0e-248, 2.9999999999999997e-248, 4.0e-248, 5.0e-248, 5.9999999999999995e-248,
+    7.0e-248, 8.0e-248, 9.0e-248, 2.0e-247, 3.0e-247, 4.0e-247, 5.0000000000000004e-247,
+    6.0e-247, 7.0e-247, 8.0e-247, 9.0e-247, 2.0e-246, 3.0e-246, 4.0e-246, 5.0e-246,
+    6.0e-246, 6.999999999999999e-246, 8.0e-246, 9.0e-246, 2.0e-245, 2.9999999999999998e-245,
+    4.0e-245, 5.0e-245, 5.9999999999999996e-245, 6.9999999999999995e-245, 8.0e-245,
+    9.0e-245, 2.0e-244, 3.0e-244, 4.0e-244, 4.9999999999999993e-244, 6.0e-244, 7.0e-244,
+    8.0e-244, 8.999999999999999e-244, 2.0e-243, 3.0e-243, 4.0e-243, 5.0e-243, 6.0e-243,
+    7.0e-243, 8.0e-243, 9.0e-243, 2.0e-242, 3.0e-242, 4.0e-242, 5.0e-242, 6.0e-242,
+    7.0e-242, 8.0e-242, 9.0e-242, 2.0e-241, 3.0e-241, 4.0e-241, 5.0e-241, 6.0e-241,
+    7.0e-241, 8.0e-241, 9.0e-241, 2.0e-240, 3.0e-240, 4.0e-240, 5.0e-240, 6.0e-240,
+    6.999999999999999e-240, 8.0e-240, 9.0e-240, 2.0e-239, 3.0000000000000002e-239,
+    4.0e-239, 5.0e-239, 6.0000000000000005e-239, 7.000000000000001e-239, 8.0e-239,
+    9.0e-239, 2.0e-238, 3.0e-238, 4.0e-238, 5.0e-238, 6.0e-238, 7.0e-238, 8.0e-238,
+    9.0e-238, 2.0e-237, 2.9999999999999997e-237, 4.0e-237, 5.0e-237, 5.999999999999999e-237,
+    7.0e-237, 8.0e-237, 9.0e-237, 2.0e-236, 3.0e-236, 4.0e-236, 5.0e-236, 6.0e-236,
+    7.000000000000001e-236, 8.0e-236, 9.0e-236, 2.0e-235, 3.0e-235, 4.0e-235, 5.0e-235,
+    6.0e-235, 7.0e-235, 8.0e-235, 9.0e-235, 2.0e-234, 3.0e-234, 4.0e-234, 5.0e-234,
+    6.0e-234, 7.0e-234, 8.0e-234, 8.999999999999999e-234, 2.0e-233, 3.0e-233, 4.0e-233,
+    5.0e-233, 6.0e-233, 7.0e-233, 8.0e-233, 9.0e-233, 2.0e-232, 3.0000000000000003e-232,
+    4.0e-232, 5.0e-232, 6.0000000000000005e-232, 7.0e-232, 8.0e-232, 9.000000000000001e-232,
+    2.0e-231, 3.0e-231, 4.0e-231, 4.9999999999999997e-231, 6.0e-231, 7.0e-231, 8.0e-231,
+    9.0e-231, 2.0e-230, 3.0e-230, 4.0e-230, 5.0e-230, 6.0e-230, 7.000000000000001e-230,
+    8.0e-230, 9.0e-230, 2.0e-229, 3.0000000000000004e-229, 4.0e-229, 5.0e-229, 6.000000000000001e-229,
+    7.0e-229, 8.0e-229, 9.0e-229, 2.0e-228, 3.0e-228, 4.0e-228, 5.0000000000000003e-228,
+    6.0e-228, 7.000000000000001e-228, 8.0e-228, 9.0e-228, 2.0e-227, 3.0e-227, 4.0e-227,
+    5.0e-227, 6.0e-227, 6.999999999999999e-227, 8.0e-227, 9.0e-227, 2.0e-226, 2.9999999999999996e-226,
+    4.0e-226, 5.0e-226, 5.999999999999999e-226, 7.0e-226, 8.0e-226, 8.999999999999999e-226,
+    2.0e-225, 2.9999999999999996e-225, 4.0e-225, 5.0e-225, 5.999999999999999e-225,
+    7.0e-225, 8.0e-225, 9.0e-225, 2.0e-224, 3.0000000000000003e-224, 4.0e-224, 5.0e-224,
+    6.000000000000001e-224, 7.0e-224, 8.0e-224, 9.0e-224, 2.0e-223, 3.0e-223, 4.0e-223,
+    4.9999999999999995e-223, 6.0e-223, 7.0e-223, 8.0e-223, 9.0e-223, 2.0e-222, 3.0e-222,
+    4.0e-222, 5.0e-222, 6.0e-222, 7.0e-222, 8.0e-222, 9.0e-222, 2.0e-221, 3.0e-221,
+    4.0e-221, 5.0e-221, 6.0e-221, 7.0e-221, 8.0e-221, 9.0e-221, 2.0e-220, 2.9999999999999998e-220,
+    4.0e-220, 5.0e-220, 5.9999999999999996e-220, 7.0e-220, 8.0e-220, 9.0e-220, 2.0e-219,
+    3.0e-219, 4.0e-219, 5.0e-219, 6.0e-219, 7.0e-219, 8.0e-219, 9.0e-219, 2.0e-218,
+    3.0e-218, 4.0e-218, 5.0e-218, 6.0e-218, 7.0e-218, 8.0e-218, 9.000000000000001e-218,
+    2.0e-217, 3.0000000000000004e-217, 4.0e-217, 5.0e-217, 6.000000000000001e-217,
+    7.000000000000001e-217, 8.0e-217, 9.000000000000001e-217, 2.0e-216, 3.0e-216,
+    4.0e-216, 5.0e-216, 6.0e-216, 7.000000000000001e-216, 8.0e-216, 9.0e-216, 2.0e-215,
+    3.0e-215, 4.0e-215, 5.000000000000001e-215, 6.0e-215, 7.0e-215, 8.0e-215, 9.0e-215,
+    2.0e-214, 2.9999999999999995e-214, 4.0e-214, 5.0e-214, 5.999999999999999e-214,
+    6.999999999999999e-214, 8.0e-214, 8.999999999999999e-214, 2.0e-213, 3.0e-213,
+    4.0e-213, 5.0e-213, 6.0e-213, 6.999999999999999e-213, 8.0e-213, 9.0e-213, 2.0e-212,
+    2.9999999999999997e-212, 4.0e-212, 4.999999999999999e-212, 5.999999999999999e-212,
+    7.0e-212, 8.0e-212, 9.0e-212, 2.0e-211, 3.0000000000000005e-211, 4.0e-211, 5.0e-211,
+    6.000000000000001e-211, 7.000000000000001e-211, 8.0e-211, 9.000000000000001e-211,
+    2.0e-210, 3.0e-210, 4.0e-210, 5.0e-210, 6.0e-210, 7.0e-210, 8.0e-210, 9.0e-210,
+    2.0e-209, 3.0e-209, 4.0e-209, 5.0e-209, 6.0e-209, 7.0e-209, 8.0e-209, 9.000000000000001e-209,
+    2.0e-208, 3.0000000000000003e-208, 4.0e-208, 5.0000000000000005e-208, 6.000000000000001e-208,
+    7.000000000000001e-208, 8.0e-208, 9.000000000000001e-208, 2.0e-207, 3.0e-207,
+    4.0e-207, 4.9999999999999995e-207, 6.0e-207, 6.999999999999999e-207, 8.0e-207,
+    9.0e-207, 2.0e-206, 3.0e-206, 4.0e-206, 5.0e-206, 6.0e-206, 7.0e-206, 8.0e-206,
+    9.000000000000001e-206, 2.0e-205, 3.0e-205, 4.0e-205, 5.0e-205, 6.0e-205, 7.0e-205,
+    8.0e-205, 9.000000000000001e-205, 2.0e-204, 3.0e-204, 4.0e-204, 5.0e-204, 6.0e-204,
+    7.0e-204, 8.0e-204, 9.0e-204, 2.0e-203, 3.0e-203, 4.0e-203, 5.0e-203, 6.0e-203,
+    7.0e-203, 8.0e-203, 9.0e-203, 2.0e-202, 3.0e-202, 4.0e-202, 5.000000000000001e-202,
+    6.0e-202, 7.0e-202, 8.0e-202, 9.0e-202, 2.0e-201, 2.9999999999999997e-201, 4.0e-201,
+    5.0e-201, 5.999999999999999e-201, 7.0e-201, 8.0e-201, 8.999999999999999e-201,
+    2.0e-200, 3.0e-200, 4.0e-200, 5.0e-200, 6.0e-200, 6.999999999999999e-200, 8.0e-200,
+    9.0e-200, 2.0e-199, 3.0e-199, 4.0e-199, 5.0e-199, 6.0e-199, 7.0e-199, 8.0e-199,
+    9.0e-199, 2.0e-198, 2.9999999999999997e-198, 4.0e-198, 5.0e-198, 5.9999999999999995e-198,
+    6.999999999999999e-198, 8.0e-198, 9.0e-198, 2.0e-197, 2.9999999999999997e-197,
+    4.0e-197, 5.0e-197, 5.999999999999999e-197, 7.0e-197, 8.0e-197, 9.0e-197, 2.0e-196,
+    3.0e-196, 4.0e-196, 5.0e-196, 6.0e-196, 7.0e-196, 8.0e-196, 9.0e-196, 2.0e-195,
+    3.0000000000000003e-195, 4.0e-195, 5.000000000000001e-195, 6.0000000000000006e-195,
+    7.0e-195, 8.0e-195, 9.000000000000001e-195, 2.0e-194, 3.0e-194, 4.0e-194, 5.0e-194,
+    6.0e-194, 7.0e-194, 8.0e-194, 9.0e-194, 2.0e-193, 3.0e-193, 4.0e-193, 5.0e-193,
+    6.0e-193, 7.0e-193, 8.0e-193, 9.0e-193, 2.0e-192, 3.0000000000000003e-192, 4.0e-192,
+    5.0e-192, 6.0000000000000006e-192, 7.000000000000001e-192, 8.0e-192, 9.0e-192,
+    2.0e-191, 3.0e-191, 4.0e-191, 5.0e-191, 6.0e-191, 7.0e-191, 8.0e-191, 9.0e-191,
+    2.0e-190, 3.0e-190, 4.0e-190, 5.0e-190, 6.0e-190, 7.0e-190, 8.0e-190, 9.0e-190,
+    2.0e-189, 3.0e-189, 4.0e-189, 5.0000000000000005e-189, 6.0e-189, 7.0e-189, 8.0e-189,
+    9.000000000000001e-189, 2.0e-188, 2.9999999999999995e-188, 4.0e-188, 5.0e-188,
+    5.999999999999999e-188, 6.999999999999999e-188, 8.0e-188, 9.0e-188, 2.0e-187,
+    3.0e-187, 4.0e-187, 5.0e-187, 6.0e-187, 7.000000000000001e-187, 8.0e-187, 9.0e-187,
+    2.0e-186, 2.9999999999999997e-186, 4.0e-186, 5.0e-186, 5.9999999999999995e-186,
+    6.999999999999999e-186, 8.0e-186, 9.0e-186, 2.0e-185, 2.9999999999999997e-185,
+    4.0e-185, 5.0e-185, 5.999999999999999e-185, 7.0e-185, 8.0e-185, 9.0e-185, 2.0e-184,
+    3.0000000000000004e-184, 4.0e-184, 5.0e-184, 6.000000000000001e-184, 7.000000000000001e-184,
+    8.0e-184, 9.0e-184, 2.0e-183, 3.0e-183, 4.0e-183, 5.0e-183, 6.0e-183, 7.0e-183,
+    8.0e-183, 9.0e-183, 2.0e-182, 3.0e-182, 4.0e-182, 5.0e-182, 6.0e-182, 7.000000000000001e-182,
+    8.0e-182, 9.0e-182, 2.0e-181, 3.0000000000000003e-181, 4.0e-181, 5.0e-181, 6.000000000000001e-181,
+    7.0e-181, 8.0e-181, 9.000000000000001e-181, 2.0e-180, 3.0e-180, 4.0e-180, 5.0e-180,
+    6.0e-180, 7.0e-180, 8.0e-180, 9.0e-180, 2.0e-179, 3.0e-179, 4.0e-179, 5.0e-179,
+    6.0e-179, 7.0e-179, 8.0e-179, 9.0e-179, 2.0e-178, 3.0e-178, 4.0e-178, 5.0e-178,
+    6.0e-178, 7.0e-178, 8.0e-178, 9.0e-178, 2.0e-177, 2.9999999999999996e-177, 4.0e-177,
+    5.0e-177, 5.999999999999999e-177, 6.9999999999999994e-177, 8.0e-177, 8.999999999999999e-177,
+    2.0e-176, 3.0e-176, 4.0e-176, 5.0e-176, 6.0e-176, 7.0e-176, 8.0e-176, 9.0e-176,
+    2.0e-175, 3.0e-175, 4.0e-175, 5.0e-175, 6.0e-175, 7.0e-175, 8.0e-175, 9.0e-175,
+    2.0e-174, 2.9999999999999998e-174, 4.0e-174, 5.0e-174, 5.9999999999999995e-174,
+    7.0e-174, 8.0e-174, 9.0e-174, 2.0e-173, 3.0e-173, 4.0e-173, 5.0e-173, 6.0e-173,
+    7.0e-173, 8.0e-173, 9.0e-173, 2.0e-172, 3.0000000000000004e-172, 4.0e-172, 5.0e-172,
+    6.000000000000001e-172, 7.0e-172, 8.0e-172, 9.0e-172, 2.0e-171, 3.0e-171, 4.0e-171,
+    5.0e-171, 6.0e-171, 7.0e-171, 8.0e-171, 9.0e-171, 2.0e-170, 2.9999999999999998e-170,
+    4.0e-170, 5.0e-170, 5.9999999999999995e-170, 7.0e-170, 8.0e-170, 9.0e-170, 2.0e-169,
+    3.0e-169, 4.0e-169, 5.0e-169, 6.0e-169, 7.0e-169, 8.0e-169, 9.0e-169, 2.0e-168,
+    3.0000000000000004e-168, 4.0e-168, 5.0e-168, 6.000000000000001e-168, 7.000000000000001e-168,
+    8.0e-168, 9.0e-168, 2.0e-167, 3.0e-167, 4.0e-167, 5.0e-167, 6.0e-167, 7.0e-167,
+    8.0e-167, 9.0e-167, 2.0e-166, 3.0e-166, 4.0e-166, 5.0e-166, 6.0e-166, 7.0e-166,
+    8.0e-166, 9.000000000000001e-166, 2.0e-165, 3.0000000000000003e-165, 4.0e-165,
+    5.0e-165, 6.000000000000001e-165, 7.0e-165, 8.0e-165, 9.0e-165, 2.0e-164, 3.0e-164,
+    4.0e-164, 5.0e-164, 6.0e-164, 7.0e-164, 8.0e-164, 9.0e-164, 2.0e-163, 2.9999999999999996e-163,
+    4.0e-163, 5.0e-163, 5.999999999999999e-163, 6.999999999999999e-163, 8.0e-163,
+    9.0e-163, 2.0e-162, 3.0e-162, 4.0e-162, 5.0e-162, 6.0e-162, 7.0e-162, 8.0e-162,
+    9.0e-162, 2.0e-161, 3.0000000000000003e-161, 4.0e-161, 5.0e-161, 6.0000000000000006e-161,
+    7.0e-161, 8.0e-161, 9.000000000000001e-161, 2.0e-160, 3.0e-160, 4.0e-160, 5.0e-160,
+    6.0e-160, 7.0e-160, 8.0e-160, 8.999999999999999e-160, 2.0e-159, 3.0e-159, 4.0e-159,
+    5.0e-159, 6.0e-159, 7.0e-159, 8.0e-159, 9.0e-159, 2.0e-158, 3.0e-158, 4.0e-158,
+    5.0000000000000005e-158, 6.0e-158, 7.0e-158, 8.0e-158, 9.0e-158, 2.0e-157, 3.0e-157,
+    4.0e-157, 4.9999999999999996e-157, 6.0e-157, 6.999999999999999e-157, 8.0e-157,
+    9.0e-157, 2.0e-156, 3.0e-156, 4.0e-156, 5.0e-156, 6.0e-156, 7.0e-156, 8.0e-156,
+    9.000000000000001e-156, 2.0e-155, 3.0000000000000002e-155, 4.0e-155, 5.0e-155,
+    6.0000000000000005e-155, 7.0e-155, 8.0e-155, 9.0e-155, 2.0e-154, 3.0e-154, 4.0e-154,
+    4.9999999999999995e-154, 6.0e-154, 7.0e-154, 8.0e-154, 9.0e-154, 2.0e-153, 3.0e-153,
+    4.0e-153, 5.0e-153, 6.0e-153, 7.000000000000001e-153, 8.0e-153, 9.0e-153, 2.0e-152,
+    3.0e-152, 4.0e-152, 5.0000000000000005e-152, 6.0e-152, 7.0e-152, 8.0e-152, 9.0e-152,
+    2.0e-151, 2.9999999999999998e-151, 4.0e-151, 4.9999999999999994e-151, 5.9999999999999996e-151,
+    7.0e-151, 8.0e-151, 8.999999999999999e-151, 2.0e-150, 3.0e-150, 4.0e-150, 5.0e-150,
+    6.0e-150, 7.0e-150, 8.0e-150, 9.0e-150, 2.0e-149, 3.0e-149, 4.0e-149, 5.0e-149,
+    6.0e-149, 7.0e-149, 8.0e-149, 9.0e-149, 2.0e-148, 2.9999999999999996e-148, 4.0e-148,
+    5.0e-148, 5.999999999999999e-148, 7.0e-148, 8.0e-148, 8.999999999999999e-148,
+    2.0e-147, 3.0e-147, 4.0e-147, 4.9999999999999996e-147, 6.0e-147, 7.0e-147, 8.0e-147,
+    9.0e-147, 2.0e-146, 3.0e-146, 4.0e-146, 5.0000000000000005e-146, 6.0e-146, 7.0e-146,
+    8.0e-146, 9.0e-146, 2.0e-145, 2.9999999999999996e-145, 4.0e-145, 5.0e-145, 5.999999999999999e-145,
+    7.0e-145, 8.0e-145, 8.999999999999999e-145, 2.0e-144, 3.0e-144, 4.0e-144, 5.0e-144,
+    6.0e-144, 7.0e-144, 8.0e-144, 9.0e-144, 2.0e-143, 3.0e-143, 4.0e-143, 5.0e-143,
+    6.0e-143, 6.999999999999999e-143, 8.0e-143, 9.0e-143, 2.0e-142, 3.0e-142, 4.0e-142,
+    5.0e-142, 6.0e-142, 7.0e-142, 8.0e-142, 9.0e-142, 2.0e-141, 3.0000000000000004e-141,
+    4.0e-141, 5.0e-141, 6.000000000000001e-141, 7.0e-141, 8.0e-141, 9.0e-141, 2.0e-140,
+    2.9999999999999997e-140, 4.0e-140, 5.0e-140, 5.999999999999999e-140, 7.0e-140,
+    8.0e-140, 9.0e-140, 2.0e-139, 3.0e-139, 4.0e-139, 5.0e-139, 6.0e-139, 7.0e-139,
+    8.0e-139, 9.0e-139, 2.0e-138, 3.0e-138, 4.0e-138, 5.0000000000000005e-138, 6.0e-138,
+    7.000000000000001e-138, 8.0e-138, 9.0e-138, 2.0e-137, 3.0e-137, 4.0e-137, 5.0e-137,
+    6.0e-137, 7.0e-137, 8.0e-137, 9.0e-137, 2.0e-136, 3.0e-136, 4.0e-136, 5.0e-136,
+    6.0e-136, 7.0e-136, 8.0e-136, 9.0e-136, 2.0e-135, 3.0e-135, 4.0e-135, 5.0e-135,
+    6.0e-135, 7.0e-135, 8.0e-135, 9.000000000000001e-135, 2.0e-134, 3.0e-134, 4.0e-134,
+    5.0e-134, 6.0e-134, 7.000000000000001e-134, 8.0e-134, 9.0e-134, 2.0e-133, 3.0e-133,
+    4.0e-133, 5.0e-133, 6.0e-133, 7.000000000000001e-133, 8.0e-133, 9.0e-133, 2.0e-132,
+    3.0e-132, 4.0e-132, 5.0e-132, 6.0e-132, 7.0e-132, 8.0e-132, 9.0e-132, 2.0e-131,
+    3.0e-131, 4.0e-131, 5.0e-131, 6.0e-131, 6.999999999999999e-131, 8.0e-131, 9.0e-131,
+    2.0e-130, 3.0000000000000003e-130, 4.0e-130, 5.0000000000000004e-130, 6.0000000000000005e-130,
+    7.000000000000001e-130, 8.0e-130, 9.0e-130, 2.0e-129, 3.0e-129, 4.0e-129, 4.9999999999999996e-129,
+    6.0e-129, 7.0e-129, 8.0e-129, 8.999999999999999e-129, 2.0e-128, 3.0000000000000003e-128,
+    4.0e-128, 5.0e-128, 6.000000000000001e-128, 7.0e-128, 8.0e-128, 9.000000000000001e-128,
+    2.0e-127, 3.0e-127, 4.0e-127, 5.0e-127, 6.0e-127, 7.000000000000001e-127, 8.0e-127,
+    9.0e-127, 2.0e-126, 3.0e-126, 4.0e-126, 4.9999999999999994e-126, 6.0e-126, 7.0e-126,
+    8.0e-126, 8.999999999999999e-126, 2.0e-125, 3.0e-125, 4.0e-125, 5.0e-125, 6.0e-125,
+    7.0e-125, 8.0e-125, 9.0e-125, 2.0e-124, 3.0e-124, 4.0e-124, 4.9999999999999995e-124,
+    6.0e-124, 7.0e-124, 8.0e-124, 9.0e-124, 2.0e-123, 3.0000000000000002e-123, 4.0e-123,
+    5.0e-123, 6.0000000000000004e-123, 7.0e-123, 8.0e-123, 9.000000000000001e-123,
+    2.0e-122, 3.0e-122, 4.0e-122, 5.0e-122, 6.0e-122, 7.0e-122, 8.0e-122, 9.000000000000001e-122,
+    2.0e-121, 3.0e-121, 4.0e-121, 5.0e-121, 6.0e-121, 7.0e-121, 8.0e-121, 9.0e-121,
+    2.0e-120, 2.9999999999999998e-120, 4.0e-120, 5.0e-120, 5.9999999999999995e-120,
+    7.0e-120, 8.0e-120, 9.0e-120, 2.0e-119, 3.0e-119, 4.0e-119, 5.0e-119, 6.0e-119,
+    7.0e-119, 8.0e-119, 9.0e-119, 2.0e-118, 2.9999999999999997e-118, 4.0e-118, 5.0e-118,
+    5.9999999999999995e-118, 7.0e-118, 8.0e-118, 9.0e-118, 2.0e-117, 3.0000000000000003e-117,
+    4.0e-117, 5.0e-117, 6.0000000000000005e-117, 7.0e-117, 8.0e-117, 9.000000000000001e-117,
+    2.0e-116, 2.9999999999999997e-116, 4.0e-116, 5.0e-116, 5.999999999999999e-116,
+    7.0e-116, 8.0e-116, 9.0e-116, 2.0e-115, 3.0e-115, 4.0e-115, 5.0e-115, 6.0e-115,
+    7.0e-115, 8.0e-115, 9.0e-115, 2.0e-114, 3.0e-114, 4.0e-114, 5.0000000000000006e-114,
+    6.0e-114, 7.0e-114, 8.0e-114, 9.000000000000001e-114, 2.0e-113, 3.0e-113, 4.0e-113,
+    5.0e-113, 6.0e-113, 6.999999999999999e-113, 8.0e-113, 9.0e-113, 2.0e-112, 3.0e-112,
+    4.0e-112, 4.9999999999999995e-112, 6.0e-112, 7.0e-112, 8.0e-112, 9.0e-112, 2.0e-111,
+    3.0000000000000004e-111, 4.0e-111, 5.0e-111, 6.000000000000001e-111, 7.0e-111,
+    8.0e-111, 9.000000000000001e-111, 2.0e-110, 3.0000000000000004e-110, 4.0e-110,
+    5.0e-110, 6.000000000000001e-110, 7.000000000000001e-110, 8.0e-110, 9.0e-110,
+    2.0e-109, 2.9999999999999997e-109, 4.0e-109, 5.0e-109, 5.9999999999999995e-109,
+    7.0e-109, 8.0e-109, 9.0e-109, 2.0e-108, 3.0000000000000003e-108, 4.0e-108, 5.0e-108,
+    6.0000000000000006e-108, 7.0e-108, 8.0e-108, 9.000000000000001e-108, 2.0e-107,
+    3.0e-107, 4.0e-107, 5.0000000000000003e-107, 6.0e-107, 7.0e-107, 8.0e-107, 9.0e-107,
+    2.0e-106, 2.9999999999999997e-106, 4.0e-106, 5.0e-106, 5.999999999999999e-106,
+    7.0e-106, 8.0e-106, 9.0e-106, 2.0e-105, 3.0e-105, 4.0e-105, 5.0e-105, 6.0e-105,
+    7.0e-105, 8.0e-105, 9.0e-105, 2.0e-104, 2.9999999999999996e-104, 4.0e-104, 5.0e-104,
+    5.999999999999999e-104, 6.999999999999999e-104, 8.0e-104, 9.0e-104, 2.0e-103,
+    3.0e-103, 4.0e-103, 5.0e-103, 6.0e-103, 6.999999999999999e-103, 8.0e-103, 9.0e-103,
+    2.0e-102, 3.0e-102, 4.0e-102, 4.9999999999999995e-102, 6.0e-102, 7.0e-102, 8.0e-102,
+    9.0e-102, 2.0e-101, 3.0e-101, 4.0e-101, 5.0e-101, 6.0e-101, 7.0e-101, 8.0e-101,
+    9.000000000000001e-101, 2.0e-100, 3.0e-100, 4.0e-100, 5.0e-100, 6.0e-100, 7.0e-100,
+    8.0e-100, 9.0e-100, 2.0e-99, 3.0e-99, 4.0e-99, 5.0000000000000005e-99, 6.0e-99,
+    7.0e-99, 8.0e-99, 9.0e-99, 2.0e-98, 3.0e-98, 4.0e-98, 4.9999999999999995e-98,
+    6.0e-98, 6.999999999999999e-98, 8.0e-98, 9.0e-98, 2.0e-97, 3.0e-97, 4.0e-97,
+    5.000000000000001e-97, 6.0e-97, 7.0e-97, 8.0e-97, 9.0e-97, 2.0e-96, 2.9999999999999997e-96,
+    4.0e-96, 4.999999999999999e-96, 5.9999999999999994e-96, 7.0e-96, 8.0e-96, 8.999999999999999e-96,
+    2.0e-95, 3.0e-95, 4.0e-95, 5.0e-95, 6.0e-95, 7.0e-95, 8.0e-95, 9.0e-95, 2.0e-94,
+    3.0e-94, 4.0e-94, 5.0e-94, 6.0e-94, 7.0e-94, 8.0e-94, 8.999999999999999e-94,
+    2.0e-93, 2.9999999999999997e-93, 4.0e-93, 4.999999999999999e-93, 5.999999999999999e-93,
+    7.0e-93, 8.0e-93, 8.999999999999999e-93, 2.0e-92, 2.9999999999999998e-92, 4.0e-92,
+    5.0e-92, 5.9999999999999996e-92, 7.0e-92, 8.0e-92, 9.0e-92, 2.0e-91, 3.0e-91,
+    4.0e-91, 5.0e-91, 6.0e-91, 7.0e-91, 8.0e-91, 9.000000000000001e-91, 2.0e-90,
+    2.9999999999999998e-90, 4.0e-90, 5.0e-90, 5.9999999999999995e-90, 7.0e-90, 8.0e-90,
+    9.0e-90, 2.0e-89, 3.0e-89, 4.0e-89, 5.0000000000000004e-89, 6.0e-89, 7.000000000000001e-89,
+    8.0e-89, 9.0e-89, 2.0e-88, 3.0e-88, 4.0e-88, 4.9999999999999995e-88, 6.0e-88,
+    6.999999999999999e-88, 8.0e-88, 9.0e-88, 2.0e-87, 3.0e-87, 4.0e-87, 5.0e-87,
+    6.0e-87, 7.0e-87, 8.0e-87, 9.000000000000001e-87, 2.0e-86, 3.0e-86, 4.0e-86,
+    5.0000000000000006e-86, 6.0e-86, 7.0e-86, 8.0e-86, 9.000000000000001e-86, 2.0e-85,
+    2.9999999999999996e-85, 4.0e-85, 5.0e-85, 5.999999999999999e-85, 7.0e-85, 8.0e-85,
+    9.0e-85, 2.0e-84, 3.0e-84, 4.0e-84, 5.0e-84, 6.0e-84, 7.0e-84, 8.0e-84, 9.0e-84,
+    2.0e-83, 3.0e-83, 4.0e-83, 5.0e-83, 6.0e-83, 7.0e-83, 8.0e-83, 9.0e-83, 2.0e-82,
+    3.0e-82, 4.0e-82, 5.0e-82, 6.0e-82, 7.0e-82, 8.0e-82, 9.0e-82, 2.0e-81, 3.0e-81,
+    4.0e-81, 5.0e-81, 6.0e-81, 7.0e-81, 8.0e-81, 9.0e-81, 2.0e-80, 2.9999999999999997e-80,
+    4.0e-80, 5.0e-80, 5.9999999999999994e-80, 7.0e-80, 8.0e-80, 8.999999999999999e-80,
+    2.0e-79, 3.0e-79, 4.0e-79, 5.0e-79, 6.0e-79, 6.999999999999999e-79, 8.0e-79,
+    9.0e-79, 2.0e-78, 3.0e-78, 4.0e-78, 5.0e-78, 6.0e-78, 7.0e-78, 8.0e-78, 9.0e-78,
+    2.0e-77, 2.9999999999999998e-77, 4.0e-77, 5.0e-77, 5.9999999999999996e-77, 6.999999999999999e-77,
+    8.0e-77, 9.0e-77, 2.0e-76, 2.9999999999999996e-76, 4.0e-76, 5.0e-76, 5.999999999999999e-76,
+    7.0e-76, 8.0e-76, 8.999999999999999e-76, 2.0e-75, 3.0e-75, 4.0e-75, 5.0e-75,
+    6.0e-75, 7.0e-75, 8.0e-75, 9.0e-75, 2.0e-74, 2.9999999999999997e-74, 4.0e-74,
+    5.0e-74, 5.999999999999999e-74, 6.9999999999999995e-74, 8.0e-74, 9.0e-74, 2.0e-73,
+    3.0e-73, 4.0e-73, 5.0e-73, 6.0e-73, 7.0e-73, 8.0e-73, 9.0e-73, 2.0e-72, 3.0e-72,
+    4.0e-72, 5.0e-72, 6.0e-72, 7.0e-72, 8.0e-72, 8.999999999999999e-72, 2.0e-71,
+    2.9999999999999997e-71, 4.0e-71, 4.999999999999999e-71, 5.9999999999999995e-71,
+    7.0e-71, 8.0e-71, 8.999999999999999e-71, 2.0e-70, 3.0e-70, 4.0e-70, 5.0e-70,
+    6.0e-70, 7.0e-70, 8.0e-70, 9.0e-70, 2.0e-69, 3.0e-69, 4.0e-69, 4.999999999999999e-69,
+    6.0e-69, 7.0e-69, 8.0e-69, 8.999999999999999e-69, 2.0e-68, 3.0e-68, 4.0e-68,
+    5.0000000000000005e-68, 6.0e-68, 7.0e-68, 8.0e-68, 9.0e-68, 2.0e-67, 2.9999999999999997e-67,
+    4.0e-67, 5.0e-67, 5.999999999999999e-67, 7.0e-67, 8.0e-67, 8.999999999999999e-67,
+    2.0e-66, 3.0e-66, 4.0e-66, 5.0e-66, 6.0e-66, 7.0e-66, 8.0e-66, 9.0e-66, 2.0e-65,
+    2.9999999999999996e-65, 4.0e-65, 5.0e-65, 5.999999999999999e-65, 6.999999999999999e-65,
+    8.0e-65, 9.0e-65, 2.0e-64, 3.0e-64, 4.0e-64, 4.9999999999999997e-64, 6.0e-64,
+    6.999999999999999e-64, 8.0e-64, 9.0e-64, 2.0e-63, 3.0000000000000003e-63, 4.0e-63,
+    5.0e-63, 6.000000000000001e-63, 7.0e-63, 8.0e-63, 9.000000000000001e-63, 2.0e-62,
+    3.0e-62, 4.0e-62, 5.0e-62, 6.0e-62, 7.0e-62, 8.0e-62, 9.0e-62, 2.0e-61, 3.0e-61,
+    4.0e-61, 5.0e-61, 6.0e-61, 7.0e-61, 8.0e-61, 9.0e-61, 2.0e-60, 2.9999999999999996e-60,
+    4.0e-60, 5.0e-60, 5.999999999999999e-60, 7.0e-60, 8.0e-60, 9.0e-60, 2.0e-59,
+    3.0e-59, 4.0e-59, 5.0e-59, 6.0e-59, 7.0e-59, 8.0e-59, 9.0e-59, 2.0e-58, 3.0e-58,
+    4.0e-58, 5.0000000000000005e-58, 6.0e-58, 7.0e-58, 8.0e-58, 9.0e-58, 2.0e-57,
+    3.0e-57, 4.0e-57, 4.9999999999999996e-57, 6.0e-57, 7.0e-57, 8.0e-57, 9.0e-57,
+    2.0e-56, 3.0000000000000003e-56, 4.0e-56, 5.0e-56, 6.000000000000001e-56, 7.0000000000000005e-56,
+    8.0e-56, 9.0e-56, 2.0e-55, 2.9999999999999998e-55, 4.0e-55, 5.0e-55, 5.9999999999999996e-55,
+    7.0e-55, 8.0e-55, 9.0e-55, 2.0e-54, 3.0e-54, 4.0e-54, 5.0e-54, 6.0e-54, 7.000000000000001e-54,
+    8.0e-54, 9.0e-54, 2.0e-53, 3.0e-53, 4.0e-53, 5.0e-53, 6.0e-53, 7.0e-53, 8.0e-53,
+    9.0e-53, 2.0e-52, 3.0e-52, 4.0e-52, 5.0e-52, 6.0e-52, 7.0e-52, 8.0e-52, 9.0e-52,
+    2.0e-51, 3.0e-51, 4.0e-51, 5.0e-51, 6.0e-51, 7.0e-51, 8.0e-51, 9.000000000000001e-51,
+    2.0e-50, 3.0e-50, 4.0e-50, 5.0e-50, 6.0e-50, 7.0e-50, 8.0e-50, 9.0e-50, 2.0e-49,
+    2.9999999999999996e-49, 4.0e-49, 5.0e-49, 5.999999999999999e-49, 7.0e-49, 8.0e-49,
+    8.999999999999999e-49, 2.0e-48, 3.0e-48, 4.0e-48, 5.0e-48, 6.0e-48, 7.0e-48,
+    8.0e-48, 9.0e-48, 2.0e-47, 2.9999999999999997e-47, 4.0e-47, 5.0e-47, 5.999999999999999e-47,
+    7.0e-47, 8.0e-47, 9.0e-47, 2.0e-46, 3.0000000000000003e-46, 4.0e-46, 5.0e-46,
+    6.0000000000000005e-46, 7.0e-46, 8.0e-46, 9.0e-46, 2.0e-45, 3.0e-45, 4.0e-45,
+    5.0e-45, 6.0e-45, 7.0e-45, 8.0e-45, 9.0e-45, 2.0e-44, 2.9999999999999997e-44,
+    4.0e-44, 4.999999999999999e-44, 5.999999999999999e-44, 7.0e-44, 8.0e-44, 9.0e-44,
+    2.0e-43, 3.0000000000000004e-43, 4.0e-43, 5.0e-43, 6.000000000000001e-43, 7.000000000000001e-43,
+    8.0e-43, 9.0e-43, 2.0e-42, 3.0e-42, 4.0e-42, 5.0e-42, 6.0e-42, 7.0e-42, 8.0e-42,
+    9.0e-42, 2.0e-41, 3.0e-41, 4.0e-41, 5.0e-41, 6.0e-41, 7.0e-41, 8.0e-41, 9.0e-41,
+    2.0e-40, 2.9999999999999998e-40, 4.0e-40, 5.0e-40, 5.9999999999999996e-40, 6.9999999999999995e-40,
+    8.0e-40, 9.0e-40, 2.0e-39, 2.9999999999999996e-39, 4.0e-39, 5.0e-39, 5.999999999999999e-39,
+    7.0e-39, 8.0e-39, 8.999999999999999e-39, 2.0e-38, 3.0e-38, 4.0e-38, 4.999999999999999e-38,
+    6.0e-38, 7.0e-38, 8.0e-38, 8.999999999999999e-38, 2.0e-37, 3.0e-37, 4.0e-37,
+    5.0000000000000005e-37, 6.0e-37, 7.0e-37, 8.0e-37, 9.0e-37, 2.0e-36, 2.9999999999999998e-36,
+    4.0e-36, 4.9999999999999994e-36, 5.9999999999999996e-36, 7.0e-36, 8.0e-36, 8.999999999999999e-36,
+    2.0e-35, 3.0e-35, 4.0e-35, 5.0e-35, 6.0e-35, 7.0e-35, 8.0e-35, 9.0e-35, 2.0e-34,
+    3.0e-34, 4.0e-34, 4.999999999999999e-34, 6.0e-34, 7.0e-34, 8.0e-34, 8.999999999999999e-34,
+    2.0e-33, 3.0e-33, 4.0e-33, 5.0e-33, 6.0e-33, 7.0e-33, 8.0e-33, 9.000000000000001e-33,
+    2.0e-32, 3.0e-32, 4.0e-32, 5.0e-32, 6.0e-32, 7.000000000000001e-32, 8.0e-32,
+    9.0e-32, 2.0e-31, 3.0000000000000003e-31, 4.0e-31, 5.0e-31, 6.0000000000000005e-31,
+    7.000000000000001e-31, 8.0e-31, 9.0e-31, 2.0e-30, 3.0000000000000003e-30, 4.0e-30,
+    5.0000000000000004e-30, 6.0000000000000005e-30, 7.0e-30, 8.0e-30, 9.000000000000001e-30,
+    2.0e-29, 2.9999999999999997e-29, 4.0e-29, 5.0e-29, 5.999999999999999e-29, 7.0e-29,
+    8.0e-29, 9.0e-29, 2.0e-28, 3.0e-28, 4.0e-28, 5.0e-28, 6.0e-28, 7.0e-28, 8.0e-28,
+    9.0e-28, 2.0e-27, 3.0e-27, 4.0e-27, 5.0e-27, 6.0e-27, 7.0e-27, 8.0e-27, 9.0e-27,
+    2.0e-26, 3.0e-26, 4.0e-26, 5.0e-26, 6.0e-26, 7.000000000000001e-26, 8.0e-26,
+    9.0e-26, 2.0e-25, 3.0000000000000002e-25, 4.0e-25, 5.0000000000000005e-25, 6.0000000000000005e-25,
+    7.0e-25, 8.0e-25, 9.0e-25, 2.0e-24, 2.9999999999999996e-24, 4.0e-24, 5.0e-24,
+    5.999999999999999e-24, 7.0e-24, 8.0e-24, 9.0e-24, 2.0e-23, 3.0e-23, 4.0e-23,
+    4.9999999999999997e-23, 6.0e-23, 7.0e-23, 8.0e-23, 9.0e-23, 2.0e-22, 3.0e-22,
+    4.0e-22, 5.0000000000000005e-22, 6.0e-22, 7.0e-22, 8.0e-22, 9.0e-22, 2.0e-21,
+    2.9999999999999995e-21, 4.0e-21, 5.0e-21, 5.999999999999999e-21, 6.999999999999999e-21,
+    8.0e-21, 9.0e-21, 2.0e-20, 2.9999999999999997e-20, 4.0e-20, 5.0e-20, 5.999999999999999e-20,
+    7.0e-20, 8.0e-20, 8.999999999999999e-20, 2.0e-19, 3.0e-19, 4.0e-19, 5.0e-19,
+    6.0e-19, 6.999999999999999e-19, 8.0e-19, 9.0e-19, 2.0e-18, 3.0000000000000002e-18,
+    4.0e-18, 5.0e-18, 6.0000000000000004e-18, 7.0e-18, 8.0e-18, 9.000000000000001e-18,
+    2.0e-17, 3.0e-17, 4.0e-17, 5.0000000000000005e-17, 6.0e-17, 7.0e-17, 8.0e-17,
+    9.000000000000001e-17, 2.0e-16, 3.0e-16, 4.0e-16, 5.0e-16, 6.0e-16, 6.999999999999999e-16,
+    8.0e-16, 9.0e-16, 2.0e-15, 3.0000000000000002e-15, 4.0e-15, 5.000000000000001e-15,
+    6.0000000000000005e-15, 7.0e-15, 8.0e-15, 9.000000000000001e-15, 2.0e-14, 3.0e-14,
+    4.0e-14, 5.0e-14, 6.0e-14, 7.0e-14, 8.0e-14, 9.0e-14, 2.0e-13, 3.0000000000000003e-13,
+    4.0e-13, 5.0e-13, 6.000000000000001e-13, 7.0e-13, 8.0e-13, 9.0e-13, 2.0e-12,
+    3.0e-12, 4.0e-12, 5.0e-12, 6.0e-12, 7.0e-12, 8.0e-12, 9.0e-12, 2.0e-11, 3.0e-11,
+    4.0e-11, 4.9999999999999995e-11, 6.0e-11, 6.999999999999999e-11, 8.0e-11, 9.0e-11,
+    2.0e-10, 3.0e-10, 4.0e-10, 5.0e-10, 6.0e-10, 7.000000000000001e-10, 8.0e-10,
+    9.0e-10, 2.0e-09, 3.0000000000000004e-09, 4.0e-09, 5.0e-09, 6.000000000000001e-09,
+    7.000000000000001e-09, 8.0e-09, 9.000000000000001e-09, 2.0e-08, 3.0000000000000004e-08,
+    4.0e-08, 5.0e-08, 6.000000000000001e-08, 7.0e-08, 8.0e-08, 9.0e-08, 2.0e-07,
+    3.0e-07, 4.0e-07, 5.0e-07, 6.0e-07, 7.0e-07, 8.0e-07, 9.0e-07, 2.0e-06, 3.0e-06,
+    4.0e-06, 4.9999999999999996e-06, 6.0e-06, 7.0e-06, 8.0e-06, 9.0e-06, 2.0e-05,
+    3.0000000000000004e-05, 4.0e-05, 5.0e-05, 6.000000000000001e-05, 7.000000000000001e-05,
+    8.0e-05, 9.0e-05, 0.0002, 0.00030000000000000003, 0.0004, 0.0005, 0.0006000000000000001,
+    0.0007, 0.0008, 0.0009000000000000001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007,
+    0.008, 0.009000000000000001, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,
+    0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 0.91, 0.92, 0.9299999999999999, 0.94, 0.95, 0.96,
+    0.97, 0.98, 0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.998, 0.9991, 0.9992,
+    0.9993, 0.9994, 0.9995, 0.9996, 0.9997, 0.9998, 0.99991, 0.99992, 0.99993, 0.99994,
+    0.99995, 0.99996, 0.99997, 0.99998, 0.999991, 0.999992, 0.999993, 0.999994, 0.999995,
+    0.999996, 0.999997, 0.999998, 0.9999991, 0.9999992, 0.9999993, 0.9999994, 0.9999995,
+    0.9999996, 0.9999997, 0.9999998, 0.99999991, 0.99999992, 0.99999993, 0.99999994,
+    0.99999995, 0.99999996, 0.99999997, 0.99999998, 0.999999991, 0.999999992, 0.999999993,
+    0.999999994, 0.999999995, 0.999999996, 0.999999997, 0.999999998, 0.9999999991,
+    0.9999999992, 0.9999999993, 0.9999999994, 0.9999999995, 0.9999999996, 0.9999999997,
+    0.9999999998, 0.99999999991, 0.99999999992, 0.99999999993, 0.99999999994, 0.99999999995,
+    0.99999999996, 0.99999999997, 0.99999999998, 0.999999999991, 0.999999999992,
+    0.999999999993, 0.999999999994, 0.999999999995, 0.999999999996, 0.999999999997,
+    0.999999999998, 0.9999999999991, 0.9999999999992, 0.9999999999993, 0.9999999999994,
+    0.9999999999995, 0.9999999999996, 0.9999999999997, 0.9999999999998, 0.99999999999991,
+    0.99999999999992, 0.99999999999993, 0.99999999999994, 0.99999999999995, 0.99999999999996,
+    0.99999999999997, 0.99999999999998, 0.999999999999991, 0.999999999999992, 0.999999999999993,
+    0.999999999999994, 0.999999999999995, 0.999999999999996, 0.999999999999997, 0.999999999999998,
+    0.9999999999999991, 0.9999999999999992, 0.9999999999999993, 0.9999999999999994,
+    0.9999999999999994, 0.9999999999999996, 0.9999999999999997, 0.9999999999999998,
+  ])
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 284 call dispatch retains own logit strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  locator.bind_view_interval(() => {
+    events.push("view")
+    (0.0001, 0.9999)
+  })
+  verify_logit_grid_bits(locator.call(), [
+    0.0001, 0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999,
+  ])
+  assert_eq(events, ["view", "projection", "space", "minpos"])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 285 call dispatch retains own logit strategy" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(minor=false, nbins=Some(MaxNBins::Auto))
+  let events : Array[String] = []
+  let space_values = [9.0]
+  let space_index = [0]
+  locator.bind_tick_space(() => {
+    events.push("space")
+    let index = Int32::min(space_index[0], space_values.length() - 1)
+    space_index[0] += 1
+    space_values[index]
+  })
+  let projection_values = ["rectilinear"]
+  let projection_index = [0]
+  locator.bind_projection(() => {
+    events.push("projection")
+    let index = Int32::min(projection_index[0], projection_values.length() - 1)
+    projection_index[0] += 1
+    let value = projection_values[index]
+    if value == "FAIL" {
+      raise @core.DataError::InvalidTicks(message="fixture projection")
+    }
+    value
+  })
+  locator.bind_minpos(() => {
+    events.push("minpos")
+    1.0e-07
+  })
+  locator.bind_view_interval(() => {
+    events.push("view")
+    (0.49, 0.51)
+  })
+  verify_logit_grid_bits(locator.call(), [0.49, 0.495, 0.5, 0.505, 0.51])
+  assert_eq(events, [
+    "view", "projection", "space", "minpos", "space", "projection",
+  ])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 286 full fallback125001 before cap" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(125000)),
+  )
+  let events : Array[String] = []
+  let ticks = locator.tick_values(0.375, 0.625)
+  assert_eq(ticks.length(), 100000)
+  verify_logit_grid_bits(
+    [
+      ticks[0],
+      ticks[1],
+      ticks[2],
+      ticks[3],
+      ticks[4],
+      ticks[5],
+      ticks[6],
+      ticks[7],
+      ticks[49998],
+      ticks[49999],
+      ticks[50000],
+      ticks[50001],
+      ticks[99996],
+      ticks[99997],
+      ticks[99998],
+      ticks[99999],
+    ],
+    [
+      0.375, 0.375002, 0.375004, 0.375006, 0.375008, 0.37501, 0.375012, 0.375014,
+      0.474996, 0.474998, 0.475, 0.475002, 0.574992, 0.574994, 0.574996, 0.574998,
+    ],
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 287 full fallback200001 before cap" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(200000)),
+  )
+  let events : Array[String] = []
+  let ticks = locator.tick_values(0.4, 0.6)
+  assert_eq(ticks.length(), 100000)
+  verify_logit_grid_bits(
+    [
+      ticks[0],
+      ticks[1],
+      ticks[2],
+      ticks[3],
+      ticks[4],
+      ticks[5],
+      ticks[6],
+      ticks[7],
+      ticks[49998],
+      ticks[49999],
+      ticks[50000],
+      ticks[50001],
+      ticks[99996],
+      ticks[99997],
+      ticks[99998],
+      ticks[99999],
+    ],
+    [
+      0.39999999999999997, 0.40000099999999994, 0.40000199999999997, 0.40000299999999994,
+      0.40000399999999997, 0.40000499999999994, 0.400006, 0.40000699999999995, 0.44999799999999995,
+      0.449999, 0.44999999999999996, 0.450001, 0.499996, 0.49999699999999997, 0.49999799999999994,
+      0.49999899999999997,
+    ],
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit grid 288 full fallback199999 prune before cap" {
+  let previous_mode = @config.axes_autolimit_mode()
+  defer @config.set_axes_autolimit_mode(previous_mode)
+  @config.set_axes_autolimit_mode("data")
+  let locator = LogitLocator::new(
+    minor=false,
+    nbins=Some(MaxNBins::Count(200000)),
+  )
+  locator.set_params(prune=Some("both"))
+  let events : Array[String] = []
+  let ticks = locator.tick_values(0.4, 0.6)
+  assert_eq(ticks.length(), 100000)
+  verify_logit_grid_bits(
+    [
+      ticks[0],
+      ticks[1],
+      ticks[2],
+      ticks[3],
+      ticks[4],
+      ticks[5],
+      ticks[6],
+      ticks[7],
+      ticks[49998],
+      ticks[49999],
+      ticks[50000],
+      ticks[50001],
+      ticks[99996],
+      ticks[99997],
+      ticks[99998],
+      ticks[99999],
+    ],
+    [
+      0.40000099999999994, 0.40000199999999997, 0.40000299999999994, 0.40000399999999997,
+      0.40000499999999994, 0.400006, 0.40000699999999995, 0.400008, 0.449999, 0.44999999999999996,
+      0.450001, 0.45000199999999996, 0.49999699999999997, 0.49999799999999994, 0.49999899999999997,
+      0.49999999999999994,
+    ],
+  )
+  assert_eq(events, [])
+  assert_eq(locator.warnings(), [])
+}
+
+///|
+test "Logit original ideal integer phase -324" {
+  verify_logit_grid_bits([logit_grid_ideal(-324)], [0.0])
+}
+
+///|
+test "Logit original ideal integer phase -323" {
+  verify_logit_grid_bits([logit_grid_ideal(-323)], [1.0e-323])
+}
+
+///|
+test "Logit original ideal integer phase -322" {
+  verify_logit_grid_bits([logit_grid_ideal(-322)], [1.0e-322])
+}
+
+///|
+test "Logit original ideal integer phase -321" {
+  verify_logit_grid_bits([logit_grid_ideal(-321)], [1.0e-321])
+}
+
+///|
+test "Logit original ideal integer phase -320" {
+  verify_logit_grid_bits([logit_grid_ideal(-320)], [1.0e-320])
+}
+
+///|
+test "Logit original ideal integer phase -319" {
+  verify_logit_grid_bits([logit_grid_ideal(-319)], [1.0e-319])
+}
+
+///|
+test "Logit original ideal integer phase -318" {
+  verify_logit_grid_bits([logit_grid_ideal(-318)], [1.0e-318])
+}
+
+///|
+test "Logit original ideal integer phase -317" {
+  verify_logit_grid_bits([logit_grid_ideal(-317)], [1.0e-317])
+}
+
+///|
+test "Logit original ideal integer phase -316" {
+  verify_logit_grid_bits([logit_grid_ideal(-316)], [1.0e-316])
+}
+
+///|
+test "Logit original ideal integer phase -315" {
+  verify_logit_grid_bits([logit_grid_ideal(-315)], [1.0e-315])
+}
+
+///|
+test "Logit original ideal integer phase -314" {
+  verify_logit_grid_bits([logit_grid_ideal(-314)], [1.0e-314])
+}
+
+///|
+test "Logit original ideal integer phase -313" {
+  verify_logit_grid_bits([logit_grid_ideal(-313)], [1.0e-313])
+}
+
+///|
+test "Logit original ideal integer phase -312" {
+  verify_logit_grid_bits([logit_grid_ideal(-312)], [1.0e-312])
+}
+
+///|
+test "Logit original ideal integer phase -311" {
+  verify_logit_grid_bits([logit_grid_ideal(-311)], [1.0e-311])
+}
+
+///|
+test "Logit original ideal integer phase -310" {
+  verify_logit_grid_bits([logit_grid_ideal(-310)], [1.0e-310])
+}
+
+///|
+test "Logit original ideal integer phase -309" {
+  verify_logit_grid_bits([logit_grid_ideal(-309)], [1.0e-309])
+}
+
+///|
+test "Logit original ideal integer phase -308" {
+  verify_logit_grid_bits([logit_grid_ideal(-308)], [1.0e-308])
+}
+
+///|
+test "Logit original ideal integer phase -307" {
+  verify_logit_grid_bits([logit_grid_ideal(-307)], [1.0e-307])
+}
+
+///|
+test "Logit original ideal integer phase -306" {
+  verify_logit_grid_bits([logit_grid_ideal(-306)], [1.0e-306])
+}
+
+///|
+test "Logit original ideal integer phase -305" {
+  verify_logit_grid_bits([logit_grid_ideal(-305)], [1.0e-305])
+}
+
+///|
+test "Logit original ideal integer phase -304" {
+  verify_logit_grid_bits([logit_grid_ideal(-304)], [1.0e-304])
+}
+
+///|
+test "Logit original ideal integer phase -303" {
+  verify_logit_grid_bits([logit_grid_ideal(-303)], [1.0e-303])
+}
+
+///|
+test "Logit original ideal integer phase -302" {
+  verify_logit_grid_bits([logit_grid_ideal(-302)], [1.0e-302])
+}
+
+///|
+test "Logit original ideal integer phase -301" {
+  verify_logit_grid_bits([logit_grid_ideal(-301)], [1.0e-301])
+}
+
+///|
+test "Logit original ideal integer phase -300" {
+  verify_logit_grid_bits([logit_grid_ideal(-300)], [1.0e-300])
+}
+
+///|
+test "Logit original ideal integer phase -299" {
+  verify_logit_grid_bits([logit_grid_ideal(-299)], [1.0e-299])
+}
+
+///|
+test "Logit original ideal integer phase -298" {
+  verify_logit_grid_bits([logit_grid_ideal(-298)], [1.0e-298])
+}
+
+///|
+test "Logit original ideal integer phase -297" {
+  verify_logit_grid_bits([logit_grid_ideal(-297)], [1.0e-297])
+}
+
+///|
+test "Logit original ideal integer phase -296" {
+  verify_logit_grid_bits([logit_grid_ideal(-296)], [1.0e-296])
+}
+
+///|
+test "Logit original ideal integer phase -295" {
+  verify_logit_grid_bits([logit_grid_ideal(-295)], [1.0e-295])
+}
+
+///|
+test "Logit original ideal integer phase -294" {
+  verify_logit_grid_bits([logit_grid_ideal(-294)], [1.0e-294])
+}
+
+///|
+test "Logit original ideal integer phase -293" {
+  verify_logit_grid_bits([logit_grid_ideal(-293)], [1.0e-293])
+}
+
+///|
+test "Logit original ideal integer phase -292" {
+  verify_logit_grid_bits([logit_grid_ideal(-292)], [1.0e-292])
+}
+
+///|
+test "Logit original ideal integer phase -291" {
+  verify_logit_grid_bits([logit_grid_ideal(-291)], [1.0e-291])
+}
+
+///|
+test "Logit original ideal integer phase -290" {
+  verify_logit_grid_bits([logit_grid_ideal(-290)], [1.0e-290])
+}
+
+///|
+test "Logit original ideal integer phase -289" {
+  verify_logit_grid_bits([logit_grid_ideal(-289)], [1.0e-289])
+}
+
+///|
+test "Logit original ideal integer phase -288" {
+  verify_logit_grid_bits([logit_grid_ideal(-288)], [1.0e-288])
+}
+
+///|
+test "Logit original ideal integer phase -287" {
+  verify_logit_grid_bits([logit_grid_ideal(-287)], [1.0e-287])
+}
+
+///|
+test "Logit original ideal integer phase -286" {
+  verify_logit_grid_bits([logit_grid_ideal(-286)], [1.0e-286])
+}
+
+///|
+test "Logit original ideal integer phase -285" {
+  verify_logit_grid_bits([logit_grid_ideal(-285)], [1.0e-285])
+}
+
+///|
+test "Logit original ideal integer phase -284" {
+  verify_logit_grid_bits([logit_grid_ideal(-284)], [1.0e-284])
+}
+
+///|
+test "Logit original ideal integer phase -283" {
+  verify_logit_grid_bits([logit_grid_ideal(-283)], [1.0e-283])
+}
+
+///|
+test "Logit original ideal integer phase -282" {
+  verify_logit_grid_bits([logit_grid_ideal(-282)], [1.0e-282])
+}
+
+///|
+test "Logit original ideal integer phase -281" {
+  verify_logit_grid_bits([logit_grid_ideal(-281)], [1.0e-281])
+}
+
+///|
+test "Logit original ideal integer phase -280" {
+  verify_logit_grid_bits([logit_grid_ideal(-280)], [1.0e-280])
+}
+
+///|
+test "Logit original ideal integer phase -279" {
+  verify_logit_grid_bits([logit_grid_ideal(-279)], [1.0e-279])
+}
+
+///|
+test "Logit original ideal integer phase -278" {
+  verify_logit_grid_bits([logit_grid_ideal(-278)], [1.0e-278])
+}
+
+///|
+test "Logit original ideal integer phase -277" {
+  verify_logit_grid_bits([logit_grid_ideal(-277)], [1.0e-277])
+}
+
+///|
+test "Logit original ideal integer phase -276" {
+  verify_logit_grid_bits([logit_grid_ideal(-276)], [1.0e-276])
+}
+
+///|
+test "Logit original ideal integer phase -275" {
+  verify_logit_grid_bits([logit_grid_ideal(-275)], [1.0e-275])
+}
+
+///|
+test "Logit original ideal integer phase -274" {
+  verify_logit_grid_bits([logit_grid_ideal(-274)], [1.0e-274])
+}
+
+///|
+test "Logit original ideal integer phase -273" {
+  verify_logit_grid_bits([logit_grid_ideal(-273)], [1.0e-273])
+}
+
+///|
+test "Logit original ideal integer phase -272" {
+  verify_logit_grid_bits([logit_grid_ideal(-272)], [1.0e-272])
+}
+
+///|
+test "Logit original ideal integer phase -271" {
+  verify_logit_grid_bits([logit_grid_ideal(-271)], [1.0e-271])
+}
+
+///|
+test "Logit original ideal integer phase -270" {
+  verify_logit_grid_bits([logit_grid_ideal(-270)], [1.0e-270])
+}
+
+///|
+test "Logit original ideal integer phase -269" {
+  verify_logit_grid_bits([logit_grid_ideal(-269)], [1.0e-269])
+}
+
+///|
+test "Logit original ideal integer phase -268" {
+  verify_logit_grid_bits([logit_grid_ideal(-268)], [1.0e-268])
+}
+
+///|
+test "Logit original ideal integer phase -267" {
+  verify_logit_grid_bits([logit_grid_ideal(-267)], [1.0e-267])
+}
+
+///|
+test "Logit original ideal integer phase -266" {
+  verify_logit_grid_bits([logit_grid_ideal(-266)], [1.0e-266])
+}
+
+///|
+test "Logit original ideal integer phase -265" {
+  verify_logit_grid_bits([logit_grid_ideal(-265)], [1.0e-265])
+}
+
+///|
+test "Logit original ideal integer phase -264" {
+  verify_logit_grid_bits([logit_grid_ideal(-264)], [1.0e-264])
+}
+
+///|
+test "Logit original ideal integer phase -263" {
+  verify_logit_grid_bits([logit_grid_ideal(-263)], [1.0e-263])
+}
+
+///|
+test "Logit original ideal integer phase -262" {
+  verify_logit_grid_bits([logit_grid_ideal(-262)], [1.0e-262])
+}
+
+///|
+test "Logit original ideal integer phase -261" {
+  verify_logit_grid_bits([logit_grid_ideal(-261)], [1.0e-261])
+}
+
+///|
+test "Logit original ideal integer phase -260" {
+  verify_logit_grid_bits([logit_grid_ideal(-260)], [1.0e-260])
+}
+
+///|
+test "Logit original ideal integer phase -259" {
+  verify_logit_grid_bits([logit_grid_ideal(-259)], [1.0e-259])
+}
+
+///|
+test "Logit original ideal integer phase -258" {
+  verify_logit_grid_bits([logit_grid_ideal(-258)], [1.0e-258])
+}
+
+///|
+test "Logit original ideal integer phase -257" {
+  verify_logit_grid_bits([logit_grid_ideal(-257)], [1.0e-257])
+}
+
+///|
+test "Logit original ideal integer phase -256" {
+  verify_logit_grid_bits([logit_grid_ideal(-256)], [1.0e-256])
+}
+
+///|
+test "Logit original ideal integer phase -255" {
+  verify_logit_grid_bits([logit_grid_ideal(-255)], [1.0e-255])
+}
+
+///|
+test "Logit original ideal integer phase -254" {
+  verify_logit_grid_bits([logit_grid_ideal(-254)], [1.0e-254])
+}
+
+///|
+test "Logit original ideal integer phase -253" {
+  verify_logit_grid_bits([logit_grid_ideal(-253)], [1.0e-253])
+}
+
+///|
+test "Logit original ideal integer phase -252" {
+  verify_logit_grid_bits([logit_grid_ideal(-252)], [1.0e-252])
+}
+
+///|
+test "Logit original ideal integer phase -251" {
+  verify_logit_grid_bits([logit_grid_ideal(-251)], [1.0e-251])
+}
+
+///|
+test "Logit original ideal integer phase -250" {
+  verify_logit_grid_bits([logit_grid_ideal(-250)], [1.0e-250])
+}
+
+///|
+test "Logit original ideal integer phase -249" {
+  verify_logit_grid_bits([logit_grid_ideal(-249)], [1.0e-249])
+}
+
+///|
+test "Logit original ideal integer phase -248" {
+  verify_logit_grid_bits([logit_grid_ideal(-248)], [1.0e-248])
+}
+
+///|
+test "Logit original ideal integer phase -247" {
+  verify_logit_grid_bits([logit_grid_ideal(-247)], [1.0e-247])
+}
+
+///|
+test "Logit original ideal integer phase -246" {
+  verify_logit_grid_bits([logit_grid_ideal(-246)], [1.0e-246])
+}
+
+///|
+test "Logit original ideal integer phase -245" {
+  verify_logit_grid_bits([logit_grid_ideal(-245)], [1.0e-245])
+}
+
+///|
+test "Logit original ideal integer phase -244" {
+  verify_logit_grid_bits([logit_grid_ideal(-244)], [1.0e-244])
+}
+
+///|
+test "Logit original ideal integer phase -243" {
+  verify_logit_grid_bits([logit_grid_ideal(-243)], [1.0e-243])
+}
+
+///|
+test "Logit original ideal integer phase -242" {
+  verify_logit_grid_bits([logit_grid_ideal(-242)], [1.0e-242])
+}
+
+///|
+test "Logit original ideal integer phase -241" {
+  verify_logit_grid_bits([logit_grid_ideal(-241)], [1.0e-241])
+}
+
+///|
+test "Logit original ideal integer phase -240" {
+  verify_logit_grid_bits([logit_grid_ideal(-240)], [1.0e-240])
+}
+
+///|
+test "Logit original ideal integer phase -239" {
+  verify_logit_grid_bits([logit_grid_ideal(-239)], [1.0e-239])
+}
+
+///|
+test "Logit original ideal integer phase -238" {
+  verify_logit_grid_bits([logit_grid_ideal(-238)], [1.0e-238])
+}
+
+///|
+test "Logit original ideal integer phase -237" {
+  verify_logit_grid_bits([logit_grid_ideal(-237)], [1.0e-237])
+}
+
+///|
+test "Logit original ideal integer phase -236" {
+  verify_logit_grid_bits([logit_grid_ideal(-236)], [1.0e-236])
+}
+
+///|
+test "Logit original ideal integer phase -235" {
+  verify_logit_grid_bits([logit_grid_ideal(-235)], [1.0e-235])
+}
+
+///|
+test "Logit original ideal integer phase -234" {
+  verify_logit_grid_bits([logit_grid_ideal(-234)], [1.0e-234])
+}
+
+///|
+test "Logit original ideal integer phase -233" {
+  verify_logit_grid_bits([logit_grid_ideal(-233)], [1.0e-233])
+}
+
+///|
+test "Logit original ideal integer phase -232" {
+  verify_logit_grid_bits([logit_grid_ideal(-232)], [1.0e-232])
+}
+
+///|
+test "Logit original ideal integer phase -231" {
+  verify_logit_grid_bits([logit_grid_ideal(-231)], [1.0e-231])
+}
+
+///|
+test "Logit original ideal integer phase -230" {
+  verify_logit_grid_bits([logit_grid_ideal(-230)], [1.0e-230])
+}
+
+///|
+test "Logit original ideal integer phase -229" {
+  verify_logit_grid_bits([logit_grid_ideal(-229)], [1.0e-229])
+}
+
+///|
+test "Logit original ideal integer phase -228" {
+  verify_logit_grid_bits([logit_grid_ideal(-228)], [1.0e-228])
+}
+
+///|
+test "Logit original ideal integer phase -227" {
+  verify_logit_grid_bits([logit_grid_ideal(-227)], [1.0e-227])
+}
+
+///|
+test "Logit original ideal integer phase -226" {
+  verify_logit_grid_bits([logit_grid_ideal(-226)], [1.0e-226])
+}
+
+///|
+test "Logit original ideal integer phase -225" {
+  verify_logit_grid_bits([logit_grid_ideal(-225)], [1.0e-225])
+}
+
+///|
+test "Logit original ideal integer phase -224" {
+  verify_logit_grid_bits([logit_grid_ideal(-224)], [1.0e-224])
+}
+
+///|
+test "Logit original ideal integer phase -223" {
+  verify_logit_grid_bits([logit_grid_ideal(-223)], [1.0e-223])
+}
+
+///|
+test "Logit original ideal integer phase -222" {
+  verify_logit_grid_bits([logit_grid_ideal(-222)], [1.0e-222])
+}
+
+///|
+test "Logit original ideal integer phase -221" {
+  verify_logit_grid_bits([logit_grid_ideal(-221)], [1.0e-221])
+}
+
+///|
+test "Logit original ideal integer phase -220" {
+  verify_logit_grid_bits([logit_grid_ideal(-220)], [1.0e-220])
+}
+
+///|
+test "Logit original ideal integer phase -219" {
+  verify_logit_grid_bits([logit_grid_ideal(-219)], [1.0e-219])
+}
+
+///|
+test "Logit original ideal integer phase -218" {
+  verify_logit_grid_bits([logit_grid_ideal(-218)], [1.0e-218])
+}
+
+///|
+test "Logit original ideal integer phase -217" {
+  verify_logit_grid_bits([logit_grid_ideal(-217)], [1.0e-217])
+}
+
+///|
+test "Logit original ideal integer phase -216" {
+  verify_logit_grid_bits([logit_grid_ideal(-216)], [1.0e-216])
+}
+
+///|
+test "Logit original ideal integer phase -215" {
+  verify_logit_grid_bits([logit_grid_ideal(-215)], [1.0e-215])
+}
+
+///|
+test "Logit original ideal integer phase -214" {
+  verify_logit_grid_bits([logit_grid_ideal(-214)], [1.0e-214])
+}
+
+///|
+test "Logit original ideal integer phase -213" {
+  verify_logit_grid_bits([logit_grid_ideal(-213)], [1.0e-213])
+}
+
+///|
+test "Logit original ideal integer phase -212" {
+  verify_logit_grid_bits([logit_grid_ideal(-212)], [1.0e-212])
+}
+
+///|
+test "Logit original ideal integer phase -211" {
+  verify_logit_grid_bits([logit_grid_ideal(-211)], [1.0e-211])
+}
+
+///|
+test "Logit original ideal integer phase -210" {
+  verify_logit_grid_bits([logit_grid_ideal(-210)], [1.0e-210])
+}
+
+///|
+test "Logit original ideal integer phase -209" {
+  verify_logit_grid_bits([logit_grid_ideal(-209)], [1.0e-209])
+}
+
+///|
+test "Logit original ideal integer phase -208" {
+  verify_logit_grid_bits([logit_grid_ideal(-208)], [1.0e-208])
+}
+
+///|
+test "Logit original ideal integer phase -207" {
+  verify_logit_grid_bits([logit_grid_ideal(-207)], [1.0e-207])
+}
+
+///|
+test "Logit original ideal integer phase -206" {
+  verify_logit_grid_bits([logit_grid_ideal(-206)], [1.0e-206])
+}
+
+///|
+test "Logit original ideal integer phase -205" {
+  verify_logit_grid_bits([logit_grid_ideal(-205)], [1.0e-205])
+}
+
+///|
+test "Logit original ideal integer phase -204" {
+  verify_logit_grid_bits([logit_grid_ideal(-204)], [1.0e-204])
+}
+
+///|
+test "Logit original ideal integer phase -203" {
+  verify_logit_grid_bits([logit_grid_ideal(-203)], [1.0e-203])
+}
+
+///|
+test "Logit original ideal integer phase -202" {
+  verify_logit_grid_bits([logit_grid_ideal(-202)], [1.0e-202])
+}
+
+///|
+test "Logit original ideal integer phase -201" {
+  verify_logit_grid_bits([logit_grid_ideal(-201)], [1.0e-201])
+}
+
+///|
+test "Logit original ideal integer phase -200" {
+  verify_logit_grid_bits([logit_grid_ideal(-200)], [1.0e-200])
+}
+
+///|
+test "Logit original ideal integer phase -199" {
+  verify_logit_grid_bits([logit_grid_ideal(-199)], [1.0e-199])
+}
+
+///|
+test "Logit original ideal integer phase -198" {
+  verify_logit_grid_bits([logit_grid_ideal(-198)], [1.0e-198])
+}
+
+///|
+test "Logit original ideal integer phase -197" {
+  verify_logit_grid_bits([logit_grid_ideal(-197)], [1.0e-197])
+}
+
+///|
+test "Logit original ideal integer phase -196" {
+  verify_logit_grid_bits([logit_grid_ideal(-196)], [1.0e-196])
+}
+
+///|
+test "Logit original ideal integer phase -195" {
+  verify_logit_grid_bits([logit_grid_ideal(-195)], [1.0e-195])
+}
+
+///|
+test "Logit original ideal integer phase -194" {
+  verify_logit_grid_bits([logit_grid_ideal(-194)], [1.0e-194])
+}
+
+///|
+test "Logit original ideal integer phase -193" {
+  verify_logit_grid_bits([logit_grid_ideal(-193)], [1.0e-193])
+}
+
+///|
+test "Logit original ideal integer phase -192" {
+  verify_logit_grid_bits([logit_grid_ideal(-192)], [1.0e-192])
+}
+
+///|
+test "Logit original ideal integer phase -191" {
+  verify_logit_grid_bits([logit_grid_ideal(-191)], [1.0e-191])
+}
+
+///|
+test "Logit original ideal integer phase -190" {
+  verify_logit_grid_bits([logit_grid_ideal(-190)], [1.0e-190])
+}
+
+///|
+test "Logit original ideal integer phase -189" {
+  verify_logit_grid_bits([logit_grid_ideal(-189)], [1.0e-189])
+}
+
+///|
+test "Logit original ideal integer phase -188" {
+  verify_logit_grid_bits([logit_grid_ideal(-188)], [1.0e-188])
+}
+
+///|
+test "Logit original ideal integer phase -187" {
+  verify_logit_grid_bits([logit_grid_ideal(-187)], [1.0e-187])
+}
+
+///|
+test "Logit original ideal integer phase -186" {
+  verify_logit_grid_bits([logit_grid_ideal(-186)], [1.0e-186])
+}
+
+///|
+test "Logit original ideal integer phase -185" {
+  verify_logit_grid_bits([logit_grid_ideal(-185)], [1.0e-185])
+}
+
+///|
+test "Logit original ideal integer phase -184" {
+  verify_logit_grid_bits([logit_grid_ideal(-184)], [1.0e-184])
+}
+
+///|
+test "Logit original ideal integer phase -183" {
+  verify_logit_grid_bits([logit_grid_ideal(-183)], [1.0e-183])
+}
+
+///|
+test "Logit original ideal integer phase -182" {
+  verify_logit_grid_bits([logit_grid_ideal(-182)], [1.0e-182])
+}
+
+///|
+test "Logit original ideal integer phase -181" {
+  verify_logit_grid_bits([logit_grid_ideal(-181)], [1.0e-181])
+}
+
+///|
+test "Logit original ideal integer phase -180" {
+  verify_logit_grid_bits([logit_grid_ideal(-180)], [1.0e-180])
+}
+
+///|
+test "Logit original ideal integer phase -179" {
+  verify_logit_grid_bits([logit_grid_ideal(-179)], [1.0e-179])
+}
+
+///|
+test "Logit original ideal integer phase -178" {
+  verify_logit_grid_bits([logit_grid_ideal(-178)], [1.0e-178])
+}
+
+///|
+test "Logit original ideal integer phase -177" {
+  verify_logit_grid_bits([logit_grid_ideal(-177)], [1.0e-177])
+}
+
+///|
+test "Logit original ideal integer phase -176" {
+  verify_logit_grid_bits([logit_grid_ideal(-176)], [1.0e-176])
+}
+
+///|
+test "Logit original ideal integer phase -175" {
+  verify_logit_grid_bits([logit_grid_ideal(-175)], [1.0e-175])
+}
+
+///|
+test "Logit original ideal integer phase -174" {
+  verify_logit_grid_bits([logit_grid_ideal(-174)], [1.0e-174])
+}
+
+///|
+test "Logit original ideal integer phase -173" {
+  verify_logit_grid_bits([logit_grid_ideal(-173)], [1.0e-173])
+}
+
+///|
+test "Logit original ideal integer phase -172" {
+  verify_logit_grid_bits([logit_grid_ideal(-172)], [1.0e-172])
+}
+
+///|
+test "Logit original ideal integer phase -171" {
+  verify_logit_grid_bits([logit_grid_ideal(-171)], [1.0e-171])
+}
+
+///|
+test "Logit original ideal integer phase -170" {
+  verify_logit_grid_bits([logit_grid_ideal(-170)], [1.0e-170])
+}
+
+///|
+test "Logit original ideal integer phase -169" {
+  verify_logit_grid_bits([logit_grid_ideal(-169)], [1.0e-169])
+}
+
+///|
+test "Logit original ideal integer phase -168" {
+  verify_logit_grid_bits([logit_grid_ideal(-168)], [1.0e-168])
+}
+
+///|
+test "Logit original ideal integer phase -167" {
+  verify_logit_grid_bits([logit_grid_ideal(-167)], [1.0e-167])
+}
+
+///|
+test "Logit original ideal integer phase -166" {
+  verify_logit_grid_bits([logit_grid_ideal(-166)], [1.0e-166])
+}
+
+///|
+test "Logit original ideal integer phase -165" {
+  verify_logit_grid_bits([logit_grid_ideal(-165)], [1.0e-165])
+}
+
+///|
+test "Logit original ideal integer phase -164" {
+  verify_logit_grid_bits([logit_grid_ideal(-164)], [1.0e-164])
+}
+
+///|
+test "Logit original ideal integer phase -163" {
+  verify_logit_grid_bits([logit_grid_ideal(-163)], [1.0e-163])
+}
+
+///|
+test "Logit original ideal integer phase -162" {
+  verify_logit_grid_bits([logit_grid_ideal(-162)], [1.0e-162])
+}
+
+///|
+test "Logit original ideal integer phase -161" {
+  verify_logit_grid_bits([logit_grid_ideal(-161)], [1.0e-161])
+}
+
+///|
+test "Logit original ideal integer phase -160" {
+  verify_logit_grid_bits([logit_grid_ideal(-160)], [1.0e-160])
+}
+
+///|
+test "Logit original ideal integer phase -159" {
+  verify_logit_grid_bits([logit_grid_ideal(-159)], [1.0e-159])
+}
+
+///|
+test "Logit original ideal integer phase -158" {
+  verify_logit_grid_bits([logit_grid_ideal(-158)], [1.0e-158])
+}
+
+///|
+test "Logit original ideal integer phase -157" {
+  verify_logit_grid_bits([logit_grid_ideal(-157)], [1.0e-157])
+}
+
+///|
+test "Logit original ideal integer phase -156" {
+  verify_logit_grid_bits([logit_grid_ideal(-156)], [1.0e-156])
+}
+
+///|
+test "Logit original ideal integer phase -155" {
+  verify_logit_grid_bits([logit_grid_ideal(-155)], [1.0e-155])
+}
+
+///|
+test "Logit original ideal integer phase -154" {
+  verify_logit_grid_bits([logit_grid_ideal(-154)], [1.0e-154])
+}
+
+///|
+test "Logit original ideal integer phase -153" {
+  verify_logit_grid_bits([logit_grid_ideal(-153)], [1.0e-153])
+}
+
+///|
+test "Logit original ideal integer phase -152" {
+  verify_logit_grid_bits([logit_grid_ideal(-152)], [1.0e-152])
+}
+
+///|
+test "Logit original ideal integer phase -151" {
+  verify_logit_grid_bits([logit_grid_ideal(-151)], [1.0e-151])
+}
+
+///|
+test "Logit original ideal integer phase -150" {
+  verify_logit_grid_bits([logit_grid_ideal(-150)], [1.0e-150])
+}
+
+///|
+test "Logit original ideal integer phase -149" {
+  verify_logit_grid_bits([logit_grid_ideal(-149)], [1.0e-149])
+}
+
+///|
+test "Logit original ideal integer phase -148" {
+  verify_logit_grid_bits([logit_grid_ideal(-148)], [1.0e-148])
+}
+
+///|
+test "Logit original ideal integer phase -147" {
+  verify_logit_grid_bits([logit_grid_ideal(-147)], [1.0e-147])
+}
+
+///|
+test "Logit original ideal integer phase -146" {
+  verify_logit_grid_bits([logit_grid_ideal(-146)], [1.0e-146])
+}
+
+///|
+test "Logit original ideal integer phase -145" {
+  verify_logit_grid_bits([logit_grid_ideal(-145)], [1.0e-145])
+}
+
+///|
+test "Logit original ideal integer phase -144" {
+  verify_logit_grid_bits([logit_grid_ideal(-144)], [1.0e-144])
+}
+
+///|
+test "Logit original ideal integer phase -143" {
+  verify_logit_grid_bits([logit_grid_ideal(-143)], [1.0e-143])
+}
+
+///|
+test "Logit original ideal integer phase -142" {
+  verify_logit_grid_bits([logit_grid_ideal(-142)], [1.0e-142])
+}
+
+///|
+test "Logit original ideal integer phase -141" {
+  verify_logit_grid_bits([logit_grid_ideal(-141)], [1.0e-141])
+}
+
+///|
+test "Logit original ideal integer phase -140" {
+  verify_logit_grid_bits([logit_grid_ideal(-140)], [1.0e-140])
+}
+
+///|
+test "Logit original ideal integer phase -139" {
+  verify_logit_grid_bits([logit_grid_ideal(-139)], [1.0e-139])
+}
+
+///|
+test "Logit original ideal integer phase -138" {
+  verify_logit_grid_bits([logit_grid_ideal(-138)], [1.0e-138])
+}
+
+///|
+test "Logit original ideal integer phase -137" {
+  verify_logit_grid_bits([logit_grid_ideal(-137)], [1.0e-137])
+}
+
+///|
+test "Logit original ideal integer phase -136" {
+  verify_logit_grid_bits([logit_grid_ideal(-136)], [1.0e-136])
+}
+
+///|
+test "Logit original ideal integer phase -135" {
+  verify_logit_grid_bits([logit_grid_ideal(-135)], [1.0e-135])
+}
+
+///|
+test "Logit original ideal integer phase -134" {
+  verify_logit_grid_bits([logit_grid_ideal(-134)], [1.0e-134])
+}
+
+///|
+test "Logit original ideal integer phase -133" {
+  verify_logit_grid_bits([logit_grid_ideal(-133)], [1.0e-133])
+}
+
+///|
+test "Logit original ideal integer phase -132" {
+  verify_logit_grid_bits([logit_grid_ideal(-132)], [1.0e-132])
+}
+
+///|
+test "Logit original ideal integer phase -131" {
+  verify_logit_grid_bits([logit_grid_ideal(-131)], [1.0e-131])
+}
+
+///|
+test "Logit original ideal integer phase -130" {
+  verify_logit_grid_bits([logit_grid_ideal(-130)], [1.0e-130])
+}
+
+///|
+test "Logit original ideal integer phase -129" {
+  verify_logit_grid_bits([logit_grid_ideal(-129)], [1.0e-129])
+}
+
+///|
+test "Logit original ideal integer phase -128" {
+  verify_logit_grid_bits([logit_grid_ideal(-128)], [1.0e-128])
+}
+
+///|
+test "Logit original ideal integer phase -127" {
+  verify_logit_grid_bits([logit_grid_ideal(-127)], [1.0e-127])
+}
+
+///|
+test "Logit original ideal integer phase -126" {
+  verify_logit_grid_bits([logit_grid_ideal(-126)], [1.0e-126])
+}
+
+///|
+test "Logit original ideal integer phase -125" {
+  verify_logit_grid_bits([logit_grid_ideal(-125)], [1.0e-125])
+}
+
+///|
+test "Logit original ideal integer phase -124" {
+  verify_logit_grid_bits([logit_grid_ideal(-124)], [1.0e-124])
+}
+
+///|
+test "Logit original ideal integer phase -123" {
+  verify_logit_grid_bits([logit_grid_ideal(-123)], [1.0e-123])
+}
+
+///|
+test "Logit original ideal integer phase -122" {
+  verify_logit_grid_bits([logit_grid_ideal(-122)], [1.0e-122])
+}
+
+///|
+test "Logit original ideal integer phase -121" {
+  verify_logit_grid_bits([logit_grid_ideal(-121)], [1.0e-121])
+}
+
+///|
+test "Logit original ideal integer phase -120" {
+  verify_logit_grid_bits([logit_grid_ideal(-120)], [1.0e-120])
+}
+
+///|
+test "Logit original ideal integer phase -119" {
+  verify_logit_grid_bits([logit_grid_ideal(-119)], [1.0e-119])
+}
+
+///|
+test "Logit original ideal integer phase -118" {
+  verify_logit_grid_bits([logit_grid_ideal(-118)], [1.0e-118])
+}
+
+///|
+test "Logit original ideal integer phase -117" {
+  verify_logit_grid_bits([logit_grid_ideal(-117)], [1.0e-117])
+}
+
+///|
+test "Logit original ideal integer phase -116" {
+  verify_logit_grid_bits([logit_grid_ideal(-116)], [1.0e-116])
+}
+
+///|
+test "Logit original ideal integer phase -115" {
+  verify_logit_grid_bits([logit_grid_ideal(-115)], [1.0e-115])
+}
+
+///|
+test "Logit original ideal integer phase -114" {
+  verify_logit_grid_bits([logit_grid_ideal(-114)], [1.0e-114])
+}
+
+///|
+test "Logit original ideal integer phase -113" {
+  verify_logit_grid_bits([logit_grid_ideal(-113)], [1.0e-113])
+}
+
+///|
+test "Logit original ideal integer phase -112" {
+  verify_logit_grid_bits([logit_grid_ideal(-112)], [1.0e-112])
+}
+
+///|
+test "Logit original ideal integer phase -111" {
+  verify_logit_grid_bits([logit_grid_ideal(-111)], [1.0e-111])
+}
+
+///|
+test "Logit original ideal integer phase -110" {
+  verify_logit_grid_bits([logit_grid_ideal(-110)], [1.0e-110])
+}
+
+///|
+test "Logit original ideal integer phase -109" {
+  verify_logit_grid_bits([logit_grid_ideal(-109)], [1.0e-109])
+}
+
+///|
+test "Logit original ideal integer phase -108" {
+  verify_logit_grid_bits([logit_grid_ideal(-108)], [1.0e-108])
+}
+
+///|
+test "Logit original ideal integer phase -107" {
+  verify_logit_grid_bits([logit_grid_ideal(-107)], [1.0e-107])
+}
+
+///|
+test "Logit original ideal integer phase -106" {
+  verify_logit_grid_bits([logit_grid_ideal(-106)], [1.0e-106])
+}
+
+///|
+test "Logit original ideal integer phase -105" {
+  verify_logit_grid_bits([logit_grid_ideal(-105)], [1.0e-105])
+}
+
+///|
+test "Logit original ideal integer phase -104" {
+  verify_logit_grid_bits([logit_grid_ideal(-104)], [1.0e-104])
+}
+
+///|
+test "Logit original ideal integer phase -103" {
+  verify_logit_grid_bits([logit_grid_ideal(-103)], [1.0e-103])
+}
+
+///|
+test "Logit original ideal integer phase -102" {
+  verify_logit_grid_bits([logit_grid_ideal(-102)], [1.0e-102])
+}
+
+///|
+test "Logit original ideal integer phase -101" {
+  verify_logit_grid_bits([logit_grid_ideal(-101)], [1.0e-101])
+}
+
+///|
+test "Logit original ideal integer phase -100" {
+  verify_logit_grid_bits([logit_grid_ideal(-100)], [1.0e-100])
+}
+
+///|
+test "Logit original ideal integer phase -99" {
+  verify_logit_grid_bits([logit_grid_ideal(-99)], [1.0e-99])
+}
+
+///|
+test "Logit original ideal integer phase -98" {
+  verify_logit_grid_bits([logit_grid_ideal(-98)], [1.0e-98])
+}
+
+///|
+test "Logit original ideal integer phase -97" {
+  verify_logit_grid_bits([logit_grid_ideal(-97)], [1.0e-97])
+}
+
+///|
+test "Logit original ideal integer phase -96" {
+  verify_logit_grid_bits([logit_grid_ideal(-96)], [1.0e-96])
+}
+
+///|
+test "Logit original ideal integer phase -95" {
+  verify_logit_grid_bits([logit_grid_ideal(-95)], [1.0e-95])
+}
+
+///|
+test "Logit original ideal integer phase -94" {
+  verify_logit_grid_bits([logit_grid_ideal(-94)], [1.0e-94])
+}
+
+///|
+test "Logit original ideal integer phase -93" {
+  verify_logit_grid_bits([logit_grid_ideal(-93)], [1.0e-93])
+}
+
+///|
+test "Logit original ideal integer phase -92" {
+  verify_logit_grid_bits([logit_grid_ideal(-92)], [1.0e-92])
+}
+
+///|
+test "Logit original ideal integer phase -91" {
+  verify_logit_grid_bits([logit_grid_ideal(-91)], [1.0e-91])
+}
+
+///|
+test "Logit original ideal integer phase -90" {
+  verify_logit_grid_bits([logit_grid_ideal(-90)], [1.0e-90])
+}
+
+///|
+test "Logit original ideal integer phase -89" {
+  verify_logit_grid_bits([logit_grid_ideal(-89)], [1.0e-89])
+}
+
+///|
+test "Logit original ideal integer phase -88" {
+  verify_logit_grid_bits([logit_grid_ideal(-88)], [1.0e-88])
+}
+
+///|
+test "Logit original ideal integer phase -87" {
+  verify_logit_grid_bits([logit_grid_ideal(-87)], [1.0e-87])
+}
+
+///|
+test "Logit original ideal integer phase -86" {
+  verify_logit_grid_bits([logit_grid_ideal(-86)], [1.0e-86])
+}
+
+///|
+test "Logit original ideal integer phase -85" {
+  verify_logit_grid_bits([logit_grid_ideal(-85)], [1.0e-85])
+}
+
+///|
+test "Logit original ideal integer phase -84" {
+  verify_logit_grid_bits([logit_grid_ideal(-84)], [1.0e-84])
+}
+
+///|
+test "Logit original ideal integer phase -83" {
+  verify_logit_grid_bits([logit_grid_ideal(-83)], [1.0e-83])
+}
+
+///|
+test "Logit original ideal integer phase -82" {
+  verify_logit_grid_bits([logit_grid_ideal(-82)], [1.0e-82])
+}
+
+///|
+test "Logit original ideal integer phase -81" {
+  verify_logit_grid_bits([logit_grid_ideal(-81)], [1.0e-81])
+}
+
+///|
+test "Logit original ideal integer phase -80" {
+  verify_logit_grid_bits([logit_grid_ideal(-80)], [1.0e-80])
+}
+
+///|
+test "Logit original ideal integer phase -79" {
+  verify_logit_grid_bits([logit_grid_ideal(-79)], [1.0e-79])
+}
+
+///|
+test "Logit original ideal integer phase -78" {
+  verify_logit_grid_bits([logit_grid_ideal(-78)], [1.0e-78])
+}
+
+///|
+test "Logit original ideal integer phase -77" {
+  verify_logit_grid_bits([logit_grid_ideal(-77)], [1.0e-77])
+}
+
+///|
+test "Logit original ideal integer phase -76" {
+  verify_logit_grid_bits([logit_grid_ideal(-76)], [1.0e-76])
+}
+
+///|
+test "Logit original ideal integer phase -75" {
+  verify_logit_grid_bits([logit_grid_ideal(-75)], [1.0e-75])
+}
+
+///|
+test "Logit original ideal integer phase -74" {
+  verify_logit_grid_bits([logit_grid_ideal(-74)], [1.0e-74])
+}
+
+///|
+test "Logit original ideal integer phase -73" {
+  verify_logit_grid_bits([logit_grid_ideal(-73)], [1.0e-73])
+}
+
+///|
+test "Logit original ideal integer phase -72" {
+  verify_logit_grid_bits([logit_grid_ideal(-72)], [1.0e-72])
+}
+
+///|
+test "Logit original ideal integer phase -71" {
+  verify_logit_grid_bits([logit_grid_ideal(-71)], [1.0e-71])
+}
+
+///|
+test "Logit original ideal integer phase -70" {
+  verify_logit_grid_bits([logit_grid_ideal(-70)], [1.0e-70])
+}
+
+///|
+test "Logit original ideal integer phase -69" {
+  verify_logit_grid_bits([logit_grid_ideal(-69)], [1.0e-69])
+}
+
+///|
+test "Logit original ideal integer phase -68" {
+  verify_logit_grid_bits([logit_grid_ideal(-68)], [1.0e-68])
+}
+
+///|
+test "Logit original ideal integer phase -67" {
+  verify_logit_grid_bits([logit_grid_ideal(-67)], [1.0e-67])
+}
+
+///|
+test "Logit original ideal integer phase -66" {
+  verify_logit_grid_bits([logit_grid_ideal(-66)], [1.0e-66])
+}
+
+///|
+test "Logit original ideal integer phase -65" {
+  verify_logit_grid_bits([logit_grid_ideal(-65)], [1.0e-65])
+}
+
+///|
+test "Logit original ideal integer phase -64" {
+  verify_logit_grid_bits([logit_grid_ideal(-64)], [1.0e-64])
+}
+
+///|
+test "Logit original ideal integer phase -63" {
+  verify_logit_grid_bits([logit_grid_ideal(-63)], [1.0e-63])
+}
+
+///|
+test "Logit original ideal integer phase -62" {
+  verify_logit_grid_bits([logit_grid_ideal(-62)], [1.0e-62])
+}
+
+///|
+test "Logit original ideal integer phase -61" {
+  verify_logit_grid_bits([logit_grid_ideal(-61)], [1.0e-61])
+}
+
+///|
+test "Logit original ideal integer phase -60" {
+  verify_logit_grid_bits([logit_grid_ideal(-60)], [1.0e-60])
+}
+
+///|
+test "Logit original ideal integer phase -59" {
+  verify_logit_grid_bits([logit_grid_ideal(-59)], [1.0e-59])
+}
+
+///|
+test "Logit original ideal integer phase -58" {
+  verify_logit_grid_bits([logit_grid_ideal(-58)], [1.0e-58])
+}
+
+///|
+test "Logit original ideal integer phase -57" {
+  verify_logit_grid_bits([logit_grid_ideal(-57)], [1.0e-57])
+}
+
+///|
+test "Logit original ideal integer phase -56" {
+  verify_logit_grid_bits([logit_grid_ideal(-56)], [1.0e-56])
+}
+
+///|
+test "Logit original ideal integer phase -55" {
+  verify_logit_grid_bits([logit_grid_ideal(-55)], [1.0e-55])
+}
+
+///|
+test "Logit original ideal integer phase -54" {
+  verify_logit_grid_bits([logit_grid_ideal(-54)], [1.0e-54])
+}
+
+///|
+test "Logit original ideal integer phase -53" {
+  verify_logit_grid_bits([logit_grid_ideal(-53)], [1.0e-53])
+}
+
+///|
+test "Logit original ideal integer phase -52" {
+  verify_logit_grid_bits([logit_grid_ideal(-52)], [1.0e-52])
+}
+
+///|
+test "Logit original ideal integer phase -51" {
+  verify_logit_grid_bits([logit_grid_ideal(-51)], [1.0e-51])
+}
+
+///|
+test "Logit original ideal integer phase -50" {
+  verify_logit_grid_bits([logit_grid_ideal(-50)], [1.0e-50])
+}
+
+///|
+test "Logit original ideal integer phase -49" {
+  verify_logit_grid_bits([logit_grid_ideal(-49)], [1.0e-49])
+}
+
+///|
+test "Logit original ideal integer phase -48" {
+  verify_logit_grid_bits([logit_grid_ideal(-48)], [1.0e-48])
+}
+
+///|
+test "Logit original ideal integer phase -47" {
+  verify_logit_grid_bits([logit_grid_ideal(-47)], [1.0e-47])
+}
+
+///|
+test "Logit original ideal integer phase -46" {
+  verify_logit_grid_bits([logit_grid_ideal(-46)], [1.0e-46])
+}
+
+///|
+test "Logit original ideal integer phase -45" {
+  verify_logit_grid_bits([logit_grid_ideal(-45)], [1.0e-45])
+}
+
+///|
+test "Logit original ideal integer phase -44" {
+  verify_logit_grid_bits([logit_grid_ideal(-44)], [1.0e-44])
+}
+
+///|
+test "Logit original ideal integer phase -43" {
+  verify_logit_grid_bits([logit_grid_ideal(-43)], [1.0e-43])
+}
+
+///|
+test "Logit original ideal integer phase -42" {
+  verify_logit_grid_bits([logit_grid_ideal(-42)], [1.0e-42])
+}
+
+///|
+test "Logit original ideal integer phase -41" {
+  verify_logit_grid_bits([logit_grid_ideal(-41)], [1.0e-41])
+}
+
+///|
+test "Logit original ideal integer phase -40" {
+  verify_logit_grid_bits([logit_grid_ideal(-40)], [1.0e-40])
+}
+
+///|
+test "Logit original ideal integer phase -39" {
+  verify_logit_grid_bits([logit_grid_ideal(-39)], [1.0e-39])
+}
+
+///|
+test "Logit original ideal integer phase -38" {
+  verify_logit_grid_bits([logit_grid_ideal(-38)], [1.0e-38])
+}
+
+///|
+test "Logit original ideal integer phase -37" {
+  verify_logit_grid_bits([logit_grid_ideal(-37)], [1.0e-37])
+}
+
+///|
+test "Logit original ideal integer phase -36" {
+  verify_logit_grid_bits([logit_grid_ideal(-36)], [1.0e-36])
+}
+
+///|
+test "Logit original ideal integer phase -35" {
+  verify_logit_grid_bits([logit_grid_ideal(-35)], [1.0e-35])
+}
+
+///|
+test "Logit original ideal integer phase -34" {
+  verify_logit_grid_bits([logit_grid_ideal(-34)], [1.0e-34])
+}
+
+///|
+test "Logit original ideal integer phase -33" {
+  verify_logit_grid_bits([logit_grid_ideal(-33)], [1.0e-33])
+}
+
+///|
+test "Logit original ideal integer phase -32" {
+  verify_logit_grid_bits([logit_grid_ideal(-32)], [1.0e-32])
+}
+
+///|
+test "Logit original ideal integer phase -31" {
+  verify_logit_grid_bits([logit_grid_ideal(-31)], [1.0e-31])
+}
+
+///|
+test "Logit original ideal integer phase -30" {
+  verify_logit_grid_bits([logit_grid_ideal(-30)], [1.0e-30])
+}
+
+///|
+test "Logit original ideal integer phase -29" {
+  verify_logit_grid_bits([logit_grid_ideal(-29)], [1.0e-29])
+}
+
+///|
+test "Logit original ideal integer phase -28" {
+  verify_logit_grid_bits([logit_grid_ideal(-28)], [1.0e-28])
+}
+
+///|
+test "Logit original ideal integer phase -27" {
+  verify_logit_grid_bits([logit_grid_ideal(-27)], [1.0e-27])
+}
+
+///|
+test "Logit original ideal integer phase -26" {
+  verify_logit_grid_bits([logit_grid_ideal(-26)], [1.0e-26])
+}
+
+///|
+test "Logit original ideal integer phase -25" {
+  verify_logit_grid_bits([logit_grid_ideal(-25)], [1.0e-25])
+}
+
+///|
+test "Logit original ideal integer phase -24" {
+  verify_logit_grid_bits([logit_grid_ideal(-24)], [1.0e-24])
+}
+
+///|
+test "Logit original ideal integer phase -23" {
+  verify_logit_grid_bits([logit_grid_ideal(-23)], [1.0e-23])
+}
+
+///|
+test "Logit original ideal integer phase -22" {
+  verify_logit_grid_bits([logit_grid_ideal(-22)], [1.0e-22])
+}
+
+///|
+test "Logit original ideal integer phase -21" {
+  verify_logit_grid_bits([logit_grid_ideal(-21)], [1.0e-21])
+}
+
+///|
+test "Logit original ideal integer phase -20" {
+  verify_logit_grid_bits([logit_grid_ideal(-20)], [1.0e-20])
+}
+
+///|
+test "Logit original ideal integer phase -19" {
+  verify_logit_grid_bits([logit_grid_ideal(-19)], [1.0e-19])
+}
+
+///|
+test "Logit original ideal integer phase -18" {
+  verify_logit_grid_bits([logit_grid_ideal(-18)], [1.0e-18])
+}
+
+///|
+test "Logit original ideal integer phase -17" {
+  verify_logit_grid_bits([logit_grid_ideal(-17)], [1.0e-17])
+}
+
+///|
+test "Logit original ideal integer phase -16" {
+  verify_logit_grid_bits([logit_grid_ideal(-16)], [1.0e-16])
+}
+
+///|
+test "Logit original ideal integer phase -15" {
+  verify_logit_grid_bits([logit_grid_ideal(-15)], [1.0e-15])
+}
+
+///|
+test "Logit original ideal integer phase -14" {
+  verify_logit_grid_bits([logit_grid_ideal(-14)], [1.0e-14])
+}
+
+///|
+test "Logit original ideal integer phase -13" {
+  verify_logit_grid_bits([logit_grid_ideal(-13)], [1.0e-13])
+}
+
+///|
+test "Logit original ideal integer phase -12" {
+  verify_logit_grid_bits([logit_grid_ideal(-12)], [1.0e-12])
+}
+
+///|
+test "Logit original ideal integer phase -11" {
+  verify_logit_grid_bits([logit_grid_ideal(-11)], [1.0e-11])
+}
+
+///|
+test "Logit original ideal integer phase -10" {
+  verify_logit_grid_bits([logit_grid_ideal(-10)], [1.0e-10])
+}
+
+///|
+test "Logit original ideal integer phase -9" {
+  verify_logit_grid_bits([logit_grid_ideal(-9)], [1.0e-09])
+}
+
+///|
+test "Logit original ideal integer phase -8" {
+  verify_logit_grid_bits([logit_grid_ideal(-8)], [1.0e-08])
+}
+
+///|
+test "Logit original ideal integer phase -7" {
+  verify_logit_grid_bits([logit_grid_ideal(-7)], [1.0e-07])
+}
+
+///|
+test "Logit original ideal integer phase -6" {
+  verify_logit_grid_bits([logit_grid_ideal(-6)], [1.0e-06])
+}
+
+///|
+test "Logit original ideal integer phase -5" {
+  verify_logit_grid_bits([logit_grid_ideal(-5)], [1.0e-05])
+}
+
+///|
+test "Logit original ideal integer phase -4" {
+  verify_logit_grid_bits([logit_grid_ideal(-4)], [0.0001])
+}
+
+///|
+test "Logit original ideal integer phase -3" {
+  verify_logit_grid_bits([logit_grid_ideal(-3)], [0.001])
+}
+
+///|
+test "Logit original ideal integer phase -2" {
+  verify_logit_grid_bits([logit_grid_ideal(-2)], [0.01])
+}
+
+///|
+test "Logit original ideal integer phase -1" {
+  verify_logit_grid_bits([logit_grid_ideal(-1)], [0.1])
+}
+
+///|
+test "Logit original ideal integer phase 0" {
+  verify_logit_grid_bits([logit_grid_ideal(0)], [0.5])
+}
+
+///|
+test "Logit original ideal integer phase 1" {
+  verify_logit_grid_bits([logit_grid_ideal(1)], [0.9])
+}
+
+///|
+test "Logit original ideal integer phase 2" {
+  verify_logit_grid_bits([logit_grid_ideal(2)], [0.99])
+}
+
+///|
+test "Logit original ideal integer phase 3" {
+  verify_logit_grid_bits([logit_grid_ideal(3)], [0.999])
+}
+
+///|
+test "Logit original ideal integer phase 4" {
+  verify_logit_grid_bits([logit_grid_ideal(4)], [0.9999])
+}
+
+///|
+test "Logit original ideal integer phase 5" {
+  verify_logit_grid_bits([logit_grid_ideal(5)], [0.99999])
+}
+
+///|
+test "Logit original ideal integer phase 6" {
+  verify_logit_grid_bits([logit_grid_ideal(6)], [0.999999])
+}
+
+///|
+test "Logit original ideal integer phase 7" {
+  verify_logit_grid_bits([logit_grid_ideal(7)], [0.9999999])
+}
+
+///|
+test "Logit original ideal integer phase 8" {
+  verify_logit_grid_bits([logit_grid_ideal(8)], [0.99999999])
+}
+
+///|
+test "Logit original ideal integer phase 9" {
+  verify_logit_grid_bits([logit_grid_ideal(9)], [0.999999999])
+}
+
+///|
+test "Logit original ideal integer phase 10" {
+  verify_logit_grid_bits([logit_grid_ideal(10)], [0.9999999999])
+}
+
+///|
+test "Logit original ideal integer phase 11" {
+  verify_logit_grid_bits([logit_grid_ideal(11)], [0.99999999999])
+}
+
+///|
+test "Logit original ideal integer phase 12" {
+  verify_logit_grid_bits([logit_grid_ideal(12)], [0.999999999999])
+}
+
+///|
+test "Logit original ideal integer phase 13" {
+  verify_logit_grid_bits([logit_grid_ideal(13)], [0.9999999999999])
+}
+
+///|
+test "Logit original ideal integer phase 14" {
+  verify_logit_grid_bits([logit_grid_ideal(14)], [0.99999999999999])
+}
+
+///|
+test "Logit original ideal integer phase 15" {
+  verify_logit_grid_bits([logit_grid_ideal(15)], [0.999999999999999])
+}
+
+///|
+test "Logit original ideal integer phase 16" {
+  verify_logit_grid_bits([logit_grid_ideal(16)], [0.9999999999999999])
+}

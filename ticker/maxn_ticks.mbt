@@ -13,19 +13,35 @@ pub fn MaxNLocator::tick_values(
   lower : Double,
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
-  let (lower, upper) = if self.symmetric {
+  maxn_tick_values_with_context(self, lower, upper)
+}
+
+///|
+fn maxn_tick_values_with_context(
+  locator : MaxNLocator,
+  lower : Double,
+  upper : Double,
+  raw_step_transform? : (Double) -> Double raise @core.DataError,
+  require_tick_space~ : Bool = false,
+) -> Array[Double] raise @core.DataError {
+  let (lower, upper) = if locator.symmetric {
     maxn_symmetric_bounds(lower, upper)
   } else {
     (lower, upper)
   }
   let (lower, upper) = locator_nonsingular(lower, upper, 1.0e-13, tiny=1.0e-14)
-  let grid = self.grid(lower, upper)
-  let first = if self.prune == Some("lower") || self.prune == Some("both") {
+  let grid = locator.grid(
+    lower,
+    upper,
+    raw_step_transform?,
+    require_tick_space~,
+  )
+  let first = if locator.prune == Some("lower") || locator.prune == Some("both") {
     1L
   } else {
     0L
   }
-  let last = if self.prune == Some("upper") || self.prune == Some("both") {
+  let last = if locator.prune == Some("upper") || locator.prune == Some("both") {
     grid.length - 1L
   } else {
     grid.length
@@ -41,14 +57,30 @@ pub fn MaxNLocator::view_limits(
   lower : Double,
   upper : Double,
 ) -> (Double, Double) raise @core.DataError {
-  let (lower, upper) = if self.symmetric {
+  maxn_view_limits_with_context(self, lower, upper)
+}
+
+///|
+fn maxn_view_limits_with_context(
+  locator : MaxNLocator,
+  lower : Double,
+  upper : Double,
+  raw_step_transform? : (Double) -> Double raise @core.DataError,
+  require_tick_space~ : Bool = false,
+) -> (Double, Double) raise @core.DataError {
+  let (lower, upper) = if locator.symmetric {
     maxn_symmetric_bounds(lower, upper)
   } else {
     (lower, upper)
   }
   let (lower, upper) = locator_nonsingular(lower, upper, 1.0e-12, tiny=1.0e-13)
   if @config.axes_autolimit_mode() == "round_numbers" {
-    let grid = self.grid(lower, upper)
+    let grid = locator.grid(
+      lower,
+      upper,
+      raw_step_transform?,
+      require_tick_space~,
+    )
     if grid.length == 0L {
       raise @core.DataError::InvalidTicks(
         message="MaxN grid has no range endpoints",

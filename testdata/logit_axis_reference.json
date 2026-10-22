@@ -1,0 +1,6450 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "figure.py": "b440ab0a5be03cb39b13529a2fec497d2d96deb083e3e56d6220593e3ec567da",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "axes/_secondary_axes.py": "b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "image.py": "6e1f61a547b371da9bd3b20b65991a90ec73b370504fd4a87d11d1293b2e2a77",
+    "axes/_axes.py": "f61e1cb43575eca70b01c9c80f16d3015e91a8101fe9ce0cc3fdc3d80441c8a7",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788"
+  },
+  "scope": "Complete original Logit/Scale/Transform/Axis/Secondary/Grouper/removal and autoscale\u2192set_bound\u2192Axis._set_lim bodies; numeric Bbox/minpos storage, identity units, formatter/GUI/affine sinks. No installed Matplotlib renderer/default lifecycle.",
+  "geometry_profile": "Relative1e-12 without absolute floor, NaN/Inf/zero sign explicit; raw named locator arrays strict bits. No off-domain path or full tight lifecycle parity claim.",
+  "geometry": [
+    {
+      "mode": "mask",
+      "direction": "transform",
+      "values": [
+        "-inf",
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1e-308,
+        0.01,
+        0.1,
+        0.5,
+        0.9,
+        0.99,
+        0.9999999999999999,
+        1.0,
+        1.0000000000000002,
+        2.0,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "nan",
+        "nan",
+        "nan",
+        "-inf",
+        "-inf",
+        -323.3062153431158,
+        -308.0,
+        -1.99563519459755,
+        -0.9542425094393249,
+        0.0,
+        0.954242509439325,
+        1.9956351945975495,
+        15.954589770191003,
+        "inf",
+        "nan",
+        "nan",
+        "nan",
+        "nan"
+      ]
+    },
+    {
+      "mode": "mask",
+      "direction": "inverse",
+      "values": [
+        "-inf",
+        -1000.0,
+        -324.0,
+        -308.0,
+        -2.0,
+        -1.0,
+        -0.0,
+        0.0,
+        1.0,
+        2.0,
+        16.0,
+        17.0,
+        308.0,
+        324.0,
+        1000.0,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        0.0,
+        0.0,
+        0.0,
+        1e-308,
+        0.009900990099009901,
+        0.09090909090909091,
+        0.5,
+        0.5,
+        0.9090909090909091,
+        0.9900990099009901,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        "nan"
+      ]
+    },
+    {
+      "mode": "clip",
+      "direction": "transform",
+      "values": [
+        "-inf",
+        -1.0,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1e-308,
+        0.01,
+        0.1,
+        0.5,
+        0.9,
+        0.99,
+        0.9999999999999999,
+        1.0,
+        1.0000000000000002,
+        2.0,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        -1000.0,
+        -1000.0,
+        -1000.0,
+        -1000.0,
+        -1000.0,
+        -323.3062153431158,
+        -308.0,
+        -1.99563519459755,
+        -0.9542425094393249,
+        0.0,
+        0.954242509439325,
+        1.9956351945975495,
+        15.954589770191003,
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0,
+        "nan"
+      ]
+    },
+    {
+      "mode": "clip",
+      "direction": "inverse",
+      "values": [
+        "-inf",
+        -1000.0,
+        -324.0,
+        -308.0,
+        -2.0,
+        -1.0,
+        -0.0,
+        0.0,
+        1.0,
+        2.0,
+        16.0,
+        17.0,
+        308.0,
+        324.0,
+        1000.0,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        0.0,
+        0.0,
+        0.0,
+        1e-308,
+        0.009900990099009901,
+        0.09090909090909091,
+        0.5,
+        0.5,
+        0.9090909090909091,
+        0.9900990099009901,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        "nan"
+      ]
+    }
+  ],
+  "constructors": [
+    {
+      "mode": "invalid",
+      "result": {
+        "values": null,
+        "error": "ValueError",
+        "message": "'invalid' is not a valid value for nonpositive. Supported values are 'mask', 'clip'",
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "MASK",
+      "result": {
+        "values": null,
+        "error": "ValueError",
+        "message": "'MASK' is not a valid value for nonpositive. Supported values are 'mask', 'clip'",
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "",
+      "result": {
+        "values": null,
+        "error": "ValueError",
+        "message": "'' is not a valid value for nonpositive. Supported values are 'mask', 'clip'",
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "clip ",
+      "result": {
+        "values": null,
+        "error": "ValueError",
+        "message": "'clip ' is not a valid value for nonpositive. Supported values are 'mask', 'clip'",
+        "events": [],
+        "warnings": []
+      }
+    }
+  ],
+  "limits": [
+    {
+      "scale": "linear",
+      "minpos": 0.01,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "linear",
+      "minpos": 0.9,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "linear",
+      "minpos": 1.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "linear",
+      "minpos": 2.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "linear",
+      "minpos": 0.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "linear",
+      "minpos": -0.1,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "linear",
+      "minpos": "nan",
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "linear",
+      "minpos": "inf",
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "log",
+      "minpos": 0.01,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        0.01,
+        2.0
+      ]
+    },
+    {
+      "scale": "log",
+      "minpos": 0.9,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        0.9,
+        2.0
+      ]
+    },
+    {
+      "scale": "log",
+      "minpos": 1.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "log",
+      "minpos": 2.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "log",
+      "minpos": 0.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "log",
+      "minpos": -0.1,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -0.1,
+        2.0
+      ]
+    },
+    {
+      "scale": "log",
+      "minpos": "nan",
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        1e-300,
+        2.0
+      ]
+    },
+    {
+      "scale": "log",
+      "minpos": "inf",
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        1e-300,
+        2.0
+      ]
+    },
+    {
+      "scale": "symlog",
+      "minpos": 0.01,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "symlog",
+      "minpos": 0.9,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "symlog",
+      "minpos": 1.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "symlog",
+      "minpos": 2.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "symlog",
+      "minpos": 0.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "symlog",
+      "minpos": -0.1,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "symlog",
+      "minpos": "nan",
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "symlog",
+      "minpos": "inf",
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "asinh",
+      "minpos": 0.01,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "asinh",
+      "minpos": 0.9,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "asinh",
+      "minpos": 1.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "asinh",
+      "minpos": 2.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "asinh",
+      "minpos": 0.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "asinh",
+      "minpos": -0.1,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "asinh",
+      "minpos": "nan",
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "asinh",
+      "minpos": "inf",
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -1.0,
+        2.0
+      ]
+    },
+    {
+      "scale": "logit",
+      "minpos": 0.01,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        0.01,
+        0.99
+      ]
+    },
+    {
+      "scale": "logit",
+      "minpos": 0.9,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        0.9,
+        0.09999999999999998
+      ]
+    },
+    {
+      "scale": "logit",
+      "minpos": 1.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "scale": "logit",
+      "minpos": 2.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        2.0,
+        -1.0
+      ]
+    },
+    {
+      "scale": "logit",
+      "minpos": 0.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "scale": "logit",
+      "minpos": -0.1,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        -0.1,
+        1.1
+      ]
+    },
+    {
+      "scale": "logit",
+      "minpos": "nan",
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        1e-07,
+        0.9999999
+      ]
+    },
+    {
+      "scale": "logit",
+      "minpos": "inf",
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": [
+        1e-07,
+        0.9999999
+      ]
+    }
+  ],
+  "axis": [
+    {
+      "label": "mask dense source",
+      "mode": "mask",
+      "view": [
+        0.01,
+        0.99
+      ],
+      "majors": [
+        0.1,
+        0.5,
+        0.9
+      ],
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        0.1,
+        0.5,
+        0.9
+      ],
+      "visible_minor": [
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.06,
+        0.07,
+        0.08,
+        0.09,
+        0.2,
+        0.3,
+        0.4,
+        0.6,
+        0.7,
+        0.8,
+        0.91,
+        0.92,
+        0.9299999999999999,
+        0.94,
+        0.95,
+        0.96,
+        0.97,
+        0.98
+      ]
+    },
+    {
+      "label": "clip dense source",
+      "mode": "clip",
+      "view": [
+        0.01,
+        0.99
+      ],
+      "majors": [
+        0.1,
+        0.5,
+        0.9
+      ],
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        0.1,
+        0.5,
+        0.9
+      ],
+      "visible_minor": [
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.06,
+        0.07,
+        0.08,
+        0.09,
+        0.2,
+        0.3,
+        0.4,
+        0.6,
+        0.7,
+        0.8,
+        0.91,
+        0.92,
+        0.9299999999999999,
+        0.94,
+        0.95,
+        0.96,
+        0.97,
+        0.98
+      ]
+    },
+    {
+      "label": "source neighbor outside narrow view",
+      "mode": "mask",
+      "view": [
+        0.03,
+        0.97
+      ],
+      "majors": [
+        0.1,
+        0.5,
+        0.9
+      ],
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        0.1,
+        0.5,
+        0.9
+      ],
+      "visible_minor": [
+        0.03,
+        0.04,
+        0.05,
+        0.06,
+        0.07,
+        0.08,
+        0.09,
+        0.2,
+        0.3,
+        0.4,
+        0.6,
+        0.7,
+        0.8,
+        0.91,
+        0.92,
+        0.9299999999999999,
+        0.94,
+        0.95,
+        0.96,
+        0.97
+      ]
+    },
+    {
+      "label": "overlap disabled",
+      "mode": "mask",
+      "view": [
+        0.01,
+        0.99
+      ],
+      "majors": [
+        0.02,
+        0.5,
+        0.98
+      ],
+      "overlap": false,
+      "raw": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        0.02,
+        0.5,
+        0.98
+      ],
+      "visible_minor": [
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.06,
+        0.07,
+        0.08,
+        0.09,
+        0.2,
+        0.3,
+        0.4,
+        0.6,
+        0.7,
+        0.8,
+        0.91,
+        0.92,
+        0.9299999999999999,
+        0.94,
+        0.95,
+        0.96,
+        0.97,
+        0.98
+      ]
+    },
+    {
+      "label": "fixed major removes a dense minor",
+      "mode": "mask",
+      "view": [
+        0.01,
+        0.99
+      ],
+      "majors": [
+        0.02,
+        0.5,
+        0.98
+      ],
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        0.02,
+        0.5,
+        0.98
+      ],
+      "visible_minor": [
+        0.03,
+        0.04,
+        0.05,
+        0.06,
+        0.07,
+        0.08,
+        0.09,
+        0.2,
+        0.3,
+        0.4,
+        0.6,
+        0.7,
+        0.8,
+        0.91,
+        0.92,
+        0.9299999999999999,
+        0.94,
+        0.95,
+        0.96,
+        0.97
+      ]
+    },
+    {
+      "label": "reversed view preserves raw order",
+      "mode": "mask",
+      "view": [
+        0.99,
+        0.01
+      ],
+      "majors": [
+        0.1,
+        0.5,
+        0.9
+      ],
+      "overlap": true,
+      "raw": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        0.1,
+        0.5,
+        0.9
+      ],
+      "visible_minor": [
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.06,
+        0.07,
+        0.08,
+        0.09,
+        0.2,
+        0.3,
+        0.4,
+        0.6,
+        0.7,
+        0.8,
+        0.91,
+        0.92,
+        0.9299999999999999,
+        0.94,
+        0.95,
+        0.96,
+        0.97,
+        0.98
+      ]
+    },
+    {
+      "label": "minor zoom returns empty",
+      "mode": "mask",
+      "view": [
+        0.45,
+        0.55
+      ],
+      "majors": [
+        0.5
+      ],
+      "overlap": true,
+      "raw": {
+        "values": [],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.minpos.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        0.5
+      ],
+      "visible_minor": []
+    }
+  ],
+  "overlap": [
+    {
+      "mode": "mask",
+      "view": [
+        0.01,
+        0.99
+      ],
+      "majors": [
+        0.5
+      ],
+      "minors": [
+        0.5,
+        0.500001,
+        0.50001,
+        0.6
+      ],
+      "filtered": {
+        "values": [
+          0.6
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "mask",
+      "view": [
+        0.49,
+        0.51
+      ],
+      "majors": [
+        0.5
+      ],
+      "minors": [
+        0.5,
+        0.500001,
+        0.50001,
+        0.6
+      ],
+      "filtered": {
+        "values": [
+          0.500001,
+          0.50001,
+          0.6
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "mask",
+      "view": [
+        0.01,
+        0.99
+      ],
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "minors": [
+        -1.0,
+        0.0,
+        0.1,
+        0.9,
+        1.0,
+        2.0
+      ],
+      "filtered": {
+        "values": [
+          -1.0,
+          0.1,
+          0.9,
+          2.0
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "clip",
+      "view": [
+        0.01,
+        0.99
+      ],
+      "majors": [
+        0.0,
+        1.0
+      ],
+      "minors": [
+        -1.0,
+        0.0,
+        0.1,
+        0.9,
+        1.0,
+        2.0
+      ],
+      "filtered": {
+        "values": [
+          0.1,
+          0.9
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      }
+    }
+  ],
+  "setters": [
+    {
+      "minpos": 0.9,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": {
+        "values": [
+          0.09999999999999998,
+          0.9
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "minpos": 0.9,
+      "bounds": [
+        2.0,
+        -1.0
+      ],
+      "result": {
+        "values": [
+          0.9,
+          0.09999999999999998
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "minpos": 0.9,
+      "bounds": [
+        1.0,
+        2.0
+      ],
+      "result": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x"
+        ],
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ]
+      }
+    },
+    {
+      "minpos": 0.9,
+      "bounds": [
+        -2.0,
+        -1.0
+      ],
+      "result": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x"
+        ],
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ]
+      }
+    },
+    {
+      "minpos": 0.9,
+      "bounds": [
+        0.5,
+        0.5
+      ],
+      "result": {
+        "values": [
+          0.05,
+          0.95
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [
+          "Attempting to set identical low and high xlims makes transformation singular; automatically expanding."
+        ]
+      }
+    },
+    {
+      "minpos": 0.9,
+      "bounds": [
+        "nan",
+        0.9
+      ],
+      "result": {
+        "values": null,
+        "error": "ValueError",
+        "message": "Axis limits cannot be NaN or Inf",
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minpos": 0.9,
+      "bounds": [
+        "-inf",
+        "inf"
+      ],
+      "result": {
+        "values": null,
+        "error": "ValueError",
+        "message": "Axis limits cannot be NaN or Inf",
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minpos": 2.0,
+      "bounds": [
+        -1.0,
+        2.0
+      ],
+      "result": {
+        "values": [
+          -1.0,
+          2.0
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": []
+      }
+    }
+  ],
+  "margins": [
+    {
+      "mode": "data",
+      "minpos": 0.01,
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          0.006339272365148315,
+          0.9936607276348517
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.01,
+              0.99
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.01,
+            "vmax": 0.99,
+            "minpos": 0.01
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.01,
+              0.99
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 0.006339272365148315,
+            "dmax": 0.9936607276348517
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.006339272365148315,
+              0.9936607276348517
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.006339272365148315,
+            "v1": 0.9936607276348517
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.006339272365148315
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.006339272365148315
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.9936607276348517
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.9936607276348517
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.006339272365148315,
+            "vmax": 0.9936607276348517
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.006339272365148315,
+              0.9936607276348517
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 0.006339272365148315,
+            "vmax": 0.9936607276348517
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.006339272365148315,
+            "vmax": 0.9936607276348517,
+            "minpos": 0.01
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.006339272365148315,
+              0.9936607276348517
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              0.006339272365148315,
+              0.9936607276348517
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.006339272365148315,
+              0.9936607276348517
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "data",
+      "minpos": 0.9,
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          0.08188949557659114,
+          0.9181105044234089
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.9,
+              0.09999999999999998
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.9,
+            "vmax": 0.09999999999999998,
+            "minpos": 0.9
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.9,
+              0.09999999999999998
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 0.9181105044234089,
+            "dmax": 0.08188949557659114
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.08188949557659114,
+              0.9181105044234089
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.08188949557659114,
+            "v1": 0.9181105044234089
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.08188949557659114
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.08188949557659114
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.9181105044234089
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.9181105044234089
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.08188949557659114,
+            "vmax": 0.9181105044234089
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.08188949557659114,
+              0.9181105044234089
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 0.08188949557659114,
+            "vmax": 0.9181105044234089
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.08188949557659114,
+            "vmax": 0.9181105044234089,
+            "minpos": 0.9
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.08188949557659114,
+              0.9181105044234089
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              0.08188949557659114,
+              0.9181105044234089
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.08188949557659114,
+              0.9181105044234089
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "data",
+      "minpos": 1.0,
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          0.0,
+          1.0
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 1.0,
+            "vmax": 0.0,
+            "minpos": 1.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 1.0,
+            "dmax": 0.0
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.0,
+            "v1": 1.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1.0
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.0,
+            "vmax": 1.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 1.0,
+            "vmax": 0.0
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 1.0,
+            "vmax": 0.0,
+            "minpos": 1.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "data",
+      "minpos": 2.0,
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          1e-12,
+          2.0
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              2.0,
+              -1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 2.0,
+            "vmax": -1.0,
+            "minpos": 2.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              2.0,
+              -1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": "nan",
+            "dmax": "nan"
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              -1e-12,
+              1e-12
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": -1e-12,
+            "v1": 1e-12
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": -1e-12
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": -1e-12
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1e-12
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1e-12
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1e-12,
+            "vmax": 1e-12
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              2.0,
+              1e-12
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 2.0,
+            "vmax": 1e-12
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 2.0,
+            "vmax": 1e-12,
+            "minpos": 2.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              2.0,
+              1e-12
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              2.0,
+              1e-12
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              1e-12,
+              2.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "data",
+      "minpos": 0.0,
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          0.0,
+          1.0
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.0,
+            "vmax": 1.0,
+            "minpos": 0.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 0.0,
+            "dmax": 1.0
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.0,
+            "v1": 1.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1.0
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.0,
+            "vmax": 1.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 0.0,
+            "vmax": 1.0
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.0,
+            "vmax": 1.0,
+            "minpos": 0.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "data",
+      "minpos": -0.1,
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          -0.1,
+          1e-12
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              -0.1,
+              1.1
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": -0.1,
+            "vmax": 1.1,
+            "minpos": -0.1
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              -0.1,
+              1.1
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": "nan",
+            "dmax": "nan"
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              -1e-12,
+              1e-12
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": -1e-12,
+            "v1": 1e-12
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": -1e-12
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": -1e-12
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1e-12
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1e-12
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1e-12,
+            "vmax": 1e-12
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              -0.1,
+              1e-12
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": -0.1,
+            "vmax": 1e-12
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": -0.1,
+            "vmax": 1e-12,
+            "minpos": -0.1
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              -0.1,
+              1e-12
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              -0.1,
+              1e-12
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              -0.1,
+              1e-12
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "data",
+      "minpos": "inf",
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          1.9952624945845213e-08,
+          0.9999999800473751
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              1e-07,
+              0.9999999
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 1e-07,
+            "vmax": 0.9999999,
+            "minpos": "inf"
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              1e-07,
+              0.9999999
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 1.9952624945845213e-08,
+            "dmax": 0.9999999800473751
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              1.9952624945845213e-08,
+              0.9999999800473751
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 1.9952624945845213e-08,
+            "v1": 0.9999999800473751
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1.9952624945845213e-08
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1.9952624945845213e-08
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.9999999800473751
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.9999999800473751
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 1.9952624945845213e-08,
+            "vmax": 0.9999999800473751
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              1.9952624945845213e-08,
+              0.9999999800473751
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 1.9952624945845213e-08,
+            "vmax": 0.9999999800473751
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 1.9952624945845213e-08,
+            "vmax": 0.9999999800473751,
+            "minpos": "inf"
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              1.9952624945845213e-08,
+              0.9999999800473751
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              1.9952624945845213e-08,
+              0.9999999800473751
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              1.9952624945845213e-08,
+              0.9999999800473751
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "data",
+      "minpos": 0.2,
+      "data": [
+        0.2,
+        0.8
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          0.17873760922563603,
+          0.8212623907743639
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.2,
+            "vmax": 0.8
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.2,
+              0.8
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.2,
+            "vmax": 0.8,
+            "minpos": 0.2
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.2,
+              0.8
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 0.17873760922563603,
+            "dmax": 0.8212623907743639
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.17873760922563603,
+              0.8212623907743639
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.17873760922563603,
+            "v1": 0.8212623907743639
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.17873760922563603
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.17873760922563603
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.8212623907743639
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.8212623907743639
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.17873760922563603,
+            "vmax": 0.8212623907743639
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.17873760922563603,
+              0.8212623907743639
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 0.17873760922563603,
+            "vmax": 0.8212623907743639
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.17873760922563603,
+            "vmax": 0.8212623907743639,
+            "minpos": 0.2
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.17873760922563603,
+              0.8212623907743639
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              0.17873760922563603,
+              0.8212623907743639
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.17873760922563603,
+              0.8212623907743639
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "data",
+      "minpos": 0.2,
+      "data": [
+        0.2,
+        0.2
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          0.013640167088182095,
+          0.986359832911818
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.2,
+            "vmax": 0.2
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.020000000000000004,
+              0.98
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.020000000000000004,
+            "vmax": 0.98,
+            "minpos": 0.2
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.020000000000000004,
+              0.98
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 0.013640167088182095,
+            "dmax": 0.986359832911818
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.013640167088182095,
+              0.986359832911818
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.013640167088182095,
+            "v1": 0.986359832911818
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.013640167088182095
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.013640167088182095
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.986359832911818
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.986359832911818
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.013640167088182095,
+            "vmax": 0.986359832911818
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.013640167088182095,
+              0.986359832911818
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 0.013640167088182095,
+            "vmax": 0.986359832911818
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.013640167088182095,
+            "vmax": 0.986359832911818,
+            "minpos": 0.2
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.013640167088182095,
+              0.986359832911818
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              0.013640167088182095,
+              0.986359832911818
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.013640167088182095,
+              0.986359832911818
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "data",
+      "minpos": 2.0,
+      "data": [
+        2.0,
+        3.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          1.9952624945845213e-08,
+          0.9999999800473751
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 2.0,
+            "vmax": 3.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              1e-07,
+              0.9999999
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 1e-07,
+            "vmax": 0.9999999,
+            "minpos": 2.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              1e-07,
+              0.9999999
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 1.9952624945845213e-08,
+            "dmax": 0.9999999800473751
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              1.9952624945845213e-08,
+              0.9999999800473751
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 1.9952624945845213e-08,
+            "v1": 0.9999999800473751
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1.9952624945845213e-08
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1.9952624945845213e-08
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.9999999800473751
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.9999999800473751
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 1.9952624945845213e-08,
+            "vmax": 0.9999999800473751
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              1.9952624945845213e-08,
+              0.9999999800473751
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 1.9952624945845213e-08,
+            "vmax": 0.9999999800473751
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 1.9952624945845213e-08,
+            "vmax": 0.9999999800473751,
+            "minpos": 2.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              1.9952624945845213e-08,
+              0.9999999800473751
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              1.9952624945845213e-08,
+              0.9999999800473751
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              1.9952624945845213e-08,
+              0.9999999800473751
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "minpos": 0.01,
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          0.01,
+          0.99
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.space.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.01,
+              0.99
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.01,
+            "vmax": 0.99,
+            "minpos": 0.01
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.01,
+              0.99
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 0.006339272365148315,
+            "dmax": 0.9936607276348517
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.0,
+            "v1": 1.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1.0
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.0,
+            "vmax": 1.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.01,
+              0.99
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 0.01,
+            "vmax": 0.99
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.01,
+            "vmax": 0.99,
+            "minpos": 0.01
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.01,
+              0.99
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              0.01,
+              0.99
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.01,
+              0.99
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "minpos": 0.9,
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          0.09999999999999998,
+          0.9
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.space.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.9,
+              0.09999999999999998
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.9,
+            "vmax": 0.09999999999999998,
+            "minpos": 0.9
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.9,
+              0.09999999999999998
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 0.9181105044234089,
+            "dmax": 0.08188949557659114
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.0,
+            "v1": 1.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1.0
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.0,
+            "vmax": 1.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.9,
+              0.09999999999999998
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 0.9,
+            "vmax": 0.09999999999999998
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.9,
+            "vmax": 0.09999999999999998,
+            "minpos": 0.9
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.9,
+              0.09999999999999998
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              0.9,
+              0.09999999999999998
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.09999999999999998,
+              0.9
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "minpos": 1.0,
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          0.0,
+          1.0
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.space.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 1.0,
+            "vmax": 0.0,
+            "minpos": 1.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 1.0,
+            "dmax": 0.0
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.0,
+            "v1": 1.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1.0
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.0,
+            "vmax": 1.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 1.0,
+            "vmax": 0.0
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 1.0,
+            "vmax": 0.0,
+            "minpos": 1.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "minpos": 2.0,
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          1e-12,
+          2.0
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.space.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              2.0,
+              -1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 2.0,
+            "vmax": -1.0,
+            "minpos": 2.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              2.0,
+              -1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": "nan",
+            "dmax": "nan"
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              -1e-12,
+              1e-12
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": -1e-12,
+            "v1": 1e-12
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": -1e-12
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": -1e-12
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1e-12
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1e-12
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1e-12,
+            "vmax": 1e-12
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              2.0,
+              1e-12
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 2.0,
+            "vmax": 1e-12
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 2.0,
+            "vmax": 1e-12,
+            "minpos": 2.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              2.0,
+              1e-12
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              2.0,
+              1e-12
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              1e-12,
+              2.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "minpos": 0.0,
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          0.0,
+          1.0
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.space.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.0,
+            "vmax": 1.0,
+            "minpos": 0.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 0.0,
+            "dmax": 1.0
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.0,
+            "v1": 1.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1.0
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.0,
+            "vmax": 1.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 0.0,
+            "vmax": 1.0
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.0,
+            "vmax": 1.0,
+            "minpos": 0.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "minpos": -0.1,
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          -0.1,
+          1e-12
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.space.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              -0.1,
+              1.1
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": -0.1,
+            "vmax": 1.1,
+            "minpos": -0.1
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              -0.1,
+              1.1
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": "nan",
+            "dmax": "nan"
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              -1e-12,
+              1e-12
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": -1e-12,
+            "v1": 1e-12
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": -1e-12
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": -1e-12
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1e-12
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1e-12
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1e-12,
+            "vmax": 1e-12
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              -0.1,
+              1e-12
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": -0.1,
+            "vmax": 1e-12
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": -0.1,
+            "vmax": 1e-12,
+            "minpos": -0.1
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              -0.1,
+              1e-12
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              -0.1,
+              1e-12
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              -0.1,
+              1e-12
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "minpos": "inf",
+      "data": [
+        -1.0,
+        2.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          1e-07,
+          0.9999999
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.space.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -1.0,
+            "vmax": 2.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              1e-07,
+              0.9999999
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 1e-07,
+            "vmax": 0.9999999,
+            "minpos": "inf"
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              1e-07,
+              0.9999999
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 1.9952624945845213e-08,
+            "dmax": 0.9999999800473751
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.0,
+            "v1": 1.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1.0
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.0,
+            "vmax": 1.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              1e-07,
+              0.9999999
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 1e-07,
+            "vmax": 0.9999999
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 1e-07,
+            "vmax": 0.9999999,
+            "minpos": "inf"
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              1e-07,
+              0.9999999
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              1e-07,
+              0.9999999
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              1e-07,
+              0.9999999
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "minpos": 0.2,
+      "data": [
+        0.2,
+        0.8
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          0.2,
+          0.8
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.space.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.2,
+            "vmax": 0.8
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.2,
+              0.8
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.2,
+            "vmax": 0.8,
+            "minpos": 0.2
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.2,
+              0.8
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 0.17873760922563603,
+            "dmax": 0.8212623907743639
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.0,
+            "v1": 1.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1.0
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.0,
+            "vmax": 1.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.2,
+              0.8
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 0.2,
+            "vmax": 0.8
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.2,
+            "vmax": 0.8,
+            "minpos": 0.2
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.2,
+              0.8
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              0.2,
+              0.8
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.2,
+              0.8
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "minpos": 0.2,
+      "data": [
+        0.2,
+        0.2
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          0.2,
+          0.8
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.minpos.x",
+          "axes.space.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.2,
+            "vmax": 0.2
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.020000000000000004,
+              0.98
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.020000000000000004,
+            "vmax": 0.98,
+            "minpos": 0.2
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.020000000000000004,
+              0.98
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 0.013640167088182095,
+            "dmax": 0.986359832911818
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.0,
+            "v1": 1.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1.0
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.0,
+            "vmax": 1.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.2,
+              0.8
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 0.2,
+            "vmax": 0.8
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.2,
+            "vmax": 0.8,
+            "minpos": 0.2
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.2,
+              0.8
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              0.2,
+              0.8
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.2,
+              0.8
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "minpos": 2.0,
+      "data": [
+        2.0,
+        3.0
+      ],
+      "margin": 0.05,
+      "result": {
+        "values": [
+          -1.0,
+          2.0
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.space.x",
+          "axes.minpos.x",
+          "axes.minpos.x"
+        ],
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 2.0,
+            "vmax": 3.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              1e-07,
+              0.9999999
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 1e-07,
+            "vmax": 0.9999999,
+            "minpos": 2.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              1e-07,
+              0.9999999
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 1.9952624945845213e-08,
+            "dmax": 0.9999999800473751
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.0,
+            "v1": 1.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.0
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 1.0
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 1.0
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.0,
+            "vmax": 1.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              2.0,
+              -1.0
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 2.0,
+            "vmax": -1.0
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 2.0,
+            "vmax": -1.0,
+            "minpos": 2.0
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              2.0,
+              -1.0
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              2.0,
+              -1.0
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              -1.0,
+              2.0
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "shared_margins": [
+    {
+      "owner": "first",
+      "result": {
+        "values": [
+          0.08188949557659114,
+          0.9181105044234089
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "first.minpos.x",
+          "first.minpos.x",
+          "first.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -2.0,
+            "vmax": 3.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.1,
+              0.9
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.1,
+            "vmax": 0.9,
+            "minpos": 0.01
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.1,
+              0.9
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 0.08188949557659114,
+            "dmax": 0.9181105044234089
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.08188949557659114,
+              0.9181105044234089
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.08188949557659114,
+            "v1": 0.9181105044234089
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.08188949557659114
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.08188949557659114
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.9181105044234089
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.9181105044234089
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.08188949557659114,
+            "vmax": 0.9181105044234089
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.08188949557659114,
+              0.9181105044234089
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 0.08188949557659114,
+            "vmax": 0.9181105044234089
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.08188949557659114,
+            "vmax": 0.9181105044234089,
+            "minpos": 0.1
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.08188949557659114,
+              0.9181105044234089
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              0.08188949557659114,
+              0.9181105044234089
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.08188949557659114,
+              0.9181105044234089
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "owner": "second",
+      "result": {
+        "values": [
+          0.006339272365148315,
+          0.9936607276348517
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "second.minpos.x",
+          "second.minpos.x",
+          "first.minpos.x"
+        ],
+        "warnings": [],
+        "trace": [
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": -2.0,
+            "vmax": 3.0
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.01,
+              0.99
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.01,
+            "vmax": 0.99,
+            "minpos": 0.01
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.01,
+              0.99
+            ]
+          },
+          {
+            "event": "call",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "dmin": 0.006339272365148315,
+            "dmax": 0.9936607276348517
+          },
+          {
+            "event": "return",
+            "method": "view_limits",
+            "owner": "LogitLocator",
+            "result": [
+              0.006339272365148315,
+              0.9936607276348517
+            ]
+          },
+          {
+            "event": "call",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "v0": 0.006339272365148315,
+            "v1": 0.9936607276348517
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.006339272365148315
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.006339272365148315
+          },
+          {
+            "event": "call",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "limit": 0.9936607276348517
+          },
+          {
+            "event": "return",
+            "method": "_validate_converted_limits",
+            "owner": "Axes",
+            "result": 0.9936607276348517
+          },
+          {
+            "event": "call",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "vmin": 0.006339272365148315,
+            "vmax": 0.9936607276348517
+          },
+          {
+            "event": "return",
+            "method": "nonsingular",
+            "owner": "LogitLocator",
+            "result": [
+              0.006339272365148315,
+              0.9936607276348517
+            ]
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "vmin": 0.006339272365148315,
+            "vmax": 0.9936607276348517
+          },
+          {
+            "event": "call",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "vmin": 0.006339272365148315,
+            "vmax": 0.9936607276348517,
+            "minpos": 0.1
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "LogitScale",
+            "result": [
+              0.006339272365148315,
+              0.9936607276348517
+            ]
+          },
+          {
+            "event": "return",
+            "method": "limit_range_for_scale",
+            "owner": "Axis",
+            "result": [
+              0.006339272365148315,
+              0.9936607276348517
+            ]
+          },
+          {
+            "event": "return",
+            "method": "_set_lim",
+            "owner": "Axis",
+            "result": [
+              0.006339272365148315,
+              0.9936607276348517
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "aspects": [
+    {
+      "adjustable": "box",
+      "position": [
+        0.0,
+        0.18122346474860518,
+        1.0,
+        0.6375530705027896
+      ],
+      "view": [
+        0.01,
+        0.99,
+        0.1,
+        0.9
+      ]
+    },
+    {
+      "adjustable": "datalim",
+      "position": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "view": [
+        0.01,
+        0.99,
+        0.030878199392016095,
+        0.9691218006079839
+      ]
+    }
+  ],
+  "owners": [
+    {
+      "name": "x",
+      "stages": [
+        {
+          "values": [
+            0.01,
+            0.1,
+            0.5,
+            0.9,
+            0.99
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "first.view.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            0.2,
+            0.4,
+            0.6000000000000001,
+            0.8
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "second.view.x",
+            "second.minpos.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            0.45,
+            0.5,
+            0.55
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "second.view.x",
+            "second.minpos.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            0.01,
+            0.1,
+            0.5,
+            0.9,
+            0.99
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "first.view.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "name": "y",
+      "stages": [
+        {
+          "values": [
+            0.01,
+            0.1,
+            0.5,
+            0.9,
+            0.99
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "first.view.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            0.2,
+            0.4,
+            0.6000000000000001,
+            0.8
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "second.view.y",
+            "second.minpos.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            0.45,
+            0.5,
+            0.55
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "second.view.y",
+            "second.minpos.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            0.01,
+            0.1,
+            0.5,
+            0.9,
+            0.99
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "first.view.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        }
+      ]
+    }
+  ],
+  "shared": [
+    {
+      "name": "x",
+      "before": [
+        {
+          "values": [
+            0.01,
+            0.1,
+            0.5,
+            0.9,
+            0.99
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "second.view.x",
+            "second.minpos.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            0.02,
+            0.03,
+            0.04,
+            0.05,
+            0.06,
+            0.07,
+            0.08,
+            0.09,
+            0.2,
+            0.3,
+            0.4,
+            0.6,
+            0.7,
+            0.8,
+            0.91,
+            0.92,
+            0.9299999999999999,
+            0.94,
+            0.95,
+            0.96,
+            0.97,
+            0.98
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "second.view.x",
+            "second.minpos.x"
+          ],
+          "warnings": []
+        }
+      ],
+      "after": [
+        {
+          "values": [
+            0.01,
+            0.1,
+            0.5,
+            0.9,
+            0.99
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "first.view.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            0.02,
+            0.03,
+            0.04,
+            0.05,
+            0.06,
+            0.07,
+            0.08,
+            0.09,
+            0.2,
+            0.3,
+            0.4,
+            0.6,
+            0.7,
+            0.8,
+            0.91,
+            0.92,
+            0.9299999999999999,
+            0.94,
+            0.95,
+            0.96,
+            0.97,
+            0.98
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "first.view.x",
+            "first.minpos.x"
+          ],
+          "warnings": []
+        }
+      ],
+      "outside": [
+        {
+          "values": [
+            0.2,
+            0.4,
+            0.6000000000000001,
+            0.8
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "second.view.x",
+            "second.minpos.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [],
+          "error": null,
+          "message": null,
+          "events": [
+            "second.view.x",
+            "second.minpos.x"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "name": "y",
+      "before": [
+        {
+          "values": [
+            0.01,
+            0.1,
+            0.5,
+            0.9,
+            0.99
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "second.view.y",
+            "second.minpos.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            0.02,
+            0.03,
+            0.04,
+            0.05,
+            0.06,
+            0.07,
+            0.08,
+            0.09,
+            0.2,
+            0.3,
+            0.4,
+            0.6,
+            0.7,
+            0.8,
+            0.91,
+            0.92,
+            0.9299999999999999,
+            0.94,
+            0.95,
+            0.96,
+            0.97,
+            0.98
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "second.view.y",
+            "second.minpos.y"
+          ],
+          "warnings": []
+        }
+      ],
+      "after": [
+        {
+          "values": [
+            0.01,
+            0.1,
+            0.5,
+            0.9,
+            0.99
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "first.view.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            0.02,
+            0.03,
+            0.04,
+            0.05,
+            0.06,
+            0.07,
+            0.08,
+            0.09,
+            0.2,
+            0.3,
+            0.4,
+            0.6,
+            0.7,
+            0.8,
+            0.91,
+            0.92,
+            0.9299999999999999,
+            0.94,
+            0.95,
+            0.96,
+            0.97,
+            0.98
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "first.view.y",
+            "first.minpos.y"
+          ],
+          "warnings": []
+        }
+      ],
+      "outside": [
+        {
+          "values": [
+            0.2,
+            0.4,
+            0.6000000000000001,
+            0.8
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "second.view.y",
+            "second.minpos.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [],
+          "error": null,
+          "message": null,
+          "events": [
+            "second.view.y",
+            "second.minpos.y"
+          ],
+          "warnings": []
+        }
+      ]
+    }
+  ],
+  "secondary": [
+    {
+      "name": "x",
+      "valid": false,
+      "own_view": [
+        5.02,
+        6.98
+      ],
+      "own_scale": "function",
+      "own_minpos": "inf",
+      "major": {
+        "values": [
+          0.0001,
+          0.5,
+          0.9999,
+          0.99999999
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.x"
+        ],
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ]
+      },
+      "minor": {
+        "values": [
+          1e-07,
+          1e-06,
+          1e-05,
+          0.001,
+          0.01,
+          0.1,
+          0.9,
+          0.99,
+          0.999,
+          0.99999,
+          0.999999,
+          0.9999999
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.x"
+        ],
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ]
+      },
+      "filtered": {
+        "values": [
+          1e-07,
+          1e-06,
+          1e-05,
+          0.001,
+          0.01,
+          0.1,
+          0.9,
+          0.99,
+          0.999
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.x",
+          "secondary.view.x",
+          "secondary.view.x"
+        ],
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled.",
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ]
+      }
+    },
+    {
+      "name": "x",
+      "valid": true,
+      "own_view": [
+        0.02,
+        0.98
+      ],
+      "own_scale": "function",
+      "own_minpos": "inf",
+      "major": {
+        "values": [
+          0.01,
+          0.1,
+          0.5,
+          0.9,
+          0.99
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.x",
+          "secondary.minpos.x"
+        ],
+        "warnings": []
+      },
+      "minor": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.x",
+          "secondary.minpos.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.x",
+          "secondary.minpos.x",
+          "secondary.view.x",
+          "secondary.minpos.x",
+          "secondary.view.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "y",
+      "valid": false,
+      "own_view": [
+        5.02,
+        6.98
+      ],
+      "own_scale": "function",
+      "own_minpos": "inf",
+      "major": {
+        "values": [
+          0.0001,
+          0.5,
+          0.9999,
+          0.99999999
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.y"
+        ],
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ]
+      },
+      "minor": {
+        "values": [
+          1e-07,
+          1e-06,
+          1e-05,
+          0.001,
+          0.01,
+          0.1,
+          0.9,
+          0.99,
+          0.999,
+          0.99999,
+          0.999999,
+          0.9999999
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.y"
+        ],
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ]
+      },
+      "filtered": {
+        "values": [
+          1e-07,
+          1e-06,
+          1e-05,
+          0.001,
+          0.01,
+          0.1,
+          0.9,
+          0.99,
+          0.999
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.y",
+          "secondary.view.y",
+          "secondary.view.y"
+        ],
+        "warnings": [
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled.",
+          "Data has no values between 0 and 1, and therefore cannot be logit-scaled."
+        ]
+      }
+    },
+    {
+      "name": "y",
+      "valid": true,
+      "own_view": [
+        0.02,
+        0.98
+      ],
+      "own_scale": "function",
+      "own_minpos": "inf",
+      "major": {
+        "values": [
+          0.01,
+          0.1,
+          0.5,
+          0.9,
+          0.99
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.y",
+          "secondary.minpos.y"
+        ],
+        "warnings": []
+      },
+      "minor": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.y",
+          "secondary.minpos.y"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.2,
+          0.3,
+          0.4,
+          0.6,
+          0.7,
+          0.8,
+          0.91,
+          0.92,
+          0.9299999999999999,
+          0.94,
+          0.95,
+          0.96,
+          0.97,
+          0.98
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.y",
+          "secondary.minpos.y",
+          "secondary.view.y",
+          "secondary.minpos.y",
+          "secondary.view.y"
+        ],
+        "warnings": []
+      }
+    }
+  ],
+  "physical": [
+    {
+      "horizontal": true,
+      "length": 0.0,
+      "source_space": 0,
+      "result": {
+        "values": [
+          1e-09,
+          0.5,
+          0.999999999
+        ],
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "horizontal": true,
+      "length": 120.0,
+      "source_space": 4,
+      "result": {
+        "values": [
+          1e-05,
+          0.5,
+          0.99999,
+          0.9999999999
+        ],
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "horizontal": true,
+      "length": 1200.0,
+      "source_space": 40,
+      "result": {
+        "values": [
+          1e-09,
+          1e-08,
+          1e-07,
+          1e-06,
+          1e-05,
+          0.0001,
+          0.001,
+          0.01,
+          0.1,
+          0.5,
+          0.9,
+          0.99,
+          0.999,
+          0.9999,
+          0.99999,
+          0.999999,
+          0.9999999,
+          0.99999999,
+          0.999999999,
+          0.9999999999
+        ],
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "horizontal": false,
+      "length": 0.0,
+      "source_space": 0,
+      "result": {
+        "values": [
+          1e-09,
+          0.5,
+          0.999999999
+        ],
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "horizontal": false,
+      "length": 120.0,
+      "source_space": 6,
+      "result": {
+        "values": [
+          1e-09,
+          1e-06,
+          0.001,
+          0.5,
+          0.999,
+          0.999999,
+          0.999999999
+        ],
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "horizontal": false,
+      "length": 1200.0,
+      "source_space": 60,
+      "result": {
+        "values": [
+          1e-09,
+          1e-08,
+          1e-07,
+          1e-06,
+          1e-05,
+          0.0001,
+          0.001,
+          0.01,
+          0.1,
+          0.5,
+          0.9,
+          0.99,
+          0.999,
+          0.9999,
+          0.99999,
+          0.999999,
+          0.9999999,
+          0.99999999,
+          0.999999999,
+          0.9999999999
+        ],
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    }
+  ],
+  "layout": [
+    {
+      "horizontal": true,
+      "values": [
+        0.01,
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9,
+        0.99
+      ],
+      "normalized": [
+        0.0,
+        0.26091759856145397,
+        0.38045879928072696,
+        0.5,
+        0.6195412007192731,
+        0.7390824014385461,
+        0.9999999999999999
+      ]
+    },
+    {
+      "horizontal": false,
+      "values": [
+        0.01,
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9,
+        0.99
+      ],
+      "normalized": [
+        0.0,
+        0.26091759856145397,
+        0.38045879928072696,
+        0.5,
+        0.619541200719273,
+        0.7390824014385461,
+        1.0
+      ]
+    }
+  ],
+  "source_only": {
+    "scope": "Actual source tight lifecycle and out-of-domain clipped Path are evidence only; not declared in-domain SVG/full-tight parity.",
+    "invalid_other_axis_layout": [
+      {
+        "horizontal": true,
+        "view": [
+          0.01,
+          0.99
+        ],
+        "other_view": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          0.01,
+          0.1,
+          0.25,
+          0.5,
+          0.75,
+          0.9,
+          0.99
+        ],
+        "normalized": [
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ]
+      },
+      {
+        "horizontal": false,
+        "view": [
+          0.01,
+          0.99
+        ],
+        "other_view": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          0.01,
+          0.1,
+          0.25,
+          0.5,
+          0.75,
+          0.9,
+          0.99
+        ],
+        "normalized": [
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ]
+      }
+    ],
+    "tight": [
+      {
+        "mode": "mask",
+        "minpos": 2.0,
+        "result": {
+          "values": null,
+          "error": "ValueError",
+          "message": "Axis limits cannot be NaN or Inf",
+          "events": [
+            "axes.minpos.x"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "mode": "mask",
+        "minpos": -0.1,
+        "result": {
+          "values": null,
+          "error": "ValueError",
+          "message": "Axis limits cannot be NaN or Inf",
+          "events": [
+            "axes.minpos.x"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "mode": "clip",
+        "minpos": 2.0,
+        "result": {
+          "values": [
+            -1.0,
+            2.0
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "axes.minpos.x",
+            "axes.minpos.x",
+            "axes.minpos.x"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "mode": "clip",
+        "minpos": -0.1,
+        "result": {
+          "values": [
+            -0.1,
+            1.1
+          ],
+          "error": null,
+          "message": null,
+          "events": [
+            "axes.minpos.x",
+            "axes.minpos.x",
+            "axes.minpos.x"
+          ],
+          "warnings": []
+        }
+      }
+    ],
+    "paths": [
+      {
+        "mode": "mask",
+        "vertices": [
+          [
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.5,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ],
+          [
+            2.0,
+            0.0
+          ]
+        ],
+        "result": [
+          [
+            "nan",
+            0.0
+          ],
+          [
+            "-inf",
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            "inf",
+            0.0
+          ],
+          [
+            "nan",
+            0.0
+          ]
+        ]
+      },
+      {
+        "mode": "clip",
+        "vertices": [
+          [
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.5,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ],
+          [
+            2.0,
+            0.0
+          ]
+        ],
+        "result": [
+          [
+            -1000.0,
+            0.0
+          ],
+          [
+            -1000.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1000.0,
+            0.0
+          ],
+          [
+            1000.0,
+            0.0
+          ]
+        ]
+      }
+    ]
+  }
+}

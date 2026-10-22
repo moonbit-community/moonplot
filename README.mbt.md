@@ -1310,6 +1310,23 @@ try! fig.set_x_locator(locator.as_locator())
 默认 locator/formatter 生命周期仍在后续。四目标新增 1061 项测试及原源复验均通过，精确范围见
 [AsinhLocator说明](testdata/asinh_locator_README.md)。
 
+D27 已验收命名 `LogitLocator` 与最小 Logit 几何。显式安装定位器，原始概率刻度
+可保留下溢零、重复值及视图外邻点，放大局部时复用同一个 MaxN 参数状态：
+
+```moonbit nocheck
+let major = try! @ticker.LogitLocator::new()
+let minor = try! @ticker.LogitLocator::new(minor=true)
+try! fig.set_x_scale(try! @mathplotlib.logit_scale(nonpositive="mask"))
+try! fig.set_x_locator(major.as_locator())
+try! fig.axes().set_x_minor_locator(minor.as_minor_locator())
+```
+
+`as_maxn_locator()` 提供共享的继承参数状态；直接调用该状态的数值方法采用 MaxN 合同。
+Logit 自身的查询继续读取所属轴 view、投影名称、实际 tick space 与局部 minpos。
+最小几何支持 `mask`/`clip` 数值变换及有效概率域 SVG；完整默认格式器安装、tight 生命周期
+和域外 clip 路径仍在后续范围。新增 879 项测试，四目标及三份原源参考检查全部通过；
+MaxN 的两处十进制幂复用可移植正确舍入原语，修复非 JS 目标的刻度起点误差。准确范围见 [LogitLocator说明](testdata/logit_locator_README.md)。
+
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`
 及常见宽度/精度标志，`log_formatter`、`null_formatter` 和 `func_formatter` 分别用于对数、

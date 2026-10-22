@@ -216,3 +216,14 @@ binary64舍入。新asinh/sinh/log10使用BigInt定向区间与自适应精度�
 最小Scale::Asinh使用现有核心math变换，Axis/secondary/contour/SVG沿用现有链路；
 没有新增外部运行时依赖。原始Python/NumPy只参与开发参考生成，独立Decimal证据与
 重现见[testdata/asinh_locator_README.md](testdata/asinh_locator_README.md)。
+
+## D27 命名 Logit 定位器
+
+LogitLocator 组合真实 MaxN 参数状态，重用 staircase、完整grid descriptor、prune与
+checked数值体。新增私有context hooks只在原raw_step阶段读取投影并执行3d两步舍入，
+旧MaxN公共接口不扩展。Logit本体复用D26 portable log10与D24整数幂；MaxN scale_range
+两处十进制整数幂也复用该正确round primitive，修复nonJS pow(10,-4)低1ULP影响grid起点；
+其余MaxN数值顺序不变。Scale共享limit_range_for_scale供Axis与backend按实际几何限制范围；
+原源参考执行完整AST并保留raw重复/zero、单独的Data诊断与未迁移logger边界。
+没有运行时Python/NumPy/C调用或新外部依赖；重现见
+[testdata/logit_locator_README.md](testdata/logit_locator_README.md)。

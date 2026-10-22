@@ -27,6 +27,8 @@ pub fn Axis::bind_locator_data(self : Axis, minor~ : Bool = false) -> Unit {
   }
   if minor {
     match self.minor_locator {
+      Some(@ticker.MinorLocator::NamedLogit(value)) =>
+        self.bind_logit_context(value)
       Some(@ticker.MinorLocator::NamedAsinh(value)) =>
         value.bind_view_interval(() => self.view_interval_checked())
       Some(@ticker.MinorLocator::NamedSymLog(value)) =>
@@ -45,6 +47,7 @@ pub fn Axis::bind_locator_data(self : Axis, minor~ : Bool = false) -> Unit {
     }
   } else {
     match self.locator {
+      Some(@ticker.Locator::NamedLogit(value)) => self.bind_logit_context(value)
       Some(@ticker.Locator::NamedAsinh(value)) =>
         value.bind_view_interval(() => self.view_interval_checked())
       Some(@ticker.Locator::NamedSymLog(value)) =>
@@ -68,7 +71,8 @@ pub fn Axis::tick_values_checked(
   if self.fixed_ticks is None && self.category is None {
     if self.locator
       is Some(
-        @ticker.Locator::NamedAsinh(_)
+        @ticker.Locator::NamedLogit(_)
+        | @ticker.Locator::NamedAsinh(_)
         | @ticker.Locator::NamedSymLog(_)
         | @ticker.Locator::NamedLog(_)
         | @ticker.Locator::Null(_)
@@ -109,13 +113,17 @@ pub fn Axis::minor_tick_values_checked(
       }
       return ticks
     }
+    let logit_fixed = self.scale.is_logit() &&
+      self.minor_locator is Some(@ticker.MinorLocator::NamedFixed(_))
     if self.minor_locator
       is Some(
         @ticker.MinorLocator::NamedAutoMinor(_)
         | @ticker.MinorLocator::NamedLog(_)
+        | @ticker.MinorLocator::NamedLogit(_)
         | @ticker.MinorLocator::NamedAsinh(_)
         | @ticker.MinorLocator::NamedSymLog(_)
-      ) {
+      ) ||
+      logit_fixed {
       let limits = self.limits.unwrap_or(automatic)
       let previous = self.tick_layout_view
       if previous is None && self.numeric_view_provider is None {
@@ -126,8 +134,15 @@ pub fn Axis::minor_tick_values_checked(
       }
       // Source minor.call reads its own owner first. Axis overlap reads major again.
       let ticks = match self.minor_locator.unwrap() {
+        @ticker.MinorLocator::NamedFixed(value) => {
+          let locations = value.tick_values(0.0, 0.0)
+          locations
+          .view(0, 1, Int32::min(100000, locations.length()))
+          .to_array()
+        }
         @ticker.MinorLocator::NamedAutoMinor(value) => value.call()
         @ticker.MinorLocator::NamedLog(value) => value.call()
+        @ticker.MinorLocator::NamedLogit(value) => value.call()
         @ticker.MinorLocator::NamedAsinh(value) => value.call()
         @ticker.MinorLocator::NamedSymLog(value) => value.call()
         _ => []
@@ -187,6 +202,7 @@ fn Axis::numeric_scale_name(self : Axis) -> String {
     @scale.Log => "log"
     @scale.SymLog(..) => "symlog"
     @scale.Asinh(..) => "asinh"
+    @scale.Logit(..) => "logit"
   }
 }
 
@@ -205,7 +221,8 @@ fn Axis::major_tick_view_checked(
       Some(@ticker.Locator::Null(_)) =>
         return @ticker.TickValues::from_array([])
       Some(locator) if locator
-        is (@ticker.Locator::NamedAsinh(_)
+        is (@ticker.Locator::NamedLogit(_)
+        | @ticker.Locator::NamedAsinh(_)
         | @ticker.Locator::NamedSymLog(_)
         | @ticker.Locator::NamedLog(_)
         | @ticker.Locator::Index(_)
