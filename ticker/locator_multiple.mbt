@@ -84,7 +84,7 @@ pub fn MultipleLocator::tick_values(
 
 ///|
 // transforms._nonsingular, preserving binary64 operation order and zero threshold.
-fn multiple_nonsingular(
+fn locator_nonsingular(
   lower : Double,
   upper : Double,
   expander : Double,
@@ -111,7 +111,7 @@ pub fn MultipleLocator::nonsingular(
   lower : Double,
   upper : Double,
 ) -> (Double, Double) {
-  multiple_nonsingular(lower, upper, 0.05)
+  locator_nonsingular(lower, upper, 0.05)
 }
 
 ///|
@@ -134,7 +134,7 @@ pub fn MultipleLocator::view_limits(
   } else {
     (lower, upper)
   }
-  multiple_nonsingular(first, last, 0.001)
+  locator_nonsingular(first, last, 0.001)
 }
 
 ///|

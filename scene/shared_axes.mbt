@@ -42,6 +42,8 @@ pub fn Figure::subplots_with_grid(
         subplot_spec: Some(spec),
         share_x_group: share_group_for_cell(grid.share_x_mode(), row, column),
         share_y_group: share_group_for_cell(grid.share_y_mode(), row, column),
+        share_x_order: 0,
+        share_y_order: 0,
         show_x_tick_labels: match grid.share_x_mode() {
           @gridspec.ShareMode::All | @gridspec.ShareMode::Column =>
             row == grid.rows() - 1
@@ -69,7 +71,35 @@ pub fn Figure::subplots_with_grid(
       result.push({ figure: self, state, })
     }
   }
+  initialize_shared_axis_order(result)
   result
+}
+
+///|
+// Grouper registers the second subplot before its first shared partner.
+// Retain these initial ranks after removals instead of reordering survivors.
+fn initialize_shared_axis_order(axes : Array[Axes]) -> Unit {
+  for horizontal in [true, false] {
+    for axis in axes {
+      let states = if horizontal {
+        axis.x_group_states()
+      } else {
+        axis.y_group_states()
+      }
+      for index, state in states {
+        let rank = if states.length() > 1 && index < 2 {
+          1 - index
+        } else {
+          index
+        }
+        if horizontal {
+          state.val.share_x_order = rank
+        } else {
+          state.val.share_y_order = rank
+        }
+      }
+    }
+  }
 }
 
 ///|

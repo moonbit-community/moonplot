@@ -1,0 +1,377 @@
+{
+  "ticker_source_sha256": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+  "transforms_source_sha256": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "executed_methods": [
+    "Bbox.update_from_path",
+    "IndexLocator.__call__",
+    "IndexLocator.tick_values",
+    "Locator.raise_if_exceeds",
+    "transforms._interval_contains_close"
+  ],
+  "fixture_boundaries": "SimpleNamespace supplies Bbox storage/invalidation, raw path vertices and axis data getter. The original Bbox method runs its own finite mask/min/max/minpos through NumPy, with no copied extent algorithm. Display identity/positive-domain log10 are explicit fixture transforms; this does not run Matplotlib's renderer or LogTransform.",
+  "native_boundary": "Bbox.update_from_path is the pinned pure-Python/NumPy body; no Matplotlib native path helper is substituted. IndexLocator executes the actual fixed NumPy arange native operation.",
+  "cases": [
+    {
+      "case": {
+        "label": "x log retains negative x data",
+        "xs": [
+          -2.0,
+          2.0,
+          4.0
+        ],
+        "ys": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "horizontal": true,
+        "xlog": true,
+        "ylog": false,
+        "base": 3.0,
+        "views": [
+          [
+            0.5,
+            5.0
+          ],
+          [
+            5.0,
+            2.5
+          ]
+        ]
+      },
+      "bbox_points": [
+        [
+          -2.0,
+          1.0
+        ],
+        [
+          4.0,
+          1.0
+        ]
+      ],
+      "bbox_minimum_positive": [
+        2.0,
+        1.0
+      ],
+      "data_interval": [
+        -2.0,
+        4.0
+      ],
+      "invalidations": 1,
+      "views": [
+        {
+          "view_interval": [
+            0.5,
+            5.0
+          ],
+          "original_data_call": [
+            -2.0,
+            1.0,
+            4.0
+          ],
+          "transformed_display_view": [
+            -0.3010299956639812,
+            0.6989700043360189
+          ],
+          "visible_ticks": [
+            1.0,
+            4.0
+          ],
+          "data_reads": 1
+        },
+        {
+          "view_interval": [
+            5.0,
+            2.5
+          ],
+          "original_data_call": [
+            -2.0,
+            1.0,
+            4.0
+          ],
+          "transformed_display_view": [
+            0.6989700043360189,
+            0.3979400086720376
+          ],
+          "visible_ticks": [
+            4.0
+          ],
+          "data_reads": 2
+        }
+      ]
+    },
+    {
+      "case": {
+        "label": "y log retains negative y data",
+        "xs": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ys": [
+          -2.0,
+          2.0,
+          4.0
+        ],
+        "horizontal": false,
+        "xlog": false,
+        "ylog": true,
+        "base": 3.0,
+        "views": [
+          [
+            0.5,
+            5.0
+          ],
+          [
+            5.0,
+            2.5
+          ]
+        ]
+      },
+      "bbox_points": [
+        [
+          1.0,
+          -2.0
+        ],
+        [
+          1.0,
+          4.0
+        ]
+      ],
+      "bbox_minimum_positive": [
+        1.0,
+        2.0
+      ],
+      "data_interval": [
+        -2.0,
+        4.0
+      ],
+      "invalidations": 1,
+      "views": [
+        {
+          "view_interval": [
+            0.5,
+            5.0
+          ],
+          "original_data_call": [
+            -2.0,
+            1.0,
+            4.0
+          ],
+          "transformed_display_view": [
+            -0.3010299956639812,
+            0.6989700043360189
+          ],
+          "visible_ticks": [
+            1.0,
+            4.0
+          ],
+          "data_reads": 1
+        },
+        {
+          "view_interval": [
+            5.0,
+            2.5
+          ],
+          "original_data_call": [
+            -2.0,
+            1.0,
+            4.0
+          ],
+          "transformed_display_view": [
+            0.6989700043360189,
+            0.3979400086720376
+          ],
+          "visible_ticks": [
+            4.0
+          ],
+          "data_reads": 2
+        }
+      ]
+    },
+    {
+      "case": {
+        "label": "negative y on another log axis retains x data",
+        "xs": [
+          10.0,
+          20.0,
+          40.0
+        ],
+        "ys": [
+          -2.0,
+          2.0,
+          4.0
+        ],
+        "horizontal": true,
+        "xlog": false,
+        "ylog": true,
+        "base": 15.0,
+        "views": [
+          [
+            5.0,
+            45.0
+          ],
+          [
+            45.0,
+            21.0
+          ]
+        ]
+      },
+      "bbox_points": [
+        [
+          10.0,
+          -2.0
+        ],
+        [
+          40.0,
+          4.0
+        ]
+      ],
+      "bbox_minimum_positive": [
+        10.0,
+        2.0
+      ],
+      "data_interval": [
+        10.0,
+        40.0
+      ],
+      "invalidations": 1,
+      "views": [
+        {
+          "view_interval": [
+            5.0,
+            45.0
+          ],
+          "original_data_call": [
+            10.0,
+            25.0,
+            40.0
+          ],
+          "transformed_display_view": [
+            5.0,
+            45.0
+          ],
+          "visible_ticks": [
+            10.0,
+            25.0,
+            40.0
+          ],
+          "data_reads": 1
+        },
+        {
+          "view_interval": [
+            45.0,
+            21.0
+          ],
+          "original_data_call": [
+            10.0,
+            25.0,
+            40.0
+          ],
+          "transformed_display_view": [
+            45.0,
+            21.0
+          ],
+          "visible_ticks": [
+            25.0,
+            40.0
+          ],
+          "data_reads": 2
+        }
+      ]
+    },
+    {
+      "case": {
+        "label": "negative x on another log axis retains y data",
+        "xs": [
+          -2.0,
+          2.0,
+          4.0
+        ],
+        "ys": [
+          10.0,
+          20.0,
+          40.0
+        ],
+        "horizontal": false,
+        "xlog": true,
+        "ylog": false,
+        "base": 15.0,
+        "views": [
+          [
+            5.0,
+            45.0
+          ],
+          [
+            45.0,
+            21.0
+          ]
+        ]
+      },
+      "bbox_points": [
+        [
+          -2.0,
+          10.0
+        ],
+        [
+          4.0,
+          40.0
+        ]
+      ],
+      "bbox_minimum_positive": [
+        2.0,
+        10.0
+      ],
+      "data_interval": [
+        10.0,
+        40.0
+      ],
+      "invalidations": 1,
+      "views": [
+        {
+          "view_interval": [
+            5.0,
+            45.0
+          ],
+          "original_data_call": [
+            10.0,
+            25.0,
+            40.0
+          ],
+          "transformed_display_view": [
+            5.0,
+            45.0
+          ],
+          "visible_ticks": [
+            10.0,
+            25.0,
+            40.0
+          ],
+          "data_reads": 1
+        },
+        {
+          "view_interval": [
+            45.0,
+            21.0
+          ],
+          "original_data_call": [
+            10.0,
+            25.0,
+            40.0
+          ],
+          "transformed_display_view": [
+            45.0,
+            21.0
+          ],
+          "visible_ticks": [
+            25.0,
+            40.0
+          ],
+          "data_reads": 2
+        }
+      ]
+    }
+  ]
+}

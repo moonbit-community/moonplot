@@ -7,6 +7,8 @@ import {
 }
 
 // Values
+pub fn artist_data_interval(Array[@render.Artist], Bool) -> @core.Limits
+
 pub fn panel_position(@render.Figure, Int) -> (Double, Double, Double, Double)?
 
 pub fn panel_view(@render.Figure, Int) -> ((Double, Double, Double, Double), @core.Limits, @core.Limits)? raise @core.DataError
@@ -14,6 +16,8 @@ pub fn panel_view(@render.Figure, Int) -> ((Double, Double, Double, Double), @co
 pub fn render(@render.Figure) -> String
 
 pub fn render_with_positions(@render.Figure) -> (String, Array[(Double, Double, Double, Double)])
+
+pub fn render_with_positions_checked(@render.Figure) -> (String, Array[(Double, Double, Double, Double)]) raise @core.DataError
 
 // Errors
 

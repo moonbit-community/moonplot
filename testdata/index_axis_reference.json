@@ -1,0 +1,1057 @@
+{
+  "source_hashes": {
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "figure.py": "b440ab0a5be03cb39b13529a2fec497d2d96deb083e3e56d6220593e3ec567da",
+    "axes/_secondary_axes.py": "b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "executed_methods": [
+    "TickHelper.set_axis",
+    "Axis.set_major_locator",
+    "Axis.set_minor_locator",
+    "Axis.get_major_locator",
+    "Axis.get_minor_locator",
+    "FigureBase._remove_axes",
+    "IndexLocator.__call__",
+    "IndexLocator.tick_values",
+    "SecondaryAxis._set_lims"
+  ],
+  "fixture_boundaries": "controlled local data intervals, shared Ticker containers, group membership and callback sinks; no copied binding algorithm; secondary starts with standard empty data interval",
+  "ownership_cases": [
+    {
+      "level": "major",
+      "orientation": "x",
+      "stages": [
+        {
+          "stage": "installed first; shared ticker points to first local data",
+          "owner": "first",
+          "ticks": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            0.0,
+            1.0
+          ],
+          "second_view": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "stage": "installed second; shared ticker points to second local data",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            101.0,
+            102.0,
+            103.0,
+            104.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            0.0,
+            1.0
+          ],
+          "second_view": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "stage": "view changes do not change data ownership",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            101.0,
+            102.0,
+            103.0,
+            104.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "copy retains second axis but has independent base",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            102.0,
+            104.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "later local data update is observed",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            101.0,
+            102.0,
+            103.0,
+            104.0,
+            105.0,
+            106.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            106.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "remove owning second axis rebinds shared locator to first",
+          "owner": "first",
+          "ticks": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            106.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "removed second data no longer controls shared locator",
+          "owner": "first",
+          "ticks": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            110.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "independent copy outside ticker retains removed second axis",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            102.0,
+            104.0,
+            106.0,
+            108.0,
+            110.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            110.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        }
+      ],
+      "removal_events": [
+        "axes_change",
+        "release_mouse"
+      ],
+      "formatter_owner": "first",
+      "remaining_group_size": 1
+    },
+    {
+      "level": "major",
+      "orientation": "y",
+      "stages": [
+        {
+          "stage": "installed first; shared ticker points to first local data",
+          "owner": "first",
+          "ticks": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            0.0,
+            1.0
+          ],
+          "second_view": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "stage": "installed second; shared ticker points to second local data",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            101.0,
+            102.0,
+            103.0,
+            104.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            0.0,
+            1.0
+          ],
+          "second_view": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "stage": "view changes do not change data ownership",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            101.0,
+            102.0,
+            103.0,
+            104.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "copy retains second axis but has independent base",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            102.0,
+            104.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "later local data update is observed",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            101.0,
+            102.0,
+            103.0,
+            104.0,
+            105.0,
+            106.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            106.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "remove owning second axis rebinds shared locator to first",
+          "owner": "first",
+          "ticks": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            106.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "removed second data no longer controls shared locator",
+          "owner": "first",
+          "ticks": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            110.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "independent copy outside ticker retains removed second axis",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            102.0,
+            104.0,
+            106.0,
+            108.0,
+            110.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            110.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        }
+      ],
+      "removal_events": [
+        "axes_change",
+        "release_mouse"
+      ],
+      "formatter_owner": "first",
+      "remaining_group_size": 1
+    },
+    {
+      "level": "minor",
+      "orientation": "x",
+      "stages": [
+        {
+          "stage": "installed first; shared ticker points to first local data",
+          "owner": "first",
+          "ticks": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            0.0,
+            1.0
+          ],
+          "second_view": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "stage": "installed second; shared ticker points to second local data",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            101.0,
+            102.0,
+            103.0,
+            104.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            0.0,
+            1.0
+          ],
+          "second_view": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "stage": "view changes do not change data ownership",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            101.0,
+            102.0,
+            103.0,
+            104.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "copy retains second axis but has independent base",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            102.0,
+            104.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "later local data update is observed",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            101.0,
+            102.0,
+            103.0,
+            104.0,
+            105.0,
+            106.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            106.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "remove owning second axis rebinds shared locator to first",
+          "owner": "first",
+          "ticks": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            106.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "removed second data no longer controls shared locator",
+          "owner": "first",
+          "ticks": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            110.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "independent copy outside ticker retains removed second axis",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            102.0,
+            104.0,
+            106.0,
+            108.0,
+            110.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            110.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        }
+      ],
+      "removal_events": [
+        "axes_change",
+        "release_mouse"
+      ],
+      "formatter_owner": "first",
+      "remaining_group_size": 1
+    },
+    {
+      "level": "minor",
+      "orientation": "y",
+      "stages": [
+        {
+          "stage": "installed first; shared ticker points to first local data",
+          "owner": "first",
+          "ticks": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            0.0,
+            1.0
+          ],
+          "second_view": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "stage": "installed second; shared ticker points to second local data",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            101.0,
+            102.0,
+            103.0,
+            104.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            0.0,
+            1.0
+          ],
+          "second_view": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "stage": "view changes do not change data ownership",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            101.0,
+            102.0,
+            103.0,
+            104.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "copy retains second axis but has independent base",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            102.0,
+            104.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            104.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "later local data update is observed",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            101.0,
+            102.0,
+            103.0,
+            104.0,
+            105.0,
+            106.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            106.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "remove owning second axis rebinds shared locator to first",
+          "owner": "first",
+          "ticks": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            106.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "removed second data no longer controls shared locator",
+          "owner": "first",
+          "ticks": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            110.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        },
+        {
+          "stage": "independent copy outside ticker retains removed second axis",
+          "owner": "second",
+          "ticks": [
+            100.0,
+            102.0,
+            104.0,
+            106.0,
+            108.0,
+            110.0
+          ],
+          "first_data": [
+            0.0,
+            2.0
+          ],
+          "second_data": [
+            100.0,
+            110.0
+          ],
+          "first_view": [
+            1000.0,
+            2000.0
+          ],
+          "second_view": [
+            -200.0,
+            -100.0
+          ]
+        }
+      ],
+      "removal_events": [
+        "axes_change",
+        "release_mouse"
+      ],
+      "formatter_owner": "first",
+      "remaining_group_size": 1
+    }
+  ],
+  "secondary_cases": [
+    {
+      "orientation": "x",
+      "parent_view": [
+        0.0,
+        4.0
+      ],
+      "secondary_view": [
+        0.0,
+        8.0
+      ],
+      "secondary_data": [
+        "inf",
+        "-inf"
+      ],
+      "writes": [
+        [
+          0.0,
+          8.0
+        ]
+      ],
+      "ticks": null,
+      "source_error": "ValueError"
+    },
+    {
+      "orientation": "x",
+      "parent_view": [
+        100.0,
+        200.0
+      ],
+      "secondary_view": [
+        200.0,
+        400.0
+      ],
+      "secondary_data": [
+        "inf",
+        "-inf"
+      ],
+      "writes": [
+        [
+          200.0,
+          400.0
+        ]
+      ],
+      "ticks": null,
+      "source_error": "ValueError"
+    },
+    {
+      "orientation": "x",
+      "parent_view": [
+        4.0,
+        0.0
+      ],
+      "secondary_view": [
+        8.0,
+        0.0
+      ],
+      "secondary_data": [
+        "inf",
+        "-inf"
+      ],
+      "writes": [
+        [
+          8.0,
+          0.0
+        ]
+      ],
+      "ticks": null,
+      "source_error": "ValueError"
+    },
+    {
+      "orientation": "y",
+      "parent_view": [
+        0.0,
+        4.0
+      ],
+      "secondary_view": [
+        0.0,
+        8.0
+      ],
+      "secondary_data": [
+        "inf",
+        "-inf"
+      ],
+      "writes": [
+        [
+          0.0,
+          8.0
+        ]
+      ],
+      "ticks": null,
+      "source_error": "ValueError"
+    },
+    {
+      "orientation": "y",
+      "parent_view": [
+        100.0,
+        200.0
+      ],
+      "secondary_view": [
+        200.0,
+        400.0
+      ],
+      "secondary_data": [
+        "inf",
+        "-inf"
+      ],
+      "writes": [
+        [
+          200.0,
+          400.0
+        ]
+      ],
+      "ticks": null,
+      "source_error": "ValueError"
+    },
+    {
+      "orientation": "y",
+      "parent_view": [
+        4.0,
+        0.0
+      ],
+      "secondary_view": [
+        8.0,
+        0.0
+      ],
+      "secondary_data": [
+        "inf",
+        "-inf"
+      ],
+      "writes": [
+        [
+          8.0,
+          0.0
+        ]
+      ],
+      "ticks": null,
+      "source_error": "ValueError"
+    }
+  ]
+}

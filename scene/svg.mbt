@@ -374,7 +374,7 @@ pub fn Figure::to_svg(self : Figure) -> String {
 /// ```
 pub fn Figure::to_svg_checked(self : Figure) -> String raise @core.DataError {
   self.apply_position_aspects()
-  let (document, positions) = @svg.render_with_positions(
+  let (document, positions) = @svg.render_with_positions_checked(
     self.to_render_figure(),
   )
   for index, (left, top, width, height) in positions {

@@ -271,3 +271,26 @@ SVG tick visibility follows axis._update_ticks and
 transforms._interval_contains_close after coordinate transformation; formatter
 layout retains the full locator output before drawing is filtered.
 No upstream C implementation or new runtime dependency is distributed.
+
+## Named linear, index and fixed locators
+
+LinearLocator, IndexLocator and FixedLocator follow their fixed Matplotlib
+ticker class bodies and inherited locator range policies. Linear sampling
+preserves the pinned NumPy linspace operation order; index grids follow the
+fixed NumPy arange runtime. The FixedLocator reference executes the original
+Matplotlib _api.check_shape body and observes mutable NumPy slice and shallow
+copy aliasing directly. TickValues and LinearLocatorPresets provide the typed
+MoonBit buffer and preset model, including signed, nested and zero-stride views.
+Index fill follows the recorded Darwin arm64 NumPy binary profile, with a pure
+MoonBit BigInt implementation of the observed single-rounding operation.
+Axis binding, shared-axis removal and secondary-view observations execute the
+original Axis, TickHelper, FigureBase and SecondaryAxis method bodies.
+Additional references execute the original Bbox data update, Grouper,
+GridSpec subplot creation and Axes sharing bodies to check raw data bounds
+and surviving shared-axis ownership order.
+Matplotlib's license and notice above apply;
+the NumPy linspace source is used for behavioral reference, with no NumPy C
+implementation distributed. Pinned hashes, reference cases, ownership and
+typed scope are documented in
+[testdata/named_numeric_locator_README.md](testdata/named_numeric_locator_README.md).
+No new third-party runtime or C dependency is introduced.

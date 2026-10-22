@@ -8,39 +8,38 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D21（命名LinearLocator/IndexLocator/FixedLocator及data interval接线），待定向冻结。
-- 最近完成D20：命名数值MultipleLocator、live主次adapter、共享internal/tick_grid、动态
-  axes.autolimit_mode/nonsingular/view_limits、axis/contour/shared/secondary及SVG可视过滤。
-- 最终四目标：wasm/wasm-gc/native各5346/5346，JS5353/5353（7个无Node测试）。
-  info&&fmt、check-all180tasks（8旧Ref warnings）、1200数值观察与D19日期原源--check通过。
-  D20-interface.diff为预期新Multiple、config与axis helper；date接口无变化/无foreign类型。
-- 下一条具体动作：收集两个只读agent关于LinearLocator/IndexLocator/FixedLocator的定向
-  合同与axis接线报告，冻结D21（Index必须真实data interval而非view），建立D21-before；
-  再把三个类的独立实现/原源测试交给agent，root负责共同enum与axis/render整合。
-- 当前无live tool session。D20 test-all78599、check-all65736、numeric source --check与
-  micro source --check70461全部exit0，历史ID勿轮询。两个agent正在做D21只读分析。
-- Git本地基线commit 1b61c4b（D01–D19）；D20验收代码与本检查点一并本地提交，
-  当前提交用git log -1读取，无remote。用户已授权分批commit与并行subagents。
+- 当前切片编号：D21已验收；下一切片D22候选命名MaxNLocator/AutoLocator，尚未冻结/实现。
+- 最近完成D21：命名Linear/Index/Fixed、真实signed/nested/0stride views、checked axis/SVG、
+  本地raw data interval、共享owner/实际Grouper删除顺序与SubFigure分组隔离。旧helpers保留。
+- 最终四目标：wasm/wasm-gc/native各6380/6380，JS6387/6387（7个无Node测试）。
+  info&&fmt、check-all79tasks（8旧Ref warnings）、八个source --check全部exit0。
+  D21-interface.diff符合预期3类/view/checked/provider，无date接口变化/foreign类型。
+- 下一条具体动作：读取 .moonagent/checkpoints/D22-readonly-notes.md（235行已定向分析），
+  冻结MaxN/Auto typed参数与partial-update、offset Edge/tiny、完整nticks/prune/cap和真实
+  tick-space边界；保存D22-before后分派三个独占实现/原源包，root负责公共接线和门禁。
+- 当前无live Moon/source session。最终test-all4524、check-all28603、shared source75085均
+  exit0，历史ID勿轮询；三个agents全部交付停止。D22只有只读笔记，不得误报已实现。
+- Git本地基线commit 1b61c4b（D01–D19）；D20验收commit d385718；D21随本检查点本地提交，
+  当前提交用git log读取。无remote。用户已授权分批commit与并行subagents。
 - 整体目标持续，约46%全目标/80%核心二维SVG工程估算暂不变，无阻塞。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
   CPython v3.11.0 timedelta 源码在 .moonagent/upstream/cpython-v3.11.0/，仅行为
   参考。独立参考脚本 scripts/generate_date_range_reference.py 校验 dates.py 哈希，
   testdata/date_range_reference.json 和 date_range_README.md 记录版本与复现。
 - D04 源码/接口快照 .moonagent/checkpoints/D04-before/；之前快照仍保留，勿覆盖。
-  IANA 数据/名称和缓存迭代器保持已验收状态。Git 仓库仍 master，无提交/远端；
-  本轮未创建 Git 提交。
+  IANA 数据/名称和缓存迭代器保持已验收状态。Git 仓库仍 master、无远端；
+  历史无commit指令已被用户新授权覆盖。
 - 当前无需要用户回答的阻塞项。
 
 ## 当前目标
 
 - [ ] 持续把 Matplotlib v3.11.2 的公开能力迁移到 MoonBit；本目标仍在进行中。
-- 当前纵向切片：命名LinearLocator/IndexLocator/FixedLocator；通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
+- 下一纵向切片候选：命名MaxNLocator/AutoLocator；命名LinearLocator/IndexLocator/FixedLocator、通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
   TZif/IANA、Axes 位置/选择/移除、numeric aspect、anchor、adjustable 与 box_aspect 已验收。
 - 已确认的用户决定：支持合理复用；保留 `Figure::to_svg` → `internal/render` →
   `backend/svg`，有具体共享需求再增加抽象层。不要反复讨论已解决的架构问题。
 - 用户2026-10-23新授权：可以多做本地Git commit，覆盖此前不提交决定；按通过验证的
-  完整步骤提交。已有master暂无HEAD/remote，首次验收后建立基线commit；后续分批提交。
-  首次提交前仍用D19-before接口快照审查。
+  完整步骤提交。master已建立本地基线与分批commit，无remote；每个切片仍审查接口差异。
 - 整体迁移目标持续有效，完成一个切片不能把整体目标标为完成。
 
 ## 已完成并验证的基线
@@ -2674,7 +2673,196 @@
 
 ## D21 执行顺序
 
-- [ ] D21-01 合同定向冻结（Linear/Index/Fixed、None/presets/alias/nbins/错误/view/data边界），
+- [x] D21-01 合同定向冻结（Linear/Index/Fixed、None/presets/alias/nbins/错误/view/data边界），
   真实data interval接线设计与独占文件分派，建立D21-before。
-- [ ] D21-02 三命名类并行实现/各自原源参考，root整合enum/axis/shared/render/secondary/contour。
-- [ ] D21-03 docs/source--check/接口/四目标验收并本地commit。
+- [x] D21-02 三命名类并行实现/各自原源参考，root整合enum/axis/shared/render/secondary/contour。
+- [x] D21-03 docs/source--check/接口/四目标验收并本地commit。
+
+### D21 定向只读事实（尚未冻结/实现）
+
+- D20本地验收commit为 d385718，上一基线1b61c4b；提交后工作树确认干净，无remote。
+- multiple_integration只读报告已完成；multiple_reference正在补alias/极值观察。未来三类可
+  按ticker/locator_linear.mbt、locator_index.mbt、locator_fixed.mbt独占实现并各带原源
+  generator/JSON/test；root独占ticker/locator.mbt、axis/view/ranges/render公共接线。
+- Linear源默认numticks None→getter11，0/1语义不能用旧linear helper；先.05 nonsingular
+  再presets查找再0空，presets键是已展开排序后的range。round view_limits在numticks<=2时
+  log10(max(n-1,1))=0导致除零，必须checked API；不要用非raisingMultiple view协议掩盖。
+- Index源从vmin+offset开始到vmax+1e-12（不是+1），不排序/齐倍数。构造不检查base，
+  finite负base支持下降、0延迟到tick错误；不能套Multiple正值guard。
+- Fixed direct忽略bounds并保留顺序/重复/外侧值；ctor nbins<2夹2，set_params保留0/负数，
+  0延迟除零、负数返回全部。stride择最小abs、平局先遇到；空/NaN/alias待reference报告。
+- 新named variants必须在generic全局finite guard/排序之前独立dispatch，旧linear_locator
+  默认7/count钳2、linear_ticks默认6/point1值、旧fixed严格有限递增/裁范围均保持。
+- Index.__call__读axis.get_data_interval。现raw_scale/grouped_raw_scale已被显式view覆盖，
+  不能冒充data interval；须从artist_data_scale真实数据建立context，再用最终view过滤绘制。
+- shared Index ownership尚未冻结：原Axis data interval为各axes本地dataLim，共享Ticker但
+  Locator.set_axis保存最后绑定axis。不能直接声称shared数据union；secondary Index同理。
+- 当前无live Moon session，D21未实现；若交接从以上未冻结点继续，不重读已完成D20survey。
+
+### D21-01 冻结补充与并行实施边界
+
+- 原源只读报告已完成，D21-before已保存；当前code基线d385718，所有D20门禁保持。
+- Linear new/raw numticks:Int32?保留None但getter11；负数/0/1接受，错误按源延迟。set_params
+  None不改；set_numticks(Option)可映射property reset。presets用共享可变typed store，
+  同key后写覆盖、nonsingular后匹配；命中返回borrowed值view，copy浅共享store但替换store独立。
+- 原源NumPy linspace按delta/div、step下溢(index/div)*delta、num>1最终endpoint覆盖；
+  ±max且num1→[NaN]、num2→[NaN,max]。固定function_base.py SHA
+  413d696e597ff2b7ffdd9b06b4b42801e435392a82a9e006b4c4f33c013523fc。
+- Index base/offset保留完整Double（包括0/负数/NaN/Inf），new/set不前置验证；source NumPy
+  arange错误延迟至tick。实际fill step=(start+base)-start；正ratio下溢0仍1点，支持Inf step
+  首点等原行为。provider绑定可选callback供root接线，copy保留当前provider但参数独立。
+- Fixed nbins:Double?覆盖源实际fraction/NaN/Inf域，new用Python max(nbins,2)顺序，set不夹。
+  locs Array[Double]表示borrowed ndarray，另from_list构造复制；copy浅共享buffer、nbins独立。
+  None结果及stride subsample必须返回共享可变view，不把物化Array声称alias兼容。
+- root新增opaque TickValues(buffer/start/stride/length)，支持length/get/set/to_array/copy；
+  Linear/Fixed direct tick_values返回TickValues，adapter显式to_array。稳定shape借用buffer，
+  get/set/to_array对外部shrink错误raiseDataError。LinearPresetStore共享可变键/array值。
+- 三agent将分别负责每类direct对象+独立原源generator/JSON/tests；root负责TickValues、
+  nonsingular共享helper与generic enums/adapters/axis/data/render/checked错误链、统一门禁。
+- root新增Axis.view_limits_checked并供checked scale/render传播Linear源range错误；原nonraising
+  convenience沿try!惯例。Figure.to_svg_checked调用checked render，避免range错误被panic吞没。
+- Index必须真实本地artist data interval；Axis绑定callback最后显式rebind请求设置的轴，
+  模拟source共享Ticker但locator.axis指向调用者；先更新各panel真实data，再按view过滤绘制。
+  shared/secondary具体接线原源观测由root进一步核实，不以union替代所有权。
+- 旧helpers全部保持；named variants在旧guard/sort前dispatch。100000 eager前缀限制保留，
+  Linear巨大numticks只保留真正前缀，不把最后一项误写成完整end；budget不冒充source错误。
+
+- D21三个agent已切到真实独占类实现：multiple_reference→Linear+presets+其source/tests，
+  multiple_integration→Index+其source/tests，multiple_docs→Fixed+其source/tests。
+  各自可Python生成/--check/逐文件moonfmt，不跑Moon test/info/全fmt或commit。
+- root已新增TickValues borrowed/strided buffer view基础(get/set/to_array/copy/checked shape)，
+  并将multiple_nonsingular改名为可跨类复用的package locator_nonsingular。尚未统一编译/验收。
+
+### D21 当前root整合（尚未编译/验收）
+
+- Linear owner已交付6文件（206原源+4hand/949观察），Fixed owner已交付5文件（469原源+
+  4hand+1doc，456cases/12alias/9ranges/4shape）。都已停止原实现文件写入；Index owner
+  正实现NumPy Darwin arange fill FMA的纯Moon精确舍入，避免放宽逐bit参考。
+- 原_api源码已补fixed commit/hash7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782；
+  secondary源同commit补齐hashb2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93。
+  raw curl曾reset，GitHub contents API成功；secondary不持数据、只随父view变换的源行为已读。
+- root新增TickValues与1个stride/negativeindex/shape checked白盒；newnamed adapters及getters/
+  checked materialize、100000前缀、minor裁范围保序已写。NamedLinear反向按既有port方向，
+  NamedFixed忽略bounds与保留任意序列，Index不排序。旧variants在原guard/sort路径保持。
+- root新增Axis data_interval callback/bind、checked view/ticks/minor ticks；Scene按本地artists
+  动态转换IR并复用SVG artist_data_interval，避免缓存过期或把显式view/shared union冒充数据。
+  shared foreach安装后显式rebind真正调用的axis；直接Axes.x_axis getter也提供数据context。
+  secondary绑定Index到自身空data interval，不取主轴view当data。
+- root checked scale/render链及Figure.to_svg_checked已接线，新named源错误向CoreDataError传播；
+  旧nonraising convenience沿try!，旧legacy locator/date安全[]协议保持。
+- Linear agent又负责3个新集成测试文件；Fixed agent转D21六份docs；二者不碰生产或旧tests。
+  所有agent禁止Moon测试/info/全fmt/commit，当前root未运行Moon测试，尚无live Moon session。
+- 下一动作：等待Index FMA/两agent独占新集成/docs停止写入，先统一static/JS编译修复（目前
+  大量公共接线尚未编译，勿误标完成），再原源差异、shared Index ownership实证、文档/接口/四目标。
+
+- static JS第三次exit0：22tasks/9warnings（8旧Ref+1新unused compute_scales wrapper），生产
+  核心类/公共接线已可编译；将删除多余wrapper并保留checked compute_scales供现whitebox。
+- Index owner已交付并停止写入，236generated+4hand/232grids/9updates/3providers/3FMA观察，
+  NumPy binary SHA44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305。
+- Linear owner新增13集成tests已交付停止；Fixed owner正做独占Index ownership source/tests，
+  尚未停止写这些新tests，所以root没有运行Moon test。
+- Root按固定Figure._remove_axes补共享owner删除后major/minor Index重绑到首个remaining轴；
+  figure.py SHA b440ab0a5be03cb39b13529a2fec497d2d96deb083e3e56d6220593e3ec567da。
+
+- D21推进中：Linear/Fixed源ndarray_view参考原先只核对logical Array，root审查后增加实际
+  owner buffer/negative stride/nested stride/zero stride别名观察；不能把flatten副本当np view。
+  root TickValues.view(start,stride,length)已落盘，stride内部Int64，首尾/shape checked，支持
+  negative start/stride、zero stride与empty；增加nested/极值descriptor白盒。Fixed locations
+  改TickValues/from_view，Linear presets加set_view，由原独占agent升级5/6文件，不改公共文件。
+- 当前owners：multiple_reference→Linear6文件，multiple_integration→Fixed5文件，
+  multiple_docs→Index axis source+JSON+scene/backend两个新测试共4文件；均禁止Moon test/info/
+  fullfmt/commit。root统一接线/检查。Index原实现与13个named集成测试已交付不再写入。
+- root移除unused compute_scales wrapper，checked compute_scales沿原名供render与WBtests使用；
+  static JS第四次正在执行，日志D21-check-js-4.log。此时没有live Moon test。
+
+- 三类/所有新tests writers均已停止：Linear最终184ranges/20presets/3alias/6updates+7strided×4
+  阶段=977观察组，213generated+4hand；Fixed456cases/24真实owner alias/9ranges/4shape，
+  481generated+7hand+1doc；Index232grids/9updates/3provider/3FMA=961观察组，236generated+4hand。
+- Index axis原AST oracle 4traces(x/y×major/minor)、32ownership+6secondary观察、8集成tests已交付；
+  13个通用named集成亦已交付。Fixed agent只读review公共接线，docs agent仅更新6docs；
+  所有agent已被禁止写源码/测试。root现在首次统一JS tests，日志D21-test-js-1.log。
+- static JS第五次exit0：21tasks/8旧Ref warnings/0error（在最后Linear生成前）；第四次
+  exit255仅新WB测试旧compute_scales_checked标识与旧locations()[0]，已修正为raising
+  compute_scales及locations().get(0)，未把未编译测试误报通过。
+
+- 首次统一JS44940 exit0：6322/6322；全新原源bits/真实owner views/21集成与旧回归均通过。
+- moon info&&moon fmt exit0；D21-interface.diff保存：预期新增3类/Presets/TickValues与view、
+  live enum/getters/checked adapters、Axis data provider/checked ticks/view、SVG artist_data_interval
+  与checked render；date接口无变化、无foreign类型/运行时依赖新增。git diff --check通过。
+- 最终check-all已启动日志D21-check-all.log；接下来四目标test-all与六脚本source--check。
+
+- D21最终check-all首次exit0：88tasks/8旧warnings；尚未开始最终test-all。
+- agent只读review发现真实source差异：data provider复用display scale时会把log非正坐标
+  过滤掉，错误改变Index origin（x[-2,2,4],base3源ticks[-2,1,4]，旧新实现错[2]）。
+  原Bbox.update_from_path AST与Index实证已确认。root已把新artist_data_interval收缩为
+  (artists,horizontal)并以双linear收集原始finite点；旧display/autoscale筛选保持原实现。
+- multiple_integration现拥有3个新文件：scene/index_data_scale_test.mbt、独立generator/JSON，
+  补log x/y与另一坐标log负值的data回归及原AST证据；未运行Moon test。等其停止写入，
+  再info&&fmt/接口review/最终四目标。其余两个agents只读或idle；6docs最终API/计数已同步。
+
+- 六个固定source --check已启动并行只读：Linear/Fixed/Index/Index axis/Multiple全部exit0，
+  microsecond source session54634仍live（只读参考，不是Moon测试，可继续实现log补丁）。
+  日志D21-source-*.log。generator经moon fmt后产物仍一致，原源bits未放宽。
+
+- microsecond source54634 exit0，六个source --check全部通过；已无live source/Moon session。
+- log data source/JSON/4tests已交付停止；原Bbox.update_from_path纯NumPy body+Index实际执行，
+  display identity/log10仅fixture边界。root新raw data helper不再受x/y display scale影响。
+- 另一只读审查确认3/4共享轴删除顺序差异：原Grouper首次join登记顺序每组[axis1,axis0,
+  axis2,...]，不能按Figure创建顺序选first sibling。实际执行原Grouper/GridSpec.subplots/
+  Axes.sharex/sharey/Axis setter/Figure._remove_axes，11删除case中旧实现5例owner错。
+- root新增AxesData私有share_x_order/share_y_order，Figure/SubFigure新grid记录初始每组
+  [1,0,2,...]rank，删除按remaining最小rank重绑major/minor。顺带纠正SubFigure y Row/Column
+  分组反置，以原GridSpec按row/column语义为准。未扩公共API。
+- multiple_docs当前独占新增shared order generator/JSON/scene test三文件，含3/4axes、
+  row/column、SubFigure、连续删除与external copy；等停止写入再统一最终门禁。
+- 新固定源hash：cbook.py e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643；
+  gridspec.py df8395306765d9b93f98d6b2e867836a9b2b0786cf5b39a26103309c4331afde；
+  axes/_base.py ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b。
+- D22候选MaxN+Auto只读报告已收到，agent将保存在ignored D22-readonly-notes.md；仍以
+  D21最终验收为先，不提前扩实现。AutoMinor无刚性依赖可后续独立迁移。
+
+- static JS第六次exit0：16tasks/8旧warnings；log raw-data及初始shared rank生产接线可编译。
+- SubFigure共享组ID分配发现旧reserve1与row/column多组相撞风险；root把私有allocator改按
+  All1/Row rows/Column columns预留完整负ID区间，列分组统一group-column。新的shared order
+  oracle/tests追加跨两个SubFigure互不共享与连续删除，避免分组碰撞改变Index owner。
+- root当前修改仅D21接线；Linear/Index/Fixed direct core均停止且首次6322JS已过。最终
+  shared order三文件仍writer active，尚未启动最终Moon test。D22 notes仍待agent落盘。
+
+- 真实shared order三文件已交付停止：60traces/tests、228stages、84removals，原完整Grouper/
+  GridSpec.subplots/Axes.sharex/sharey/Axis setters/Figure.remove实际执行，含Figure/SubFigure
+  all/row/column、3/4成员、连续删除、外部copy与两个SubFigure独立分组。rootrank/ID预留修复
+  已纳入，public API无新增。静态JS第七次exit0：11tasks/8旧warnings。
+- root按Axis.clear原源保留data provider context（仅构造None），加1项clear→新plot→旧Index/
+  copy读取新数据回归。原Axes.clear保留旧dataLim直到首个新artist更新；当前Scene实时collector
+  清空后立即empty，明确作为尚未实现的dataLim cache/relim边界写guide，未冒称源cache完成。
+- 所有source/test/doc writers已停止。最终info&&fmt59835 exit0；接口review保留预期3类/
+  view/checked/provider，并将artist_data_interval收缩为(artists,horizontal)不导出scale参数；
+  date接口与scene外部类型无变化。git diff --check通过。D21-interface.diff已刷新。
+- 开始最终check-all（D21-check-all-final.log），随后test-all及两个新source --check。当前
+  D22定向笔记已落盘 .moonagent/checkpoints/D22-readonly-notes.md，235行；D21验收前不实现。
+
+- 最终check-all28603 exit0（详情D21-check-all-final.log，8旧Ref warnings）；最终test-all
+  session4524 live，日志D21-test-all-final.log，期间禁止改源码/测试/README doctest输入。
+- 新raw data source --check exit0；真实shared order source --check session75085 live（只读），
+  日志D21-source-index_shared_order.log。其余六source --check均已exit0。先轮询这两个ID。
+
+### D21 已验收（2026-10-23）
+
+- 最终test-all4524 exit0：wasm/wasm-gc/native各6380/6380，JS6387/6387；比D20每目标新增
+  1034tests（930generated+15hand+1checked doc+2view WB+86轴/场景/后端集成）。
+- 最终info&&fmt59835 exit0；check-all28603 exit0：79tasks/8旧Ref warnings/0error；
+  Linear/Fixed/Index/Index axis/raw data/实际shared order/Multiple/D19 micro八份原源--check
+  全部exit0。source shared75085已结束。日志与接口diff保存在D21-*，无live session。
+- 213Linear参考/977观察组、481Fixed参考/456cases24alias9ranges4shape、236Index参考/
+  961观察组、Index axis4traces32+6观察、raw data4case8观察、实际shared order60traces/
+  228stages/84removals通过。原源逐bit与真实buffer写回均未放宽或用实现生成预期。
+- 三命名对象/Presets/TickValues真实有符号/嵌套/0stride别名、浅copy与store替换、延迟
+  checked错误、固定Darwin NumPy fill、旧helper兼容、主次/contour/shared/secondary/SVG
+  门禁通过。数据按原始finite点收集，log显示不改变Index origin；实际Grouper登记rank
+  跨连续删除保留，多个SubFigure row/column分组ID隔离，provider context跨Axis.clear保留。
+- 明确未迁移：完整Python动态/多维/dtype/无上限物化、任意平台NumPy fill profile，以及
+  上游clear后首次data更新前保留旧dataLim的cache窗口/显式dataLim修改/relim协议。
+- docs/兼容/计划/依赖/许可与guide已同步。D21切片本地提交，整体goal持续active；工程
+  百分比维持46%全目标/80%核心二维SVG，不因测试数膨胀而调整。
+- 三agents全部停止写入。D22 MaxN/Auto只读笔记235行已保存；下一步按head冻结新切片，
+  勿重做已完成D21项目survey或重复通过门禁，除非新变更使其失效。

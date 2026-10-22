@@ -1,0 +1,159 @@
+///|
+pub fn LinearLocator::as_locator(self : LinearLocator) -> Locator {
+  NamedLinear(self)
+}
+
+///|
+pub fn LinearLocator::as_minor_locator(self : LinearLocator) -> MinorLocator {
+  NamedLinear(self)
+}
+
+///|
+pub fn IndexLocator::as_locator(self : IndexLocator) -> Locator {
+  Index(self)
+}
+
+///|
+pub fn IndexLocator::as_minor_locator(self : IndexLocator) -> MinorLocator {
+  Index(self)
+}
+
+///|
+pub fn FixedLocator::as_locator(self : FixedLocator) -> Locator {
+  NamedFixed(self)
+}
+
+///|
+pub fn FixedLocator::as_minor_locator(self : FixedLocator) -> MinorLocator {
+  NamedFixed(self)
+}
+
+///|
+pub fn Locator::linear_locator(self : Locator) -> LinearLocator? {
+  match self {
+    NamedLinear(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn Locator::index_locator(self : Locator) -> IndexLocator? {
+  match self {
+    Index(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn Locator::fixed_locator(self : Locator) -> FixedLocator? {
+  match self {
+    NamedFixed(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn MinorLocator::linear_locator(self : MinorLocator) -> LinearLocator? {
+  match self {
+    NamedLinear(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn MinorLocator::index_locator(self : MinorLocator) -> IndexLocator? {
+  match self {
+    Index(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn MinorLocator::fixed_locator(self : MinorLocator) -> FixedLocator? {
+  match self {
+    NamedFixed(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+/// Materialize named results while preserving source errors. Linear adapters
+/// follow the requested direction; Index and Fixed retain their source order.
+pub fn Locator::checked_tick_values(
+  self : Locator,
+  lower : Double,
+  upper : Double,
+) -> Array[Double] raise @core.DataError {
+  match self {
+    NamedLinear(value) => {
+      let ticks = value.tick_values(lower, upper).eager_prefix()
+      if lower > upper {
+        ticks.rev()
+      } else {
+        ticks
+      }
+    }
+    Index(value) => value.tick_values(lower, upper)
+    NamedFixed(value) => value.tick_values(lower, upper).eager_prefix()
+    _ => self.tick_values(lower, upper)
+  }
+}
+
+///|
+/// Axis calls use the IndexLocator's bound data interval, independent of view.
+pub fn Locator::tick_values_for_axis(
+  self : Locator,
+  lower : Double,
+  upper : Double,
+) -> Array[Double] raise @core.DataError {
+  match self {
+    Index(value) => value.call()
+    _ => self.checked_tick_values(lower, upper)
+  }
+}
+
+///|
+fn named_minor_values(
+  values : Array[Double],
+  major : Array[Double],
+  lower : Double,
+  upper : Double,
+) -> Array[Double] {
+  if lower.is_nan() || lower.is_inf() || upper.is_nan() || upper.is_inf() {
+    return []
+  }
+  let first = Double::min(lower, upper)
+  let last = Double::max(lower, upper)
+  values.filter(value => {
+    value >= first && value <= last && !contains_tick(major, value)
+  })
+}
+
+///|
+pub fn MinorLocator::checked_tick_values(
+  self : MinorLocator,
+  major : Array[Double],
+  lower : Double,
+  upper : Double,
+) -> Array[Double] raise @core.DataError {
+  let values = match self {
+    NamedLinear(value) => value.as_locator().checked_tick_values(lower, upper)
+    Index(value) => value.tick_values(lower, upper)
+    NamedFixed(value) => value.tick_values(lower, upper).eager_prefix()
+    _ => return self.tick_values(major, lower, upper)
+  }
+  named_minor_values(values, major, lower, upper)
+}
+
+///|
+pub fn MinorLocator::tick_values_for_axis(
+  self : MinorLocator,
+  major : Array[Double],
+  lower : Double,
+  upper : Double,
+) -> Array[Double] raise @core.DataError {
+  match self {
+    Index(value) => named_minor_values(value.call(), major, lower, upper)
+    _ => self.checked_tick_values(major, lower, upper)
+  }
+}

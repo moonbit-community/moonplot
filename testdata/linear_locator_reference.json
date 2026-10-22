@@ -1,0 +1,9271 @@
+{
+  "ticker_source_sha256": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+  "transforms_source_sha256": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+  "matplotlibrc_sha256": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+  "rcsetup_sha256": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+  "numpy_function_base_sha256": "413d696e597ff2b7ffdd9b06b4b42801e435392a82a9e006b4c4f33c013523fc",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "ast_source_bodies": [
+    "LinearLocator",
+    "Locator.nonsingular",
+    "transforms._nonsingular",
+    "numpy.linspace"
+  ],
+  "count_domain": "Int32 or None; negative counts retain delayed source error",
+  "enumeration_budget": 100000,
+  "prefix_sample_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    99998,
+    99999
+  ],
+  "cases": [
+    {
+      "numticks": null,
+      "lower": -1.0,
+      "upper": 1.0,
+      "ticks": {
+        "values": [
+          -1.0,
+          -0.8,
+          -0.6,
+          -0.3999999999999999,
+          -0.19999999999999996,
+          0.0,
+          0.20000000000000018,
+          0.40000000000000013,
+          0.6000000000000001,
+          0.8,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": 1.0,
+      "upper": -1.0,
+      "ticks": {
+        "values": [
+          -1.0,
+          -0.8,
+          -0.6,
+          -0.3999999999999999,
+          -0.19999999999999996,
+          0.0,
+          0.20000000000000018,
+          0.40000000000000013,
+          0.6000000000000001,
+          0.8,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": 0.0,
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": -0.0,
+      "upper": -0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": 2.0,
+      "upper": 2.0,
+      "ticks": {
+        "values": [
+          1.9,
+          1.92,
+          1.94,
+          1.96,
+          1.98,
+          2.0,
+          2.02,
+          2.04,
+          2.06,
+          2.08,
+          2.1
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.9,
+        2.1
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": -2.0,
+      "upper": -2.0,
+      "ticks": {
+        "values": [
+          -2.1,
+          -2.08,
+          -2.06,
+          -2.04,
+          -2.02,
+          -2.0,
+          -1.98,
+          -1.96,
+          -1.94,
+          -1.92,
+          -1.9
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -2.1,
+        -1.9
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": 0.1,
+      "upper": 0.9,
+      "ticks": {
+        "values": [
+          0.1,
+          0.18,
+          0.26,
+          0.33999999999999997,
+          0.42000000000000004,
+          0.5,
+          0.58,
+          0.66,
+          0.74,
+          0.82,
+          0.9
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.1,
+        0.9
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": 12.0,
+      "upper": 12.0000001,
+      "ticks": {
+        "values": [
+          12.0,
+          12.00000001,
+          12.00000002,
+          12.000000029999999,
+          12.00000004,
+          12.00000005,
+          12.00000006,
+          12.000000069999999,
+          12.00000008,
+          12.00000009,
+          12.0000001
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        12.0,
+        12.0000001
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": 1.0,
+      "upper": 1.0000000000000002,
+      "ticks": {
+        "values": [
+          0.95,
+          0.96,
+          0.97,
+          0.9800000000000001,
+          0.9900000000000001,
+          1.0,
+          1.0100000000000002,
+          1.0200000000000002,
+          1.0300000000000002,
+          1.0400000000000003,
+          1.0500000000000003
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.95,
+        1.0500000000000003
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": 1e-280,
+      "upper": 1.0000000000000001e-280,
+      "ticks": {
+        "values": [
+          9.499999999999999e-281,
+          9.599999999999999e-281,
+          9.7e-281,
+          9.8e-281,
+          9.9e-281,
+          1e-280,
+          1.0100000000000001e-280,
+          1.02e-280,
+          1.03e-280,
+          1.0400000000000001e-280,
+          1.0500000000000001e-280
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            9.99e-281,
+            1.0010000000000002e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.499999999999999e-281,
+        1.0500000000000001e-280
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": 5e-324,
+      "upper": -5e-324,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "OverflowError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": 1e-288,
+      "upper": 2e-288,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": 1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf"
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.7078084781191998e+308,
+        "inf"
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": -1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          1.7976931348623157e+308
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.7976931348623157e+308,
+        1.7976931348623157e+308
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": -1.7976931348623157e+308,
+      "upper": -1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          -1.7078084781191998e+308
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        "-inf",
+        -1.7078084781191998e+308
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": 1e+100,
+      "upper": 1.0000000000000002e+100,
+      "ticks": {
+        "values": [
+          9.500000000000001e+99,
+          9.6e+99,
+          9.700000000000002e+99,
+          9.800000000000001e+99,
+          9.900000000000003e+99,
+          1.0000000000000002e+100,
+          1.0100000000000002e+100,
+          1.0200000000000003e+100,
+          1.0300000000000002e+100,
+          1.0400000000000004e+100,
+          1.0500000000000003e+100
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.500000000000001e+99,
+        1.0500000000000003e+100
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": "nan",
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": 0.0,
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": "-inf",
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": null,
+      "lower": "nan",
+      "upper": "nan",
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": -1.0,
+      "upper": 1.0,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": 1.0,
+      "upper": -1.0,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": 0.0,
+      "upper": 0.0,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": -0.0,
+      "upper": -0.0,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": 2.0,
+      "upper": 2.0,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.9,
+        2.1
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": -2.0,
+      "upper": -2.0,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -2.1,
+        -1.9
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": 0.1,
+      "upper": 0.9,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.1,
+        0.9
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": 12.0,
+      "upper": 12.0000001,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        12.0,
+        12.0000001
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": 1.0,
+      "upper": 1.0000000000000002,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.95,
+        1.0500000000000003
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": 1e-280,
+      "upper": 1.0000000000000001e-280,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.499999999999999e-281,
+        1.0500000000000001e-280
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": 5e-324,
+      "upper": -5e-324,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": 1e-288,
+      "upper": 2e-288,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": 1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.7078084781191998e+308,
+        "inf"
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": -1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.7976931348623157e+308,
+        1.7976931348623157e+308
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": -1.7976931348623157e+308,
+      "upper": -1.7976931348623157e+308,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        "-inf",
+        -1.7078084781191998e+308
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": 1e+100,
+      "upper": 1.0000000000000002e+100,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.500000000000001e+99,
+        1.0500000000000003e+100
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": "nan",
+      "upper": 0.0,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": 0.0,
+      "upper": "inf",
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": "-inf",
+      "upper": "inf",
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": -1,
+      "lower": "nan",
+      "upper": "nan",
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": -1.0,
+      "upper": 1.0,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": 1.0,
+      "upper": -1.0,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": -0.0,
+      "upper": -0.0,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": 2.0,
+      "upper": 2.0,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.9,
+        2.1
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": -2.0,
+      "upper": -2.0,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -2.1,
+        -1.9
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": 0.1,
+      "upper": 0.9,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.1,
+        0.9
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": 12.0,
+      "upper": 12.0000001,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        12.0,
+        12.0000001
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": 1.0,
+      "upper": 1.0000000000000002,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.95,
+        1.0500000000000003
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": 1e-280,
+      "upper": 1.0000000000000001e-280,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.499999999999999e-281,
+        1.0500000000000001e-280
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": 5e-324,
+      "upper": -5e-324,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": 1e-288,
+      "upper": 2e-288,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": 1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.7078084781191998e+308,
+        "inf"
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": -1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.7976931348623157e+308,
+        1.7976931348623157e+308
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": -1.7976931348623157e+308,
+      "upper": -1.7976931348623157e+308,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        "-inf",
+        -1.7078084781191998e+308
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": 1e+100,
+      "upper": 1.0000000000000002e+100,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.500000000000001e+99,
+        1.0500000000000003e+100
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": "nan",
+      "upper": 0.0,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": 0.0,
+      "upper": "inf",
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": "-inf",
+      "upper": "inf",
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 0,
+      "lower": "nan",
+      "upper": "nan",
+      "ticks": {
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": -1.0,
+      "upper": 1.0,
+      "ticks": {
+        "values": [
+          -1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": 1.0,
+      "upper": -1.0,
+      "ticks": {
+        "values": [
+          -1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": 0.0,
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": -0.0,
+      "upper": -0.0,
+      "ticks": {
+        "values": [
+          -0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": 2.0,
+      "upper": 2.0,
+      "ticks": {
+        "values": [
+          1.9
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.9,
+        2.1
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": -2.0,
+      "upper": -2.0,
+      "ticks": {
+        "values": [
+          -2.1
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -2.1,
+        -1.9
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": 0.1,
+      "upper": 0.9,
+      "ticks": {
+        "values": [
+          0.1
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.1,
+        0.9
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": 12.0,
+      "upper": 12.0000001,
+      "ticks": {
+        "values": [
+          12.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        12.0,
+        12.0000001
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": 1.0,
+      "upper": 1.0000000000000002,
+      "ticks": {
+        "values": [
+          0.95
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.95,
+        1.0500000000000003
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": 1e-280,
+      "upper": 1.0000000000000001e-280,
+      "ticks": {
+        "values": [
+          9.499999999999999e-281
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.499999999999999e-281,
+        1.0500000000000001e-280
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": 5e-324,
+      "upper": -5e-324,
+      "ticks": {
+        "values": [
+          -0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": 1e-288,
+      "upper": 2e-288,
+      "ticks": {
+        "values": [
+          -0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": 1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan"
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.7078084781191998e+308,
+        "inf"
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": -1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan"
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.7976931348623157e+308,
+        1.7976931348623157e+308
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": -1.7976931348623157e+308,
+      "upper": -1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan"
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        "-inf",
+        -1.7078084781191998e+308
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": 1e+100,
+      "upper": 1.0000000000000002e+100,
+      "ticks": {
+        "values": [
+          9.500000000000001e+99
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.500000000000001e+99,
+        1.0500000000000003e+100
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": "nan",
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": 0.0,
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": "-inf",
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 1,
+      "lower": "nan",
+      "upper": "nan",
+      "ticks": {
+        "values": [
+          -0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": -1.0,
+      "upper": 1.0,
+      "ticks": {
+        "values": [
+          -1.0,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": 1.0,
+      "upper": -1.0,
+      "ticks": {
+        "values": [
+          -1.0,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": 0.0,
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": -0.0,
+      "upper": -0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": 2.0,
+      "upper": 2.0,
+      "ticks": {
+        "values": [
+          1.9,
+          2.1
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.9,
+        2.1
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": -2.0,
+      "upper": -2.0,
+      "ticks": {
+        "values": [
+          -2.1,
+          -1.9
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -2.1,
+        -1.9
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": 0.1,
+      "upper": 0.9,
+      "ticks": {
+        "values": [
+          0.1,
+          0.9
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.1,
+        0.9
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": 12.0,
+      "upper": 12.0000001,
+      "ticks": {
+        "values": [
+          12.0,
+          12.0000001
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        12.0,
+        12.0000001
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": 1.0,
+      "upper": 1.0000000000000002,
+      "ticks": {
+        "values": [
+          0.95,
+          1.0500000000000003
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.95,
+        1.0500000000000003
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": 1e-280,
+      "upper": 1.0000000000000001e-280,
+      "ticks": {
+        "values": [
+          9.499999999999999e-281,
+          1.0500000000000001e-280
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.499999999999999e-281,
+        1.0500000000000001e-280
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": 5e-324,
+      "upper": -5e-324,
+      "ticks": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": 1e-288,
+      "upper": 2e-288,
+      "ticks": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": 1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "inf"
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.7078084781191998e+308,
+        "inf"
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": -1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          1.7976931348623157e+308
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.7976931348623157e+308,
+        1.7976931348623157e+308
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": -1.7976931348623157e+308,
+      "upper": -1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          -1.7078084781191998e+308
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        "-inf",
+        -1.7078084781191998e+308
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": 1e+100,
+      "upper": 1.0000000000000002e+100,
+      "ticks": {
+        "values": [
+          9.500000000000001e+99,
+          1.0500000000000003e+100
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.500000000000001e+99,
+        1.0500000000000003e+100
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": "nan",
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": 0.0,
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": "-inf",
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 2,
+      "lower": "nan",
+      "upper": "nan",
+      "ticks": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": -1.0,
+      "upper": 1.0,
+      "ticks": {
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": 1.0,
+      "upper": -1.0,
+      "ticks": {
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": 0.0,
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          0.0,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": -0.0,
+      "upper": -0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          0.0,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": 2.0,
+      "upper": 2.0,
+      "ticks": {
+        "values": [
+          1.9,
+          2.0,
+          2.1
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.9,
+        2.1
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": -2.0,
+      "upper": -2.0,
+      "ticks": {
+        "values": [
+          -2.1,
+          -2.0,
+          -1.9
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -2.1,
+        -1.9
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": 0.1,
+      "upper": 0.9,
+      "ticks": {
+        "values": [
+          0.1,
+          0.5,
+          0.9
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.1,
+        0.9
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": 12.0,
+      "upper": 12.0000001,
+      "ticks": {
+        "values": [
+          12.0,
+          12.00000005,
+          12.0000001
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            12.0,
+            12.00000011920929
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        12.0,
+        12.0000001
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": 1.0,
+      "upper": 1.0000000000000002,
+      "ticks": {
+        "values": [
+          0.95,
+          1.0,
+          1.0500000000000003
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.95,
+        1.0500000000000003
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": 1e-280,
+      "upper": 1.0000000000000001e-280,
+      "ticks": {
+        "values": [
+          9.499999999999999e-281,
+          1e-280,
+          1.0500000000000001e-280
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.499999999999999e-281,
+        1.0500000000000001e-280
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": 5e-324,
+      "upper": -5e-324,
+      "ticks": {
+        "values": [
+          -0.05,
+          0.0,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "OverflowError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": 1e-288,
+      "upper": 2e-288,
+      "ticks": {
+        "values": [
+          -0.05,
+          0.0,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": 1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "inf",
+          "inf"
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.7078084781191998e+308,
+        "inf"
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": -1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "inf",
+          1.7976931348623157e+308
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.7976931348623157e+308,
+        1.7976931348623157e+308
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": -1.7976931348623157e+308,
+      "upper": -1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "nan",
+          -1.7078084781191998e+308
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        "-inf",
+        -1.7078084781191998e+308
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": 1e+100,
+      "upper": 1.0000000000000002e+100,
+      "ticks": {
+        "values": [
+          9.500000000000001e+99,
+          1.0000000000000002e+100,
+          1.0500000000000003e+100
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.500000000000001e+99,
+        1.0500000000000003e+100
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": "nan",
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          0.0,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": 0.0,
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05,
+          0.0,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": "-inf",
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05,
+          0.0,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 3,
+      "lower": "nan",
+      "upper": "nan",
+      "ticks": {
+        "values": [
+          -0.05,
+          0.0,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": -1.0,
+      "upper": 1.0,
+      "ticks": {
+        "values": [
+          -1.0,
+          -0.6666666666666667,
+          -0.33333333333333337,
+          0.0,
+          0.33333333333333326,
+          0.6666666666666665,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": 1.0,
+      "upper": -1.0,
+      "ticks": {
+        "values": [
+          -1.0,
+          -0.6666666666666667,
+          -0.33333333333333337,
+          0.0,
+          0.33333333333333326,
+          0.6666666666666665,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": 0.0,
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.03333333333333334,
+          -0.01666666666666667,
+          0.0,
+          0.016666666666666663,
+          0.033333333333333326,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": -0.0,
+      "upper": -0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.03333333333333334,
+          -0.01666666666666667,
+          0.0,
+          0.016666666666666663,
+          0.033333333333333326,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": 2.0,
+      "upper": 2.0,
+      "ticks": {
+        "values": [
+          1.9,
+          1.9333333333333333,
+          1.9666666666666666,
+          2.0,
+          2.033333333333333,
+          2.066666666666667,
+          2.1
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.9,
+        2.1
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": -2.0,
+      "upper": -2.0,
+      "ticks": {
+        "values": [
+          -2.1,
+          -2.066666666666667,
+          -2.033333333333333,
+          -2.0,
+          -1.9666666666666666,
+          -1.9333333333333333,
+          -1.9
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -2.1,
+        -1.9
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": 0.1,
+      "upper": 0.9,
+      "ticks": {
+        "values": [
+          0.1,
+          0.23333333333333334,
+          0.3666666666666667,
+          0.5,
+          0.6333333333333333,
+          0.7666666666666666,
+          0.9
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.1,
+        0.9
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": 12.0,
+      "upper": 12.0000001,
+      "ticks": {
+        "values": [
+          12.0,
+          12.000000016666666,
+          12.000000033333333,
+          12.00000005,
+          12.000000066666667,
+          12.000000083333333,
+          12.0000001
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            12.0,
+            12.000000115767202
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        12.0,
+        12.0000001
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": 1.0,
+      "upper": 1.0000000000000002,
+      "ticks": {
+        "values": [
+          0.95,
+          0.9666666666666667,
+          0.9833333333333334,
+          1.0,
+          1.0166666666666668,
+          1.0333333333333337,
+          1.0500000000000003
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.95,
+        1.0500000000000003
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": 1e-280,
+      "upper": 1.0000000000000001e-280,
+      "ticks": {
+        "values": [
+          9.499999999999999e-281,
+          9.666666666666666e-281,
+          9.833333333333334e-281,
+          1e-280,
+          1.0166666666666667e-280,
+          1.0333333333333334e-280,
+          1.0500000000000001e-280
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.499999999999999e-281,
+        1.0500000000000001e-280
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": 5e-324,
+      "upper": -5e-324,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.03333333333333334,
+          -0.01666666666666667,
+          0.0,
+          0.016666666666666663,
+          0.033333333333333326,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "OverflowError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": 1e-288,
+      "upper": 2e-288,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.03333333333333334,
+          -0.01666666666666667,
+          0.0,
+          0.016666666666666663,
+          0.033333333333333326,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": 1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf"
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.7078084781191998e+308,
+        "inf"
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": -1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          1.7976931348623157e+308
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.7976931348623157e+308,
+        1.7976931348623157e+308
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": -1.7976931348623157e+308,
+      "upper": -1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          -1.7078084781191998e+308
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        "-inf",
+        -1.7078084781191998e+308
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": 1e+100,
+      "upper": 1.0000000000000002e+100,
+      "ticks": {
+        "values": [
+          9.500000000000001e+99,
+          9.666666666666668e+99,
+          9.833333333333335e+99,
+          1.0000000000000002e+100,
+          1.016666666666667e+100,
+          1.0333333333333336e+100,
+          1.0500000000000003e+100
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.500000000000001e+99,
+        1.0500000000000003e+100
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": "nan",
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.03333333333333334,
+          -0.01666666666666667,
+          0.0,
+          0.016666666666666663,
+          0.033333333333333326,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": 0.0,
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.03333333333333334,
+          -0.01666666666666667,
+          0.0,
+          0.016666666666666663,
+          0.033333333333333326,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": "-inf",
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.03333333333333334,
+          -0.01666666666666667,
+          0.0,
+          0.016666666666666663,
+          0.033333333333333326,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 7,
+      "lower": "nan",
+      "upper": "nan",
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.03333333333333334,
+          -0.01666666666666667,
+          0.0,
+          0.016666666666666663,
+          0.033333333333333326,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": -1.0,
+      "upper": 1.0,
+      "ticks": {
+        "values": [
+          -1.0,
+          -0.8,
+          -0.6,
+          -0.3999999999999999,
+          -0.19999999999999996,
+          0.0,
+          0.20000000000000018,
+          0.40000000000000013,
+          0.6000000000000001,
+          0.8,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": 1.0,
+      "upper": -1.0,
+      "ticks": {
+        "values": [
+          -1.0,
+          -0.8,
+          -0.6,
+          -0.3999999999999999,
+          -0.19999999999999996,
+          0.0,
+          0.20000000000000018,
+          0.40000000000000013,
+          0.6000000000000001,
+          0.8,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": 0.0,
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": -0.0,
+      "upper": -0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": 2.0,
+      "upper": 2.0,
+      "ticks": {
+        "values": [
+          1.9,
+          1.92,
+          1.94,
+          1.96,
+          1.98,
+          2.0,
+          2.02,
+          2.04,
+          2.06,
+          2.08,
+          2.1
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.9,
+        2.1
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": -2.0,
+      "upper": -2.0,
+      "ticks": {
+        "values": [
+          -2.1,
+          -2.08,
+          -2.06,
+          -2.04,
+          -2.02,
+          -2.0,
+          -1.98,
+          -1.96,
+          -1.94,
+          -1.92,
+          -1.9
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -2.1,
+        -1.9
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": 0.1,
+      "upper": 0.9,
+      "ticks": {
+        "values": [
+          0.1,
+          0.18,
+          0.26,
+          0.33999999999999997,
+          0.42000000000000004,
+          0.5,
+          0.58,
+          0.66,
+          0.74,
+          0.82,
+          0.9
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.1,
+        0.9
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": 12.0,
+      "upper": 12.0000001,
+      "ticks": {
+        "values": [
+          12.0,
+          12.00000001,
+          12.00000002,
+          12.000000029999999,
+          12.00000004,
+          12.00000005,
+          12.00000006,
+          12.000000069999999,
+          12.00000008,
+          12.00000009,
+          12.0000001
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        12.0,
+        12.0000001
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": 1.0,
+      "upper": 1.0000000000000002,
+      "ticks": {
+        "values": [
+          0.95,
+          0.96,
+          0.97,
+          0.9800000000000001,
+          0.9900000000000001,
+          1.0,
+          1.0100000000000002,
+          1.0200000000000002,
+          1.0300000000000002,
+          1.0400000000000003,
+          1.0500000000000003
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.95,
+        1.0500000000000003
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": 1e-280,
+      "upper": 1.0000000000000001e-280,
+      "ticks": {
+        "values": [
+          9.499999999999999e-281,
+          9.599999999999999e-281,
+          9.7e-281,
+          9.8e-281,
+          9.9e-281,
+          1e-280,
+          1.0100000000000001e-280,
+          1.02e-280,
+          1.03e-280,
+          1.0400000000000001e-280,
+          1.0500000000000001e-280
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            9.99e-281,
+            1.0010000000000002e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.499999999999999e-281,
+        1.0500000000000001e-280
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": 5e-324,
+      "upper": -5e-324,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "OverflowError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": 1e-288,
+      "upper": 2e-288,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": 1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf"
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.7078084781191998e+308,
+        "inf"
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": -1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          1.7976931348623157e+308
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.7976931348623157e+308,
+        1.7976931348623157e+308
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": -1.7976931348623157e+308,
+      "upper": -1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          -1.7078084781191998e+308
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        "-inf",
+        -1.7078084781191998e+308
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": 1e+100,
+      "upper": 1.0000000000000002e+100,
+      "ticks": {
+        "values": [
+          9.500000000000001e+99,
+          9.6e+99,
+          9.700000000000002e+99,
+          9.800000000000001e+99,
+          9.900000000000003e+99,
+          1.0000000000000002e+100,
+          1.0100000000000002e+100,
+          1.0200000000000003e+100,
+          1.0300000000000002e+100,
+          1.0400000000000004e+100,
+          1.0500000000000003e+100
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.500000000000001e+99,
+        1.0500000000000003e+100
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": "nan",
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": 0.0,
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": "-inf",
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 11,
+      "lower": "nan",
+      "upper": "nan",
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.04,
+          -0.030000000000000002,
+          -0.020000000000000004,
+          -0.010000000000000002,
+          0.0,
+          0.009999999999999995,
+          0.020000000000000004,
+          0.03,
+          0.039999999999999994,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": -1.0,
+      "upper": 1.0,
+      "ticks": {
+        "values": [
+          -1.0,
+          -0.875,
+          -0.75,
+          -0.625,
+          -0.5,
+          -0.375,
+          -0.25,
+          -0.125,
+          0.0,
+          0.125,
+          0.25,
+          0.375,
+          0.5,
+          0.625,
+          0.75,
+          0.875,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": 1.0,
+      "upper": -1.0,
+      "ticks": {
+        "values": [
+          -1.0,
+          -0.875,
+          -0.75,
+          -0.625,
+          -0.5,
+          -0.375,
+          -0.25,
+          -0.125,
+          0.0,
+          0.125,
+          0.25,
+          0.375,
+          0.5,
+          0.625,
+          0.75,
+          0.875,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.043750000000000004,
+          -0.037500000000000006,
+          -0.03125,
+          -0.025,
+          -0.018750000000000003,
+          -0.012499999999999997,
+          -0.006249999999999999,
+          0.0,
+          0.006249999999999999,
+          0.012499999999999997,
+          0.018750000000000003,
+          0.02500000000000001,
+          0.03125,
+          0.037500000000000006,
+          0.04375,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": -0.0,
+      "upper": -0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.043750000000000004,
+          -0.037500000000000006,
+          -0.03125,
+          -0.025,
+          -0.018750000000000003,
+          -0.012499999999999997,
+          -0.006249999999999999,
+          0.0,
+          0.006249999999999999,
+          0.012499999999999997,
+          0.018750000000000003,
+          0.02500000000000001,
+          0.03125,
+          0.037500000000000006,
+          0.04375,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": 2.0,
+      "upper": 2.0,
+      "ticks": {
+        "values": [
+          1.9,
+          1.9124999999999999,
+          1.9249999999999998,
+          1.9375,
+          1.95,
+          1.9625,
+          1.975,
+          1.9875,
+          2.0,
+          2.0125,
+          2.025,
+          2.0375,
+          2.05,
+          2.0625,
+          2.075,
+          2.0875,
+          2.1
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.9,
+        2.1
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": -2.0,
+      "upper": -2.0,
+      "ticks": {
+        "values": [
+          -2.1,
+          -2.0875,
+          -2.075,
+          -2.0625,
+          -2.05,
+          -2.0375,
+          -2.025,
+          -2.0125,
+          -2.0,
+          -1.9875,
+          -1.975,
+          -1.9625,
+          -1.95,
+          -1.9375,
+          -1.9249999999999998,
+          -1.9124999999999999,
+          -1.9
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -3.0,
+            -1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -2.1,
+        -1.9
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": 0.1,
+      "upper": 0.9,
+      "ticks": {
+        "values": [
+          0.1,
+          0.15000000000000002,
+          0.2,
+          0.25,
+          0.30000000000000004,
+          0.35,
+          0.4,
+          0.45000000000000007,
+          0.5,
+          0.55,
+          0.6,
+          0.65,
+          0.7000000000000001,
+          0.75,
+          0.8,
+          0.85,
+          0.9
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            0.0625,
+            0.9375
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.1,
+            0.9
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.1,
+        0.9
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": 12.0,
+      "upper": 12.0000001,
+      "ticks": {
+        "values": [
+          12.0,
+          12.00000000625,
+          12.0000000125,
+          12.00000001875,
+          12.000000025,
+          12.00000003125,
+          12.0000000375,
+          12.00000004375,
+          12.00000005,
+          12.00000005625,
+          12.0000000625,
+          12.00000006875,
+          12.000000074999999,
+          12.000000081249999,
+          12.0000000875,
+          12.00000009375,
+          12.0000001
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            12.0,
+            12.000000100582838
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            12.0,
+            12.0000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        12.0,
+        12.0000001
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": 1.0,
+      "upper": 1.0000000000000002,
+      "ticks": {
+        "values": [
+          0.95,
+          0.9562499999999999,
+          0.9625,
+          0.96875,
+          0.9750000000000001,
+          0.9812500000000001,
+          0.9875,
+          0.9937500000000001,
+          1.0,
+          1.00625,
+          1.0125000000000002,
+          1.0187500000000003,
+          1.0250000000000001,
+          1.0312500000000002,
+          1.0375000000000003,
+          1.0437500000000002,
+          1.0500000000000003
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.999,
+            1.0010000000000001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.95,
+        1.0500000000000003
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": 1e-280,
+      "upper": 1.0000000000000001e-280,
+      "ticks": {
+        "values": [
+          9.499999999999999e-281,
+          9.562499999999999e-281,
+          9.625e-281,
+          9.6875e-281,
+          9.75e-281,
+          9.8125e-281,
+          9.875e-281,
+          9.9375e-281,
+          1e-280,
+          1.00625e-280,
+          1.0125e-280,
+          1.01875e-280,
+          1.025e-280,
+          1.0312500000000001e-280,
+          1.0375000000000001e-280,
+          1.0437500000000001e-280,
+          1.0500000000000001e-280
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e-281,
+            1.001e-280
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.499999999999999e-281,
+        1.0500000000000001e-280
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": 5e-324,
+      "upper": -5e-324,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.043750000000000004,
+          -0.037500000000000006,
+          -0.03125,
+          -0.025,
+          -0.018750000000000003,
+          -0.012499999999999997,
+          -0.006249999999999999,
+          0.0,
+          0.006249999999999999,
+          0.012499999999999997,
+          0.018750000000000003,
+          0.02500000000000001,
+          0.03125,
+          0.037500000000000006,
+          0.04375,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "OverflowError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": 1e-288,
+      "upper": 2e-288,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.043750000000000004,
+          -0.037500000000000006,
+          -0.03125,
+          -0.025,
+          -0.018750000000000003,
+          -0.012499999999999997,
+          -0.006249999999999999,
+          0.0,
+          0.006249999999999999,
+          0.012499999999999997,
+          0.018750000000000003,
+          0.02500000000000001,
+          0.03125,
+          0.037500000000000006,
+          0.04375,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": 1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf"
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            1.7958954417274534e+308,
+            "inf"
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        1.7078084781191998e+308,
+        "inf"
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": -1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          1.7976931348623157e+308
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.7976931348623157e+308,
+        1.7976931348623157e+308
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": -1.7976931348623157e+308,
+      "upper": -1.7976931348623157e+308,
+      "ticks": {
+        "values": [
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          "nan",
+          -1.7078084781191998e+308
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            "-inf",
+            -1.7958954417274534e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        "-inf",
+        -1.7078084781191998e+308
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": 1e+100,
+      "upper": 1.0000000000000002e+100,
+      "ticks": {
+        "values": [
+          9.500000000000001e+99,
+          9.5625e+99,
+          9.625e+99,
+          9.687500000000002e+99,
+          9.750000000000002e+99,
+          9.812500000000001e+99,
+          9.875000000000003e+99,
+          9.937500000000002e+99,
+          1.0000000000000002e+100,
+          1.0062500000000002e+100,
+          1.0125000000000001e+100,
+          1.0187500000000003e+100,
+          1.0250000000000003e+100,
+          1.0312500000000002e+100,
+          1.0375000000000004e+100,
+          1.0437500000000004e+100,
+          1.0500000000000003e+100
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            9.99e+99,
+            1.0010000000000002e+100
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        9.500000000000001e+99,
+        1.0500000000000003e+100
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": "nan",
+      "upper": 0.0,
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.043750000000000004,
+          -0.037500000000000006,
+          -0.03125,
+          -0.025,
+          -0.018750000000000003,
+          -0.012499999999999997,
+          -0.006249999999999999,
+          0.0,
+          0.006249999999999999,
+          0.012499999999999997,
+          0.018750000000000003,
+          0.02500000000000001,
+          0.03125,
+          0.037500000000000006,
+          0.04375,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": 0.0,
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.043750000000000004,
+          -0.037500000000000006,
+          -0.03125,
+          -0.025,
+          -0.018750000000000003,
+          -0.012499999999999997,
+          -0.006249999999999999,
+          0.0,
+          0.006249999999999999,
+          0.012499999999999997,
+          0.018750000000000003,
+          0.02500000000000001,
+          0.03125,
+          0.037500000000000006,
+          0.04375,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": "-inf",
+      "upper": "inf",
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.043750000000000004,
+          -0.037500000000000006,
+          -0.03125,
+          -0.025,
+          -0.018750000000000003,
+          -0.012499999999999997,
+          -0.006249999999999999,
+          0.0,
+          0.006249999999999999,
+          0.012499999999999997,
+          0.018750000000000003,
+          0.02500000000000001,
+          0.03125,
+          0.037500000000000006,
+          0.04375,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": 17,
+      "lower": "nan",
+      "upper": "nan",
+      "ticks": {
+        "values": [
+          -0.05,
+          -0.043750000000000004,
+          -0.037500000000000006,
+          -0.03125,
+          -0.025,
+          -0.018750000000000003,
+          -0.012499999999999997,
+          -0.006249999999999999,
+          0.0,
+          0.006249999999999999,
+          0.012499999999999997,
+          0.018750000000000003,
+          0.02500000000000001,
+          0.03125,
+          0.037500000000000006,
+          0.04375,
+          0.05
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "numticks": -2147483648,
+      "lower": -1.0,
+      "upper": 1.0,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 100001,
+      "lower": 0.0,
+      "upper": 1.0,
+      "ticks": {
+        "enumeration_omitted": true,
+        "original_count": 100001,
+        "sample_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          99998,
+          99999
+        ],
+        "values": [
+          0.0,
+          1e-05,
+          2e-05,
+          3.0000000000000004e-05,
+          4e-05,
+          5e-05,
+          6.000000000000001e-05,
+          7.000000000000001e-05,
+          0.9999800000000001,
+          0.99999
+        ],
+        "port_eager_cap": 100000,
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 2147483647,
+      "lower": 0.0,
+      "upper": 1.0,
+      "ticks": {
+        "enumeration_omitted": true,
+        "original_count": 2147483647,
+        "sample_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          99998,
+          99999
+        ],
+        "values": [
+          0.0,
+          4.656612877414201e-10,
+          9.313225754828403e-10,
+          1.3969838632242604e-09,
+          1.8626451509656805e-09,
+          2.3283064387071006e-09,
+          2.7939677264485208e-09,
+          3.259629014189941e-09,
+          4.656519745156653e-05,
+          4.656566311285427e-05
+        ],
+        "port_eager_cap": 100000,
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "data",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "numticks": 2147483647,
+      "lower": -1.7976931348623157e+308,
+      "upper": 1.7976931348623157e+308,
+      "ticks": {
+        "enumeration_omitted": true,
+        "original_count": 2147483647,
+        "sample_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          99998,
+          99999
+        ],
+        "values": [
+          "nan",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf",
+          "inf"
+        ],
+        "port_eager_cap": 100000,
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        },
+        {
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ValueError"
+        },
+        {
+          "mode": "data",
+          "values": [
+            -1.7976931348623157e+308,
+            1.7976931348623157e+308
+          ],
+          "source_error": null
+        }
+      ],
+      "nonsingular": [
+        -1.7976931348623157e+308,
+        1.7976931348623157e+308
+      ]
+    }
+  ],
+  "preset_cases": [
+    {
+      "numticks": null,
+      "lower": 0.0,
+      "upper": 0.0,
+      "result": {
+        "values": [
+          3.0,
+          2.0,
+          1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": null,
+      "lower": 2.0,
+      "upper": 2.0,
+      "result": {
+        "values": [
+          8.0,
+          8.0,
+          -1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": null,
+      "lower": 3.0,
+      "upper": 1.0,
+      "result": {
+        "values": [
+          "inf",
+          "nan",
+          "-inf"
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": null,
+      "lower": "nan",
+      "upper": "inf",
+      "result": {
+        "values": [
+          3.0,
+          2.0,
+          1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": null,
+      "lower": 1.0,
+      "upper": 2.0,
+      "result": {
+        "values": [
+          1.0,
+          1.1,
+          1.2,
+          1.3,
+          1.4,
+          1.5,
+          1.6,
+          1.7000000000000002,
+          1.8,
+          1.9,
+          2.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": -1,
+      "lower": 0.0,
+      "upper": 0.0,
+      "result": {
+        "values": [
+          3.0,
+          2.0,
+          1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": -1,
+      "lower": 2.0,
+      "upper": 2.0,
+      "result": {
+        "values": [
+          8.0,
+          8.0,
+          -1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": -1,
+      "lower": 3.0,
+      "upper": 1.0,
+      "result": {
+        "values": [
+          "inf",
+          "nan",
+          "-inf"
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": -1,
+      "lower": "nan",
+      "upper": "inf",
+      "result": {
+        "values": [
+          3.0,
+          2.0,
+          1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": -1,
+      "lower": 1.0,
+      "upper": 2.0,
+      "result": {
+        "values": null,
+        "source_error": "ValueError"
+      }
+    },
+    {
+      "numticks": 0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "result": {
+        "values": [
+          3.0,
+          2.0,
+          1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": 0,
+      "lower": 2.0,
+      "upper": 2.0,
+      "result": {
+        "values": [
+          8.0,
+          8.0,
+          -1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": 0,
+      "lower": 3.0,
+      "upper": 1.0,
+      "result": {
+        "values": [
+          "inf",
+          "nan",
+          "-inf"
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": 0,
+      "lower": "nan",
+      "upper": "inf",
+      "result": {
+        "values": [
+          3.0,
+          2.0,
+          1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": 0,
+      "lower": 1.0,
+      "upper": 2.0,
+      "result": {
+        "values": [],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": 1,
+      "lower": 0.0,
+      "upper": 0.0,
+      "result": {
+        "values": [
+          3.0,
+          2.0,
+          1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": 1,
+      "lower": 2.0,
+      "upper": 2.0,
+      "result": {
+        "values": [
+          8.0,
+          8.0,
+          -1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": 1,
+      "lower": 3.0,
+      "upper": 1.0,
+      "result": {
+        "values": [
+          "inf",
+          "nan",
+          "-inf"
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": 1,
+      "lower": "nan",
+      "upper": "inf",
+      "result": {
+        "values": [
+          3.0,
+          2.0,
+          1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "numticks": 1,
+      "lower": 1.0,
+      "upper": 2.0,
+      "result": {
+        "values": [
+          1.0
+        ],
+        "source_error": null
+      }
+    }
+  ],
+  "alias_steps": [
+    {
+      "stage": "borrowed result and caller array mutations",
+      "original": [
+        10.0,
+        9.0,
+        1.0
+      ],
+      "copy": [
+        10.0,
+        9.0,
+        1.0
+      ]
+    },
+    {
+      "stage": "replace shared key preserves older result buffer",
+      "original": [
+        77.0
+      ],
+      "copy": [
+        77.0
+      ],
+      "old_view": [
+        10.0,
+        9.0,
+        1.0
+      ]
+    },
+    {
+      "stage": "copy store replacement detaches",
+      "original": [
+        99.0
+      ],
+      "copy": [
+        88.0
+      ]
+    }
+  ],
+  "parameter_updates": [
+    {
+      "parameters": {
+        "numticks": 0
+      },
+      "raw_numticks": 0,
+      "effective_numticks": 0,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      }
+    },
+    {
+      "parameters": {},
+      "raw_numticks": 0,
+      "effective_numticks": 0,
+      "ticks": {
+        "values": [],
+        "source_error": null
+      }
+    },
+    {
+      "parameters": {
+        "numticks": 1
+      },
+      "raw_numticks": 1,
+      "effective_numticks": 1,
+      "ticks": {
+        "values": [
+          -0.5
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "parameters": {
+        "numticks": null
+      },
+      "raw_numticks": 1,
+      "effective_numticks": 1,
+      "ticks": {
+        "values": [
+          -0.5
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "parameters": {
+        "numticks": -1
+      },
+      "raw_numticks": -1,
+      "effective_numticks": -1,
+      "ticks": {
+        "values": null,
+        "source_error": "ValueError"
+      }
+    },
+    {
+      "parameters": {
+        "numticks": 3
+      },
+      "raw_numticks": 3,
+      "effective_numticks": 3,
+      "ticks": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      }
+    }
+  ],
+  "strided_presets": [
+    {
+      "label": "positive stride",
+      "slices": [
+        [
+          1,
+          2,
+          5
+        ]
+      ],
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            1.0,
+            3.0,
+            5.0,
+            7.0,
+            9.0
+          ]
+        },
+        {
+          "stage": "result writes original owner",
+          "owner": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            109.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            1.0,
+            3.0,
+            5.0,
+            7.0,
+            109.0
+          ]
+        },
+        {
+          "stage": "owner writes borrowed result",
+          "owner_index": 1,
+          "owner": [
+            0.0,
+            -49.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            109.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            -49.0,
+            3.0,
+            5.0,
+            7.0,
+            109.0
+          ]
+        },
+        {
+          "stage": "store replacement and shallow detachment",
+          "owner": [
+            0.0,
+            -49.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            109.0,
+            10.0,
+            11.5
+          ],
+          "old_view": [
+            -49.0,
+            3.0,
+            5.0,
+            7.0,
+            109.0
+          ],
+          "shared_after_replace": [
+            77.0,
+            88.0
+          ],
+          "original": [
+            77.0,
+            88.0
+          ],
+          "copy": [
+            99.0
+          ]
+        }
+      ]
+    },
+    {
+      "label": "negative stride",
+      "slices": [
+        [
+          10,
+          -2,
+          5
+        ]
+      ],
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            10.0,
+            8.0,
+            6.0,
+            4.0,
+            2.0
+          ]
+        },
+        {
+          "stage": "result writes original owner",
+          "owner": [
+            0.0,
+            1.0,
+            102.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            10.0,
+            8.0,
+            6.0,
+            4.0,
+            102.0
+          ]
+        },
+        {
+          "stage": "owner writes borrowed result",
+          "owner_index": 10,
+          "owner": [
+            0.0,
+            1.0,
+            102.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            -40.0,
+            11.0
+          ],
+          "values": [
+            -40.0,
+            8.0,
+            6.0,
+            4.0,
+            102.0
+          ]
+        },
+        {
+          "stage": "store replacement and shallow detachment",
+          "owner": [
+            0.0,
+            1.0,
+            102.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            -40.0,
+            11.5
+          ],
+          "old_view": [
+            -40.0,
+            8.0,
+            6.0,
+            4.0,
+            102.0
+          ],
+          "shared_after_replace": [
+            77.0,
+            88.0
+          ],
+          "original": [
+            77.0,
+            88.0
+          ],
+          "copy": [
+            99.0
+          ]
+        }
+      ]
+    },
+    {
+      "label": "negative start",
+      "slices": [
+        [
+          -1,
+          -3,
+          4
+        ]
+      ],
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            11.0,
+            8.0,
+            5.0,
+            2.0
+          ]
+        },
+        {
+          "stage": "result writes original owner",
+          "owner": [
+            0.0,
+            1.0,
+            102.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            11.0,
+            8.0,
+            5.0,
+            102.0
+          ]
+        },
+        {
+          "stage": "owner writes borrowed result",
+          "owner_index": 11,
+          "owner": [
+            0.0,
+            1.0,
+            102.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            -39.0
+          ],
+          "values": [
+            -39.0,
+            8.0,
+            5.0,
+            102.0
+          ]
+        },
+        {
+          "stage": "store replacement and shallow detachment",
+          "owner": [
+            0.0,
+            1.0,
+            102.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            -38.5
+          ],
+          "old_view": [
+            -38.5,
+            8.0,
+            5.0,
+            102.0
+          ],
+          "shared_after_replace": [
+            77.0,
+            88.0
+          ],
+          "original": [
+            77.0,
+            88.0
+          ],
+          "copy": [
+            99.0
+          ]
+        }
+      ]
+    },
+    {
+      "label": "empty view",
+      "slices": [
+        [
+          2,
+          3,
+          0
+        ]
+      ],
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": []
+        },
+        {
+          "stage": "result writes original owner",
+          "owner": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": []
+        },
+        {
+          "stage": "owner writes borrowed result",
+          "owner_index": 0,
+          "owner": [
+            -50.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": []
+        },
+        {
+          "stage": "store replacement and shallow detachment",
+          "owner": [
+            -50.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.5
+          ],
+          "old_view": [],
+          "shared_after_replace": [
+            77.0,
+            88.0
+          ],
+          "original": [
+            77.0,
+            88.0
+          ],
+          "copy": [
+            99.0
+          ]
+        }
+      ]
+    },
+    {
+      "label": "composed reverse",
+      "slices": [
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          -1,
+          -2,
+          3
+        ]
+      ],
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            9.0,
+            5.0,
+            1.0
+          ]
+        },
+        {
+          "stage": "result writes original owner",
+          "owner": [
+            0.0,
+            101.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            9.0,
+            5.0,
+            101.0
+          ]
+        },
+        {
+          "stage": "owner writes borrowed result",
+          "owner_index": 9,
+          "owner": [
+            0.0,
+            101.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            -41.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            -41.0,
+            5.0,
+            101.0
+          ]
+        },
+        {
+          "stage": "store replacement and shallow detachment",
+          "owner": [
+            0.0,
+            101.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            -41.0,
+            10.0,
+            11.5
+          ],
+          "old_view": [
+            -41.0,
+            5.0,
+            101.0
+          ],
+          "shared_after_replace": [
+            77.0,
+            88.0
+          ],
+          "original": [
+            77.0,
+            88.0
+          ],
+          "copy": [
+            99.0
+          ]
+        }
+      ]
+    },
+    {
+      "label": "composed forward",
+      "slices": [
+        [
+          10,
+          -2,
+          5
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            8.0,
+            4.0
+          ]
+        },
+        {
+          "stage": "result writes original owner",
+          "owner": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            104.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            8.0,
+            104.0
+          ]
+        },
+        {
+          "stage": "owner writes borrowed result",
+          "owner_index": 8,
+          "owner": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            104.0,
+            5.0,
+            6.0,
+            7.0,
+            -42.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            -42.0,
+            104.0
+          ]
+        },
+        {
+          "stage": "store replacement and shallow detachment",
+          "owner": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            104.0,
+            5.0,
+            6.0,
+            7.0,
+            -42.0,
+            9.0,
+            10.0,
+            11.5
+          ],
+          "old_view": [
+            -42.0,
+            104.0
+          ],
+          "shared_after_replace": [
+            77.0,
+            88.0
+          ],
+          "original": [
+            77.0,
+            88.0
+          ],
+          "copy": [
+            99.0
+          ]
+        }
+      ]
+    },
+    {
+      "label": "writable zero stride",
+      "slices": [
+        [
+          2,
+          0,
+          4
+        ]
+      ],
+      "stages": [
+        {
+          "stage": "initial",
+          "owner": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "stage": "result writes original owner",
+          "owner": [
+            0.0,
+            1.0,
+            102.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            102.0,
+            102.0,
+            102.0,
+            102.0
+          ]
+        },
+        {
+          "stage": "owner writes borrowed result",
+          "owner_index": 2,
+          "owner": [
+            0.0,
+            1.0,
+            52.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+          ],
+          "values": [
+            52.0,
+            52.0,
+            52.0,
+            52.0
+          ]
+        },
+        {
+          "stage": "store replacement and shallow detachment",
+          "owner": [
+            0.0,
+            1.0,
+            52.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.5
+          ],
+          "old_view": [
+            52.0,
+            52.0,
+            52.0,
+            52.0
+          ],
+          "shared_after_replace": [
+            77.0,
+            88.0
+          ],
+          "original": [
+            77.0,
+            88.0
+          ],
+          "copy": [
+            99.0
+          ]
+        }
+      ]
+    }
+  ]
+}

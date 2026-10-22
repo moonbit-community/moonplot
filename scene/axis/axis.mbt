@@ -11,6 +11,7 @@ pub(all) enum TickPosition {
 ///|
 /// A coordinate axis with limits, tick formatting, and presentation settings.
 pub struct Axis {
+  priv mut data_interval_provider : (() -> (Double, Double))?
   mut limits : @core.Limits?
   mut auto_view : @core.Limits?
   mut inverted : Bool
@@ -49,6 +50,7 @@ pub struct Axis {
 /// Construct an automatic axis.
 pub fn axis() -> Axis {
   {
+    data_interval_provider: None,
     limits: None,
     auto_view: None,
     inverted: false,
@@ -396,6 +398,7 @@ pub fn Axis::set_locator(
     _ => ()
   }
   self.locator = Some(locator.copy())
+  self.bind_locator_data()
   self.date_locator = None
   self.fixed_ticks = None
   self.fixed_labels = None
@@ -445,6 +448,7 @@ pub fn Axis::set_minor_locator(
     _ => ()
   }
   self.minor_locator = Some(locator.copy())
+  self.bind_locator_data(minor=true)
   self.minor_date_locator = None
 }
 
@@ -992,6 +996,11 @@ pub fn Axis::tick_values(
   self : Axis,
   automatic : @core.Limits,
 ) -> Array[Double] {
+  if self.fixed_ticks is None &&
+    self.category is None &&
+    self.locator is Some(@ticker.Locator::Index(_)) {
+    return self.tick_values_checked(automatic) catch { _ => [] }
+  }
   match self.fixed_ticks {
     Some(values) => values.copy()
     None =>
@@ -1048,6 +1057,16 @@ pub fn Axis::minor_tick_values(
   self : Axis,
   automatic : @core.Limits,
 ) -> Array[Double] {
+  if self.category is None &&
+    self.minor_date_locator is None &&
+    self.minor_locator
+    is Some(
+      @ticker.MinorLocator::NamedLinear(_)
+      | @ticker.MinorLocator::Index(_)
+      | @ticker.MinorLocator::NamedFixed(_)
+    ) {
+    return self.minor_tick_values_checked(automatic) catch { _ => [] }
+  }
   if self.minor_date_locator is Some(locator) {
     let limits = self.limits.unwrap_or(automatic)
     let limits = self.date_nonsingular_bounds(limits.lower(), limits.upper())

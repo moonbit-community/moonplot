@@ -1197,6 +1197,28 @@ Double 运算、eager 前缀上限及具体接线边界见 [固定间隔定位�
 SVG 主/次与 secondary 刻度按变换后的视图和上游 `1e-10` 容差筛选绘制，
 直接查询仍返回邻接点，标签布局先使用完整刻度集。
 
+命名 `LinearLocator`、`IndexLocator` 和 `FixedLocator` 在 D21 按各自源对象语义接入：
+Linear 默认有效数量为11，支持共享 preset store；Fixed 保留输入顺序、重复值和非有限值，
+忽略查询范围；Index 从数据起点加 offset 按 base 步进，允许负步长且不排序范围。
+旧 `linear_locator` / `fixed_locator` helpers 的默认值、校验和裁剪继续保留。
+
+```moonbit nocheck
+let fixed = @ticker.FixedLocator::new([4.0, 1.0, 0.0, -1.0, -4.0], nbins=2.0)
+let ticks = try! fixed.tick_values(100.0, -100.0)
+assert_eq(try! ticks.to_array(), [0.0])
+try! ticks.set(-1, 0.5)
+try! fig.set_x_locator(fixed.as_locator())
+```
+
+Linear 与 Fixed 的直接结果是可变 `TickValues`，保留 preset/位置 buffer 的借用和 stride；
+`get`/`set` 支持负索引，`view(start,stride,length)` 支持反向、嵌套和零 stride，
+`to_array` 和 `copy` 产生独立值。`FixedLocator::new` 借用数组，`from_view` 保留已有 view，
+`from_list` 复制，`locations()` 返回 TickValues；对象 `copy()` 浅共享位置 buffer，独立保存 nbins。
+Linear 的 `presets().set_view` 可借用同一类 view，`get` 也返回 TickValues。主/次 adapter 保留 live
+handle，generic adapter 物化结果时才应用前缀上限；Index 的轴调用使用真实 data interval。
+错误传播、preset/更新细节与 shared/secondary 接线状态见
+[命名数值定位器说明](testdata/named_numeric_locator_README.md)，最终门禁记录在迁移检查点。
+
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`
 及常见宽度/精度标志，`log_formatter`、`null_formatter` 和 `func_formatter` 分别用于对数、

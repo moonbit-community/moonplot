@@ -1,0 +1,9088 @@
+{
+  "ticker_source_sha256": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+  "transforms_source_sha256": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "ast_source_bodies": [
+    "IndexLocator",
+    "Locator.nonsingular",
+    "Locator.view_limits",
+    "Locator.raise_if_exceeds",
+    "transforms._nonsingular"
+  ],
+  "safe_allocation_limit": 250000,
+  "port_eager_cap": 100000,
+  "prefix_length": 8,
+  "cases": [
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 31,
+        "values": [
+          0.0,
+          0.1,
+          0.2,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.7000000000000001,
+          0.8,
+          0.9,
+          1.0,
+          1.1,
+          1.2000000000000002,
+          1.3,
+          1.4000000000000001,
+          1.5,
+          1.6,
+          1.7000000000000002,
+          1.8,
+          1.9000000000000001,
+          2.0,
+          2.1,
+          2.2,
+          2.3000000000000003,
+          2.4000000000000004,
+          2.5,
+          2.6,
+          2.7,
+          2.8000000000000003,
+          2.9000000000000004,
+          3.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": 0.0,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 31,
+        "values": [
+          0.2,
+          0.30000000000000004,
+          0.4000000000000001,
+          0.5000000000000001,
+          0.6000000000000001,
+          0.7000000000000002,
+          0.8000000000000003,
+          0.9000000000000002,
+          1.0000000000000002,
+          1.1000000000000003,
+          1.2000000000000004,
+          1.3000000000000003,
+          1.4000000000000004,
+          1.5000000000000004,
+          1.6000000000000005,
+          1.7000000000000006,
+          1.8000000000000005,
+          1.9000000000000006,
+          2.0000000000000004,
+          2.1000000000000005,
+          2.2000000000000006,
+          2.3000000000000007,
+          2.400000000000001,
+          2.500000000000001,
+          2.600000000000001,
+          2.700000000000001,
+          2.8000000000000007,
+          2.900000000000001,
+          3.000000000000001,
+          3.100000000000001,
+          3.200000000000001
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": 0.0,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 21,
+        "values": [
+          -3.0,
+          -2.9,
+          -2.8,
+          -2.6999999999999997,
+          -2.5999999999999996,
+          -2.4999999999999996,
+          -2.3999999999999995,
+          -2.2999999999999994,
+          -2.1999999999999993,
+          -2.099999999999999,
+          -1.9999999999999991,
+          -1.899999999999999,
+          -1.799999999999999,
+          -1.6999999999999988,
+          -1.5999999999999988,
+          -1.4999999999999987,
+          -1.3999999999999986,
+          -1.2999999999999985,
+          -1.1999999999999984,
+          -1.0999999999999983,
+          -0.9999999999999982
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 28,
+        "values": [
+          0.25,
+          0.35,
+          0.44999999999999996,
+          0.5499999999999999,
+          0.6499999999999999,
+          0.7499999999999999,
+          0.8499999999999999,
+          0.9499999999999998,
+          1.0499999999999998,
+          1.15,
+          1.2499999999999998,
+          1.3499999999999996,
+          1.4499999999999997,
+          1.5499999999999998,
+          1.6499999999999997,
+          1.7499999999999996,
+          1.8499999999999996,
+          1.9499999999999997,
+          2.05,
+          2.1499999999999995,
+          2.2499999999999996,
+          2.3499999999999996,
+          2.4499999999999993,
+          2.5499999999999994,
+          2.6499999999999995,
+          2.7499999999999996,
+          2.8499999999999996,
+          2.9499999999999993
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": 0.25,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 28,
+        "values": [
+          0.45,
+          0.55,
+          0.6500000000000001,
+          0.7500000000000001,
+          0.8500000000000001,
+          0.9500000000000002,
+          1.0500000000000003,
+          1.1500000000000004,
+          1.2500000000000002,
+          1.3500000000000003,
+          1.4500000000000004,
+          1.5500000000000003,
+          1.6500000000000004,
+          1.7500000000000004,
+          1.8500000000000005,
+          1.9500000000000006,
+          2.0500000000000007,
+          2.1500000000000004,
+          2.2500000000000004,
+          2.3500000000000005,
+          2.4500000000000006,
+          2.5500000000000007,
+          2.650000000000001,
+          2.750000000000001,
+          2.850000000000001,
+          2.950000000000001,
+          3.0500000000000007,
+          3.150000000000001
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": 0.25,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": 0.25,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 18,
+        "values": [
+          -2.75,
+          -2.65,
+          -2.55,
+          -2.4499999999999997,
+          -2.3499999999999996,
+          -2.2499999999999996,
+          -2.1499999999999995,
+          -2.0499999999999994,
+          -1.9499999999999993,
+          -1.8499999999999992,
+          -1.7499999999999991,
+          -1.649999999999999,
+          -1.549999999999999,
+          -1.4499999999999988,
+          -1.3499999999999988,
+          -1.2499999999999987,
+          -1.1499999999999986,
+          -1.0499999999999985
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 36,
+        "values": [
+          -0.5,
+          -0.4,
+          -0.30000000000000004,
+          -0.20000000000000007,
+          -0.10000000000000009,
+          -1.1102230246251565e-16,
+          0.09999999999999987,
+          0.19999999999999984,
+          0.2999999999999998,
+          0.3999999999999998,
+          0.4999999999999998,
+          0.5999999999999998,
+          0.6999999999999997,
+          0.7999999999999997,
+          0.8999999999999997,
+          0.9999999999999997,
+          1.0999999999999996,
+          1.1999999999999997,
+          1.2999999999999996,
+          1.3999999999999995,
+          1.4999999999999996,
+          1.5999999999999996,
+          1.6999999999999995,
+          1.7999999999999994,
+          1.8999999999999995,
+          1.9999999999999996,
+          2.0999999999999996,
+          2.1999999999999993,
+          2.2999999999999994,
+          2.3999999999999995,
+          2.499999999999999,
+          2.599999999999999,
+          2.6999999999999993,
+          2.7999999999999994,
+          2.8999999999999995,
+          2.999999999999999
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": -0.5,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 36,
+        "values": [
+          -0.3,
+          -0.19999999999999998,
+          -0.09999999999999998,
+          2.7755575615628914e-17,
+          0.10000000000000003,
+          0.20000000000000004,
+          0.30000000000000004,
+          0.4,
+          0.5,
+          0.6000000000000001,
+          0.7000000000000001,
+          0.8,
+          0.9000000000000001,
+          1.0,
+          1.1,
+          1.2000000000000002,
+          1.3,
+          1.4000000000000001,
+          1.5,
+          1.6,
+          1.7000000000000002,
+          1.8,
+          1.9000000000000001,
+          2.0,
+          2.1,
+          2.2,
+          2.3000000000000003,
+          2.4000000000000004,
+          2.5,
+          2.6,
+          2.7,
+          2.8000000000000003,
+          2.9000000000000004,
+          3.0,
+          3.1,
+          3.2
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": -0.5,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 6,
+        "values": [
+          -0.5,
+          -0.4,
+          -0.30000000000000004,
+          -0.20000000000000007,
+          -0.10000000000000009,
+          -1.1102230246251565e-16
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.1,
+        "offset": -0.5,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 26,
+        "values": [
+          -3.5,
+          -3.4,
+          -3.3,
+          -3.1999999999999997,
+          -3.0999999999999996,
+          -2.9999999999999996,
+          -2.8999999999999995,
+          -2.7999999999999994,
+          -2.6999999999999993,
+          -2.599999999999999,
+          -2.499999999999999,
+          -2.399999999999999,
+          -2.299999999999999,
+          -2.199999999999999,
+          -2.0999999999999988,
+          -1.9999999999999987,
+          -1.8999999999999986,
+          -1.7999999999999985,
+          -1.6999999999999984,
+          -1.5999999999999983,
+          -1.4999999999999982,
+          -1.3999999999999981,
+          -1.299999999999998,
+          -1.199999999999998,
+          -1.0999999999999979,
+          -0.9999999999999978
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 11,
+        "values": [
+          0.0,
+          0.3,
+          0.6,
+          0.8999999999999999,
+          1.2,
+          1.5,
+          1.7999999999999998,
+          2.1,
+          2.4,
+          2.6999999999999997,
+          3.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": 0.0,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 11,
+        "values": [
+          0.2,
+          0.5,
+          0.8,
+          1.1,
+          1.4,
+          1.7,
+          2.0,
+          2.3,
+          2.6,
+          2.9,
+          3.1999999999999997
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": 0.0,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 7,
+        "values": [
+          -3.0,
+          -2.7,
+          -2.4000000000000004,
+          -2.1000000000000005,
+          -1.8000000000000007,
+          -1.5000000000000009,
+          -1.200000000000001
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 10,
+        "values": [
+          0.25,
+          0.55,
+          0.8500000000000001,
+          1.1500000000000001,
+          1.4500000000000002,
+          1.7500000000000002,
+          2.0500000000000003,
+          2.3500000000000005,
+          2.6500000000000004,
+          2.95
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": 0.25,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 10,
+        "values": [
+          0.45,
+          0.75,
+          1.05,
+          1.35,
+          1.65,
+          1.95,
+          2.25,
+          2.55,
+          2.85,
+          3.15
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": 0.25,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": 0.25,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 6,
+        "values": [
+          -2.75,
+          -2.45,
+          -2.1500000000000004,
+          -1.8500000000000005,
+          -1.5500000000000007,
+          -1.2500000000000009
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 12,
+        "values": [
+          -0.5,
+          -0.2,
+          0.09999999999999998,
+          0.39999999999999997,
+          0.7,
+          1.0,
+          1.2999999999999998,
+          1.5999999999999999,
+          1.9,
+          2.1999999999999997,
+          2.5,
+          2.8
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": -0.5,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 12,
+        "values": [
+          -0.3,
+          0.0,
+          0.3,
+          0.6,
+          0.8999999999999999,
+          1.2,
+          1.5,
+          1.7999999999999998,
+          2.1,
+          2.4,
+          2.6999999999999997,
+          3.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": -0.5,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          -0.5,
+          -0.2
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.3,
+        "offset": -0.5,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 9,
+        "values": [
+          -3.5,
+          -3.2,
+          -2.9000000000000004,
+          -2.6000000000000005,
+          -2.3000000000000007,
+          -2.000000000000001,
+          -1.700000000000001,
+          -1.4000000000000012,
+          -1.1000000000000014
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 7,
+        "values": [
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": 0.0,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 7,
+        "values": [
+          0.2,
+          0.7,
+          1.2,
+          1.6999999999999997,
+          2.1999999999999997,
+          2.6999999999999997,
+          3.1999999999999997
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": 0.0,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 5,
+        "values": [
+          -3.0,
+          -2.5,
+          -2.0,
+          -1.5,
+          -1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 6,
+        "values": [
+          0.25,
+          0.75,
+          1.25,
+          1.75,
+          2.25,
+          2.75
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": 0.25,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 6,
+        "values": [
+          0.45,
+          0.95,
+          1.45,
+          1.9499999999999997,
+          2.4499999999999997,
+          2.9499999999999997
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": 0.25,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": 0.25,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 4,
+        "values": [
+          -2.75,
+          -2.25,
+          -1.75,
+          -1.25
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 8,
+        "values": [
+          -0.5,
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": -0.5,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 8,
+        "values": [
+          -0.3,
+          0.2,
+          0.7,
+          1.2,
+          1.7,
+          2.2,
+          2.7,
+          3.2
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": -0.5,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          -0.5,
+          0.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 0.5,
+        "offset": -0.5,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 6,
+        "values": [
+          -3.5,
+          -3.0,
+          -2.5,
+          -2.0,
+          -1.5,
+          -1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 4,
+        "values": [
+          0.0,
+          1.0,
+          2.0,
+          3.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 4,
+        "values": [
+          0.2,
+          1.2,
+          2.2,
+          3.2
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 3,
+        "values": [
+          -3.0,
+          -2.0,
+          -1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 3,
+        "values": [
+          0.25,
+          1.25,
+          2.25
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": 0.25,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 3,
+        "values": [
+          0.45,
+          1.45,
+          2.45
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": 0.25,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": 0.25,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          -2.75,
+          -1.75
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 4,
+        "values": [
+          -0.5,
+          0.5,
+          1.5,
+          2.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": -0.5,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 4,
+        "values": [
+          -0.3,
+          0.7,
+          1.7,
+          2.7
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": -0.5,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          -0.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 1.0,
+        "offset": -0.5,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 3,
+        "values": [
+          -3.5,
+          -2.5,
+          -1.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          0.0,
+          2.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": 0.0,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          0.2,
+          2.7
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": 0.0,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          -3.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          0.25,
+          2.75
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": 0.25,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          0.45,
+          2.95
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": 0.25,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": 0.25,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          -2.75
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          -0.5,
+          2.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": -0.5,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          -0.3,
+          2.2
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": -0.5,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          -0.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 2.5,
+        "offset": -0.5,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          -3.5,
+          -1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": 0.0,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.2
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": 0.0,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          -3.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.25
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": 0.25,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.45
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": 0.25,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": 0.25,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          -2.75
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          -0.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": -0.5,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          -0.3
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": -0.5,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          -0.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": 7.0,
+        "offset": -0.5,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          -3.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": 0.0,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 30,
+        "values": [
+          3.0,
+          2.9,
+          2.8,
+          2.6999999999999997,
+          2.5999999999999996,
+          2.4999999999999996,
+          2.3999999999999995,
+          2.2999999999999994,
+          2.1999999999999993,
+          2.099999999999999,
+          1.9999999999999991,
+          1.899999999999999,
+          1.799999999999999,
+          1.6999999999999988,
+          1.5999999999999988,
+          1.4999999999999987,
+          1.3999999999999986,
+          1.2999999999999985,
+          1.1999999999999984,
+          1.0999999999999983,
+          0.9999999999999982,
+          0.8999999999999981,
+          0.799999999999998,
+          0.699999999999998,
+          0.5999999999999979,
+          0.4999999999999978,
+          0.3999999999999977,
+          0.2999999999999976,
+          0.1999999999999975,
+          0.09999999999999742
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": 0.0,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": 0.25,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": 0.25,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 33,
+        "values": [
+          3.25,
+          3.15,
+          3.05,
+          2.9499999999999997,
+          2.8499999999999996,
+          2.7499999999999996,
+          2.6499999999999995,
+          2.5499999999999994,
+          2.4499999999999993,
+          2.349999999999999,
+          2.249999999999999,
+          2.149999999999999,
+          2.049999999999999,
+          1.9499999999999988,
+          1.8499999999999988,
+          1.7499999999999987,
+          1.6499999999999986,
+          1.5499999999999985,
+          1.4499999999999984,
+          1.3499999999999983,
+          1.2499999999999982,
+          1.1499999999999981,
+          1.049999999999998,
+          0.949999999999998,
+          0.8499999999999979,
+          0.7499999999999978,
+          0.6499999999999977,
+          0.5499999999999976,
+          0.4499999999999975,
+          0.3499999999999974,
+          0.24999999999999734,
+          0.14999999999999725,
+          0.04999999999999716
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 3,
+        "values": [
+          0.25,
+          0.15,
+          0.04999999999999999
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": 0.25,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": -0.5,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": -0.5,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 25,
+        "values": [
+          2.5,
+          2.4,
+          2.3,
+          2.1999999999999997,
+          2.0999999999999996,
+          1.9999999999999996,
+          1.8999999999999995,
+          1.7999999999999994,
+          1.6999999999999993,
+          1.5999999999999992,
+          1.4999999999999991,
+          1.399999999999999,
+          1.299999999999999,
+          1.1999999999999988,
+          1.0999999999999988,
+          0.9999999999999987,
+          0.8999999999999986,
+          0.7999999999999985,
+          0.6999999999999984,
+          0.5999999999999983,
+          0.4999999999999982,
+          0.39999999999999813,
+          0.29999999999999805,
+          0.19999999999999796,
+          0.09999999999999787
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.1,
+        "offset": -0.5,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": 0.0,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 10,
+        "values": [
+          3.0,
+          2.7,
+          2.4000000000000004,
+          2.1000000000000005,
+          1.8000000000000007,
+          1.5000000000000009,
+          1.200000000000001,
+          0.9000000000000012,
+          0.6000000000000014,
+          0.3000000000000016
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": 0.0,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": 0.25,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": 0.25,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 11,
+        "values": [
+          3.25,
+          2.95,
+          2.6500000000000004,
+          2.3500000000000005,
+          2.0500000000000007,
+          1.7500000000000009,
+          1.450000000000001,
+          1.1500000000000012,
+          0.8500000000000014,
+          0.5500000000000016,
+          0.2500000000000018
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.25
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": 0.25,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": -0.5,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": -0.5,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 9,
+        "values": [
+          2.5,
+          2.2,
+          1.9000000000000004,
+          1.6000000000000005,
+          1.3000000000000007,
+          1.0000000000000009,
+          0.7000000000000011,
+          0.40000000000000124,
+          0.10000000000000142
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.3,
+        "offset": -0.5,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": 0.0,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 6,
+        "values": [
+          3.0,
+          2.5,
+          2.0,
+          1.5,
+          1.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": 0.0,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": 0.25,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": 0.25,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 7,
+        "values": [
+          3.25,
+          2.75,
+          2.25,
+          1.75,
+          1.25,
+          0.75,
+          0.25
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.25
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": 0.25,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": -0.5,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": -0.5,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 5,
+        "values": [
+          2.5,
+          2.0,
+          1.5,
+          1.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -0.5,
+        "offset": -0.5,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": 0.0,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 3,
+        "values": [
+          3.0,
+          2.0,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": 0.0,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": 0.25,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": 0.25,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 4,
+        "values": [
+          3.25,
+          2.25,
+          1.25,
+          0.25
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.25
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": 0.25,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": -0.5,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": -0.5,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 3,
+        "values": [
+          2.5,
+          1.5,
+          0.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -1.0,
+        "offset": -0.5,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": 0.0,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          3.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": 0.0,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": 0.25,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": 0.25,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          3.25,
+          0.75
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.25
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": 0.25,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": -0.5,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": -0.5,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          2.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -2.5,
+        "offset": -0.5,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": 0.0,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          3.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": 0.0,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": 0.25,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": 0.25,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          3.25
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.25
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": 0.25,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": -0.5,
+        "lower": 0.2,
+        "upper": 3.2
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.2,
+            3.2
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.2,
+            3.2
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.2,
+        3.2
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": -0.5,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          2.5
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": -0.5,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "fractional spacing / offset / direction",
+        "base": -7.0,
+        "offset": -0.5,
+        "lower": -3.0,
+        "upper": -1.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -3.0,
+            -1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -3.0,
+        -1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": 0.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_error": "ZeroDivisionError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": 0.0,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_error": "ZeroDivisionError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": 0.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": -1e-12
+      },
+      "ticks": {
+        "source_error": "ZeroDivisionError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e-12,
+            0.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e-12,
+            0.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e-12,
+        0.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": -0.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_error": "ZeroDivisionError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": -0.0,
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_error": "ZeroDivisionError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": -0.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": -1e-12
+      },
+      "ticks": {
+        "source_error": "ZeroDivisionError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e-12,
+            0.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e-12,
+            0.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e-12,
+        0.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": "nan",
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": "nan",
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": "nan",
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": -1e-12
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e-12,
+            0.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e-12,
+            0.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e-12,
+        0.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": "inf",
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": "inf",
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": "inf",
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": -1e-12
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e-12,
+            0.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e-12,
+            0.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e-12,
+        0.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": "-inf",
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 3.0
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": "-inf",
+        "offset": 0.0,
+        "lower": 3.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          3.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            3.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            3.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite or zero step",
+        "base": "-inf",
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": -1e-12
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e-12,
+            0.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e-12,
+            0.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e-12,
+        0.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite offset",
+        "base": 1.0,
+        "offset": "nan",
+        "lower": 0.0,
+        "upper": 4.0
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            4.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            4.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite offset",
+        "base": 1.0,
+        "offset": "inf",
+        "lower": 0.0,
+        "upper": 4.0
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            4.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            4.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "case": {
+        "label": "unchecked nonfinite offset",
+        "base": 1.0,
+        "offset": "-inf",
+        "lower": 0.0,
+        "upper": 4.0
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            4.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            4.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "case": {
+        "label": "nonfinite bounds",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": "nan",
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "nonfinite bounds",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": "nan"
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "nonfinite bounds",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": "inf",
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "nonfinite bounds",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": "-inf",
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "nonfinite bounds",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": "inf"
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "nonfinite bounds",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": "-inf"
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "nonfinite bounds",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": "inf",
+        "upper": "inf"
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "nonfinite bounds",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": "-inf",
+        "upper": "-inf"
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "binary64 actual fill step",
+        "base": 0.1,
+        "offset": 0.0,
+        "lower": 1e+16,
+        "upper": 1.0000000000000004e+16
+      },
+      "ticks": {
+        "source_length": 40,
+        "values": [
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            9990000000000000.0,
+            1.0010000000000004e+16
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            9990000000000000.0,
+            1.0010000000000004e+16
+          ]
+        }
+      ],
+      "nonsingular": [
+        9500000000000000.0,
+        1.0500000000000004e+16
+      ]
+    },
+    {
+      "case": {
+        "label": "binary64 actual fill step",
+        "base": 0.5,
+        "offset": 0.0,
+        "lower": 1e+16,
+        "upper": 1.0000000000000004e+16
+      },
+      "ticks": {
+        "source_length": 8,
+        "values": [
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            9990000000000000.0,
+            1.0010000000000004e+16
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            9990000000000000.0,
+            1.0010000000000004e+16
+          ]
+        }
+      ],
+      "nonsingular": [
+        9500000000000000.0,
+        1.0500000000000004e+16
+      ]
+    },
+    {
+      "case": {
+        "label": "binary64 actual fill step",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 1e+16,
+        "upper": 1.0000000000000004e+16
+      },
+      "ticks": {
+        "source_length": 4,
+        "values": [
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            9990000000000000.0,
+            1.0010000000000004e+16
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            9990000000000000.0,
+            1.0010000000000004e+16
+          ]
+        }
+      ],
+      "nonsingular": [
+        9500000000000000.0,
+        1.0500000000000004e+16
+      ]
+    },
+    {
+      "case": {
+        "label": "binary64 actual fill step",
+        "base": 2.0,
+        "offset": 0.0,
+        "lower": 1e+16,
+        "upper": 1.0000000000000004e+16
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          1e+16,
+          1.0000000000000002e+16
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            9990000000000000.0,
+            1.0010000000000004e+16
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            9990000000000000.0,
+            1.0010000000000004e+16
+          ]
+        }
+      ],
+      "nonsingular": [
+        9500000000000000.0,
+        1.0500000000000004e+16
+      ]
+    },
+    {
+      "case": {
+        "label": "binary64 actual fill step",
+        "base": -1.0,
+        "offset": 0.0,
+        "lower": 1e+16,
+        "upper": 9999999999999996.0
+      },
+      "ticks": {
+        "source_length": 4,
+        "values": [
+          1e+16,
+          1e+16,
+          1e+16,
+          1e+16
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            9989999999999996.0,
+            1.001e+16
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            9989999999999996.0,
+            1.001e+16
+          ]
+        }
+      ],
+      "nonsingular": [
+        9499999999999996.0,
+        1.05e+16
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1e+308,
+        "offset": 0.0,
+        "lower": -5e-324,
+        "upper": -1e-12
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          -5e-324
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e-12,
+            -5e-324
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e-12,
+            -5e-324
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e-12,
+        -5e-324
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": -1e+308,
+        "offset": 0.0,
+        "lower": -5e-324,
+        "upper": -1e-12
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e-12,
+            -5e-324
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e-12,
+            -5e-324
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e-12,
+        -5e-324
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1e+308,
+        "offset": 0.0,
+        "lower": 5e-324,
+        "upper": -1e-12
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e-12,
+            5e-324
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e-12,
+            5e-324
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e-12,
+        5e-324
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": -1e+308,
+        "offset": 0.0,
+        "lower": 5e-324,
+        "upper": -1e-12
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          5e-324
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e-12,
+            5e-324
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e-12,
+            5e-324
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e-12,
+        5e-324
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 5e-324,
+        "offset": 0.0,
+        "lower": -5e-324,
+        "upper": -1e-12
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          -5e-324
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e-12,
+            -5e-324
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e-12,
+            -5e-324
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e-12,
+        -5e-324
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": -5e-324,
+        "offset": 0.0,
+        "lower": 5e-324,
+        "upper": -1e-12
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          5e-324
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e-12,
+            5e-324
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e-12,
+            5e-324
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e-12,
+        5e-324
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1.0,
+        "offset": -0.0,
+        "lower": -0.0,
+        "upper": 1.0
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          -0.0,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.0,
+            1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.0,
+            1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.0,
+        1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": -1.0,
+        "offset": -0.0,
+        "lower": -0.0,
+        "upper": -2.0
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          -0.0,
+          -1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -2.0,
+            -0.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -2.0,
+            -0.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -2.0,
+        -0.0
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.9999999999989999
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            0.9999999999989999
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            0.9999999999989999
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        0.9999999999989999
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.999999999999
+      },
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          0.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            0.999999999999
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            0.999999999999
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        0.999999999999
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.9999999999990001
+      },
+      "ticks": {
+        "source_length": 2,
+        "values": [
+          0.0,
+          1.0
+        ],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            0.9999999999990001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            0.9999999999990001
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        0.9999999999990001
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1e+308,
+        "offset": 0.0,
+        "lower": -1e+308,
+        "upper": 1e+308
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e+308,
+            1e+308
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e+308,
+            1e+308
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e+308,
+        1e+308
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1e+308,
+        "offset": 0.0,
+        "lower": 1e+308,
+        "upper": -1e+308
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e+308,
+            1e+308
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e+308,
+            1e+308
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e+308,
+        1e+308
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 1e+20
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            1e+20
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            1e+20
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        1e+20
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": -1e+20
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -1e+20,
+            0.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -1e+20,
+            0.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -1e+20,
+        0.0
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": -9.223372036854776e+18
+      },
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -9.223372036854776e+18,
+            0.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -9.223372036854776e+18,
+            0.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        -9.223372036854776e+18,
+        0.0
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 1.152921504606847e+18
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            1.152921504606847e+18
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            1.152921504606847e+18
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        1.152921504606847e+18
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1.0,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 200000.0
+      },
+      "ticks": {
+        "source_length": 200000,
+        "prefix": [
+          0.0,
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          7.0
+        ],
+        "source_error": null,
+        "port_eager_cap": 100000
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            200000.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            200000.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        200000.0
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 5e-324,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            -0.001,
+            0.001
+          ]
+        }
+      ],
+      "nonsingular": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1e-200,
+        "offset": 0.0,
+        "lower": 0.0,
+        "upper": 1.0
+      },
+      "ticks": {
+        "source_error": "ValueError"
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case": {
+        "label": "underflow / epsilon / signed zero / overflow / explicit budget",
+        "base": 1e-09,
+        "offset": 0.25,
+        "lower": 0.0,
+        "upper": 1000000.0
+      },
+      "ticks": {
+        "source_query_omitted": true,
+        "reason": "independent allocation budget",
+        "source_error": null,
+        "safe_allocation_limit": 250000
+      },
+      "view_limits": [
+        {
+          "mode": "data",
+          "output": [
+            0.0,
+            1000000.0
+          ]
+        },
+        {
+          "mode": "round_numbers",
+          "output": [
+            0.0,
+            1000000.0
+          ]
+        }
+      ],
+      "nonsingular": [
+        0.0,
+        1000000.0
+      ]
+    }
+  ],
+  "parameter_updates": [
+    {
+      "parameters": {
+        "base": -1.0
+      },
+      "base": -1.0,
+      "offset": 0.25,
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      }
+    },
+    {
+      "parameters": {
+        "offset": -0.5
+      },
+      "base": -1.0,
+      "offset": -0.5,
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      }
+    },
+    {
+      "parameters": {},
+      "base": -1.0,
+      "offset": -0.5,
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      }
+    },
+    {
+      "parameters": {
+        "base": null,
+        "offset": null
+      },
+      "base": -1.0,
+      "offset": -0.5,
+      "ticks": {
+        "source_length": 0,
+        "values": [],
+        "source_error": null
+      }
+    },
+    {
+      "parameters": {
+        "base": 0.0,
+        "offset": 100.0
+      },
+      "base": 0.0,
+      "offset": 100.0,
+      "ticks": {
+        "source_error": "ZeroDivisionError"
+      }
+    },
+    {
+      "parameters": {
+        "base": "nan"
+      },
+      "base": "nan",
+      "offset": 100.0,
+      "ticks": {
+        "source_error": "ValueError"
+      }
+    },
+    {
+      "parameters": {
+        "base": "inf",
+        "offset": 0.0
+      },
+      "base": "inf",
+      "offset": 0.0,
+      "ticks": {
+        "source_length": 1,
+        "values": [
+          -1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "parameters": {
+        "base": 1.0,
+        "offset": "nan"
+      },
+      "base": 1.0,
+      "offset": "nan",
+      "ticks": {
+        "source_error": "ValueError"
+      }
+    },
+    {
+      "parameters": {
+        "base": 0.5,
+        "offset": 0.25
+      },
+      "base": 0.5,
+      "offset": 0.25,
+      "ticks": {
+        "source_length": 8,
+        "values": [
+          -0.75,
+          -0.25,
+          0.25,
+          0.75,
+          1.25,
+          1.75,
+          2.25,
+          2.75
+        ],
+        "source_error": null
+      }
+    }
+  ],
+  "data_provider_cases": [
+    {
+      "base": 1.0,
+      "offset": 0.0,
+      "unbound": {
+        "source_error": "AttributeError"
+      },
+      "unrelated_view_interval": [
+        100.0,
+        200.0
+      ],
+      "queries": [
+        {
+          "data_interval": [
+            0.0,
+            4.0
+          ],
+          "call": {
+            "source_length": 5,
+            "values": [
+              0.0,
+              1.0,
+              2.0,
+              3.0,
+              4.0
+            ],
+            "source_error": null
+          },
+          "copied_call": {
+            "source_length": 5,
+            "values": [
+              0.0,
+              1.0,
+              2.0,
+              3.0,
+              4.0
+            ],
+            "source_error": null
+          },
+          "provider_reads": 2
+        },
+        {
+          "data_interval": [
+            2.0,
+            5.0
+          ],
+          "call": {
+            "source_length": 4,
+            "values": [
+              2.0,
+              3.0,
+              4.0,
+              5.0
+            ],
+            "source_error": null
+          },
+          "copied_call": {
+            "source_length": 4,
+            "values": [
+              2.0,
+              3.0,
+              4.0,
+              5.0
+            ],
+            "source_error": null
+          },
+          "provider_reads": 4
+        },
+        {
+          "data_interval": [
+            -2.0,
+            2.0
+          ],
+          "call": {
+            "source_length": 5,
+            "values": [
+              -2.0,
+              -1.0,
+              0.0,
+              1.0,
+              2.0
+            ],
+            "source_error": null
+          },
+          "copied_call": {
+            "source_length": 5,
+            "values": [
+              -2.0,
+              -1.0,
+              0.0,
+              1.0,
+              2.0
+            ],
+            "source_error": null
+          },
+          "provider_reads": 6
+        }
+      ]
+    },
+    {
+      "base": 0.5,
+      "offset": 0.25,
+      "unbound": {
+        "source_error": "AttributeError"
+      },
+      "unrelated_view_interval": [
+        100.0,
+        200.0
+      ],
+      "queries": [
+        {
+          "data_interval": [
+            1.0,
+            3.0
+          ],
+          "call": {
+            "source_length": 4,
+            "values": [
+              1.25,
+              1.75,
+              2.25,
+              2.75
+            ],
+            "source_error": null
+          },
+          "copied_call": {
+            "source_length": 4,
+            "values": [
+              1.25,
+              1.75,
+              2.25,
+              2.75
+            ],
+            "source_error": null
+          },
+          "provider_reads": 2
+        },
+        {
+          "data_interval": [
+            3.0,
+            1.0
+          ],
+          "call": {
+            "source_length": 0,
+            "values": [],
+            "source_error": null
+          },
+          "copied_call": {
+            "source_length": 0,
+            "values": [],
+            "source_error": null
+          },
+          "provider_reads": 4
+        },
+        {
+          "data_interval": [
+            0.0,
+            0.0
+          ],
+          "call": {
+            "source_length": 0,
+            "values": [],
+            "source_error": null
+          },
+          "copied_call": {
+            "source_length": 0,
+            "values": [],
+            "source_error": null
+          },
+          "provider_reads": 6
+        }
+      ]
+    },
+    {
+      "base": -1.0,
+      "offset": 0.0,
+      "unbound": {
+        "source_error": "AttributeError"
+      },
+      "unrelated_view_interval": [
+        100.0,
+        200.0
+      ],
+      "queries": [
+        {
+          "data_interval": [
+            4.0,
+            0.0
+          ],
+          "call": {
+            "source_length": 4,
+            "values": [
+              4.0,
+              3.0,
+              2.0,
+              1.0
+            ],
+            "source_error": null
+          },
+          "copied_call": {
+            "source_length": 4,
+            "values": [
+              4.0,
+              3.0,
+              2.0,
+              1.0
+            ],
+            "source_error": null
+          },
+          "provider_reads": 2
+        },
+        {
+          "data_interval": [
+            5.0,
+            2.0
+          ],
+          "call": {
+            "source_length": 3,
+            "values": [
+              5.0,
+              4.0,
+              3.0
+            ],
+            "source_error": null
+          },
+          "copied_call": {
+            "source_length": 3,
+            "values": [
+              5.0,
+              4.0,
+              3.0
+            ],
+            "source_error": null
+          },
+          "provider_reads": 4
+        },
+        {
+          "data_interval": [
+            0.0,
+            4.0
+          ],
+          "call": {
+            "source_length": 0,
+            "values": [],
+            "source_error": null
+          },
+          "copied_call": {
+            "source_length": 0,
+            "values": [],
+            "source_error": null
+          },
+          "provider_reads": 6
+        }
+      ]
+    }
+  ],
+  "numpy_fill_profile": {
+    "platform": "darwin",
+    "machine": "arm64",
+    "binary_name": "_multiarray_umath.cpython-312-darwin.so",
+    "binary_sha256": "44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305",
+    "scope": "fixed Darwin arm64 NumPy 2.3.5 binary, not a universal NumPy bit profile",
+    "independent_decimal_precision": 2000,
+    "observations": [
+      {
+        "start": 0.2,
+        "requested_step": 0.1,
+        "actual_step": 0.10000000000000003,
+        "index": 7,
+        "original_numpy_fill": 0.9000000000000002,
+        "ordinary_product_then_sum": 0.9000000000000001,
+        "exact_decimal_sum_rounded_once": 0.9000000000000002
+      },
+      {
+        "start": 0.2,
+        "requested_step": 0.1,
+        "actual_step": 0.10000000000000003,
+        "index": 14,
+        "original_numpy_fill": 1.6000000000000005,
+        "ordinary_product_then_sum": 1.6000000000000003,
+        "exact_decimal_sum_rounded_once": 1.6000000000000005
+      },
+      {
+        "start": 0.2,
+        "requested_step": 0.1,
+        "actual_step": 0.10000000000000003,
+        "index": 15,
+        "original_numpy_fill": 1.7000000000000006,
+        "ordinary_product_then_sum": 1.7000000000000004,
+        "exact_decimal_sum_rounded_once": 1.7000000000000006
+      }
+    ]
+  }
+}

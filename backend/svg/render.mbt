@@ -1439,13 +1439,13 @@ fn secondary_axis_ticks(
   primary_ticks : Array[Double],
   primary_lower : Double,
   primary_upper : Double,
-) -> Array[(Double, Double)] {
+) -> Array[(Double, Double)] raise @core.DataError {
   match axis.fixed_ticks() {
     Some(values) => values.map(value => (axis.inverse()(value), value))
     None =>
       match axis.locator() {
         Some(locator) => {
-          let values = locator.tick_values(
+          let values = locator.tick_values_for_axis(
             axis.forward()(primary_lower),
             axis.forward()(primary_upper),
           )
@@ -1491,7 +1491,7 @@ fn append_secondary_x_axis(
   plot_height : Double,
   primary_ticks : Array[Double],
   axis : @render.SecondaryAxis,
-) -> Unit {
+) -> Unit raise @core.DataError {
   let at_top = match axis.location() {
     @render.SecondaryLocation::Top => true
     _ => false
@@ -1559,7 +1559,7 @@ fn append_secondary_y_axis(
   plot_height : Double,
   primary_ticks : Array[Double],
   axis : @render.SecondaryAxis,
-) -> Unit {
+) -> Unit raise @core.DataError {
   let at_right = match axis.location() {
     @render.SecondaryLocation::Right => true
     _ => false
@@ -3206,16 +3206,20 @@ fn render_panel(
   scale : Scale,
   panel_index : Int32,
   position : (Double, Double, Double, Double),
-) -> Unit {
+) -> Unit raise @core.DataError {
   let (left, top, plot_width, plot_height) = position
-  let x_ticks = panel.x_axis().tick_values(@core.limits(scale.xmin, scale.xmax))
-  let y_ticks = panel.y_axis().tick_values(@core.limits(scale.ymin, scale.ymax))
+  let x_ticks = panel
+    .x_axis()
+    .tick_values_checked(@core.limits(scale.xmin, scale.xmax))
+  let y_ticks = panel
+    .y_axis()
+    .tick_values_checked(@core.limits(scale.ymin, scale.ymax))
   let x_minor_ticks = panel
     .x_axis()
-    .minor_tick_values(@core.limits(scale.xmin, scale.xmax))
+    .minor_tick_values_checked(@core.limits(scale.xmin, scale.xmax))
   let y_minor_ticks = panel
     .y_axis()
-    .minor_tick_values(@core.limits(scale.ymin, scale.ymax))
+    .minor_tick_values_checked(@core.limits(scale.ymin, scale.ymax))
   let viewport = @core.limits(scale.xmin, scale.xmax)
   let y_viewport = @core.limits(scale.ymin, scale.ymax)
   let x_minor_labels = panel
@@ -3530,6 +3534,14 @@ pub fn render(figure : @render.Figure) -> String {
 pub fn render_with_positions(
   figure : @render.Figure,
 ) -> (String, Array[(Double, Double, Double, Double)]) {
+  try! render_with_positions_checked(figure)
+}
+
+///|
+/// Render while preserving checked locator and range errors.
+pub fn render_with_positions_checked(
+  figure : @render.Figure,
+) -> (String, Array[(Double, Double, Double, Double)]) raise @core.DataError {
   let writer = @xml.Writer::new()
   let scales = compute_scales(figure)
   let positions = Array(capacity=figure.panels().length())

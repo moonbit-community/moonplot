@@ -49,6 +49,23 @@ pub fn str_method_formatter(String) -> Formatter
 // Errors
 
 // Types and methods
+pub struct FixedLocator {
+  // private fields
+}
+pub fn FixedLocator::as_locator(Self) -> Locator
+pub fn FixedLocator::as_minor_locator(Self) -> MinorLocator
+pub fn FixedLocator::copy(Self) -> Self
+pub fn FixedLocator::from_list(Array[Double], nbins? : Double) -> Self
+pub fn FixedLocator::from_view(TickValues, nbins? : Double) -> Self
+pub fn FixedLocator::locations(Self) -> TickValues
+pub fn FixedLocator::nbins(Self) -> Double?
+pub fn FixedLocator::new(Array[Double], nbins? : Double) -> Self
+pub fn FixedLocator::nonsingular(Self, Double, Double) -> (Double, Double)
+pub fn FixedLocator::set_params(Self, nbins? : Double) -> Unit
+pub fn FixedLocator::tick_values(Self, Double, Double) -> TickValues raise @core.DataError
+pub fn FixedLocator::values(Self) -> TickValues raise @core.DataError
+pub fn FixedLocator::view_limits(Self, Double, Double) -> (Double, Double)
+
 pub(all) enum Formatter {
   Scalar(use_offset~ : Bool, use_math_text~ : Bool, power_min~ : Int, power_max~ : Int)
   Fixed(Array[String])
@@ -71,7 +88,52 @@ pub fn Formatter::offset_label(Self, Array[Double]) -> String
 pub fn Formatter::offset_label_with_view(Self, Array[Double], @core.Limits?) -> String
 pub fn Formatter::offset_with_view(Self, Array[Double], @core.Limits?) -> Double
 
+pub struct IndexLocator {
+  // private fields
+}
+pub fn IndexLocator::as_locator(Self) -> Locator
+pub fn IndexLocator::as_minor_locator(Self) -> MinorLocator
+pub fn IndexLocator::base(Self) -> Double
+pub fn IndexLocator::bind_data_interval(Self, () -> (Double, Double)) -> Unit
+pub fn IndexLocator::call(Self) -> Array[Double] raise @core.DataError
+pub fn IndexLocator::copy(Self) -> Self
+pub fn IndexLocator::new(base~ : Double, offset~ : Double) -> Self
+pub fn IndexLocator::nonsingular(Self, Double, Double) -> (Double, Double)
+pub fn IndexLocator::offset(Self) -> Double
+pub fn IndexLocator::set_params(Self, base? : Double, offset? : Double) -> Unit
+pub fn IndexLocator::tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
+pub fn IndexLocator::view_limits(Self, Double, Double) -> (Double, Double)
+
+pub struct LinearLocator {
+  // private fields
+}
+pub fn LinearLocator::as_locator(Self) -> Locator
+pub fn LinearLocator::as_minor_locator(Self) -> MinorLocator
+pub fn LinearLocator::configured_numticks(Self) -> Int?
+pub fn LinearLocator::copy(Self) -> Self
+pub fn LinearLocator::new(numticks? : Int, presets? : LinearLocatorPresets) -> Self
+pub fn LinearLocator::nonsingular(Self, Double, Double) -> (Double, Double)
+pub fn LinearLocator::numticks(Self) -> Int
+pub fn LinearLocator::presets(Self) -> LinearLocatorPresets
+pub fn LinearLocator::set_numticks(Self, Int?) -> Unit
+pub fn LinearLocator::set_params(Self, numticks? : Int, presets? : LinearLocatorPresets) -> Unit
+pub fn LinearLocator::tick_values(Self, Double, Double) -> TickValues raise @core.DataError
+pub fn LinearLocator::view_limits(Self, Double, Double) -> (Double, Double) raise @core.DataError
+
+pub struct LinearLocatorPresets {
+  // private fields
+}
+pub fn LinearLocatorPresets::clear(Self) -> Unit
+pub fn LinearLocatorPresets::get(Self, Double, Double) -> TickValues?
+pub fn LinearLocatorPresets::length(Self) -> Int
+pub fn LinearLocatorPresets::new() -> Self
+pub fn LinearLocatorPresets::set(Self, Double, Double, Array[Double]) -> Unit
+pub fn LinearLocatorPresets::set_view(Self, Double, Double, TickValues) -> Unit
+
 pub(all) enum Locator {
+  NamedLinear(LinearLocator)
+  Index(IndexLocator)
+  NamedFixed(FixedLocator)
   Multiple(MultipleLocator)
   Linear(count~ : Int)
   MaxN(count~ : Int, integer~ : Bool, symmetric~ : Bool, prune~ : String)
@@ -79,20 +141,33 @@ pub(all) enum Locator {
   Log(count~ : Int, base~ : Double)
   LogWithSubs(count~ : Int, base~ : Double, subs~ : Array[Double], numdecs~ : Int)
 }
+pub fn Locator::checked_tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
 pub fn Locator::copy(Self) -> Self
+pub fn Locator::fixed_locator(Self) -> FixedLocator?
 pub fn Locator::fixed_values(Self) -> Array[Double]
+pub fn Locator::index_locator(Self) -> IndexLocator?
+pub fn Locator::linear_locator(Self) -> LinearLocator?
 pub fn Locator::multiple_locator(Self) -> MultipleLocator?
 pub fn Locator::tick_values(Self, Double, Double) -> Array[Double]
+pub fn Locator::tick_values_for_axis(Self, Double, Double) -> Array[Double] raise @core.DataError
 
 pub(all) enum MinorLocator {
+  NamedLinear(LinearLocator)
+  Index(IndexLocator)
+  NamedFixed(FixedLocator)
   Multiple(MultipleLocator)
   Auto(subdivisions~ : Int)
   Fixed(Array[Double])
   Log(subdivisions~ : Int, base~ : Double)
 }
+pub fn MinorLocator::checked_tick_values(Self, Array[Double], Double, Double) -> Array[Double] raise @core.DataError
 pub fn MinorLocator::copy(Self) -> Self
+pub fn MinorLocator::fixed_locator(Self) -> FixedLocator?
+pub fn MinorLocator::index_locator(Self) -> IndexLocator?
+pub fn MinorLocator::linear_locator(Self) -> LinearLocator?
 pub fn MinorLocator::multiple_locator(Self) -> MultipleLocator?
 pub fn MinorLocator::tick_values(Self, Array[Double], Double, Double) -> Array[Double]
+pub fn MinorLocator::tick_values_for_axis(Self, Array[Double], Double, Double) -> Array[Double] raise @core.DataError
 
 pub struct MultipleLocator {
   // private fields
@@ -107,6 +182,17 @@ pub fn MultipleLocator::offset(Self) -> Double
 pub fn MultipleLocator::set_params(Self, base? : Double, offset? : Double) -> Unit raise @core.DataError
 pub fn MultipleLocator::tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
 pub fn MultipleLocator::view_limits(Self, Double, Double) -> (Double, Double)
+
+pub struct TickValues {
+  // private fields
+}
+pub fn TickValues::copy(Self) -> Self raise @core.DataError
+pub fn TickValues::from_array(Array[Double]) -> Self
+pub fn TickValues::get(Self, Int) -> Double raise @core.DataError
+pub fn TickValues::length(Self) -> Int
+pub fn TickValues::set(Self, Int, Double) -> Unit raise @core.DataError
+pub fn TickValues::to_array(Self) -> Array[Double] raise @core.DataError
+pub fn TickValues::view(Self, Int, Int, Int) -> Self raise @core.DataError
 
 // Type aliases
 

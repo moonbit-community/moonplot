@@ -6,6 +6,9 @@
 /// spaced linear levels, a MaxN-style "nice" level set, an explicit fixed set,
 /// or logarithmic levels.
 pub(all) enum Locator {
+  NamedLinear(LinearLocator)
+  Index(IndexLocator)
+  NamedFixed(FixedLocator)
   Multiple(MultipleLocator)
   Linear(count~ : Int32)
   MaxN(count~ : Int32, integer~ : Bool, symmetric~ : Bool, prune~ : String)
@@ -22,6 +25,9 @@ pub(all) enum Locator {
 ///|
 /// A minor tick generator used between major locator values.
 pub(all) enum MinorLocator {
+  NamedLinear(LinearLocator)
+  Index(IndexLocator)
+  NamedFixed(FixedLocator)
   Multiple(MultipleLocator)
   Auto(subdivisions~ : Int32)
   Fixed(Array[Double])
@@ -182,6 +188,11 @@ pub fn Locator::tick_values(
   lower : Double,
   upper : Double,
 ) -> Array[Double] {
+  match self {
+    NamedLinear(_) | Index(_) | NamedFixed(_) =>
+      return self.checked_tick_values(lower, upper) catch { _ => [] }
+    _ => ()
+  }
   if lower.is_nan() || lower.is_inf() || upper.is_nan() || upper.is_inf() {
     return []
   }
@@ -189,6 +200,7 @@ pub fn Locator::tick_values(
   let last = Double::max(lower, upper)
   let ascending = lower <= upper
   match self {
+    Locator::NamedLinear(_) | Locator::Index(_) | Locator::NamedFixed(_) => []
     Locator::Multiple(value) => {
       let values = value.tick_values(first, last) catch { _ => [] }
       if ascending {
@@ -350,6 +362,11 @@ pub fn MinorLocator::tick_values(
   lower : Double,
   upper : Double,
 ) -> Array[Double] {
+  match self {
+    NamedLinear(_) | Index(_) | NamedFixed(_) =>
+      return self.checked_tick_values(major, lower, upper) catch { _ => [] }
+    _ => ()
+  }
   if lower.is_nan() || lower.is_inf() || upper.is_nan() || upper.is_inf() {
     return []
   }
@@ -357,6 +374,9 @@ pub fn MinorLocator::tick_values(
   let last = Double::max(lower, upper)
   let result : Array[Double] = []
   match self {
+    MinorLocator::NamedLinear(_)
+    | MinorLocator::Index(_)
+    | MinorLocator::NamedFixed(_) => ()
     MinorLocator::Multiple(value) => {
       let values = value.tick_values(first, last) catch { _ => [] }
       for value in values {
@@ -416,10 +436,13 @@ pub fn MinorLocator::tick_values(
 }
 
 ///|
-/// Copy arrays while retaining any live MultipleLocator handle.
-/// Use MultipleLocator.copy() for an independent mutable configuration.
+/// Copy arrays while retaining live named locator handles.
+/// Use the named object copy() method for a separate parameter configuration.
 pub fn Locator::copy(self : Locator) -> Locator {
   match self {
+    Locator::NamedLinear(value) => Locator::NamedLinear(value)
+    Locator::Index(value) => Locator::Index(value)
+    Locator::NamedFixed(value) => Locator::NamedFixed(value)
     Locator::Multiple(value) => Locator::Multiple(value)
     Locator::Linear(count~) => Locator::Linear(count~)
     Locator::MaxN(count~, integer~, symmetric~, prune~) =>
@@ -432,9 +455,12 @@ pub fn Locator::copy(self : Locator) -> Locator {
 }
 
 ///|
-/// Copy arrays while retaining any live MultipleLocator handle.
+/// Copy arrays while retaining live named locator handles.
 pub fn MinorLocator::copy(self : MinorLocator) -> MinorLocator {
   match self {
+    MinorLocator::NamedLinear(value) => MinorLocator::NamedLinear(value)
+    MinorLocator::Index(value) => MinorLocator::Index(value)
+    MinorLocator::NamedFixed(value) => MinorLocator::NamedFixed(value)
     MinorLocator::Multiple(value) => MinorLocator::Multiple(value)
     MinorLocator::Auto(subdivisions~) => MinorLocator::Auto(subdivisions~)
     MinorLocator::Fixed(values) => MinorLocator::Fixed(values.copy())
@@ -447,6 +473,7 @@ pub fn MinorLocator::copy(self : MinorLocator) -> MinorLocator {
 /// Return a copy of fixed levels, or an empty array for generated locators.
 pub fn Locator::fixed_values(self : Locator) -> Array[Double] {
   match self {
+    Locator::NamedFixed(value) => value.locations().to_array() catch { _ => [] }
     Locator::Fixed(values) => values.copy()
     _ => []
   }

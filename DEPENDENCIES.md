@@ -149,3 +149,17 @@ divmod、Edge ge及multiple grid提取并补le/offset，由数值/DataError和�
 config增加`axes_autolimit_mode`，axis复用已有margin/sticky/shared/secondary与render链路。
 参考生成仅使用既有开发Python3.12.14、NumPy2.3.5和固定Matplotlib源码；来源、typed边界
 及重现命令见[testdata/multiple_locator_README.md](testdata/multiple_locator_README.md)。
+
+## D21 命名线性、索引和固定定位器
+
+LinearLocator、IndexLocator和FixedLocator复用ticker/axis/render链路及既有nonsingular helper。
+TickValues提供共享buffer的可变signed/nested/0stride view，Fixed.from_view与LinearLocatorPresets
+set_view/get保留真实owner别名；无外部容器、运行时Python或新增C依赖。Index用core/bigint
+标准库实现一次精确舍入FMA，匹配固定Darwin arm64 NumPy2.3.5 fill profile；未引入native FMA。
+NumPy linspace/arange的binary64运算
+及Fixed subsample/alias以固定Python3.12.14、NumPy2.3.5开发参考验证，原shape检查直接执行
+固定_api.check_shape AST。Index真实artist data interval与checked轴/SVG接线状态、typed
+范围和重现方式见[testdata/named_numeric_locator_README.md](testdata/named_numeric_locator_README.md)。
+原Bbox数据边界、Grouper首次join顺序、GridSpec和Axes共享绑定方法也由固定AST独立验证；
+生产复用既有artist collector收集原始finite数据，并以私有rank保留共享组登记顺序。
+SubFigure的行列共享组预留各自ID区间，无新增容器或第三方依赖。

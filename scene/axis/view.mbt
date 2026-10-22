@@ -46,10 +46,25 @@ pub fn Axis::inverted(self : Axis) -> Bool {
 /// Resolve explicit or provisional limits before using an automatic range.
 /// Automatic endpoints are sorted and then oriented to match the axis.
 pub fn Axis::view_limits(self : Axis, automatic : @core.Limits) -> @core.Limits {
+  try! self.view_limits_checked(automatic)
+}
+
+///|
+/// Resolve a view while preserving named locator range errors.
+pub fn Axis::view_limits_checked(
+  self : Axis,
+  automatic : @core.Limits,
+) -> @core.Limits raise @core.DataError {
   match (self.limits, self.auto_view) {
     (Some(limits), _) | (None, Some(limits)) => limits
     (None, None) => {
       let (lower, upper) = match self.locator {
+        Some(@ticker.Locator::NamedLinear(value)) =>
+          value.view_limits(automatic.lower(), automatic.upper())
+        Some(@ticker.Locator::Index(value)) =>
+          value.view_limits(automatic.lower(), automatic.upper())
+        Some(@ticker.Locator::NamedFixed(value)) =>
+          value.view_limits(automatic.lower(), automatic.upper())
         Some(@ticker.Locator::Multiple(value)) =>
           value.view_limits(automatic.lower(), automatic.upper())
         _ =>
@@ -119,7 +134,7 @@ pub fn Axis::current_view_limits(self : Axis) -> @core.Limits? {
 }
 
 ///|
-/// Apply the numeric MultipleLocator's inherited nonsingular policy before margins.
+/// Apply named numeric locators' inherited nonsingular policy before margins.
 /// Other locator families retain their existing range policy.
 pub fn Axis::numeric_nonsingular_bounds(
   self : Axis,
@@ -127,6 +142,18 @@ pub fn Axis::numeric_nonsingular_bounds(
   upper : Double,
 ) -> @core.Limits {
   match self.locator {
+    Some(@ticker.Locator::NamedLinear(value)) => {
+      let (first, last) = value.nonsingular(lower, upper)
+      @core.limits(first, last)
+    }
+    Some(@ticker.Locator::Index(value)) => {
+      let (first, last) = value.nonsingular(lower, upper)
+      @core.limits(first, last)
+    }
+    Some(@ticker.Locator::NamedFixed(value)) => {
+      let (first, last) = value.nonsingular(lower, upper)
+      @core.limits(first, last)
+    }
     Some(@ticker.Locator::Multiple(value)) => {
       let (first, last) = value.nonsingular(lower, upper)
       @core.limits(first, last)

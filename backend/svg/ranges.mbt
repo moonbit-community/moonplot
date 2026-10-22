@@ -329,17 +329,48 @@ fn normalize_auto_scale(
 
 ///|
 fn artist_data_scale(panel : @render.Panel) -> Scale {
+  artists_data_scale(
+    panel.artists(),
+    panel.x_axis().scale(),
+    panel.y_axis().scale(),
+  )
+}
+
+///|
+fn artists_data_scale(
+  artists : Array[@render.Artist],
+  x_axis_scale : @ticker_scale.Scale,
+  y_axis_scale : @ticker_scale.Scale,
+) -> Scale {
   let initial : Scale = {
     xmin: 1.0 / 0.0,
     xmax: -1.0 / 0.0,
     ymin: 1.0 / 0.0,
     ymax: -1.0 / 0.0,
-    x_axis_scale: panel.x_axis().scale(),
-    y_axis_scale: panel.y_axis().scale(),
+    x_axis_scale,
+    y_axis_scale,
   }
-  panel
-  .artists()
-  .fold(init=initial, (current, artist) => include_artist(current, artist))
+  artists.fold(init=initial, (current, artist) => {
+    include_artist(current, artist)
+  })
+}
+
+///|
+/// Local finite artist data bounds, independent of scale validity and view limits.
+pub fn artist_data_interval(
+  artists : Array[@render.Artist],
+  horizontal : Bool,
+) -> @core.Limits {
+  let data = artists_data_scale(
+    artists,
+    @ticker_scale.Linear,
+    @ticker_scale.Linear,
+  )
+  if horizontal {
+    @core.limits(data.xmin, data.xmax)
+  } else {
+    @core.limits(data.ymin, data.ymax)
+  }
 }
 
 ///|
@@ -470,7 +501,10 @@ fn grouped_raw_scale(figure : @render.Figure, target_index : Int32) -> Scale {
 }
 
 ///|
-fn compute_scale(figure : @render.Figure, target_index : Int32) -> Scale {
+fn compute_scale(
+  figure : @render.Figure,
+  target_index : Int32,
+) -> Scale raise @core.DataError {
   let target = figure.panels()[target_index]
   let raw = grouped_raw_scale(figure, target_index)
   let date_x = target.x_axis().date_nonsingular_bounds(raw.xmin, raw.xmax)
@@ -500,7 +534,7 @@ fn compute_scale(figure : @render.Figure, target_index : Int32) -> Scale {
     None =>
       target
       .x_axis()
-      .view_limits(@core.limits(normalized.xmin, normalized.xmax))
+      .view_limits_checked(@core.limits(normalized.xmin, normalized.xmax))
   }
   let y_view = match group_limit(figure, target_index, false) {
     Some(limits) =>
@@ -508,7 +542,7 @@ fn compute_scale(figure : @render.Figure, target_index : Int32) -> Scale {
     None =>
       target
       .y_axis()
-      .view_limits(@core.limits(normalized.ymin, normalized.ymax))
+      .view_limits_checked(@core.limits(normalized.ymin, normalized.ymax))
   }
   {
     ..normalized,
@@ -520,10 +554,12 @@ fn compute_scale(figure : @render.Figure, target_index : Int32) -> Scale {
 }
 
 ///|
-fn compute_scales(figure : @render.Figure) -> Array[Scale] {
+fn compute_scales(
+  figure : @render.Figure,
+) -> Array[Scale] raise @core.DataError {
   let result = Array(capacity=figure.panels().length())
   for index in 0..<figure.panels().length() {
-    result.push(try! resolve_panel_scale(figure, index))
+    result.push(resolve_panel_scale(figure, index))
   }
   result
 }

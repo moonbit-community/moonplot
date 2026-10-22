@@ -127,6 +127,9 @@ pub fn SecondaryAxis::set_locator(
   }
   self.locator = Some(copy_secondary_locator(locator))
   self.fixed_ticks = None
+  if locator is @ticker.Locator::Index(value) {
+    value.bind_data_interval(fn() { (1.0 / 0.0, -1.0 / 0.0) })
+  }
 }
 
 ///|

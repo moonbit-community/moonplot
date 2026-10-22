@@ -122,11 +122,19 @@ pub fn SubFigure::subplots_with_grid(
   let result : Array[Axes] = []
   let x_group = match grid.share_x_mode() {
     @gridspec.ShareMode::None => None
-    _ => Some(self.figure.allocate_share_group())
+    @gridspec.ShareMode::All => Some(self.figure.allocate_share_group(1))
+    @gridspec.ShareMode::Row =>
+      Some(self.figure.allocate_share_group(grid.rows()))
+    @gridspec.ShareMode::Column =>
+      Some(self.figure.allocate_share_group(grid.columns()))
   }
   let y_group = match grid.share_y_mode() {
     @gridspec.ShareMode::None => None
-    _ => Some(self.figure.allocate_share_group())
+    @gridspec.ShareMode::All => Some(self.figure.allocate_share_group(1))
+    @gridspec.ShareMode::Row =>
+      Some(self.figure.allocate_share_group(grid.rows()))
+    @gridspec.ShareMode::Column =>
+      Some(self.figure.allocate_share_group(grid.columns()))
   }
   for row in 0..<grid.rows() {
     for column in 0..<grid.columns() {
@@ -137,7 +145,7 @@ pub fn SubFigure::subplots_with_grid(
             match grid.share_x_mode() {
               @gridspec.ShareMode::All => group
               @gridspec.ShareMode::Row => group - row
-              @gridspec.ShareMode::Column => group - grid.rows() - column
+              @gridspec.ShareMode::Column => group - column
               @gridspec.ShareMode::None => group
             },
           )
@@ -148,8 +156,8 @@ pub fn SubFigure::subplots_with_grid(
           axes.state.val.share_y_group = Some(
             match grid.share_y_mode() {
               @gridspec.ShareMode::All => group
-              @gridspec.ShareMode::Row => group - column
-              @gridspec.ShareMode::Column => group - row
+              @gridspec.ShareMode::Row => group - row
+              @gridspec.ShareMode::Column => group - column
               @gridspec.ShareMode::None => group
             },
           )
@@ -167,6 +175,7 @@ pub fn SubFigure::subplots_with_grid(
       result.push(axes)
     }
   }
+  initialize_shared_axis_order(result)
   result
 }
 

@@ -206,6 +206,8 @@ struct AxesData {
   mut subplot_spec : @gridspec.SubplotSpec?
   mut share_x_group : Int32?
   mut share_y_group : Int32?
+  mut share_x_order : Int32
+  mut share_y_order : Int32
   mut show_x_tick_labels : Bool
   mut show_y_tick_labels : Bool
   mut frame_visible : Bool
@@ -325,6 +327,8 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
     subplot_spec: None,
     share_x_group: None,
     share_y_group: None,
+    share_x_order: 0,
+    share_y_order: 0,
     show_x_tick_labels: true,
     show_y_tick_labels: true,
     frame_visible: true,
@@ -361,9 +365,9 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
 
 ///|
 /// Allocate a share-group identifier outside the non-negative GridSpec groups.
-fn Figure::allocate_share_group(self : Figure) -> Int32 {
+fn Figure::allocate_share_group(self : Figure, count : Int32) -> Int32 {
   let result = self.share_group_seed
-  self.share_group_seed -= 1
+  self.share_group_seed -= count
   result
 }
 
@@ -814,6 +818,8 @@ fn new_axes_state(
     subplot_spec: spec,
     share_x_group: None,
     share_y_group: None,
+    share_x_order: 0,
+    share_y_order: 0,
     show_x_tick_labels: true,
     show_y_tick_labels: true,
     frame_visible: true,
@@ -863,12 +869,14 @@ pub fn Axes::rect(self : Axes) -> @gridspec.Rect? {
 ///|
 /// Return this panel's x-axis object.
 pub fn Axes::x_axis(self : Axes) -> @axis.Axis {
+  self.bind_axis_data(true)
   self.state.val.x_axis
 }
 
 ///|
 /// Return this panel's y-axis object.
 pub fn Axes::y_axis(self : Axes) -> @axis.Axis {
+  self.bind_axis_data(false)
   self.state.val.y_axis
 }
 
@@ -1316,8 +1324,10 @@ pub fn Axes::set_x_locator(
   locator : @ticker.Locator,
 ) -> Unit raise @core.DataError {
   for state in self.x_group_states() {
+    ({ figure: self.figure, state, } : Axes).bind_axis_data(true)
     state.val.x_axis.set_locator(locator)
   }
+  self.state.val.x_axis.bind_locator_data()
 }
 
 ///|
@@ -1327,8 +1337,10 @@ pub fn Axes::set_y_locator(
   locator : @ticker.Locator,
 ) -> Unit raise @core.DataError {
   for state in self.y_group_states() {
+    ({ figure: self.figure, state, } : Axes).bind_axis_data(false)
     state.val.y_axis.set_locator(locator)
   }
+  self.state.val.y_axis.bind_locator_data()
 }
 
 ///|
@@ -1360,8 +1372,10 @@ pub fn Axes::set_x_minor_locator(
   locator : @ticker.MinorLocator,
 ) -> Unit raise @core.DataError {
   for state in self.x_group_states() {
+    ({ figure: self.figure, state, } : Axes).bind_axis_data(true)
     state.val.x_axis.set_minor_locator(locator)
   }
+  self.state.val.x_axis.bind_locator_data(minor=true)
 }
 
 ///|
@@ -1371,8 +1385,10 @@ pub fn Axes::set_y_minor_locator(
   locator : @ticker.MinorLocator,
 ) -> Unit raise @core.DataError {
   for state in self.y_group_states() {
+    ({ figure: self.figure, state, } : Axes).bind_axis_data(false)
     state.val.y_axis.set_minor_locator(locator)
   }
+  self.state.val.y_axis.bind_locator_data(minor=true)
 }
 
 ///|
