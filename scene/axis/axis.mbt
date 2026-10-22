@@ -1019,7 +1019,8 @@ pub fn Axis::tick_values(
     self.category is None &&
     self.locator
     is Some(
-      @ticker.Locator::NamedLog(_)
+      @ticker.Locator::NamedSymLog(_)
+      | @ticker.Locator::NamedLog(_)
       | @ticker.Locator::Index(_)
       | @ticker.Locator::NamedMaxN(_)
       | @ticker.Locator::NamedAuto(_)
@@ -1086,7 +1087,8 @@ pub fn Axis::minor_tick_values(
     self.minor_date_locator is None &&
     self.minor_locator
     is Some(
-      @ticker.MinorLocator::NamedLog(_)
+      @ticker.MinorLocator::NamedSymLog(_)
+      | @ticker.MinorLocator::NamedLog(_)
       | @ticker.MinorLocator::Null(_)
       | @ticker.MinorLocator::NamedAutoMinor(_)
       | @ticker.MinorLocator::NamedLinear(_)

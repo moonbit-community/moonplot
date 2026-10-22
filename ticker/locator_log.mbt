@@ -49,7 +49,7 @@ pub fn LogLocator::new(
       }
   }
   let subs = match subs {
-    None => Values(TickValues::from_array([1.0]))
+    None => LogSubs::Values(TickValues::from_array([1.0]))
     Some(value) => log_normalize_subs(value)
   }
   {

@@ -1518,6 +1518,34 @@ fn secondary_axis_tick_labels(
 }
 
 ///|
+// SecondaryAxis only inherits a logarithmic parent scale. Other parents use
+// function(inverse) and normalize the inverse coordinates linearly.
+fn secondary_display_scale(scale : Scale, horizontal : Bool) -> Scale {
+  let parent = if horizontal { scale.x_axis_scale } else { scale.y_axis_scale }
+  let secondary = if parent.is_log() {
+    @ticker_scale.Scale::Log
+  } else {
+    @ticker_scale.Scale::Linear
+  }
+  {
+    xmin: scale.xmin,
+    xmax: scale.xmax,
+    ymin: scale.ymin,
+    ymax: scale.ymax,
+    x_axis_scale: if horizontal {
+      secondary
+    } else {
+      scale.x_axis_scale
+    },
+    y_axis_scale: if horizontal {
+      scale.y_axis_scale
+    } else {
+      secondary
+    },
+  }
+}
+
+///|
 fn append_secondary_x_axis(
   writer : @xml.Writer,
   scale : Scale,
@@ -1528,6 +1556,7 @@ fn append_secondary_x_axis(
   primary_ticks : Array[Double],
   axis : @render.SecondaryAxis,
 ) -> Unit raise @core.DataError {
+  let scale = secondary_display_scale(scale, true)
   let at_top = match axis.location() {
     @render.SecondaryLocation::Top => true
     _ => false
@@ -1615,6 +1644,7 @@ fn append_secondary_y_axis(
   primary_ticks : Array[Double],
   axis : @render.SecondaryAxis,
 ) -> Unit raise @core.DataError {
+  let scale = secondary_display_scale(scale, false)
   let at_right = match axis.location() {
     @render.SecondaryLocation::Right => true
     _ => false

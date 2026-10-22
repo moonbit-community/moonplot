@@ -1,0 +1,4945 @@
+{
+  "source": "Matplotlib v3.11.2",
+  "ticker_sha256": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+  "transforms_sha256": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+  "api_sha256": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+  "rcsetup_sha256": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+  "matplotlibrc_sha256": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+  "numpy_core_sha256": "44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scope": "Complete original SymmetricalLogLocator and inherited Locator/decade bodies execute. Existing typed Scale records project source transform base/linthresh fields; non-SymLog variants project missing attributes. Raw 1D Float64/Int64 and scalar Double/text subs are retained; dynamic objects, readonly/other dtype and NDArray shape remain outside typed domain. Double base and direct bounds project Python float, preserving zero helper short circuits versus generated NumPy scalars at strict decade division. NumPy runtime warnings/logger host routing are not migrated. D24 mathematical/source primitive compatibility boundary remains explicit.",
+  "constructors": [
+    {
+      "spec": {},
+      "source_error": "ValueError",
+      "state": null
+    },
+    {
+      "spec": {
+        "base": 10.0
+      },
+      "source_error": "ValueError",
+      "state": null
+    },
+    {
+      "spec": {
+        "linthresh": 1.0
+      },
+      "source_error": "ValueError",
+      "state": null
+    },
+    {
+      "spec": {
+        "base": null,
+        "linthresh": 1.0
+      },
+      "source_error": "ValueError",
+      "state": null
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": null
+      },
+      "source_error": "ValueError",
+      "state": null
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "transform": "linear",
+        "base": 999.0,
+        "linthresh": 999.0
+      },
+      "source_error": "AttributeError",
+      "state": null
+    },
+    {
+      "spec": {
+        "transform": "log",
+        "base": 999.0,
+        "linthresh": 999.0
+      },
+      "source_error": "AttributeError",
+      "state": null
+    },
+    {
+      "spec": {
+        "transform": {
+          "base": 2.0,
+          "linthresh": 0.5,
+          "linscale": 1.0
+        },
+        "base": 999.0,
+        "linthresh": 999.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 2.0,
+        "linthresh": 0.5,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "transform": {
+          "base": 0.0,
+          "linthresh": "nan",
+          "linscale": -1.0
+        },
+        "base": 999.0,
+        "linthresh": 999.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 0.0,
+        "linthresh": "nan",
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 0.0,
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 0.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": -0.0,
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": -0.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": -1.0,
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": -1.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 1.0,
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 1.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 2.0,
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 2.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 2.5,
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 2.5,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": "nan",
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": "nan",
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": "inf",
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": "inf",
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": "-inf",
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": "-inf",
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 1.7976931348623157e+308,
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 1.7976931348623157e+308,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 5e-324,
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 5e-324,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 1.0000000000000002,
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 1.0000000000000002,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 0.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 0.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": -0.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": -0.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": -1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": -1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 2.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 2.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 2.5
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 2.5,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": "nan"
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": "nan",
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": "inf"
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": "inf",
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": "-inf"
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": "-inf",
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.7976931348623157e+308
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.7976931348623157e+308,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 5e-324
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 5e-324,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0000000000000002
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0000000000000002,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "subs": null
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "subs": []
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "subs": [
+          1.0
+        ]
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "subs": [
+          2.0,
+          1.0
+        ]
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          2.0,
+          1.0
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "subs": [
+          -1.0,
+          0.0,
+          "nan",
+          "inf"
+        ]
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          -1.0,
+          0.0,
+          "nan",
+          "inf"
+        ],
+        "subs_dtype": "list"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "subs": "auto"
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": "auto",
+        "subs_dtype": "str"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "subs": "all"
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": "all",
+        "subs_dtype": "str"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "subs": "bad"
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": "bad",
+        "subs_dtype": "str"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "subs": 0.0
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": 0.0,
+        "subs_dtype": "float"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "subs": "nan"
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": "nan",
+        "subs_dtype": "float"
+      }
+    },
+    {
+      "spec": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "subs": "inf"
+      },
+      "source_error": null,
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": "inf",
+        "subs_dtype": "float"
+      }
+    }
+  ],
+  "updates": [
+    {
+      "params": {},
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "params": {
+        "subs": null,
+        "numticks": null
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "params": {
+        "subs": []
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": [],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": null,
+        "source_error": "IndexError"
+      }
+    },
+    {
+      "params": {
+        "subs": "auto"
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 15,
+        "subs": "auto",
+        "subs_dtype": "str"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": null,
+        "source_error": "TypeError"
+      }
+    },
+    {
+      "params": {
+        "subs": "all",
+        "numticks": 2
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 2,
+        "subs": "all",
+        "subs_dtype": "str"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": null,
+        "source_error": "TypeError"
+      }
+    },
+    {
+      "params": {
+        "subs": 0.0,
+        "numticks": 1
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 1,
+        "subs": 0.0,
+        "subs_dtype": "float"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": null,
+        "source_error": "TypeError"
+      }
+    },
+    {
+      "params": {
+        "subs": "nan",
+        "numticks": "inf"
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": "inf",
+        "subs": "nan",
+        "subs_dtype": "float"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": null,
+        "source_error": "TypeError"
+      }
+    },
+    {
+      "params": {
+        "subs": [
+          2.0,
+          1.0
+        ],
+        "numticks": 2.5
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 2.5,
+        "subs": [
+          2.0,
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": [
+          -2.0,
+          -1.0,
+          0.0,
+          2.0,
+          1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "params": {
+        "subs": [
+          -1.0,
+          0.0,
+          "nan",
+          "inf"
+        ],
+        "numticks": -1
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": -1,
+        "subs": [
+          -1.0,
+          0.0,
+          "nan",
+          "inf"
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": [
+          100.0,
+          -0.0,
+          "nan",
+          "-inf",
+          10.0,
+          -0.0,
+          "nan",
+          "-inf",
+          1.0,
+          -0.0,
+          "nan",
+          "-inf",
+          0.0,
+          -1.0,
+          0.0,
+          "nan",
+          "inf",
+          -10.0,
+          0.0,
+          "nan",
+          "inf",
+          -100.0,
+          0.0,
+          "nan",
+          "inf"
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "params": {
+        "numticks": 0
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 0,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "params": {
+        "numticks": 1
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 1,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "params": {
+        "numticks": -1
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": -1,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "params": {
+        "numticks": 0.5
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 0.5,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "params": {
+        "numticks": 2.5
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 2.5,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "params": {
+        "numticks": "nan"
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": "nan",
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": null,
+        "source_error": "ValueError"
+      }
+    },
+    {
+      "params": {
+        "numticks": "inf"
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": "inf",
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "params": {
+        "numticks": "-inf"
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": "-inf",
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "params": {
+        "numticks": "auto"
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": "auto",
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": null,
+        "source_error": "TypeError"
+      }
+    },
+    {
+      "params": {
+        "numticks": "bad"
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": "bad",
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": null,
+        "source_error": "TypeError"
+      }
+    },
+    {
+      "params": {
+        "numticks": 9223372036854775808
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 9223372036854775808,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "params": {
+        "numticks": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      },
+      "state": {
+        "base": 10.0,
+        "linthresh": 1.0,
+        "numticks": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+        "subs": [
+          1.0
+        ],
+        "subs_dtype": "list"
+      },
+      "simple": {
+        "values": [
+          -0.5,
+          0.0,
+          0.5
+        ],
+        "source_error": null
+      },
+      "general": {
+        "values": null,
+        "source_error": "OverflowError"
+      }
+    }
+  ],
+  "aliases": [
+    {
+      "label": "float contiguous",
+      "integer": false,
+      "initial": [
+        1.0,
+        2.0,
+        5.0
+      ],
+      "slices": [],
+      "shares_exact_input": true,
+      "stages": [
+        {
+          "owner": [
+            1.0,
+            2.0,
+            5.0
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.0,
+              2.0,
+              5.0
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            1.25,
+            2.0,
+            5.0
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              2.0,
+              5.0
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            1.25,
+            2.0,
+            3.75
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              2.0,
+              3.75
+            ],
+            "subs_dtype": "float64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              2.0,
+              3.75
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            1.25,
+            2.0,
+            3.75
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              2.0,
+              3.75
+            ],
+            "subs_dtype": "float64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 3,
+            "subs": "bad",
+            "subs_dtype": "str"
+          }
+        }
+      ]
+    },
+    {
+      "label": "float signed",
+      "integer": false,
+      "initial": [
+        5.0,
+        2.0,
+        1.0
+      ],
+      "slices": [
+        [
+          -1,
+          -1,
+          3
+        ]
+      ],
+      "shares_exact_input": true,
+      "stages": [
+        {
+          "owner": [
+            5.0,
+            2.0,
+            1.0
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.0,
+              2.0,
+              5.0
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            5.0,
+            2.0,
+            1.25
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              2.0,
+              5.0
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            3.75,
+            2.0,
+            1.25
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              2.0,
+              3.75
+            ],
+            "subs_dtype": "float64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              2.0,
+              3.75
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            3.75,
+            2.0,
+            1.25
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              2.0,
+              3.75
+            ],
+            "subs_dtype": "float64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 3,
+            "subs": "bad",
+            "subs_dtype": "str"
+          }
+        }
+      ]
+    },
+    {
+      "label": "float nested",
+      "integer": false,
+      "initial": [
+        1.0,
+        0.0,
+        2.0,
+        0.0,
+        5.0
+      ],
+      "slices": [
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          4,
+          -2,
+          3
+        ]
+      ],
+      "shares_exact_input": true,
+      "stages": [
+        {
+          "owner": [
+            1.0,
+            0.0,
+            2.0,
+            0.0,
+            5.0
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              5.0,
+              2.0,
+              1.0
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            1.0,
+            0.0,
+            2.0,
+            0.0,
+            1.25
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              2.0,
+              1.0
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            3.75,
+            0.0,
+            2.0,
+            0.0,
+            1.25
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              2.0,
+              3.75
+            ],
+            "subs_dtype": "float64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              2.0,
+              3.75
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            3.75,
+            0.0,
+            2.0,
+            0.0,
+            1.25
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              2.0,
+              3.75
+            ],
+            "subs_dtype": "float64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 3,
+            "subs": "bad",
+            "subs_dtype": "str"
+          }
+        }
+      ]
+    },
+    {
+      "label": "float zero stride",
+      "integer": false,
+      "initial": [
+        2.0
+      ],
+      "slices": [
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "shares_exact_input": true,
+      "stages": [
+        {
+          "owner": [
+            2.0
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              2.0,
+              2.0,
+              2.0
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            1.25
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              1.25,
+              1.25
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            3.75
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              3.75,
+              3.75,
+              3.75
+            ],
+            "subs_dtype": "float64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              3.75,
+              3.75,
+              3.75
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            3.75
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              3.75,
+              3.75,
+              3.75
+            ],
+            "subs_dtype": "float64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 3,
+            "subs": "bad",
+            "subs_dtype": "str"
+          }
+        }
+      ]
+    },
+    {
+      "label": "float empty",
+      "integer": false,
+      "initial": [],
+      "slices": [],
+      "shares_exact_input": true,
+      "stages": [
+        {
+          "owner": [],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [],
+            "subs_dtype": "float64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [],
+            "subs_dtype": "float64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 3,
+            "subs": "bad",
+            "subs_dtype": "str"
+          }
+        }
+      ]
+    },
+    {
+      "label": "float nonfinite",
+      "integer": false,
+      "initial": [
+        -1.0,
+        0.0,
+        "nan",
+        "inf"
+      ],
+      "slices": [],
+      "shares_exact_input": true,
+      "stages": [
+        {
+          "owner": [
+            -1.0,
+            0.0,
+            "nan",
+            "inf"
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              -1.0,
+              0.0,
+              "nan",
+              "inf"
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            1.25,
+            0.0,
+            "nan",
+            "inf"
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              0.0,
+              "nan",
+              "inf"
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            1.25,
+            0.0,
+            "nan",
+            3.75
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              0.0,
+              "nan",
+              3.75
+            ],
+            "subs_dtype": "float64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              0.0,
+              "nan",
+              3.75
+            ],
+            "subs_dtype": "float64"
+          }
+        },
+        {
+          "owner": [
+            1.25,
+            0.0,
+            "nan",
+            3.75
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1.25,
+              0.0,
+              "nan",
+              3.75
+            ],
+            "subs_dtype": "float64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 3,
+            "subs": "bad",
+            "subs_dtype": "str"
+          }
+        }
+      ]
+    },
+    {
+      "label": "integer contiguous",
+      "integer": true,
+      "initial": [
+        1,
+        2,
+        5
+      ],
+      "slices": [],
+      "shares_exact_input": true,
+      "stages": [
+        {
+          "owner": [
+            1,
+            2,
+            5
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              2,
+              5
+            ],
+            "subs_dtype": "int64"
+          }
+        },
+        {
+          "owner": [
+            1,
+            2,
+            5
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              2,
+              5
+            ],
+            "subs_dtype": "int64"
+          }
+        },
+        {
+          "owner": [
+            1,
+            2,
+            3
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              2,
+              3
+            ],
+            "subs_dtype": "int64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              2,
+              3
+            ],
+            "subs_dtype": "int64"
+          }
+        },
+        {
+          "owner": [
+            1,
+            2,
+            3
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              2,
+              3
+            ],
+            "subs_dtype": "int64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 3,
+            "subs": "bad",
+            "subs_dtype": "str"
+          }
+        }
+      ]
+    },
+    {
+      "label": "integer signed",
+      "integer": true,
+      "initial": [
+        5,
+        2,
+        1
+      ],
+      "slices": [
+        [
+          -1,
+          -1,
+          3
+        ]
+      ],
+      "shares_exact_input": true,
+      "stages": [
+        {
+          "owner": [
+            5,
+            2,
+            1
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              2,
+              5
+            ],
+            "subs_dtype": "int64"
+          }
+        },
+        {
+          "owner": [
+            5,
+            2,
+            1
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              2,
+              5
+            ],
+            "subs_dtype": "int64"
+          }
+        },
+        {
+          "owner": [
+            3,
+            2,
+            1
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              2,
+              3
+            ],
+            "subs_dtype": "int64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              2,
+              3
+            ],
+            "subs_dtype": "int64"
+          }
+        },
+        {
+          "owner": [
+            3,
+            2,
+            1
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              2,
+              3
+            ],
+            "subs_dtype": "int64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 3,
+            "subs": "bad",
+            "subs_dtype": "str"
+          }
+        }
+      ]
+    },
+    {
+      "label": "integer zero stride",
+      "integer": true,
+      "initial": [
+        2
+      ],
+      "slices": [
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "shares_exact_input": true,
+      "stages": [
+        {
+          "owner": [
+            2
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              2,
+              2,
+              2
+            ],
+            "subs_dtype": "int64"
+          }
+        },
+        {
+          "owner": [
+            1
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              1,
+              1
+            ],
+            "subs_dtype": "int64"
+          }
+        },
+        {
+          "owner": [
+            3
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              3,
+              3,
+              3
+            ],
+            "subs_dtype": "int64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              3,
+              3,
+              3
+            ],
+            "subs_dtype": "int64"
+          }
+        },
+        {
+          "owner": [
+            3
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              3,
+              3,
+              3
+            ],
+            "subs_dtype": "int64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 3,
+            "subs": "bad",
+            "subs_dtype": "str"
+          }
+        }
+      ]
+    },
+    {
+      "label": "integer exact large",
+      "integer": true,
+      "initial": [
+        9007199254740993,
+        9223372036854775807
+      ],
+      "slices": [],
+      "shares_exact_input": true,
+      "stages": [
+        {
+          "owner": [
+            9007199254740993,
+            9223372036854775807
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              9007199254740993,
+              9223372036854775807
+            ],
+            "subs_dtype": "int64"
+          }
+        },
+        {
+          "owner": [
+            1,
+            9223372036854775807
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              9223372036854775807
+            ],
+            "subs_dtype": "int64"
+          }
+        },
+        {
+          "owner": [
+            1,
+            3
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              3
+            ],
+            "subs_dtype": "int64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              3
+            ],
+            "subs_dtype": "int64"
+          }
+        },
+        {
+          "owner": [
+            1,
+            3
+          ],
+          "state": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 15,
+            "subs": [
+              1,
+              3
+            ],
+            "subs_dtype": "int64"
+          },
+          "copy": {
+            "base": 10.0,
+            "linthresh": 1.0,
+            "numticks": 3,
+            "subs": "bad",
+            "subs_dtype": "str"
+          }
+        }
+      ]
+    }
+  ],
+  "ranges": [
+    {
+      "base": 10.0,
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 10.0,
+      "bounds": [
+        0.001,
+        0.001
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.00095,
+            0.00105
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.000999,
+            0.001001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.001,
+            0.01
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 10.0,
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.95,
+            1.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.1,
+            10.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 10.0,
+      "bounds": [
+        -1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 10.0,
+      "bounds": [
+        10.0,
+        -2.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -10.0,
+            10.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 10.0,
+      "bounds": [
+        "-inf",
+        "inf"
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 10.0,
+      "bounds": [
+        "nan",
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.0,
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.0,
+      "bounds": [
+        0.001,
+        0.001
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.00095,
+            0.00105
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.000999,
+            0.001001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.0009765625,
+            0.001953125
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.0,
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.95,
+            1.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.5,
+            2.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.0,
+      "bounds": [
+        -1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.0,
+      "bounds": [
+        10.0,
+        -2.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -2.0,
+            16.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.0,
+      "bounds": [
+        "-inf",
+        "inf"
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.0,
+      "bounds": [
+        "nan",
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.5,
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.5,
+      "bounds": [
+        0.001,
+        0.001
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.00095,
+            0.00105
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.000999,
+            0.001001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.00065536,
+            0.0016384
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.5,
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.95,
+            1.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.4,
+            2.5
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.5,
+      "bounds": [
+        -1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.5,
+      "bounds": [
+        10.0,
+        -2.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -2.5,
+            15.625
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.5,
+      "bounds": [
+        "-inf",
+        "inf"
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 2.5,
+      "bounds": [
+        "nan",
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 1.0,
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 1.0,
+      "bounds": [
+        0.001,
+        0.001
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.00095,
+            0.00105
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.000999,
+            0.001001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 1.0,
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.95,
+            1.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 1.0,
+      "bounds": [
+        -1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 1.0,
+      "bounds": [
+        10.0,
+        -2.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 1.0,
+      "bounds": [
+        "-inf",
+        "inf"
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 1.0,
+      "bounds": [
+        "nan",
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 0.0,
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        }
+      ]
+    },
+    {
+      "base": 0.0,
+      "bounds": [
+        0.001,
+        0.001
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.00095,
+            0.00105
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.000999,
+            0.001001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 0.0,
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.95,
+            1.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 0.0,
+      "bounds": [
+        -1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 0.0,
+      "bounds": [
+        10.0,
+        -2.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 0.0,
+      "bounds": [
+        "-inf",
+        "inf"
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 0.0,
+      "bounds": [
+        "nan",
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": -2.0,
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": -2.0,
+      "bounds": [
+        0.001,
+        0.001
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.00095,
+            0.00105
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.000999,
+            0.001001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": -2.0,
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.95,
+            1.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": -2.0,
+      "bounds": [
+        -1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": -2.0,
+      "bounds": [
+        10.0,
+        -2.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": -2.0,
+      "bounds": [
+        "-inf",
+        "inf"
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": -2.0,
+      "bounds": [
+        "nan",
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "nan",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "nan",
+      "bounds": [
+        0.001,
+        0.001
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.00095,
+            0.00105
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.000999,
+            0.001001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "nan",
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.95,
+            1.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "nan",
+      "bounds": [
+        -1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "nan",
+      "bounds": [
+        10.0,
+        -2.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "nan",
+      "bounds": [
+        "-inf",
+        "inf"
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "nan",
+      "bounds": [
+        "nan",
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "inf",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "inf",
+      "bounds": [
+        0.001,
+        0.001
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.00095,
+            0.00105
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.000999,
+            0.001001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "inf",
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.95,
+            1.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "inf",
+      "bounds": [
+        -1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "inf",
+      "bounds": [
+        10.0,
+        -2.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -2.0,
+            10.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "inf",
+      "bounds": [
+        "-inf",
+        "inf"
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": "inf",
+      "bounds": [
+        "nan",
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 0.0,
+      "bounds": [
+        -0.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        }
+      ]
+    },
+    {
+      "base": 0.0,
+      "bounds": [
+        0.0,
+        -0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        }
+      ]
+    },
+    {
+      "base": 0.0,
+      "bounds": [
+        -0.0,
+        -0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        }
+      ]
+    },
+    {
+      "base": -0.0,
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        }
+      ]
+    },
+    {
+      "base": -0.0,
+      "bounds": [
+        -0.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        }
+      ]
+    },
+    {
+      "base": -0.0,
+      "bounds": [
+        0.0,
+        -0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        }
+      ]
+    },
+    {
+      "base": -0.0,
+      "bounds": [
+        -0.0,
+        -0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": null,
+          "source_error": "ZeroDivisionError"
+        }
+      ]
+    },
+    {
+      "base": -0.0,
+      "bounds": [
+        1.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.95,
+            1.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.999,
+            1.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 0.0,
+      "bounds": [
+        0.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 0.0,
+      "bounds": [
+        -1.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -1.0,
+            0.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -1.0,
+            0.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            0.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": 0.0,
+      "bounds": [
+        5e-324,
+        5e-324
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": -0.0,
+      "bounds": [
+        0.0,
+        1.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            0.0,
+            1.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": -0.0,
+      "bounds": [
+        -1.0,
+        0.0
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -1.0,
+            0.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -1.0,
+            0.0
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -1.0,
+            0.0
+          ],
+          "source_error": null
+        }
+      ]
+    },
+    {
+      "base": -0.0,
+      "bounds": [
+        5e-324,
+        5e-324
+      ],
+      "observations": [
+        {
+          "method": "nonsingular",
+          "mode": "data",
+          "values": [
+            -0.05,
+            0.05
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "data",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        },
+        {
+          "method": "view_limits",
+          "mode": "round_numbers",
+          "values": [
+            -0.001,
+            0.001
+          ],
+          "source_error": null
+        }
+      ]
+    }
+  ],
+  "view_copy_stages": [
+    {
+      "name": "locator",
+      "query": {
+        "values": [
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "name": "shallow",
+      "query": {
+        "values": [
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "name": "shallow",
+      "query": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "name": "locator",
+      "query": {
+        "values": [
+          0.0,
+          0.2,
+          0.8
+        ],
+        "source_error": null
+      }
+    },
+    {
+      "name": "shallow",
+      "query": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "source_error": null
+      }
+    }
+  ],
+  "view_events": [
+    "first",
+    "first",
+    "first",
+    "second",
+    "first"
+  ]
+}

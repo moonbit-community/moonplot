@@ -1,0 +1,2694 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "figure.py": "b440ab0a5be03cb39b13529a2fec497d2d96deb083e3e56d6220593e3ec567da",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "axes/_secondary_axes.py": "b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "image.py": "6e1f61a547b371da9bd3b20b65991a90ec73b370504fd4a87d11d1293b2e2a77",
+    "axes/_axes.py": "f61e1cb43575eca70b01c9c80f16d3015e91a8101fe9ce0cc3fdc3d80441c8a7"
+  },
+  "runtime": "CPython3.12.14 / NumPy2.3.5 Darwin arm64, exact binary hash validated by committed loader",
+  "original_bodies": [
+    "complete transforms.py AST without imports",
+    "complete SymmetricalLogLocator AST",
+    "original scale classes/constructors/transforms/default setters",
+    "Axis._set_scale/get_transform/get_scale",
+    "Axis.set_major_locator/set_minor_locator/get_minorticklocs/_update_ticks",
+    "Grouper and FigureBase._remove_axes",
+    "SecondaryAxis._set_scale/_set_lims",
+    "Axes._set_lim_and_transforms/_update_transScale"
+  ],
+  "fixture_boundaries": "Known numeric bboxes, bbox storage setters for already-valid explicit views, formatter/tick notification sinks, matrix-multiply affine C-kernel sink. No full figure layout, path/glyph backend, scale default lifecycle, units or GUI notifications. Source NaN/Inf accepted constructor profiles are exercised through raw Moon Scale fields; Moon factory intentionally keeps stronger finite validation and threshold1 default.",
+  "numeric_assertions": "Direct locator arrays and zero signs stay bit-exact. Derived Scale math/physical display uses relative1e-12 with no absolute floor; NaN and signed infinities are classified explicitly.",
+  "transforms": [
+    {
+      "label": "ordinary base10",
+      "base": 10.0,
+      "linthresh": 1.0,
+      "linscale": 1.0,
+      "inverse": false,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -10.0,
+        -1.0,
+        -0.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        -309.1111111111111,
+        -3.111111111111111,
+        -2.111111111111111,
+        -1.1111111111111112,
+        -0.0,
+        0.0,
+        1.1111111111111112,
+        2.111111111111111,
+        3.111111111111111,
+        309.1111111111111,
+        "inf",
+        "nan"
+      ]
+    },
+    {
+      "label": "ordinary base10",
+      "base": 10.0,
+      "linthresh": 1.0,
+      "linscale": 1.0,
+      "inverse": true,
+      "values": [
+        "-inf",
+        -1e+308,
+        -100.0,
+        -10.0,
+        -1.0,
+        -0.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        "-inf",
+        -7.742636826811487e+98,
+        -774263682.6811295,
+        -0.8999999999999999,
+        -0.0,
+        0.0,
+        0.8999999999999999,
+        774263682.6811295,
+        7.742636826811487e+98,
+        "inf",
+        "inf",
+        "nan"
+      ]
+    },
+    {
+      "label": "source default threshold2 and boundary neighbors",
+      "base": 10.0,
+      "linthresh": 2.0,
+      "linscale": 1.0,
+      "inverse": false,
+      "values": [
+        -2.0000000000000004,
+        -2.0,
+        -1.9999999999999998,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.9999999999999998,
+        2.0,
+        2.0000000000000004
+      ],
+      "result": [
+        -2.2222222222222223,
+        -2.2222222222222223,
+        -2.222222222222222,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        2.222222222222222,
+        2.2222222222222223,
+        2.2222222222222223
+      ]
+    },
+    {
+      "label": "source default threshold2 and boundary neighbors",
+      "base": 10.0,
+      "linthresh": 2.0,
+      "linscale": 1.0,
+      "inverse": true,
+      "values": [
+        -2.0000000000000004,
+        -2.0,
+        -1.9999999999999998,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.9999999999999998,
+        2.0,
+        2.0000000000000004
+      ],
+      "result": [
+        -1.8000000000000003,
+        -1.7999999999999998,
+        -1.7999999999999998,
+        -5e-324,
+        -0.0,
+        0.0,
+        5e-324,
+        1.7999999999999998,
+        1.7999999999999998,
+        1.8000000000000003
+      ]
+    },
+    {
+      "label": "base2 custom linear stretch",
+      "base": 2.0,
+      "linthresh": 0.5,
+      "linscale": 2.0,
+      "inverse": false,
+      "values": [
+        -100.0,
+        -1.0,
+        -0.5,
+        -0.0,
+        0.0,
+        0.5,
+        1.0,
+        100.0
+      ],
+      "result": [
+        -5.821928094887363,
+        -2.5,
+        -2.0,
+        -0.0,
+        0.0,
+        2.0,
+        2.5,
+        5.821928094887363
+      ]
+    },
+    {
+      "label": "base2 custom linear stretch",
+      "base": 2.0,
+      "linthresh": 0.5,
+      "linscale": 2.0,
+      "inverse": true,
+      "values": [
+        -100.0,
+        -1.0,
+        -0.5,
+        -0.0,
+        0.0,
+        0.5,
+        1.0,
+        100.0
+      ],
+      "result": [
+        -5.021681388309324e+58,
+        -0.25,
+        -0.125,
+        -0.0,
+        0.0,
+        0.125,
+        0.25,
+        5.021681388309324e+58
+      ]
+    },
+    {
+      "label": "base e",
+      "base": 2.718281828459045,
+      "linthresh": 1.0,
+      "linscale": 1.0,
+      "inverse": false,
+      "values": [
+        -100.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        100.0
+      ],
+      "result": [
+        -6.1871468928574185,
+        -2.2751238874292716,
+        -1.5819767068693265,
+        0.0,
+        1.5819767068693265,
+        2.2751238874292716,
+        6.1871468928574185
+      ]
+    },
+    {
+      "label": "base e",
+      "base": 2.718281828459045,
+      "linthresh": 1.0,
+      "linscale": 1.0,
+      "inverse": true,
+      "values": [
+        -100.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        100.0
+      ],
+      "result": [
+        -5.5259179996286897e+42,
+        -1.5189560552320551,
+        -0.6321205588285577,
+        0.0,
+        0.6321205588285577,
+        1.5189560552320551,
+        5.5259179996286897e+42
+      ]
+    },
+    {
+      "label": "tiny threshold avoids quotient overflow",
+      "base": 10.0,
+      "linthresh": 1e-308,
+      "linscale": 1.0,
+      "inverse": false,
+      "values": [
+        -1e+308,
+        -1.0,
+        -1e-308,
+        -5e-324,
+        0.0,
+        5e-324,
+        1e-308,
+        1.0,
+        1e+308
+      ],
+      "result": [
+        -6.17111111111111e-306,
+        -3.0911111111111104e-306,
+        -1.1111111111111113e-308,
+        -5e-324,
+        0.0,
+        5e-324,
+        1.1111111111111113e-308,
+        3.0911111111111104e-306,
+        6.17111111111111e-306
+      ]
+    },
+    {
+      "label": "tiny threshold avoids quotient overflow",
+      "base": 10.0,
+      "linthresh": 1e-308,
+      "linscale": 1.0,
+      "inverse": true,
+      "values": [
+        -1e+308,
+        -1.0,
+        -1e-308,
+        -5e-324,
+        0.0,
+        5e-324,
+        1e-308,
+        1.0,
+        1e+308
+      ],
+      "result": [
+        "-inf",
+        "-inf",
+        -8.999999999999997e-309,
+        -5e-324,
+        0.0,
+        5e-324,
+        8.999999999999997e-309,
+        "inf",
+        "inf"
+      ]
+    },
+    {
+      "label": "huge threshold",
+      "base": 10.0,
+      "linthresh": 1e+308,
+      "linscale": 1.0,
+      "inverse": false,
+      "values": [
+        "-inf",
+        -1.7976931348623157e+308,
+        -1e+308,
+        -1.0,
+        0.0,
+        1.0,
+        1e+308,
+        1.7976931348623157e+308,
+        "inf"
+      ],
+      "result": [
+        "-inf",
+        -1.3658266710277757e+308,
+        -1.1111111111111112e+308,
+        -1.1111111111111112,
+        0.0,
+        1.1111111111111112,
+        1.1111111111111112e+308,
+        1.3658266710277757e+308,
+        "inf"
+      ]
+    },
+    {
+      "label": "huge threshold",
+      "base": 10.0,
+      "linthresh": 1e+308,
+      "linscale": 1.0,
+      "inverse": true,
+      "values": [
+        "-inf",
+        -1.7976931348623157e+308,
+        -1e+308,
+        -1.0,
+        0.0,
+        1.0,
+        1e+308,
+        1.7976931348623157e+308,
+        "inf"
+      ],
+      "result": [
+        "-inf",
+        "-inf",
+        -9e+307,
+        -0.8999999999999999,
+        0.0,
+        0.8999999999999999,
+        9e+307,
+        "inf",
+        "inf"
+      ]
+    },
+    {
+      "label": "base nextafter one",
+      "base": 1.0000000000000002,
+      "linthresh": 2.0,
+      "linscale": 1.0,
+      "inverse": false,
+      "values": [
+        -1e+308,
+        -100.0,
+        -2.0,
+        0.0,
+        2.0,
+        100.0,
+        1e+308
+      ],
+      "result": [
+        -6.390635446433433e+18,
+        -4.4243569953763016e+16,
+        -9007199254740992.0,
+        0.0,
+        9007199254740992.0,
+        4.4243569953763016e+16,
+        6.390635446433433e+18
+      ]
+    },
+    {
+      "label": "base nextafter one",
+      "base": 1.0000000000000002,
+      "linthresh": 2.0,
+      "linscale": 1.0,
+      "inverse": true,
+      "values": [
+        -1e+308,
+        -100.0,
+        -2.0,
+        0.0,
+        2.0,
+        100.0,
+        1e+308
+      ],
+      "result": [
+        "-inf",
+        -2.220446049250313e-14,
+        -4.440892098500626e-16,
+        0.0,
+        4.440892098500626e-16,
+        2.220446049250313e-14,
+        "inf"
+      ]
+    },
+    {
+      "label": "source accepts infinite base",
+      "base": "inf",
+      "linthresh": 2.0,
+      "linscale": 1.0,
+      "inverse": false,
+      "values": [
+        "-inf",
+        -10.0,
+        -2.0,
+        -0.0,
+        0.0,
+        2.0,
+        10.0,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "nan",
+        -2.0,
+        -2.0,
+        -0.0,
+        0.0,
+        2.0,
+        2.0,
+        "nan",
+        "nan"
+      ]
+    },
+    {
+      "label": "source accepts infinite base",
+      "base": "inf",
+      "linthresh": 2.0,
+      "linscale": 1.0,
+      "inverse": true,
+      "values": [
+        "-inf",
+        -10.0,
+        -2.0,
+        -0.0,
+        0.0,
+        2.0,
+        10.0,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        "-inf",
+        -2.0,
+        -0.0,
+        0.0,
+        2.0,
+        "inf",
+        "inf",
+        "nan"
+      ]
+    },
+    {
+      "label": "source accepts NaN base",
+      "base": "nan",
+      "linthresh": 2.0,
+      "linscale": 1.0,
+      "inverse": false,
+      "values": [
+        -10.0,
+        -2.0,
+        -0.0,
+        0.0,
+        2.0,
+        10.0,
+        "nan"
+      ],
+      "result": [
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan"
+      ]
+    },
+    {
+      "label": "source accepts NaN base",
+      "base": "nan",
+      "linthresh": 2.0,
+      "linscale": 1.0,
+      "inverse": true,
+      "values": [
+        -10.0,
+        -2.0,
+        -0.0,
+        0.0,
+        2.0,
+        10.0,
+        "nan"
+      ],
+      "result": [
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan"
+      ]
+    },
+    {
+      "label": "source accepts infinite threshold",
+      "base": 10.0,
+      "linthresh": "inf",
+      "linscale": 1.0,
+      "inverse": false,
+      "values": [
+        "-inf",
+        -1e+308,
+        -0.0,
+        0.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        -1.1111111111111112e+308,
+        -0.0,
+        0.0,
+        1.1111111111111112e+308,
+        "inf",
+        "nan"
+      ]
+    },
+    {
+      "label": "source accepts infinite threshold",
+      "base": 10.0,
+      "linthresh": "inf",
+      "linscale": 1.0,
+      "inverse": true,
+      "values": [
+        "-inf",
+        -1e+308,
+        -0.0,
+        0.0,
+        1e+308,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        -9e+307,
+        -0.0,
+        0.0,
+        9e+307,
+        "inf",
+        "nan"
+      ]
+    },
+    {
+      "label": "source accepts NaN threshold",
+      "base": 10.0,
+      "linthresh": "nan",
+      "linscale": 1.0,
+      "inverse": false,
+      "values": [
+        -10.0,
+        -0.0,
+        0.0,
+        10.0,
+        "nan"
+      ],
+      "result": [
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan"
+      ]
+    },
+    {
+      "label": "source accepts NaN threshold",
+      "base": 10.0,
+      "linthresh": "nan",
+      "linscale": 1.0,
+      "inverse": true,
+      "values": [
+        -10.0,
+        -0.0,
+        0.0,
+        10.0,
+        "nan"
+      ],
+      "result": [
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan"
+      ]
+    },
+    {
+      "label": "source accepts infinite stretch",
+      "base": 10.0,
+      "linthresh": 2.0,
+      "linscale": "inf",
+      "inverse": false,
+      "values": [
+        "-inf",
+        -10.0,
+        -0.0,
+        0.0,
+        10.0,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "-inf",
+        "-inf",
+        "nan",
+        "nan",
+        "inf",
+        "inf",
+        "nan"
+      ]
+    },
+    {
+      "label": "source accepts infinite stretch",
+      "base": 10.0,
+      "linthresh": 2.0,
+      "linscale": "inf",
+      "inverse": true,
+      "values": [
+        "-inf",
+        -10.0,
+        -0.0,
+        0.0,
+        10.0,
+        "inf",
+        "nan"
+      ],
+      "result": [
+        "nan",
+        -0.0,
+        -0.0,
+        0.0,
+        0.0,
+        "nan",
+        "nan"
+      ]
+    },
+    {
+      "label": "source accepts NaN stretch",
+      "base": 10.0,
+      "linthresh": 2.0,
+      "linscale": "nan",
+      "inverse": false,
+      "values": [
+        -10.0,
+        -0.0,
+        0.0,
+        10.0,
+        "nan"
+      ],
+      "result": [
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan"
+      ]
+    },
+    {
+      "label": "source accepts NaN stretch",
+      "base": 10.0,
+      "linthresh": 2.0,
+      "linscale": "nan",
+      "inverse": true,
+      "values": [
+        -10.0,
+        -0.0,
+        0.0,
+        10.0,
+        "nan"
+      ],
+      "result": [
+        "nan",
+        "nan",
+        "nan",
+        "nan",
+        "nan"
+      ]
+    }
+  ],
+  "axis": [
+    {
+      "label": "linear raw neighbors",
+      "scale": "linear",
+      "view": [
+        -100.0,
+        100.0
+      ],
+      "majors": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "subs": [
+        1.0,
+        2.0
+      ],
+      "overlap": true,
+      "linthresh": 1.0,
+      "raw": {
+        "values": [
+          -100.0,
+          -200.0,
+          -10.0,
+          -20.0,
+          -1.0,
+          -2.0,
+          0.0,
+          1.0,
+          2.0,
+          10.0,
+          20.0,
+          100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -200.0,
+          -20.0,
+          -2.0,
+          2.0,
+          20.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "visible_minor": [
+        -20.0,
+        -2.0,
+        2.0,
+        20.0
+      ]
+    },
+    {
+      "label": "symlog transformed overlap",
+      "scale": "symlog",
+      "view": [
+        -100.0,
+        100.0
+      ],
+      "majors": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "subs": [
+        1.0,
+        2.0
+      ],
+      "overlap": true,
+      "linthresh": 1.0,
+      "raw": {
+        "values": [
+          -100.0,
+          -200.0,
+          -10.0,
+          -20.0,
+          -1.0,
+          -2.0,
+          0.0,
+          1.0,
+          2.0,
+          10.0,
+          20.0,
+          100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -200.0,
+          -20.0,
+          -2.0,
+          2.0,
+          20.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "visible_minor": [
+        -20.0,
+        -2.0,
+        2.0,
+        20.0
+      ]
+    },
+    {
+      "label": "reversed view",
+      "scale": "symlog",
+      "view": [
+        100.0,
+        -100.0
+      ],
+      "majors": [
+        100.0,
+        10.0,
+        1.0,
+        0.0,
+        -1.0,
+        -10.0,
+        -100.0
+      ],
+      "subs": [
+        1.0,
+        2.0
+      ],
+      "overlap": true,
+      "linthresh": 1.0,
+      "raw": {
+        "values": [
+          -100.0,
+          -200.0,
+          -10.0,
+          -20.0,
+          -1.0,
+          -2.0,
+          0.0,
+          1.0,
+          2.0,
+          10.0,
+          20.0,
+          100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -200.0,
+          -20.0,
+          -2.0,
+          2.0,
+          20.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        100.0,
+        10.0,
+        1.0,
+        0.0,
+        -1.0,
+        -10.0,
+        -100.0
+      ],
+      "visible_minor": [
+        -20.0,
+        -2.0,
+        2.0,
+        20.0
+      ]
+    },
+    {
+      "label": "overlap disabled",
+      "scale": "symlog",
+      "view": [
+        -100.0,
+        100.0
+      ],
+      "majors": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "subs": [
+        1.0,
+        2.0
+      ],
+      "overlap": false,
+      "linthresh": 1.0,
+      "raw": {
+        "values": [
+          -100.0,
+          -200.0,
+          -10.0,
+          -20.0,
+          -1.0,
+          -2.0,
+          0.0,
+          1.0,
+          2.0,
+          10.0,
+          20.0,
+          100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -100.0,
+          -200.0,
+          -10.0,
+          -20.0,
+          -1.0,
+          -2.0,
+          0.0,
+          1.0,
+          2.0,
+          10.0,
+          20.0,
+          100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "visible_minor": [
+        -100.0,
+        -10.0,
+        -20.0,
+        -1.0,
+        -2.0,
+        0.0,
+        1.0,
+        2.0,
+        10.0,
+        20.0,
+        100.0
+      ]
+    },
+    {
+      "label": "strict simple range returns bounds and zero",
+      "scale": "symlog",
+      "view": [
+        -0.8,
+        0.8
+      ],
+      "majors": [
+        0.0
+      ],
+      "subs": [
+        1.0,
+        2.0
+      ],
+      "overlap": true,
+      "linthresh": 1.0,
+      "raw": {
+        "values": [
+          -0.8,
+          0,
+          0.8
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -0.8,
+          0.8
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        0.0
+      ],
+      "visible_minor": [
+        -0.8,
+        0.8
+      ]
+    },
+    {
+      "label": "negative and zero subs retain raw order",
+      "scale": "symlog",
+      "view": [
+        -100.0,
+        100.0
+      ],
+      "majors": [
+        -10.0,
+        0.0,
+        10.0
+      ],
+      "subs": [
+        0.0,
+        1.0,
+        -1.0,
+        2.0
+      ],
+      "overlap": true,
+      "linthresh": 1.0,
+      "raw": {
+        "values": [
+          -0.0,
+          -100.0,
+          100.0,
+          -200.0,
+          -0.0,
+          -10.0,
+          10.0,
+          -20.0,
+          -0.0,
+          -1.0,
+          1.0,
+          -2.0,
+          0.0,
+          0.0,
+          1.0,
+          -1.0,
+          2.0,
+          0.0,
+          10.0,
+          -10.0,
+          20.0,
+          0.0,
+          100.0,
+          -100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -100.0,
+          100.0,
+          -200.0,
+          -20.0,
+          -1.0,
+          1.0,
+          -2.0,
+          1.0,
+          -1.0,
+          2.0,
+          20.0,
+          100.0,
+          -100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        -10.0,
+        0.0,
+        10.0
+      ],
+      "visible_minor": [
+        -100.0,
+        100.0,
+        -20.0,
+        -1.0,
+        1.0,
+        -2.0,
+        1.0,
+        -1.0,
+        2.0,
+        20.0,
+        100.0,
+        -100.0
+      ]
+    },
+    {
+      "label": "mixed major duplicates retain input order",
+      "scale": "symlog",
+      "view": [
+        -20.0,
+        20.0
+      ],
+      "majors": [
+        10.0,
+        -10.0,
+        0.0,
+        10.0
+      ],
+      "subs": [
+        1.0,
+        2.0
+      ],
+      "overlap": true,
+      "linthresh": 1.0,
+      "raw": {
+        "values": [
+          -10.0,
+          -20.0,
+          -1.0,
+          -2.0,
+          0.0,
+          1.0,
+          2.0,
+          10.0,
+          20.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -20.0,
+          -1.0,
+          -2.0,
+          1.0,
+          2.0,
+          20.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        10.0,
+        -10.0,
+        0.0,
+        10.0
+      ],
+      "visible_minor": [
+        -20.0,
+        -1.0,
+        -2.0,
+        1.0,
+        2.0,
+        20.0
+      ]
+    },
+    {
+      "label": "positive-only branch retains outer raw decade",
+      "scale": "symlog",
+      "view": [
+        2.1,
+        40.0
+      ],
+      "majors": [
+        10.0,
+        100.0
+      ],
+      "subs": [
+        1.0,
+        2.0,
+        5.0
+      ],
+      "overlap": true,
+      "linthresh": 1.0,
+      "raw": {
+        "values": [
+          1.0,
+          2.0,
+          5.0,
+          10.0,
+          20.0,
+          50.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          1.0,
+          2.0,
+          5.0,
+          20.0,
+          50.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        10.0
+      ],
+      "visible_minor": [
+        5.0,
+        20.0
+      ]
+    },
+    {
+      "label": "nearby major removed in transformed span",
+      "scale": "symlog",
+      "view": [
+        -100.0,
+        100.0
+      ],
+      "majors": [
+        0.0,
+        1.000001,
+        10.0
+      ],
+      "subs": [
+        1.0,
+        2.0
+      ],
+      "overlap": true,
+      "linthresh": 1.0,
+      "raw": {
+        "values": [
+          -100.0,
+          -200.0,
+          -10.0,
+          -20.0,
+          -1.0,
+          -2.0,
+          0.0,
+          1.0,
+          2.0,
+          10.0,
+          20.0,
+          100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          -100.0,
+          -200.0,
+          -10.0,
+          -20.0,
+          -1.0,
+          -2.0,
+          2.0,
+          20.0,
+          100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        0.0,
+        1.000001,
+        10.0
+      ],
+      "visible_minor": [
+        -100.0,
+        -10.0,
+        -20.0,
+        -1.0,
+        -2.0,
+        2.0,
+        20.0,
+        100.0
+      ]
+    },
+    {
+      "label": "log parent uses original clip transform",
+      "scale": "log",
+      "view": [
+        1.0,
+        100.0
+      ],
+      "majors": [
+        0.0,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "subs": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "overlap": true,
+      "linthresh": 1.0,
+      "raw": {
+        "values": [
+          0.0,
+          1.0,
+          2.0,
+          0.0,
+          10.0,
+          20.0,
+          0.0,
+          100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          2.0,
+          20.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        1.0,
+        10.0,
+        100.0
+      ],
+      "visible_minor": [
+        2.0,
+        20.0
+      ]
+    },
+    {
+      "label": "infinite span and positive infinite reference major",
+      "scale": "linear",
+      "view": [
+        "-inf",
+        "inf"
+      ],
+      "majors": [
+        "inf"
+      ],
+      "subs": [
+        1.0
+      ],
+      "overlap": true,
+      "linthresh": "inf",
+      "raw": {
+        "values": [
+          "-inf",
+          0,
+          "inf"
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          "-inf",
+          0.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        "inf"
+      ],
+      "visible_minor": [
+        "-inf",
+        0.0
+      ]
+    },
+    {
+      "label": "infinite span and negative infinite reference major",
+      "scale": "linear",
+      "view": [
+        "-inf",
+        "inf"
+      ],
+      "majors": [
+        "-inf"
+      ],
+      "subs": [
+        1.0
+      ],
+      "overlap": true,
+      "linthresh": "inf",
+      "raw": {
+        "values": [
+          "-inf",
+          0,
+          "inf"
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          0.0,
+          "inf"
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        "-inf"
+      ],
+      "visible_minor": [
+        0.0,
+        "inf"
+      ]
+    },
+    {
+      "label": "infinite span and NaN reference major",
+      "scale": "linear",
+      "view": [
+        "-inf",
+        "inf"
+      ],
+      "majors": [
+        "nan"
+      ],
+      "subs": [
+        1.0
+      ],
+      "overlap": true,
+      "linthresh": "inf",
+      "raw": {
+        "values": [
+          "-inf",
+          0,
+          "inf"
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [
+          "-inf",
+          0.0,
+          "inf"
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [],
+      "visible_minor": [
+        "-inf",
+        0.0,
+        "inf"
+      ]
+    },
+    {
+      "label": "infinite span and finite reference major",
+      "scale": "linear",
+      "view": [
+        "-inf",
+        "inf"
+      ],
+      "majors": [
+        1.0
+      ],
+      "subs": [
+        1.0
+      ],
+      "overlap": true,
+      "linthresh": "inf",
+      "raw": {
+        "values": [
+          "-inf",
+          0,
+          "inf"
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered": {
+        "values": [],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "visible_major": [
+        1.0
+      ],
+      "visible_minor": []
+    }
+  ],
+  "limits": [
+    {
+      "mode": "data",
+      "view": [
+        -12.0,
+        15.0
+      ],
+      "limits": {
+        "values": [
+          -12.0,
+          15.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -12.0,
+          15.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "data",
+      "view": [
+        15.0,
+        -12.0
+      ],
+      "limits": {
+        "values": [
+          -12.0,
+          15.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -12.0,
+          15.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "data",
+      "view": [
+        0.2,
+        0.8
+      ],
+      "limits": {
+        "values": [
+          0.2,
+          0.8
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          0.2,
+          0.8
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "data",
+      "view": [
+        0.0,
+        0.0
+      ],
+      "limits": {
+        "values": [
+          -0.001,
+          0.001
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "data",
+      "view": [
+        1.0,
+        1.0
+      ],
+      "limits": {
+        "values": [
+          0.999,
+          1.001
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          0.95,
+          1.05
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "data",
+      "view": [
+        "nan",
+        "inf"
+      ],
+      "limits": {
+        "values": [
+          -0.001,
+          0.001
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "view": [
+        -12.0,
+        15.0
+      ],
+      "limits": {
+        "values": [
+          -100.0,
+          100.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -12.0,
+          15.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "view": [
+        15.0,
+        -12.0
+      ],
+      "limits": {
+        "values": [
+          -100.0,
+          100.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -12.0,
+          15.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "view": [
+        0.2,
+        0.8
+      ],
+      "limits": {
+        "values": [
+          0.1,
+          1.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          0.2,
+          0.8
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "view": [
+        0.0,
+        0.0
+      ],
+      "limits": {
+        "values": [
+          -0.001,
+          0.001
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "view": [
+        1.0,
+        1.0
+      ],
+      "limits": {
+        "values": [
+          0.1,
+          10.0
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          0.95,
+          1.05
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "mode": "round_numbers",
+      "view": [
+        "nan",
+        "inf"
+      ],
+      "limits": {
+        "values": [
+          -0.001,
+          0.001
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      },
+      "nonsingular": {
+        "values": [
+          -0.05,
+          0.05
+        ],
+        "error": null,
+        "events": [],
+        "warnings": []
+      }
+    }
+  ],
+  "owners": [
+    {
+      "name": "x",
+      "stages": [
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -0.5,
+            0,
+            0.5
+          ],
+          "error": null,
+          "events": [
+            "second.view.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "second.view.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.x"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "name": "y",
+      "stages": [
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -0.5,
+            0,
+            0.5
+          ],
+          "error": null,
+          "events": [
+            "second.view.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0
+          ],
+          "error": null,
+          "events": [
+            "second.view.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.y"
+          ],
+          "warnings": []
+        }
+      ]
+    }
+  ],
+  "shared": [
+    {
+      "name": "x",
+      "before": [
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.view.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -100.0,
+            -200.0,
+            -10.0,
+            -20.0,
+            -1.0,
+            -2.0,
+            0.0,
+            1.0,
+            2.0,
+            10.0,
+            20.0,
+            100.0,
+            200.0
+          ],
+          "error": null,
+          "events": [
+            "second.view.x"
+          ],
+          "warnings": []
+        }
+      ],
+      "after": [
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -100.0,
+            -200.0,
+            -10.0,
+            -20.0,
+            -1.0,
+            -2.0,
+            0.0,
+            1.0,
+            2.0,
+            10.0,
+            20.0,
+            100.0,
+            200.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.x"
+          ],
+          "warnings": []
+        }
+      ],
+      "outside": [
+        {
+          "values": [
+            -0.5,
+            0,
+            0.5
+          ],
+          "error": null,
+          "events": [
+            "second.view.x"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -0.5,
+            0,
+            0.5
+          ],
+          "error": null,
+          "events": [
+            "second.view.x"
+          ],
+          "warnings": []
+        }
+      ],
+      "installed_owner": "first",
+      "external_owner": "second"
+    },
+    {
+      "name": "y",
+      "before": [
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "second.view.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -100.0,
+            -200.0,
+            -10.0,
+            -20.0,
+            -1.0,
+            -2.0,
+            0.0,
+            1.0,
+            2.0,
+            10.0,
+            20.0,
+            100.0,
+            200.0
+          ],
+          "error": null,
+          "events": [
+            "second.view.y"
+          ],
+          "warnings": []
+        }
+      ],
+      "after": [
+        {
+          "values": [
+            -100.0,
+            -10.0,
+            -1.0,
+            0.0,
+            1.0,
+            10.0,
+            100.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -100.0,
+            -200.0,
+            -10.0,
+            -20.0,
+            -1.0,
+            -2.0,
+            0.0,
+            1.0,
+            2.0,
+            10.0,
+            20.0,
+            100.0,
+            200.0
+          ],
+          "error": null,
+          "events": [
+            "first.view.y"
+          ],
+          "warnings": []
+        }
+      ],
+      "outside": [
+        {
+          "values": [
+            -0.5,
+            0,
+            0.5
+          ],
+          "error": null,
+          "events": [
+            "second.view.y"
+          ],
+          "warnings": []
+        },
+        {
+          "values": [
+            -0.5,
+            0,
+            0.5
+          ],
+          "error": null,
+          "events": [
+            "second.view.y"
+          ],
+          "warnings": []
+        }
+      ],
+      "installed_owner": "first",
+      "external_owner": "second"
+    }
+  ],
+  "secondary": [
+    {
+      "name": "x",
+      "scale": "symlog",
+      "view": [
+        -100.0,
+        100.0
+      ],
+      "own_view": [
+        -195.0,
+        205.0
+      ],
+      "own_scale": "function",
+      "raw_major": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "raw_minor": {
+        "values": [
+          -100.0,
+          -200.0,
+          -10.0,
+          -20.0,
+          -1.0,
+          -2.0,
+          0.0,
+          1.0,
+          2.0,
+          10.0,
+          20.0,
+          100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered_minor": {
+        "values": [
+          -200.0,
+          -20.0,
+          -2.0,
+          2.0,
+          20.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "values": [
+        -215.0,
+        -195.0,
+        -95.0,
+        5.0,
+        105.0,
+        205.0,
+        225.0
+      ],
+      "visible": [
+        -195.0,
+        -95.0,
+        5.0,
+        105.0,
+        205.0
+      ],
+      "normalized": [
+        -0.05,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.05
+      ],
+      "source_display": [
+        20.0,
+        40.0,
+        140.0,
+        240.0,
+        340.0,
+        440.0,
+        460.0
+      ]
+    },
+    {
+      "name": "x",
+      "scale": "log",
+      "view": [
+        1.0,
+        100.0
+      ],
+      "own_view": [
+        7.0,
+        205.0
+      ],
+      "own_scale": "functionlog",
+      "raw_major": {
+        "values": [
+          1.0,
+          10.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "raw_minor": {
+        "values": [
+          1.0,
+          2.0,
+          10.0,
+          20.0,
+          100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "filtered_minor": {
+        "values": [
+          20.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": []
+      },
+      "values": [
+        5.0,
+        7.0,
+        25.0,
+        105.0,
+        205.0,
+        225.0
+      ],
+      "visible": [
+        7.0,
+        25.0,
+        105.0,
+        205.0
+      ],
+      "normalized": [
+        -500.0,
+        0.0,
+        0.5,
+        0.8494850021680094,
+        1.0,
+        1.0206963425791125
+      ],
+      "source_display": [
+        -199960.0,
+        40.0,
+        240.0,
+        379.79400086720375,
+        440.0,
+        448.278537031645
+      ]
+    },
+    {
+      "name": "y",
+      "scale": "symlog",
+      "view": [
+        -100.0,
+        100.0
+      ],
+      "own_view": [
+        -195.0,
+        205.0
+      ],
+      "own_scale": "function",
+      "raw_major": {
+        "values": [
+          -100.0,
+          -10.0,
+          -1.0,
+          0.0,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.y"
+        ],
+        "warnings": []
+      },
+      "raw_minor": {
+        "values": [
+          -100.0,
+          -200.0,
+          -10.0,
+          -20.0,
+          -1.0,
+          -2.0,
+          0.0,
+          1.0,
+          2.0,
+          10.0,
+          20.0,
+          100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.y"
+        ],
+        "warnings": []
+      },
+      "filtered_minor": {
+        "values": [
+          -200.0,
+          -20.0,
+          -2.0,
+          2.0,
+          20.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.y",
+          "axes.view.y",
+          "axes.view.y"
+        ],
+        "warnings": []
+      },
+      "values": [
+        -215.0,
+        -195.0,
+        -95.0,
+        5.0,
+        105.0,
+        205.0,
+        225.0
+      ],
+      "visible": [
+        -195.0,
+        -95.0,
+        5.0,
+        105.0,
+        205.0
+      ],
+      "normalized": [
+        -0.05,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.05
+      ],
+      "source_display": [
+        45.0,
+        60.0,
+        135.0,
+        210.0,
+        285.0,
+        360.0,
+        375.0
+      ]
+    },
+    {
+      "name": "y",
+      "scale": "log",
+      "view": [
+        1.0,
+        100.0
+      ],
+      "own_view": [
+        7.0,
+        205.0
+      ],
+      "own_scale": "functionlog",
+      "raw_major": {
+        "values": [
+          1.0,
+          10.0,
+          100.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.y"
+        ],
+        "warnings": []
+      },
+      "raw_minor": {
+        "values": [
+          1.0,
+          2.0,
+          10.0,
+          20.0,
+          100.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.y"
+        ],
+        "warnings": []
+      },
+      "filtered_minor": {
+        "values": [
+          20.0,
+          200.0
+        ],
+        "error": null,
+        "events": [
+          "axes.view.y",
+          "axes.view.y",
+          "axes.view.y"
+        ],
+        "warnings": []
+      },
+      "values": [
+        5.0,
+        7.0,
+        25.0,
+        105.0,
+        205.0,
+        225.0
+      ],
+      "visible": [
+        7.0,
+        25.0,
+        105.0,
+        205.0
+      ],
+      "normalized": [
+        -500.0,
+        0.0,
+        0.5,
+        0.8494850021680094,
+        1.0,
+        1.0206963425791125
+      ],
+      "source_display": [
+        -149940.0,
+        60.0,
+        210.0,
+        314.8455006504028,
+        360.0,
+        366.2089027737337
+      ]
+    }
+  ],
+  "checked_error_source_evidence": {
+    "simple_before_consumption": {
+      "values": [
+        -0.5,
+        0,
+        0.5
+      ],
+      "error": null,
+      "events": [],
+      "warnings": []
+    },
+    "general_consumes_bad_numticks": {
+      "values": null,
+      "error": "TypeError",
+      "events": [],
+      "warnings": []
+    },
+    "recovered_contour_levels": {
+      "values": [
+        -100.0,
+        -10.0,
+        -1.0,
+        0.0,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "error": null,
+      "events": [],
+      "warnings": []
+    }
+  }
+}

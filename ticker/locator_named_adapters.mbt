@@ -85,6 +85,7 @@ pub fn Locator::checked_tick_values(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    NamedSymLog(value) => value.tick_values(lower, upper)
     NamedLog(value) => value.tick_values(lower, upper)
     Null(value) => value.tick_values(lower, upper)
     NamedMaxN(value) => {
@@ -119,6 +120,7 @@ pub fn Locator::tick_values_for_axis(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    NamedSymLog(value) => value.call()
     NamedLog(value) => value.call()
     Index(value) => value.call()
     NamedMaxN(value) => value.call()
@@ -152,6 +154,7 @@ pub fn MinorLocator::checked_tick_values(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   let values = match self {
+    NamedSymLog(value) => return value.tick_values(lower, upper)
     NamedLog(value) => return value.tick_values(lower, upper)
     Null(value) => return value.tick_values(lower, upper)
     NamedAutoMinor(value) => return value.tick_values(lower, upper)
@@ -173,6 +176,7 @@ pub fn MinorLocator::tick_values_for_axis(
   upper : Double,
 ) -> Array[Double] raise @core.DataError {
   match self {
+    NamedSymLog(value) => value.call()
     NamedLog(value) => value.call()
     Null(value) => value.call()
     NamedAutoMinor(value) => value.call()
@@ -263,6 +267,38 @@ pub fn Locator::log_locator(self : Locator) -> LogLocator? {
 pub fn MinorLocator::log_locator(self : MinorLocator) -> LogLocator? {
   match self {
     NamedLog(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn SymmetricalLogLocator::as_locator(
+  self : SymmetricalLogLocator,
+) -> Locator {
+  NamedSymLog(self)
+}
+
+///|
+pub fn SymmetricalLogLocator::as_minor_locator(
+  self : SymmetricalLogLocator,
+) -> MinorLocator {
+  NamedSymLog(self)
+}
+
+///|
+pub fn Locator::symlog_locator(self : Locator) -> SymmetricalLogLocator? {
+  match self {
+    NamedSymLog(value) => Some(value)
+    _ => None
+  }
+}
+
+///|
+pub fn MinorLocator::symlog_locator(
+  self : MinorLocator,
+) -> SymmetricalLogLocator? {
+  match self {
+    NamedSymLog(value) => Some(value)
     _ => None
   }
 }

@@ -99,10 +99,11 @@ fn symlog_transform_value(
   if magnitude <= linthresh {
     value * adjusted
   } else {
-    let sign = if value < 0.0 { -1.0 } else { 1.0 }
+    let sign = if value == 0.0 { 0.0 } else if value < 0.0 { -1.0 } else { 1.0 }
+    let log_base = @math.ln(base)
     sign *
     linthresh *
-    (adjusted + @math.log10(magnitude / linthresh) / @math.log10(base))
+    (adjusted - @math.ln(linthresh) / log_base + @math.ln(magnitude) / log_base)
   }
 }
 
@@ -114,13 +115,17 @@ fn symlog_inverse_value(
   base : Double,
 ) -> Double {
   let adjusted = symlog_linscale_adjusted(linscale, base)
-  let linear_limit = linthresh * adjusted
+  let linear_limit = symlog_transform_value(
+    linthresh, linthresh, linscale, base,
+  )
   let magnitude = Double::abs(value)
   if magnitude <= linear_limit {
     value / adjusted
   } else {
-    let sign = if value < 0.0 { -1.0 } else { 1.0 }
-    sign * linthresh * @math.pow(base, magnitude / linthresh - adjusted)
+    let sign = if value == 0.0 { 0.0 } else if value < 0.0 { -1.0 } else { 1.0 }
+    sign *
+    linthresh *
+    @math.exp((magnitude / linthresh - adjusted) * @math.ln(base))
   }
 }
 

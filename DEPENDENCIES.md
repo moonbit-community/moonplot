@@ -197,3 +197,13 @@ Grouper 所有权；箱线图按固定宽度 .6/cap .2 的实际端点收集范�
 参考生成器仅在开发环境使用固定 Python/NumPy 执行原始 AST，包括完整 autoscale_view、
 Axis._set_lim、LogTransform 及真实 boxplot 路径；生产没有新增 Python、NumPy、C 或外部库。
 数值门禁状态与显式范围见[testdata/log_locator_README.md](testdata/log_locator_README.md)。
+
+## D25 命名对称对数定位器
+
+SymmetricalLogLocator 复用 D24 的参数预算类型、portable ln/pow、numeric_arange_fill 与
+既有 nonsingular/decade helpers。新的 SymLogSubs 保留 Float64/Int64 views；仅在消费时
+按源协议转换和乘法，完整负段反转与零折叠使用逻辑描述符生成有限前缀。
+ticker 新导入内部 ticker/scale 包以捕获既有 Scale 值，没有外部依赖或依赖环。
+Scale 两个私有数值体和 SVG secondary mapping 直接复用原链路修正；原源证据执行完整
+变换树，C affine 内核以明确的矩阵乘法 sink 供应，未分发上游 C 或增加 Python 运行时。
+固定输入域、源/数学差异与重现见[testdata/symlog_locator_README.md](testdata/symlog_locator_README.md)。

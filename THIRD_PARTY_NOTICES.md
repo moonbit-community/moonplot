@@ -340,3 +340,18 @@ numeric verification status and reproduction commands are documented in
 [testdata/log_locator_README.md](testdata/log_locator_README.md).
 No upstream C implementation, Python runtime or additional third-party library
 is distributed.
+
+## Named symmetric-logarithmic locator
+
+SymmetricalLogLocator follows the fixed Matplotlib class, preserving its raw
+parameter storage, Float64 arange reversal, zero/subdivision expansion, deferred
+errors and inherited range policy. It reuses the portable mathematical primitives
+documented for LogLocator and retains source-platform differences explicitly.
+Scale numerical corrections follow original forward/inverse expression order.
+Axis and secondary references execute original class and full transform-tree
+bodies with a fixed numeric bbox and an explicit affine matrix-multiply sink;
+they do not distribute Matplotlib's C geometry or drawing kernels.
+Matplotlib's license and notice above apply. Evidence, numeric boundaries and
+reproduction commands are in
+[testdata/symlog_locator_README.md](testdata/symlog_locator_README.md).
+No new third-party runtime dependency is introduced.

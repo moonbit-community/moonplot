@@ -6,6 +6,7 @@
 /// spaced linear levels, a MaxN-style "nice" level set, an explicit fixed set,
 /// or logarithmic levels.
 pub(all) enum Locator {
+  NamedSymLog(SymmetricalLogLocator)
   NamedLog(LogLocator)
   Null(NullLocator)
   NamedMaxN(MaxNLocator)
@@ -29,6 +30,7 @@ pub(all) enum Locator {
 ///|
 /// A minor tick generator used between major locator values.
 pub(all) enum MinorLocator {
+  NamedSymLog(SymmetricalLogLocator)
   NamedLog(LogLocator)
   Null(NullLocator)
   NamedAutoMinor(AutoMinorLocator)
@@ -199,7 +201,8 @@ pub fn Locator::tick_values(
 ) -> Array[Double] {
   match self {
     Null(value) => return value.call()
-    NamedLog(_)
+    NamedSymLog(_)
+    | NamedLog(_)
     | NamedMaxN(_)
     | NamedAuto(_)
     | NamedLinear(_)
@@ -215,7 +218,8 @@ pub fn Locator::tick_values(
   let last = Double::max(lower, upper)
   let ascending = lower <= upper
   match self {
-    Locator::NamedLog(_)
+    Locator::NamedSymLog(_)
+    | Locator::NamedLog(_)
     | Locator::Null(_)
     | Locator::NamedMaxN(_)
     | Locator::NamedAuto(_)
@@ -387,7 +391,8 @@ pub fn MinorLocator::tick_values(
     Null(value) => return value.call()
     NamedAutoMinor(value) =>
       return value.tick_values(lower, upper) catch { _ => [] }
-    NamedLog(_)
+    NamedSymLog(_)
+    | NamedLog(_)
     | NamedMaxN(_)
     | NamedAuto(_)
     | NamedLinear(_)
@@ -403,7 +408,8 @@ pub fn MinorLocator::tick_values(
   let last = Double::max(lower, upper)
   let result : Array[Double] = []
   match self {
-    MinorLocator::NamedLog(_)
+    MinorLocator::NamedSymLog(_)
+    | MinorLocator::NamedLog(_)
     | MinorLocator::Null(_)
     | MinorLocator::NamedAutoMinor(_)
     | MinorLocator::NamedMaxN(_)
@@ -474,6 +480,7 @@ pub fn MinorLocator::tick_values(
 /// Use the named object copy() method for a separate parameter configuration.
 pub fn Locator::copy(self : Locator) -> Locator {
   match self {
+    Locator::NamedSymLog(value) => Locator::NamedSymLog(value)
     Locator::NamedLog(value) => Locator::NamedLog(value)
     Locator::Null(value) => Locator::Null(value)
     Locator::NamedMaxN(value) => Locator::NamedMaxN(value)
@@ -496,6 +503,7 @@ pub fn Locator::copy(self : Locator) -> Locator {
 /// Copy arrays while retaining live named locator handles.
 pub fn MinorLocator::copy(self : MinorLocator) -> MinorLocator {
   match self {
+    MinorLocator::NamedSymLog(value) => MinorLocator::NamedSymLog(value)
     MinorLocator::NamedLog(value) => MinorLocator::NamedLog(value)
     MinorLocator::Null(value) => MinorLocator::Null(value)
     MinorLocator::NamedAutoMinor(value) => MinorLocator::NamedAutoMinor(value)

@@ -4,6 +4,7 @@ package "mathplotlib/mathplotlib/ticker"
 import {
   "mathplotlib/mathplotlib/config",
   "mathplotlib/mathplotlib/core",
+  "mathplotlib/mathplotlib/ticker/scale",
   "moonbitlang/core/bigint",
   "moonbitlang/core/debug",
 }
@@ -182,6 +183,7 @@ pub fn LinearLocatorPresets::set(Self, Double, Double, Array[Double]) -> Unit
 pub fn LinearLocatorPresets::set_view(Self, Double, Double, TickValues) -> Unit
 
 pub(all) enum Locator {
+  NamedSymLog(SymmetricalLogLocator)
   NamedLog(LogLocator)
   Null(NullLocator)
   NamedMaxN(MaxNLocator)
@@ -207,6 +209,7 @@ pub fn Locator::log_locator(Self) -> LogLocator?
 pub fn Locator::maxn_locator(Self) -> MaxNLocator?
 pub fn Locator::multiple_locator(Self) -> MultipleLocator?
 pub fn Locator::null_locator(Self) -> NullLocator?
+pub fn Locator::symlog_locator(Self) -> SymmetricalLogLocator?
 pub fn Locator::tick_values(Self, Double, Double) -> Array[Double]
 pub fn Locator::tick_values_for_axis(Self, Double, Double) -> Array[Double] raise @core.DataError
 pub fn Locator::tick_view_for_axis(Self, Double, Double) -> TickValues raise @core.DataError
@@ -295,6 +298,7 @@ pub fn MaxNLocator::view_interval_provider(Self) -> (() -> (Double, Double) rais
 pub fn MaxNLocator::view_limits(Self, Double, Double) -> (Double, Double) raise @core.DataError
 
 pub(all) enum MinorLocator {
+  NamedSymLog(SymmetricalLogLocator)
   NamedLog(LogLocator)
   Null(NullLocator)
   NamedAutoMinor(AutoMinorLocator)
@@ -319,6 +323,7 @@ pub fn MinorLocator::log_locator(Self) -> LogLocator?
 pub fn MinorLocator::maxn_locator(Self) -> MaxNLocator?
 pub fn MinorLocator::multiple_locator(Self) -> MultipleLocator?
 pub fn MinorLocator::null_locator(Self) -> NullLocator?
+pub fn MinorLocator::symlog_locator(Self) -> SymmetricalLogLocator?
 pub fn MinorLocator::tick_values(Self, Array[Double], Double, Double) -> Array[Double]
 pub fn MinorLocator::tick_values_for_axis(Self, Array[Double], Double, Double) -> Array[Double] raise @core.DataError
 
@@ -349,6 +354,34 @@ pub fn NullLocator::set_params(Self) -> Unit
 pub fn NullLocator::tick_values(Self, Double, Double) -> Array[Double]
 pub fn NullLocator::view_limits(Self, Double, Double) -> (Double, Double)
 pub fn NullLocator::warnings(Self) -> Array[String]
+
+pub(all) enum SymLogSubs {
+  Text(String)
+  Number(Double)
+  Values(TickValues)
+}
+pub fn SymLogSubs::to_repr(Self) -> @debug.Repr
+pub impl @debug.Debug for SymLogSubs
+
+pub struct SymmetricalLogLocator {
+  // private fields
+}
+pub fn SymmetricalLogLocator::as_locator(Self) -> Locator
+pub fn SymmetricalLogLocator::as_minor_locator(Self) -> MinorLocator
+pub fn SymmetricalLogLocator::base(Self) -> Double
+pub fn SymmetricalLogLocator::bind_view_interval(Self, () -> (Double, Double) raise @core.DataError) -> Unit
+pub fn SymmetricalLogLocator::call(Self) -> Array[Double] raise @core.DataError
+pub fn SymmetricalLogLocator::copy(Self) -> Self
+pub fn SymmetricalLogLocator::linthresh(Self) -> Double
+pub fn SymmetricalLogLocator::new(transform? : @scale.Scale, base? : Double, linthresh? : Double, subs? : SymLogSubs?) -> Self raise @core.DataError
+pub fn SymmetricalLogLocator::nonsingular(Self, Double, Double) -> (Double, Double)
+pub fn SymmetricalLogLocator::numticks(Self) -> LogNumTicks
+pub fn SymmetricalLogLocator::set_numticks(Self, LogNumTicks) -> Unit
+pub fn SymmetricalLogLocator::set_params(Self, subs? : SymLogSubs, numticks? : LogNumTicks) -> Unit
+pub fn SymmetricalLogLocator::subs(Self) -> SymLogSubs
+pub fn SymmetricalLogLocator::tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
+pub fn SymmetricalLogLocator::view_interval_provider(Self) -> (() -> (Double, Double) raise @core.DataError)?
+pub fn SymmetricalLogLocator::view_limits(Self, Double, Double) -> (Double, Double) raise @core.DataError
 
 pub struct TickValues {
   // private fields
