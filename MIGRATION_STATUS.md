@@ -8,23 +8,25 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D26（候选命名AsinhLocator），只读合同准备；尚未冻结/实现。
-- 最近完成D25：命名SymmetricalLogLocator、完整Float64 arange负段反转、Int64 subs别名、
-  lateerrors/zero collapse、only-view live主次/shared/secondary/contour/SVG；修正SymLog
-  私有数值顺序、secondary function显示映射、Inf reference overlap及Pythonzero除零协议。
-- 最终四目标：wasm/wasm-gc/native各10055/10055，JS10062/10062（额外7项）；D25新增480。
-  info&&fmt、checkall89tasks（8旧Ref warnings/0error）、三D25 source --check全部exit0。
-  D25-interface.diff仅ticker新增Scale import/SymLogSubs/class/主次/getters，view_limits raising
-  符合原错误合同；Scale/date接口不变，无外部依赖。D24 portable math/source边界继续有效。
-- 下一条具体动作：A/B/C各自独占只读准备D26 Asinh的参数/数值/轴接线notes（ignored），
-  交付后root按原源合同冻结typed范围与实现所有权；不重开已验收D24/D25数值或全项目survey。
-  当前没有D26实现，不扩大为完整default units/scale/clear生命周期。
-- 当前无live Moon/source session。D25 finalgate39228已exit0（含checkall→testall），
-  JS68257已exit0，10006仅初compileexit1已终止；此前失败会话也均终止，不轮询/重跑有效门禁。
-- Git本地基线commit 1b61c4b（D01–D19）；D20验收commit d385718；D21验收commit 2403fcb；
-  D22验收commit fee6885；D23验收commit 179f365；D24验收commit 13ef0b1；D25验收commit c2f6edf。
-  无remote。用户已授权分批commit与并行subagents，后续按验收步骤继续本地提交。
-- 整体目标持续，约46%全目标/80%核心二维SVG工程估算暂不变，无阻塞。
+- 当前切片编号：D27（候选命名LogitLocator），下一步定向只读合同准备；未冻结/实现。
+- 最近完成D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
+  secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
+  raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
+- D26最终四目标：wasm/wasm-gc/native各11116/11116，JS11123/11123；新增1061=
+  A参数107+数学399+Bgrid487+Caxis68。info&&fmt、reviewed interface、checkall94tasks
+  （8旧Ref warnings/0error）、四新source --check全部exit0。数学sqrt/ln/Taylor区间与
+  grid分类/rank/fullset及公共接线经独立只读复核，无新外部依赖。
+- D26portable asinh/sinh/log10承接D24正确round合同；原平台8primitive差异与42collection
+  差异（39近边界+2tiny+1旧3^34）保留双值，不冒称Darwin bitclone。Core Asinh geometry
+  使用现有math，便捷sampler与完整AsinhScale默认安装生命周期明确分开；后者仍待迁移。
+- 下一条具体动作：D26 feature61f768f已提交，补checkpoint后，从原LogitLocator class/所用
+  helpers定向读取，分配A参数/B数值/Caxis与最小geometry notes，交付后再冻结D27；
+  不重survey或重跑D26有效门禁。总体goal持续active，46%全目标/80%核心二维工程估算不变。
+- 当前无live Moon/source工具：D26 final26297/JS82640/source20346/check99335全exit0；
+  过早check65209经主动SIGINT exit130已terminal；所有writers停写，不轮询旧sessions。
+- Git本地基线1b61c4b（D01–D19）；D20 d385718、D21 2403fcb、D22 fee6885、
+  D23 179f365、D24 13ef0b1、D25 c2f6edf；D26 feature61f768f已提交，检查点随后提交。无remote、不push。
+  用户已授权分批commit与独立并行subagents，覆盖历史不commit指令。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
   CPython v3.11.0 timedelta 源码在 .moonagent/upstream/cpython-v3.11.0/，仅行为
   参考。独立参考脚本 scripts/generate_date_range_reference.py 校验 dates.py 哈希，
@@ -3366,11 +3368,119 @@ README/compat/plan/dependencies/notices/专门guide已同步480与准确门禁/�
 本地featurecommit c2f6edf（36files），待本checkpoint提交，无remote、不push。整体goal仍
 active，46%全目标/80%核心二维工程估算暂不变；D26命名AsinhLocator是新firstunfinished。
 
-## D26 执行顺序（候选命名AsinhLocator，只读准备）
+## D26 执行顺序（命名AsinhLocator与最小Asinh几何）
 
-- [ ] D26-01 A参数/B数值/C轴与scale相关原源notes，只读交付后冻结typed合同与验收。
-- [ ] D26-02 独占并行参数/数值/axis原源包，root在现有scene/render/SVG链路集成。
-- [ ] D26-03 source/接口/四目标验收、文档与本地分批提交。
+- [x] D26-01 A参数/B数值/C轴与scale原源notes交付，typed/数学/fullshape合同已冻结。
+- [x] D26-02 独占并行参数/数值/axis原源包，root在现有scene/render/SVG链路集成。
+- [x] D26-03 source/接口/四目标验收和文档已完成；本地feature/checkpoint提交见下方。
 
 A/B/C上一D25 tracked工作已停写。下一步只写ignored定向notes，不提前新API/实现；
 D24 pow/ln正确舍入与源平台差异合同、共享所有权顺序等已settled，复用并保留边界。
+
+D26只读交付中，尚未冻结/实现，Git当前clean于8c5e42f。Root仅读原AsinhLocator完整class
+2790–2885及本地core hyperbolic选择（JS Math.sinh/asinh，nonJS Sun/FreeBSD）无tracked改动。
+A已交ignored D26-asinh-params-notes.md243行并停写：subs tuple/list truth与ndarray不同，
+NP2.3.5 emptyarray也ValueError；constructor原样保空vssetterlen0改None；list长度live；
+set_params numticks→symthresh→base→len(subs)，scalar末项当场error而前三已更新。count
+Pythonint与Double(11.0也operator.index错误)、ctorNone原样非default；NPint64(0)跨零IEEE[]
+与Pyint0 ZeroDivision不同。call只view一次，乘积<0再ratio严格sym阈值；direct不读sym；
+view/ns只继承.001/.05且不读axis/rc。没有raise_if_exceeds/logger调用。
+C已交ignored D26-asinh-axis-notes.md，40完整AST observations，可复现outputSHA/manifest，
+并停写。AsinhScale真实geometry为width*asinh(v/width)、inverse width*sinh(v/width)，原ratio
+overflow必须保留，不能套D25稳定比值修正。当前Scale缺Asinh：Linear与真实Asinh overlap
+确有可见差异，若声明真实Asinh轴几何需要最小新transform表示；是否增variant由root冻结。
+NaN/Infwidth source接受；only-view/共享删除/copy/secondaryownfunction原源已观察。
+
+B尚写ignored D26-asinh-grid-notes.md：165小probes含完整125000/200001 linspace与375000
+outer→350000 sortedset。不能前cap：125000(1,2)先去重仅1再fallback原125000 linspace；
+200001跨零最终17ticks。direct不sortbounds，fallback可保持倒置方向；完整set/decision后cap。
+240常用base10/2/e/1、width1/.1、n10/11、±1/10/1000的源/Decimal180/320数学profile集合一致；
+seed260026近basepower边界1200组有39不同集合，单替hyperbolic就触发（如source100 vsmath1000），
+不能冒称全Darwin parity。源Python sorted(set(qs))含NaN还非确定：1000重复baseInf有3顺序、
+subs[nan,inf]有38。Root倾向承接D24显式portable数学合同并存actualsource/数学双值，NaN用
+明确canonical数值升序/firstzero代表/NaN尾部保multiplicity；仍未冻结/实现。B需给fullshape
+descriptor/monotonic run+binarysearch/merge或必要资源边界方案，不把oraclebudget冒源错误。
+当前无live Moon/source工具，D25门禁仍有效；下一步root读notes并冻结D26。
+
+D26合同已冻结于D26-contract-frozen.md，D26-before基线8c5e42f。A对象API已落盘：
+rawDouble/Optionnumticks/Sequence与NdArray不同truth、late setter保部分写、onlyview与pure
+view/ns。B实现完整count descriptor/跨零runs/plateaus跳跃/heap合并，源Darwin与数学双profile
+保留39边界差异；NaN保multiplicity尾置并明确源非确定。C实现Scale::Asinh最小几何，
+便捷sampler有单独规则，axis原AST/overlap/shared/secondary/SVG验证。Root现在独占数学
+production与公共接线；A随后独立数学oracle。所有writers停写后root才运行Moon gates/info/
+fullfmt/接口检查/commit。当前无live Moon/source工具，D25最终门禁仍有效。
+
+D26 root已落ticker/asinh_math.mbt：精确整数sqrt+ln区间asinh、exact/2^14 Taylor+14squares
+sinh、未舍入ln区间ratio log10（exact10^n直接返回整数避免额外计算）。tiny<2^-28
+返回原值，IEEE zeros/NaN/Inf与sinh>1024溢出已处理，独立oracle由A随后交付。公共
+NamedAsinh主次/checkeddirect/onlyview call/rawminor overlap/共享绑定/范围/secondaryown
+view与根asinh_scale导出已落。首static root裸for语法已修为for current=...，乘shift
+歧义加括号；次staticJS仅B尚未落kernel unbound，无其他root类型错误，未跑test。
+rootREADME/compat/plan/deps/notices已同步“实现/验收中”，不提前宣称接受。
+A对象sourcegen/--check exit0，104generated+3hand=107；完整参数notes已验，无livegate。
+
+D26最新staticJS exit0（kernel入口已落，8旧warnings/0error），未跑tests。A math独立399
+=asinh129+sinh125+log10145，精确Decimal.from_float双档180/320（tiny增精）bits稳定，
+8处源/数学asinh差异全保留并严格验证。A参数107+数学399共506tests已全部停写；
+root对两source --check复验exit0。A现只读审查root数学证明/接线，B/C仍独占tracked。
+B自审发现decimal pows跨phase可非单调，正补恒定pows细分；root指出原NumPy arange
+长度可能先float(rawcount)再ceil，需要B查真实C _calc_length以区分requested count/div与
+实际ys shape，尤其2^53+1/2^60-1边界；尚未冻结成新限制或伪造oracleerror。
+
+D26 C10files停写交付：Scale::Asinh/geometry/helpers/sampler、axis generator/JSON、
+scale/scene/backend三generatedtests与三handtests、专门guide。60generated+8hand=68，
+16geometry/8axis/8range/2owner/2shared/2secondary/6autoscale/4aspect/2layout。C源生成与
+--check0，root --check复验exit0；A/C仅只读review，唯一B仍写fullshape grid/source。
+截至此刻新已交付574tests（A506+C68），B未计；无live Moon/sourcegate。
+
+A只读数学/接线review155行已交付：未见实质问题；32Fraction sqrt、36exp/sinh与
+34log10双档Decimal区间均包围，max26Taylor项。C独立rootpublic/shared/secondary接线review
+亦未见遗漏。两者都停写，无Moongates。Root仅更正math整数10^n识别注释：整数是可表示
+中心值而非rounding边界，特判是合法优化，不需要用“避免不终止”作依据。
+
+B已按NumPy2.3.5 ctors.c（SHA8deb3951...f274）_calc_length证实并修复requested/count
+双字段：actualshape=ceil(float(raw))，div=float(raw-1)，threshold=float(raw)，forcedlast
+用actualshape-1；raw2^53+1→2^53、+3→+4。raw2^60-1/-2/-63/-64真实分配前
+ValueError证明roundedshape拒绝，未尝试2^53级数组。A独立只读cache/hash/source复核
+76行已交付，无问题。decimal恒定pows分段亦已落，再staticJS exit0/8旧warn/0error。
+C现只读审查Bfullshape/runs/NaN/heap/fallback，B仍独占正式grid参考，尚未统一Moongates。
+
+B正式generate_asinh_grid_reference.py已落并运行，live session20346/PID54171，完整
+125k/200001用Decimal180/320逐点生成双profile，尚待首轮JSON/WBtests；随后独立
+--check复验完成才停写。B3production+4handtests已单fmt；不Moongates/info/fullfmt。
+root不轮询B工具，等B通知退出。C分类/rank/fullshape只读review进行中。
+
+B报告初gen20346 CPU正常/RSS140MB，另提前启动readonly --check65209。root已要求
+终止65209并确认terminal，因为check依赖尚未写出的JSON与metadata，必须gen结束/定稿后
+顺序启动；不要为加速把依赖检查并发。B首gen完成tracked停写后，readonlycheck可与
+root Moon gates独立并行。20346仍live仅B轮询；65209等待B报告终止结果。
+
+B已SIGINT终止过早依赖check65209（PID54280），明确exit130/terminal，不轮询；
+唯一live source仍20346。首genmetadata定稿停写后才串行readonly --check。
+
+D26 B全部7trackedfiles停写：482dualASTcases、每profile436success/43真实error/3budget
+omission，483generated（479有效grid+4原linspace采样AST）+4hand=487。42source/math
+差异=39近边界+2width1e-300+1旧3^34合同；源完整125k/200001/375kouter都真实执行。
+Breadonly --check99335已依赖顺序启动；无tracked写入，可与Moon独立并行。
+D26合计新1061=A506+B487+C68；info&&fmt exit0/8旧warnings，interface.diff只预期
+Asinh相关，date接口未变。JS82640已exit0，11123/11123（baseline10062+1061）。
+root启动最终checkall→testall，工具session见后续状态；所有writers继续停写。
+
+D26 finalgate session26297 live，依赖顺序checkall→testall；由root轮询。
+
+D26最终26297已exit0：checkall94tasks/8旧Refwarnings/0error；wasm/wasm-gc/native
+各11116/11116、JS11123/11123（各新增1061）。源码/tests不变，接口diff已审；无Moon
+live session。唯一未完成验收是B readonlysource --check99335，由B轮询；A/C三个
+source --check已由root复验exit0。待其通过后关闭D26与分批本地commit。
+C独立gridreview已停写：1972完整原AST/97448点NaNcategory/1560同号run/1942decimal
+constantpows子流/204NaNfactor/72原linspace descriptor均无反例；这些是review证据，
+不加入1061正式Moon测试数。ignored D26-grid-review-notes.md。
+
+D26全部验收结束：Breadonly --check99335已exit0/terminal，482dualAST/483generated+4hand
+487、42differences/3budgetomissions/seed260026全部39boundary一致。四source检查全0，
+infofmt/接口/alltarget全部已通过，不再重复有效检查。总docs与专门guide已改为已验收；
+下一firstunfinished为D27定向只读Logit合同准备，待D26本地feature/checkpoint提交完成。
+
+D26 featurecommit61f768f已完成（43files，生产/接口/参考/测试/总体docs与guide）。
+本checkpoint单独提交后Git应clean；无remote、不push。继续D27定向notes，所有D26
+门禁仍有效，任何新实现只在D27合同冻结后开始。
