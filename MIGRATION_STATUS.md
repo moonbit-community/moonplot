@@ -23,8 +23,9 @@
   checkall31tasks/8旧warnings/0error。info&&fmt0、预期接口已审，MaxN/date公共签名不变。
   三source --check全部exit0（grid最新71661；params/axis此前通过后未变化）。新增879=
   A参数121+Bgrid633+Caxis124+root独立MaxN回归1；所有tracked writers停写。
-- 下一条具体动作：D27 feature524b673已提交，完成本checkpoint提交；之后定向阅读现有
-  formatter与原Formatter/Null/Fixed/Func的对象生命周期，准备D28命名基础formatter合同。
+- 下一条具体动作：等待并全文读取A/B/C的D28-formatter-{params,batch,axis}-notes.md（ignored
+  checkpoints）；root已定向读必要本地/原源，下一步冻结D28 typed合同/文件所有权后再实现。
+  D27 feature524b673/checkpoint04909a0已提交；当前只有D28准备记录改动，无tracked实现。
   不重做survey；完整默认scale/formatter安装、tight与域外clip renderer仍未完成。
 - D27无live工具；finalall77638与grid-source71661 exit0，95932旧失败exit2、73479 probe exit0、JS30690 exit0均terminal。
   81493 compileexit1/40418旧5failexit2/62175与29316 sourceexit0都terminal，不轮询。
@@ -3621,3 +3622,28 @@ D27已最终验收并提交feature524b673（44files）；C最终guide停写后�
 remote/push，无live工具/agents writer，goal仍active。下一D28准备命名基础Formatter的
 Null/Fixed/Func对象与基类set_locs/axis/call/format_ticks生命周期；先原源+现有体定向notes，
 再冻结typed/ownership范围，不提前混入完整默认scale生命周期或复杂formatter。
+
+D27 checkpoint04909a0已提交，随后Gitclean。D28准备已派原三独立agents只读ignored notes：
+A D28-formatter-params-notes.md（TickHelper/Formatter/Null/Fixed/Func对象参数状态），
+B D28-formatter-batch-notes.md（完整批量算法/回调/错误顺序），
+C D28-formatter-axis-notes.md（Axis/secondary/shared/SVG全tick格式化与可视过滤接线）。
+未授权tracked实现；root定向读ticker/formatter.mbt与axis/backend formatting路径，
+待三notes交付再冻结typed合同与文件所有权。无liveMoon/source工具，不复跑D27门禁。
+
+D28 root初读：旧ticker/Formatter是immutable公开enum，所有format_values/value/offset纯API；
+Axis与Secondary setter/getter经Formatter.copy，named可沿Locator.copy模式保live分支。
+Primary render_panel原有完整raw主刻度在append_grid visibility之前format，但其查询/format
+顺序当前跨XY先alllocs再minorlabels后majorlabels，与源每Axis major.loc→format→minor.loc
+→format不同；raising/mutablecallback使此可见。当前minor只有date formatter槽，无numeric
+minor。Root与C已明确需checked labels链，不能静默吞新Func错误；没有冻结typed策略。
+原Formatter.format_ticks先self.set_locs(values)然后enumerate，Fixed(None)空、negativeindex
+沿Python序列、Func原样传pos。无unicode_minus rc，是否本片新增待notes/contract。
+
+D28准备补充：A已93个完整原类/真实deprecated descriptor probes，最终notes待交。
+源Fixed seq无复制/验证，posNone先短路len，负pos遵循Python索引；fresh对象共享class
+默认_locs空list，copy.copy共享seq/locs/axis/callback但slot重绑独立。Root建议Base动态
+privatekind+三wrapper共用state/as_base保虚派发，尚未冻结；Array[Double]的locs需保live
+append shape，TickValues仅固定shapeview，不能不说明混同。旧pure formatter helper是否
+沿Locator空结果兼容映射、新checked路径直达SVG尚待合同；不能让render吞新error。
+无liveMoon/source sessions，A/B/C只读ignored notes仍在执行。精确下一步等三份notes交齐
+后root全文读并freeze，未提前分配tracked文件，不重跑D27已有效checks。
