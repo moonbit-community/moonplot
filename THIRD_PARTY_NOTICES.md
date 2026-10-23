@@ -549,3 +549,9 @@ Matplotlib v3.11.2 的 lines.py、artist.py、axes/_base.py 及既有单位原�
 重写。25 组原源记录、6 条 source-only 记录与受控数值 Path 宿主边界见
 [testdata/line_data_README.md](testdata/line_data_README.md)。
 没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。
+
+D45 的稳定 Line 句柄移除与 clear/delaxes 区别继续依据同一固定 Matplotlib v3.11.2 的
+artist.py、axes/_base.py、figure.py 和既有 Line 缓存原源以 MoonBit 重写。完整方法执行、
+15 条观察及 source-only 查询/重接入边界见
+[testdata/line_remove_README.md](testdata/line_remove_README.md)。
+没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。

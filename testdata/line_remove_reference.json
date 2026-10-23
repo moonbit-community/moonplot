@@ -1,0 +1,2104 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "stdlib/contextlib.py": "8b7a477f978a8532852fd81e241c78182516bc4975d672d580a5848a76e11eb6",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "artist.py": "c55a81d86db60ab7b22fcd6e70401aa84558de5d1ba6e40a16c60f6f1f03be7a",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "lines.py": "e928511cec1f9ce19455008c1863d337b0dbd1c71ac2b8d40224c8d5c069e05c",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b",
+    "category.py": "52c67cadb003007f7a61fa630fe3750cb4dc4bf710c25b332084366516a25a6e",
+    "units.py": "ecefa595cf24dc6a5da2d52cdad59c1068285071d7f98ee8d11edffb526f7b79",
+    "figure.py": "b440ab0a5be03cb39b13529a2fec497d2d96deb083e3e56d6220593e3ec567da"
+  },
+  "python": "3.12.14",
+  "counts": {
+    "preparation_records": 14,
+    "additional_records": 1,
+    "all_profile_records": 15,
+    "typed_records": 10,
+    "source_only_records": 5,
+    "typed_sequences": 4,
+    "registered_groups": 1
+  },
+  "source_only_ids": [
+    0,
+    1,
+    3,
+    7,
+    8
+  ],
+  "host_boundaries": {
+    "source": "Complete original Artist remove/owner/stale methods, Axes add_line/get_lines/ArtistList/__clear and Figure.delaxes/_remove_axes; accepted short/default numeric Line/Path and declared graphical/observer sinks.",
+    "typed": "Only public Line2D.remove is added. Public plot_line is the typed setup bridge. Stable artist/registry membership is inspected privately; no get_lines, live ArtistList or public add_line parity is claimed.",
+    "stale": "Original Axes stale assignment is stored by the source host; full GUI Axes-to-Figure propagation is outside this profile. Line stale/invalid/cache and axis autoscale requests remain directly checked.",
+    "metadata": "Parent figure, mouseover-set and stale_callback fields remain complete native observations but have no invented public Moon getter/handle assertions.",
+    "errors": "Existing Core InvalidTicks includes the exact NativeType-prefixed repeated ValueError and clear-detached NotImplementedError messages.",
+    "identity": "Private removal_parent corresponds to the surviving native remove callback, independently of owner used for conversion. Callback/function object identity itself is not a new typed public protocol.",
+    "legend": "No full Legend constructor, renderer or new handles-labels enumeration API; original Artist.remove does not remove existing legend entries."
+  },
+  "observations": [
+    {
+      "id": 0,
+      "label": "complete add_line installs owner/remove callback and extends dataLim without request",
+      "before": {
+        "children": [],
+        "lines": [],
+        "axis_stale": false,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            {
+              "float": "inf"
+            },
+            {
+              "float": "inf"
+            }
+          ],
+          [
+            {
+              "float": "-inf"
+            },
+            {
+              "float": "-inf"
+            }
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": true,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              true,
+              true
+            ],
+            "stale": true,
+            "xy": null
+          },
+          {
+            "name": "last",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": true,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              true,
+              true
+            ],
+            "stale": true,
+            "xy": null
+          }
+        ]
+      },
+      "after": {
+        "children": [
+          "first",
+          "last"
+        ],
+        "lines": [
+          "first",
+          "last"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            20.0,
+            40.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                10.0,
+                30.0
+              ],
+              [
+                20.0,
+                40.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": {
+        "same_first": true,
+        "same_last": true
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 1,
+      "label": "get_lines is a handle-preserving list snapshot, lines is a live ArtistList",
+      "before": {
+        "children": [
+          "first",
+          "last"
+        ],
+        "lines": [
+          "first",
+          "last"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            20.0,
+            40.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                10.0,
+                30.0
+              ],
+              [
+                20.0,
+                40.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [
+          "first",
+          "last"
+        ],
+        "lines": [
+          "first",
+          "last"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            20.0,
+            40.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                10.0,
+                30.0
+              ],
+              [
+                20.0,
+                40.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": {
+        "snapshot_type": "silent_list",
+        "snapshot_names": [
+          "first",
+          "last"
+        ],
+        "same_first": true,
+        "same_last": true,
+        "live_count": 2
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 2,
+      "label": "remove last Line unlinks child and mouseover but leaves cached limits and requests",
+      "before": {
+        "children": [
+          "first",
+          "last"
+        ],
+        "lines": [
+          "first",
+          "last"
+        ],
+        "axis_stale": false,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            20.0,
+            40.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                10.0,
+                30.0
+              ],
+              [
+                20.0,
+                40.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [
+          "first"
+        ],
+        "lines": [
+          "first"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            20.0,
+            40.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                10.0,
+                30.0
+              ],
+              [
+                20.0,
+                40.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": null,
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 3,
+      "label": "retained get_lines snapshot stays old while retained ArtistList length changes",
+      "before": {
+        "children": [
+          "first"
+        ],
+        "lines": [
+          "first"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            20.0,
+            40.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                10.0,
+                30.0
+              ],
+              [
+                20.0,
+                40.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [
+          "first"
+        ],
+        "lines": [
+          "first"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            20.0,
+            40.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                10.0,
+                30.0
+              ],
+              [
+                20.0,
+                40.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": {
+        "old_snapshot_names": [
+          "first",
+          "last"
+        ],
+        "live_names": [
+          "first"
+        ]
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 4,
+      "label": "second remove retries retained list.remove callback before further unlink",
+      "before": {
+        "children": [
+          "first"
+        ],
+        "lines": [
+          "first"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            20.0,
+            40.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                10.0,
+                30.0
+              ],
+              [
+                20.0,
+                40.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [
+          "first"
+        ],
+        "lines": [
+          "first"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            20.0,
+            40.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                10.0,
+                30.0
+              ],
+              [
+                20.0,
+                40.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": null,
+      "error": {
+        "type": "ValueError",
+        "message": "list.remove(x): x not in list"
+      },
+      "events": []
+    },
+    {
+      "id": 5,
+      "label": "removed handle retains numeric data setters and lazy recache with owner None",
+      "before": {
+        "children": [
+          "first"
+        ],
+        "lines": [
+          "first"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            20.0,
+            40.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                10.0,
+                30.0
+              ],
+              [
+                20.0,
+                40.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [
+          "first"
+        ],
+        "lines": [
+          "first"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            20.0,
+            40.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                50.0,
+                70.0
+              ],
+              [
+                60.0,
+                80.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": [
+        [
+          50.0,
+          70.0
+        ],
+        [
+          60.0,
+          80.0
+        ]
+      ],
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 6,
+      "label": "explicit relim alone removes old cached extrema, still no autoscale request",
+      "before": {
+        "children": [
+          "first"
+        ],
+        "lines": [
+          "first"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            20.0,
+            40.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                50.0,
+                70.0
+              ],
+              [
+                60.0,
+                80.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [
+          "first"
+        ],
+        "lines": [
+          "first"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                50.0,
+                70.0
+              ],
+              [
+                60.0,
+                80.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": null,
+      "error": null,
+      "events": [
+        [
+          "relim.begin"
+        ],
+        [
+          "relim.end"
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "same removed Line can be readded and gets a fresh installed callback",
+      "before": {
+        "children": [
+          "first"
+        ],
+        "lines": [
+          "first"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                50.0,
+                70.0
+              ],
+              [
+                60.0,
+                80.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [
+          "first",
+          "last"
+        ],
+        "lines": [
+          "first",
+          "last"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            60.0,
+            80.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                50.0,
+                70.0
+              ],
+              [
+                60.0,
+                80.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": true,
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 8,
+      "label": "mutating get_lines returned list cannot remove actual child",
+      "before": {
+        "children": [
+          "first",
+          "last"
+        ],
+        "lines": [
+          "first",
+          "last"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            60.0,
+            80.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                50.0,
+                70.0
+              ],
+              [
+                60.0,
+                80.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [
+          "first",
+          "last"
+        ],
+        "lines": [
+          "first",
+          "last"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            60.0,
+            80.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "first",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "last",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                50.0,
+                70.0
+              ],
+              [
+                60.0,
+                80.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": 2,
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 9,
+      "label": "complete original Axes clear detaches Line and nulls remove method",
+      "before": {
+        "children": [
+          "old"
+        ],
+        "lines": [
+          "old"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "old",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [],
+        "lines": [],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "old",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": true,
+            "stale_callback_is_None": false,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": null,
+      "error": null,
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "after full clear old Line remove gives NotImplementedError",
+      "before": {
+        "children": [],
+        "lines": [],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "old",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": true,
+            "stale_callback_is_None": false,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [],
+        "lines": [],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "old",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": true,
+            "stale_callback_is_None": false,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": null,
+      "error": {
+        "type": "NotImplementedError",
+        "message": "cannot remove artist"
+      },
+      "events": []
+    },
+    {
+      "id": 11,
+      "label": "after full clear old Line numeric data remains usable",
+      "before": {
+        "children": [],
+        "lines": [],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "old",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": true,
+            "stale_callback_is_None": false,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [],
+        "lines": [],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "old",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": true,
+            "stale_callback_is_None": false,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                4.0,
+                6.0
+              ],
+              [
+                5.0,
+                7.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": [
+        [
+          4.0,
+          6.0
+        ],
+        [
+          5.0,
+          7.0
+        ]
+      ],
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 12,
+      "label": "Figure.delaxes removes panel membership without clearing Line owner or children",
+      "before": {
+        "children": [
+          "kept"
+        ],
+        "lines": [
+          "kept"
+        ],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "kept",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [
+          "kept"
+        ],
+        "lines": [
+          "kept"
+        ],
+        "axis_stale": true,
+        "figure_stale": true,
+        "active_axes": 0,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "kept",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": null,
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 13,
+      "label": "Line.remove still works on retained Axes after Figure.delaxes",
+      "before": {
+        "children": [
+          "kept"
+        ],
+        "lines": [
+          "kept"
+        ],
+        "axis_stale": true,
+        "figure_stale": true,
+        "active_axes": 0,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "kept",
+            "owner_is_axes": true,
+            "figure_is_parent": true,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": false,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [],
+        "lines": [],
+        "axis_stale": true,
+        "figure_stale": true,
+        "active_axes": 0,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "kept",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": null,
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 14,
+      "label": "remove then clear leaves historical callback and repeated ValueError",
+      "before": {
+        "children": [],
+        "lines": [],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "removed",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "children": [],
+        "lines": [],
+        "axis_stale": true,
+        "figure_stale": false,
+        "active_axes": 1,
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "handles": [
+          {
+            "name": "removed",
+            "owner_is_axes": false,
+            "figure_is_parent": false,
+            "remove_method_is_None": false,
+            "stale_callback_is_None": true,
+            "in_mouseover": false,
+            "invalid": [
+              false,
+              false
+            ],
+            "stale": true,
+            "xy": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                1.0,
+                20.0
+              ]
+            ]
+          }
+        ]
+      },
+      "value": null,
+      "error": {
+        "type": "ValueError",
+        "message": "list.remove(x): x not in list"
+      },
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ],
+      "same_xy_after_remove": true,
+      "same_xy_after_clear": true
+    }
+  ]
+}

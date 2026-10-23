@@ -1967,3 +1967,18 @@ let svg = fig.to_svg_checked()
 绑定，旧缓存和借用视图仍可使用。正式原源记录、错误与宿主边界见
 [Line 数据与缓存](testdata/line_data_README.md)。完整 Artist 属性、通用 Path、动态 Python
 容器与 GUI 回调协议仍有独立边界。
+
+D45 增加 `Line2D::remove()`。它删除对应图元并解除单位转换的 Axes 绑定，保留原始数据、
+借用视图、缓存及 Line 自身的 stale。范围、图例和容器快照独立保留，需要更新范围时调用
+`relim_checked()`。重复移除会返回原版的 ValueError；clear 则禁用仍附着 Line 的移除绑定，
+旧句柄再移除会返回 NotImplementedError。已经移除的 Line 不受之后的 clear 影响。
+从 Figure 删除 Axes 不会清空它的 Line，保留的句柄仍可正常移除。
+
+```moonbit nocheck
+line.remove()
+fig.axes().relim_checked()
+fig.axes().autoscale_view()
+```
+
+新导出的 IR 排除已移除图元，之前导出的 IR 继续持有原句柄。精确错误、原源记录与
+图形宿主边界见 [Line 移除生命周期](testdata/line_remove_README.md)。

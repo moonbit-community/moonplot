@@ -399,3 +399,12 @@ blend factory、locator 和 Bbox；52 条记录含 38 个 typed 场景与 14 条
 具体哈希、执行方法与受控 Path 宿主见
 [testdata/line_data_README.md](testdata/line_data_README.md)。
 没有分发 Python/NumPy；既有 Matplotlib 与 NumPy 许可继续适用。
+
+## D45 Line 句柄移除
+
+复用 D44 稳定 Line 身份与延迟绘制桥，无新增分发依赖。独立参考执行固定 v3.11.2 的
+完整 Artist.remove、Axes.add_line/clear、Figure.delaxes 与既有 Line 缓存方法；15 条记录
+中 10 条 typed 操作组成 4 个连续场景，5 条查询/重接入记录保留为 source-only。
+来源哈希、图形宿主和移除绑定边界见
+[testdata/line_remove_README.md](testdata/line_remove_README.md)。
+项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。
