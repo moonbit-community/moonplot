@@ -447,3 +447,14 @@ colors.py 合并/别名语句及 `to_rgba` 生成；两个官方文件均强制 
 solid/no-marker Line.draw 的实际观察；来源、计数与边界见
 [testdata/line_color_README.md](testdata/line_color_README.md)。
 项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。
+
+
+## D50 Line 可选透明度
+
+复用不可变 Style、既有 Python 浮点文本表示和 D49 颜色转换，增加 Line-only alpha
+载荷及 SVG stroke-opacity 传输，没有新增分发依赖。参考脚本执行固定 v3.11.2 的
+完整 Artist alpha 方法、颜色 helper 和 solid/no-marker Line.draw。59 条实际观察中
+55 条 typed、4 条私有缓存先后顺序记录保留为 source-only；完整字段与原 bits 不改。
+来源、mandatory hash、None/Double 域和 portable cache 边界见
+[testdata/line_alpha_README.md](testdata/line_alpha_README.md)。
+项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。

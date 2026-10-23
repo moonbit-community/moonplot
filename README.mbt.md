@@ -2049,3 +2049,21 @@ let svg = fig.to_svg_checked()
 非空的全非有限数据仍会解析。原有绘图入口保留 CSS 便利合同，因此旧入口允许的
 `transparent` 与显式 setter 的原版验证不同。SVG 沿用现有 RGBA-to-CSS profile；完整
 原源记录、名称表与宿主边界见 [Line 字符串颜色](testdata/line_color_README.md)。
+
+
+D50 增加 `Line2D::get_alpha()->Double?` 和 `set_alpha(Double?)`。None 保留颜色自带的
+透明度，Some 值须在 [0,1] 内；NaN、无穷或越界输入会在修改状态前报错。与线宽不同，
+相等 alpha 完全不重新赋值，因此正零改成负零也会保留原来的符号。颜色和线宽修改
+都会保留当前 alpha，旧不可变样式快照也保持原值。
+
+```moonbit nocheck
+line.set_alpha(Some(0.5))
+let alpha = line.get_alpha()
+line.set_alpha(None)
+```
+
+显式 source color 的 alpha 覆盖颜色内嵌值，`none` 及 C token 选中的 `none` 仍为零。
+旧 CSS 便利入口使用单独的 Line stroke-opacity 组合，可能与 CSS 自带 alpha 相乘。
+`Style::line_alpha()` 与工厂参数只用于 Line stroke，其他图元继续保持原合同。
+alpha0 仍执行数据和颜色准备；隐藏/空 Line 的阶段保持各自规则。原源记录、私有颜色
+缓存的符号边界和渲染 profile 见 [Line 透明度](testdata/line_alpha_README.md)。

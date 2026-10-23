@@ -583,3 +583,11 @@ colors.py 和 `_color_data.py` 以 MoonBit 重写。固定命名表及其原始�
 Line.draw 控制体。固定哈希、来源、观察记录与源宿主边界见
 [testdata/line_color_README.md](testdata/line_color_README.md)。
 没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。
+
+
+D50 的 Line None/Double alpha 校验、相等不赋值及颜色 alpha 覆盖依据固定
+Matplotlib v3.11.2 的 artist.py、lines.py 与 colors.py 以 MoonBit 重写。独立参考
+执行完整相关方法，保留 59 条原源观察及原始缓存符号结果。固定哈希、完整方法
+及受控 callback/renderer/cache 边界见
+[testdata/line_alpha_README.md](testdata/line_alpha_README.md)。
+没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。

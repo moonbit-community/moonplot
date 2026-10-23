@@ -1,0 +1,2970 @@
+{
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "stdlib/contextlib.py": "8b7a477f978a8532852fd81e241c78182516bc4975d672d580a5848a76e11eb6",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "artist.py": "c55a81d86db60ab7b22fcd6e70401aa84558de5d1ba6e40a16c60f6f1f03be7a",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "lines.py": "e928511cec1f9ce19455008c1863d337b0dbd1c71ac2b8d40224c8d5c069e05c",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b",
+    "category.py": "52c67cadb003007f7a61fa630fe3750cb4dc4bf710c25b332084366516a25a6e",
+    "units.py": "ecefa595cf24dc6a5da2d52cdad59c1068285071d7f98ee8d11edffb526f7b79",
+    "colors_py": "ef4173f9e8310bc75714e32c3855719c27916c6c651b5c94e39f00163842cf04",
+    "color_data_py": "93ec1d4e2e80ac9c64b2a05f313fbb532daa5b3f175f84e1e60b237f7d82c263"
+  },
+  "method_body_hashes": {
+    "artist.py:get_alpha": "b0ce94bca26ae8d0134719866155b37ecb673dac388ebf37c53f8288893abd99",
+    "artist.py:set_alpha": "6a38e3200218fea8d1e51fb61e2de9fb7bfc1e9b8f053a94f0b734c3e90ff578",
+    "lines.py:draw": "ee628cb4b23f6962db6545669991f0d9c065a6ee0d1bd5c23c7c50f083136cb1"
+  },
+  "host_boundary": "Complete original Artist alpha methods with real numbers.Real; pchanged is a controlled stage observer, not a GUI callback API. Complete original color helpers and named table with declared stored rc/by_key capability. Complete original solid/no-marker Line.draw with rasterization decorator excluded, already transformed numeric Path storage and GC/renderer presentation sinks. Native mutable RGBA cache warm-order is an independent private-state profile, not a public cache protocol.",
+  "counts": {
+    "setter_records": 22,
+    "rgba_override_records": 28,
+    "cache_warm_records": 4,
+    "draw_records": 5,
+    "records": 59
+  },
+  "projection_counts": {
+    "source_records": 59,
+    "typed_records": 55,
+    "source_only_records": 4,
+    "typed_setter_sequences": 1,
+    "rgba_primitives": 28,
+    "draw_scenarios": 5,
+    "registered_groups": 3
+  },
+  "typed_boundaries": {
+    "setter": "None/Double only, exact optional-value and signed-zero storage. Controlled mark_drawn supplies native clean-stale input. Row20 private detach matches explicit ownerNone without clearing cache/ranges.",
+    "pchanged": "All original observer stages remain evidence; no public GUI callback protocol or arbitrary callback atomicity is added.",
+    "cache": "Four original native cache warm-order observations remain source-only with exact bits unchanged. Portable derived RGBA uses current override sign without cloning the mutable global cache; raw alpha getter bits are separately strict.",
+    "draw": "Actual Panel.prepare_line and returned completion project the five native solid/no-marker draw cases, including hidden noop completion and only-success completion after possible failures. No fixture alpha/empty/visibility rendering branch is supplied.",
+    "errors": "Artist/color InvalidTicks uses complete native type-prefixed messages. The established D39 shape-error mapping retains exact native message without a ValueError wrapper.",
+    "style": "Private source String RGBA override is tested directly. Legacy CSS stroke-opacity composition and existing Rgba.to_css formatting are convenience profiles, not native CSS/viewer parity."
+  },
+  "setter_observations": [
+    {
+      "id": 0,
+      "label": "None/Double setter None",
+      "input": null,
+      "input_bits": null,
+      "before": {
+        "alpha": null,
+        "alpha_bits": null,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": null,
+        "alpha_bits": null,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [],
+      "error": null
+    },
+    {
+      "id": 1,
+      "label": "None/Double setter None",
+      "input": null,
+      "input_bits": null,
+      "before": {
+        "alpha": null,
+        "alpha_bits": null,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": null,
+        "alpha_bits": null,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [],
+      "error": null
+    },
+    {
+      "id": 2,
+      "label": "None/Double setter 0.5",
+      "input": 0.5,
+      "input_bits": 4602678819172646912,
+      "before": {
+        "alpha": null,
+        "alpha_bits": null,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": 0.5,
+        "alpha_bits": 4602678819172646912,
+        "stale": true,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [
+        {
+          "event": "pchanged",
+          "alpha": 0.5,
+          "alpha_bits": 4602678819172646912,
+          "stale": false
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 3,
+      "label": "None/Double setter 0.5",
+      "input": 0.5,
+      "input_bits": 4602678819172646912,
+      "before": {
+        "alpha": 0.5,
+        "alpha_bits": 4602678819172646912,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": 0.5,
+        "alpha_bits": 4602678819172646912,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [],
+      "error": null
+    },
+    {
+      "id": 4,
+      "label": "None/Double setter 0.0",
+      "input": 0.0,
+      "input_bits": 0,
+      "before": {
+        "alpha": 0.5,
+        "alpha_bits": 4602678819172646912,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": true,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [
+        {
+          "event": "pchanged",
+          "alpha": 0.0,
+          "alpha_bits": 0,
+          "stale": false
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 5,
+      "label": "None/Double setter -0.0",
+      "input": -0.0,
+      "input_bits": 9223372036854775808,
+      "before": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [],
+      "error": null
+    },
+    {
+      "id": 6,
+      "label": "None/Double setter 1.0",
+      "input": 1.0,
+      "input_bits": 4607182418800017408,
+      "before": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": true,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [
+        {
+          "event": "pchanged",
+          "alpha": 1.0,
+          "alpha_bits": 4607182418800017408,
+          "stale": false
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 7,
+      "label": "None/Double setter 1.0",
+      "input": 1.0,
+      "input_bits": 4607182418800017408,
+      "before": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [],
+      "error": null
+    },
+    {
+      "id": 8,
+      "label": "None/Double setter nan",
+      "input": {
+        "float": "nan"
+      },
+      "input_bits": 9221120237041090560,
+      "before": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [],
+      "error": {
+        "type": "ValueError",
+        "message": "alpha (nan) is outside 0-1 range"
+      }
+    },
+    {
+      "id": 9,
+      "label": "None/Double setter inf",
+      "input": {
+        "float": "inf"
+      },
+      "input_bits": 9218868437227405312,
+      "before": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [],
+      "error": {
+        "type": "ValueError",
+        "message": "alpha (inf) is outside 0-1 range"
+      }
+    },
+    {
+      "id": 10,
+      "label": "None/Double setter -inf",
+      "input": {
+        "float": "-inf"
+      },
+      "input_bits": 18442240474082181120,
+      "before": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [],
+      "error": {
+        "type": "ValueError",
+        "message": "alpha (-inf) is outside 0-1 range"
+      }
+    },
+    {
+      "id": 11,
+      "label": "None/Double setter -5e-324",
+      "input": -5e-324,
+      "input_bits": 9223372036854775809,
+      "before": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [],
+      "error": {
+        "type": "ValueError",
+        "message": "alpha (-5e-324) is outside 0-1 range"
+      }
+    },
+    {
+      "id": 12,
+      "label": "None/Double setter 1.0000000000000002",
+      "input": 1.0000000000000002,
+      "input_bits": 4607182418800017409,
+      "before": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [],
+      "error": {
+        "type": "ValueError",
+        "message": "alpha (1.0000000000000002) is outside 0-1 range"
+      }
+    },
+    {
+      "id": 13,
+      "label": "None/Double setter None",
+      "input": null,
+      "input_bits": null,
+      "before": {
+        "alpha": 1.0,
+        "alpha_bits": 4607182418800017408,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": null,
+        "alpha_bits": null,
+        "stale": true,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [
+        {
+          "event": "pchanged",
+          "alpha": null,
+          "alpha_bits": null,
+          "stale": false
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 14,
+      "label": "None/Double setter None",
+      "input": null,
+      "input_bits": null,
+      "before": {
+        "alpha": null,
+        "alpha_bits": null,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": null,
+        "alpha_bits": null,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [],
+      "error": null
+    },
+    {
+      "id": 15,
+      "label": "None/Double setter -0.0",
+      "input": -0.0,
+      "input_bits": 9223372036854775808,
+      "before": {
+        "alpha": null,
+        "alpha_bits": null,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": -0.0,
+        "alpha_bits": 9223372036854775808,
+        "stale": true,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [
+        {
+          "event": "pchanged",
+          "alpha": -0.0,
+          "alpha_bits": 9223372036854775808,
+          "stale": false
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 16,
+      "label": "None/Double setter 0.0",
+      "input": 0.0,
+      "input_bits": 0,
+      "before": {
+        "alpha": -0.0,
+        "alpha_bits": 9223372036854775808,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": -0.0,
+        "alpha_bits": 9223372036854775808,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [],
+      "error": null
+    },
+    {
+      "id": 17,
+      "label": "None/Double setter None",
+      "input": null,
+      "input_bits": null,
+      "before": {
+        "alpha": -0.0,
+        "alpha_bits": 9223372036854775808,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": null,
+        "alpha_bits": null,
+        "stale": true,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [
+        {
+          "event": "pchanged",
+          "alpha": null,
+          "alpha_bits": null,
+          "stale": false
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 18,
+      "label": "None/Double setter 5e-324",
+      "input": 5e-324,
+      "input_bits": 1,
+      "before": {
+        "alpha": null,
+        "alpha_bits": null,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": 5e-324,
+        "alpha_bits": 1,
+        "stale": true,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [
+        {
+          "event": "pchanged",
+          "alpha": 5e-324,
+          "alpha_bits": 1,
+          "stale": false
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 19,
+      "label": "None/Double setter 0.9999999999999999",
+      "input": 0.9999999999999999,
+      "input_bits": 4607182418800017407,
+      "before": {
+        "alpha": 5e-324,
+        "alpha_bits": 1,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "after": {
+        "alpha": 0.9999999999999999,
+        "alpha_bits": 4607182418800017407,
+        "stale": true,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": false
+      },
+      "pchanged": [
+        {
+          "event": "pchanged",
+          "alpha": 0.9999999999999999,
+          "alpha_bits": 4607182418800017407,
+          "stale": false
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 20,
+      "label": "detached ownerNone reset",
+      "input": null,
+      "input_bits": null,
+      "before": {
+        "alpha": 0.9999999999999999,
+        "alpha_bits": 4607182418800017407,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": true
+      },
+      "after": {
+        "alpha": null,
+        "alpha_bits": null,
+        "stale": true,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": true
+      },
+      "pchanged": [
+        {
+          "event": "pchanged",
+          "alpha": null,
+          "alpha_bits": null,
+          "stale": false
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 21,
+      "label": "detached ownerNone numeric setter",
+      "input": 0.25,
+      "input_bits": 4598175219545276416,
+      "before": {
+        "alpha": null,
+        "alpha_bits": null,
+        "stale": false,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": true
+      },
+      "after": {
+        "alpha": 0.25,
+        "alpha_bits": 4598175219545276416,
+        "stale": true,
+        "color": "black",
+        "width": 2.0,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "owner_is_None": true
+      },
+      "pchanged": [
+        {
+          "event": "pchanged",
+          "alpha": 0.25,
+          "alpha_bits": 4598175219545276416,
+          "stale": false
+        }
+      ],
+      "error": null
+    }
+  ],
+  "rgba_override_observations": [
+    {
+      "id": 0,
+      "color": "red",
+      "alpha": null,
+      "alpha_bits": null,
+      "rgba": [
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rgba_bits": [
+        4607182418800017408,
+        0,
+        0,
+        4607182418800017408
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 1,
+      "color": "red",
+      "alpha": 0.0,
+      "alpha_bits": 0,
+      "rgba": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgba_bits": [
+        4607182418800017408,
+        0,
+        0,
+        0
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 2,
+      "color": "red",
+      "alpha": 0.25,
+      "alpha_bits": 4598175219545276416,
+      "rgba": [
+        1.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "rgba_bits": [
+        4607182418800017408,
+        0,
+        0,
+        4598175219545276416
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 3,
+      "color": "red",
+      "alpha": 1.0,
+      "alpha_bits": 4607182418800017408,
+      "rgba": [
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rgba_bits": [
+        4607182418800017408,
+        0,
+        0,
+        4607182418800017408
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 4,
+      "color": "none",
+      "alpha": null,
+      "alpha_bits": null,
+      "rgba": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgba_bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 5,
+      "color": "none",
+      "alpha": 0.0,
+      "alpha_bits": 0,
+      "rgba": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgba_bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 6,
+      "color": "none",
+      "alpha": 0.25,
+      "alpha_bits": 4598175219545276416,
+      "rgba": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgba_bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 7,
+      "color": "none",
+      "alpha": 1.0,
+      "alpha_bits": 4607182418800017408,
+      "rgba": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgba_bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 8,
+      "color": "#1234",
+      "alpha": null,
+      "alpha_bits": null,
+      "rgba": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        0.26666666666666666
+      ],
+      "rgba_bits": [
+        4589468260265693457,
+        4593971859893063953,
+        4596373779694328218,
+        4598475459520434449
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 9,
+      "color": "#1234",
+      "alpha": 0.0,
+      "alpha_bits": 0,
+      "rgba": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        0.0
+      ],
+      "rgba_bits": [
+        4589468260265693457,
+        4593971859893063953,
+        4596373779694328218,
+        0
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 10,
+      "color": "#1234",
+      "alpha": 0.25,
+      "alpha_bits": 4598175219545276416,
+      "rgba": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        0.25
+      ],
+      "rgba_bits": [
+        4589468260265693457,
+        4593971859893063953,
+        4596373779694328218,
+        4598175219545276416
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 11,
+      "color": "#1234",
+      "alpha": 1.0,
+      "alpha_bits": 4607182418800017408,
+      "rgba": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        1.0
+      ],
+      "rgba_bits": [
+        4589468260265693457,
+        4593971859893063953,
+        4596373779694328218,
+        4607182418800017408
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 12,
+      "color": "#11223344",
+      "alpha": null,
+      "alpha_bits": null,
+      "rgba": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        0.26666666666666666
+      ],
+      "rgba_bits": [
+        4589468260265693457,
+        4593971859893063953,
+        4596373779694328218,
+        4598475459520434449
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 13,
+      "color": "#11223344",
+      "alpha": 0.0,
+      "alpha_bits": 0,
+      "rgba": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        0.0
+      ],
+      "rgba_bits": [
+        4589468260265693457,
+        4593971859893063953,
+        4596373779694328218,
+        0
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 14,
+      "color": "#11223344",
+      "alpha": 0.25,
+      "alpha_bits": 4598175219545276416,
+      "rgba": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        0.25
+      ],
+      "rgba_bits": [
+        4589468260265693457,
+        4593971859893063953,
+        4596373779694328218,
+        4598175219545276416
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 15,
+      "color": "#11223344",
+      "alpha": 1.0,
+      "alpha_bits": 4607182418800017408,
+      "rgba": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        1.0
+      ],
+      "rgba_bits": [
+        4589468260265693457,
+        4593971859893063953,
+        4596373779694328218,
+        4607182418800017408
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 16,
+      "color": "#0000",
+      "alpha": null,
+      "alpha_bits": null,
+      "rgba": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgba_bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 17,
+      "color": "#0000",
+      "alpha": 0.0,
+      "alpha_bits": 0,
+      "rgba": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgba_bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 18,
+      "color": "#0000",
+      "alpha": 0.25,
+      "alpha_bits": 4598175219545276416,
+      "rgba": [
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "rgba_bits": [
+        0,
+        0,
+        0,
+        4598175219545276416
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 19,
+      "color": "#0000",
+      "alpha": 1.0,
+      "alpha_bits": 4607182418800017408,
+      "rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rgba_bits": [
+        0,
+        0,
+        0,
+        4607182418800017408
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 20,
+      "color": "C0",
+      "alpha": null,
+      "alpha_bits": null,
+      "rgba": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        0.26666666666666666
+      ],
+      "rgba_bits": [
+        4589468260265693457,
+        4593971859893063953,
+        4596373779694328218,
+        4598475459520434449
+      ],
+      "events": [
+        [
+          "rc.get",
+          "axes.prop_cycle"
+        ],
+        [
+          "cycle.by_key"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 21,
+      "color": "C0",
+      "alpha": 0.0,
+      "alpha_bits": 0,
+      "rgba": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        0.0
+      ],
+      "rgba_bits": [
+        4589468260265693457,
+        4593971859893063953,
+        4596373779694328218,
+        0
+      ],
+      "events": [
+        [
+          "rc.get",
+          "axes.prop_cycle"
+        ],
+        [
+          "cycle.by_key"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 22,
+      "color": "C0",
+      "alpha": 0.25,
+      "alpha_bits": 4598175219545276416,
+      "rgba": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        0.25
+      ],
+      "rgba_bits": [
+        4589468260265693457,
+        4593971859893063953,
+        4596373779694328218,
+        4598175219545276416
+      ],
+      "events": [
+        [
+          "rc.get",
+          "axes.prop_cycle"
+        ],
+        [
+          "cycle.by_key"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 23,
+      "color": "C0",
+      "alpha": 1.0,
+      "alpha_bits": 4607182418800017408,
+      "rgba": [
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        1.0
+      ],
+      "rgba_bits": [
+        4589468260265693457,
+        4593971859893063953,
+        4596373779694328218,
+        4607182418800017408
+      ],
+      "events": [
+        [
+          "rc.get",
+          "axes.prop_cycle"
+        ],
+        [
+          "cycle.by_key"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 24,
+      "color": "C1",
+      "alpha": null,
+      "alpha_bits": null,
+      "rgba": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgba_bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [
+        [
+          "rc.get",
+          "axes.prop_cycle"
+        ],
+        [
+          "cycle.by_key"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 25,
+      "color": "C1",
+      "alpha": 0.0,
+      "alpha_bits": 0,
+      "rgba": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgba_bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [
+        [
+          "rc.get",
+          "axes.prop_cycle"
+        ],
+        [
+          "cycle.by_key"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 26,
+      "color": "C1",
+      "alpha": 0.25,
+      "alpha_bits": 4598175219545276416,
+      "rgba": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgba_bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [
+        [
+          "rc.get",
+          "axes.prop_cycle"
+        ],
+        [
+          "cycle.by_key"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 27,
+      "color": "C1",
+      "alpha": 1.0,
+      "alpha_bits": 4607182418800017408,
+      "rgba": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgba_bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [
+        [
+          "rc.get",
+          "axes.prop_cycle"
+        ],
+        [
+          "cycle.by_key"
+        ]
+      ],
+      "error": null
+    }
+  ],
+  "cache_warm_observations": [
+    {
+      "id": 0,
+      "order": "minus-first",
+      "input_alpha": -0.0,
+      "input_alpha_bits": 9223372036854775808,
+      "rgba": [
+        1.0,
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "rgba_bits": [
+        4607182418800017408,
+        0,
+        0,
+        9223372036854775808
+      ],
+      "cache_size": 1
+    },
+    {
+      "id": 1,
+      "order": "minus-first",
+      "input_alpha": 0.0,
+      "input_alpha_bits": 0,
+      "rgba": [
+        1.0,
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "rgba_bits": [
+        4607182418800017408,
+        0,
+        0,
+        9223372036854775808
+      ],
+      "cache_size": 1
+    },
+    {
+      "id": 2,
+      "order": "plus-first",
+      "input_alpha": 0.0,
+      "input_alpha_bits": 0,
+      "rgba": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgba_bits": [
+        4607182418800017408,
+        0,
+        0,
+        0
+      ],
+      "cache_size": 1
+    },
+    {
+      "id": 3,
+      "order": "plus-first",
+      "input_alpha": -0.0,
+      "input_alpha_bits": 9223372036854775808,
+      "rgba": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgba_bits": [
+        4607182418800017408,
+        0,
+        0,
+        0
+      ],
+      "cache_size": 1
+    }
+  ],
+  "draw_observations": [
+    {
+      "id": 0,
+      "label": "alpha0 normal red still draws",
+      "before": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": true,
+        "visible": true,
+        "color": "red",
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ]
+      },
+      "after": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": false,
+        "visible": true,
+        "color": "red",
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ]
+      },
+      "renderer_stages": [
+        [
+          "renderer.open_group"
+        ],
+        [
+          "renderer.new_gc"
+        ],
+        [
+          "gc.clip"
+        ],
+        [
+          "gc.set_url"
+        ],
+        [
+          "gc.set_antialiased"
+        ],
+        [
+          "gc.set_linewidth"
+        ],
+        [
+          "gc.set_joinstyle"
+        ],
+        [
+          "gc.set_capstyle"
+        ],
+        [
+          "gc.set_snap"
+        ],
+        [
+          "gc.set_foreground",
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          true
+        ],
+        [
+          "gc.set_dashes"
+        ],
+        [
+          "renderer.draw_path"
+        ],
+        [
+          "gc.restore"
+        ],
+        [
+          "renderer.close_group"
+        ]
+      ],
+      "axis_events": [],
+      "color_events": [
+        [
+          "rc.get",
+          "path.snap"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 1,
+      "label": "alpha0 pending shape error precedes color",
+      "before": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": true,
+        "visible": true,
+        "color": "C99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+        "invalid": [
+          false,
+          true
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ]
+      },
+      "after": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": true,
+        "visible": true,
+        "color": "C99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+        "invalid": [
+          false,
+          true
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ]
+      },
+      "renderer_stages": [],
+      "axis_events": [
+        [
+          "recache.begin",
+          "alpha",
+          false
+        ],
+        [
+          "convert.y",
+          "alpha"
+        ],
+        [
+          "recache.error",
+          "alpha",
+          "ValueError"
+        ]
+      ],
+      "color_events": [],
+      "error": {
+        "type": "ValueError",
+        "message": "shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (2,) and arg 1 with shape (3,)."
+      }
+    },
+    {
+      "id": 2,
+      "label": "alpha0 nonempty C4301 still reaches color error",
+      "before": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": true,
+        "visible": true,
+        "color": "C99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ]
+      },
+      "after": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": true,
+        "visible": true,
+        "color": "C99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ]
+      },
+      "renderer_stages": [
+        [
+          "renderer.open_group"
+        ],
+        [
+          "renderer.new_gc"
+        ],
+        [
+          "gc.clip"
+        ],
+        [
+          "gc.set_url"
+        ],
+        [
+          "gc.set_antialiased"
+        ],
+        [
+          "gc.set_linewidth"
+        ],
+        [
+          "gc.set_joinstyle"
+        ],
+        [
+          "gc.set_capstyle"
+        ],
+        [
+          "gc.set_snap"
+        ]
+      ],
+      "axis_events": [],
+      "color_events": [
+        [
+          "rc.get",
+          "path.snap"
+        ],
+        [
+          "rc.get",
+          "axes.prop_cycle"
+        ],
+        [
+          "cycle.by_key"
+        ]
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "Exceeds the limit (4300 digits) for integer string conversion: value has 4301 digits; use sys.set_int_max_str_digits() to increase the limit"
+      }
+    },
+    {
+      "id": 3,
+      "label": "alpha0 empty C4301 skips color and completes",
+      "before": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": true,
+        "visible": true,
+        "color": "C99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": []
+      },
+      "after": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": false,
+        "visible": true,
+        "color": "C99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": []
+      },
+      "renderer_stages": [
+        [
+          "renderer.open_group"
+        ],
+        [
+          "renderer.close_group"
+        ]
+      ],
+      "axis_events": [],
+      "color_events": [],
+      "error": null
+    },
+    {
+      "id": 4,
+      "label": "alpha0 hidden pending shape and C4301 skips everything",
+      "before": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": true,
+        "visible": false,
+        "color": "C99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+        "invalid": [
+          false,
+          true
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ]
+      },
+      "after": {
+        "alpha": 0.0,
+        "alpha_bits": 0,
+        "stale": true,
+        "visible": false,
+        "color": "C99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+        "invalid": [
+          false,
+          true
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ]
+      },
+      "renderer_stages": [],
+      "axis_events": [],
+      "color_events": [],
+      "error": null
+    }
+  ]
+}

@@ -185,3 +185,10 @@ D49 已验收 Line String color：验证后保存原拼写，合法同值也置 
 可变原生 RGB-list 观察为 source-only。原 49 条准备记录和三条完整 draw 记录全字段
 保持。四目标 nonJS22137/JS22144 全过。该片推进 Line 属性，完整 Artist、动态载体与
 原生 SVG/GUI 等范围仍在；整体约50%（40–60%）宽估算保持，不按测试数量上调。
+
+D50 已验收 Line None/Double alpha：验证先于修改，相等不重新赋值并保留原始零符号，
+source color 采用覆盖，legacy CSS 限定 Line stroke-opacity 组合，alpha0 保持数据/颜色
+阶段。18 个新增注册测试含 3 个正式组和 15 个定向/公开回归；59 条原源记录逐字段
+保持，55 条 typed、4 条私有颜色缓存先后顺序为 source-only。完整四目标 nonJS22155/
+JS22162 全过；4 份预期接口变化已审，其他图元不消费新字段。整体约50%（40–60%）
+宽估算保持，完整 Artist、虚线/marker、原生 SVG 与 GUI 等范围仍待迁移。
