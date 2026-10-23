@@ -1,0 +1,2588 @@
+{
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "stdlib/contextlib.py": "8b7a477f978a8532852fd81e241c78182516bc4975d672d580a5848a76e11eb6",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "artist.py": "c55a81d86db60ab7b22fcd6e70401aa84558de5d1ba6e40a16c60f6f1f03be7a",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "lines.py": "e928511cec1f9ce19455008c1863d337b0dbd1c71ac2b8d40224c8d5c069e05c",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b",
+    "category.py": "52c67cadb003007f7a61fa630fe3750cb4dc4bf710c25b332084366516a25a6e",
+    "units.py": "ecefa595cf24dc6a5da2d52cdad59c1068285071d7f98ee8d11edffb526f7b79",
+    "D48/backend_svg.py": "c489775b9891f18bfb31b706e72406da267a9b52033a5d1fd60e59230c48d565",
+    "D48/backend_bases.py": "a2b147fb149d8862fad874991f79a61cf76da3477dfd58af99755a8f9f80c074",
+    "D48/colors.py": "ef4173f9e8310bc75714e32c3855719c27916c6c651b5c94e39f00163842cf04"
+  },
+  "source_downloads": {
+    "backend_svg.py": {
+      "url": "https://raw.githubusercontent.com/matplotlib/matplotlib/v3.11.2/lib/matplotlib/backends/backend_svg.py",
+      "sha256": "c489775b9891f18bfb31b706e72406da267a9b52033a5d1fd60e59230c48d565"
+    },
+    "backend_bases.py": {
+      "url": "https://raw.githubusercontent.com/matplotlib/matplotlib/v3.11.2/lib/matplotlib/backend_bases.py",
+      "sha256": "a2b147fb149d8862fad874991f79a61cf76da3477dfd58af99755a8f9f80c074"
+    },
+    "colors.py": {
+      "url": "https://raw.githubusercontent.com/matplotlib/matplotlib/v3.11.2/lib/matplotlib/colors.py",
+      "sha256": "ef4173f9e8310bc75714e32c3855719c27916c6c651b5c94e39f00163842cf04"
+    }
+  },
+  "method_body_hashes": {
+    "lines.py:_scale_dashes": "dc4b9ad9335cd93bcd7b8114f595f075f2120b9d830638952c1f3fac7ca162c7",
+    "lines.py:get_linewidth": "57e1c2edea049e1794160ca96c1fdec2477ee1d7a6f104c0abc43e0c8f0f85e9",
+    "lines.py:set_linewidth": "a44c0e29c91f02921e98c64e54bec9b9ea392b90d4939f7d1cf285344d562c8a",
+    "backend_svg.py:_short_float_fmt": "b2ddb4e829dc2f32c9235a80e4c14c56b3bd875c2fc67de92eb12e664617e572",
+    "backend_svg.py:_get_style_dict": "874454c21d80788a8c8f049672ab38b9f7d8905307122cc9ea8afb59ab7cb5f7"
+  },
+  "host_boundary": "Original complete linewidth methods and _scale_dashes under explicit initial width=2 and clean-stale setup; original Line data/unit host records no data cache/request mutation. Actual GC methods and original complete SVG _get_style_dict/_get_style with fixed valid black RGBA tuple, solid no-hatch/no-face, real complete numeric to_hex/to_rgba helpers and empty named-color cache. No full draw/renderer/GUI/color-validator parity claim.",
+  "typed_boundary": {
+    "setters": "All 28 setter records project width, stale, invalid flags, retained cache, dataLim and requests onto two typed solid-Line sequences. Native scale_dashes/dash state remains source evidence; the typed slice has no dash state or new rc API.",
+    "svg_primitives": "All 11 native style dictionaries/CSS strings are source-only. Native stroke omission/default-width and six-decimal fixed formatting differ from the existing typed serializer convenience profile.",
+    "float": "Finite numbers including signed zero and infinities are asserted by bits; NaN is asserted by classification, without a payload contract.",
+    "initialization": "Initial width 2 is the existing typed plot convenience setup, not the native Line2D rc default. Private mark_drawn supplies the controlled stale=False input before each setter without invoking a draw or visibility branch."
+  },
+  "setter_observations": [
+    {
+      "id": 0,
+      "scale_dashes": true,
+      "input": 2.0,
+      "input_bits": 4611686018427387904,
+      "before": {
+        "width": 2.0,
+        "width_bits": 4611686018427387904,
+        "stale": false,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 2.0,
+        "width_bits": 4611686018427387904,
+        "stale": false,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 1,
+      "scale_dashes": true,
+      "input": 2.0,
+      "input_bits": 4611686018427387904,
+      "before": {
+        "width": 2.0,
+        "width_bits": 4611686018427387904,
+        "stale": false,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 2.0,
+        "width_bits": 4611686018427387904,
+        "stale": false,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 2,
+      "scale_dashes": true,
+      "input": 1.0,
+      "input_bits": 4607182418800017408,
+      "before": {
+        "width": 2.0,
+        "width_bits": 4611686018427387904,
+        "stale": false,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 1.0,
+        "width_bits": 4607182418800017408,
+        "stale": true,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 3,
+      "scale_dashes": true,
+      "input": 0.25,
+      "input_bits": 4598175219545276416,
+      "before": {
+        "width": 1.0,
+        "width_bits": 4607182418800017408,
+        "stale": false,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 0.25,
+        "width_bits": 4598175219545276416,
+        "stale": true,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 4,
+      "scale_dashes": true,
+      "input": 0.0,
+      "input_bits": 0,
+      "before": {
+        "width": 0.25,
+        "width_bits": 4598175219545276416,
+        "stale": false,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 0.0,
+        "width_bits": 0,
+        "stale": true,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 5,
+      "scale_dashes": true,
+      "input": -0.0,
+      "input_bits": 9223372036854775808,
+      "before": {
+        "width": 0.0,
+        "width_bits": 0,
+        "stale": false,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": -0.0,
+        "width_bits": 9223372036854775808,
+        "stale": false,
+        "dash_offset": -0.0,
+        "dash_offset_bits": 9223372036854775808,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 6,
+      "scale_dashes": true,
+      "input": -2.0,
+      "input_bits": 13835058055282163712,
+      "before": {
+        "width": -0.0,
+        "width_bits": 9223372036854775808,
+        "stale": false,
+        "dash_offset": -0.0,
+        "dash_offset_bits": 9223372036854775808,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": -2.0,
+        "width_bits": 13835058055282163712,
+        "stale": true,
+        "dash_offset": -0.0,
+        "dash_offset_bits": 9223372036854775808,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 7,
+      "scale_dashes": true,
+      "input": {
+        "float": "nan"
+      },
+      "input_bits": 9221120237041090560,
+      "before": {
+        "width": -2.0,
+        "width_bits": 13835058055282163712,
+        "stale": false,
+        "dash_offset": -0.0,
+        "dash_offset_bits": 9223372036854775808,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": {
+          "float": "nan"
+        },
+        "width_bits": 9221120237041090560,
+        "stale": true,
+        "dash_offset": {
+          "float": "nan"
+        },
+        "dash_offset_bits": 9221120237041090560,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 8,
+      "scale_dashes": true,
+      "input": {
+        "float": "nan"
+      },
+      "input_bits": 9221120237041090560,
+      "before": {
+        "width": {
+          "float": "nan"
+        },
+        "width_bits": 9221120237041090560,
+        "stale": false,
+        "dash_offset": {
+          "float": "nan"
+        },
+        "dash_offset_bits": 9221120237041090560,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": {
+          "float": "nan"
+        },
+        "width_bits": 9221120237041090560,
+        "stale": true,
+        "dash_offset": {
+          "float": "nan"
+        },
+        "dash_offset_bits": 9221120237041090560,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 9,
+      "scale_dashes": true,
+      "input": {
+        "float": "inf"
+      },
+      "input_bits": 9218868437227405312,
+      "before": {
+        "width": {
+          "float": "nan"
+        },
+        "width_bits": 9221120237041090560,
+        "stale": false,
+        "dash_offset": {
+          "float": "nan"
+        },
+        "dash_offset_bits": 9221120237041090560,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": {
+          "float": "inf"
+        },
+        "width_bits": 9218868437227405312,
+        "stale": true,
+        "dash_offset": {
+          "float": "nan"
+        },
+        "dash_offset_bits": 9221120237041090560,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 10,
+      "scale_dashes": true,
+      "input": {
+        "float": "inf"
+      },
+      "input_bits": 9218868437227405312,
+      "before": {
+        "width": {
+          "float": "inf"
+        },
+        "width_bits": 9218868437227405312,
+        "stale": false,
+        "dash_offset": {
+          "float": "nan"
+        },
+        "dash_offset_bits": 9221120237041090560,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": {
+          "float": "inf"
+        },
+        "width_bits": 9218868437227405312,
+        "stale": false,
+        "dash_offset": {
+          "float": "nan"
+        },
+        "dash_offset_bits": 9221120237041090560,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 11,
+      "scale_dashes": true,
+      "input": {
+        "float": "-inf"
+      },
+      "input_bits": 18442240474082181120,
+      "before": {
+        "width": {
+          "float": "inf"
+        },
+        "width_bits": 9218868437227405312,
+        "stale": false,
+        "dash_offset": {
+          "float": "nan"
+        },
+        "dash_offset_bits": 9221120237041090560,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": {
+          "float": "-inf"
+        },
+        "width_bits": 18442240474082181120,
+        "stale": true,
+        "dash_offset": {
+          "float": "nan"
+        },
+        "dash_offset_bits": 9221120237041090560,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 12,
+      "scale_dashes": true,
+      "input": 5e-324,
+      "input_bits": 1,
+      "before": {
+        "width": {
+          "float": "-inf"
+        },
+        "width_bits": 18442240474082181120,
+        "stale": false,
+        "dash_offset": {
+          "float": "nan"
+        },
+        "dash_offset_bits": 9221120237041090560,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 5e-324,
+        "width_bits": 1,
+        "stale": true,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 13,
+      "scale_dashes": true,
+      "input": 1.7976931348623157e+308,
+      "input_bits": 9218868437227405311,
+      "before": {
+        "width": 5e-324,
+        "width_bits": 1,
+        "stale": false,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 1.7976931348623157e+308,
+        "width_bits": 9218868437227405311,
+        "stale": true,
+        "dash_offset": 0.0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "float",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 14,
+      "scale_dashes": false,
+      "input": 2.0,
+      "input_bits": 4611686018427387904,
+      "before": {
+        "width": 2.0,
+        "width_bits": 4611686018427387904,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 2.0,
+        "width_bits": 4611686018427387904,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 15,
+      "scale_dashes": false,
+      "input": 2.0,
+      "input_bits": 4611686018427387904,
+      "before": {
+        "width": 2.0,
+        "width_bits": 4611686018427387904,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 2.0,
+        "width_bits": 4611686018427387904,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 16,
+      "scale_dashes": false,
+      "input": 1.0,
+      "input_bits": 4607182418800017408,
+      "before": {
+        "width": 2.0,
+        "width_bits": 4611686018427387904,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 1.0,
+        "width_bits": 4607182418800017408,
+        "stale": true,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 17,
+      "scale_dashes": false,
+      "input": 0.25,
+      "input_bits": 4598175219545276416,
+      "before": {
+        "width": 1.0,
+        "width_bits": 4607182418800017408,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 0.25,
+        "width_bits": 4598175219545276416,
+        "stale": true,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 18,
+      "scale_dashes": false,
+      "input": 0.0,
+      "input_bits": 0,
+      "before": {
+        "width": 0.25,
+        "width_bits": 4598175219545276416,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 0.0,
+        "width_bits": 0,
+        "stale": true,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 19,
+      "scale_dashes": false,
+      "input": -0.0,
+      "input_bits": 9223372036854775808,
+      "before": {
+        "width": 0.0,
+        "width_bits": 0,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": -0.0,
+        "width_bits": 9223372036854775808,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 20,
+      "scale_dashes": false,
+      "input": -2.0,
+      "input_bits": 13835058055282163712,
+      "before": {
+        "width": -0.0,
+        "width_bits": 9223372036854775808,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": -2.0,
+        "width_bits": 13835058055282163712,
+        "stale": true,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 21,
+      "scale_dashes": false,
+      "input": {
+        "float": "nan"
+      },
+      "input_bits": 9221120237041090560,
+      "before": {
+        "width": -2.0,
+        "width_bits": 13835058055282163712,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": {
+          "float": "nan"
+        },
+        "width_bits": 9221120237041090560,
+        "stale": true,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 22,
+      "scale_dashes": false,
+      "input": {
+        "float": "nan"
+      },
+      "input_bits": 9221120237041090560,
+      "before": {
+        "width": {
+          "float": "nan"
+        },
+        "width_bits": 9221120237041090560,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": {
+          "float": "nan"
+        },
+        "width_bits": 9221120237041090560,
+        "stale": true,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 23,
+      "scale_dashes": false,
+      "input": {
+        "float": "inf"
+      },
+      "input_bits": 9218868437227405312,
+      "before": {
+        "width": {
+          "float": "nan"
+        },
+        "width_bits": 9221120237041090560,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": {
+          "float": "inf"
+        },
+        "width_bits": 9218868437227405312,
+        "stale": true,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 24,
+      "scale_dashes": false,
+      "input": {
+        "float": "inf"
+      },
+      "input_bits": 9218868437227405312,
+      "before": {
+        "width": {
+          "float": "inf"
+        },
+        "width_bits": 9218868437227405312,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": {
+          "float": "inf"
+        },
+        "width_bits": 9218868437227405312,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 25,
+      "scale_dashes": false,
+      "input": {
+        "float": "-inf"
+      },
+      "input_bits": 18442240474082181120,
+      "before": {
+        "width": {
+          "float": "inf"
+        },
+        "width_bits": 9218868437227405312,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": {
+          "float": "-inf"
+        },
+        "width_bits": 18442240474082181120,
+        "stale": true,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 26,
+      "scale_dashes": false,
+      "input": 5e-324,
+      "input_bits": 1,
+      "before": {
+        "width": {
+          "float": "-inf"
+        },
+        "width_bits": 18442240474082181120,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 5e-324,
+        "width_bits": 1,
+        "stale": true,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    },
+    {
+      "id": 27,
+      "scale_dashes": false,
+      "input": 1.7976931348623157e+308,
+      "input_bits": 9218868437227405311,
+      "before": {
+        "width": 5e-324,
+        "width_bits": 1,
+        "stale": false,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "after": {
+        "width": 1.7976931348623157e+308,
+        "width_bits": 9218868437227405311,
+        "stale": true,
+        "dash_offset": 0,
+        "dash_offset_bits": 0,
+        "dash_offset_type": "int",
+        "dash_sequence": null,
+        "invalid": [
+          false,
+          false
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "requests": {
+          "x": false,
+          "y": false
+        }
+      },
+      "error": null,
+      "events": []
+    }
+  ],
+  "svg_style_observations": [
+    {
+      "id": 0,
+      "input": 0.0,
+      "input_bits": 0,
+      "gc_width_bits": 0,
+      "attributes": {
+        "fill": "none"
+      },
+      "style": "fill: none",
+      "error": null
+    },
+    {
+      "id": 1,
+      "input": -0.0,
+      "input_bits": 9223372036854775808,
+      "gc_width_bits": 9223372036854775808,
+      "attributes": {
+        "fill": "none"
+      },
+      "style": "fill: none",
+      "error": null
+    },
+    {
+      "id": 2,
+      "input": 1.0,
+      "input_bits": 4607182418800017408,
+      "gc_width_bits": 4607182418800017408,
+      "attributes": {
+        "fill": "none",
+        "stroke": "#000000"
+      },
+      "style": "fill: none; stroke: #000000",
+      "error": null
+    },
+    {
+      "id": 3,
+      "input": 2.0,
+      "input_bits": 4611686018427387904,
+      "gc_width_bits": 4611686018427387904,
+      "attributes": {
+        "fill": "none",
+        "stroke": "#000000",
+        "stroke-width": "2"
+      },
+      "style": "fill: none; stroke: #000000; stroke-width: 2",
+      "error": null
+    },
+    {
+      "id": 4,
+      "input": 0.25,
+      "input_bits": 4598175219545276416,
+      "gc_width_bits": 4598175219545276416,
+      "attributes": {
+        "fill": "none",
+        "stroke": "#000000",
+        "stroke-width": "0.25"
+      },
+      "style": "fill: none; stroke: #000000; stroke-width: 0.25",
+      "error": null
+    },
+    {
+      "id": 5,
+      "input": -2.0,
+      "input_bits": 13835058055282163712,
+      "gc_width_bits": 13835058055282163712,
+      "attributes": {
+        "fill": "none",
+        "stroke": "#000000",
+        "stroke-width": "-2"
+      },
+      "style": "fill: none; stroke: #000000; stroke-width: -2",
+      "error": null
+    },
+    {
+      "id": 6,
+      "input": {
+        "float": "nan"
+      },
+      "input_bits": 9221120237041090560,
+      "gc_width_bits": 9221120237041090560,
+      "attributes": {
+        "fill": "none",
+        "stroke": "#000000",
+        "stroke-width": "nan"
+      },
+      "style": "fill: none; stroke: #000000; stroke-width: nan",
+      "error": null
+    },
+    {
+      "id": 7,
+      "input": {
+        "float": "inf"
+      },
+      "input_bits": 9218868437227405312,
+      "gc_width_bits": 9218868437227405312,
+      "attributes": {
+        "fill": "none",
+        "stroke": "#000000",
+        "stroke-width": "inf"
+      },
+      "style": "fill: none; stroke: #000000; stroke-width: inf",
+      "error": null
+    },
+    {
+      "id": 8,
+      "input": {
+        "float": "-inf"
+      },
+      "input_bits": 18442240474082181120,
+      "gc_width_bits": 18442240474082181120,
+      "attributes": {
+        "fill": "none",
+        "stroke": "#000000",
+        "stroke-width": "-inf"
+      },
+      "style": "fill: none; stroke: #000000; stroke-width: -inf",
+      "error": null
+    },
+    {
+      "id": 9,
+      "input": 5e-324,
+      "input_bits": 1,
+      "gc_width_bits": 1,
+      "attributes": {
+        "fill": "none",
+        "stroke": "#000000",
+        "stroke-width": "0"
+      },
+      "style": "fill: none; stroke: #000000; stroke-width: 0",
+      "error": null
+    },
+    {
+      "id": 10,
+      "input": 1.7976931348623157e+308,
+      "input_bits": 9218868437227405311,
+      "gc_width_bits": 9218868437227405311,
+      "attributes": {
+        "fill": "none",
+        "stroke": "#000000",
+        "stroke-width": "179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368"
+      },
+      "style": "fill: none; stroke: #000000; stroke-width: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368",
+      "error": null
+    }
+  ],
+  "counts": {
+    "setter": 28,
+    "svg_style_primitive": 11,
+    "source_records": 39,
+    "typed_records": 28,
+    "source_only_records": 11,
+    "typed_sequences": 2,
+    "registered_groups": 1
+  }
+}

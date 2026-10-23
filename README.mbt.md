@@ -2012,3 +2012,21 @@ fig.axes().autoscale_view()
 relim 本身不请求自动范围、不改变 viewport 或 auto-enable；单位更新仍强制回算每条
 Line 并使用默认 relim。尚无可变可见性的独立图元沿用可见默认。复现与边界见
 [按可见性重算范围](testdata/relim_visible_README.md)。
+
+
+D48 增加 `Line2D::get_linewidth()` 和 `set_linewidth(Double)`，保留初始宽度 2 的便利
+构造。setter 接受负数与非有限值，不改变数据、范围、可见性或自动范围请求；只有 IEEE
+比较不相等时才置 stale，但总保存传入值。因此正零改成负零保留符号且不置 stale，重复
+NaN 则仍置 stale。
+
+```moonbit nocheck
+line.set_linewidth(3.25)
+let width = line.get_linewidth()
+let svg = fig.to_svg_checked()
+```
+
+保留的 IR 到达实际 Line 绘制阶段时一起读取当前点和样式，已写出的前一条 Line 不受
+后续回调追溯修改。`Axes::artists()` 返回当前不可变样式快照，并保留原几何查询的延迟
+转换边界；以前返回的样式快照保持原值。现有 SVG 数字格式继续使用便利 profile，原版
+零宽省略 stroke、宽度 1 省略属性和固定六位格式仍是独立原源证据。dash、marker 样式
+与通用 Artist 样式系统尚未迁移，详见 [Line 线宽](testdata/line_width_README.md)。

@@ -425,3 +425,14 @@ blend factory、locator 和 Bbox；52 条记录含 38 个 typed 场景与 14 条
 一个连续 typed 场景。来源哈希、非有限值表示与 ordinary in_autoscale 边界见
 [testdata/relim_visible_README.md](testdata/relim_visible_README.md)。
 项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。
+
+
+## D48 Line 线宽与当前样式
+
+复用稳定 Line、不可变 core.Style 与现有 SVG 编码器；late-provider 同时传递点、当前
+样式和完成回调，没有新增分发依赖。参考脚本执行固定 v3.11.2 的完整 linewidth 方法、
+真实 RcParams bool validator 及独立 GC/SVG 样式方法，额外三个官方源码下载均须通过
+固定 SHA256。28 条 setter 记录投影为两个连续 typed 场景；11 条 SVG 样式记录保留
+为 source-only。来源哈希、NaN 与 SVG 数字格式边界见
+[testdata/line_width_README.md](testdata/line_width_README.md)。
+项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。

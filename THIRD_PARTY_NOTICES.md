@@ -567,3 +567,11 @@ artist.py、transforms.py 与 Line 原源以 MoonBit 重写。9 条完整原源�
 minpos 元数据与晚失败边界见
 [testdata/relim_visible_README.md](testdata/relim_visible_README.md)。
 没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。
+
+
+D48 的 Line 线宽、比较与赋值顺序依据固定 Matplotlib v3.11.2 的 lines.py 以 MoonBit
+重写。独立原源参考另执行 backend_bases.py、backends/backend_svg.py 和 colors.py 的
+完整相关方法，记录 28 条 setter 观察与 11 条 source-only SVG 样式结果。固定文件
+哈希、完整方法与受控宿主边界见
+[testdata/line_width_README.md](testdata/line_width_README.md)。
+没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。
