@@ -512,3 +512,10 @@ D38 的内建 Date/Category 单位、逐槽默认安装与共享回调继续依�
 完整原源独立执行、SHA256、宿主与 typed 边界见
 [testdata/units_lifecycle_README.md](testdata/units_lifecycle_README.md)。既有 Matplotlib 与
 NumPy 许可证继续适用；无新的分发依赖。
+
+D39 的 Line 原始输入、强制单位回算及逐 Line 错误顺序依据同一固定 Matplotlib v3.11.2
+的 lines.py、artist.py、axis.py、axes/_base.py 与 transforms.py 行为以 MoonBit 重写。
+独立参考执行完整所选原方法，并复用原 units/category/date、共享组和回调；数值 Path
+存储等宿主与 public lazy Line API 边界明确记录于
+[testdata/line_units_README.md](testdata/line_units_README.md)。Matplotlib 许可保留在
+[LICENSE-MATPLOTLIB](LICENSE-MATPLOTLIB)；没有加入新的分发运行时。

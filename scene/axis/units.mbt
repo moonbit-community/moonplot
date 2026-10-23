@@ -307,26 +307,6 @@ pub fn Axis::set_unit_tag(
     None => [self]
   }
   for axis in axes {
-    if axis.units_state.unit is Some(AxisUnitTag::Category(old)) &&
-      unit is Some(AxisUnitTag::Category(next)) &&
-      !physical_equal(old, next) {
-      let before = old.labels()
-      let after = next.labels()
-      let mut preserves_positions = after.length() >= before.length()
-      if preserves_positions {
-        for index, label in before {
-          if after[index] != label {
-            preserves_positions = false
-            break
-          }
-        }
-      }
-      if !preserves_positions {
-        raise @core.DataError::InvalidTicks(
-          message="unsupported typed category-unit reordering: original artist labels are not retained",
-        )
-      }
-    }
     axis.units_state.unit = unit
     axis.update_unit_axisinfo()
     if axis.units_state.changed is Some(provider) {

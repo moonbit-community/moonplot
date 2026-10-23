@@ -1883,6 +1883,14 @@ stored view 和 SVG 路径；类别没有固定半格扩边。
 `AxisUnitTag` 与 `Axes::set_x_units` / `set_y_units` 是有序、失败保留前置修改的单位入口；
 已有 `set_x_date_converter` 等预校验便利操作继续保留其原合同。类别刻度向命名 formatter
 传递 Python 整数列表来源，`{x:d}` 与 `{x!r}` 可正确格式化；显式 Double 批次仍保留浮点来源。
-公开日期 locator 查询可用 `tick_values_checked` 保留错误。原始字符串尚未保留到 Line 时，
-类别 unit 重排会明确拒绝；现有显式类别配置替换仍是单独的便利扩展。精确范围与复现见
+公开日期 locator 查询可用 `tick_values_checked` 保留错误。现有显式类别配置替换仍是单独的
+便利扩展。D38 精确范围与复现见
 [testdata/units_lifecycle_README.md](testdata/units_lifecycle_README.md)。
+
+D39 已保留 Line 每个坐标的 Numeric、Category 或 Date 原始输入。通过 `set_x_units` /
+`set_y_units` 替换类别映射时，类别 Line 按新映射回算，缺失旧标签会追加；同坐标的数值
+Line 保持原值。单位回调逐 Line 转换 x、y，两者成功后才更新该 Line，全部成功后重建
+dataLim 并仅请求事件方向；晚失败保留前面 Line 和单位映射已发生的修改。
+Scatter 和生成的 contour/streamplot 显示线继续使用已转换几何。公开 Artist 和 render
+模型仍为数值快照，未新增可变 Line2D 句柄或 lazy getter/setter。原源对照与边界见
+[testdata/line_units_README.md](testdata/line_units_README.md)。

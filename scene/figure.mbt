@@ -192,6 +192,7 @@ fn default_color_cycle() -> Array[String] {
 /// Mutable state owned by one independent axes panel.
 struct AxesData {
   artists : Array[Artist]
+  line_originals : Array[LineOriginal]
   x_axis : @axis.Axis
   y_axis : @axis.Axis
   mut title : String?
@@ -256,6 +257,7 @@ fn SubFigureData::clear_titles(self : SubFigureData) -> Unit {
 ///|
 fn AxesData::clear_presentation(self : AxesData) -> Unit {
   self.artists.clear()
+  self.line_originals.clear()
   self.title = None
   self.explicit_bounds = None
   self.legend.clear()
@@ -324,6 +326,7 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
   }
   let default_axes = @ref.new({
     artists: [],
+    line_originals: [],
     x_axis: @axis.axis(),
     y_axis: @axis.axis(horizontal=false),
     title: None,
@@ -843,6 +846,7 @@ fn new_axes_state(
 ) -> @ref.Ref[AxesData] {
   @ref.new({
     artists: [],
+    line_originals: [],
     x_axis: @axis.axis(),
     y_axis: @axis.axis(horizontal=false),
     title: None,
@@ -1513,11 +1517,13 @@ pub fn Axes::line(
   color~ : String = "",
   label~ : String = "",
 ) -> Unit {
-  let resolved_color = self.resolve_color(color)
-  self.push_artist(
-    Artist::Line(copy_points(points), @core.style(resolved_color)),
+  self.attach_line_with_originals(
+    points,
+    LineOriginalCoordinate::Numeric(points.map(point => point.x())),
+    LineOriginalCoordinate::Numeric(points.map(point => point.y())),
+    color~,
+    label~,
   )
-  self.add_auto_legend(label, resolved_color, LegendKind::Line)
 }
 
 ///|

@@ -39,8 +39,7 @@ fn Axes::bind_axis_data(self : Axes, horizontal : Bool) -> Unit {
   })
   axis.bind_units_changed(() => {
     let axes : Axes = { figure, state, }
-    // Supported units only append categories or change date display timezone;
-    // those recaches retain numeric vertices before recomputing raw dataLim.
+    axes.recache_line_units()
     axes.relim()
     axes.request_autoscale_view(axis=if horizontal { "x" } else { "y" })
   })

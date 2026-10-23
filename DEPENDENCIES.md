@@ -343,3 +343,12 @@ controlled interval/Path/ownership hosts、精确来源 hash 和边界见
 来源哈希、90 个原源案例、epoch 隔离及动态协议边界见
 [testdata/units_lifecycle_README.md](testdata/units_lifecycle_README.md)。整数 formatter 来源
 复用已有 BigInt/Scalar/Logit NumPy 促型代码；项目不分发 Python 或 NumPy 运行时。
+
+## D39 Line 原始输入与单位回算
+
+Line 原始坐标使用私有 MoonBit 数组保存，仍输出既有数值 Artist/render 模型，无新分发依赖。
+独立参考新增固定 v3.11.2 的 lines.py，SHA256 为
+`e928511cec1f9ce19455008c1863d337b0dbd1c71ac2b8d40224c8d5c069e05c`，
+并复用已固定的 Axis、units/category/date、CallbackRegistry、共享 Ticker 与 Bbox 原源。
+执行边界、受控数值 Path 宿主和未迁移的 public lazy Line API 见
+[testdata/line_units_README.md](testdata/line_units_README.md)。既有 Matplotlib 与 NumPy 许可继续适用。

@@ -78,7 +78,14 @@ pub fn Axes::plot_date_units(
     ignore(self.update_x_date_units(dates))
   }
   let ordinals = self.state.val.x_axis.convert_date_units(dates)
-  self.plot(ordinals, values, color~, label~)
+  let points = @core.series(ordinals, values).points()
+  self.attach_line_with_originals(
+    points,
+    LineOriginalCoordinate::Date(dates),
+    LineOriginalCoordinate::Numeric(values),
+    color~,
+    label~,
+  )
 }
 
 ///|

@@ -1154,6 +1154,7 @@ fn Axes::erase_inline_contour_segment(
   for artist in updated {
     self.state.val.artists.push(artist)
   }
+  self.prune_line_originals()
 }
 
 ///|
