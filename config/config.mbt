@@ -1,6 +1,7 @@
 ///|
 /// Mutable defaults shared by newly created figures and axes.
 pub struct RcParams {
+  priv mut formatter_min_exponent : @bigint.BigInt
   priv mut formatter_use_offset : Bool
   priv mut formatter_use_math_text : Bool
   priv mut formatter_use_locale : Bool
@@ -36,6 +37,7 @@ fn tab10() -> Array[String] {
 ///|
 fn default_rc_params() -> RcParams {
   {
+    formatter_min_exponent: @bigint.BigInt::from_int(0),
     formatter_use_offset: true,
     formatter_use_math_text: false,
     formatter_use_locale: false,
@@ -99,6 +101,7 @@ fn validate_color_cycle(colors : Array[String]) -> Unit raise @core.DataError {
 pub fn rc_params() -> RcParams {
   let value = current.val
   {
+    formatter_min_exponent: value.formatter_min_exponent,
     formatter_use_offset: value.formatter_use_offset,
     formatter_use_math_text: value.formatter_use_math_text,
     formatter_use_locale: value.formatter_use_locale,
