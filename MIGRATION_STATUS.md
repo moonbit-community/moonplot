@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D43位置Affine参数已完整验收并分批提交167f980/d5dbc19；checkpoint后准备D44公开Line数据句柄。先读文件尾，勿重跑D37–D43已过门禁。
+- 当前切片编号：D44公开Line数据句柄已完整验收并提交9257f05/5b183df；下一D45只读remove候选待freeze；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D43 full55347四目标全过，final74642 info4/fmt1/check24及source86618均terminal0，接口final逐字同。提交本checkpoint→保存D44-before→全文读A187line/21actual与C最终Line handle设计，再只查必要存储/late-line-draw接点后freeze；不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：保存D45-before（D44 checkpoint commit后），全文读A14actual remove/clear/delaxes与C165line设计，冻结现稳定Line句柄remove窄切。D44累计nonJS22063/JS22070全覆盖，11844补验/静态与13457 source terminal0；41mbti预期5份已审且finalcmp同，勿重跑D44门禁。D44-before61f36fb/41mbti已保存，不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -5620,3 +5620,110 @@ source setter/processedgetter不relim/request，lateLine draw之前不能在IR�
 局部line_points_provider桥，实际必要性/签名待审。stablehandle不能仅Axes+artist_index以免
 clear后复用索引误写新Line，detach边界尚缺actualproof。保旧Unitplot便利API，复用D39
 原始typedinputs与单位kernel，勿重survey或提前声称fullmutableArtist。
+
+D44-before已保存61f36fbf4764d994f81814d5e3460a37dcb2ab27 HEAD/tracked.tar/41mbti，勿覆盖。
+Root已全文读A187line/21actual与C211line设计，并窄读line_units、relim、axis_data单位回调、
+figure存储/attach/clear、category/units转换和IRPanel/backendLine draw接点。拟freeze统一
+LineOriginal→opaqueLine2D、LineOriginalCoordinate→pubLineData，pergenxy/xs/ys TickValues
+views共用flatFloat64、copied raw/borrowed原getter、lazy单flagprocessed getters/顺序pair。
+Root拟owned clear/relim_checked/axis_data/types与旧refs/templates机械适配；Bstate/kernel/
+newplot_line；C lateLine局部provider+completion/IR/SVG；Aformal。现仍未freeze/无tracked实施。
+必须保setter不request/relim、relim reset→逐artistlazyrecache/merge的prefixfailure；units event
+先forceall再relim/request。保旧Unitplot验证/返回，newreturnentry复用现initialtyped合同。
+C正确认provider(ArrayPoint)->(pointSnapshot,completion)?一hook是否足够，Line成功append后
+completion clearstale，旧IR无providerfallback。A正在额外ownerNone numeric/category/date窄probe
+（原21JSON不改，bypass host axes.events tracer），B只读检查既有String→Double复用primitive。
+下一以具体ownerNone证据敲定detached处理/缓存字段与接口后一次freeze，不再survey；
+无Rootlive工具/无用户阻塞，D43已验收不重跑。
+
+## D44 已冻结，四路独占实施中
+
+Root读完A187+ownerNone56、C211+最后19协议确认、B108与必要源码；A补4ownerNone实际
+profiles exit0（7e2ee0...bfa7），原21 e4cfb8...e5986保持。8文本successful bits与Pythonfloat
+同、6invalid error同；Date非空在实际recache晚TypeError，validcachedDate仍可直接返回。
+据此freeze现Pythonfloatparser合理复用，不新增parser。
+
+公共LineData替原privateCoordinate enum（Numeric/Category/Date）；opaqueLine2D替LineOriginal，
+稳定points仅attachment token/derivedcache；copied rawx/y、独立invalid_x/y、ownerAxes?、
+stale、Line2DCache{flat,xs,ys}共一fresh interleavedFloat64每代buffer，views保旧generation。
+公开get_xdata/get_ydata/get_data借用LineData，set_xdata/set_ydata/set_data copy+对应invalid/
+stale，无conversion/shapecheck/relim/request。x_values_checked/y_values_checked仅对应flag，
+data_values_checked顺序x→y可混代；xy_values_checked任一flag；recache_checked(always=false)
+始终freshcache但仅invalid||always转换，x→y→broadcast后整代commit，失败保旧cache/flags和
+前置conversioneffects。stale()getter。privatepoints_snapshot_checked lazy同步derivedpoints并返
+独立ArrayPoint，detach仅ownerNone，mark_drawn清stale。ownerNone Numeric直接，Category用
+pubticker.parse_float_text薄委托log_text_float；非空Date需要转换时原TypeError，不Ordinal。
+newAxes/Figure/pyplot.plot_line(LineData,LineData,color,label)->Line2D，initialtypedhelper等长
+前验+既有unitssetup/convert/attachment，不冒完整Axes.plot parser/公开unattachedctor；旧Unit
+helpers保返回/验证，只共享attachment。真实2*N地址限制可raisingattach_line_handle、旧Unit
+bridge try!，禁止任意cap。prune被erase真实identity需detach，不采用generatedLine几何猜测。
+
+- B独占scene/line_units、NEWline2d.mbt、NEWline2d_wbtest。字段已告A/C，cache flat/xs/ys。
+- C独占SceneSVG/IRmodel/backendrender、NEWscene/line2d_render_wbtest、NEWbackendline2dWB。
+  oneoptionalLineprovider(ArrayPoint)->(snapshot,completion)? raiseCore，pinregistry引用列表，
+  match stablepoints identity，Line分支lazyprepare→append成功→completion直接captureLine清stale；
+  None静态/独立IRfallback。IR导出绝不eager转换，不触dataLim/autoscale。
+- A独占NEWscripts/generate_line_data_reference.py、JSON/guide/SceneWB；保21+ownerNone4旧fields，
+  typed/source-only按真实projection，D39五旧source-only是否纳入另证，不盲加counts。
+- Root独占figure（类型/clear detach）、autoscale_data（relim_checked）、axis_data单位回调、
+  category/units旧名称机械变更、types、pyplotstate返回桥、tickerfloat薄wrapper、旧D39gen/WB
+  名称机械适配、NEWscene/line2d_lifecycle_wbtest、central门禁/docs/commits。
+
+Root上述生产首版已写（无中央检查）：clear先detach再clear列表；relim Unit变try!薄桥，
+checked先resetBBox/ignore后逐artist命中line lazyPoints/merge，prefixfailure保；unitscallback
+forceall→checkedrelim→request，topreexport+pyplotplot_line已接。旧gen/WB只LineData名称替换。
+下一Root完成4生命周期hands、审B/C/A首版handoff，全部STOP后central；失败继续诊断，不重D43。
+当前无Rootlive工具/无用户阻塞，D44未Moon编译或行为验收。
+
+D44 全体 tracked writers STOP。Root4生命周期hands完成，已全文审 B/C生产与22hands、
+B65linehandoff、A391linegenerator/149lineguide。新23registered=1formal（8private场景）
++B9+C9+Root4；25profile=21data（15typed/6source-only）+4ownerNone。Root独立比较原21+4
+complete records逐字段exactequal，JSON d0b1bca67d729e16e232180bc06fa2a0b5034a1a29290ee4a07ed98b208af06c。
+firstcheck97904 terminal0：100tasks/7旧Refwarn/0error；source89592 terminal0（newformal+旧D39
+--check，旧JSON b55b8a...65b70保持）。info10tasks/fmt terminal0；41mbti预期仅Scene/top/pyplot/
+ticker/parser与internalrender/lineprovider共5files变化已全文审，其余36逐字同；revieweddiff
+存D44-interface-reviewed.diff。四目标firstfull已启动，下一记录liveID/读终态，尚未行为验收。
+B只读独审formal、C只读独审Root lifecycle，不改tracked/不跑中央Moon。
+
+D44 firstfull live37904，全部tracked生产/fixtures保持STOP。B79line独立formal复核Root已全文读，无具体缺陷。Root已补README/DEPENDENCIES/NOTICE的实现说明，行为验收仍待终态；下一补公开入口blackbox只在full结束后写，不能并发改正在验收的生产/fixtures。
+
+D44 full37904仍live，wasm22060/22061唯一fail是B手测末尾的empty构造。Root原source窄诊断
+D44-singleton-empty-diagnostic.log exit0：rawx[7]首次已广播成validcachedx[7,7]，只设yempty
+时ordinaryrecache使用len2缓存，原样(2,0)shapeerror；always重读rawsingleton1才与empty0成功。
+实现符合source，待full终态后只修该hand：ordinaryerror/保cache flags→forceempty成功，不改
+任何formalJSON/sourceexpected。补两public入口blackbox已在ignoreddraft，待full结束一并落。
+C108line独立lifecycle复核Root全文读无具体缺陷。A/C只ignored D45 remove/get_lines候选窄审，
+未freeze/无tracked实施。Root无其他live工具，生产/fixtures STOP。
+
+D44 公开API补验草案已保存ignored D44-public-{root,pyplot}-test.mbt；计划验证root类型reexport/Figure转发、实际SVG坐标/旧cache与显式relim，以及pyplot deferredshape失败/修复后同句柄绘制。仅tests补充，待full37904结束后与已证实的singletonempty hand修正一起落盘，随后定点四目标补验；原sourceexpected无变化。
+
+D44 firstfull37904 terminal2：四目标同一新增hand末尾空数组假设失败，其余全部通过
+（nonJS22060/22061，JS22067/22068）。Root实际原source诊断已证实缓存len2导致ordinaryerror，
+只修scene/line2d_wbtest：精确(2,0)错误、旧cache/flags保留，再always空成功。生产不改、
+formalJSON不改。另两公开blackbox已从ignoreddraft落root line2d_test.mbt与pyplot/line2d_test.mbt；
+最终info/fmt/check+三个文件定点四目标已启动，下一记录liveID/读终态并精修任何失败。
+累计new25registered=1formal（8scenarios）+B9+C9+Root4+public2；预期累计nonJS22063/JS22070，
+尚未补验通过，不能据预期标完成。A/C D45候选仅ignored read-only，未freeze。
+
+## D44 行为验收通过（提交前最终门禁）
+
+- [x] firstfull37904 terminal2：四目标同1新增hand fixture假设失败，其余已过。
+  原source窄诊断确认后只修该hand，生产/原JSON不改；补验11844 terminal0，9kernel+
+  2newpublic文件共11项×四目标全过。累计nonJS22063/JS22070全覆盖。
+- [x] new25registered=1formal（8private场景）+B9+C9+Root4+public2；25profiles=
+  21data（15typed/6source-only）+4ownerNone。原21+4complete fields独立exactequal。
+- [x] Root全文审所有生产/newhands/A391linegen/149lineguide，B79lineformal与C108line
+  lifecycle独审报告已全文读，无新具体缺陷。公开入口实际SVG、deferred错误恢复均已补验。
+- [x] final11844中info4/fmt4/check28 terminal0，7旧Refwarn/0error；source13457 terminal0
+  （new+旧D39）。JSON d0b1bca...af06c保持，旧D39 b55b8a...65b70保持。
+- [x] 41mbti finaldiff逐字同已审D44-interface-reviewed.diff，预期5files变化/其余36同。
+- [x] README/COMPAT/PLAN/PROGRESS/DEPENDENCIES/NOTICE/guide已补能力、验收和边界。
+- [x] 分批本地提交9257f05（生产/24定向及公开入口hands/接口26files）与5b183df（formal/source/docs10files）；本checkpoint另commit，不push。
+
+Root无live工具，全部tracked生产/fixtures STOP。下一最终diffcheck/文档审→分批commit，
+然后D45-before与A/C下一remove窄证据freeze。D45未实施，整体goal尚未完成。
+
+D44 已完整验收，生产提交9257f05已落，formal/source/docs5b183df已落。
+Root无live工具，全部tracked STOP；B/C独审报告已读无新具体缺陷。下一本checkpointcommit
+→D45-before→读A14原source与C165line设计；拟仅remove稳定handle，get_lines完整producer
+缺项明确保留，不误将displaycollection几何重建为Line2D。整体goal继续，无用户阻塞。
