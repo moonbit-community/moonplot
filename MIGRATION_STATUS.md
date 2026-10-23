@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D39已完整验收并feature d179515本地提交；下一D40 secondary默认/独立storedview生命周期，目前只读notes收束中未freeze。先读文件尾，不重跑D37–D39已过门禁。
+- 当前切片编号：D40已完整验收并分批本地提交ffe5ec9/d950312；D41 public set_functions仅只读准备，checkpoint提交后保存D41-before并freeze。先读文件尾，不重跑D37–D40已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D39 feature d179515已验收提交；完成checkpoint commit，保存D40-before，再读A source notes后freeze最小secondary纵向片。Root保central门禁/接口/commit。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：D40 feature ffe5ec9（Axis10files）+d950312（Scene/IR/backend/source/docs39files）已提交，只有本checkpoint待commit；随后保存D41-before，读A最终40obs source notes，结合已读B191/C140line设计freeze D41 pair setter+identity reset。Root保central门禁/接口/commit。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -5124,3 +5124,204 @@ warnings/0error），41mbti finalcmp全同；Root清理新Python脚本5个空行
 2294 terminal0、JSON和WBhash均原样。12510完整四目标全过，不重跑；全部工具terminal。
 下一checkpointcommit后保存D40-before，等A D40source具体notes后freeze；B212line/C174line
 已读，23actualinstaller与28controlflow范围分开，尚无D40tracked生产。整体goal继续。
+
+D39 feature d179515 + docscheckpoint48a8316均已提交，当时工作树clean；D40-before已保存
+48a83165f97cc4da40ac9cc2d847b873420b2029 HEAD/tracked.tar/41mbti，勿覆盖。不重跑D39。
+Root已全文读D40 B212line/C174line notes与必要4secondaryfiles、Axis default_scale/autoscale/
+view/context及IRproviders/backendbundle具体sections。A40numeric-stage原源观察已跑通，
+notes收尾中（完整原Secondary ClassDef+实际function安装/Axislimits/D37autoscale；图形super
+为明确storagehost）；Root尚未freeze/生产写。拟最小架构：Secondary保稳定private child
+Axis作为真实四slot/flags/ownstoredview/formatterowner，Root提供窄function/functionlog
+geometry/name上下文使原Axis默认安装和范围内核可复用；B四secondaryfiles薄适配，C区分
+aspect-only与draw-preparation hooks并live locator/fixedrole transport。既有显式count/clear
+采样为单独extension，ownerlessIR纯数值合同不冒constructor。B/C只读窄审此方案，A尽快交
+最终sourcehost/constructor结果，全部仅ignorednotes无tracked生产/无Moon/live工具。
+下一先读A notes+B/C具体疑点再freeze helper与文件归属，不重项目survey/不重D39门禁。
+
+D40 A185line source notes Root已全文读，42actualnumericstage观察（41success/1真实ValueError）
+与B23installer/C28control分开计数；A probe JSON992ae46c...5404d8。完整SecondaryClassDef
+含init，Base graphicalsuper明确numericstorage/stylehost；真Bbox/Axis/functionscale/D37
+autoscale。确认非log ctor own[0,1]；log fwd2x+5 emptydata ctor[5,5.234401174884448e50]；
+namechangingdraw先oldFixed NS constant4→[3.8,4.2]再reset，NaN错误在reset前。DPI72 320×240
+constructor/directaspect spaces x10/y11，positionedframe x4/y7；y239.999999...来自按bbox
+origin/end分别转换inches后相减，不能单用height/20。B/C正在窄审Rootstable childAxis方案。
+C具体placement风险Root同意：每ownedchild bundle需自己已安装transform/ownstoredlimits
+normalize，不能用global parent scale快照；前childcallback改parentname影响后child的drawprep，
+constantforward经NS后的ownlimits也不能用parentbounds逆映射代替。ownerlessIR保explicit
+numerictransport旧extension。尚未freeze/生产写，全部仅ignorednotes，无live工具。
+下一接B/C最小helper/provider协议后一次freeze，Root Axis functioncontext、B Scene childstate、
+C render hooks/layout snapshot、A正式source各独占推进；不重D39。
+
+D40已freeze并production：Root已读A185/B281/C174/IR166全部notes；stableprivate child
+Axis为secondary四槽/flags/view/bindings唯一authority，旧pubmutabletickerfields收束getter，
+接口变化须审。Root新Axis::configure_function_scale(forward,inverse,logarithmic~)只装context/
+共享默认（B负责oldNS→install→newNS→conditionalownemptyautoscale）；coordinate_scale_name/
+coordinate_transform/coordinate_inverse为installedsnapshot；set_source_ticks先rawownview
+expand保inversion/auto/stale再NamedFixed。函数context跳过primary-onlylegacyLogguards，
+保普通主轴旧严格合同。Root接autoscale composedtransform+sourceexpinverse、functionlog
+finalizer、shortpixelgeometry与一次snapshot minoroverlap，新增4Axis hand。
+B独占secondary4files+newlifecycle/test；C独占SceneSVG/IRmodel/backendsecondary/render+
+newbackendtest，区分aspect与drawprepare，bundle用childownlimits/transform归一并缓存；
+A独占新formalgen/JSON/WB/guide。只有显式count/clear走旧samplingextension，ownerlessIR
+保explicitnumerictransport，无publicset_functions扩scope。当前所有writers live，禁止central
+Moon/info/fmt/test，只有singlefile stdinformatter。Root代码首版已落7files（含newhelper/test），
+尚未编译或行为验收。下一全体停写后check→诊断→infofmt接口审→full四目标，失败继续。
+无Rootlive工具/无用户阻塞，整体goal持续；D39已验收勿重跑独立旧门禁。
+
+D40 Root当前helper首版：scene/axis/function_scale.mbt + function_scale_wbtest.mbt，另改Axis
+axis/autoscale/default_tickers/formatter_geometry/named_numeric共7files；单stdinmoonfmt均0，
+未central编译。4hand含immutabletransform快照、真实emptydata区间5..5.234401174884448e50、
+sourceTicks倒置raw扩张/保auto-stale/callerArraycopy、ordinaryLogguard保留。B审出FixedLocator
+构造borrowArray，Root已改values.copy并手测caller mutation，B ticks()用currentFixed projection
+bool不留Arraymirror，historicalticks_set独立。A实际证physical公式必须乘Affine reciprocal：
+((origin+length)*(1/72)-origin*(1/72))*72，不是除72，y240才得239.99999999999997/space11；
+B已采用，42源期望不变。C数值IR/bundle接线生产中，B Scene生产中，A正式gen/JSON/WB中。
+全部trackedwriters仍live，禁centralMoon门禁/禁止此时commit或误写accepted；Root无live工具。
+下一所有writers明确停后统一check定位真实错误，源期望不调松。
+
+D40 Root新增第5hand：sqrt composedminoroverlap使用变换后span，而非rawspan，全部Root5hand
+仍未Moon行为验收。C first稿5files+8backendhand曾STOP；Root审固定TransformedBbox.get_points
+发现decreasing transform归一错，C已修为transformed min/max后按rawBBox inversion复原，
+加2hand→10backendhand并再STOP；原42sourceexpected不动，A补2truechild.transData positions。
+随后Root明确授权C/B必要cross-x/y创建序：Secondary private draw_order=创建时两列表len之和，
+C传IR optionaldraw_order并统一ordered entries用于earlyaspect、每childdrawprep/bundle、最终
+append（ownerless无metadata保旧xtheny）。C恢复owned写此1项；B加privateorder。A新获独占
+NEW backend/svg/secondary_placement_reference_wbtest.mbt，可将两sourcepixelrecords投影真实
+Axisfunctioncontext/IRplacement/privatebackend而非复制renderer算法；另MainSceneWB仍核ownview。
+A正式scope原50obs/20case/1group将小扩decreasing/creationorder，最终计数以后报为准，不能
+与B23/C28相加冒93parity。仍有B/C/Atrackedwriters，Root无live工具，禁central门禁。
+下一等待明确停写；Ccreationorder后只读核childcallback改parent时primary/data全局scale旧快照
+是否具体Source不符（先原source证据/最小修法，不盲重算preparedchild，不扩GUI）。
+
+D40 B已STOP：5production+newSceneWB8hand，Root全文读全部5production+8tests，未见具体新错。
+parent_scale_name/ticks_set/source_ticks_current/legacy_sampling私有、draw_order全方向创建序；
+currentTickValues恢复保dtype/borrow；原nonfiniteSecondary错误仍InvalidTicks前置validation。
+C完成creationorder后同5files/12backendhand STOP；随后只读确证更邻接的childcallback改parent
+scale后primary/data旧enum bug（原Axes.draw稳定序/Axis._set_axes_scale立即_update_transScale/
+liveTransformedBbox），Root授权只修child全部prepare后刷新primary ownbounds+实际scale enum，
+不recompute_scales、不重child；最终data用此新局部context。C恢复此1修并加manual[1,100]
+Line x1/10/100中点应.5的新hand，明确不冒更一般x/y primary callback互改全dynamicRenderer。
+A正式source/gen仍livewriter（约50+2positions+少量creation序，最终数待报告），Root/B已停
+tracked，B转只读独审Root7Axisfiles。Root现无live工具，禁止central直到A/C明确STOP。
+
+D40所有trackedwriters已STOP。A正式5newfiles交付，gen→--check0：53actualsourceobservations，
+22Scene scenariofuncs/1group+2backend positionfuncs/1group（复用2records）=新2registered；
+1creationorder原source row链接B现hand，不重复注册。原42每旧fields same，D39JSONsame。
+新JSON SHAf08b4dd86ace16cba9b00b787e3334501e85c09cf608c819f27bd53d64776c5c。C定向
+primary/data刷新已STOP/now13backendhand，Root全文读其117line独审与78linehandoff；Root
+5hand+B8hand+C13hand=26hand，加A2groups=预期new28registered。Root启动firstcentral31323
+live（D40-check-first.log）与独立source--check20161live（D40-source-root-check.log）；
+禁并发改生产/fixtures。B仅readonly functioncontext独审，C/A当前idle无tracked写。下一
+读工具终态，失败按具体编译/真实Source定位修，不退回/不停；通过后infofmt/interface审/
+full四目标，当前尚未行为验收D40，整体goal继续。
+
+D40 firstcentral31323 terminal255：4compileerrors（C3hand调用prepared参数需Some，Root
+sqrt应value.sqrt）；已精修并3files stdin格式0。Rootsource20161 terminal0，53源观察/
+22Scenecases/2groups+2复用positioncases/1handlinked，JSONf08b4d...76c5c原样。B独立实际源
+审发现2真实order差异，Root授权修：set_source_ticks非空时getview→rawexpand→第二次getview
+→才Fixed，Root已补secondread并第6hand证明secondprovider失败保expandedview/oldlocator；
+Root现6hand。B独占named_numeric/named_formatter+newfunction_minor_order_wbtest，修minor
+capturetransform→minor→major→lateview→bounds，保持dtype/fullset与Date/Null一致、不加
+viewreads。B当前livewriter，此时禁止central；Root/C/A停，Root无live工具。
+下一B停后secondcheck→源/旧tests按实际Source诊断→infofmt接口审/full；不因fail停滞。
+
+D40 B已STOP，Root全文读112line function-context独审与3files minor修正/6hand；原完整源
+6stage观察独立于53formal。Root另补sourceTicks rawBbox getter（public projectedview不作
+rawsetter输入）、equal旧区间走反向分支、callback清空输入先min错误、Python strict
+min/max保首equal/NaN/signedzero；Root当前8hand。Root/B/C/A全部STOP，预期new37registered
+（Root8+BScene8+Bminor6+C13+A2groups），尚未运行行为不冒pass。secondcentral30157 live，
+log D40-check-second.log；下一读结果，精修实际问题后infofmt/interface审与完整四目标。
+
+D40 secondcheck30157 terminal0：72tasks/7旧Refwarn/0error；info9tasks/fmt22tasks terminal0。
+41份mbti对D40-before产生111line diff，Root已全文审：internal IR增加可选draw/placement/
+live role/order hooks与immutable SecondaryPlacement；Axis新增functioncontext5helpers；Scene
+secondary移除4个旧pubmutable ticker镜像字段（getter/setter保留），新增prepare_draw，预期。
+fullfourtarget19512 live，log D40-test-all-first.log；new37registered待runner核，不能先称过。
+所有trackedwriters停。A/B/C仅只读准备D41 public secondary.set_functions（不扩transform布局），
+分别ignored source/integration/render notes，无Moon/无tracked写。Root下一诊断full实际结果。
+
+D40额外Root原完整_sourceTicks probe exit0，ignored D40-source-ticks-root-probe.py/.json，
+projectedgetter/equalraw/signedzero/firstcallback清空4观察；前三精确同新hand。第4原实际
+runtime错误字面是`min() iterable argument is empty`，Root目前生产/hand仍为旧记忆字符串
+`min() arg is an empty sequence`，必须full19512终态后两处精修并定点四目标验证，不能
+在fulllive时改tracked。该4diagnostic不加入53formal计数。当前full19512仍live。
+
+D40 firstfull19512 terminal255：wasm/wasm-gc各21958pass/21989，JS21965pass/21996，同31fail；
+native在C新backendXMLfixture未startsvg触writer第二root错误SIGABRT，无native全过结论。
+Root已精修sourceTicks错误字面与原runtime一致。A接旧五类reference fixtures/generators与
+numeric_axis_context两hand；B接secondary_lifecycle/secondary_axis/auto_minor_axis/log_axis
+四handfiles；C仅NEWbackendWB两Writer补svgroot。所有修法须实际源证据，不改JSON期望，
+production缺陷先回报。当前agents各独占写，禁centralMoon；下一各STOP后check/infofmt/
+定点诊断及完整四目标重验。失败正在排查，不是用户阻塞。D41只读暂停。
+
+D40 B4Scenehandfiles已STOP，Root全文审72line diagnosis与diff；完整源4diagnostic+C独立
+2labelrows均0，确认MaxN3步预期、Scalar精度、aspect前own0..1、draw旧LogNS均为fixture
+假设，无新增production反例。C两XMLroot已修STOP；随后Root读actual legacyformatter
+桥确认owned仍forward(parentbounds)而非真实ownstoredNSview，是具体D40production缺陷，
+授权C仅render helper ownedplacement分支用existing formatter_view_interval，ownerless保持，
+加第14backendhand；B只读独审此1修。A仍旧reference/physicalfixture写，增加授权numeric
+generator同步。此时禁止centralMoon，待A/C明确STOP再full。当前无Rootlive工具。
+
+D40 C已STOP：owned legacyformatter仅Some分支读existing storedviewprovider一次，不调用
+placement/forward；named/Null/None及ownerless原行为保持。Root全文读B独审与C精修/第14
+hand，完整原Percent+DummyAxis证labels0.10%/0.50%，poisonforward次数0。newregistered
+现在38=Root8+BScene8+Bminor6+C14+A2groups。C63line failure notes与D41render140line
+notes落盘（D41未实施）；A旧reference模板/生成物修与6sourcechecks收尾仍writer。下一
+A明确STOP后centralinfofmt/check、审final接口diff对111line基线、完整四目标重验。
+
+D40 A12files已STOP，Root全文审106line fixture诊断与12files diff：old原sourcehost录
+aspect/positioned阶段显式进入；Log rawsetter/screcordhost改controlled Axis provider，保原
+view/Infminpos/space4与所有原断言；6旧JSON逐字未改，6source--check全0，D40formal未改。
+third49659 terminal0：info7tasks/fmt15tasks/check50tasks，7旧warn/0error；41mbti 111line
+diff逐字同已审基线。secondfull92966 live，log D40-test-all-second.log（新38registered）；全部
+trackedwriter停，无并发生产/fixture更改。下一读full实际终态，失败继续精修，不重D39。
+
+D40 secondfull92966 terminal2：wasm/wasm-gc/native各21988/21990，JS21995/21997，同2fail
+only numeric_axis_context physical2hand；其余含38newregistered均四目标通过。Root确认非
+margin（manualrect无padding且Figure无marginsetter），真实reciprocal affine240@origin0
+→239.99999999999997，source旧numeric host除72为240，导致space3/owner3ticks。不能改
+生产回除72。A仅对这2fixture/template做完整原Bbox/sourcegetspace平移几何probe；拟xorigin
+120、第一ybottom24/top96令长度240/120原实际空间仍4/3，保原所有expected/JSON，原
+sourceprofile只规定长度。92966已terminal可写，A此两files独占，其余STOP。修后仅单文件
+四目标补验（production未变），通过即可累计全suite验收；不再无理由thirdfull。无Rootlive。
+
+D40 A完整原Affine复验纠正Root简式推断：ybottom.1仍space2，.25才space3；first
+parentrect(.25,.25,.5,.5)、second(.25,0,.5,.5)保actual240/120/source4/3及owner5ticks。
+采用完整原source而非简式公式；ignored D40-old-physical-affine-origin-probe.json保正负例。
+A仅numeric2files收尾/check，待STOP后Root `moon test scene/numeric_axis_context_test.mbt
+--target all`；不要误用旧版-f filename（当前-f是测试名glob）。
+
+D40 A两fixture/template平移已STOP；Root全文读完整原Affine12rows正负例和新26line说明，
+numeric --check0/JSON原样。单file四目标补验52805 live，log D40-test-numeric-supplement.log。
+production自secondfull未改，其他alltests既有四目标通过可保；此次只补剩余fixture文件，
+下一看52805终态，再accepted docs/finalinfofmtcheck与分批本地commit。A继续D41仅readonly。
+
+## D40 行为验收通过（提交前最终门禁）
+
+- [x] secondfull92966：wasm/wasm-gc/native各21988/21990、JS21995/21997，仅2旧物理
+  fixture；真实原Affine证平移几何后单文件52805 terminal0，四目标各86/86全过。
+  production自secondfull未变，累计nonJS21990/JS21997全覆盖，不重thirdfull。
+- [x] 新38registered=2formalgroups+36hands（Root8/BScene8/Bminor6/C14）；53formal
+  sourceobs（22Scene funcs承载52directobs，2backendfunc复用positions，1obs链接既有hand）。
+- [x] 所有旧JSON原值保持，6旧source--check全0，numeric平移后再check0；新formal最后
+  Root --check terminal0，log D40-source-final.log，JSON f08b4d...76c5c未变。
+- [x] Root全文审A106+26line旧fixture证据、B72line手测诊断/C63line诊断与独立legacyview
+  审查；sourceTicks4/minor6/labels2/physical12诊断均单独口径，不混53formal计数。
+- [x] README/COMPAT/PLAN/PROGRESS/DEPENDENCIES/NOTICE/newguide已更新能力/验收/边界。
+- [x] 最终85961 terminal0：info4tasks/fmt1task/check24tasks，7旧warn/0error；41mbti
+  111line finaldiff逐字同已审基线，diffcheck0。清newPython1空行尾space后sourcefinal0，
+  formal53/JSON f08b4d...76c5c保持。
+- [x] 分批feature本地提交ffe5ec9（Axis10files/591insertions/71deletions）、d950312
+  （Scene/IR/backend/source/docs39files/20746insertions/771deletions，主要JSON/fixtures）；
+  本checkpoint另commit。整体goal未完成，无remote/push。
+
+当前无Rootlive工具/全部trackedwriters停；A只读D41源矩阵，B181line/C140line D41notes
+Root均已全文读。下一最终静态门禁与commit，勿重复已过D40行为测试。
+
+D40 feature ffe5ec9+d950312已提交；85961 finalstatic0，52805 numeric86×4补验0，
+92966除这2fixture外完整四目标通过，累计nonJS21990/JS21997全覆盖。只有本checkpoint
+待commit，全部toolterminal无live。D41仅ignored设计：B已191line实证修正NaNforward
+postinstall其实成功（sourceLogview_limits回退[1,10]，非猜测失败）；唯一已证typedsetter
+partial是CURRENT Log query x/y pair/None4cases。A40actualobs=26typed+14source-only
+terminal0，最终notes收尾。下一checkpointcommit→D41-before snapshot→读A最终source/
+修正后的B19line→freeze并授权独占实现。当前无用户阻塞，goal继续，不重D40门禁。
