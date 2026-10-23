@@ -73,6 +73,7 @@ fn Axes::attach_line_handle(
     invalid_x: false,
     invalid_y: false,
     owner: Some(self),
+    removal_parent: Some(self),
     stale: true,
   }
   let resolved_color = self.resolve_color(color)

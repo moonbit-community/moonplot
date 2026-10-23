@@ -257,7 +257,7 @@ fn SubFigureData::clear_titles(self : SubFigureData) -> Unit {
 ///|
 fn AxesData::clear_presentation(self : AxesData) -> Unit {
   for line in self.line_originals {
-    line.detach()
+    line.clear_attachment()
   }
   self.artists.clear()
   self.line_originals.clear()

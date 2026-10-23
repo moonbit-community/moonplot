@@ -53,6 +53,7 @@ fn line_data_source_detached(x : LineData, y : LineData) -> Line2D {
     invalid_x: true,
     invalid_y: true,
     owner: None,
+    removal_parent: None,
     stale: true,
   }
 }

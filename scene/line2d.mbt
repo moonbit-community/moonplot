@@ -16,6 +16,7 @@ pub struct Line2D {
   priv mut invalid_x : Bool
   priv mut invalid_y : Bool
   priv mut owner : Axes?
+  priv mut removal_parent : Axes?
   priv mut stale : Bool
 }
 
@@ -96,6 +97,43 @@ pub fn Line2D::stale(self : Line2D) -> Bool {
 ///|
 fn Line2D::detach(self : Line2D) -> Unit {
   self.owner = None
+}
+
+///|
+// Clear only currently attached children through this operation. Ordinary
+// remove deliberately retains its old removal binding for repeated errors.
+fn Line2D::clear_attachment(self : Line2D) -> Unit {
+  self.removal_parent = None
+  self.detach()
+}
+
+///|
+/// Remove this exact attached Line without recomputing limits or legend state.
+pub fn Line2D::remove(self : Line2D) -> Unit raise @core.DataError {
+  let parent = match self.removal_parent {
+    Some(parent) => parent
+    None =>
+      raise @core.DataError::InvalidTicks(
+        message="NotImplementedError: cannot remove artist",
+      )
+  }
+  let artists = parent.state.val.artists
+  let mut found = None
+  for index in 0..<artists.length() {
+    if artists[index] is Artist::Line(points, _) &&
+      physical_equal(points, self.points) {
+      found = Some(index)
+      break
+    }
+  }
+  guard found is Some(index) else {
+    raise @core.DataError::InvalidTicks(
+      message="ValueError: list.remove(x): x not in list",
+    )
+  }
+  ignore(artists.remove(index))
+  parent.state.val.line_originals.retain(line => !physical_equal(line, self))
+  self.detach()
 }
 
 ///|

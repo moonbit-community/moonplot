@@ -199,7 +199,7 @@ fn line_data_source_aliases(first : @ticker.TickValues, second : @ticker.TickVal
 // generation; public refresh outcome, flags and original data are compared.
 fn line_data_source_detached(x : LineData, y : LineData) -> Line2D {
   { points: [], x: x.copy(), y: y.copy(), cache: line2d_cache_from_flat([]),
-    invalid_x: true, invalid_y: true, owner: None, stale: true }
+    invalid_x: true, invalid_y: true, owner: None, removal_parent: None, stale: true }
 }
 '''
 
