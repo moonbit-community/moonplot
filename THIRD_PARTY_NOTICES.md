@@ -555,3 +555,9 @@ artist.py、axes/_base.py、figure.py 和既有 Line 缓存原源以 MoonBit 重
 15 条观察及 source-only 查询/重接入边界见
 [testdata/line_remove_README.md](testdata/line_remove_README.md)。
 没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。
+
+D46 的 Line 可见性和延迟绘制早退继续依据固定 Matplotlib v3.11.2 的 artist.py、
+lines.py 与既有单位原源以 MoonBit 重写。完整 Line.draw 控制体、15 条原源操作和
+no-style/no-marker 呈现宿主边界见
+[testdata/line_visible_README.md](testdata/line_visible_README.md)。
+没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。

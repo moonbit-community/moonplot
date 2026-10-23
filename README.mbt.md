@@ -1982,3 +1982,19 @@ fig.axes().autoscale_view()
 
 新导出的 IR 排除已移除图元，之前导出的 IR 继续持有原句柄。精确错误、原源记录与
 图形宿主边界见 [Line 移除生命周期](testdata/line_remove_README.md)。
+
+D46 增加 `Line2D::get_visible()` 和 `set_visible(Bool)`。初始可见；只有值发生变化才
+标记 Line stale，同值设置保持原状态。隐藏绘制在转换数据前返回，因此待处理的形状或
+单位错误会保留到重新显示后的绘制。隐藏返回不清 stale；可见 Line 正常完成才清除它，
+包括空数据或全部非有限点的情况。
+
+```moonbit nocheck
+line.set_visible(false)
+let hidden_svg = fig.to_svg_checked()
+line.set_visible(true)
+let visible_svg = fig.to_svg_checked()
+```
+
+隐藏不修改数据、范围或自动范围请求；显式 getter、单位更新及默认 relim 仍处理该 Line。
+已导出的 IR 在到达 Line 绘制阶段时读取当前可见性。原源记录与 leaf-draw 宿主边界见
+[Line 可见性](testdata/line_visible_README.md)。

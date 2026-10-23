@@ -408,3 +408,12 @@ blend factory、locator 和 Bbox；52 条记录含 38 个 typed 场景与 14 条
 来源哈希、图形宿主和移除绑定边界见
 [testdata/line_remove_README.md](testdata/line_remove_README.md)。
 项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。
+
+## D46 Line 可见性
+
+复用稳定 Line 状态和既有 late-provider 协议，无新 IR/backend 类型或分发依赖。
+独立参考执行固定 v3.11.2 的 Artist.get_visible/set_visible 及完整 Line.draw 控制体，
+仅去除 rasterization 呈现 decorator；no-line-style/no-marker 宿主执行实际早退、缓存和
+完成阶段。15 条原源操作保留为一个连续 typed 场景，具体来源哈希与边界见
+[testdata/line_visible_README.md](testdata/line_visible_README.md)。
+项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。

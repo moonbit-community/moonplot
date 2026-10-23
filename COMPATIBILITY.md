@@ -54,7 +54,7 @@ MoonBit 工具链映射：Matplotlib 的 `extend` 参数/属性在 MoonBit 端�
 | `Axes` / `_AxesBase` | `scene/axes` | 原型；每个 Axes 独立持有图元、范围、标签和标题，并可挂载多个次坐标轴；支持 axis decorations 的 on/off 和 clear；位置支持归一化 `get_position(original=...)`、四参数 `set_position(..., which=...)` 和 `reset_position`，auto/equal/numeric 与 SVG 共用范围和矩形计算；`set_aspect` 接受正有限 y/x 比例，`get_aspect` 返回 None(auto)/Some(ratio)，`share` 更新直接共享组并集，支持 transformed spans 与流线箭头显示尺寸；`Anchor::Named`/`Fraction`、`set_anchor`/`get_anchor` 及 `set_aspect(anchor=...)` 支持 compass/有限 tuple（含越界）锚定和 share，clear 保留锚点；允许零尺寸和越界，非法位置原子拒绝。`remove` 同步清理 Figure/SubFigure 列表并隔离共享轴，旧句柄保留数据与来源 Figure，重复/外部移除原子拒绝；GridSpec 手动覆盖在下次 `subplots_adjust` 时恢复；`set/get_adjustable` 与 `set_aspect(adjustable=...)` 支持 box/datalim，`apply_aspect` 和 checked SVG 同步实际视图，自动/显式选择及方向保留；共享 x/y 仅调整非共享轴，numeric datalim 两轴共享在 setter 提前拒绝；原非抛错 getter 失败返回 None，`to_svg_checked` 返回 DataError。固定范围覆盖不提供 Python 日志警告；`set/get_box_aspect` 支持正有限物理高/宽比和省参清除，设置时选择 datalim，清除保留模式；auto 仅缩框并允许两轴共享，numeric 先缩框再调视图，box 模式 numeric 优先，支持 anchor/动态网格/图像/流线单位；locator、twins、自动布局和 SubFigure 局部坐标仍待迁移 |
 | `Axis` / `XAxis` / `YAxis` | `scene/axis` | 原型；范围、线性/对数/日期刻度、固定刻度、自定义标签、类别刻度、numeric major/minor locator 和 major/minor grid 可见性/样式；Axes 自动范围支持 x/y margins；D20 SVG 主次/secondary 刻度按变换后的view及上游1e-10容差筛选绘制，先保留完整刻度做formatter布局，direct tick_values仍返回邻接点；D38 四槽独立 Date/Category 单位默认安装、共享单位/回调与 checked 日期查询已验收，见[单位接线](testdata/units_lifecycle_README.md) |
 | `GridSpec` / `SubplotSpec` | `scene/gridspec` | GridSpec 原型；支持规则网格、`none`/`all`/`row`/`column` 共享轴、共享范围/刻度传播、外侧主刻度标签布局、可动态更新的 `hspace`/`vspace`、`width_ratios`/`height_ratios`、跨行列与嵌套 SubplotSpec、负行主序索引和 `Figure::add_subplot`；未显式设置的网格间距可继承 Figure 的 `wspace`/`hspace`，显式 GridSpec 间距优先 |
-| `Line2D` / `AxLine` | `scene/lines` | D44 已验收稳定 Line2D 数据句柄、LineData 原始数组、lazy setter/getter、可写 TickValues 与每代缓存别名；Axes/Figure/pyplot.plot_line 返回句柄，checked relim 与 late SVG draw 已接通。D45 已验收 remove 的稳定身份删除、clear 后不同错误与 delaxes 后保留所属 Axes，不自动重算范围或删除静态图例。初次输入沿用等长便利合同；完整 Artist 属性/Path、AxLine 对象与通用图形协议仍待迁移，见 testdata/line_data_README.md |
+| `Line2D` / `AxLine` | `scene/lines` | D44 已验收稳定 Line2D 数据句柄、LineData 原始数组、lazy setter/getter、可写 TickValues 与每代缓存别名；Axes/Figure/pyplot.plot_line 返回句柄，checked relim 与 late SVG draw 已接通。D45 已验收 remove 的稳定身份删除、clear 后不同错误与 delaxes 后保留所属 Axes，不自动重算范围或删除静态图例。D46 已接通 get_visible/set_visible 的同值 no-op、hidden 转换前早退与完成后 stale。初次输入沿用等长便利合同；完整 Artist 属性/Path、AxLine 对象与通用图形协议仍待迁移，见 testdata/line_data_README.md |
 | `Patch` / `Rectangle` / `Polygon` | `scene/patches` | 原型；Bar、BarH、FillBetween |
 | `Collection` / `PathCollection` | `scene/collections` | 原型；`PathCollection` 支持散点颜色/大小广播、复制语义、自动范围和 SVG 圆点渲染 |
 | `BoxStats` / `boxplot` | `scene/boxplot` | 原型；分位数、IQR 须线、离群点和 SVG 竖直/水平箱线图 |
@@ -168,6 +168,13 @@ D45 稳定 Line 移除已验收：13 个新增注册测试（1 正式组含 4 �
 接口只在 Scene 新增 remove 一行，其余 40 份不变。图形 stale 回调、通用 add_line、
 完整 get_lines 与 ArtistList 仍有边界，见
 [testdata/line_remove_README.md](testdata/line_remove_README.md)。
+
+D46 Line 可见性已验收：15 个新增注册测试（1 正式组含 15 个连续原源操作、14 个
+定向和公开入口回归），原 15 条准备记录和 draw-body hash 完整不变。完整四目标
+wasm/wasm-gc/native 各 22091 项、JS 22098 项全部通过。隐藏跳过实际 Line 转换且不清
+stale，可见成功才清；显式 getter、单位更新和默认 relim 仍处理隐藏 Line。仅 Scene
+接口新增 get/set_visible，其余 40 份不变。完整样式、marker、rasterization 和 GUI 仍有
+边界，见 [testdata/line_visible_README.md](testdata/line_visible_README.md)。
 
 ## 完成标准
 
