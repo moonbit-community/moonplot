@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D33准备（命名LogFormatter家族）；D32已验收并提交feature497212a。
+- 当前切片编号：D34只读准备（命名LogitFormatter）；D33已验收并提交f92729d/6dea404。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,24 +33,24 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D32 feature497212a已本地提交35files。最终95004 exit0，wasm/gc/native
-  各21548全过、JS21555全过；info/fmt0、check31tasks/8旧Refwarnings/0error，80行接口
-  全文审且final/doc-final逐字cmp同，五新sourcechecks0。62新增registered承载1740案例，
-  其中Root99dicttraces另6200steps；原numeric JSON SHA098439...dd23始终不变。
-  全部D32工具terminal，不重跑已验收门禁。D33候选LogFormatter/Exponent/Mathtext/
-  SciNotation三agent仅ignored定向readonly notes，具体scope/API待Root全文读notes冻结：
-  A参数/MRO/复制→D33-logformatter-params-notes.md；B数值/文本/primitive→
-  D33-logformatter-numeric-notes.md；C真实Axis/provider/shared/secondary→
-  D33-logformatter-axis-notes.md，均在.moonagent/checkpoints/；已收到followup，无D33tracked。
-  下一读必要原4class与三notes后freeze，不重survey settled架构；D33未建before。
-  D32-before HEAD e473b88与D31-before HEAD6e002e9完整保留。整体goal仍active约46%/80%，
-  master本地无remote/push，无用户阻塞；checkpoint随后单独commit。
+- 下一条具体动作：D34命名LogitFormatter三个独立readonly分片已派原agents：A参数/
+  对象与继承（D34-logitformatter-params-notes.md）；B数值/完整minor算法与数学profile
+  （D34-logitformatter-numeric-notes.md）；C实际Axis/shared/secondary/draw
+  （D34-logitformatter-axis-notes.md）。全部只写ignored notes，不改tracked/不跑Moon。
+  Root下一读三份完整notes及必要固定ticker.py1208–1403/helper，再冻结typed scope/API和
+  exclusive files，之后才实现。D34未snapshot/未实现/未验收，不预先声称context需求。
+  D33 full25520、追加exacthalf过滤82978、final80311、四source均terminal0；无live工具。
+  nonJS21700/JS21707全过；152newregistered承载4557validationcases，251行接口全文审且
+  final逐字cmp同；finalcheck28tasks/8旧Refwarn/0error。所有原JSONexpected保持。
+  Root基础feature f92729d（8files）+Log家族feature6dea404（36files）已本地提交；
+  无remote/push。D33-before HEAD5f9cfcd archive/全部mbti保留，不重跑D32/D33已过门禁。
+  整体goal仍active，工程估算约46%全目标/80%核心2D，不能用tests充API覆盖分母。
 - D27无live工具；finalall77638与grid-source71661 exit0，95932旧失败exit2、73479 probe exit0、JS30690 exit0均terminal。
   81493 compileexit1/40418旧5failexit2/62175与29316 sourceexit0都terminal，不轮询。
   D26 final26297/JS82640/source20346/check99335全exit0；
   过早check65209经主动SIGINT exit130已terminal；所有writers停写，不轮询旧sessions。
 - Git本地基线1b61c4b（D01–D19）；D20 d385718、D21 2403fcb、D22 fee6885、
-  D23 179f365、D24 13ef0b1、D25 c2f6edf；D26 feature61f768f/checkpoint78b0b68、D27 feature524b673、D28 feature53ed70d、D29 feature0b4f8c5、D30 feature11112e9、D31 feature38505e5已提交。无remote、不push。
+  D23 179f365、D24 13ef0b1、D25 c2f6edf；D26 feature61f768f/checkpoint78b0b68、D27 feature524b673、D28 feature53ed70d、D29 feature0b4f8c5、D30 feature11112e9、D31 feature38505e5、D32 feature497212a、D33基础f92729d/家族6dea404已提交。无remote、不push。
   用户已授权分批commit与独立并行subagents，覆盖历史不commit指令。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
   CPython v3.11.0 timedelta 源码在 .moonagent/upstream/cpython-v3.11.0/，仅行为
@@ -4211,10 +4211,147 @@ README/COMPAT/PLAN/总guide/依赖/NOTICE已改为accepted。整体goal仍active
 - [x] final95004四目标全部过；infofmt/check/80行接口审与final/docfinal cmp0；
       README/COMPAT/PLAN/总guide/参数与数值guide/依赖/NOTICE已accepted。
 - [x] feature497212a本地commit35files，458902insertions主要为完整refs/tests；无remote/push。
-- [ ] D33三agent只读准备完成后Root全文读notes与必要原类，再冻结下一slice。
+- [x] D33三agent只读准备、Root全文读必要原类、scope/API冻结及实现已完成；验收见后续D33记录。
 
 D32主生产变更为ticker/formatter_{base,named_batch,scalar_named,scalar_math}.mbt与
 新formatter_eng_{named,prefixes,math,numeric}.mbt；新Scene仅两个参考fixture；五新generator
 和testdata JSON/guide保原源证据。D32最后所有sessions均terminal，无码write工具live。
 D33仅readonly notes工作已派原三agents，不改tracked、不跑Moon、不先实现公开API。
 整体goal仍持续，不把本片验收等同全目标完成。
+
+D33本回合起始已重读checkpoint，git HEAD5f9cfcd clean；上回合为已验证实现/提交的真实进展。
+Root已完整读LogFormatter4classes与必要_nonsingular/strip_math/_setattr_cm/_is_close_to_int，
+定向读现Base/Axis/Secondary/config接线，写ignored D33-root-glue-notes.md。首个必要差异：
+Log set_locs完全忽略locs且不写_loc s（empty也prepare），需Base赋值前specialdispatch；
+Mathtext/Sci directcall不读axis，plain/Exponent在门控后读view；getoffset恒空、short无context。
+C已找到optional transform.linthresh真实探测需求（secondary非父symlogthreshold），仍等待三notes
+完整后freeze，未D33tracked实现/未snapshot/未Moongates，无live工具sessions。
+
+D33 contract freeze：4class named Log/Exponent/Mathtext/Sci；不继承Scalar。Base Log-kind
+set_locs入口在存locations前prepare/return，empty同prepare；call/data/short分派与ignorelocs
+保原协议。新增optional transform_linthresh provider（ScalarNumber? raiseCore），仅probe阶段
+吞AttributeError，primary liveSymlog/secondaryNone。LogValue Numeric(ScalarNumber)/Text/
+NoneValue；LogMinorThresholds Tuple(opaque immutable)/Sequence(ArrayLogValue)/NdArray/
+Raw(LogValue)，constructorNone defaulttuple，rawsetterNone真实None；readonly cache snapshot。
+Root负责log_text_float helper+完整nativefloat corpus，min_exponent liveBigInt配置+batch；
+A/B/C任务已明确文件独占（C不碰base.mbt，A初始化providerfield），所有矩阵32case分组。
+D33-before HEAD5f9cfcd已保存，无生产/fixture门禁尚验收。原D32工具全terminal，goalactive。
+
+D33实现进展：Root已落min_exponent liveBigInt配置/snapshot/reset+1test、Log kind公共
+call/data/short/typedbatch接线、nativefloat Textbase helper。新增独立builtin float(str)
+sourcegen/json/WB：2152nativecases=2077success/75error→68registeredgroups，含660UnicodeNd、
+精确midpoint±1e-1200、overflow/underflow、5000digit输入、signedNaN/zero与完整invalidrepr；
+gen0，尚未项目编译/行为验收，不能据此宣称实现通过。C交付7files停写：linthreshBinding
+3methods、primaryaxis livecurrentScale、200actualobs逐项深等readonly（174success/18Value/
+8Attribute）→7groups+2hand=9registered；gen/check0、无live工具。A公开接口/params与B
+numeric/fullmath仍写，Root不运行centralMoon。C获派仅readonly复核Bprepare/cache，无tracked写。
+B首轮4productionfiles已落含genericfractionalpower精确rationalroot+directedlnexp，待正式refs。
+本段无liveRoot工具session，无新commit/未接受D33；下一Rootreview numeric/math、补总guide，
+待A/B停写后centralcheck/infofmt/interfacesource/full4target。仍同一整体goalactive。
+
+D33 A交付11files并停写：Basekind/copy/ignorelocs/providerfield、rawtuple+4namedwrappers、
+newloader与paramsgen/json/WB/guide。892actualobs/469privatecases→15registeredgroups，
+21sourceonly/0extra hand；newparams gen/check0、旧Engparamscheck0、loader旧HEADbyteprefix同。
+set_locs(locations?) labelledoptional/set_locs_view positional已确认。B首轮正式gen0：1567
+numericcases→49groups、109primitive/geomcases→4groups；125001/200001/200001完整实际源数组
+已执行，8labeldiff/3warningdiff/3geompointbitdiff双值保留。B正在guide/hand/check收尾，C仅
+readonly复核cache，Root总guide/依赖/NOTICE已pending。Root float check0/C axis check0；
+尚无centralMoon live session，下一B停写后统一D33-gate.sh。
+
+D33 gate前定向review发现2真实边界，未改弱任何旧期望：B自审arange index先Double再+1
+在2^53附近有代表值缺口，改全logicalmonotone binarysearch+directcase，并补负stop<-2^63
+实际sourceMaximumsizeerror；B尚写。Root实际AST probe确认A threshold1DNdArray empty/
+len1索引错误当前漏原IndexError而抛TickValues内部消息：[]→index0size0，[100]→index1size1，
+[0]可成功；A获派精确bounds消息+formaladdedcases，原deferredlen协议保持。C680actualprepare+
+98base×2profile完整geom/10492membership/196snapshot未见新差异，仍readonly审resourcebound。
+暂无centralMoon；Root总guide的numeric脚本CLI已改真实无TICKER。
+
+D33 A精确NdArray indexfix已完成停写：增31cases，934actualobs/500privatecases→16groups，
+21sourceonly；旧469case JSON整体SHA a87b868...fe1c7/sourceonlySHA fc196afa...f92a逐字同。
+newgen/check0，index错误按原index/实时length，不做eagerlen2。C发现B全域geom邻jump2^14
+证明反例（base nextdown2^61邻jump18944），未发现Resource行为反例；B已撤回该证明，
+替换base>2^40的小coefficient前缀邻jump<.345→rint邻差≤1→unique超Array地址域论证，
+待guide与hand收尾。Root同意用coeff≤2^32+1界避免prefix跨点遗漏。C只读复核替代证明，
+A恢复只读numeric/mathreview，无tracked写；仅B仍写，无centralMoon tool live。
+
+D33 C只读review完整135行Root已全文读：680actualprepare、196fullgeom snapshot、10492
+membership/1264smallarange模型核对无新差异（独立review不算Moon验收/不计正式coverage）。
+全域2^14反例已收；最终prefix proof用base>2^40,n≥2^39,L<19，保守phasegap
+20/(n−1)+20·2^-52·n/(n−1)+2^-48<2^-34，coeff≤2^32+1内powgap<.577<1，
+rint邻差≤1，必经1..2^31+1→unique超地址域。C独立确认此替代式有效，已停所有写无live。
+B仍handoff收尾；A只读numeric/math，Root central尚未启动。
+
+D33首central32828 terminal255：只有1error，Bgeneratedfixture误用TickValues.from_int64
+（真实from_int64_array）；B获派仅gen/WB拼写修，JSONSHA588d3326fc9e9a0d598e4860a5a2351d2b1ed16411e63bb9dd24278422b87a0a不动。
+12warnings=8旧Ref+3A unusedself+1A fixtureunusedraise，A精确修ownedproduction/gen/WB后
+停写。尚未info/fmt/behavior，不能accept。B实际10files/1589numeric→50groups+109math→4+
+4hand=58registered/1702validationcases，actual4389/math4376obs；source--check10869已0，
+Rootparamscheck0。总新预计152registered/4557validation=16A500+58B1702+9C202+69Root2153。
+Root已全文读Bguide/hand，guide从误置root移入testdata；总guide仍pending。下一allwriters停
+再第二static，所有RootMoon/source sessions terminal，未commit，goalactive。
+
+D33第二static24149 terminal0：checkall84tasks/8旧Refwarnings/0error，info0/fmt0。
+251行完整接口已Root全文审：config仅3min_exponent API；ticker仅4namedLog/LogValue/
+thresholdtuple/thresholdcarrier/downcasts与3linthresh Binding方法，旧pure/Scene签名不变；
+已存D33-interface-reviewed.diff。BfixtureAPI精修与Aunusedwarning精修均已停写；所有原JSON
+保持，params整fecd0208...c641/numeric588d3326...87a0a/axis0226199a...cec3/
+float06779465...5b80已记录。Root numeric源复验82142尚live（readonly --check），其他三新源
+checks均0。下一完整4targetfullsuite预期21700nonJS/21707JS，未accepted未commit。
+
+D33 full4suite25520 live，log D33-test-all.log，目前编译warnings输出阶段；不可改tracked源码/
+fixtures。numeric source复验82142已terminal0，四新source全0。A只读math发现exactoracle边界：
+.25**537.5=2^-1075最近偶数0，真实Python0；Decimal pow180/320/640转Double分别1/0/1。
+当前formalprimitive未含此值、原expected未受影响，生产rationalroot路径可精确化为.5**1075。
+A只写ignored证据，B知悉不写；待fullterminal后加在现rational手写test内exactbits断言及guide
+说明；若无生产变动只补受影响四目标test，不重跑已过其他suite，若有行为fix再统一full。
+当前不允许任何tracked writer，goalactive未accepted未commit。
+
+D33 full25520仍live但已明确3目标全过：wasm21700/21700、wasm-gc21700/21700、
+JS21707/21707；native尚运行。Root2152nativefloatcases与152新registered在3目标均过，
+无behaviorfail；未改tracked源码/fixture。待native terminal后补exacthalf手写assert/guide，
+仅该相关四目标test补验；再最终infofmt/check/interfacecmp与accepted docs/分批commits。
+
+D33 full25520最终terminal0：wasm/wasm-gc/native各21700/21700、JS21707/21707全部过，
+152newregistered承载4557cases，四新source checks全部0，251行接口已审。A191行独立math
+review Root全文读，无新已证生产缺陷；已精确展示Decimal finiteprecision不是通用tie证书。
+Root在现有rational hand块补2个Fraction exacthalf+2个邻exponent bits断言，仅test+guide改动，
+生产/原JSON均不动，过滤四目标补验82978 live（D33-rational-midpoint-test-all.log）。
+原Python/Fraction独立inline已确认0/0/1/0 bits。下一该testterminal→finalinfofmt/check/
+interfacecmp、accepted README/COMPAT/PLAN/总guide，分Root基础功能与家族feature/checkpoint
+本地commits；无需重跑未变的完整suite。goalactive，不把本片验收当全目标完成。
+
+
+## D33 已验收交付
+
+- [x] 完整命名LogFormatter/Exponent/Mathtext/SciNotation四类；live Base与父类view，
+      独立浅copy、六数值/Text/None、immutable默认thresholdtuple与显式borrowedlist/view。
+- [x] set_locs忽略locations且empty也prepare，Base checked入口不覆盖_loc s；batch独立
+      枚举原typedvalues；Null跳过整batch、direct保stale cache；getoffset恒空/short无context。
+- [x] individually rounded ln比值、Py/NP指数origin、nextafter、isclose/round原顺序，
+      generalpositivefractionalpow exactrationalroot+adaptive directedlnexp；原8label/3warning/
+      3geompoint/2primitive bit差异保双profile，不伪装Darwin libm bitclone。
+- [x] 内部完整logicalarange/geomspace cache、fullshape source错误、binarysearch membership，
+      plateau跳跃完整snapshot与已独立审查smallprefix addressability证明，无100000cap。
+      arange2^53缺点、负shapeoverflow与NdArrayempty/len1原IndexError均在fullsuite前精确修。
+- [x] 当前actual transform.linthresh liveprimary接线，secondary/dummyNone；只在probe阶段
+      吞AttributeError。完整actualAxis/fullrawbatch/shared/removal/draw/latecurrentoffset保源协议。
+- [x] 152registered承载4557cases：A500/16groups（934actualobs/21sourceonly）；B1589/50+
+      math109/4+4hand=58registered/1702cases；C200/7+2hand=9registered/202cases；
+      Rootfloat2152/68+config1=69registered/2153cases。原source/mathobs计数独立。
+- [x] Full25520：wasm/wasm-gc/native各21700/21700、JS21707/21707全过；四newsource全0。
+      补4个exactFraction halfminsub/邻exponent bits断言只改现hand块，过滤82978四目标各1/1。
+      没有生产变动/原JSONexpected变动，不重复已过无关suite。
+- [x] Final80311：infofmt0/checkall28tasks8旧Refwarn0error；251行接口全文审，finalcmp同；
+      README/COMPAT/PLAN/总guide与三独立guide/依赖/NOTICE均accepted。无live工具。
+- [x] 两个功能commit：f92729d基础8files/21070insertions，6dea404家族36files/
+      514467insertions（绝大多数为完整源参考JSON/tests）；master本地，无remote/push。
+- [ ] D34三agent只读notes回齐，Root全文读必要原类/helper后冻结scope/API与分片。
+
+A/C independentreadonly review无新生产缺陷：680actualprepare/196completegeom snapshot/
+10492membership及数学interval/root终止证明。已修原全域jump2^14错误论证，使用有效小前缀；
+Decimal180/320只是样本参考非通用tie证明，精确Fraction反例和新增hand已记numericguide。
+JSON整SHA：params fecd020881edbe6a7e500f8a1e325c89980cf8159f561c28050e45afa422c641；
+numeric 588d3326fc9e9a0d598e4860a5a2351d2b1ed16411e63bb9dd24278422b87a0a；
+axis 0226199a54374da1f87af2652e2506c2ad73cb5173c82ee94277c4f9fe22cec3；
+float 06779465056b646f07ebf10b5de8e25a2b5fcdcb9b3cf0af8eb836d4d66a5b80。
+所有旧D33/D32 source与Moon sessions terminal，不轮询。目标仍为完整迁移，未complete。
