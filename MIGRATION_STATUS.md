@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D30准备（命名PercentFormatter）；D29已验收并提交feature0b4f8c5。
+- 当前切片编号：D31准备（命名ScalarFormatter）；D30已验收并提交feature11112e9。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -30,19 +30,21 @@
 - D29最终验收：new5161=A63+B2881+C1990+rootnumeric162+mask1+axis64；final38939 exit0，
   wasm/wasm-gc/native各17508/17508、JS17515/17515；infofmt0/checkall83tasks8旧warn0error，
   六新source final0。完整接口仅2newnamed/wrapperdowncast/select_mask，旧pure接口不变。
-- 下一条具体动作：D29 feature0b4f8c5已本地提交43files；最终38939全suite exit0，六source0，
-  interface/infofmt/check全验收。D30候选命名PercentFormatter已派三agents大块readonly：
-  A D30-percent-params-notes.md（对象/参数/copy/Base复用）；B D30-percent-numeric-notes.md
-  （完整原__call__/format_pct数学与dtype）；C D30-percent-axis-notes.md（axis/dummyview/
-  shared/secondary与最小provider需求）。均ignored checkpoints，仅原完整AST/真实依赖。
-  下一等三notes交齐全文读后freeze；root只读必要原类与旧percent/AxisBinding，不重survey。
-  无tracked D30实现/无liveMoon或source工具，三agents只读进行中。当前本checkpoint待commit。
+- D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
+  各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
+  finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
+- 下一条具体动作：D30 feature11112e9已提交39files；accepted docs、doc-final infofmt0与
+  reviewed interface cmp同；本checkpoint记录最终验收与接续。D31候选命名ScalarFormatter
+  原3agent仅ignored notes：A参数/rc/copy、B完整原数学/格式、C真实axis/locs/offset集成；
+  notes D31-scalar-{params,numeric,axis}-notes.md。A/C遇容量错误后已同agent同model重派，
+  最后3agent均running；仍仅readonly，未冻结接口。下一读三notes全文后freeze，不先写
+  D31tracked，不重新survey settled架构。无liveMoon/source工具，D30全部sessions terminal。
 - D27无live工具；finalall77638与grid-source71661 exit0，95932旧失败exit2、73479 probe exit0、JS30690 exit0均terminal。
   81493 compileexit1/40418旧5failexit2/62175与29316 sourceexit0都terminal，不轮询。
   D26 final26297/JS82640/source20346/check99335全exit0；
   过早check65209经主动SIGINT exit130已terminal；所有writers停写，不轮询旧sessions。
 - Git本地基线1b61c4b（D01–D19）；D20 d385718、D21 2403fcb、D22 fee6885、
-  D23 179f365、D24 13ef0b1、D25 c2f6edf；D26 feature61f768f/checkpoint78b0b68、D27 feature524b673、D28 feature53ed70d、D29 feature0b4f8c5已提交。无remote、不push。
+  D23 179f365、D24 13ef0b1、D25 c2f6edf；D26 feature61f768f/checkpoint78b0b68、D27 feature524b673、D28 feature53ed70d、D29 feature0b4f8c5、D30 feature11112e9已提交。无remote、不push。
   用户已授权分批commit与独立并行subagents，覆盖历史不commit指令。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
   CPython v3.11.0 timedelta 源码在 .moonagent/upstream/cpython-v3.11.0/，仅行为
@@ -3866,3 +3868,107 @@ view/dummy/shared/secondary/provider；精确notes名见head。先保持D28/D29�
 合同，不能拿旧purepercent或伪axis作原源oracle。Root下一只读必要原类/旧helper/AxisBinding，
 待三notes全文读后freeze；无D30 tracked生产、无liveMoongates/source会话。接着checkpoint
 本地commit，保持恢复入口清晰。D29全部旧session已terminal，不再轮询。
+
+D30冻结：PercentXMax保Python/NP标量origin，PercentDecimals保late int转换；symbol动态TeX
+rc，旧purehelper不改。A参数103观察，B数学/precision274行与693threshold原源/独立profile
+输出一致，C轴75+2实际默认frame源timing；全文notes读毕。Root先加binding provider与dummy
+view再交A独占base，防写冲突。新before快照HEADff9e7de含所有接口+tracked archive。
+下一Root liveprimary.set_limits缓存/可见性与secondary存view/layout+childdraw先于parentcallbacks；
+agents分别独占对象/数值/原源axisrefs文档。实现未gate，整体goal active，暂无用户阻塞。
+
+D30实现中：A已首交7files停写，257observations/92generated+4hand=96tests、10source-only，
+newparamsgen/check0、旧D28/D29paramscheck0，base仅kind/copy/getoffset且保rootbinding。
+B两新engine文件初稿和numeric原源1803首gen0（693thresholdpair0profile差），仍加有限Unicode
+与integer-range证据；C正式actualaxisrefs/guide在写。Root12filesstdinparse0，无项目Moon gate。
+Root接线：config.text_usetex默认false/copy/reset；primary绑定NdArrayFloat，set_limits与
+set_view_limits在activeframe更新缓存；secondarystoredown初值、apply_aspect finite前置/NS后
+不再finitecheck以保NSoverflow；IR live sync回调，prelayout一次、childdraw位于primary之前，
+预备namedsecondary完整bundle，XML后append；primary最终range用于可视筛选/映射。
+A独立review已发现默认Dummy原Python整数range与rawInteger/Bool0+NPbatch错误消息不同；
+已修合同：新增FormatterViewInterval(Sequence Double/Integers BigInt/NdArray)专供binding，
+旧FormatterLocations/NamedFormatValue不改；dummy默认Integers[0,1]。B正在加一般精确int/int
+range入口PercentDisplayRange，旧percent_format_pct薄封Scalar；Root已改base/batch/Scene，
+A一处handcallback改新enum。C已补14真实_set_lim NS/finite病例，parentlog初始化再定向核实。
+当前没有liveMoon/source工具，唯一trackedwriters B/C及Root，A只读crossreview。
+下一等writers停后统一gates；先完成secondary函数log默认view与NS/clip必要证据，不能用
+直接forward(parent)伪装stored ownview；所有实施尚未验收，整体goal active。
+
+D30数值/对象最终首交：A96tests（92gen+4hand）、B2079（2076gen+3Resourcehand），
+B2076actualsource=1606success/168ZeroDiv/154Overflow/148Value，264nativeRuntimeWarnings单列，
+693thresholdpairs0source/math差异、3unsafealloc omissions。A/B新gen/check0、独立reviews
+175/96行已全文审，唯一Dummyinteger缺陷已通用type/ratio修正。A一处purecallback改arrow去
+潜在unusedraise警告，无源expected变化。A/B均停止tracked写入。
+C正式axis首gen113=77原病例+14真实_set_lim NS/finite+8真实parentlogctor/apply+6完整batch/SVG
++8rawInteger/Bool0与rangeorigin；只剩sourcecheck/guide。Root新增Scene bigint testimport。
+Root已按原父logconstructor空data/_set_axes_scale/autoscale_view最小链补ownstored初始化：
+NS1..10→inverse/logclip变换→创建时x/y rc margin→pow/forward逆变换→Logview_limits/NS/clip，
+不安装或改旧secondary locator采样；复用既有Log geometry math profile。父linear仍初0..1。
+Primary cachedview显式limits变化实时更新；render_panel先刷新前panel共享mutation，完整
+secondarynamedbatch先于primarycallbacks，primary最终view用于可视筛选。当前仅C/Root还写，
+无liveMoon/source工具，所有生产未gate。下一C停写后Root静态→infofmt/interface→新source
+checks→四目标fullsuite，预计新增2289但以最终实际count为准。整体goal active。
+
+D30全部tracked agent writers已停，C最终117gen/check0（原113+lateprovidererror/3unpack），
+6secondarynonfinite断言已与新API保精确ValueError消息的InvalidTicks匹配，JSON原期望字节不变。
+总new2293=96A+2079B+117C+1config；预计nonJS19801/JS19808。Root全文审guide与sourcegen，
+2独立reviews已审无其他缺陷。所有旧source会话terminal。唯一liveMoongate16571运行
+`.moonagent/checkpoints/D30-gate.sh`：checkall→info→fmt→interface.diff，root负责。
+日志D30-{check-all,info,fmt}-initial.log，interface D30-interface.diff；未有fullsuite结果。
+下一static0后审完整接口（应新增Percent及rawtypes/ViewInterval/bindingview/config/secondarysync
+和IRoptional callback，旧pure Formatter与旧locs接口不变），新3source root复验并全suite。
+
+D30首check gate16571 terminalexit255（无liveMoon）：生产0errors，8重复错误全Cgen的
+tiny/maxfinite x/y identity inverse被stdin formatter误识record；20warnings=8旧Ref+6新Ref
++4ambiguousblock+2constantforward unused。C获独占fixture-only修identity return/ref constructors/
+constant参数 `_`，并补shared删除fixture显式Axis级local limits防delaxes真实provider重新绑定
+后空auto范围替代受控Bbox。原117sourceJSON/expected/count不改。Root未infofmt或fullsuite。
+下一C再次停写后统一check→infofmt/interface→3新source rootcheck→testall，旧16571不轮询。
+
+D30 C fixture-only修补已gen/check0、117count与原JSON SHA不变；所有trackedwriters停写。
+唯一live68518第二次执行central gate（checkall→info→fmt→interface）；旧16571 terminal。
+生产还未fullsuite验收。
+
+D30第二central68518 terminalexit0：checkall24tasks/8旧Refwarn0error，info0/fmt0。
+168行接口diff已全文审，仅Percent wrapper/rawtypes/Base downcast、独立ViewInterval与binding
+view方法、config.text_usetex、secondary.apply_aspect及IRoptional sync；旧Formatter enum/
+pure helpers/FormatterLocations签名未变。三新source rootcheck各exit0，logs D30-{params,
+numeric,axis}-source-root.log；axis sourceoverflow RuntimeWarning为实际观察非失败。
+全部writers停写；已启动full Moon suite，live session见下一条，结果待验收。
+
+唯一live fullsuite17167：moon test --target all→D30-test-all-initial.log；root负责。
+check68518与所有source sessions已terminal，无别的live工具。预期nonJS19801/JS19808待实际。
+
+D30首fullsuite17167 terminalexit2，四目标均相同14fail；wasm/gc/native各19787/19801、
+JS19794/19808，其余全过。6数值/参数失败共两根因：Number/NPFloat normalize -0+0被
+Moon优化保-0，需显式zero canonicalization；B引用旧formatstrgen moon()误将literal\\uXXXX
+改为\\u{XXXX}，影响FEFF/180E错误expected生成（JSON原源正确）。8axisfail全Cfixture在
+set_log之前留有0..4旧limits触发现有严格校验，未进入secondary；只需先设1..100再set_log。
+B获独占新normalize/gen/WB修；C获独占gen/test顺序修；JSON源期望保持字节不变。当前无live
+Moon/source工具，所有之前sessions terminal。Root不同时改B/C文件，下一停写后final gate
+check/infofmt/interface/sourcechecks/testall。未提前accept或commit，整体goalactive。
+
+D30 B/C失败修补全部停写，原JSON SHA/expected/count不变。B仅constructor显式zero为+0、
+新gen quoting按JSON反斜杠run奇偶；C8logfixture先设正limits再set_scale。唯一live finalgate
+16019：info→fmt→checkall→finalinterface与已reviewed diff逐字cmp→fulltestall。
+日志D30-{info,fmt,check-all,test-all}-final.log；三sourceA此前root0、B/C修gen后final复验
+见相应log；所有旧sessions terminal。整体goalactive，未提前accepted/commit。
+
+D30最终16019 terminalexit0：wasm/wasm-gc/native各19801全过、JS19808全过；new2293。
+infofmt0/check79tasks8旧Refwarn0error，finalinterface逐字cmp reviewed168lines同；三新source
+root检查全0（A rootlog，B/C final）。修正Number/NPFloat ctor显式+0、newgen literal\uXXXX
+quote及C8log正limitsfixture；原sourceJSON期望完全不变。guide/README/COMPAT/PLAN/依赖/
+notice已accepted更新；fullGUI/Text/defaultscale lifecycle与几何数值profile明确。
+整体工程估计仍约46%/80%，不按新增测试数机械推升。下一最终doc infofmt/cmp/gitdiff检查后
+feature+checkpoint本地commits；无remote/push。D31仅readonly notes，整体goal仍active。
+
+D30 feature11112e9已本地提交39files，最终doc infofmt0/interface cmp同；本checkpoint
+记录最终验收与接续。完整suite16019及三source全0，所有Moon/source工具terminal。D31候选ScalarFormatter
+只读3分片已重派（A/C曾capacity但无tracked影响，最后3agent running）。C初步证据：主
+set_locs批次只需view，format_data_short真实X/Y轴还读display±1像素逆变换；Dummy才
+用span/1e4，不能拿tickspace伪替。B初步风险：Int64 extrema先比不同后转Double可能塌
+在同数，_compute_offset count-search潜在不终止；必须有独立原执行trace预算中止记录，
+不能裸跑/伪SourceError；np.round算法与D29精确fixed decimal不同，不可直接替换。
+这些仅未冻结准备，待notes完整后Root决策。整体goal仍active约46%/80%，无remote/push。
+
+D31 A重派已正常启动，完整ScalarFormatter/必要真实_val_or_rc依赖在核对，B/C亦只读进行；
+不再等待容量错误，无需用户介入。无D31 tracked实现、无liveMoon/source长会话。
