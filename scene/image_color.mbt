@@ -140,12 +140,10 @@ fn Axes::add_color_image(
   let image_interpolation = parse_image_interpolation(interpolation)
   let image_extent = parse_image_extent(extent)
   self.apply_image_aspect(aspect)
-  self.push_artist(
+  self.attach_image_checked(
     Artist::ColorImage(
       pixels, image_origin, image_extent, alpha, image_interpolation,
     ),
-  )
-  self.fit_image_dimensions(
     pixels.length(),
     pixels[0].length(),
     image_origin,

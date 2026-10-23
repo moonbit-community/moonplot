@@ -100,8 +100,9 @@ pub fn Axes::apply_aspect(Self) -> Unit raise @core.DataError
 pub fn Axes::arrow(Self, Double, Double, Double, Double, color? : String, linewidth? : Double, head_length? : Double, head_width? : Double, label? : String) -> Unit raise @core.DataError
 pub fn Axes::artists(Self) -> Array[Artist]
 pub fn Axes::aspect_equal(Self) -> Bool
-pub fn Axes::autoscale(Self, axis? : String, tight? : Bool) -> Unit raise @core.DataError
-pub fn Axes::autoscale_view(Self, axis? : String, tight? : Bool) -> Unit raise @core.DataError
+pub fn Axes::autoscale(Self, enable? : Bool?, axis? : String, tight? : Bool) -> Unit raise @core.DataError
+pub fn Axes::autoscale_tight(Self) -> Bool?
+pub fn Axes::autoscale_view(Self, tight? : Bool, scalex? : Bool, scaley? : Bool, axis? : String) -> Unit raise @core.DataError
 pub fn Axes::axhline(Self, Double, color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::axhspan(Self, Double, Double, color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::axis_visible(Self) -> Bool
@@ -124,6 +125,8 @@ pub fn Axes::color_cycle(Self) -> Array[String]
 pub fn Axes::containers(Self) -> Array[Container]
 pub fn Axes::contour(Self, Array[Array[Double]], x? : Array[Double], y? : Array[Double], levels? : Array[Double], nlevels? : Int, color? : String, linewidth? : Double, label? : String, corner_mask? : Bool, locator? : @ticker.Locator?, colors? : Array[String], linewidths? : Array[Double]) -> ContourSet raise @core.DataError
 pub fn Axes::contourf(Self, Array[Array[Double]], x? : Array[Double], y? : Array[Double], levels? : Array[Double], nlevels? : Int, colors? : Array[String], cmap? : String, label? : String, extend_mode? : String, corner_mask? : Bool, locator? : @ticker.Locator?) -> ContourSet raise @core.DataError
+pub fn Axes::data_limits(Self, horizontal? : Bool) -> @core.Limits
+pub fn Axes::data_minpos(Self, horizontal? : Bool) -> Double
 pub fn Axes::ecdf(Self, Array[Double], weights? : Array[Double], complementary? : Bool, horizontal? : Bool, compress? : Bool, color? : String, label? : String) -> Ecdf raise @core.DataError
 pub fn Axes::errorbar(Self, Array[Double], Array[Double], yerr? : Array[Double], xerr? : Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::eventplot(Self, Array[Array[Double]], orientation? : String, lineoffsets? : Array[Double], linelengths? : Array[Double], linewidth? : Double, color? : String) -> Unit raise @core.DataError
@@ -136,6 +139,9 @@ pub fn Axes::fill_betweenx_masked(Self, @core.MaskedArray, @core.MaskedArray, @c
 pub fn Axes::get_adjustable(Self) -> String
 pub fn Axes::get_anchor(Self) -> Anchor
 pub fn Axes::get_aspect(Self) -> Double?
+pub fn Axes::get_autoscale_on(Self) -> Bool
+pub fn Axes::get_autoscalex_on(Self) -> Bool
+pub fn Axes::get_autoscaley_on(Self) -> Bool
 pub fn Axes::get_box_aspect(Self) -> Double?
 pub fn Axes::get_figure(Self) -> Figure
 pub fn Axes::get_legend_handles_labels(Self) -> Array[LegendEntry]
@@ -145,13 +151,16 @@ pub fn Axes::get_subplotspec(Self) -> @gridspec.SubplotSpec?
 pub fn Axes::get_title(Self) -> String?
 pub fn Axes::get_xlabel(Self) -> String?
 pub fn Axes::get_xlim(Self) -> @core.Limits?
+pub fn Axes::get_xlim_checked(Self) -> @core.Limits raise @core.DataError
 pub fn Axes::get_ylabel(Self) -> String?
 pub fn Axes::get_ylim(Self) -> @core.Limits?
+pub fn Axes::get_ylim_checked(Self) -> @core.Limits raise @core.DataError
 pub fn Axes::grid(Self, visible? : Bool, which? : String, color? : String, linewidth? : Double, axis? : String) -> Unit raise @core.DataError
 pub fn Axes::hexbin(Self, Array[Double], Array[Double], values? : Array[Double], gridsize? : Int, mincnt? : Int, cmap? : String, vmin? : Double, vmax? : Double, color? : String, label? : String, reduce? : String, edgecolor? : String, linewidth? : Double, bins? : String, extent? : Array[Double], marginals? : Bool, reduce_fn? : HexbinReducer?) -> Hexbin raise @core.DataError
 pub fn Axes::hist(Self, Array[Double], bins? : Int, color? : String, label? : String) -> Histogram raise @core.DataError
 pub fn Axes::hist2d(Self, Array[Double], Array[Double], bins_x? : Int, bins_y? : Int, cmap? : String) -> Unit raise @core.DataError
 pub fn Axes::hlines(Self, Array[Double], Double, Double, color? : String, label? : String) -> Unit raise @core.DataError
+pub fn Axes::ignore_existing_data_limits(Self) -> Bool
 pub fn Axes::imshow(Self, Array[Array[Double]], vmin? : Double, vmax? : Double, cmap? : String, origin? : String, extent? : Array[Double], aspect? : String, alpha? : Double, interpolation? : String) -> Unit raise @core.DataError
 pub fn Axes::imshow_color(Self, Array[Array[@colors.Rgba]], origin? : String, extent? : Array[Double], aspect? : String, alpha? : Double, interpolation? : String) -> Unit raise @core.DataError
 pub fn Axes::imshow_masked(Self, @core.MaskedMatrix, vmin? : Double, vmax? : Double, cmap? : String, origin? : String, extent? : Array[Double], aspect? : String, alpha? : Double, interpolation? : String) -> Unit raise @core.DataError
@@ -195,7 +204,9 @@ pub fn Axes::plot_masked(Self, @core.MaskedArray, @core.MaskedArray, color? : St
 pub fn Axes::quiver(Self, Array[Double], Array[Double], Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::quiverkey(Self, Double, Double, Double, String, color? : String) -> Unit raise @core.DataError
 pub fn Axes::rect(Self) -> @gridspec.Rect?
+pub fn Axes::relim(Self) -> Unit
 pub fn Axes::remove(Self) -> Unit raise @core.DataError
+pub fn Axes::request_autoscale_view(Self, axis? : String, tight? : Bool) -> Unit raise @core.DataError
 pub fn Axes::reset_position(Self) -> Unit raise @core.DataError
 pub fn Axes::scatter(Self, Array[@core.Point], color? : String, label? : String) -> Unit
 pub fn Axes::scatter_category(Self, Array[String], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
@@ -211,6 +222,9 @@ pub fn Axes::set_anchor(Self, Anchor, share? : Bool) -> Unit raise @core.DataErr
 pub fn Axes::set_aspect(Self, Double, share? : Bool, anchor? : Anchor, adjustable? : String) -> Unit raise @core.DataError
 pub fn Axes::set_aspect_auto(Self, share? : Bool) -> Unit
 pub fn Axes::set_aspect_equal(Self, share? : Bool) -> Unit
+pub fn Axes::set_autoscale_on(Self, Bool) -> Unit
+pub fn Axes::set_autoscalex_on(Self, Bool) -> Unit
+pub fn Axes::set_autoscaley_on(Self, Bool) -> Unit
 pub fn Axes::set_axis_off(Self) -> Unit
 pub fn Axes::set_axis_on(Self) -> Unit
 pub fn Axes::set_bounds(Self, @core.Bounds) -> Unit raise @core.DataError
@@ -221,6 +235,7 @@ pub fn Axes::set_margins(Self, Double, Double) -> Unit raise @core.DataError
 pub fn Axes::set_position(Self, Double, Double, Double, Double, which? : String) -> Unit raise @core.DataError
 pub fn Axes::set_prop_cycle(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Axes::set_title(Self, String) -> Unit
+pub fn Axes::set_use_sticky_edges(Self, Bool) -> Unit
 pub fn Axes::set_x_categories(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Axes::set_x_date(Self) -> Unit raise @core.DataError
 pub fn Axes::set_x_date_converter(Self, @date.DateConverter) -> Unit raise @core.DataError
@@ -245,7 +260,7 @@ pub fn Axes::set_x_tick_labels_visible(Self, Bool) -> Unit
 pub fn Axes::set_x_tick_position(Self, @axis.TickPosition) -> Unit
 pub fn Axes::set_x_ticks(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn Axes::set_xlabel(Self, String) -> Unit
-pub fn Axes::set_xlim(Self, Double, Double) -> Unit raise @core.DataError
+pub fn Axes::set_xlim(Self, Double, Double, auto? : Bool?) -> Unit raise @core.DataError
 pub fn Axes::set_xmargin(Self, Double) -> Unit raise @core.DataError
 pub fn Axes::set_xscale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Axes::set_xticklabels(Self, Array[String]) -> Unit raise @core.DataError
@@ -274,7 +289,7 @@ pub fn Axes::set_y_tick_labels_visible(Self, Bool) -> Unit
 pub fn Axes::set_y_tick_position(Self, @axis.TickPosition) -> Unit
 pub fn Axes::set_y_ticks(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn Axes::set_ylabel(Self, String) -> Unit
-pub fn Axes::set_ylim(Self, Double, Double) -> Unit raise @core.DataError
+pub fn Axes::set_ylim(Self, Double, Double, auto? : Bool?) -> Unit raise @core.DataError
 pub fn Axes::set_ymargin(Self, Double) -> Unit raise @core.DataError
 pub fn Axes::set_yscale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Axes::set_yticklabels(Self, Array[String]) -> Unit raise @core.DataError
@@ -300,6 +315,9 @@ pub fn Axes::tripcolor(Self, Array[Double], Array[Double], Array[Array[Int]], Ar
 pub fn Axes::tripcolor_triangulation(Self, Triangulation, Array[Double], vmin? : Double, vmax? : Double, cmap? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::triplot(Self, Array[Double], Array[Double], Array[Array[Int]], color? : String, linewidth? : Double, label? : String, mask? : Array[Bool]) -> Unit raise @core.DataError
 pub fn Axes::triplot_triangulation(Self, Triangulation, color? : String, linewidth? : Double, label? : String) -> Unit raise @core.DataError
+pub fn Axes::unstale_view(Self) -> Unit raise @core.DataError
+pub fn Axes::update_datalim(Self, Array[@core.Point], update_x? : Bool, update_y? : Bool) -> Unit
+pub fn Axes::use_sticky_edges(Self) -> Bool
 pub fn Axes::violin(Self, Array[ViolinStats], positions? : Array[Double], width? : Double, widths? : Array[Double], horizontal? : Bool, side? : ViolinSide, showmeans? : Bool, showextrema? : Bool, showmedians? : Bool, color? : String, facecolor? : String, linecolor? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::violinplot(Self, Array[Array[Double]], positions? : Array[Double], width? : Double, widths? : Array[Double], horizontal? : Bool, side? : ViolinSide, showmeans? : Bool, showextrema? : Bool, showmedians? : Bool, quantiles? : Array[Array[Double]], points? : Int, bandwidth? : ViolinBandwidth, color? : String, facecolor? : String, linecolor? : String, label? : String) -> Array[ViolinStats] raise @core.DataError
 pub fn Axes::vlines(Self, Array[Double], Double, Double, color? : String, label? : String) -> Unit raise @core.DataError
@@ -395,7 +413,8 @@ pub fn Figure::add_subplot(Self, @gridspec.SubplotSpec) -> Axes
 pub fn Figure::annotate(Self, String, Double, Double, offset_x? : Double, offset_y? : Double, arrow? : Bool, color? : String, arrowcolor? : String, linewidth? : Double, head_length? : Double, head_width? : Double, fontsize? : Int, xycoords? : String, textcoords? : String, connector? : String) -> Unit raise @core.DataError
 pub fn Figure::arrow(Self, Double, Double, Double, Double, color? : String, linewidth? : Double, head_length? : Double, head_width? : Double, label? : String) -> Unit raise @core.DataError
 pub fn Figure::artists(Self) -> Array[Artist]
-pub fn Figure::autoscale(Self, axis? : String, tight? : Bool) -> Unit raise @core.DataError
+pub fn Figure::autoscale(Self, enable? : Bool?, axis? : String, tight? : Bool) -> Unit raise @core.DataError
+pub fn Figure::autoscale_view(Self, tight? : Bool, scalex? : Bool, scaley? : Bool, axis? : String) -> Unit raise @core.DataError
 pub fn Figure::axes(Self) -> Axes
 pub fn Figure::axes_list(Self) -> Array[Axes]
 pub fn Figure::axhline(Self, Double, color? : String, label? : String) -> Unit raise @core.DataError
@@ -532,7 +551,7 @@ pub fn Figure::set_x_tick_labels(Self, Array[String]) -> Unit raise @core.DataEr
 pub fn Figure::set_x_tick_position(Self, @axis.TickPosition) -> Unit
 pub fn Figure::set_x_ticks(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn Figure::set_xlabel(Self, String) -> Unit
-pub fn Figure::set_xlim(Self, Double, Double) -> Unit raise @core.DataError
+pub fn Figure::set_xlim(Self, Double, Double, auto? : Bool?) -> Unit raise @core.DataError
 pub fn Figure::set_xmargin(Self, Double) -> Unit raise @core.DataError
 pub fn Figure::set_xscale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Figure::set_xticklabels(Self, Array[String]) -> Unit raise @core.DataError
@@ -558,7 +577,7 @@ pub fn Figure::set_y_tick_labels(Self, Array[String]) -> Unit raise @core.DataEr
 pub fn Figure::set_y_tick_position(Self, @axis.TickPosition) -> Unit
 pub fn Figure::set_y_ticks(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn Figure::set_ylabel(Self, String) -> Unit
-pub fn Figure::set_ylim(Self, Double, Double) -> Unit raise @core.DataError
+pub fn Figure::set_ylim(Self, Double, Double, auto? : Bool?) -> Unit raise @core.DataError
 pub fn Figure::set_ymargin(Self, Double) -> Unit raise @core.DataError
 pub fn Figure::set_yscale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Figure::set_yticklabels(Self, Array[String]) -> Unit raise @core.DataError

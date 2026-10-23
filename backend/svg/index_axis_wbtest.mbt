@@ -98,7 +98,10 @@ test "Index shared render view unions data but does not replace bound owner data
     assert_eq((scale.xmin, scale.xmax), (0.0, 104.0))
   }
   assert_eq(locator.call(), [100.0, 101.0, 102.0, 103.0, 104.0])
+  // The source shared setter propagates its final view to both axes.
+  // Independent IR Axis handles need that resulting state projected explicitly.
   x0.set_limits(1000.0, 2000.0)
+  x1.set_limits(1000.0, 2000.0)
   for scale in compute_scales(figure) {
     assert_eq((scale.xmin, scale.xmax), (1000.0, 2000.0))
   }

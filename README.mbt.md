@@ -135,9 +135,19 @@ try! fig.axes().set_margins(0.0, 0.1)
 的多个线段或面共享同一循环颜色；传入显式 `color` 后不会消耗下一项。
 
 自动范围的边距默认是 x/y 各 5%，可以通过 `set_margins`、`set_x_margin` 和
-`set_y_margin` 调整；显式 `set_xlim`/`set_ylim` 会优先于自动边距。日志轴在对数坐标
-跨度上应用同样的比例，边距必须大于 `-0.5`。`axes.autoscale()` 会清除显式范围，
-`axes.autoscale(tight=true)` 或 `@pyplot.axis(mode="tight")` 会同时把选中轴的边距设为零。
+`set_y_margin` 调整；显式 `set_xlim`/`set_ylim` 默认关闭对应的自动缩放。对数轴在变换后
+跨度上应用边距。边距拒绝小于等于 `-0.5` 的值，上游允许的 NaN 和正无穷会使 padding
+归零。`axes.autoscale()` 重新开启选中轴的自动缩放，请求在下次读取时更新视窗；没有数据
+且当前视窗已变更时保留旧视窗。`enable=Some(false)` 关闭自动缩放，`enable=None` 保留两个
+开关并请求双方向更新。`autoscale(tight=true)` 会把选中轴的边距设为零。
+
+`autoscale_view(tight=true)` 立即计算已开启自动缩放的方向，保留 margin，并跳过 locator
+的外扩策略。省略 `tight` 会沿用该 Axes 上次设置的值。`get_xlim_checked()` 和
+`get_ylim_checked()` 解析待更新的视窗并保留错误；原 `get_xlim()`/`get_ylim()` 仍返回
+Option，但正常读取返回实际视窗。`x_limits()`/`y_limits()` 保留固定范围的便利查询合同。
+数据范围保存在独立缓存中；修改已有图元数据后用 `relim()` 重算，再按需调用
+`autoscale_view()`。数值范围链已通过四目标验收，具体范围见
+[autoscale 说明](testdata/autoscale_README.md)。
 
 新建 Figure/Axes 读取 `@config` 包中的全局默认值。可以只改变后续新对象的颜色循环、
 自动范围边距和主网格默认样式，并用 `@config.reset()` 恢复：

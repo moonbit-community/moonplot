@@ -114,15 +114,19 @@ fn Axis::has_view_interval_provider(self : Axis) -> Bool {
 pub fn Axis::lifecycle_view_interval_checked(
   self : Axis,
 ) -> (Double, Double) raise @core.DataError {
+  self.resolve_autoscale_view()
   if self.numeric_view_provider is Some(provider) {
     return provider()
+  }
+  if self.has_autoscale_view_provider() && self.uses_numeric_autoscale() {
+    return (self.stored_view.lower(), self.stored_view.upper())
   }
   if self.current_view_limits() is Some(view) {
     return (view.lower(), view.upper())
   }
   match self.render_view_provider {
     Some(provider) => provider()
-    None => (0.0, 1.0)
+    None => (self.stored_view.lower(), self.stored_view.upper())
   }
 }
 
@@ -133,13 +137,17 @@ pub fn Axis::view_interval_checked(
   if self.tick_layout_view is Some(view) {
     return view
   }
+  self.resolve_autoscale_view()
   match self.numeric_view_provider {
     Some(provider) => provider()
     None => {
+      if self.has_autoscale_view_provider() && self.uses_numeric_autoscale() {
+        return (self.stored_view.lower(), self.stored_view.upper())
+      }
       if self.render_view_provider is Some(provider) {
         return provider()
       }
-      let view = self.current_view_limits().unwrap_or(@core.limits(0.0, 1.0))
+      let view = self.current_view_limits().unwrap_or(self.stored_view)
       (view.lower(), view.upper())
     }
   }

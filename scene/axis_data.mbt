@@ -3,15 +3,26 @@ fn Axes::bind_axis_data(self : Axes, horizontal : Bool) -> Unit {
   let state = self.state
   let provider = fn() {
     let current = state.val
-    let artists = current.artists.map(to_render_artist)
-    let values = @svg.artist_data_interval(artists, horizontal)
+    let values = if horizontal {
+      current.raw_x_data
+    } else {
+      current.raw_y_data
+    }
     (values.lower(), values.upper())
   }
   let axis = if horizontal { state.val.x_axis } else { state.val.y_axis }
   axis.bind_data_interval(provider)
   let figure = self.figure
+  axis.bind_autoscale_view(() => {
+    let axes : Axes = { figure, state, }
+    axes.unstale_view()
+  })
   axis.bind_minpos(() => {
-    @svg.artist_minpos(state.val.artists.map(to_render_artist), horizontal)
+    if horizontal {
+      state.val.x_data_minpos
+    } else {
+      state.val.y_data_minpos
+    }
   })
   axis.bind_shared_minpos(() => {
     let axes : Axes = { figure, state, }

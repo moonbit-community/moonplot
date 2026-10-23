@@ -21493,7 +21493,10 @@ fn shared_scale_defaults_case_48() -> Unit raise {
   let axis = axes.x_axis()
   axis.set_auto_limits(0.98, 0.02)
   axes.set_x_scale(@scale.log_scale())
-  assert_true(axis.current_view_limits() is None)
+  // D35 records the force call; D37 executes its full source body.
+  // With no data, the already-mutated provisional viewport is retained.
+  let view = axis.current_view_limits().unwrap()
+  assert_eq((view.lower(), view.upper()), (0.98, 0.02))
 }
 
 ///|
@@ -21744,7 +21747,10 @@ fn shared_scale_defaults_case_54() -> Unit raise {
   let axis = axes.x_axis()
   axis.set_auto_limits(0.98, 0.02)
   axes.set_x_scale(@scale.logit_scale())
-  assert_true(axis.current_view_limits() is None)
+  // D35 records the force call; D37 executes its full source body.
+  // With no data, the already-mutated provisional viewport is retained.
+  let view = axis.current_view_limits().unwrap()
+  assert_eq((view.lower(), view.upper()), (0.98, 0.02))
 }
 
 ///|
@@ -21911,7 +21917,10 @@ fn shared_scale_defaults_case_58() -> Unit raise {
   let axis = axes.y_axis()
   axis.set_auto_limits(0.98, 0.02)
   axes.set_y_scale(@scale.log_scale())
-  assert_true(axis.current_view_limits() is None)
+  // D35 records the force call; D37 executes its full source body.
+  // With no data, the already-mutated provisional viewport is retained.
+  let view = axis.current_view_limits().unwrap()
+  assert_eq((view.lower(), view.upper()), (0.98, 0.02))
 }
 
 ///|
@@ -22162,7 +22171,10 @@ fn shared_scale_defaults_case_64() -> Unit raise {
   let axis = axes.y_axis()
   axis.set_auto_limits(0.98, 0.02)
   axes.set_y_scale(@scale.logit_scale())
-  assert_true(axis.current_view_limits() is None)
+  // D35 records the force call; D37 executes its full source body.
+  // With no data, the already-mutated provisional viewport is retained.
+  let view = axis.current_view_limits().unwrap()
+  assert_eq((view.lower(), view.upper()), (0.98, 0.02))
 }
 
 ///|

@@ -29,8 +29,9 @@ pub fn Figure::set_xlim(
   self : Figure,
   lower : Double,
   upper : Double,
+  auto~ : Bool? = Some(false),
 ) -> Unit raise @core.DataError {
-  self.set_x_limits(lower, upper)
+  self.axes().set_xlim(lower, upper, auto~)
 }
 
 ///|
@@ -38,8 +39,9 @@ pub fn Figure::set_ylim(
   self : Figure,
   lower : Double,
   upper : Double,
+  auto~ : Bool? = Some(false),
 ) -> Unit raise @core.DataError {
-  self.set_y_limits(lower, upper)
+  self.axes().set_ylim(lower, upper, auto~)
 }
 
 ///|
@@ -145,8 +147,9 @@ pub fn Axes::set_xlim(
   self : Axes,
   lower : Double,
   upper : Double,
+  auto~ : Bool? = Some(false),
 ) -> Unit raise @core.DataError {
-  self.set_x_limits(lower, upper)
+  self.set_coordinate_limits_checked(lower, upper, true, auto)
 }
 
 ///|
@@ -154,8 +157,9 @@ pub fn Axes::set_ylim(
   self : Axes,
   lower : Double,
   upper : Double,
+  auto~ : Bool? = Some(false),
 ) -> Unit raise @core.DataError {
-  self.set_y_limits(lower, upper)
+  self.set_coordinate_limits_checked(lower, upper, false, auto)
 }
 
 ///|
@@ -201,23 +205,13 @@ pub fn Axes::get_margins(self : Axes) -> (Double, Double) {
 }
 
 ///|
-/// Matplotlib spelling for restoring automatically computed limits.
-pub fn Axes::autoscale_view(
-  self : Axes,
-  axis~ : String = "both",
-  tight~ : Bool = false,
-) -> Unit raise @core.DataError {
-  self.autoscale(axis~, tight~)
-}
-
-///|
 pub fn Axes::get_xlim(self : Axes) -> @core.Limits? {
-  self.x_limits()
+  Some(try! self.get_xlim_checked())
 }
 
 ///|
 pub fn Axes::get_ylim(self : Axes) -> @core.Limits? {
-  self.y_limits()
+  Some(try! self.get_ylim_checked())
 }
 
 ///|

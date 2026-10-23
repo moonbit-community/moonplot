@@ -327,3 +327,10 @@ clear、Axes.__clear、Grouper/sharex/y/_set_lim/GridSpec 与 Figure 移除体�
 完整 tick 查询也有独立参考。没有新数值内核或外部运行时依赖；强 typed 引用不承诺
 Python weakref 到期时序。验收和后续范围见
 [testdata/initial_clear_README.md](testdata/initial_clear_README.md)。
+
+## D37 numeric autoscale 与缓存数据范围
+
+本切片复用同一固定 Matplotlib v3.11.2 原源、NumPy 2.3.5 与已审计的运行时，没有新增分发依赖。
+完整原 autoscale/request/unstale/bound/limit 及 Bbox 缓存算法由独立 Python generator 执行；
+controlled interval/Path/ownership hosts、精确来源 hash 和边界见
+[testdata/autoscale_README.md](testdata/autoscale_README.md)。四目标行为验收已通过，nonJS 各21892项、JS21899项。

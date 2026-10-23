@@ -589,124 +589,309 @@ fn grouped_raw_scale(figure : @render.Figure, target_index : Int32) -> Scale {
 }
 
 ///|
+// Renderer data providers are lower-priority fallbacks. Scene's cached data and
+// explicitly bound providers, including failures, remain authoritative.
+fn bind_render_data_minima(figure : @render.Figure) -> Unit {
+  for index, panel in figure.panels() {
+    for horizontal in [true, false] {
+      let axis = if horizontal { panel.x_axis() } else { panel.y_axis() }
+      axis.bind_render_autoscale_minpos(() => {
+        let target_group = if horizontal {
+          panel.share_x_group()
+        } else {
+          panel.share_y_group()
+        }
+        let values : Array[Double] = []
+        for other_index, other in figure.panels() {
+          let group = if horizontal {
+            other.share_x_group()
+          } else {
+            other.share_y_group()
+          }
+          if same_group(target_group, group, index, other_index) {
+            // autoscale_view reads raw dataLim minima, independently from
+            // Axis.get_minpos used by locator NS and the final _set_lim.
+            values.push(artist_minpos(other.artists(), horizontal))
+          }
+        }
+        values
+      })
+      axis.bind_render_minpos(
+        () => artist_minpos(panel.artists(), horizontal),
+        () => {
+          let target_group = if horizontal {
+            panel.share_x_group()
+          } else {
+            panel.share_y_group()
+          }
+          let values : Array[Double] = []
+          for other_index, other in figure.panels() {
+            let group = if horizontal {
+              other.share_x_group()
+            } else {
+              other.share_y_group()
+            }
+            if same_group(target_group, group, index, other_index) {
+              let peer = if horizontal {
+                other.x_axis()
+              } else {
+                other.y_axis()
+              }
+              values.push(peer.get_minpos())
+            }
+          }
+          values
+        },
+      )
+    }
+  }
+}
+
+///|
+fn ir_group_axes(
+  figure : @render.Figure,
+  target_index : Int32,
+  horizontal : Bool,
+) -> Array[@axis.Axis] {
+  let target = figure.panels()[target_index]
+  let target_group = if horizontal {
+    target.share_x_group()
+  } else {
+    target.share_y_group()
+  }
+  let result : Array[@axis.Axis] = []
+  for index, panel in figure.panels() {
+    let group = if horizontal {
+      panel.share_x_group()
+    } else {
+      panel.share_y_group()
+    }
+    if same_group(target_group, group, target_index, index) {
+      result.push(if horizontal { panel.x_axis() } else { panel.y_axis() })
+    }
+  }
+  result
+}
+
+///|
+fn ir_group_data_endpoints(
+  figure : @render.Figure,
+  target_index : Int32,
+  horizontal : Bool,
+) -> Array[Double] {
+  let target = figure.panels()[target_index]
+  let target_group = if horizontal {
+    target.share_x_group()
+  } else {
+    target.share_y_group()
+  }
+  let result : Array[Double] = []
+  for index, panel in figure.panels() {
+    let group = if horizontal {
+      panel.share_x_group()
+    } else {
+      panel.share_y_group()
+    }
+    if same_group(target_group, group, target_index, index) {
+      // Raw artist data never incorporates explicit_bounds or stored views.
+      let data = artist_data_interval(panel.artists(), horizontal)
+      result.push(data.lower())
+      result.push(data.upper())
+    }
+  }
+  result
+}
+
+///|
+fn numeric_axis_view(
+  figure : @render.Figure,
+  target_index : Int32,
+  horizontal : Bool,
+) -> @core.Limits raise @core.DataError {
+  let target = figure.panels()[target_index]
+  let axis = if horizontal { target.x_axis() } else { target.y_axis() }
+  if !axis.has_autoscale_view_provider() && axis.limits() is None {
+    if target.explicit_bounds() is Some(bounds) {
+      // The standalone IR override is a viewport, never raw artist data.
+      axis.set_limits(
+        if horizontal {
+          bounds.xmin()
+        } else {
+          bounds.ymin()
+        },
+        if horizontal {
+          bounds.xmax()
+        } else {
+          bounds.ymax()
+        },
+      )
+    }
+  }
+  axis.resolve_autoscale_view()
+  if axis.has_autoscale_view_provider() {
+    // The owning Scene resolver includes retained detached shared members.
+    // Its own stored Bbox is not a projection of the first IR group limit.
+    return axis.stored_view_limits()
+  }
+  let peers = ir_group_axes(figure, target_index, horizontal)
+  let pending = peers.any(peer => peer.autoscale_stale()) ||
+    axis.current_view_limits() is None
+  if pending {
+    // Match _unstale_viewLim: requests are consumed before the checked work.
+    for peer in peers {
+      peer.clear_autoscale_request()
+    }
+    if axis.autoscale_on() {
+      let data = ir_group_data_endpoints(figure, target_index, horizontal)
+      let margin = if horizontal {
+        target.x_margin()
+      } else {
+        target.y_margin()
+      }
+      let candidate = axis.autoscale_bounds_checked(
+        data,
+        margin~,
+        stickies=grouped_artist_sticky_edges(figure, target_index, horizontal),
+        tight=false,
+      )
+      if candidate is Some(bounds) {
+        // Source set_bound reads old bounds even when both new ones exist,
+        // then reads the view again to preserve its current direction.
+        ignore(axis.lifecycle_view_interval_checked())
+        let (first, last) = axis.lifecycle_view_interval_checked()
+        let (low, high) = if bounds.upper() < bounds.lower() {
+          (bounds.upper(), bounds.lower())
+        } else {
+          (bounds.lower(), bounds.upper())
+        }
+        let (lower, upper) = if first > last {
+          (high, low)
+        } else {
+          (low, high)
+        }
+        let view = axis.set_bound_limits_checked(lower, upper)
+        for peer in peers {
+          if !physical_equal(peer, axis) {
+            ignore(peer.set_bound_limits_checked(view.lower(), view.upper()))
+          }
+        }
+      }
+    }
+  }
+  axis.stored_view_limits()
+}
+
+///|
+// Date/category and explicit legacy helper profiles retain their old view
+// selection. New numeric autoscaling never enters this finite normalizer.
+fn legacy_axis_view(
+  figure : @render.Figure,
+  target_index : Int32,
+  horizontal : Bool,
+) -> @core.Limits raise @core.DataError {
+  let target = figure.panels()[target_index]
+  let axis = if horizontal { target.x_axis() } else { target.y_axis() }
+  let raw = grouped_raw_scale(figure, target_index)
+  let data = if horizontal {
+    @core.limits(raw.xmin, raw.xmax)
+  } else {
+    @core.limits(raw.ymin, raw.ymax)
+  }
+  let date = axis.date_nonsingular_bounds(data.lower(), data.upper())
+  let date = axis.numeric_nonsingular_bounds_checked(date.lower(), date.upper())
+  let normalized = normalize_auto_scale(
+    {
+      xmin: if horizontal {
+        date.lower()
+      } else {
+        0.0
+      },
+      xmax: if horizontal {
+        date.upper()
+      } else {
+        1.0
+      },
+      ymin: if horizontal {
+        0.0
+      } else {
+        date.lower()
+      },
+      ymax: if horizontal {
+        1.0
+      } else {
+        date.upper()
+      },
+      x_axis_scale: if horizontal {
+        axis.scale()
+      } else {
+        @ticker_scale.Linear
+      },
+      y_axis_scale: if horizontal {
+        @ticker_scale.Linear
+      } else {
+        axis.scale()
+      },
+    },
+    if horizontal {
+      target.x_margin()
+    } else {
+      0.0
+    },
+    if horizontal {
+      0.0
+    } else {
+      target.y_margin()
+    },
+    if horizontal {
+      image_sticky_edges(figure, target_index, true)
+    } else {
+      []
+    },
+    if horizontal {
+      []
+    } else {
+      image_sticky_edges(figure, target_index, false)
+    },
+  )
+  match group_limit(figure, target_index, horizontal) {
+    Some(limits) => axis.date_nonsingular_bounds(limits.lower(), limits.upper())
+    None =>
+      axis.view_limits_checked(
+        if horizontal {
+          @core.limits(normalized.xmin, normalized.xmax)
+        } else {
+          @core.limits(normalized.ymin, normalized.ymax)
+        },
+      )
+  }
+}
+
+///|
 fn compute_scale(
   figure : @render.Figure,
   target_index : Int32,
 ) -> Scale raise @core.DataError {
   let target = figure.panels()[target_index]
-  let raw = grouped_raw_scale(figure, target_index)
+  bind_render_data_minima(figure)
   let x_axis = target.x_axis()
   let y_axis = target.y_axis()
-  let x_log = source_numeric_limits(x_axis)
-  let y_log = source_numeric_limits(y_axis)
-  let x_active = x_log &&
-    group_limit(figure, target_index, true) is None &&
-    x_axis.current_view_limits() is None
-  let y_active = y_log &&
-    group_limit(figure, target_index, false) is None &&
-    y_axis.current_view_limits() is None
-  let date_x = if x_log {
-    @core.limits(raw.xmin, raw.xmax)
+  let x_view = if x_axis.uses_numeric_autoscale() {
+    numeric_axis_view(figure, target_index, true)
   } else {
-    x_axis.date_nonsingular_bounds(raw.xmin, raw.xmax)
+    legacy_axis_view(figure, target_index, true)
   }
-  let date_y = if y_log {
-    @core.limits(raw.ymin, raw.ymax)
+  let y_view = if y_axis.uses_numeric_autoscale() {
+    numeric_axis_view(figure, target_index, false)
   } else {
-    y_axis.date_nonsingular_bounds(raw.ymin, raw.ymax)
-  }
-  let date_x = if x_log && !x_active {
-    date_x
-  } else {
-    x_axis.numeric_nonsingular_bounds_checked(date_x.lower(), date_x.upper())
-  }
-  let date_y = if y_log && !y_active {
-    date_y
-  } else {
-    y_axis.numeric_nonsingular_bounds_checked(date_y.lower(), date_y.upper())
-  }
-  let date_x = if x_active {
-    log_scale_limit_checked(x_axis, date_x)
-  } else {
-    date_x
-  }
-  let date_y = if y_active {
-    log_scale_limit_checked(y_axis, date_y)
-  } else {
-    date_y
-  }
-  let normalized = normalize_auto_scale(
-    {
-      ..raw,
-      xmin: date_x.lower(),
-      xmax: date_x.upper(),
-      ymin: date_y.lower(),
-      ymax: date_y.upper(),
-    },
-    target.x_margin(),
-    target.y_margin(),
-    image_sticky_edges(figure, target_index, true),
-    image_sticky_edges(figure, target_index, false),
-  )
-  let normalized = if x_active {
-    let (lower, upper) = normalize_axis_bounds(
-      date_x.lower(),
-      date_x.upper(),
-      raw.x_axis_scale,
-      target.x_margin(),
-      image_sticky_edges(figure, target_index, true),
-    )
-    { ..normalized, xmin: lower, xmax: upper, }
-  } else {
-    normalized
-  }
-  let normalized = if y_active {
-    let (lower, upper) = normalize_axis_bounds(
-      date_y.lower(),
-      date_y.upper(),
-      raw.y_axis_scale,
-      target.y_margin(),
-      image_sticky_edges(figure, target_index, false),
-    )
-    { ..normalized, ymin: lower, ymax: upper, }
-  } else {
-    normalized
-  }
-  let x_view = match group_limit(figure, target_index, true) {
-    Some(limits) =>
-      target.x_axis().date_nonsingular_bounds(limits.lower(), limits.upper())
-    None =>
-      target
-      .x_axis()
-      .view_limits_checked(@core.limits(normalized.xmin, normalized.xmax))
-  }
-  let y_view = match group_limit(figure, target_index, false) {
-    Some(limits) =>
-      target.y_axis().date_nonsingular_bounds(limits.lower(), limits.upper())
-    None =>
-      target
-      .y_axis()
-      .view_limits_checked(@core.limits(normalized.ymin, normalized.ymax))
-  }
-  let x_view = if x_active {
-    finalize_log_view_checked(x_axis, x_view)
-  } else {
-    x_view
-  }
-  let y_view = if y_active {
-    finalize_log_view_checked(y_axis, y_view)
-  } else {
-    y_view
-  }
-  if (x_log && !x_view.is_finite()) || (y_log && !y_view.is_finite()) {
-    raise @core.DataError::NonFiniteLimit(axis="log view")
+    legacy_axis_view(figure, target_index, false)
   }
   {
-    ..normalized,
     xmin: x_view.lower(),
     xmax: x_view.upper(),
     ymin: y_view.lower(),
     ymax: y_view.upper(),
+    x_axis_scale: x_axis.scale(),
+    y_axis_scale: y_axis.scale(),
   }
 }
 
@@ -719,58 +904,4 @@ fn compute_scales(
     result.push(resolve_panel_scale(figure, index))
   }
   result
-}
-
-///|
-// Autoscale separately reads the shared axes' minpos after locator.nonsingular.
-fn log_scale_limit_checked(
-  axis : @axis.Axis,
-  limits : @core.Limits,
-) -> @core.Limits raise @core.DataError {
-  let values = axis.shared_minpos_checked()
-  if values.is_empty() {
-    raise @core.DataError::InvalidTicks(
-      message="shared log axis has no minimum positive data",
-    )
-  }
-  let mut minpos = values[0]
-  for value in values {
-    if value < minpos {
-      minpos = value
-    }
-  }
-  let (lower, upper) = axis
-    .scale()
-    .limit_range_for_scale(limits.lower(), limits.upper(), minpos)
-  @core.limits(lower, upper)
-}
-
-///|
-// Match the locator/scale work performed by Axis._set_lim after set_bound.
-fn finalize_log_view_checked(
-  axis : @axis.Axis,
-  limits : @core.Limits,
-) -> @core.Limits raise @core.DataError {
-  if !limits.is_finite() {
-    raise @core.DataError::NonFiniteLimit(axis="log view")
-  }
-  let descending = limits.lower() > limits.upper()
-  let bounds = axis.numeric_nonsingular_bounds_checked(
-    limits.lower(),
-    limits.upper(),
-  )
-  let minpos = axis.get_minpos()
-  let (lower, upper) = axis
-    .scale()
-    .limit_range_for_scale(bounds.lower(), bounds.upper(), minpos)
-  let (lower, upper) = if upper < lower {
-    (upper, lower)
-  } else {
-    (lower, upper)
-  }
-  if descending {
-    @core.limits(upper, lower)
-  } else {
-    @core.limits(lower, upper)
-  }
 }

@@ -1,0 +1,8235 @@
+{
+  "source_hashes": {
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "figure.py": "b440ab0a5be03cb39b13529a2fec497d2d96deb083e3e56d6220593e3ec567da",
+    "gridspec.py": "df8395306765d9b93f98d6b2e867836a9b2b0786cf5b39a26103309c4331afde",
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "stdlib/contextlib.py": "8b7a477f978a8532852fd81e241c78182516bc4975d672d580a5848a76e11eb6",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "artist.py": "c55a81d86db60ab7b22fcd6e70401aa84558de5d1ba6e40a16c60f6f1f03be7a"
+  },
+  "numpy_binary_sha256": "b11f1ef3534cc6bb0a9c8141206350b27cadf48632c34acfcfc97ca6e700363e",
+  "counts": {
+    "scene_cases": 48,
+    "cache_cases": 8,
+    "cases": 56,
+    "registered_groups": 2
+  },
+  "scope": "Complete original autoscale/autoscale_view/request/unstale/get-set-bound and Axis finalization, complete five transforms, complete cache algorithms. Controlled numeric interval/Path/presentation/ownership hosts, authoritative view callback projection. No port algorithm oracle. Full arbitrary Artist, units and secondary lifecycle remain separate.",
+  "cases": [
+    {
+      "label": "complete five-scale linear",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            9.5,
+            20.5
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 0
+    },
+    {
+      "label": "complete five-scale log",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "log",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            9.659363289248457,
+            20.705298476827558
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "log",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x",
+        "0.x",
+        "0.x",
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 1
+    },
+    {
+      "label": "complete five-scale symlog",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "symlog",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              -10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            -15.705783673692896,
+            31.41156734738579
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "symlog",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              -10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 2
+    },
+    {
+      "label": "complete five-scale asinh",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "asinh",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              -10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            -13.987818166222228,
+            27.95016679660549
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "asinh",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              -10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 3
+    },
+    {
+      "label": "complete five-scale logit",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "logit",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              0.1,
+              0.8
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            0.08499006745548109,
+            0.8271369057737346
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "logit",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              0.1,
+              0.8
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x",
+        "0.x",
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 4
+    },
+    {
+      "label": "eager view auto False tight None",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": null,
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": null,
+            "scaley": false
+          }
+        ]
+      ],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 5
+    },
+    {
+      "label": "eager view auto False tight False",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": false,
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": false,
+            "scaley": false
+          }
+        ]
+      ],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 6
+    },
+    {
+      "label": "eager view auto False tight True",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": true,
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": true,
+            "scaley": false
+          }
+        ]
+      ],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 7
+    },
+    {
+      "label": "eager view auto True tight None",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            9.5,
+            20.5
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": null,
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": null,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 8
+    },
+    {
+      "label": "eager view auto True tight False",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            9.5,
+            20.5
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": false,
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": false,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 9
+    },
+    {
+      "label": "eager view auto True tight True",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            9.5,
+            20.5
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": true,
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 10
+    },
+    {
+      "label": "unselected directions still update tight",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": true,
+            "scalex": false,
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": true,
+            "scalex": false,
+            "scaley": false
+          }
+        ]
+      ],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 11
+    },
+    {
+      "label": "lazy enable None x",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": true,
+            "y": true
+          },
+          "tight": true,
+          "margins": [
+            0,
+            0
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "autoscale",
+          "kwargs": {
+            "enable": null,
+            "axis": "x",
+            "tight": true
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 12
+    },
+    {
+      "label": "lazy enable None both",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": true,
+            "y": true
+          },
+          "tight": true,
+          "margins": [
+            0,
+            0
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "autoscale",
+          "kwargs": {
+            "enable": null,
+            "axis": "both",
+            "tight": true
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 13
+    },
+    {
+      "label": "lazy enable False x",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "autoscale",
+          "kwargs": {
+            "enable": false,
+            "axis": "x",
+            "tight": true
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 14
+    },
+    {
+      "label": "lazy enable False both",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "autoscale",
+          "kwargs": {
+            "enable": false,
+            "axis": "both",
+            "tight": true
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 15
+    },
+    {
+      "label": "lazy enable True x",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": true,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "autoscale",
+          "kwargs": {
+            "enable": true,
+            "axis": "x",
+            "tight": true
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 16
+    },
+    {
+      "label": "lazy enable True both",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            true
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": true,
+            "y": true
+          },
+          "tight": true,
+          "margins": [
+            0,
+            0
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "autoscale",
+          "kwargs": {
+            "enable": true,
+            "axis": "both",
+            "tight": true
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 17
+    },
+    {
+      "label": "empty current mutation (100.0, 200.0)",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ],
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ]
+          ],
+          "minpos": [
+            {
+              "float": "inf"
+            },
+            {
+              "float": "inf"
+            }
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ],
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ]
+          ],
+          "minpos": [
+            {
+              "float": "inf"
+            },
+            {
+              "float": "inf"
+            }
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scaley": false
+          }
+        ]
+      ],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 18
+    },
+    {
+      "label": "empty current mutation (0.0, 1.0)",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            0.0,
+            1.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            false,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ],
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ]
+          ],
+          "minpos": [
+            {
+              "float": "inf"
+            },
+            {
+              "float": "inf"
+            }
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            -0.05500000000000001,
+            0.05500000000000001
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ],
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ]
+          ],
+          "minpos": [
+            {
+              "float": "inf"
+            },
+            {
+              "float": "inf"
+            }
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 19
+    },
+    {
+      "label": "mutation reverses to original interval",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            0.0,
+            1.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            false,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ],
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ]
+          ],
+          "minpos": [
+            {
+              "float": "inf"
+            },
+            {
+              "float": "inf"
+            }
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            -0.05500000000000001,
+            0.05500000000000001
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ],
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ]
+          ],
+          "minpos": [
+            {
+              "float": "inf"
+            },
+            {
+              "float": "inf"
+            }
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 20
+    },
+    {
+      "label": "shared request lazy",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        },
+        {
+          "index": 1,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              20.0,
+              30.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": true,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        },
+        {
+          "index": 1,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              20.0,
+              30.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "request",
+          "kwargs": {
+            "axis": "x",
+            "tight": true
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 21
+    },
+    {
+      "label": "different shared requester unstales with own tight",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": true,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        },
+        {
+          "index": 1,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              20.0,
+              30.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            9.0,
+            31.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        },
+        {
+          "index": 1,
+          "xview": [
+            9.0,
+            31.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              20.0,
+              30.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "unstale",
+          "panel": 1
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          1,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          1,
+          "x"
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "1.x",
+        "0.x"
+      ],
+      "view_reads": [
+        "1.x",
+        "1.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 22
+    },
+    {
+      "label": "late peer failure leaves initiator stored and all requests consumed",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": true,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        },
+        {
+          "index": 1,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              20.0,
+              30.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            9.0,
+            31.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        },
+        {
+          "index": 1,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              20.0,
+              30.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "unstale"
+        }
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "late minpos provider failure"
+      },
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          1,
+          "x"
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x",
+        "1.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": [
+        1,
+        "x"
+      ],
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 23
+    },
+    {
+      "label": "changed scale force auto False",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "log",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "scale",
+          "family": "log"
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "axis.scale",
+          0,
+          "x",
+          "log"
+        ],
+        [
+          "minor.install",
+          0,
+          "x",
+          "LogLocator"
+        ],
+        [
+          "transform",
+          0
+        ],
+        [
+          "autoscale_view",
+          0,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ]
+      ],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 24
+    },
+    {
+      "label": "changed scale force auto True",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            9.659363289248457,
+            20.705298476827558
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "log",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "scale",
+          "family": "log"
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "axis.scale",
+          0,
+          "x",
+          "log"
+        ],
+        [
+          "minor.install",
+          0,
+          "x",
+          "LogLocator"
+        ],
+        [
+          "transform",
+          0
+        ],
+        [
+          "autoscale_view",
+          0,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x",
+        "0.x",
+        "0.x",
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 25
+    },
+    {
+      "label": "same default tuple skips force",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "symlog",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "scale",
+          "family": "symlog"
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "axis.scale",
+          0,
+          "x",
+          "symlog"
+        ],
+        [
+          "minor.install",
+          0,
+          "x",
+          "SymmetricalLogLocator"
+        ],
+        [
+          "transform",
+          0
+        ]
+      ],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 26
+    },
+    {
+      "label": "inversion survives finalization",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            200.0,
+            100.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            20.5,
+            9.5
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 27
+    },
+    {
+      "label": "image sticky positive or negative margin 0.1",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.1,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              0.0,
+              10.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [
+            {
+              "x": [
+                0.0,
+                10.0
+              ],
+              "y": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            0.0,
+            10.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.1,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              0.0,
+              10.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [
+            {
+              "x": [
+                0.0,
+                10.0
+              ],
+              "y": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 28
+    },
+    {
+      "label": "image sticky positive or negative margin -0.1",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            -0.1,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              0.0,
+              10.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [
+            {
+              "x": [
+                0.0,
+                10.0
+              ],
+              "y": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            1.0,
+            9.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            -0.1,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              0.0,
+              10.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [
+            {
+              "x": [
+                0.0,
+                10.0
+              ],
+              "y": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 29
+    },
+    {
+      "label": "tiny sticky relative tolerance",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              1e-12,
+              2e-12
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [
+            {
+              "x": [
+                1e-12,
+                2e-12
+              ],
+              "y": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            1e-12,
+            2e-12
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              1e-12,
+              2e-12
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [
+            {
+              "x": [
+                1e-12,
+                2e-12
+              ],
+              "y": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 30
+    },
+    {
+      "label": "raw DataBox minpos failure precedes views",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": true,
+            "scaley": false
+          }
+        }
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "shared data minpos failure"
+      },
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [],
+      "view_reads": [],
+      "fail_minpos": null,
+      "fail_data_minpos": [
+        0,
+        "x"
+      ],
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 31
+    },
+    {
+      "label": "own minpos fails after both views",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": true,
+            "scaley": false
+          }
+        }
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "late minpos provider failure"
+      },
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": [
+        0,
+        "x"
+      ],
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 32
+    },
+    {
+      "label": "bound view failure 1",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": true,
+            "scaley": false
+          }
+        }
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "view query 1 failed"
+      },
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [],
+      "view_reads": [
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": [
+        0,
+        "x",
+        1
+      ],
+      "warnings": [],
+      "id": 33
+    },
+    {
+      "label": "bound view failure 2",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": true,
+            "scaley": false
+          }
+        }
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "view query 2 failed"
+      },
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": [
+        0,
+        "x",
+        2
+      ],
+      "warnings": [],
+      "id": 34
+    },
+    {
+      "label": "removed rejoined member still supplies data and sticky",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": false,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              100.0,
+              200.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [
+            {
+              "x": [
+                200.0,
+                200.0
+              ],
+              "y": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "use_sticky": true
+        },
+        {
+          "index": 1,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              20.0,
+              30.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            11.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": false,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              100.0,
+              200.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [
+            {
+              "x": [
+                200.0,
+                200.0
+              ],
+              "y": [
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "use_sticky": true
+        },
+        {
+          "index": 1,
+          "xview": [
+            11.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            1,
+            0
+          ],
+          "data": [
+            [
+              20.0,
+              30.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 1,
+          "kwargs": {
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          1,
+          {
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          1,
+          "x"
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "1.x",
+        "0.x"
+      ],
+      "view_reads": [
+        "1.x",
+        "1.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 35
+    },
+    {
+      "label": "round mode tight None",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            9.5,
+            20.5
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": null,
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": true,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": null,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 36
+    },
+    {
+      "label": "round mode tight False",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            5.0,
+            25.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": false,
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": true,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": false,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 37
+    },
+    {
+      "label": "enable then getter preserves empty mutated view",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ],
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ]
+          ],
+          "minpos": [
+            {
+              "float": "inf"
+            },
+            {
+              "float": "inf"
+            }
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ],
+            [
+              {
+                "float": "inf"
+              },
+              {
+                "float": "-inf"
+              }
+            ]
+          ],
+          "minpos": [
+            {
+              "float": "inf"
+            },
+            {
+              "float": "inf"
+            }
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "autoscale",
+          "kwargs": {
+            "enable": true,
+            "axis": "x"
+          }
+        },
+        {
+          "kind": "get"
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ]
+      ],
+      "own_reads": [],
+      "view_reads": [
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 38
+    },
+    {
+      "label": "nonfinite margin nan tight True",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            10.0,
+            20.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            {
+              "float": "nan"
+            },
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "margin",
+          "value": {
+            "float": "nan"
+          }
+        },
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": true,
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ],
+        [
+          "autoscale_view",
+          0,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x",
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 39
+    },
+    {
+      "label": "nonfinite margin nan tight False",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            10.0,
+            20.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            {
+              "float": "nan"
+            },
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "margin",
+          "value": {
+            "float": "nan"
+          }
+        },
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": false,
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": false,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ],
+        [
+          "autoscale_view",
+          0,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x",
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 40
+    },
+    {
+      "label": "nonfinite margin inf tight True",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            10.0,
+            20.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": true,
+          "margins": [
+            {
+              "float": "inf"
+            },
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "margin",
+          "value": {
+            "float": "inf"
+          }
+        },
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": true,
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ],
+        [
+          "autoscale_view",
+          0,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x",
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 41
+    },
+    {
+      "label": "nonfinite margin inf tight False",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            10.0,
+            20.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            true,
+            false
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            {
+              "float": "inf"
+            },
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            30.0
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "margin",
+          "value": {
+            "float": "inf"
+          }
+        },
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "tight": false,
+            "scaley": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "tight": false,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ],
+        [
+          "autoscale_view",
+          0,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "x"
+        ]
+      ],
+      "own_reads": [
+        "0.x",
+        "0.x"
+      ],
+      "view_reads": [
+        "0.x",
+        "0.x",
+        "0.x",
+        "0.x"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 42
+    },
+    {
+      "label": "vertical complete transform linear",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            true
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              10.0,
+              20.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            0.01
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            9.5,
+            20.5
+          ],
+          "auto": [
+            false,
+            true
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "linear",
+          "yscale": "linear",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              10.0,
+              20.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            0.01
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scalex": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scalex": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "y"
+        ]
+      ],
+      "own_reads": [
+        "0.y"
+      ],
+      "view_reads": [
+        "0.y",
+        "0.y"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 43
+    },
+    {
+      "label": "vertical complete transform log",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            true
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "log",
+          "yscale": "log",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              10.0,
+              20.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            0.01
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            9.659363289248457,
+            20.705298476827558
+          ],
+          "auto": [
+            false,
+            true
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "log",
+          "yscale": "log",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              10.0,
+              20.0
+            ],
+            [
+              10.0,
+              20.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            0.01
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scalex": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scalex": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "y"
+        ]
+      ],
+      "own_reads": [
+        "0.y",
+        "0.y",
+        "0.y",
+        "0.y"
+      ],
+      "view_reads": [
+        "0.y",
+        "0.y"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 44
+    },
+    {
+      "label": "vertical complete transform symlog",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            true
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "symlog",
+          "yscale": "symlog",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              -10.0,
+              20.0
+            ],
+            [
+              -10.0,
+              20.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            0.01
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            -15.705783673692896,
+            31.41156734738579
+          ],
+          "auto": [
+            false,
+            true
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "symlog",
+          "yscale": "symlog",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              -10.0,
+              20.0
+            ],
+            [
+              -10.0,
+              20.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            0.01
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scalex": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scalex": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "y"
+        ]
+      ],
+      "own_reads": [
+        "0.y"
+      ],
+      "view_reads": [
+        "0.y",
+        "0.y"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 45
+    },
+    {
+      "label": "vertical complete transform asinh",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            true
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "asinh",
+          "yscale": "asinh",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              -10.0,
+              20.0
+            ],
+            [
+              -10.0,
+              20.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            0.01
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            -13.987818166222228,
+            27.95016679660549
+          ],
+          "auto": [
+            false,
+            true
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "asinh",
+          "yscale": "asinh",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              -10.0,
+              20.0
+            ],
+            [
+              -10.0,
+              20.0
+            ]
+          ],
+          "minpos": [
+            0.01,
+            0.01
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scalex": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scalex": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "y"
+        ]
+      ],
+      "own_reads": [
+        "0.y"
+      ],
+      "view_reads": [
+        "0.y",
+        "0.y"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 46
+    },
+    {
+      "label": "vertical complete transform logit",
+      "before": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            300.0,
+            400.0
+          ],
+          "auto": [
+            false,
+            true
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "logit",
+          "yscale": "logit",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              0.1,
+              0.8
+            ],
+            [
+              0.1,
+              0.8
+            ]
+          ],
+          "minpos": [
+            0.01,
+            0.01
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "after": [
+        {
+          "index": 0,
+          "xview": [
+            100.0,
+            200.0
+          ],
+          "yview": [
+            0.08499006745548109,
+            0.8271369057737346
+          ],
+          "auto": [
+            false,
+            true
+          ],
+          "mutated": [
+            true,
+            true
+          ],
+          "stale": {
+            "x": false,
+            "y": false
+          },
+          "tight": false,
+          "margins": [
+            0.05,
+            0.05
+          ],
+          "scale": "logit",
+          "yscale": "logit",
+          "active": true,
+          "group": [
+            0
+          ],
+          "data": [
+            [
+              0.1,
+              0.8
+            ],
+            [
+              0.1,
+              0.8
+            ]
+          ],
+          "minpos": [
+            0.01,
+            0.01
+          ],
+          "own_minpos": [
+            0.001,
+            0.001
+          ],
+          "stickies": [],
+          "use_sticky": true
+        }
+      ],
+      "actions": [
+        {
+          "kind": "view",
+          "panel": 0,
+          "kwargs": {
+            "scalex": false
+          }
+        }
+      ],
+      "error": null,
+      "round": false,
+      "events": [
+        [
+          "autoscale_view",
+          0,
+          {
+            "scalex": false
+          }
+        ],
+        [
+          "data.minpos",
+          0,
+          "y"
+        ]
+      ],
+      "own_reads": [
+        "0.y",
+        "0.y",
+        "0.y"
+      ],
+      "view_reads": [
+        "0.y",
+        "0.y"
+      ],
+      "fail_minpos": null,
+      "fail_data_minpos": null,
+      "fail_view_query": null,
+      "warnings": [],
+      "id": 47
+    }
+  ],
+  "cache_cases": [
+    {
+      "label": "x-only first",
+      "kind": "update",
+      "points": [
+        [
+          1.0,
+          2.0
+        ],
+        [
+          3.0,
+          4.0
+        ]
+      ],
+      "update_x": true,
+      "update_y": false,
+      "bounds": [
+        [
+          1.0,
+          30.0
+        ],
+        [
+          3.0,
+          40.0
+        ]
+      ],
+      "minpos": [
+        1.0,
+        30.0
+      ],
+      "ignore": false
+    },
+    {
+      "label": "y-only first",
+      "kind": "update",
+      "points": [
+        [
+          1.0,
+          2.0
+        ],
+        [
+          3.0,
+          4.0
+        ]
+      ],
+      "update_x": false,
+      "update_y": true,
+      "bounds": [
+        [
+          10.0,
+          2.0
+        ],
+        [
+          20.0,
+          4.0
+        ]
+      ],
+      "minpos": [
+        10.0,
+        2.0
+      ],
+      "ignore": false
+    },
+    {
+      "label": "both first",
+      "kind": "update",
+      "points": [
+        [
+          1.0,
+          2.0
+        ],
+        [
+          3.0,
+          4.0
+        ]
+      ],
+      "update_x": true,
+      "update_y": true,
+      "bounds": [
+        [
+          1.0,
+          2.0
+        ],
+        [
+          3.0,
+          4.0
+        ]
+      ],
+      "minpos": [
+        1.0,
+        2.0
+      ],
+      "ignore": false
+    },
+    {
+      "label": "all nonfinite early return",
+      "kind": "update",
+      "points": [
+        [
+          {
+            "float": "nan"
+          },
+          {
+            "float": "inf"
+          }
+        ]
+      ],
+      "update_x": true,
+      "update_y": true,
+      "bounds": [
+        [
+          10.0,
+          30.0
+        ],
+        [
+          20.0,
+          40.0
+        ]
+      ],
+      "minpos": [
+        10.0,
+        30.0
+      ],
+      "ignore": true
+    },
+    {
+      "label": "paired invalid consumes ignore",
+      "kind": "update",
+      "points": [
+        [
+          1.0,
+          {
+            "float": "nan"
+          }
+        ]
+      ],
+      "update_x": true,
+      "update_y": true,
+      "bounds": [
+        [
+          {
+            "float": "inf"
+          },
+          {
+            "float": "inf"
+          }
+        ],
+        [
+          {
+            "float": "-inf"
+          },
+          {
+            "float": "-inf"
+          }
+        ]
+      ],
+      "minpos": [
+        {
+          "float": "inf"
+        },
+        {
+          "float": "inf"
+        }
+      ],
+      "ignore": false
+    },
+    {
+      "label": "empty Line leaves ignore",
+      "kind": "line",
+      "points": [],
+      "bounds": [
+        [
+          10.0,
+          30.0
+        ],
+        [
+          20.0,
+          40.0
+        ]
+      ],
+      "minpos": [
+        10.0,
+        30.0
+      ],
+      "ignore": true
+    },
+    {
+      "label": "nonempty invalid Line consumes ignore",
+      "kind": "line",
+      "points": [
+        [
+          {
+            "float": "nan"
+          },
+          {
+            "float": "inf"
+          }
+        ]
+      ],
+      "bounds": [
+        [
+          {
+            "float": "inf"
+          },
+          {
+            "float": "inf"
+          }
+        ],
+        [
+          {
+            "float": "-inf"
+          },
+          {
+            "float": "-inf"
+          }
+        ]
+      ],
+      "minpos": [
+        {
+          "float": "inf"
+        },
+        {
+          "float": "inf"
+        }
+      ],
+      "ignore": false
+    },
+    {
+      "label": "empty relim preserves old minpos",
+      "kind": "relim",
+      "points": [],
+      "bounds": [
+        [
+          {
+            "float": "inf"
+          },
+          {
+            "float": "inf"
+          }
+        ],
+        [
+          {
+            "float": "-inf"
+          },
+          {
+            "float": "-inf"
+          }
+        ]
+      ],
+      "minpos": [
+        10.0,
+        30.0
+      ],
+      "ignore": true
+    }
+  ]
+}

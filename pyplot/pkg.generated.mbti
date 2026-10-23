@@ -20,7 +20,9 @@ pub fn annotate(String, Double, Double, offset_x? : Double, offset_y? : Double, 
 
 pub fn arrow(Double, Double, Double, Double, color? : String, linewidth? : Double, head_length? : Double, head_width? : Double, label? : String) -> Unit raise @core.DataError
 
-pub fn autoscale(axis? : String, tight? : Bool) -> Unit raise @core.DataError
+pub fn autoscale(axis? : String, enable? : Bool?, tight? : Bool) -> Unit raise @core.DataError
+
+pub fn autoscale_view(tight? : Bool, scalex? : Bool, scaley? : Bool, axis? : String) -> Unit raise @core.DataError
 
 pub fn axes(left? : Double, bottom? : Double, width? : Double, height? : Double) -> @scene.Axes raise @gridspec.LayoutError
 

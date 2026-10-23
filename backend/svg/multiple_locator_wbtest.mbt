@@ -50,7 +50,7 @@ test "multiple locator nonsingular expansion precedes per-panel margins" {
 }
 
 ///|
-test "multiple locator round numbers follow margin padding and read rc on every render" {
+test "multiple locator rounding reads current rc on an explicit autoscale request" {
   @config.reset()
   defer @config.reset()
   let x_axis = @axis.axis()
@@ -72,9 +72,11 @@ test "multiple locator round numbers follow margin padding and read rc on every 
   assert_true(Double::abs(data.xmin - 0.9) < 1.0e-14)
   assert_true(Double::abs(data.xmax - 2.1) < 1.0e-14)
   @config.set_axes_autolimit_mode("round_numbers")
+  x_axis.request_autoscale()
   let rounded = compute_scale(figure, 0)
   assert_eq((rounded.xmin, rounded.xmax), (0.0, 3.0))
   locator.set_params(base=2.0, offset=0.5)
+  x_axis.request_autoscale()
   let updated = compute_scale(figure, 0)
   assert_eq((updated.xmin, updated.xmax), (0.5, 2.5))
   x_axis.set_auto_limits(1.8, 1.2)
@@ -106,6 +108,7 @@ test "multiple locator round numbers follow image sticky clamping" {
   let data = compute_scale(figure, 0)
   assert_eq((data.xmin, data.xmax), (1.1, 1.9))
   @config.set_axes_autolimit_mode("round_numbers")
+  x_axis.request_autoscale()
   let rounded = compute_scale(figure, 0)
   // Applying round_numbers before sticky clamping or ignoring stickies gives different bounds.
   assert_eq((rounded.xmin, rounded.xmax), (1.0, 2.0))
@@ -149,7 +152,10 @@ test "shared multiple autoscaling unions data before rounding and shared explici
   for scale in compute_scales(figure) {
     assert_eq((scale.xmin, scale.xmax), (1.0, 9.0))
   }
+  // Standalone IR axes have no Scene shared setter. Project the source
+  // setter's completed sibling propagation explicitly onto both handles.
   x0.set_limits(8.0, 2.0)
+  x1.set_limits(8.0, 2.0)
   for scale in compute_scales(figure) {
     assert_eq((scale.xmin, scale.xmax), (8.0, 2.0))
   }

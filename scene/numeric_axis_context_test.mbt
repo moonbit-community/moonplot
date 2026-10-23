@@ -1829,6 +1829,9 @@ test "numeric calls resolve automatic views and copied callbacks propagate check
   let failing = @ticker.LinearLocator::new(numticks=2)
   axes.set_x_locator(failing.as_locator())
   @config.set_axes_autolimit_mode("round_numbers")
+  // Replacing a locator or changing rc does not request a view recomputation.
+  // The prior call consumed the plot request; explicitly enter view_limits.
+  axes.request_autoscale_view(axis="x", tight=false)
   assert_true(
     try {
       ignore(copied.call())

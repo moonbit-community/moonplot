@@ -167,6 +167,9 @@ pub fn Axis::set_cleared_view_limits(
     self.auto_view = None
   }
   self.inverted = reversed
+  self.stored_view = view
+  self.autoscale_enabled = automatic
+  self.autoscale_pending = false
   if self.tick_layout_view is Some(_) {
     self.tick_layout_view = Some((view.lower(), view.upper()))
   }

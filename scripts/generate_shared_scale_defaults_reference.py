@@ -274,8 +274,8 @@ fn shared_scale_locator_view(value : @ticker.Locator) -> (Double, Double) raise 
    if case['explicit']:body+='  axis.set_limits(0.98, 0.02)\n'
    else:body+='  axis.set_auto_limits(0.98, 0.02)\n'
    body+='  axes.set_'+name+'_scale('+scale(case['profile'])+')\n'
-   if case['autoscale_requested']and not case['explicit']:body+='  assert_true(axis.current_view_limits() is None)\n'
-   else:body+='  let view = axis.current_view_limits().unwrap()\n  assert_eq((view.lower(), view.upper()), (0.98, 0.02))\n'
+   if case['autoscale_requested']and not case['explicit']:body+='  // D35 records the force call; D37 executes its full source body.\n  // With no data, the already-mutated provisional viewport is retained.\n'
+   body+='  let view = axis.current_view_limits().unwrap()\n  assert_eq((view.lower(), view.upper()), (0.98, 0.02))\n'
   else:
    body+='  let figure = @scene.figure()\n  let axes = figure.subplots(1, 3, share_x=true, share_y=true)\n  axes[0].set_'+name+'_limits(1.0, 10.0)\n  axes[0].set_'+name+'_ticks([1.0, 10.0])\n  axes[0].set_'+name+'_tick_labels(["one", "ten"])\n  axes[1].remove()\n  axes[1].set_'+name+'_limits(100.0, 200.0)\n  axes[1].set_'+name+'_scale(@scale.log_scale())\n  axes[1].set_'+name+'_ticks([100.0])\n  axes[1].set_'+name+'_tick_labels(["detached"])\n  axes[0].set_'+name+'_limits(5.0, 15.0)\n  axes[0].'+name+'_axis().set_minor_locator(@ticker.NullLocator::new().as_minor_locator())\n'
    for index in [0,2]:

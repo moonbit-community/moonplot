@@ -10,7 +10,11 @@ pub fn Axis::bind_minpos(
 pub fn Axis::get_minpos(self : Axis) -> Double raise @core.DataError {
   match self.minpos_provider {
     Some(provider) => provider()
-    None => 1.0 / 0.0
+    None =>
+      match self.render_minpos_provider {
+        Some(provider) => provider()
+        None => 1.0 / 0.0
+      }
   }
 }
 
@@ -28,8 +32,24 @@ pub fn Axis::shared_minpos_checked(
 ) -> Array[Double] raise @core.DataError {
   match self.shared_minpos_provider {
     Some(provider) => provider()
-    None => [self.get_minpos()]
+    None =>
+      match self.render_shared_minpos_provider {
+        Some(provider) => provider()
+        None => [self.get_minpos()]
+      }
   }
+}
+
+///|
+/// Supply render-only minimum data when no owning-axis override is bound.
+/// Explicit and Scene data providers keep precedence, including their errors.
+pub fn Axis::bind_render_minpos(
+  self : Axis,
+  own : () -> Double raise @core.DataError,
+  shared : () -> Array[Double] raise @core.DataError,
+) -> Unit {
+  self.render_minpos_provider = Some(own)
+  self.render_shared_minpos_provider = Some(shared)
 }
 
 ///|

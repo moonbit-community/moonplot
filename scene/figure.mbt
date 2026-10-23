@@ -218,6 +218,13 @@ struct AxesData {
   spines : Array[SpineState]
   mut x_margin : Double
   mut y_margin : Double
+  mut raw_x_data : @core.Limits
+  mut raw_y_data : @core.Limits
+  mut x_data_minpos : Double
+  mut y_data_minpos : Double
+  mut ignore_existing_data_limits : Bool
+  mut tight : Bool?
+  mut use_sticky_edges : Bool
   color_cycle : Array[String]
   mut color_cycle_index : Int32
   mut data_aspect : Double?
@@ -264,6 +271,9 @@ fn AxesData::clear_presentation(self : AxesData) -> Unit {
   }
   self.x_margin = @config.x_margin()
   self.y_margin = @config.y_margin()
+  self.ignore_existing_data_limits = true
+  self.tight = None
+  self.use_sticky_edges = true
   self.color_cycle.clear()
   for color in default_color_cycle() {
     self.color_cycle.push(color)
@@ -340,6 +350,13 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
     spines: default_spines(),
     x_margin: @config.x_margin(),
     y_margin: @config.y_margin(),
+    raw_x_data: @core.limits(1.0 / 0.0, -1.0 / 0.0),
+    raw_y_data: @core.limits(1.0 / 0.0, -1.0 / 0.0),
+    x_data_minpos: 1.0 / 0.0,
+    y_data_minpos: 1.0 / 0.0,
+    ignore_existing_data_limits: true,
+    tight: None,
+    use_sticky_edges: true,
     color_cycle: default_color_cycle(),
     color_cycle_index: 0,
     data_aspect: None,
@@ -394,15 +411,16 @@ fn Figure::default_axes_data(self : Figure) -> @ref.Ref[AxesData] {
 ///|
 fn Axes::push_artist(self : Axes, artist : Artist) -> Unit {
   self.state.val.artists.push(artist)
+  self.update_artist_data_limits(artist)
   match artist {
     Artist::Text(_, _, _, _) | Artist::Annotation(_) | Artist::Table(_) => ()
+    Artist::HLine(_, _) | Artist::HSpan(_, _, _) =>
+      self.state.val.y_axis.request_autoscale()
+    Artist::VLine(_, _) | Artist::VSpan(_, _, _) =>
+      self.state.val.x_axis.request_autoscale()
     _ => {
-      for state in self.x_group_states() {
-        state.val.x_axis.request_autoscale()
-      }
-      for state in self.y_group_states() {
-        state.val.y_axis.request_autoscale()
-      }
+      self.state.val.x_axis.request_autoscale()
+      self.state.val.y_axis.request_autoscale()
     }
   }
 }
@@ -535,10 +553,11 @@ pub fn Figure::y_margin(self : Figure) -> Double {
 /// Restore automatic limits for one or both axes.
 pub fn Figure::autoscale(
   self : Figure,
+  enable~ : Bool? = Some(true),
   axis~ : String = "both",
-  tight~ : Bool = false,
+  tight? : Bool,
 ) -> Unit raise @core.DataError {
-  self.axes().autoscale(axis~, tight~)
+  self.axes().autoscale(enable~, axis~, tight?)
 }
 
 ///|
@@ -850,6 +869,13 @@ fn new_axes_state(
     spines: default_spines(),
     x_margin: @config.x_margin(),
     y_margin: @config.y_margin(),
+    raw_x_data: @core.limits(1.0 / 0.0, -1.0 / 0.0),
+    raw_y_data: @core.limits(1.0 / 0.0, -1.0 / 0.0),
+    x_data_minpos: 1.0 / 0.0,
+    y_data_minpos: 1.0 / 0.0,
+    ignore_existing_data_limits: true,
+    tight: None,
+    use_sticky_edges: true,
     color_cycle: default_color_cycle(),
     color_cycle_index: 0,
     data_aspect: None,
@@ -918,14 +944,12 @@ pub fn Axes::rect(self : Axes) -> @gridspec.Rect? {
 ///|
 /// Return this panel's x-axis object.
 pub fn Axes::x_axis(self : Axes) -> @axis.Axis {
-  self.bind_axis_data(true)
   self.state.val.x_axis
 }
 
 ///|
 /// Return this panel's y-axis object.
 pub fn Axes::y_axis(self : Axes) -> @axis.Axis {
-  self.bind_axis_data(false)
   self.state.val.y_axis
 }
 
@@ -972,9 +996,9 @@ pub fn Axes::axis_visible(self : Axes) -> Bool {
 
 ///|
 fn validate_margin(value : Double) -> Unit raise @core.DataError {
-  if value.is_nan() || value.is_inf() || value <= -0.5 {
+  if value <= -0.5 {
     raise @core.DataError::InvalidTicks(
-      message="axes margins must be finite and greater than -0.5",
+      message="axes margins must be greater than -0.5",
     )
   }
 }
@@ -986,10 +1010,8 @@ pub fn Axes::set_x_margin(
   value : Double,
 ) -> Unit raise @core.DataError {
   validate_margin(value)
-  for state in self.x_group_states() {
-    state.val.x_margin = value
-    state.val.x_axis.request_autoscale()
-  }
+  self.state.val.x_margin = value
+  self.state.val.x_axis.request_autoscale()
 }
 
 ///|
@@ -999,10 +1021,8 @@ pub fn Axes::set_y_margin(
   value : Double,
 ) -> Unit raise @core.DataError {
   validate_margin(value)
-  for state in self.y_group_states() {
-    state.val.y_margin = value
-    state.val.y_axis.request_autoscale()
-  }
+  self.state.val.y_margin = value
+  self.state.val.y_axis.request_autoscale()
 }
 
 ///|
@@ -1014,14 +1034,11 @@ pub fn Axes::set_margins(
 ) -> Unit raise @core.DataError {
   validate_margin(x)
   validate_margin(y)
-  for state in self.x_group_states() {
-    state.val.x_margin = x
-    state.val.x_axis.request_autoscale()
-  }
-  for state in self.y_group_states() {
-    state.val.y_margin = y
-    state.val.y_axis.request_autoscale()
-  }
+  self.state.val.tight = Some(true)
+  self.state.val.x_margin = x
+  self.state.val.y_margin = y
+  self.state.val.x_axis.request_autoscale()
+  self.state.val.y_axis.request_autoscale()
 }
 
 ///|
@@ -1040,41 +1057,6 @@ pub fn Axes::x_margin(self : Axes) -> Double {
 /// Return the automatic y-axis margin.
 pub fn Axes::y_margin(self : Axes) -> Double {
   self.state.val.y_margin
-}
-
-///|
-/// Restore automatic limits for one or both axes.
-///
-/// `axis` accepts `"both"`, `"x"`, or `"y"`. When `tight` is true, the
-/// selected automatic margins are set to zero before the next render.
-pub fn Axes::autoscale(
-  self : Axes,
-  axis~ : String = "both",
-  tight~ : Bool = false,
-) -> Unit raise @core.DataError {
-  if axis != "both" && axis != "x" && axis != "y" {
-    raise @core.DataError::InvalidTicks(
-      message="autoscale axis must be 'both', 'x', or 'y'",
-    )
-  }
-  if axis == "both" || axis == "x" {
-    for state in self.x_group_states() {
-      state.val.explicit_bounds = None
-      state.val.x_axis.clear_limits()
-      if tight {
-        state.val.x_margin = 0.0
-      }
-    }
-  }
-  if axis == "both" || axis == "y" {
-    for state in self.y_group_states() {
-      state.val.explicit_bounds = None
-      state.val.y_axis.clear_limits()
-      if tight {
-        state.val.y_margin = 0.0
-      }
-    }
-  }
 }
 
 ///|
@@ -1373,7 +1355,6 @@ pub fn Axes::set_x_locator(
   locator : @ticker.Locator,
 ) -> Unit raise @core.DataError {
   for state in self.x_group_states() {
-    ({ figure: self.figure, state, } : Axes).bind_axis_data(true)
     state.val.x_axis.set_locator(locator)
   }
   self.state.val.x_axis.bind_locator_data()
@@ -1386,7 +1367,6 @@ pub fn Axes::set_y_locator(
   locator : @ticker.Locator,
 ) -> Unit raise @core.DataError {
   for state in self.y_group_states() {
-    ({ figure: self.figure, state, } : Axes).bind_axis_data(false)
     state.val.y_axis.set_locator(locator)
   }
   self.state.val.y_axis.bind_locator_data()
@@ -1421,7 +1401,6 @@ pub fn Axes::set_x_minor_locator(
   locator : @ticker.MinorLocator,
 ) -> Unit raise @core.DataError {
   for state in self.x_group_states() {
-    ({ figure: self.figure, state, } : Axes).bind_axis_data(true)
     state.val.x_axis.set_minor_locator(locator)
   }
   self.state.val.x_axis.bind_locator_data(minor=true)
@@ -1434,7 +1413,6 @@ pub fn Axes::set_y_minor_locator(
   locator : @ticker.MinorLocator,
 ) -> Unit raise @core.DataError {
   for state in self.y_group_states() {
-    ({ figure: self.figure, state, } : Axes).bind_axis_data(false)
     state.val.y_axis.set_minor_locator(locator)
   }
   self.state.val.y_axis.bind_locator_data(minor=true)

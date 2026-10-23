@@ -65,7 +65,7 @@ fn Axes::clear_coordinate_view(
       axis.set_cleared_view_limits(
         lower,
         upper,
-        automatic=source.limits() is None,
+        automatic=source.autoscale_on(),
       )
       // Geometry inheritance is the final source assignment, not a scale reset.
       axis.inherit_scale_from(source)

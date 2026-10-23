@@ -67,7 +67,9 @@ test "datalim automatic views remain automatic and update with data and margins"
   assert_true(ax.x_axis().limits() is None && ax.y_axis().limits() is None)
   assert_datalim_view(ax, (-0.5, 1.5), (0.0, 1.0))
   ax.plot([0.0, 4.0], [0.0, 1.0])
-  assert_true(ax.get_xlim() is None)
+  // Source get_xlim resolves the pending data view before aspect is applied.
+  let pending = ax.get_xlim().unwrap()
+  assert_eq((pending.lower(), pending.upper()), (0.0, 4.0))
   ax.apply_aspect()
   assert_datalim_view(ax, (0.0, 4.0), (-0.5, 1.5))
   ax.set_margins(0.25, 0.0)

@@ -5,6 +5,7 @@ import {
   "mathplotlib/mathplotlib/ticker/date",
   "mathplotlib/mathplotlib/ticker",
   "mathplotlib/mathplotlib/ticker/scale",
+  "moonbitlang/core/math",
 }
 
 import {

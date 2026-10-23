@@ -15,6 +15,9 @@ test "Log checked Scene calls propagate shared minpos errors and explicit views 
   .bind_shared_minpos(() => {
     raise @core.DataError::InvalidTicks(message="shared minpos callback")
   })
+  // Scale installation already resolved its forced view. An explicit request
+  // is required before the new provider is consulted by autoscale again.
+  axes.request_autoscale_view(axis="x")
   assert_true(
     try {
       ignore(locator.call())
@@ -25,6 +28,8 @@ test "Log checked Scene calls propagate shared minpos errors and explicit views 
       _ => false
     },
   )
+  // The failing lazy request was consumed before its checked work.
+  axes.request_autoscale_view(axis="x")
   assert_true(
     try {
       ignore(figure.to_svg_checked())

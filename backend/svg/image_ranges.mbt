@@ -108,3 +108,62 @@ fn clamp_sticky_bounds(
     },
   )
 }
+
+///|
+/// Raw sticky metadata recoverable from the current typed artist geometry.
+/// Keep values unfiltered; only the source Log autoscale stage drops <=0.
+pub fn artist_sticky_edges(
+  artists : Array[@render.Artist],
+  horizontal : Bool,
+) -> Array[Double] {
+  let result : Array[Double] = []
+  for artist in artists {
+    match artist_image_extent(artist) {
+      Some((left, right, bottom, top)) => {
+        result.push(if horizontal { left } else { bottom })
+        result.push(if horizontal { right } else { top })
+      }
+      None =>
+        match artist {
+          @render.Artist::Bar(points, _) if !horizontal =>
+            for _ in points {
+              result.push(0.0)
+            }
+          @render.Artist::BarH(points, _) if horizontal =>
+            for _ in points {
+              result.push(0.0)
+            }
+          _ => ()
+        }
+    }
+  }
+  result
+}
+
+///|
+fn grouped_artist_sticky_edges(
+  figure : @render.Figure,
+  target_index : Int32,
+  horizontal : Bool,
+) -> Array[Double] {
+  let target = figure.panels()[target_index]
+  let target_group = if horizontal {
+    target.share_x_group()
+  } else {
+    target.share_y_group()
+  }
+  let result : Array[Double] = []
+  for index, panel in figure.panels() {
+    let group = if horizontal {
+      panel.share_x_group()
+    } else {
+      panel.share_y_group()
+    }
+    if same_group(target_group, group, target_index, index) {
+      for value in artist_sticky_edges(panel.artists(), horizontal) {
+        result.push(value)
+      }
+    }
+  }
+  result
+}

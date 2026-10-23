@@ -21,7 +21,7 @@ fn log_locator_minpos_panel(x : @axis.Axis) -> @render.Figure {
 }
 
 ///|
-test "Log checked autoscale keeps four shared transports and the final own minpos read" {
+test "Log autoscale keeps three locator-shared queries and independent raw data minima" {
   let previous = @config.axes_autolimit_mode()
   defer @config.set_axes_autolimit_mode(previous)
   @config.set_axes_autolimit_mode("data")
@@ -29,6 +29,7 @@ test "Log checked autoscale keeps four shared transports and the final own minpo
   x.set_scale(@ticker_scale.log_scale())
   let shared = [0]
   let own = [0]
+  let raw = [0]
   x.bind_shared_minpos(() => {
     shared[0] += 1
     [5.0]
@@ -37,9 +38,14 @@ test "Log checked autoscale keeps four shared transports and the final own minpo
     own[0] += 1
     5.0
   })
+  x.bind_autoscale_minpos(() => {
+    raw[0] += 1
+    [5.0]
+  })
   x.set_locator(@ticker.LogLocator::new().as_locator())
   ignore(compute_scale(log_locator_minpos_panel(x), 0))
-  assert_eq(shared[0], 4)
+  assert_eq(shared[0], 3)
+  assert_eq(raw[0], 1)
   assert_eq(own[0], 1)
 }
 
@@ -53,9 +59,10 @@ test "Log checked autoscale propagates the third nonsingular and final own provi
     x.set_scale(@ticker_scale.log_scale())
     let shared = [0]
     let own = [0]
+    let raw = [0]
     x.bind_shared_minpos(() => {
       shared[0] += 1
-      if fail_shared && shared[0] == 4 {
+      if fail_shared && shared[0] == 3 {
         raise @core.DataError::InvalidTicks(message="third nonsingular minpos")
       }
       [5.0]
@@ -63,6 +70,10 @@ test "Log checked autoscale propagates the third nonsingular and final own provi
     x.bind_minpos(() => {
       own[0] += 1
       raise @core.DataError::InvalidTicks(message="final own minpos")
+    })
+    x.bind_autoscale_minpos(() => {
+      raw[0] += 1
+      [5.0]
     })
     x.set_locator(@ticker.LogLocator::new().as_locator())
     assert_true(
@@ -80,7 +91,8 @@ test "Log checked autoscale propagates the third nonsingular and final own provi
         _ => false
       },
     )
-    assert_eq(shared[0], 4)
+    assert_eq(shared[0], 3)
+    assert_eq(raw[0], 1)
     assert_eq(own[0], if fail_shared { 0 } else { 1 })
   }
 }

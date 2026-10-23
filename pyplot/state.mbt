@@ -2126,12 +2126,25 @@ pub fn set_ymargin(value : Double) -> Unit raise @core.DataError {
 }
 
 ///|
-/// Restore automatic limits for one or both axes.
+/// Toggle automatic view updates on the current axes and schedule selected views.
+/// enable=None retains the switches and requests both coordinates.
 pub fn autoscale(
   axis~ : String = "both",
-  tight~ : Bool = false,
+  enable~ : Bool? = Some(true),
+  tight? : Bool,
 ) -> Unit raise @core.DataError {
-  require_axes().autoscale(axis~, tight~)
+  require_axes().autoscale(axis~, enable~, tight?)
+}
+
+///|
+/// Recompute selected automatic views without enabling their autoscale switches.
+pub fn autoscale_view(
+  tight? : Bool,
+  scalex~ : Bool = true,
+  scaley~ : Bool = true,
+  axis~ : String = "both",
+) -> Unit raise @core.DataError {
+  require_axes().autoscale_view(tight?, scalex~, scaley~, axis~)
 }
 
 ///|

@@ -45,7 +45,8 @@ test "matplotlib aliases expose autoscale margins" {
   try! fig.set_ymargin(0.2)
   assert_eq(fig.margins(), (0.1, 0.2))
   try! axes.autoscale_view(tight=true)
-  assert_eq(axes.get_margins(), (0.0, 0.0))
+  // Source autoscale_view retains margins; only autoscale(tight=True) zeros them.
+  assert_eq(axes.get_margins(), (0.1, 0.2))
 }
 
 ///|

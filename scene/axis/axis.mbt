@@ -17,12 +17,20 @@ pub struct Axis {
   priv formatter_messages : Array[String]
   priv mut minpos_provider : (() -> Double raise @core.DataError)?
   priv mut shared_minpos_provider : (() -> Array[Double] raise @core.DataError)?
+  priv mut render_minpos_provider : (() -> Double raise @core.DataError)?
+  priv mut render_shared_minpos_provider : (() -> Array[Double] raise @core.DataError)?
+  priv mut autoscale_minpos_provider : (() -> Array[Double] raise @core.DataError)?
+  priv mut render_autoscale_minpos_provider : (() -> Array[Double] raise @core.DataError)?
   priv mut data_interval_provider : (() -> (Double, Double))?
   priv mut formatter_geometry_provider : (() -> (Double, Double))?
   priv mut tick_layout_origin : Double?
   priv mut tick_length_provider : (() -> Double)?
   priv mut numeric_view_provider : (() -> (Double, Double) raise @core.DataError)?
   priv mut render_view_provider : (() -> (Double, Double) raise @core.DataError)?
+  priv mut autoscale_view_provider : (() -> Unit raise @core.DataError)?
+  priv mut autoscale_enabled : Bool
+  priv mut autoscale_pending : Bool
+  priv mut stored_view : @core.Limits
   priv mut tick_layout_length : Double?
   priv mut tick_layout_view : (Double, Double)?
   priv mut tick_layout_active : Bool
@@ -67,12 +75,20 @@ pub fn axis(horizontal~ : Bool = true) -> Axis {
     formatter_messages: [],
     minpos_provider: None,
     shared_minpos_provider: None,
+    render_minpos_provider: None,
+    render_shared_minpos_provider: None,
+    autoscale_minpos_provider: None,
+    render_autoscale_minpos_provider: None,
     data_interval_provider: None,
     formatter_geometry_provider: None,
     tick_layout_origin: None,
     tick_length_provider: None,
     numeric_view_provider: None,
     render_view_provider: None,
+    autoscale_view_provider: None,
+    autoscale_enabled: true,
+    autoscale_pending: false,
+    stored_view: @core.limits(0.0, 1.0),
     tick_layout_length: None,
     tick_layout_view: None,
     tick_layout_active: false,
@@ -139,6 +155,9 @@ pub fn Axis::set_limits(
     self.limits = Some(resolved)
     self.auto_view = None
     self.inverted = resolved.lower() > resolved.upper()
+    self.stored_view = resolved
+    self.autoscale_enabled = false
+    self.autoscale_pending = false
     if self.tick_layout_view is Some(_) {
       self.tick_layout_view = Some((resolved.lower(), resolved.upper()))
     }
@@ -152,6 +171,9 @@ pub fn Axis::set_limits(
   self.limits = Some(limits)
   self.auto_view = None
   self.inverted = lower > upper
+  self.stored_view = limits
+  self.autoscale_enabled = false
+  self.autoscale_pending = false
   if self.tick_layout_view is Some(_) {
     self.tick_layout_view = Some((lower, upper))
   }
@@ -163,6 +185,8 @@ pub fn Axis::set_limits(
 pub fn Axis::clear_limits(self : Axis) -> Unit {
   self.limits = None
   self.auto_view = None
+  self.autoscale_enabled = true
+  self.autoscale_pending = true
 }
 
 ///|

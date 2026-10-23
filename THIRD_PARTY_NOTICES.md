@@ -501,3 +501,8 @@ axes/_base.py、gridspec.py、cbook.py、figure.py、artist.py 与 ticker.py 行
 D36 的构造与 clear 生命周期继续依据同一固定 Matplotlib v3.11.2 原源以 MoonBit 重写。
 完整 Axis/Axes clear、共享排序与尾部 limits 原方法的独立执行、哈希和宿主边界见
 [testdata/initial_clear_README.md](testdata/initial_clear_README.md)。没有增加新的分发依赖。
+
+D37 的 numeric autoscale、lazy view 和缓存 dataLim/relim 继续依据固定 Matplotlib v3.11.2
+原源以 MoonBit 重写。新增独立原源执行器保留原始行为与运行时 hash，controlled host 和
+数值边界见 [testdata/autoscale_README.md](testdata/autoscale_README.md)。既有 Matplotlib
+及 NumPy 许可声明继续适用，没有新的分发依赖。

@@ -9,11 +9,8 @@ fn Axes::set_numeric_scale(
   } else {
     self.y_group_states()
   }
-  // Install intrinsic x/y context before the scale reads direction-specific rc.
-  // Binding providers does not rebind a locator or formatter's existing owner.
-  for state in states {
-    ({ figure: self.figure, state, } : Axes).bind_axis_data(horizontal)
-  }
+  // Intrinsic direction and stable Scene context were bound at construction.
+  // A scale change must preserve user overrides of those context providers.
   let axis = if horizontal {
     self.state.val.x_axis
   } else {
@@ -40,10 +37,7 @@ fn Axes::set_numeric_scale(
   // Shared Ticker holders retain the last source sibling's installed handles
   // and owner. Do not rebind the requesting axes after this loop.
   if previous_defaults != axis.locator_default_limits() {
-    for state in states {
-      let current = if horizontal { state.val.x_axis } else { state.val.y_axis }
-      current.request_autoscale()
-    }
+    self.autoscale_view(scalex=horizontal, scaley=!horizontal)
   }
 }
 

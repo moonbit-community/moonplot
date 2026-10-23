@@ -20,11 +20,14 @@ pub fn Axis::set_auto_limits(
   lower : Double,
   upper : Double,
 ) -> Unit {
-  if self.limits is None &&
+  if self.autoscale_enabled &&
     self.scale.is_valid(lower) &&
     self.scale.is_valid(upper) &&
     lower != upper {
     self.auto_view = Some(@core.limits(lower, upper))
+    self.limits = None
+    self.stored_view = @core.limits(lower, upper)
+    self.autoscale_pending = false
     self.inverted = lower > upper
   }
 }
@@ -34,6 +37,7 @@ pub fn Axis::set_auto_limits(
 /// limits and the axis direction.
 pub fn Axis::request_autoscale(self : Axis) -> Unit {
   self.auto_view = None
+  self.autoscale_pending = true
 }
 
 ///|
@@ -125,6 +129,8 @@ pub fn Axis::set_view_limits(
       self.auto_view = Some(view)
     }
     self.inverted = view.lower() > view.upper()
+    self.stored_view = view
+    self.autoscale_pending = false
     if self.tick_layout_view is Some(_) {
       self.tick_layout_view = Some((view.lower(), view.upper()))
     }
@@ -141,6 +147,8 @@ pub fn Axis::set_view_limits(
     self.auto_view = Some(view)
   }
   self.inverted = lower > upper
+  self.stored_view = view
+  self.autoscale_pending = false
   if self.tick_layout_view is Some(_) {
     self.tick_layout_view = Some((lower, upper))
   }

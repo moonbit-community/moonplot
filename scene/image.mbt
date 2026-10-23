@@ -236,7 +236,7 @@ fn Axes::add_image(
   let image_extent = parse_image_extent(extent)
   let norm = linear_color_norm(vmin, vmax)
   self.apply_image_aspect(aspect)
-  self.push_artist(
+  self.attach_image_checked(
     Artist::ImageNorm(
       copy_image_data(data),
       norm,
@@ -246,8 +246,11 @@ fn Axes::add_image(
       alpha,
       image_interpolation,
     ),
+    data.length(),
+    data[0].length(),
+    image_origin,
+    image_extent,
   )
-  self.fit_image_extent(data, image_origin, image_extent)
 }
 
 ///|
@@ -268,7 +271,7 @@ fn Axes::add_image_norm(
   let image_interpolation = parse_image_interpolation(interpolation)
   let image_extent = parse_image_extent(extent)
   self.apply_image_aspect(aspect)
-  self.push_artist(
+  self.attach_image_checked(
     Artist::ImageNorm(
       copy_image_data(data),
       norm,
@@ -278,8 +281,11 @@ fn Axes::add_image_norm(
       alpha,
       image_interpolation,
     ),
+    data.length(),
+    data[0].length(),
+    image_origin,
+    image_extent,
   )
-  self.fit_image_extent(data, image_origin, image_extent)
 }
 
 ///|

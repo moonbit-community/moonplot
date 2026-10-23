@@ -200,6 +200,10 @@ test "removed shared data stops contributing to autoscale and active geometry" {
   panels[0].set_aspect_equal()
   assert_true(panels[0].get_position().unwrap().width() < 0.01)
   panels[1].remove()
+  // Figure._remove_axes changes membership and ticker ownership, retaining
+  // the existing shared view until an actual autoscale request is made.
+  assert_true(panels[0].get_position().unwrap().width() < 0.01)
+  panels[0].request_autoscale_view()
   let rect = panels[0].get_position().unwrap()
   assert_eq(
     (rect.x(), rect.y(), rect.width(), rect.height()),

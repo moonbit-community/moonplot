@@ -247,9 +247,11 @@ test "datalim panel views remain pure and match rendered limits and positions" {
 }
 
 ///|
-test "checked panel view reports invalid datalim sharing while position query returns none" {
+test "checked panel view resolves pending ranges before reporting invalid datalim sharing" {
   let x = @axis.axis()
   let y = @axis.axis()
+  x.request_autoscale()
+  y.request_autoscale()
   let panel = @render.panel_with_sharing(
     None,
     [],
@@ -273,8 +275,10 @@ test "checked panel view reports invalid datalim sharing while position query re
     _ => fail("expected invalid datalim sharing")
   }
   assert_true(@svg.panel_position(fig, 0) is None)
+  // Original apply_aspect reads get_xbound/get_ybound before rejecting shared
+  // datalim adjustment. Pending views therefore remain resolved after failure.
   assert_true(
-    x.current_view_limits() is None && y.current_view_limits() is None,
+    x.current_view_limits() is Some(_) && y.current_view_limits() is Some(_),
   )
 }
 

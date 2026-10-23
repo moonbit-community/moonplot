@@ -94,8 +94,6 @@ pub fn Figure::delaxes(
     let remaining_states = axes.unregister_shared_axis(horizontal)
     if remaining_states.length() > 0 {
       let state = remaining_states[0]
-      let remaining : Axes = { figure: self, state, }
-      remaining.bind_axis_data(horizontal)
       let axis = if horizontal { state.val.x_axis } else { state.val.y_axis }
       axis.bind_locator_data()
       axis.bind_locator_data(minor=true)
