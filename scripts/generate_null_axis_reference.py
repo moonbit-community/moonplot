@@ -32,6 +32,15 @@ HASHES = {
     "axes/_secondary_axes.py": "b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93",
 }
 
+# Both exact pins use NumPy 2.3.5's Darwin arm64 numeric profile. The second
+# bundle was re-signed on 2026-10-22. Its code/data bytes were independently
+# compared with the official macOS14 wheel (core SHA256 96ce8cda...609de09):
+# only six load-command size bytes and the code signature differ.
+NUMPY_BINARY_HASHES = {
+    "44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305",
+    "b11f1ef3534cc6bb0a9c8141206350b27cadf48632c34acfcfc97ca6e700363e",
+}
+
 
 def clean(value):
     if isinstance(value, (float, np.floating)):
@@ -49,7 +58,7 @@ def load(path):
     if sys.version_info[:3] != (3, 12, 14) or np.__version__ != "2.3.5":
         raise ValueError("fixed CPython3.12.14 / NumPy2.3.5 required")
     binary = Path(np._core._multiarray_umath.__file__)
-    if hashlib.sha256(binary.read_bytes()).hexdigest() != "44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305":
+    if hashlib.sha256(binary.read_bytes()).hexdigest() not in NUMPY_BINARY_HASHES:
         raise ValueError("fixed Darwin arm64 NumPy binary differs")
     parsed = {}
     for name, sha in HASHES.items():
@@ -244,9 +253,14 @@ def generate(path):
         second.major_values = np.asarray([20., 24.])
         second.view = (20., 24.)
         take("later major and view updates are live")
+        # This controlled fixture changes only the scale name, not Axis._set_scale
+        # or its default installation. The existing major provider stays live.
+        retained_major = second.get_major_locator()
         second._scale.name = "log"
         take("log is allowed at setter and warns only on call")
         second._scale.name = "linear"
+        assert second.get_major_locator() is retained_major
+        np.testing.assert_array_equal(second.major_values, [20., 24.])
         locator.ndivs = None
         ns["mpl"].rcParams["xtick.minor.ndivs" if name == "x" else "ytick.minor.ndivs"] = 4
         take("manual reset captures current owner rc")
@@ -356,7 +370,7 @@ def generate(path):
     assert empty_result["error"] == "ValueError"
     skip_rows.append(dict(label="empty ordinary locator still invokes formatter", **empty_result))
     return clean(dict(source_hashes=HASHES, python=sys.version.split()[0], numpy=np.__version__,
-        numpy_binary_sha256="44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305",
+        numpy_binary_sha256=hashlib.sha256(Path(np._core._multiarray_umath.__file__).read_bytes()).hexdigest(),
         methods=["full TickHelper/Locator/NullLocator/AutoMinorLocator", "Axis.set_major_locator/set_minor_locator/get_majorticklocs/get_minorticklocs/_update_ticks", "Grouper", "FigureBase._remove_axes", "SecondaryAxis._set_lims/_set_scale", "transforms._nonsingular/_interval_contains_close"],
         fixture_boundaries="controlled axis Ticker containers, live major callbacks, rc mapping, known identity/log10/function transforms, Tick/formatter sinks; secondary scale setter captures source scale name/functions but does not implement scale-default lifecycle or full renderer", null_ranges=null_rows,
         null_warning=warning, axis_cases=axis_rows, late_major_error=late_major_error, ownership=ownership_rows, shared=shared_rows,
@@ -430,7 +444,10 @@ def generated_axes(payload):
         code += "  verify_auto_minor_axis_numbers(minor.call(), " + array(stages[2]["query"]["values"]) + ")\n"
         code += "  second.set_scale(@scale.log_scale())\n  second.set_minor_locator(minor.as_minor_locator())\n  assert_eq(minor.call(), [])\n"
         code += "  assert_eq(minor.warnings(), " + moon(stages[3]["query"]["warnings"]) + ")\n"
-        code += "  second.set_scale(@scale.linear_scale())\n  minor.set_ndivs(None)\n  @config.set_minor_tick_divisions(@config.MinorTickDivisions::Number(4.0), horizontal=" + horizontal + ")\n"
+        code += "  second.set_scale(@scale.linear_scale())\n"
+        code += "  // The source fixture changes only the scale name and retains these majors.\n"
+        code += "  second.set_locator(@ticker.FixedLocator::new([20.0, 24.0]).as_locator())\n"
+        code += "  minor.set_ndivs(None)\n  @config.set_minor_tick_divisions(@config.MinorTickDivisions::Number(4.0), horizontal=" + horizontal + ")\n"
         code += "  verify_auto_minor_axis_numbers(minor.call(), " + array(stages[4]["query"]["values"]) + ")\n"
         code += "  verify_auto_minor_axis_numbers(external.call(), " + array(stages[5]["query"]["values"]) + ")\n}\n"
     for row in payload["shared"]:

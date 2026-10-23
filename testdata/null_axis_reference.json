@@ -10,7 +10,7 @@
   },
   "python": "3.12.14",
   "numpy": "2.3.5",
-  "numpy_binary_sha256": "44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305",
+  "numpy_binary_sha256": "b11f1ef3534cc6bb0a9c8141206350b27cadf48632c34acfcfc97ca6e700363e",
   "methods": [
     "full TickHelper/Locator/NullLocator/AutoMinorLocator",
     "Axis.set_major_locator/set_minor_locator/get_majorticklocs/get_minorticklocs/_update_ticks",

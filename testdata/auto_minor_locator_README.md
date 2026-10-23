@@ -142,9 +142,15 @@ Matplotlib v3.11.2 is pinned at commit
 | axes/_secondary_axes.py | b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93 |
 
 The parameter generator additionally verifies rcsetup.py and matplotlibrc.
-The grid and axis references fix the Darwin arm64 NumPy binary profile,
-SHA256 `44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305`;
-this does not assert that all NumPy builds choose identical float bit patterns.
+The original grid and axis references fixed the Darwin arm64 NumPy binary
+SHA256 `44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305`.
+The Axis loader additionally accepts the exact re-signed bundle SHA256
+`b11f1ef3534cc6bb0a9c8141206350b27cadf48632c34acfcfc97ca6e700363e`.
+Its executable/data payload matches the official macOS14 arm64 wheel; the
+signature audit and exact wheel pin are recorded in [reference runtime](reference_runtime_README.md).
+Regeneration changed only the Axis JSON's runtime hash: every original source
+observation remains equal. Unknown binaries still fail the guard; this does not
+assert that arbitrary NumPy builds choose identical float bit patterns.
 The library adds no Python/C runtime or external dependency for this slice.
 Default numeric-axis lifecycle, arbitrary Python object/dtype inputs, complete
 font/rc/backend behavior and general relim/dataLim caching remain separate

@@ -542,6 +542,8 @@ test "AutoMinor original axis owner trace x" {
     "AutoMinorLocator does not work on logarithmic scales",
   ])
   second.set_scale(@scale.linear_scale())
+  // The source fixture changes only the scale name and retains these majors.
+  second.set_locator(@ticker.FixedLocator::new([20.0, 24.0]).as_locator())
   minor.set_ndivs(None)
   @config.set_minor_tick_divisions(
     @config.MinorTickDivisions::Number(4.0),
@@ -602,6 +604,8 @@ test "AutoMinor original axis owner trace y" {
     "AutoMinorLocator does not work on logarithmic scales",
   ])
   second.set_scale(@scale.linear_scale())
+  // The source fixture changes only the scale name and retains these majors.
+  second.set_locator(@ticker.FixedLocator::new([20.0, 24.0]).as_locator())
   minor.set_ndivs(None)
   @config.set_minor_tick_divisions(
     @config.MinorTickDivisions::Number(4.0),

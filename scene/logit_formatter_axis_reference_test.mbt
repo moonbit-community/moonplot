@@ -1443,11 +1443,11 @@ fn logit_formatter_axis_case_64() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -1484,11 +1484,11 @@ fn logit_formatter_axis_case_65() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -1526,11 +1526,11 @@ fn logit_formatter_axis_case_66() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -1567,11 +1567,11 @@ fn logit_formatter_axis_case_67() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -1611,11 +1611,11 @@ fn logit_formatter_axis_case_68() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -1649,11 +1649,11 @@ fn logit_formatter_axis_case_69() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -1692,11 +1692,11 @@ fn logit_formatter_axis_case_70() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -1746,11 +1746,11 @@ fn logit_formatter_axis_case_71() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -1785,11 +1785,11 @@ fn logit_formatter_axis_case_72() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -1831,11 +1831,11 @@ fn logit_formatter_axis_case_73() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -1880,12 +1880,12 @@ fn logit_formatter_axis_case_74() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -1922,12 +1922,12 @@ fn logit_formatter_axis_case_75() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -1965,12 +1965,12 @@ fn logit_formatter_axis_case_76() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2007,12 +2007,12 @@ fn logit_formatter_axis_case_77() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2052,12 +2052,12 @@ fn logit_formatter_axis_case_78() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2091,12 +2091,12 @@ fn logit_formatter_axis_case_79() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2135,12 +2135,12 @@ fn logit_formatter_axis_case_80() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2190,12 +2190,12 @@ fn logit_formatter_axis_case_81() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2230,12 +2230,12 @@ fn logit_formatter_axis_case_82() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2277,12 +2277,12 @@ fn logit_formatter_axis_case_83() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2327,11 +2327,11 @@ fn logit_formatter_axis_case_84() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2368,11 +2368,11 @@ fn logit_formatter_axis_case_85() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2410,11 +2410,11 @@ fn logit_formatter_axis_case_86() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2451,11 +2451,11 @@ fn logit_formatter_axis_case_87() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2495,11 +2495,11 @@ fn logit_formatter_axis_case_88() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2533,11 +2533,11 @@ fn logit_formatter_axis_case_89() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2576,11 +2576,11 @@ fn logit_formatter_axis_case_90() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2630,11 +2630,11 @@ fn logit_formatter_axis_case_91() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2669,11 +2669,11 @@ fn logit_formatter_axis_case_92() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2715,11 +2715,11 @@ fn logit_formatter_axis_case_93() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2764,12 +2764,12 @@ fn logit_formatter_axis_case_94() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2806,12 +2806,12 @@ fn logit_formatter_axis_case_95() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2849,12 +2849,12 @@ fn logit_formatter_axis_case_96() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2891,12 +2891,12 @@ fn logit_formatter_axis_case_97() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2936,12 +2936,12 @@ fn logit_formatter_axis_case_98() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -2975,12 +2975,12 @@ fn logit_formatter_axis_case_99() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -3019,12 +3019,12 @@ fn logit_formatter_axis_case_100() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -3074,12 +3074,12 @@ fn logit_formatter_axis_case_101() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -3114,12 +3114,12 @@ fn logit_formatter_axis_case_102() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -3161,12 +3161,12 @@ fn logit_formatter_axis_case_103() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.logit_scale())
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -3363,11 +3363,11 @@ fn logit_formatter_axis_case_108() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.01, 0.99)
   axes.set_y_limits(0.01, 0.99)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   ignore(axis)
   let secondary = axes.secondary_xaxis(value => value * 0.5, value => {
     value * 2.0
@@ -3404,11 +3404,11 @@ fn logit_formatter_axis_case_109() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.01, 0.99)
   axes.set_y_limits(0.01, 0.99)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   ignore(axis)
   let secondary = axes.secondary_xaxis(value => value * 0.5, value => {
     value * 2.0
@@ -3445,12 +3445,12 @@ fn logit_formatter_axis_case_110() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.01, 0.99)
   axes.set_y_limits(0.01, 0.99)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.log_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.log_scale())
   let secondary = axes.secondary_xaxis(value => value * 0.5, value => {
     value * 2.0
   })
@@ -3486,12 +3486,12 @@ fn logit_formatter_axis_case_111() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.01, 0.99)
   axes.set_y_limits(0.01, 0.99)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.log_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.log_scale())
   let secondary = axes.secondary_xaxis(value => value * 0.5, value => {
     value * 2.0
   })
@@ -3527,12 +3527,12 @@ fn logit_formatter_axis_case_112() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.01, 0.99)
   axes.set_y_limits(0.01, 0.99)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.logit_scale())
   let secondary = axes.secondary_xaxis(value => value * 0.5, value => {
     value * 2.0
   })
@@ -3568,12 +3568,12 @@ fn logit_formatter_axis_case_113() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.01, 0.99)
   axes.set_y_limits(0.01, 0.99)
+  let axis = axes.x_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
-  axis.set_scale(@scale.logit_scale())
   let secondary = axes.secondary_xaxis(value => value * 0.5, value => {
     value * 2.0
   })
@@ -3609,11 +3609,11 @@ fn logit_formatter_axis_case_114() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.01, 0.99)
   axes.set_y_limits(0.01, 0.99)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   ignore(axis)
   let secondary = axes.secondary_yaxis(value => value * 0.5, value => {
     value * 2.0
@@ -3650,11 +3650,11 @@ fn logit_formatter_axis_case_115() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.01, 0.99)
   axes.set_y_limits(0.01, 0.99)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   ignore(axis)
   let secondary = axes.secondary_yaxis(value => value * 0.5, value => {
     value * 2.0
@@ -3691,12 +3691,12 @@ fn logit_formatter_axis_case_116() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.01, 0.99)
   axes.set_y_limits(0.01, 0.99)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.log_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.log_scale())
   let secondary = axes.secondary_yaxis(value => value * 0.5, value => {
     value * 2.0
   })
@@ -3732,12 +3732,12 @@ fn logit_formatter_axis_case_117() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.01, 0.99)
   axes.set_y_limits(0.01, 0.99)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.log_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.log_scale())
   let secondary = axes.secondary_yaxis(value => value * 0.5, value => {
     value * 2.0
   })
@@ -3773,12 +3773,12 @@ fn logit_formatter_axis_case_118() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.01, 0.99)
   axes.set_y_limits(0.01, 0.99)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.logit_scale())
   let secondary = axes.secondary_yaxis(value => value * 0.5, value => {
     value * 2.0
   })
@@ -3814,12 +3814,12 @@ fn logit_formatter_axis_case_119() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.01, 0.99)
   axes.set_y_limits(0.01, 0.99)
+  let axis = axes.y_axis()
+  axis.set_scale(@scale.logit_scale())
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
-  axis.set_scale(@scale.logit_scale())
   let secondary = axes.secondary_yaxis(value => value * 0.5, value => {
     value * 2.0
   })
@@ -3855,11 +3855,11 @@ fn logit_formatter_axis_case_120() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.1, 0.9)
   axes.set_y_limits(0.1, 0.9)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let f = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -3884,11 +3884,11 @@ fn logit_formatter_axis_case_121() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.1, 0.9)
   axes.set_y_limits(0.1, 0.9)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let f = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -3913,11 +3913,11 @@ fn logit_formatter_axis_case_122() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.1, 0.9)
   axes.set_y_limits(0.1, 0.9)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let f = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(true)),
   )
@@ -3942,11 +3942,11 @@ fn logit_formatter_axis_case_123() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.1, 0.9)
   axes.set_y_limits(0.1, 0.9)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let f = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(true)),
   )
@@ -3971,11 +3971,11 @@ fn logit_formatter_axis_case_124() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -4014,11 +4014,11 @@ fn logit_formatter_axis_case_125() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -4059,11 +4059,11 @@ fn logit_formatter_axis_case_126() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -4103,11 +4103,11 @@ fn logit_formatter_axis_case_127() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -4152,11 +4152,11 @@ fn logit_formatter_axis_case_128() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -4199,11 +4199,11 @@ fn logit_formatter_axis_case_129() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -4239,11 +4239,11 @@ fn logit_formatter_axis_case_130() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.x_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.x_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -4287,11 +4287,11 @@ fn logit_formatter_axis_case_131() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -4330,11 +4330,11 @@ fn logit_formatter_axis_case_132() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -4375,11 +4375,11 @@ fn logit_formatter_axis_case_133() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -4419,11 +4419,11 @@ fn logit_formatter_axis_case_134() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -4468,11 +4468,11 @@ fn logit_formatter_axis_case_135() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -4515,11 +4515,11 @@ fn logit_formatter_axis_case_136() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )
@@ -4555,11 +4555,11 @@ fn logit_formatter_axis_case_137() -> Unit raise {
   let axes = figure.axes()
   axes.set_x_limits(0.2, 0.8)
   axes.set_y_limits(0.2, 0.8)
+  let axis = axes.y_axis()
   axes.set_x_locator(@ticker.NullLocator::new().as_locator())
   axes.set_x_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   axes.set_y_locator(@ticker.NullLocator::new().as_locator())
   axes.set_y_minor_locator(@ticker.NullLocator::new().as_minor_locator())
-  let axis = axes.y_axis()
   let major = @ticker.LogitFormatter::new(
     minor=@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(false)),
   )

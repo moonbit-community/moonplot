@@ -214,10 +214,12 @@ def snapshot(row,name='f'):
 
 def scene(name,scale='linear',view=(.2,.8)):
     text='  let figure = @scene.figure(width=400, height=300)\n  let axes = figure.axes()\n  axes.set_x_limits('+moon(view[0])+', '+moon(view[1])+')\n  axes.set_y_limits('+moon(view[0])+', '+moon(view[1])+')\n'
-    for n in ['x','y']:
-        text+='  axes.set_'+n+'_locator(@ticker.NullLocator::new().as_locator())\n  axes.set_'+n+'_minor_locator(@ticker.NullLocator::new().as_minor_locator())\n'
     text+='  let axis = axes.'+name+'_axis()\n'
     if scale!='linear':text+='  axis.set_scale(@scale.'+scale+'_scale())\n'
+    # Isolate the tested secondary/tick group after the real scale install,
+    # which now replaces primary locators with its default objects.
+    for n in ['x','y']:
+        text+='  axes.set_'+n+'_locator(@ticker.NullLocator::new().as_locator())\n  axes.set_'+n+'_minor_locator(@ticker.NullLocator::new().as_minor_locator())\n'
     return text
 
 def svg_assert(row):
