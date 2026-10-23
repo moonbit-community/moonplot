@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D48 linewidth/liveStyle已验收并提交bdc57b1/c635b17，D49 String color已验收并提交9510dad/027f9b3，D50alpha源/design已备待Root读，D47已验收提交94cfe00/b607073/f904d5e，D46已验收提交f12f161/ca6c47e/5a11683；D45已完整验收提交8c6c534/65cba7d/ce6326c，D44已完整验收并提交9257f05/5b183df/62bf560；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
+- 当前切片编号：D48 linewidth/liveStyle已验收并提交bdc57b1/c635b17，D49 String color已验收并提交9510dad/027f9b3，D50alpha已验收并提交372ec54/b8c2044，D51linestyle必要source/design准备中，D47已验收提交94cfe00/b607073/f904d5e，D46已验收提交f12f161/ca6c47e/5a11683；D45已完整验收提交8c6c534/65cba7d/ce6326c，D44已完整验收并提交9257f05/5b183df/62bf560；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D49已full82295/final58129/两sourcefinal全过并feature9510dad/formal027f9b3；本checkpointcommit→D50-before→全文读A155line alpha notes/59实际records与已读C153line设计，再freeze。全部tracked STOP，无live工具；勿重D49及更早门禁。D49-before0fa4c72/41mbti已存。D48-beforef904d5e/41mbti已存；D47已过勿重门禁。D47-before5a11683/41mbti已存，D46门禁已过已提交不重。D46-before ce6326c/41mbti已存；D45全过已commit，不重门禁。D45-before62bf560/41mbti已保存；D44累计nonJS22063/JS22070已验收，不重D44门禁。D44-before61f36fb/41mbti已保存，不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：D50 full40170/final64859/sourcefinal全过并feature372ec54/formalb8c2044；本checkpointcommit→D51-before→读A最终linestyle notes/actualrecords与B148/C候选设计，再freeze完整String/dash/None draw阶段。全trackedSTOP，无live工具；勿重D50及更早门禁。D50-beforef17394e/41mbti已存。D48-beforef904d5e/41mbti已存；D47已过勿重门禁。D47-before5a11683/41mbti已存，D46门禁已过已提交不重。D46-before ce6326c/41mbti已存；D45全过已commit，不重门禁。D45-before62bf560/41mbti已保存；D44累计nonJS22063/JS22070已验收，不重D44门禁。D44-before61f36fb/41mbti已保存，不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -6173,3 +6173,114 @@ fmt0/check20、两sourcefinal全terminal0，7旧warn/0error，接口final逐字�
 输出保持。Root无live工具，全部tracked STOP。下一本checkpointcommit→D50-before→A155line
 notes/59实际alpha记录（SHAfed6aaf2...966f2）Root全文读，结合已读C153line设计freeze。
 D50未tracked实施，整体goal未完成，无用户阻塞，勿重D49门禁。
+
+## D50 已冻结，Line None/Double alpha 与 Line-only opacity
+
+D50-before已保存f17394ebf0507cffb14cc757dfb114b9aa7954b4 HEAD/tracked.tar/41mbti，勿覆盖。
+Root全文读A155line notes/131lineprobe与59实际records，独核22setter全部data/cache/flags/
+owner/color/width/ranges/request保持；SHAfed6aaf21b91b59fd733a6c2184ce0b7ccf0dff8c5888d99b2994670d3c966f2。
+C153line设计/Root原Artist888/1063、现coreStyle/backend append_line_segment/tickerfloatrepr已读。
+
+pub Line2D::get_alpha()->Double?/set_alpha(Double?)->Unit raise DataError。核心Style唯一raw
+appearanceauthority增加priv line_alpha:Double?，pub Style::line_alpha()->Double?与style工厂
+可选named line_alpha~:Double?=None。此field仅Line stroke消费者，不承诺其他Artist alpha。
+Line无额外alpha槽。先校验Some闭[0,1]（拒NaN/±Inf），全原ValueError错误用Root新增
+@ticker.python_float_repr(Double)->String薄复用既有named_format_float_repr。相等Option
+（None/None或Some双IEEE==）完全noop，不重建Style/不赋值，±0保持旧符号；不同才重建
+Style存newAlpha并stale=true，保其余全fields/source_color/data/flags/ranges/owner等。无新
+pchanged回调API，原受控observer stages保source evidence。color/width setter必须透传alpha。
+
+D49私有line_color_rgba和no_cycle加alpha~:Double?=None，保旧调用兼容。source helper覆盖
+embedded alpha，不乘法；no_cycle先alpha有效域检查（原innerError），then rawnone特殊alpha0
+忽略override，selected-C none同规则。exactnamed/hex/gray适用override，None保原值。Cn仍
+先globalcycle/整数阶段再selected no_cycle。私有全局颜色cache不迁移：四nativewarmorder±0
+结果原样保source-only，不冒任意cache历史bitclone。portable derived RGBA按当前override
+sign构造；rawget_alpha signedzero严格合同独立。59source=22setter+28RGBA+4cache+5draw，
+55typed/4cache source-only；普通28RGBA原bits完整保，不能tolerance或改原expected。
+
+Scene provider D49 hidden/empty/非空次序不改。SourceString非空用line_color_rgba(raw,
+alpha=style.line_alpha()).to_css派生Style，其line_alpha显式None避免二次乘。LegacyCss直接
+保rawStyle含Somealpha，backend append_line_segment只Some追加stroke-opacity；None输出与
+旧相同。legacyCSS内嵌alpha乘法是明确便利profile，不冒原override。alpha0不earlyexit，
+仍data→nonemptycolor→append→completion；hiddennoop/empty正常complete，旧IR/earliercallback/
+later不retroactive/clear-remove身份/pureartists raw快照都保持，无新IRtuple/Line字段。
+
+- B独占core/types.mbt+scene/line2d.mbt+scene/line_color.mbt+NEWscene/line_alpha_wbtest：
+  corefield/getter/default、Lineget/set/alpha透传、overridehelper与corehands。
+- C独占scene/svg.mbt+backend/svg/render.mbt+NEWScene/backend/pyplot alpha hands（按必要
+  实际分配）；late override/legacyconditionalopacity+阶段/真实SVG/public回归。
+- A独占NEWgenerate_line_alpha_reference.py/JSON/guide/SceneWB，保59完整fields和真实counts，
+  原cache4sourceonly、pchanged observer不是新public协议，typed55用真实provider/completion。
+- Root独占ticker public python_float_repr薄wrapper/NEWrootline_alpha_test.mbt/docs/gates/
+  接口/commits；无旧Line literal需适配，不重做D49参考。
+
+全部writers将按freeze实施，D50尚无centralMoon/接口生成/行为验收，无Rootlive工具。
+失败继续source诊断精修；D49全过已commit，不重已过门禁，整体goal仍未完成。
+
+D50 Root首步已写并STOP：ticker/formatter_named_numeric.mbt public python_float_repr直接
+薄复用现named_format_float_repr；NEWline_alpha_test.mbt（1公共BB）已stdin fmt0/diffcheck0，
+核root style alias line_alpha参数/Lineget/set/旧rawStyle快照、width/color透传alpha、pending
+badshape下stylequery不recache、invalidInf保旧alpha/数据、None reset与旧视图保留。无需旧
+Line literal适配。A/B/C按freeze writer，无中央Moon/接口/行为验收，无Rootlive工具。
+
+D50 freeze窄接点修正：Root实际rg全部append_line调用发现append_errorbar:1164也复用此
+private helper。为保Line-only field范围，C使append_line/append_line_segment新增private
+line_alpha~:Double?=None传输参数，segment用该param追加stroke-opacity；仅Artist::Line动态/
+static两branch显式传Style.line_alpha()，Errorbar仍defaultNone。不全局让其他Artist消费，
+无publicIR变化，旧None字节不变；C补作用范围hand。Root无live工具，各writer仍实施。
+
+D50 Root已全文审B首production diff（coreStyle field/default/getter、LineOptionequal/先valid/
+alpha透传、noCycle/Cn/overridehelper），无具体缺陷。B继续hands，C继续Line-only参数传输/
+lateSVGhands，A正式reference writer；Root own STOP。无centralMoon/接口生成/行为验收，
+Root无live工具。下一各STOP后全文审handoff/正式59records独比，再统一check/infofmt/四目标。
+
+D50 B/C tracked STOP。Root全文读B57linehandoff/246line6hands、C35linehandoff/341line8hands及
+全部最终生产diff，无具体缺陷。C privateLineAlpha参数仅Artist::Line两branch传，Errorbar
+center不消费；source瞬时alphaNone保原rawslot、actualSVG none/hex override/legacycallback/
+alpha0 stages/clearidentity覆盖完整。A正式参考仍writer，B待最终只读正式独审，Root ownSTOP。
+无centralMoon/接口生成/行为验收，无Rootlive工具；下一A STOP后审formal/59原fields独比。
+
+D50 全体tracked STOP。Root全文读A299linegen/146lineguide与所有生产/15hands，原59records/
+3hash/host/counts及所有原keys独立complete exactequal；JSONfbe80dd2023fb7d2525bc883d748911de136f49cd03146d9a883d6649323ae94。
+new18registered=3formal（55typed/4cache sourceonly）+B6+C8+Root1。firstcheck live12807，
+newsourcecheck已启动（下一记录终态/若live）；尚未infofmt/接口/四目标行为验收，所有writers STOP。
+B最终formal独审将只ignored进行。Root无其他live工具。下一静态终态→infofmt/41mbti→full。
+
+D50 firstcheck12807 terminal0：148tasks/7旧Refwarn/0error；newsourcecheck terminal0。
+info9/fmt12 terminal0；Root全文审41mbti diff，仅core Style私有field/getter/工厂、rootalias
+工厂可选param、Scene get/set_alpha、ticker floatrepr薄wrapper四份预期变化，其余37逐字同，
+已存D50-interface-reviewed.diff。firstfull已启动，下一记录liveID/读终态；全trackedSTOP，
+B ignored独审最终formal，A/C下一候选仅必要窄source/design不freeze。Root无其他live工具。
+
+D50 firstfull live40170，全tracked生产/fixtures STOP。Root全文读B93line正式独审，无具体
+缺陷，22setter/observer与4cache signs/3原ASThash独核、D39shape精确message无prefix边界
+明确。A/C/B只ignored下一D51 String linestyle/dash/linewidth必要source/design，不freeze/
+不tracked。D50下一full终态，若失败持续定位修复补验；若过final/docs/commits。无其他Rootlive。
+
+D50 full40170 live，全tracked生产/fixtures STOP。Root已补README/依赖/NOTICE实现说明，
+尚未声称四目标验收；下一full终态/诊断或final/docs/commit。无其他Rootlive工具。
+
+D50 full40170仍live：wasm/wasm-gc各22155/22155全过，JS/native待终态。D51 A/B窄源已报
+关键（仅ignored/未freeze）：pattern rc下一set_linestyle才捕获，width含same只复用旧unscaled
+并读live scale_dashes，draw不能按live rc重算；Style放canonical+scaled appearance，Line仅
+unscaled metadata候选。None style仍先recache再skipstroke/color，不能仿visible提前skipdata。
+完整probe/notes Root待读，D50继续终态/final/commits，无其他Rootlive工具。
+
+## D50 行为验收通过（提交前最终门禁）
+
+- [x] full40170 terminal0：wasm/wasm-gc/native各22155/22155、JS22162/22162，0fail。
+- [x] new18registered=3formal（55typed/4sourceonly）+B6+C8+Root1；全部原59records/3hash/
+  host/counts独立complete exactequal，JSONfbe80dd2...23ae94。
+- [x] Root全文读所有生产/15hands/A299gen/146guide、B93独审，无具体缺陷；Line-only
+  backend参数避免Errorbar误消费，RGBA当前sign portable与rawsetter符号边界明确。
+- [x] 41mbti仅core/rootStyle/Scene/ticker四份预期变化，其余37逐字同；6docs/guide已补。
+- [x] final64859 terminal0：info4/fmt1/check24、7旧Refwarn/0error；newsourcefinal0；41mbti finaldiff逐字cmp同已审、diffcheck0。feature372ec54（15files）与formal/source/docsb8c2044（10files）已本地提交。
+
+Root无live工具，全tracked STOP。D51仅ignored A/B/C必要原source/design，完整notes Root
+尚待读，不freeze/不实施。下一D50 final/commits，不重复full；整体goal未完成，无用户阻塞。
+
+D50已完整验收并提交372ec54（15files/782insertions/18deletions）+b8c2044（10files/
+5334insertions/2deletions）。full40170 terminal0 nonJS22155/JS22162；final64859 info4/
+fmt1/check24、sourcefinal全部terminal0，7旧warn/0error，接口final逐字同已审。Root无live工具，
+全部tracked STOP。下一本checkpointcommit→D51-before→A必要String linestyle实际probe最终
+notes及B148/C设计Root全文读再freeze；尚未D51tracked实施，不重D50门禁。整体goal未完成。
