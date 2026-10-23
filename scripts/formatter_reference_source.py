@@ -359,3 +359,25 @@ def load_log_formatters(ticker_path):
         dependencies='complete cbook strip_math and context-managed setattr; original transforms._nonsingular',
         axis='controlled provider fixtures supplied by each reference; no renderer emulation')
     return namespace
+
+
+def load_logit_formatter(ticker_path):
+    """Execute complete LogitFormatter and real numerical helpers after D28.
+
+    The class has no rc capture or axis reads. The accepted loader branches
+    above remain unchanged, including their complete deprecation descriptor.
+    """
+    ticker_path = Path(ticker_path)
+    namespace = load(ticker_path)
+    names = ('LogitFormatter', '_is_decade', '_is_close_to_int')
+    nodes = [node for node in ast.parse(ticker_path.read_bytes()).body
+             if isinstance(node, (ast.ClassDef, ast.FunctionDef)) and node.name in names]
+    if len(nodes) != 3:
+        raise ValueError('fixed LogitFormatter class/helpers missing')
+    exec(compile(ast.Module(body=nodes, type_ignores=[]), str(ticker_path), 'exec'), namespace)
+    namespace['logit_host_profile'] = dict(
+        source='complete original LogitFormatter, _is_decade, _is_close_to_int',
+        dependencies='actual NumPy 2.3.5, math, builtin set/hash and native formatting',
+        state='original shared Formatter._locs and fresh mutable per-instance _labelled',
+        axis='no axis provider reads; supplied bindings retain identity only')
+    return namespace

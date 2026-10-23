@@ -455,3 +455,39 @@ and decimal text conversion reuse project BigInt/Unicode and Moon core
 primitives. No CPython/NumPy implementation or runtime, GUI/font catalog or TeX
 runtime is distributed by this change. Source and reproduction are documented
 in [testdata/log_formatter_README.md](testdata/log_formatter_README.md).
+
+## Named probability formatter and CPython numeric protocols
+
+LogitFormatter follows the complete pinned Matplotlib v3.11.2 class; the
+Matplotlib notice and license above apply. Its specialized numeric-set and
+NaN-tuple sorting protocols are adapted from CPython v3.12.14
+[`Objects/setobject.c`](https://github.com/python/cpython/blob/v3.12.14/Objects/setobject.c)
+and [`Objects/listobject.c`](https://github.com/python/cpython/blob/v3.12.14/Objects/listobject.c),
+respectively. SHA256 values are
+`e633e7ae4e427ecead8879965910e27427d34ae0fc5b956142bc337f741a367c`
+and `5f33dd1d97bfcc33e60495011fad7d9d02587a966999f28c159971f31aa91531`.
+
+Copyright (c) 2001-2023 Python Software Foundation; All Rights Reserved.
+The complete upstream license is retained in [LICENSE-CPYTHON](LICENSE-CPYTHON).
+Changes replace Python object pointers, reference counting, dynamic comparison
+and C memory management with MoonBit numeric identities, arrays and checked
+resource bounds. The set implements only reachable clear/add/lookup operations;
+sorting is specialized to two distinct Float64 scalar fields, retaining the
+original comparison sequence for NaN. The translated protocols are distributed
+with their source attribution; no Python runtime or NumPy implementation is
+distributed. Independent references execute actual builtin set/sorted and
+original Matplotlib/Axis bodies. Scope and reproduction are in
+[testdata/logit_formatter_README.md](testdata/logit_formatter_README.md).
+
+## NumPy object-distance sorting protocol
+
+The probability formatter's object-distance sorter is adapted from NumPy
+v2.3.5's generic quicksort/introsort, heapsort fallback and object-comparison
+protocol. The original sorting code is attributed by NumPy to Charles R.
+Harris for numarray. Copyright (c) 2005-2025, NumPy Developers; All rights
+reserved. The NumPy BSD license is retained in [LICENSE-NUMPY](LICENSE-NUMPY).
+The specialized port replaces C byte buffers and dynamic object pointers with
+MoonBit ScalarNumber arrays, preserving comparison order and NaN behavior.
+It distributes no NumPy runtime, extension module or C backend. Fixed source
+hashes and actual np.sort(dtype=object) evidence are recorded with the D34
+object-sort reference.

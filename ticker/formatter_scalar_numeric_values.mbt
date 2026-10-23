@@ -292,6 +292,7 @@ fn scalar_numeric_location(
       } else {
         ScalarNumber::NumpyFloat64(values.get(index))
       }
+    Typed(values) => values.get_value(index)
   }
 }
 

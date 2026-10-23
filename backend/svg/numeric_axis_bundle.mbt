@@ -76,6 +76,10 @@ fn format_retained_locations(
   match locations {
     Sequence(values) => formatter.format_ticks(values)
     NdArray(values) => formatter.format_ticks_view(values)
+    // Extra typed snapshots belong to formatter caches. Axis providers retain
+    // Sequence/NdArray inputs; geometry materialization uses Double coordinates.
+    Typed(_) =>
+      formatter.format_ticks(materialize_formatter_locations(locations))
   }
 }
 
@@ -86,5 +90,12 @@ fn materialize_formatter_locations(
   match locations {
     Sequence(values) => values.copy()
     NdArray(values) => values.to_array()
+    Typed(values) => {
+      let result : Array[Double] = []
+      for index in 0..<values.length() {
+        result.push(values.get(index))
+      }
+      result
+    }
   }
 }

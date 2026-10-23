@@ -1422,6 +1422,18 @@ secondary 使用各自实际 transform 的 linthresh。新增 152 个注册测�
 完整逻辑集合、文本底数、可移植数学及宿主边界见
 [LogFormatter 家族说明](testdata/log_formatter_README.md)。
 
+D34 已验收命名 `LogitFormatter`，用于概率轴的十进制幂、半值和补数标签：
+
+```moonbit nocheck
+let formatter = @ticker.LogitFormatter::new()
+let labels = try! formatter.format_ticks([0.1, 0.5, 0.9])
+try! fig.set_x_named_formatter(formatter.as_base_formatter())
+```
+
+它保留 raw 参数、独立位置快照和浅复制共享的可变 minor 标签集合；`LogitKey` 可显式
+保留 NaN 键身份，`TickValues` 批次则按 NumPy 标量读取规则处理。新增123个注册测试承载3779个细分案例，四目标验证与六份源检查通过；
+具体类型、排序/集合协议和宿主边界见[LogitFormatter 说明](testdata/logit_formatter_README.md)。
+
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`
 及常见宽度/精度标志，`log_formatter`、`null_formatter` 和 `func_formatter` 分别用于对数、

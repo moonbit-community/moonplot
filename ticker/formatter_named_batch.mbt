@@ -45,6 +45,13 @@ fn formatter_named_call(
       eng_named_call(formatter, state, ScalarNumber::Number(value), position)
     Log(state) =>
       log_named_call(formatter, state, ScalarNumber::Number(value), position)
+    Logit(state) =>
+      logit_named_call(
+        formatter,
+        state,
+        LogitKey::new(ScalarNumber::Number(value)),
+        position,
+      )
     Percent(state) =>
       percent_formatter_call(
         formatter,
@@ -65,11 +72,24 @@ pub fn BaseFormatter::call(
 }
 
 ///|
-/// Store the original array, then enumerate its live values and live length.
+/// Prepare locations, then enumerate the original array's live values and length.
 pub fn BaseFormatter::format_ticks(
   self : BaseFormatter,
   values : Array[Double],
 ) -> Array[String] raise @core.DataError {
+  if self.kind is Logit(state) {
+    let input = LogitInput::from_array(values)
+    logit_named_prepare(self, state, input)
+    let labels : Array[String] = []
+    let mut index = 0
+    while index < input.length() {
+      labels.push(
+        logit_named_call(self, state, input.key_at(index), Some(index)),
+      )
+      index += 1
+    }
+    return labels
+  }
   self.set_locs_checked(values)
   let labels : Array[String] = []
   let mut index = 0
@@ -81,7 +101,7 @@ pub fn BaseFormatter::format_ticks(
 }
 
 ///|
-/// Store a fixed-shape view while reading each selected element live.
+/// Prepare a fixed-shape view, then read each selected input element live.
 pub fn BaseFormatter::format_ticks_view(
   self : BaseFormatter,
   values : TickValues,
@@ -132,6 +152,14 @@ pub fn BaseFormatter::format_ticks_view(
           ScalarNumber::NumpyFloat64(values.get(index))
         }
         log_named_call(self, state, value, Some(index))
+      }
+      Logit(state) => {
+        let value = if values.is_int64() {
+          ScalarNumber::NumpyInt64(values.get_int64(index))
+        } else {
+          ScalarNumber::NumpyFloat64(values.get(index))
+        }
+        logit_named_call(self, state, LogitKey::new(value), Some(index))
       }
       Percent(state) => {
         let value = if values.is_int64() {
@@ -235,6 +263,7 @@ pub fn BaseFormatter::format_data_short(
     Eng(state) =>
       scalar_named_short(self, state.scalar, ScalarNumber::Number(value))
     Log(_) => log_named_short(ScalarNumber::Number(value))
+    Logit(_) => logit_named_short(ScalarNumber::Number(value))
     _ => self.format_data(value)
   }
 }

@@ -293,3 +293,16 @@ Axis 仅新增当前实际 transform 的 optional linthresh provider，无 Pytho
 原源参考执行完整四类、真实 Formatter/RcParams/cbook/transform/Axis/Secondary/draw 与独立
 Decimal 数学 profile；native libm/NumPy warning 差异保留双值。没有新增运行时依赖，
 边界和复现见[testdata/log_formatter_README.md](testdata/log_formatter_README.md)。
+
+## D34 命名 LogitFormatter
+
+命名对象复用 Base、LogValue、六类 ScalarNumber、BigInt 精确格式与现有可移植 ln/log10。
+新增只读 Bool/UInt64/Object 数组快照桥，以及保留对象身份的 LogitKey；浅复制共享可变标签
+集合。集合探测/扩容和带 NaN tuple 的 powersort 协议参考 CPython v3.12.14 的 setobject.c
+和 listobject.c，以 MoonBit typed arrays 重写，不引入 Python/C 运行时依赖。许可证保留在
+[LICENSE-CPYTHON](LICENSE-CPYTHON)，来源哈希与实际 builtin set/sorted 参考见
+[总指南](testdata/logit_formatter_README.md)、[集合](testdata/logit_set_README.md)和
+[排序](testdata/logit_sort_README.md)。完整 Axis 使用既有接线，无新几何/transform provider。
+Object dtype 的距离排序另按 NumPy 2.3.5 generic quicksort/introsort 与 heapsort fallback
+重写，以保留 NaN 的实际部分序比较结果；NumPy BSD 许可证保留在
+[LICENSE-NUMPY](LICENSE-NUMPY)。它是专用 MoonBit 协议实现，不加载 NumPy 运行时。

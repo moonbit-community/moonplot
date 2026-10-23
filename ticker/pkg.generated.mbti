@@ -158,6 +158,7 @@ pub fn BaseFormatter::log_formatter(Self) -> LogFormatter?
 pub fn BaseFormatter::log_formatter_exponent(Self) -> LogFormatterExponent?
 pub fn BaseFormatter::log_formatter_mathtext(Self) -> LogFormatterMathtext?
 pub fn BaseFormatter::log_formatter_sci_notation(Self) -> LogFormatterSciNotation?
+pub fn BaseFormatter::logit_formatter(Self) -> LogitFormatter?
 pub fn BaseFormatter::new() -> Self
 pub fn BaseFormatter::null_formatter(Self) -> NullFormatter?
 pub fn BaseFormatter::percent_formatter(Self) -> PercentFormatter?
@@ -338,8 +339,11 @@ pub impl @debug.Debug for FormatterAxisBinding
 pub(all) enum FormatterLocations {
   Sequence(Array[Double])
   NdArray(TickValues)
+  Typed(NumericArray)
 }
+pub fn FormatterLocations::dtype(Self) -> String?
 pub fn FormatterLocations::get(Self, Int) -> Double raise @core.DataError
+pub fn FormatterLocations::get_value(Self, Int) -> ScalarNumber raise @core.DataError
 pub fn FormatterLocations::length(Self) -> Int
 
 pub(all) enum FormatterViewInterval {
@@ -663,6 +667,53 @@ pub fn LogValue::equal(Self, Self) -> Bool
 pub fn LogValue::not_equal(Self, Self) -> Bool
 pub fn LogValue::to_repr(Self) -> @debug.Repr
 
+pub struct LogitFormatter {
+  // private fields
+}
+pub fn LogitFormatter::as_base_formatter(Self) -> BaseFormatter
+pub fn LogitFormatter::axis(Self) -> FormatterAxisBinding?
+pub fn LogitFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn LogitFormatter::call_key(Self, LogitKey, pos? : Int) -> String raise @core.DataError
+pub fn LogitFormatter::call_value(Self, ScalarNumber, pos? : Int) -> String raise @core.DataError
+pub fn LogitFormatter::copy(Self) -> Self
+pub fn LogitFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
+pub fn LogitFormatter::format_data(Self, Double) -> String raise @core.DataError
+pub fn LogitFormatter::format_data_key(Self, LogitKey) -> String raise @core.DataError
+pub fn LogitFormatter::format_data_short(Self, Double) -> String raise @core.DataError
+pub fn LogitFormatter::format_data_short_value(Self, ScalarNumber) -> String raise @core.DataError
+pub fn LogitFormatter::format_data_value(Self, ScalarNumber) -> String raise @core.DataError
+pub fn LogitFormatter::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
+pub fn LogitFormatter::format_ticks_keys(Self, Array[LogitKey]) -> Array[String] raise @core.DataError
+pub fn LogitFormatter::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
+pub fn LogitFormatter::get_offset(Self) -> String
+pub fn LogitFormatter::labelled(Self) -> Array[LogitKey]
+pub fn LogitFormatter::locations(Self) -> FormatterLocations
+pub fn LogitFormatter::minor(Self) -> LogValue
+pub fn LogitFormatter::minor_number(Self) -> LogValue
+pub fn LogitFormatter::minor_threshold(Self) -> LogValue
+pub fn LogitFormatter::new(use_overline? : LogValue, one_half? : LogValue, minor? : LogValue, minor_threshold? : LogValue, minor_number? : LogValue) -> Self
+pub fn LogitFormatter::one_half(Self) -> LogValue
+pub fn LogitFormatter::overline(Self) -> LogValue
+pub fn LogitFormatter::set_axis(Self, FormatterAxisBinding?) -> Unit
+pub fn LogitFormatter::set_locs(Self, Array[Double]) -> Unit raise @core.DataError
+pub fn LogitFormatter::set_locs_keys(Self, Array[LogitKey]) -> Unit raise @core.DataError
+pub fn LogitFormatter::set_locs_view(Self, TickValues) -> Unit raise @core.DataError
+pub fn LogitFormatter::set_minor_number(Self, LogValue) -> Unit
+pub fn LogitFormatter::set_minor_threshold(Self, LogValue) -> Unit
+pub fn LogitFormatter::set_one_half(Self, LogValue) -> Unit
+pub fn LogitFormatter::use_overline(Self, LogValue) -> Unit
+
+pub struct LogitKey {
+  // private fields
+}
+pub fn LogitKey::equal(Self, Self) -> Bool
+pub fn LogitKey::new(ScalarNumber) -> Self
+pub fn LogitKey::not_equal(Self, Self) -> Bool
+pub fn LogitKey::to_repr(Self) -> @debug.Repr
+pub fn LogitKey::value(Self) -> ScalarNumber
+pub impl Eq for LogitKey
+pub impl @debug.Debug for LogitKey
+
 pub struct LogitLocator {
   // private fields
 }
@@ -800,6 +851,15 @@ pub fn NullLocator::set_params(Self) -> Unit
 pub fn NullLocator::tick_values(Self, Double, Double) -> Array[Double]
 pub fn NullLocator::view_limits(Self, Double, Double) -> (Double, Double)
 pub fn NullLocator::warnings(Self) -> Array[String]
+
+pub struct NumericArray {
+  // private fields
+}
+pub fn NumericArray::dtype(Self) -> String
+pub fn NumericArray::get(Self, Int) -> Double raise @core.DataError
+pub fn NumericArray::get_uint64(Self, Int) -> UInt64 raise @core.DataError
+pub fn NumericArray::get_value(Self, Int) -> ScalarNumber raise @core.DataError
+pub fn NumericArray::length(Self) -> Int
 
 pub(all) enum PercentDecimals {
   Automatic

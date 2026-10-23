@@ -233,7 +233,7 @@ fn scalar_prepare_format(
   let mut locations = if short {
     match base.locations {
       Sequence(values) => values.map(value => ScalarNumber::Number(value))
-      NdArray(_) => scalar_prepare_locations(base)
+      NdArray(_) | Typed(_) => scalar_prepare_locations(base)
     }
   } else {
     scalar_prepare_locations(base)

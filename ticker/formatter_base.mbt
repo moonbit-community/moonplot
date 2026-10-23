@@ -1,8 +1,9 @@
 ///|
-/// Retained numeric locations distinguish a live list from a fixed-shape view.
+/// Retained locations support live lists, fixed-shape views and numeric snapshots.
 pub(all) enum FormatterLocations {
   Sequence(Array[Double])
   NdArray(TickValues)
+  Typed(NumericArray)
 }
 
 ///|
@@ -10,6 +11,17 @@ pub fn FormatterLocations::length(self : FormatterLocations) -> Int32 {
   match self {
     Sequence(values) => values.length()
     NdArray(values) => values.length()
+    Typed(values) => values.length()
+  }
+}
+
+///|
+/// Return the ndarray dtype, or None for a retained Python-style sequence.
+pub fn FormatterLocations::dtype(self : FormatterLocations) -> String? {
+  match self {
+    Sequence(_) => None
+    NdArray(values) => Some(if values.is_int64() { "int64" } else { "float64" })
+    Typed(values) => Some(values.dtype())
   }
 }
 
@@ -33,6 +45,26 @@ pub fn FormatterLocations::get(
       values[index.to_int()]
     }
     NdArray(values) => values.get(index)
+    Typed(values) => values.get(index)
+  }
+}
+
+///|
+/// Read a stored numeric value without rounding integer storage through Double.
+/// Unsigned storage projects its exact value to Integer in the six-origin carrier.
+pub fn FormatterLocations::get_value(
+  self : FormatterLocations,
+  index : Int32,
+) -> ScalarNumber raise @core.DataError {
+  match self {
+    Sequence(_) => ScalarNumber::Number(self.get(index))
+    NdArray(values) =>
+      if values.is_int64() {
+        ScalarNumber::NumpyInt64(values.get_int64(index))
+      } else {
+        ScalarNumber::NumpyFloat64(values.get(index))
+      }
+    Typed(values) => values.get_value(index)
   }
 }
 
@@ -196,6 +228,7 @@ priv enum FormatterKind {
   Scalar(ScalarFormatterState)
   Eng(EngFormatterState)
   Log(LogFormatterState)
+  Logit(LogitFormatterState)
 }
 
 ///|
@@ -248,6 +281,10 @@ pub fn BaseFormatter::set_locs_checked(
     log_named_prepare(self, state)
     return
   }
+  if self.kind is Logit(state) {
+    logit_named_prepare(self, state, LogitInput::from_array(locations))
+    return
+  }
   self.locations = FormatterLocations::Sequence(locations)
   match self.kind {
     Scalar(state) => scalar_named_prepare(self, state)
@@ -272,6 +309,10 @@ pub fn BaseFormatter::set_locs_view_checked(
 ) -> Unit raise @core.DataError {
   if self.kind is Log(state) {
     log_named_prepare(self, state)
+    return
+  }
+  if self.kind is Logit(state) {
+    logit_named_prepare(self, state, LogitInput::from_view(locations))
     return
   }
   self.locations = FormatterLocations::NdArray(locations)
@@ -328,7 +369,13 @@ pub fn BaseFormatter::get_offset_checked(
   self : BaseFormatter,
 ) -> String raise @core.DataError {
   match self.kind {
-    Abstract | Null | FormatStr(_) | StrMethod(_) | Percent(_) | Log(_) => ""
+    Abstract
+    | Null
+    | FormatStr(_)
+    | StrMethod(_)
+    | Percent(_)
+    | Log(_)
+    | Logit(_) => ""
     Fixed(state) => state.offset
     Func(state) => state.offset
     Scalar(state) => scalar_named_offset(self, state)
@@ -371,6 +418,15 @@ pub fn BaseFormatter::copy(self : BaseFormatter) -> BaseFormatter {
         minor_thresholds: state.minor_thresholds,
         linthresh: state.linthresh,
         sublabels: state.sublabels,
+      })
+    Logit(state) =>
+      FormatterKind::Logit({
+        use_overline: state.use_overline,
+        one_half: state.one_half,
+        minor: state.minor,
+        minor_threshold: state.minor_threshold,
+        minor_number: state.minor_number,
+        labelled: state.labelled,
       })
   }
   { kind, locations: self.locations, axis: self.axis, }
