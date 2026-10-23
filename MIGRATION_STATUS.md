@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D32准备（命名EngFormatter）；D31已验收并提交feature38505e5。
+- 当前切片编号：D33准备（命名LogFormatter家族）；D32已验收并提交feature497212a。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,16 +33,18 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D31 feature38505e5已本地提交59files。最终93879 exit0，wasm/wasm-gc/
-  native各21486全过、JS21493全过；info/fmt/check130tasks8旧Refwarn0error，261行接口全文审
-  且cmp同，doc-final infofmt0/interfacecmp同，五新sourcechecks0。1685新增registered承载
-  5706验证案例；分组保全部原cases/断言/defer，Wasm init70789→46663locals。所有旧工具
-  terminal，不重跑已验收D31。D32候选EngFormatter原3agent仅ignored定向readonly notes：
-  A参数/继承虚派发→D32-eng-params-notes.md；B数值/格式/offset→D32-eng-numeric-notes.md；
-  C真实Axis/shared/secondary/draw→D32-eng-axis-notes.md，均在.moonagent/checkpoints/。
-  三agent已收到followup，未有D32 tracked实现；下一读必要原类/等待三notes全文后freeze。
-  不重survey settled架构，不先写D32生产；D31-before HEAD6e002e9完整保留，D32未建before。
-  本checkpoint随后本地commit。整体goal仍active约46%/80%，无remote/push，无用户阻塞。
+- 下一条具体动作：D32 feature497212a已本地提交35files。最终95004 exit0，wasm/gc/native
+  各21548全过、JS21555全过；info/fmt0、check31tasks/8旧Refwarnings/0error，80行接口
+  全文审且final/doc-final逐字cmp同，五新sourcechecks0。62新增registered承载1740案例，
+  其中Root99dicttraces另6200steps；原numeric JSON SHA098439...dd23始终不变。
+  全部D32工具terminal，不重跑已验收门禁。D33候选LogFormatter/Exponent/Mathtext/
+  SciNotation三agent仅ignored定向readonly notes，具体scope/API待Root全文读notes冻结：
+  A参数/MRO/复制→D33-logformatter-params-notes.md；B数值/文本/primitive→
+  D33-logformatter-numeric-notes.md；C真实Axis/provider/shared/secondary→
+  D33-logformatter-axis-notes.md，均在.moonagent/checkpoints/；已收到followup，无D33tracked。
+  下一读必要原4class与三notes后freeze，不重survey settled架构；D33未建before。
+  D32-before HEAD e473b88与D31-before HEAD6e002e9完整保留。整体goal仍active约46%/80%，
+  master本地无remote/push，无用户阻塞；checkpoint随后单独commit。
 - D27无live工具；finalall77638与grid-source71661 exit0，95932旧失败exit2、73479 probe exit0、JS30690 exit0均terminal。
   81493 compileexit1/40418旧5failexit2/62175与29316 sourceexit0都terminal，不轮询。
   D26 final26297/JS82640/source20346/check99335全exit0；
@@ -4109,3 +4111,110 @@ JSON cases逐项保持，full四目标93879全部通过，无live工具。D32 En
 大型参考矩阵优先每32case组registeredtest，每case私有函数保独立defer与明确caseid，避免
 Wasm testdriver initlocals；源query/casecount与framework registeredcount必须分开记。
 整体目标未完成，不标Goalcomplete；用户多commit与多独立subagent授权持续有效。
+
+D32 contract freeze：Eng含同一ScalarState，as_scalar live派发Eng call/data/setlocs/offset，short继承。
+raw unit/sep String、places六ScalarNumber?延迟消费；默认offsetFalse与显式None capture区别；
+动态class/instance prefix映射保插入顺序、原keyorigin、numeric hash61mod门和NaN handle身份。
+原源完整Eng class hash08220e46...342e09；不改旧pure helper，不扩GUI/default生命周期。
+A/B/C已正式接实现任务；Root已保存D32-before e473b88。尚未运行D32门禁/未commit。
+
+D32实现进展：A newstate/wrapper+Base/Scalar虚派发/显式loader与prefixhash已落；B math/numeric/
+round3生产已落，stdinparse0，正在正式源/数学矩阵；C108正式原source已gen/check0（88Scene+
+20physical→4groups），正在fixture自审。Root named_batch Eng call/data/short/viewdtype已接、
+3独立公共dispatch黑盒已落，独立原Eng sourcegen0/JSON保actualobservations；总guide初稿未
+标验收。未跑项目Moon。Root只读审发现prefix线性lookup遗漏CPython dummy重用：N=2^120,
+P=2^61-1，d={N:A,N+P:B};del d[N];d[N-P]=D，keys顺序[B,D]但get(NPfloatN)=D，copy同。
+A独占扩正式refs+真实hashprobe/resize/delete/copy，不允许以线性insertionorder伪装dict。
+六查改prefix方法真实hashcollision可Overflow，已统一raiseCore。仍无live工具/未accepted。
+
+D32 C已停写：108actualsource（93success/11Value/3Overflow/1Attribute），88Scene+20physical
+独立privatecases→4registeredgroups，gen/check0且与readonly案例逐项同，仅增rc/warning元数据。
+Root/C同时新总guide路径重叠已发现并协商Root接手合并完成，无其他生产或fixtures冲突。
+Root新增99builtin-dict traces/6200steps→4groups，覆盖hash相等非传递weakEq、delete/reinsert/
+grow/copy及errorpartialstate；为原NaN地址hash不稳定域剔除交错NaN insertion/query，隔离
+NaN identity/copy由A负责。NaN portable hash0与nativeaddresshash差异明确hostboundary。
+A真实combined-table probe/resize/copy已落，继续参数refs；B1163cases/37groups sourcegen0
+（1609observations），数学/原源差异与RuntimeWarning分别保留，完整label/error无差异。
+当前Root sourcegen51557 live（其他77893/98466 terminal0）；无项目Moon工具，未accepted。
+
+D32 B已停写：1163cases→37groups+2hand=39registered/1165validation，1609原sourceobs；
+6原/数学primitive差异与7仅nativewarning差异分列，完整label/error0diff；新source及D31
+旧numericcheck0，JSONSHA09843990793d90b4399a568749ea4adc1be17173d076c1c01216e88d4fbcdd23。
+C对B独立readonly crossreview已停：精确source stage/NPclip/partialstate无新可证问题；2925
+额外review模型比较最终label/error0diff，模型不冒充正式原源oracle、不计正式覆盖数。
+A params最终补copy/rc/emptyoffset/NaNprofile sourcepair与guide中；Root tracekeys改共享构造fn
+每case新建避免重复静态String，原99/6200expected不动，sourcegen67415待terminal。无Moon工具。
+
+D32全部tracked writers已停：A431obs/365privatecases→12groups/54sourceonly，gen/check0，
+旧Scalarparamscheck0、旧sharedloader完整byteprefix相同；numeric store fullprobe与NaNhash0
+profile真实双值证据已落。B39registered/1165validation，C4registered/108validation，Root
+3dispatch+4trace（99cases6200steps）=7registered/102validation；总新增62registered承载
+1740validationcases（365+1165+108+102），sourceobs/steps另分列。所有source sessions已terminal。
+下一Root独占D32-gate.sh checkall→info→fmt→interface diff；未accepted、未commit。
+
+D32初static38265 terminalexit255（无liveMoon）：1066errors=1051重复numericfixture写只读
+threshold+3missingAPI(BigInt.to_double/两UInt64.from_int)+1prefixwhile return+nestedif未括号
+及级联11。A独占prefix3处编译修，B独占math/numeric3根因+numericgen/WB构造前capture4
+fixture修；必须原JSONSHA098439...dd23不变，不给capturedthreshold加mutable。四新source
+Rootchecks0，trace3511也terminal0；共五全0。尚无info/fmt/行为test，下一停写后二static。
+B独立prefixreview已停：原dictsource逐段同，无具体漏洞；9999hash及60000transitions/
+180000get只读诊断0diff（不当正式oracle/不计覆盖）。Root暂不改A/B独占文件，无用户阻塞。
+
+D32精确编译修复全部停写：A两UInt64转换及while nobreak明确返回；B BigInt转换、
+if表达式分离与1051fixture构造前capture4，JSON字节SHA098439...dd23保持；sourcechecks0。
+stdinmoonfmt不做语法验证（无效fn也exit0），不以其exit0声称parse通过，实际以centralcheck。
+下一第二static，之前38265/3511/67415/33489全terminal，不轮询旧sessions。
+
+D32第二static9633 terminalexit255：生产代码及A/C/Rootdispatch均已check，408errors全为Root
+tracegroup `0.to_string()`字面量被当Double解析的级联，已改 `(0).to_string()`生成；原99/6200
+JSON与expected不动。B960unusedstate warnings因去readonly写后仅data病例不再用state，B独占
+按最终body是否有state.scalar删多余声明；其余仅8旧Refwarnings。下一全部停后二次精修后的
+第三static，未info/fmt/full行为；无liveMoon，Rootgen23808已terminal0（待此段实际确认）。
+
+D32第三static36719 terminalexit0：checkall28tasks/8旧Refwarnings/0error，info0/fmt0。
+80行接口差异已全文审：仅ticker新增EngFormatter/EngPrefixes/EngPrefixKey与Base downcast；
+旧pure/Scalar/Scene公共签名不变。已存D32-interface-reviewed.diff。全部writers停写，
+原JSONexpected/case counts保持，下一完整四目标fullsuite（预期21548nonJS/21555JS）。
+tracefinal77619尚live source --check；其余源检查均0，不重跑已过旧D31gate。
+
+D32 full13738 terminalexit2：四目标完整执行，wasm/gc/native各21546/21548、JS21553/21555，
+同2fail；其余case全部过，包括99dicttraces6200steps、431参数obs映射365cases和108Axis。
+B独占精确NPInt64 view fixture与npclip -0 tie修，原JSON期望不变。旧log保D32-test-all-before-
+clip-fix.log。无live工具，无用户阻塞；等B停后统一finalgate。所有source checks已terminal0。
+
+D32两精确fail修复B已停写：仅D32local viewcode保uniform NPInt64/NPFloat64列表元素origin
+→typedNdArray；不改D31gen。onlylower max strict<保phase+0，onlyupper >=保bound−0，
+双bound strict保phase+0；原72clipfixtures独立全部dtype/bits/error0diff。newsourcecheck0，
+numeric JSON byteSHA098439...dd23仍同，无新增case/expected改动。下一Rootfinalgate。
+
+D32最终95004 terminalexit0：wasm/wasm-gc/native各21548/21548，JS21555/21555全过。
+info/fmt0、check31tasks/8旧Refwarnings/0error，80行接口全文审且final逐字cmp同；五新source
+Rootchecks全0（numeric final98664与tracefinal77619也terminal0），所有writers停写、无live。
+新增62registered承载1740validationcases=365A+1165B+108C+102Root；Root99dicttraces含
+6200steps，framework分组不减任何case/assert/defer。原numeric JSON byteSHA098439...dd23
+始终不变。首2behaviorfail按真实NP dtype和单边signedzero修复，未改弱expected。
+README/COMPAT/PLAN/总guide/依赖/NOTICE已改为accepted。整体goal仍active约46%/80%，
+非全目标完成；下一doc-final infofmt/interfacecmp/diff检查和feature+checkpoint本地commits。
+
+## D32 已验收交付
+
+- [x] 命名EngFormatter、同一Base/Scalar live继承和独立浅copy、raw unit/sep/六数值places。
+- [x] 动态class/instance EngPrefixes、opaqueNaN identity、hash61门、真实combined-table
+      probe/dummy/resize/copy与source checked collisionerrors。NaN hash0/宿主地址hash明列profile。
+- [x] 原log10/3阶数、NumPy clip原始bounds与signedzero tie、单步promotion、round3 midpoint、
+      分别round的ln/span比值、cached call/data/short/offset与locale/math/wholeminus阶段。
+- [x] Base/namedbatch/Scalar derived dispatch和NP viewdtype；实际Axis/shared/secondary
+      沿已验收checked fullbatch/visibility/lateoffset链，新Scene生产无需改动。
+- [x] 62registered承载1740validationcases；A365/12groups、B1163/37groups+2hand、
+      C108/4groups、Root3dispatch+99dicttraces/4groups（6200steps）。五新sourcechecks0，
+      独立source/math及NaNprofile差异保双值，source-only/资源/非终止边界不伪装原源错误。
+- [x] final95004四目标全部过；infofmt/check/80行接口审与final/docfinal cmp0；
+      README/COMPAT/PLAN/总guide/参数与数值guide/依赖/NOTICE已accepted。
+- [x] feature497212a本地commit35files，458902insertions主要为完整refs/tests；无remote/push。
+- [ ] D33三agent只读准备完成后Root全文读notes与必要原类，再冻结下一slice。
+
+D32主生产变更为ticker/formatter_{base,named_batch,scalar_named,scalar_math}.mbt与
+新formatter_eng_{named,prefixes,math,numeric}.mbt；新Scene仅两个参考fixture；五新generator
+和testdata JSON/guide保原源证据。D32最后所有sessions均terminal，无码write工具live。
+D33仅readonly notes工作已派原三agents，不改tracked、不跑Moon、不先实现公开API。
+整体goal仍持续，不把本片验收等同全目标完成。
