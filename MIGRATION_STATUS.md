@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D45稳定Line remove已完整验收并提交8c6c534/65cba7d，下一D46 visibility-only待freeze，D44已完整验收并提交9257f05/5b183df/62bf560；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
+- 当前切片编号：D46 visibility已完整验收并提交f12f161/ca6c47e，下一D47 visible_only待freeze；D45已完整验收提交8c6c534/65cba7d/ce6326c，D44已完整验收并提交9257f05/5b183df/62bf560；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：本checkpointcommit后保存D46-before，基于Root已全文读C129line/A126line+15actual冻结visibility-only（defaultTrue/sameBool no-op/hidden先guard且不clearstale）。D45 full12445与final70588/source22687已全过，feature8c6c534/formal65cba7d已提交；不重D45门禁。D45-before62bf560/41mbti已保存；D44累计nonJS22063/JS22070已验收，不重D44门禁。D44-before61f36fb/41mbti已保存，不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：本checkpointcommit→保存D47-before→基于Root已读C62line/A95line+9actual冻结relim visible_only。D46 full13472四目标nonJS22091/JS22098全过，final4861/source33749 terminal0，featuref12f161/formalca6c47e已提交；不重D46门禁。D46-before ce6326c/41mbti已存；D45全过已commit，不重门禁。D45-before62bf560/41mbti已保存；D44累计nonJS22063/JS22070已验收，不重D44门禁。D44-before61f36fb/41mbti已保存，不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -5799,3 +5799,73 @@ D45 已完整验收并分批提交feature8c6c534（9files/526insertions/2deletio
 check24、source22687全部terminal0；接口final逐字同已审/旧JSON不变。Root无live工具，
 全部trackedSTOP，下一checkpointcommit→D46-before→已读C129/A126+15actual的visibility-only
 freeze。整体goal未完成，无用户阻塞，不重复D45门禁。
+
+## D46 已冻结，Line visibility-only
+
+D46-before已保存ce6326ce595dffcaea824d26c1672df440dd3078 HEAD/tracked.tar/41mbti，勿覆盖。
+Root已全文读C129line设计、A126line notes及15completeactualrecords（SHA
+666449e49d923244db93da59b8bd643c3381a828fcf0fcf47fd83b7415483bf9），并窄读原setter/draw。
+新增priv mut visible:Bool=true；pub get_visible/set_visible(Bool)，仅不同才赋值+stale=true，
+同Bool完全noop，不动raw/cache/invalid/owner/removalbinding/range/request。Scene lateprovider
+命中stableLine后hidden先于points_snapshot_checked返回Some(([], no-opcompletion))，保stale/
+pendingflags/cache/converter；visible沿旧snapshot+markdrawn。无需IR/backend变。隐藏并未清空
+数据，显式getter/recache/units/relim默认仍包括hidden，禁全局过滤。
+
+- B独占line2d.mbt/line_units.mbt/NEWline_visible_wbtest，state/get-set/default与定向hands。
+- C独占scene/svg.mbt/NEWline_visible_render_wbtest/NEWpyplot line_visible_test，lazyguard/
+  completion与真实SVG/retainedIR/staticfallback/publichands。
+- A独占NEWgenerate_line_visible_reference.py/JSON/guide/SceneWB，保原15fields；用真实
+  Panel.prepare_line(line.points)+成功completion投影native完整no-style/no-marker leafdraw，
+  不自写ifvisible重演被测逻辑。ownerNone仅controlleddetach，decorator/GUIstyle边界明示。
+- Root独占旧D44gen/WB私有fixture增加visible:true机械适配、checkpoint/docs、centralgates。
+
+Root旧fixture再生terminal0，原JSON d0b1bca...af06c不变；所有writer实施中，无D46中央
+check/行为验收/接口生成，无Rootlive工具。下一各STOP后全文审handoff与formal映射，再统一
+check/infofmt/接口/四目标；失败继续source诊断精修，勿重D45已验收门禁。
+
+D46 B/C tracked STOP，Root已全文读 B39linehandoff/5hands、C32linehandoff/9hands及完整3行
+SVGguard diff，无新具体缺陷。B明确hidden显式getter/defaultrelim/units仍处理数据；C覆盖
+error延迟、current/oldIR、staticfallback、visibleempty/nonfinitecompletion与公开sameBool。
+A正式首版已落仍writer，自检/guide收尾中；Root核实category ConversionError wrapper文本沿
+D39已记录Core边界（line_units_README 115–120），不在D46偷换为native repr contract；formal
+断言原stage/converter副作用/cache flags，shape文本精确，原JSON仍保完整原error。
+无D46中央Moon/接口生成/Rootlive工具。下一A STOP后全文审gen-guide与15records独比，再门禁。
+
+D46 全体tracked STOP，正式15records/15typedops/1连续sequence/1registered，Root原15完整
+fields与draw-bodySHA独立exactequal；JSONaf0b4ea0836c3b579b0634236c9607c835cb26c649a319b0720e96fae9a33b1a。
+Root全文读A202linegen/116lineguide与B/C全部生产+14hands，B正式独审进行中。新15registered
+=1formal+B5+C9。firstcheck91006 terminal0：44tasks/7旧Refwarn/0error；source58589 terminal0
+（新visible+旧D44 --check，旧JSONd0b1...af06c不变）。info/fmt0；41mbti仅Scene两newmethod
+get_visible/set_visible变化已全文审，其余40逐字同，diff存D46-interface-reviewed.diff。
+firstfull已启动，下一记录liveID/读终态；若失败继续修，不把实现状态当验收完成。
+A原notes关于methodsegmenthash包含decorator是措辞小误，Root实际AST确认segment从defdraw起，
+正式guide已准确写source-segment hash/去rasterization边界，actualhash/JSON不改。无其他Rootlive。
+
+D46 firstfull live13472，全部tracked生产/fixtures保持STOP。Root已补README/DEPENDENCIES/NOTICE的实现说明，未称四目标通过；下一终态/final/文档/commit。A/C只ignored D47 relim visible_only候选必要source/design，未freeze/未tracked实施，无其他Rootlive工具。
+
+D46 full13472仍live，Root已全文读B75line正式独审，无具体缺陷。Root已读C62line D47
+visible_only候选设计：两Axes入口可选Bool默认false，pure转发；单物理lookup在snapshot前
+判断hidden后outer skip，不能只innercontinue仍merge。entryreset/minpos/ignore及units无参
+默认false保持。A只ignored实际probe仍在收尾；D47未freeze/无tracked实施。当前只Rootfull
+13472 live，全体tracked生产/fixtures STOP。
+
+## D46 行为验收通过（提交前最终门禁）
+
+- [x] firstfull13472 terminal0：wasm/wasm-gc/native各22091/22091，JS22098/22098，0fail。
+- [x] new15registered=1formal（15typedops单连续sequence）+B5+C9；原15completefields
+  +draw-bodyhash Root独立exactequal，JSONaf0b4ea...33b1a保持。
+- [x] Root全文读所有生产/14hands/A202linegen/116guide、B75line独审，无新具体缺陷；
+  41mbti仅Scene get/set_visible两行变化已审，其余40逐字同。
+- [x] README/COMPAT/PLAN/PROGRESS/DEPENDENCIES/NOTICE/guide已补实现、验收与边界。
+- [x] final4861 terminal0：info4/fmt1/check24、7旧Refwarn/0error；source33749 terminal0（新visible+旧D44），41mbti finaldiff逐字同已审，diffcheck0。
+- [x] local featuref12f161（生产/14hands/旧privatefixture适配9files）与formalca6c47e（source/guide/6docs10files）已提交；checkpoint另commit，不push。
+
+Root无live工具，全体tracked生产/fixtures STOP。下一最终门禁/commit→checkpoint→D47-before
+→freeze visible_only。D47 Root已全文读C62line设计/A95line notes及9completeactualrecords
+（SHAb0644b53...164b7c），源filter顺序、allhidden旧minpos、late prefixfailure与不request
+已清楚；D47尚未tracked实施，不重D46已过full。整体goal未完成，无用户阻塞。
+
+D46已完整验收并提交f12f161+ca6c47e。full13472四目标0fail，nonJS22091/JS22098；
+final4861 info4/fmt1/check24与source33749全terminal0，7旧warn0error，接口final逐字同
+已审且旧JSON保持。Root无live工具/全trackedSTOP。下一本checkpointcommit→D47-before
+→已读C62/A95+9records的visible_only freeze；D47尚未实施，无用户阻塞，整体goal继续。
