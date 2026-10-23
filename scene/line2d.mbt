@@ -24,6 +24,8 @@ pub struct Line2D {
   priv mut x : LineData
   priv mut y : LineData
   priv mut cache : Line2DCache
+  priv mut drawstyle : String
+  priv mut path_values : @ticker.TickValues
   priv mut invalid_x : Bool
   priv mut invalid_y : Bool
   priv mut owner : Axes?
@@ -123,6 +125,31 @@ pub fn Line2D::set_visible(self : Line2D, visible : Bool) -> Unit {
 ///|
 pub fn Line2D::get_linewidth(self : Line2D) -> Double {
   self.style.width()
+}
+
+///|
+pub fn Line2D::get_drawstyle(self : Line2D) -> String {
+  self.drawstyle
+}
+
+///|
+/// Change the path construction mode without eagerly converting coordinates.
+pub fn Line2D::set_drawstyle(
+  self : Line2D,
+  drawstyle : String,
+) -> Unit raise @core.DataError {
+  match drawstyle {
+    "default" | "steps-mid" | "steps-pre" | "steps-post" | "steps" => ()
+    _ =>
+      raise @core.DataError::InvalidTicks(
+        message=line_drawstyle_invalid_message(drawstyle),
+      )
+  }
+  if self.drawstyle != drawstyle {
+    self.stale = true
+    self.invalid_x = true
+  }
+  self.drawstyle = drawstyle
 }
 
 ///|
@@ -406,6 +433,9 @@ pub fn Line2D::recache_checked(
     values.push(ys.get(if ys.length() == 1 { 0 } else { index }))
   }
   self.cache = line2d_cache_from_flat(values)
+  // Native recache commits XY before building Path. A path-size failure must
+  // retain that new generation, the old path, and the original invalid flags.
+  self.path_values = line_drawstyle_path(self.drawstyle, self.cache)
   self.invalid_x = false
   self.invalid_y = false
   self.materialize_points()
@@ -454,11 +484,27 @@ pub fn Line2D::xy_values_checked(
 }
 
 ///|
+/// Borrow cached path vertices as flat [x0,y0,...] Float64 storage.
+/// Processed coordinate queries remain unexpanded; default shares XY storage.
+pub fn Line2D::path_values_checked(
+  self : Line2D,
+) -> @ticker.TickValues raise @core.DataError {
+  if self.invalid_x || self.invalid_y {
+    self.recache_checked()
+  }
+  self.path_values
+}
+
+///|
 fn Line2D::materialize_points(self : Line2D) -> Unit {
   self.points.clear()
-  for index in 0..<self.cache.xs.length() {
+  let length = self.path_values.length() / 2
+  for index in 0..<length {
     self.points.push(
-      @core.point(try! self.cache.xs.get(index), try! self.cache.ys.get(index)),
+      @core.point(
+        try! self.path_values.get(index * 2),
+        try! self.path_values.get(index * 2 + 1),
+      ),
     )
   }
 }
@@ -467,7 +513,7 @@ fn Line2D::materialize_points(self : Line2D) -> Unit {
 fn Line2D::points_snapshot_checked(
   self : Line2D,
 ) -> Array[@core.Point] raise @core.DataError {
-  ignore(self.xy_values_checked())
+  ignore(self.path_values_checked())
   self.materialize_points()
   copy_points(self.points)
 }

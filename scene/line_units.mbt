@@ -79,6 +79,8 @@ fn Axes::attach_line_handle(
     x,
     y,
     cache,
+    drawstyle: "default",
+    path_values: cache.flat,
     invalid_x: false,
     invalid_y: false,
     owner: Some(self),
