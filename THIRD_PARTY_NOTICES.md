@@ -410,3 +410,19 @@ and notice above apply. Existing project BigInt rounding, Unicode predicates
 and portable logarithm helpers are reused; no new Python, NumPy or TeX runtime
 is distributed. Typed domains and reproduction are documented in
 [testdata/percent_formatter_README.md](testdata/percent_formatter_README.md).
+
+## Named scalar formatter
+
+ScalarFormatter follows the complete pinned Matplotlib v3.11.2 class and its
+inherited protocol. Independent references execute original RcParams, font,
+axis, secondary and transform bodies. Matplotlib's license and notice above
+apply. The fixed CPython locale.py is used as a native reference with explicit
+numeric conventions; no Python runtime, font catalogs or locale database is
+redistributed. NumPy's staged decimal-round behavior is implemented using
+existing project numerical helpers rather than distributed NumPy C code.
+Integer/fractional powers and logarithms reuse portable BigInt interval
+primitives with independent mathematical references. Native affine inverse
+coefficients and mathematical profile evidence are recorded separately;
+no native LAPACK or compiled geometry kernel is distributed. Scope and
+reproduction are in
+[testdata/scalar_formatter_README.md](testdata/scalar_formatter_README.md).

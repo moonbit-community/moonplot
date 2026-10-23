@@ -67,6 +67,17 @@ fn Axes::bind_axis_data(self : Axes, horizontal : Bool) -> Unit {
     },
     horizontal,
   )
+  axis.bind_formatter_geometry(fn() {
+    let axes : Axes = { figure, state, }
+    let rect = state.val.active_position.unwrap_or_else(fn() {
+      axes.original_position_rect()
+    })
+    if horizontal {
+      (rect.x(), rect.width())
+    } else {
+      (figure.height.to_double() - rect.y() - rect.height(), rect.height())
+    }
+  })
   axis.bind_view_interval(fn() raise @core.DataError {
     for index, candidate in figure.axes {
       if physical_equal(candidate, state) {

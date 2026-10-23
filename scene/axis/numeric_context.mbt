@@ -40,7 +40,9 @@ pub fn Axis::set_tick_layout(
   length : Double,
   horizontal : Bool,
   active~ : Bool = false,
+  origin? : Double,
 ) -> Unit {
+  self.tick_layout_origin = origin
   self.tick_layout_length = Some(length)
   self.tick_layout_active = active
   self.tick_horizontal = horizontal

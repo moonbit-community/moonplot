@@ -1,6 +1,6 @@
 ///|
 fn percent_integer_text(
-  value : NamedFormatValue,
+  value : ScalarNumber,
   code : Char,
   precision : Int32?,
   alternate : Bool,
@@ -8,8 +8,21 @@ fn percent_integer_text(
   available : Int64,
 ) -> String raise @core.DataError {
   let integer = match value {
+    Integer(number) => number
+    Boolean(value) => @bigint.BigInt::from_int(if value { 1 } else { 0 })
+    NumpyBool(value) => {
+      if code == 'o' || code == 'x' || code == 'X' {
+        return named_format_error(
+          "TypeError",
+          "%" +
+          code.to_string() +
+          " format: an integer is required, not numpy.bool",
+        )
+      }
+      @bigint.BigInt::from_int(if value { 1 } else { 0 })
+    }
     NumpyInt64(number) => @bigint.BigInt::from_int64(number)
-    PythonFloat(number) | NumpyFloat64(number) => {
+    Number(number) | NumpyFloat64(number) => {
       if code == 'o' || code == 'x' || code == 'X' {
         return named_format_error(
           "TypeError",
@@ -50,6 +63,13 @@ fn percent_integer_text(
   } else {
     10
   }
+  if radix == 10 &&
+    magnitude.bit_length() >= 14285 &&
+    magnitude >= decimal_power(4300) {
+    return named_format_error(
+      "ValueError", "Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit",
+    )
+  }
   let digits = magnitude.to_string(radix~)
   let digits = if code == 'X' { digits.to_upper() } else { digits }
   let prefix = if alternate && code == 'o' {
@@ -74,10 +94,18 @@ fn percent_integer_text(
 }
 
 ///|
-fn percent_character_text(
-  value : NamedFormatValue,
-) -> String raise @core.DataError {
+fn percent_character_text(value : ScalarNumber) -> String raise @core.DataError {
   let number = match value {
+    Integer(number) => {
+      if number < @bigint.BigInt::from_int(0) ||
+        number >= @bigint.BigInt::from_int(1114112) {
+        return named_format_error(
+          "OverflowError", "%c arg not in range(0x110000)",
+        )
+      }
+      number.to_int64()
+    }
+    Boolean(value) => if value { 1L } else { 0L }
     NumpyInt64(number) => number
     _ => return named_format_error("TypeError", "%c requires int or char")
   }
@@ -100,7 +128,7 @@ fn percent_character_text(
 
 ///|
 fn percent_field_text(
-  value : NamedFormatValue,
+  value : ScalarNumber,
   code : Char,
   precision : Int32?,
   width : Int64,
@@ -128,7 +156,7 @@ fn percent_field_text(
         available,
       )
     'e' | 'E' | 'f' | 'F' | 'g' | 'G' => {
-      let number = named_format_value_double(value)
+      let number = scalar_percent_double(value)
       let positive_sign = (plus || space) &&
         (number.is_nan() || numeric_sign(number) == "")
       named_format_float_digits(
@@ -142,10 +170,10 @@ fn percent_field_text(
     'c' => percent_character_text(value)
     's' | 'r' | 'a' => {
       let text = if code == 's' {
-        named_format_value_str(value)
+        scalar_percent_str(value)
       } else {
         // Repr for all three scalar kinds is ASCII, so ascii(value) is the same.
-        named_format_value_repr(value)
+        scalar_percent_repr(value)
       }
       match precision {
         Some(count) if count < text.length() => text[:count].to_owned()
@@ -216,9 +244,11 @@ fn percent_field_text(
 ///|
 // A scalar is consumed once. Parsing still precedes fetching its conversion
 // argument, so malformed later fields can win over missing-argument errors.
-fn format_percent_checked(
+fn scalar_percent_format(
   format : String,
-  value : NamedFormatValue,
+  value : ScalarNumber,
+  tuple~ : Bool = false,
+  available~ : Int64 = 2147483647L,
 ) -> String raise @core.DataError {
   let chars = format.to_array()
   let result = StringBuilder()
@@ -228,7 +258,7 @@ fn format_percent_checked(
   while index < chars.length() {
     if chars[index] != '%' {
       units += Int64::from_int(chars[index].utf16_len())
-      if units > 2147483647L {
+      if units > available {
         return named_format_error(
           "ResourceError", "percent result exceeds String addressability",
         )
@@ -243,7 +273,7 @@ fn format_percent_checked(
     }
     if chars[index] == '%' {
       units += 1L
-      if units > 2147483647L {
+      if units > available {
         return named_format_error(
           "ResourceError", "percent result exceeds String addressability",
         )
@@ -253,7 +283,7 @@ fn format_percent_checked(
       continue
     }
     if chars[index] == '(' {
-      if value is PythonFloat(_) {
+      if tuple || value is (Number(_) | Integer(_) | Boolean(_)) {
         return named_format_error("TypeError", "format requires a mapping")
       }
       // NumPy scalars expose the mapping slot. Parse the full nested key first,
@@ -291,48 +321,47 @@ fn format_percent_checked(
       }
       index += 1
     }
-    if index < chars.length() && chars[index] == '*' {
-      return named_format_error(
-        "TypeError",
-        if consumed {
-          "not enough arguments for format string"
-        } else {
-          "* wants int"
-        },
-      )
-    }
     let mut width = 0L
-    while index < chars.length() && chars[index] >= '0' && chars[index] <= '9' {
-      let digit = Int64::from_int(chars[index].to_int() - 48)
-      if width > (9223372036854775807L - digit) / 10L {
-        return named_format_error("ValueError", "width too big")
+    if index < chars.length() && chars[index] == '*' {
+      width = scalar_percent_star(value, consumed, false)
+      consumed = true
+      if width < 0L {
+        left = true
+        width = 0L - width
       }
-      width = width * 10L + digit
       index += 1
+    } else {
+      while index < chars.length() && chars[index] >= '0' && chars[index] <= '9' {
+        let digit = Int64::from_int(chars[index].to_int() - 48)
+        if width > (9223372036854775807L - digit) / 10L {
+          return named_format_error("ValueError", "width too big")
+        }
+        width = width * 10L + digit
+        index += 1
+      }
     }
     let mut precision : Int32? = None
     if index < chars.length() && chars[index] == '.' {
       index += 1
       if index < chars.length() && chars[index] == '*' {
-        return named_format_error(
-          "TypeError",
-          if consumed {
-            "not enough arguments for format string"
-          } else {
-            "* wants int"
-          },
-        )
-      }
-      let mut count = 0
-      while index < chars.length() && chars[index] >= '0' && chars[index] <= '9' {
-        let digit = chars[index].to_int() - 48
-        if count > (2147483647 - digit) / 10 {
-          return named_format_error("ValueError", "precision too big")
-        }
-        count = count * 10 + digit
+        let count = scalar_percent_star(value, consumed, true)
+        consumed = true
+        precision = Some(if count < 0L { 0 } else { count.to_int() })
         index += 1
+      } else {
+        let mut count = 0
+        while index < chars.length() &&
+              chars[index] >= '0' &&
+              chars[index] <= '9' {
+          let digit = chars[index].to_int() - 48
+          if count > (2147483647 - digit) / 10 {
+            return named_format_error("ValueError", "precision too big")
+          }
+          count = count * 10 + digit
+          index += 1
+        }
+        precision = Some(count)
       }
-      precision = Some(count)
     }
     if index < chars.length() &&
       (chars[index] == 'h' || chars[index] == 'l' || chars[index] == 'L') {
@@ -361,20 +390,36 @@ fn format_percent_checked(
       space,
       alternate,
       position,
-      2147483647L - units,
+      available - units,
     )
     units += Int64::from_int(field.length())
-    if units > 2147483647L {
+    if units > available {
       return named_format_error(
         "ResourceError", "percent result exceeds String addressability",
       )
     }
     result.write_string(field)
   }
-  if !consumed && value is PythonFloat(_) {
+  if !consumed && (tuple || value is (Number(_) | Integer(_) | Boolean(_))) {
     return named_format_error(
       "TypeError", "not all arguments converted during string formatting",
     )
   }
   result.to_string()
+}
+
+///|
+// Preserve the D29 entry and its scalar origin without widening NamedFormatValue.
+fn format_percent_checked(
+  format : String,
+  value : NamedFormatValue,
+) -> String raise @core.DataError {
+  scalar_percent_format(
+    format,
+    match value {
+      PythonFloat(value) => ScalarNumber::Number(value)
+      NumpyFloat64(value) => ScalarNumber::NumpyFloat64(value)
+      NumpyInt64(value) => ScalarNumber::NumpyInt64(value)
+    },
+  )
 }

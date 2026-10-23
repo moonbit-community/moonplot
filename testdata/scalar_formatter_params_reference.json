@@ -1,0 +1,5824 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "host_profile": {
+    "font_catalog": "empty TTF/AFM; actual FontManager.findfont raises caught ValueError",
+    "fontconfig": "actual generate/escape methods; list-family defaults never invoke the parser or pyparsing",
+    "data_path": "pinned mpl-data fixture; no OS font/cache scan or glyph rendering",
+    "rc": "complete original RcParams; real scalar Bool/int/intlist(n=2) validators; unrelated font defaults supplied as original literals"
+  },
+  "scope": "Complete ScalarFormatter, inherited real Formatter/deprecation, actual RcParams with original scalar validators. Six numeric scalar origins and optional raw offsets; captured Bool options; four borrowed power-limit stores; independent shallow cached slots with shared locs/axis/limits and rc limits. Preferred raw methods do not impersonate deprecated spelling warning behavior. Numeric preparation/formatting, locale and actual Axis have separate references. Raw dynamic nonnumeric/truth/shape domains remain source-only.",
+  "observation_count": 181,
+  "generated_test_count": 76,
+  "cases": [
+    {
+      "label": "scalar params original defaults",
+      "specification": {},
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "pattern": "",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original constructor rc capture 0",
+      "specification": {
+        "use_offset": false,
+        "use_math_text": false,
+        "use_locale": false,
+        "usetex": false,
+        "threshold": "4",
+        "limits": [
+          "-5",
+          "6"
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original constructor rc capture 1",
+      "specification": {
+        "use_offset": true,
+        "use_math_text": true,
+        "use_locale": true,
+        "usetex": true,
+        "threshold": "-2",
+        "limits": [
+          "-2",
+          "3"
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "-2",
+            "usetex": true,
+            "math": true,
+            "locale": true,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-2"
+              },
+              {
+                "kind": "Integer",
+                "value": "3"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": false,
+            "threshold": "-2",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-2"
+              },
+              {
+                "kind": "Integer",
+                "value": "3"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original constructor rc capture 2",
+      "specification": {
+        "use_offset": false,
+        "use_math_text": true,
+        "use_locale": false,
+        "usetex": true,
+        "threshold": "0",
+        "limits": [
+          "0",
+          "0"
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": false,
+            "threshold": "0",
+            "usetex": true,
+            "math": true,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "0"
+              },
+              {
+                "kind": "Integer",
+                "value": "0"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": false,
+            "threshold": "0",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "0"
+              },
+              {
+                "kind": "Integer",
+                "value": "0"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original constructor rc capture 3",
+      "specification": {
+        "use_offset": true,
+        "use_math_text": false,
+        "use_locale": true,
+        "usetex": false,
+        "threshold": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "limits": [
+          "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "usetex": false,
+            "math": false,
+            "locale": true,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+              },
+              {
+                "kind": "Integer",
+                "value": "-10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": false,
+            "threshold": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+              },
+              {
+                "kind": "Integer",
+                "value": "-10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 0",
+      "specification": null,
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": null,
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 1",
+      "specification": {
+        "kind": "Boolean",
+        "value": true
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 2",
+      "specification": {
+        "kind": "Boolean",
+        "value": false
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 3",
+      "specification": {
+        "kind": "Integer",
+        "value": "0"
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 4",
+      "specification": {
+        "kind": "Integer",
+        "value": "1"
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "1"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "1"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 5",
+      "specification": {
+        "kind": "Integer",
+        "value": "-1"
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "-1"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "-1"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 6",
+      "specification": {
+        "kind": "Integer",
+        "value": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 7",
+      "specification": {
+        "kind": "Integer",
+        "value": "-10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "-10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "-10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 8",
+      "specification": {
+        "kind": "Number",
+        "value": -0.0
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Number",
+              "value": -0.0
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Number",
+              "value": -0.0
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 9",
+      "specification": {
+        "kind": "Number",
+        "value": "nan"
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Number",
+              "value": "nan"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Number",
+              "value": "nan"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 10",
+      "specification": {
+        "kind": "Number",
+        "value": "inf"
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Number",
+              "value": "inf"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Number",
+              "value": "inf"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 11",
+      "specification": {
+        "kind": "Number",
+        "value": "-inf"
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Number",
+              "value": "-inf"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Number",
+              "value": "-inf"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 12",
+      "specification": {
+        "kind": "Number",
+        "value": 1.7976931348623157e+308
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Number",
+              "value": 1.7976931348623157e+308
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Number",
+              "value": 1.7976931348623157e+308
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 13",
+      "specification": {
+        "kind": "NumpyFloat64",
+        "value": -0.0
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyFloat64",
+              "value": -0.0
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyFloat64",
+              "value": -0.0
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 14",
+      "specification": {
+        "kind": "NumpyFloat64",
+        "value": "nan"
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyFloat64",
+              "value": "nan"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyFloat64",
+              "value": "nan"
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 15",
+      "specification": {
+        "kind": "NumpyFloat64",
+        "value": 1.25
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyFloat64",
+              "value": 1.25
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyFloat64",
+              "value": 1.25
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 16",
+      "specification": {
+        "kind": "NumpyInt64",
+        "value": -9223372036854775808
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyInt64",
+              "value": -9223372036854775808
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyInt64",
+              "value": -9223372036854775808
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 17",
+      "specification": {
+        "kind": "NumpyInt64",
+        "value": 9007199254740993
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyInt64",
+              "value": 9007199254740993
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyInt64",
+              "value": 9007199254740993
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 18",
+      "specification": {
+        "kind": "NumpyBool",
+        "value": true
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyBool",
+              "value": true
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyBool",
+              "value": true
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original offset mode 19",
+      "specification": {
+        "kind": "NumpyBool",
+        "value": false
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyBool",
+              "value": false
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "NumpyBool",
+              "value": false
+            },
+            "use_offset": false,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original captured flag usetex False",
+      "specification": {
+        "flag": "usetex",
+        "initial": false
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original captured flag usetex True",
+      "specification": {
+        "flag": "usetex",
+        "initial": true
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original captured flag usetex None",
+      "specification": {
+        "flag": "usetex",
+        "initial": null
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original captured flag use_math_text False",
+      "specification": {
+        "flag": "use_math_text",
+        "initial": false
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": true,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": true,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original captured flag use_math_text True",
+      "specification": {
+        "flag": "use_math_text",
+        "initial": true
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": true,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": true,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": true,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": true,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original captured flag use_math_text None",
+      "specification": {
+        "flag": "use_math_text",
+        "initial": null
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": true,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": true,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original captured flag use_locale False",
+      "specification": {
+        "flag": "use_locale",
+        "initial": false
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": true,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": true,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original captured flag use_locale True",
+      "specification": {
+        "flag": "use_locale",
+        "initial": true
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": true,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": true,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": true,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": true,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original captured flag use_locale None",
+      "specification": {
+        "flag": "use_locale",
+        "initial": null
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": true,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": true,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original raw offset slot 0",
+      "specification": null,
+      "observations": {
+        "value": {
+          "offset": null,
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "pattern": "",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw offset slot 1",
+      "specification": {
+        "kind": "Boolean",
+        "value": false
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Boolean",
+            "value": false
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "pattern": "",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw offset slot 2",
+      "specification": {
+        "kind": "Boolean",
+        "value": true
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Boolean",
+            "value": true
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "pattern": "",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw offset slot 3",
+      "specification": {
+        "kind": "Number",
+        "value": -0.0
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Number",
+            "value": -0.0
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "pattern": "",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw offset slot 4",
+      "specification": {
+        "kind": "Number",
+        "value": "nan"
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Number",
+            "value": "nan"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "pattern": "",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw offset slot 5",
+      "specification": {
+        "kind": "Number",
+        "value": "inf"
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Number",
+            "value": "inf"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "pattern": "",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw offset slot 6",
+      "specification": {
+        "kind": "Integer",
+        "value": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Integer",
+            "value": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "pattern": "",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw offset slot 7",
+      "specification": {
+        "kind": "NumpyFloat64",
+        "value": -0.0
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "NumpyFloat64",
+            "value": -0.0
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "pattern": "",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw offset slot 8",
+      "specification": {
+        "kind": "NumpyInt64",
+        "value": 9007199254740993
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "NumpyInt64",
+            "value": 9007199254740993
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "pattern": "",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw offset slot 9",
+      "specification": {
+        "kind": "NumpyBool",
+        "value": true
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "NumpyBool",
+            "value": true
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "pattern": "",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw cached order 0",
+      "specification": {
+        "kind": "Integer",
+        "value": "0"
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "pattern": "%r",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw cached order 1",
+      "specification": {
+        "kind": "Integer",
+        "value": "2"
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "2"
+          },
+          "pattern": "%r",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw cached order 2",
+      "specification": {
+        "kind": "Number",
+        "value": 2.5
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Number",
+            "value": 2.5
+          },
+          "pattern": "%r",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw cached order 3",
+      "specification": {
+        "kind": "Number",
+        "value": -0.0
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Number",
+            "value": -0.0
+          },
+          "pattern": "%r",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw cached order 4",
+      "specification": {
+        "kind": "Number",
+        "value": "nan"
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Number",
+            "value": "nan"
+          },
+          "pattern": "%r",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw cached order 5",
+      "specification": {
+        "kind": "Number",
+        "value": "inf"
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Number",
+            "value": "inf"
+          },
+          "pattern": "%r",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw cached order 6",
+      "specification": {
+        "kind": "Integer",
+        "value": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "Integer",
+            "value": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "pattern": "%r",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw cached order 7",
+      "specification": {
+        "kind": "NumpyFloat64",
+        "value": 2.5
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "NumpyFloat64",
+            "value": 2.5
+          },
+          "pattern": "%r",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw cached order 8",
+      "specification": {
+        "kind": "NumpyInt64",
+        "value": 9007199254740993
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "NumpyInt64",
+            "value": 9007199254740993
+          },
+          "pattern": "%r",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original raw cached order 9",
+      "specification": {
+        "kind": "NumpyBool",
+        "value": true
+      },
+      "observations": {
+        "value": {
+          "offset": {
+            "kind": "Integer",
+            "value": "0"
+          },
+          "use_offset": true,
+          "threshold": "4",
+          "usetex": false,
+          "math": false,
+          "locale": false,
+          "scientific": true,
+          "order": {
+            "kind": "NumpyBool",
+            "value": true
+          },
+          "pattern": "%r",
+          "limits": [
+            {
+              "kind": "Integer",
+              "value": "-5"
+            },
+            {
+              "kind": "Integer",
+              "value": "6"
+            }
+          ]
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "label": "scalar params original power limits 0",
+      "specification": {
+        "kind": "Sequence",
+        "values": []
+      },
+      "observations": [
+        {
+          "value": null,
+          "source_error": "ValueError",
+          "message": "'lims' must be a sequence of length 2",
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "old": true,
+            "borrowed": false
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original power limits 1",
+      "specification": {
+        "kind": "Sequence",
+        "values": [
+          {
+            "kind": "Number",
+            "value": 1.0
+          }
+        ]
+      },
+      "observations": [
+        {
+          "value": null,
+          "source_error": "ValueError",
+          "message": "'lims' must be a sequence of length 2",
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "old": true,
+            "borrowed": false
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original power limits 2",
+      "specification": {
+        "kind": "Sequence",
+        "values": [
+          {
+            "kind": "Number",
+            "value": 1.0
+          },
+          {
+            "kind": "Number",
+            "value": 2.0
+          },
+          {
+            "kind": "Number",
+            "value": 3.0
+          }
+        ]
+      },
+      "observations": [
+        {
+          "value": null,
+          "source_error": "ValueError",
+          "message": "'lims' must be a sequence of length 2",
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "old": true,
+            "borrowed": false
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original power limits 3",
+      "specification": {
+        "kind": "Sequence",
+        "values": [
+          {
+            "kind": "Number",
+            "value": 2.5
+          },
+          {
+            "kind": "Number",
+            "value": 2.5
+          }
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Number",
+                "value": 2.5
+              },
+              {
+                "kind": "Number",
+                "value": 2.5
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "old": false,
+            "borrowed": true
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original power limits 4",
+      "specification": {
+        "kind": "Sequence",
+        "values": [
+          {
+            "kind": "Number",
+            "value": "nan"
+          },
+          {
+            "kind": "Number",
+            "value": "inf"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Number",
+                "value": "nan"
+              },
+              {
+                "kind": "Number",
+                "value": "inf"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "old": false,
+            "borrowed": true
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original power limits 5",
+      "specification": {
+        "kind": "Integers",
+        "values": [
+          {
+            "kind": "Integer",
+            "value": "-5"
+          },
+          {
+            "kind": "Integer",
+            "value": "6"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "old": false,
+            "borrowed": true
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original power limits 6",
+      "specification": {
+        "kind": "Integers",
+        "values": [
+          {
+            "kind": "Integer",
+            "value": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "kind": "Integer",
+            "value": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+              },
+              {
+                "kind": "Integer",
+                "value": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "old": false,
+            "borrowed": true
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original power limits 7",
+      "specification": {
+        "kind": "Values",
+        "values": [
+          {
+            "kind": "NumpyBool",
+            "value": true
+          },
+          {
+            "kind": "NumpyInt64",
+            "value": 9007199254740993
+          }
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "NumpyBool",
+                "value": true
+              },
+              {
+                "kind": "NumpyInt64",
+                "value": 9007199254740993
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "old": false,
+            "borrowed": true
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original power limits 8",
+      "specification": {
+        "kind": "Values",
+        "values": [
+          {
+            "kind": "Number",
+            "value": 2.5
+          },
+          {
+            "kind": "Integer",
+            "value": "3"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Number",
+                "value": 2.5
+              },
+              {
+                "kind": "Integer",
+                "value": "3"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "old": false,
+            "borrowed": true
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original power limits copy Sequence",
+      "specification": {
+        "kind": "Sequence"
+      },
+      "observations": [
+        {
+          "value": [
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "Number",
+                  "value": -3.0
+                },
+                {
+                  "kind": "Number",
+                  "value": 4.0
+                },
+                {
+                  "kind": "Number",
+                  "value": 8.0
+                }
+              ]
+            },
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "Number",
+                  "value": -3.0
+                },
+                {
+                  "kind": "Number",
+                  "value": 4.0
+                },
+                {
+                  "kind": "Number",
+                  "value": 8.0
+                }
+              ]
+            }
+          ],
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": [
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "Number",
+                  "value": -3.0
+                },
+                {
+                  "kind": "Number",
+                  "value": 4.0
+                },
+                {
+                  "kind": "Number",
+                  "value": 8.0
+                }
+              ]
+            },
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "Integer",
+                  "value": "1"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "1"
+                }
+              ]
+            }
+          ],
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original power limits copy Integers",
+      "specification": {
+        "kind": "Integers"
+      },
+      "observations": [
+        {
+          "value": [
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "Integer",
+                  "value": "-3"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "4"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "8"
+                }
+              ]
+            },
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "Integer",
+                  "value": "-3"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "4"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "8"
+                }
+              ]
+            }
+          ],
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": [
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "Integer",
+                  "value": "-3"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "4"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "8"
+                }
+              ]
+            },
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "Integer",
+                  "value": "1"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "1"
+                }
+              ]
+            }
+          ],
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original power limits copy Values",
+      "specification": {
+        "kind": "Values"
+      },
+      "observations": [
+        {
+          "value": [
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "NumpyInt64",
+                  "value": 1
+                },
+                {
+                  "kind": "Number",
+                  "value": 2.5
+                },
+                {
+                  "kind": "Integer",
+                  "value": "8"
+                }
+              ]
+            },
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "NumpyInt64",
+                  "value": 1
+                },
+                {
+                  "kind": "Number",
+                  "value": 2.5
+                },
+                {
+                  "kind": "Integer",
+                  "value": "8"
+                }
+              ]
+            }
+          ],
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": [
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "NumpyInt64",
+                  "value": 1
+                },
+                {
+                  "kind": "Number",
+                  "value": 2.5
+                },
+                {
+                  "kind": "Integer",
+                  "value": "8"
+                }
+              ]
+            },
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "Integer",
+                  "value": "1"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "1"
+                }
+              ]
+            }
+          ],
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original ndarray power limits float64 forward",
+      "specification": {
+        "integer": false,
+        "chain": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "owner": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "dtype": "float64"
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "owner": [
+              11.0,
+              13.0,
+              3.5,
+              -7.0
+            ],
+            "values": [
+              11.0,
+              13.0
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "identity": true,
+            "values": [
+              11.0,
+              13.0
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original ndarray power limits float64 reverse",
+      "specification": {
+        "integer": false,
+        "chain": [
+          [
+            1,
+            -1,
+            2
+          ]
+        ],
+        "owner": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "dtype": "float64"
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "owner": [
+              11.0,
+              1.25,
+              3.5,
+              -7.0
+            ],
+            "values": [
+              1.25,
+              11.0
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "identity": true,
+            "values": [
+              1.25,
+              11.0
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original ndarray power limits float64 nested",
+      "specification": {
+        "integer": false,
+        "chain": [
+          [
+            0,
+            2,
+            2
+          ],
+          [
+            1,
+            -1,
+            2
+          ]
+        ],
+        "owner": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "dtype": "float64"
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "owner": [
+              11.0,
+              1.25,
+              3.5,
+              -7.0
+            ],
+            "values": [
+              3.5,
+              11.0
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "identity": true,
+            "values": [
+              3.5,
+              11.0
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original ndarray power limits float64 zero",
+      "specification": {
+        "integer": false,
+        "chain": [
+          [
+            1,
+            0,
+            2
+          ]
+        ],
+        "owner": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "dtype": "float64"
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "owner": [
+              11.0,
+              13.0,
+              3.5,
+              -7.0
+            ],
+            "values": [
+              13.0,
+              13.0
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "identity": true,
+            "values": [
+              13.0,
+              13.0
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original ndarray power limits int64 forward",
+      "specification": {
+        "integer": true,
+        "chain": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "owner": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "dtype": "int64"
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "owner": [
+              11,
+              13,
+              7,
+              -1
+            ],
+            "values": [
+              11,
+              13
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "identity": true,
+            "values": [
+              11,
+              13
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original ndarray power limits int64 reverse",
+      "specification": {
+        "integer": true,
+        "chain": [
+          [
+            1,
+            -1,
+            2
+          ]
+        ],
+        "owner": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "dtype": "int64"
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "owner": [
+              11,
+              -9223372036854775808,
+              7,
+              -1
+            ],
+            "values": [
+              -9223372036854775808,
+              11
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "identity": true,
+            "values": [
+              -9223372036854775808,
+              11
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original ndarray power limits int64 nested",
+      "specification": {
+        "integer": true,
+        "chain": [
+          [
+            0,
+            2,
+            2
+          ],
+          [
+            1,
+            -1,
+            2
+          ]
+        ],
+        "owner": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "dtype": "int64"
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "owner": [
+              11,
+              -9223372036854775808,
+              7,
+              -1
+            ],
+            "values": [
+              7,
+              11
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "identity": true,
+            "values": [
+              7,
+              11
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original ndarray power limits int64 zero",
+      "specification": {
+        "integer": true,
+        "chain": [
+          [
+            1,
+            0,
+            2
+          ]
+        ],
+        "owner": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "dtype": "int64"
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "owner": [
+              11,
+              13,
+              7,
+              -1
+            ],
+            "values": [
+              13,
+              13
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "identity": true,
+            "values": [
+              13,
+              13
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original rc capture and shallow aliases",
+      "specification": {},
+      "observations": [
+        {
+          "value": {
+            "formatter": {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "Integer",
+                  "value": "-5"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "6"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "8"
+                }
+              ]
+            },
+            "shallow": {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "Integer",
+                  "value": "-5"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "6"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "8"
+                }
+              ]
+            },
+            "snapshot": [
+              -5,
+              6,
+              8
+            ],
+            "same": true
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": [
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "4",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "Integer",
+                  "value": "-5"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "6"
+                }
+              ]
+            },
+            {
+              "offset": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "use_offset": true,
+              "threshold": "7",
+              "usetex": false,
+              "math": false,
+              "locale": false,
+              "scientific": true,
+              "order": {
+                "kind": "Integer",
+                "value": "0"
+              },
+              "pattern": "",
+              "limits": [
+                {
+                  "kind": "Integer",
+                  "value": "2"
+                },
+                {
+                  "kind": "Integer",
+                  "value": "2"
+                }
+              ]
+            }
+          ],
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "label": "scalar params original cached fields do not recompute and copies stay independent",
+      "specification": {},
+      "observations": [
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "17"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "3"
+            },
+            "pattern": "%1.2f",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "17"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": true,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "3"
+            },
+            "pattern": "%1.2f",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "17"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": true,
+            "locale": true,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "3"
+            },
+            "pattern": "%1.2f",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "17"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": true,
+            "locale": true,
+            "scientific": false,
+            "order": {
+              "kind": "Integer",
+              "value": "3"
+            },
+            "pattern": "%1.2f",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "17"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": true,
+            "locale": true,
+            "scientific": false,
+            "order": {
+              "kind": "Integer",
+              "value": "3"
+            },
+            "pattern": "%1.2f",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "2"
+              },
+              {
+                "kind": "Integer",
+                "value": "2"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": true,
+            "math": true,
+            "locale": true,
+            "scientific": false,
+            "order": {
+              "kind": "Integer",
+              "value": "3"
+            },
+            "pattern": "%1.2f",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "2"
+              },
+              {
+                "kind": "Integer",
+                "value": "2"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        },
+        {
+          "value": {
+            "offset": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "use_offset": true,
+            "threshold": "4",
+            "usetex": false,
+            "math": false,
+            "locale": false,
+            "scientific": true,
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            },
+            "pattern": "",
+            "limits": [
+              {
+                "kind": "Integer",
+                "value": "-5"
+              },
+              {
+                "kind": "Integer",
+                "value": "6"
+              }
+            ]
+          },
+          "source_error": null,
+          "warnings": [],
+          "runtime_warnings": []
+        }
+      ]
+    }
+  ],
+  "source_only": [
+    {
+      "reason": "deprecated spelling/warning distinct from new preferred raw cached-slot methods",
+      "attribute": "format",
+      "observations": [
+        {
+          "value": "",
+          "source_error": null,
+          "warnings": [
+            {
+              "category": "MatplotlibDeprecationWarning",
+              "message": "The format attribute was deprecated in Matplotlib 3.11 and will be removed in 3.13."
+            }
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "value": null,
+          "source_error": null,
+          "warnings": [
+            {
+              "category": "MatplotlibDeprecationWarning",
+              "message": "The format attribute was deprecated in Matplotlib 3.11 and will be removed in 3.13."
+            }
+          ],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "reason": "deprecated spelling/warning distinct from new preferred raw cached-slot methods",
+      "attribute": "orderOfMagnitude",
+      "observations": [
+        {
+          "value": 0,
+          "source_error": null,
+          "warnings": [
+            {
+              "category": "MatplotlibDeprecationWarning",
+              "message": "The orderOfMagnitude attribute was deprecated in Matplotlib 3.11 and will be removed in 3.13."
+            }
+          ],
+          "runtime_warnings": []
+        },
+        {
+          "value": null,
+          "source_error": null,
+          "warnings": [
+            {
+              "category": "MatplotlibDeprecationWarning",
+              "message": "The orderOfMagnitude attribute was deprecated in Matplotlib 3.11 and will be removed in 3.13."
+            }
+          ],
+          "runtime_warnings": []
+        }
+      ]
+    },
+    {
+      "reason": "raw offset outside optional typed numeric carrier",
+      "raw_type": "str",
+      "observation": {
+        "value": {
+          "identity": true,
+          "use_offset": false
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "raw offset outside optional typed numeric carrier",
+      "raw_type": "list",
+      "observation": {
+        "value": {
+          "identity": true,
+          "use_offset": false
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "raw offset outside optional typed numeric carrier",
+      "raw_type": "ndarray",
+      "observation": {
+        "value": {
+          "identity": true,
+          "use_offset": false
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "raw truth-valued option outside Bool/None domain",
+      "option": "usetex",
+      "raw_type": "int",
+      "observation": {
+        "value": {
+          "type": "int",
+          "same": true
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "raw truth-valued option outside Bool/None domain",
+      "option": "usetex",
+      "raw_type": "str",
+      "observation": {
+        "value": {
+          "type": "str",
+          "same": true
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "raw truth-valued option outside Bool/None domain",
+      "option": "usetex",
+      "raw_type": "bool",
+      "observation": {
+        "value": {
+          "type": "bool",
+          "same": true
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "raw truth-valued option outside Bool/None domain",
+      "option": "useMathText",
+      "raw_type": "int",
+      "observation": {
+        "value": {
+          "type": "int",
+          "same": true
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "raw truth-valued option outside Bool/None domain",
+      "option": "useMathText",
+      "raw_type": "str",
+      "observation": {
+        "value": {
+          "type": "str",
+          "same": true
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "raw truth-valued option outside Bool/None domain",
+      "option": "useMathText",
+      "raw_type": "bool",
+      "observation": {
+        "value": {
+          "type": "bool",
+          "same": true
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "raw truth-valued option outside Bool/None domain",
+      "option": "useLocale",
+      "raw_type": "int",
+      "observation": {
+        "value": {
+          "type": "int",
+          "same": true
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "raw truth-valued option outside Bool/None domain",
+      "option": "useLocale",
+      "raw_type": "str",
+      "observation": {
+        "value": {
+          "type": "str",
+          "same": true
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "raw truth-valued option outside Bool/None domain",
+      "option": "useLocale",
+      "raw_type": "bool",
+      "observation": {
+        "value": {
+          "type": "bool",
+          "same": true
+        },
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "None/Text/2D powerlimits outside numeric one-dimensional carrier",
+      "raw_type": "NoneType",
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "object of type 'NoneType' has no len()",
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "None/Text/2D powerlimits outside numeric one-dimensional carrier",
+      "raw_type": "str",
+      "observation": {
+        "value": true,
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    },
+    {
+      "reason": "None/Text/2D powerlimits outside numeric one-dimensional carrier",
+      "raw_type": "ndarray",
+      "observation": {
+        "value": true,
+        "source_error": null,
+        "warnings": [],
+        "runtime_warnings": []
+      }
+    }
+  ]
+}

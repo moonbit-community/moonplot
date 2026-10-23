@@ -11,6 +11,8 @@ pub(all) enum SecondaryAxisLocation {
 /// A coordinate axis whose values are derived from a primary axis.
 pub struct SecondaryAxis {
   priv formatter_axis_binding : @ticker.FormatterAxisBinding
+  priv mut formatter_geometry : (Double, Double)
+  priv mut formatter_original_geometry : (Double, Double)
   priv mut formatter_view : (Double, Double)
   priv mut named_formatter : @ticker.BaseFormatter?
   priv mut minor_named_formatter : @ticker.BaseFormatter?
@@ -42,6 +44,8 @@ fn secondary_axis(
 ) -> SecondaryAxis {
   let result : SecondaryAxis = {
     formatter_axis_binding: @ticker.FormatterAxisBinding::new(),
+    formatter_geometry: (0.0, 1.0),
+    formatter_original_geometry: (0.0, 1.0),
     formatter_view: (0.0, 1.0),
     named_formatter: None,
     minor_named_formatter: None,
@@ -63,6 +67,19 @@ fn secondary_axis(
     let (lower, upper) = result.formatter_view
     @ticker.FormatterViewInterval::NdArray(
       @ticker.TickValues::from_array([lower, upper]),
+    )
+  })
+  result.formatter_axis_binding.bind_short_format_delta(value => {
+    let (lower, upper) = result.formatter_view
+    let (origin, length) = result.formatter_geometry
+    @axis.short_format_pixel_delta(
+      value,
+      lower,
+      upper,
+      origin,
+      length,
+      value => result.numeric_transform(value),
+      value => result.numeric_inverse(value),
     )
   })
   result
@@ -217,6 +234,8 @@ pub fn Axes::secondary_xaxis(
   }
   let result = secondary_axis(location, forward, inverse)
   result.parent_axis = Some(self.x_axis())
+  result.formatter_original_geometry = (0.0, self.figure.width.to_double())
+  result.formatter_geometry = result.formatter_original_geometry
   result.initialize_formatter_view()
   self.state.val.secondary_x.push(result)
   result
@@ -239,6 +258,11 @@ pub fn Axes::secondary_yaxis(
   }
   let result = secondary_axis(location, forward, inverse)
   result.parent_axis = Some(self.y_axis())
+  result.formatter_original_geometry = (
+    self.figure.height.to_double(),
+    self.figure.height.to_double(),
+  )
+  result.formatter_geometry = result.formatter_original_geometry
   result.initialize_formatter_view()
   self.state.val.secondary_y.push(result)
   result

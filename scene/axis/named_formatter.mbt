@@ -222,11 +222,11 @@ pub fn Axis::formatter_offset_label_checked(
   self : Axis,
   values : Array[Double],
   view? : @core.Limits,
-) -> String {
+) -> String raise @core.DataError {
   if self.date_format is None &&
     self.category is None &&
     self.named_formatter is Some(formatter) {
-    return formatter.get_offset()
+    return formatter.get_offset_checked()
   }
   self.formatter_offset_label_with_view(values, view)
 }

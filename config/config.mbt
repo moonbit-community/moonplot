@@ -1,6 +1,11 @@
 ///|
 /// Mutable defaults shared by newly created figures and axes.
 pub struct RcParams {
+  priv mut formatter_use_offset : Bool
+  priv mut formatter_use_math_text : Bool
+  priv mut formatter_use_locale : Bool
+  priv mut formatter_offset_threshold : @bigint.BigInt
+  priv mut formatter_limits : Array[@bigint.BigInt]
   priv mut text_usetex : Bool
   priv mut unicode_minus : Bool
   priv mut x_minor_tick_divisions : MinorTickDivisions
@@ -31,6 +36,14 @@ fn tab10() -> Array[String] {
 ///|
 fn default_rc_params() -> RcParams {
   {
+    formatter_use_offset: true,
+    formatter_use_math_text: false,
+    formatter_use_locale: false,
+    formatter_offset_threshold: @bigint.BigInt::from_int(4),
+    formatter_limits: [
+      @bigint.BigInt::from_int(-5),
+      @bigint.BigInt::from_int(6),
+    ],
     text_usetex: false,
     unicode_minus: true,
     x_minor_tick_divisions: Text("auto"),
@@ -86,6 +99,11 @@ fn validate_color_cycle(colors : Array[String]) -> Unit raise @core.DataError {
 pub fn rc_params() -> RcParams {
   let value = current.val
   {
+    formatter_use_offset: value.formatter_use_offset,
+    formatter_use_math_text: value.formatter_use_math_text,
+    formatter_use_locale: value.formatter_use_locale,
+    formatter_offset_threshold: value.formatter_offset_threshold,
+    formatter_limits: value.formatter_limits,
     text_usetex: value.text_usetex,
     unicode_minus: value.unicode_minus,
     x_minor_tick_divisions: value.x_minor_tick_divisions,

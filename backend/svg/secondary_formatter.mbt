@@ -2,7 +2,7 @@
 priv struct SecondaryTickBundle {
   major : Array[(Double, Double)]
   major_labels : Array[String]
-  minor : Array[Double]
+  minor : Array[(Double, Double)]
   minor_labels : Array[String]
   offset : String
 }
@@ -104,19 +104,22 @@ fn secondary_axis_bundle(
       None => Array::make(minor_locations.length(), "")
     }
   }
-  let minor = materialize_formatter_locations(minor_locations)
-  let offset = if axis.tick_group_is_null() {
-    ""
-  } else {
-    match axis.named_formatter() {
-      Some(formatter) => formatter.get_offset()
-      None => ""
-    }
+  // Axis._update_ticks transforms view endpoints and both full tick groups
+  // before Axis.draw asks the major formatter for its final offset text.
+  if axis.formatter_view_interval() is Some((first, last)) {
+    ignore(axis.inverse()(first))
+    ignore(axis.inverse()(last))
   }
-  // Major callbacks have completed before display conversion can invoke inverse.
   let major = match legacy_major {
     Some(major) => major
     None => values.map(value => (axis.inverse()(value), value))
+  }
+  let minor = materialize_formatter_locations(minor_locations).map(value => {
+    (axis.inverse()(value), value)
+  })
+  let offset = match axis.named_formatter() {
+    Some(formatter) => formatter.get_offset_checked()
+    None => ""
   }
   { major, major_labels, minor, minor_labels, offset, }
 }

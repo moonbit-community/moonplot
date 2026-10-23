@@ -257,3 +257,16 @@ log10。独立的 FormatterViewInterval 保留 Python 整数、浮点和 NumPy F
 执行完整 PercentFormatter、真实 Axis/Bbox 与 secondary/frame 方法；NumPy 运行时警告
 单独记录。没有新运行时依赖，范围和复现见
 [testdata/percent_formatter_README.md](testdata/percent_formatter_README.md)。
+
+## D31 命名 ScalarFormatter
+
+ScalarFormatter 复用 Base 对象、TickValues、现有精确十进制文字与 BigInt 定向区间。
+Python/NumPy 数值来源分开保留；NumPy decimal round 按固定 calculation.c 的逐次乘法、
+rint、除法顺序实现，整数与分数十进制幂复用可移植正确舍入数学 profile。
+NumericLocale 是显式数值 locale profile，独立于 rc reset；没有 OS setlocale 或 locale
+发现服务。原源参考执行完整 ScalarFormatter、真实 RcParams/FontProperties/FontManager、
+固定 CPython locale.py 与真实 Axis/SecondaryAxis/draw/transform 方法。空字体目录使真实
+findfont 走捕获 ValueError 分支，没有模拟查找结果或声称系统字体扫描已接入。
+短标签复用现有 SVG72 几何；正逆 affine 运算分开保留，逆矩阵使用独立数学 profile，
+原 Darwin NumPy/LAPACK 系数另存为证据。没有新的 Python/NumPy/C/TeX 或外部运行时依赖；
+完整类型、资源与宿主边界见[testdata/scalar_formatter_README.md](testdata/scalar_formatter_README.md)。

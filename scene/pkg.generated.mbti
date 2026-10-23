@@ -702,7 +702,7 @@ pub fn SecondaryAxis::clear_minor_named_formatter(Self) -> Unit
 pub fn SecondaryAxis::clear_named_formatter(Self) -> Unit
 pub fn SecondaryAxis::formatter(Self) -> @ticker.Formatter?
 pub fn SecondaryAxis::formatter_axis_binding(Self) -> @ticker.FormatterAxisBinding
-pub fn SecondaryAxis::formatter_offset_label_checked(Self, Array[Double], view? : @core.Limits) -> String
+pub fn SecondaryAxis::formatter_offset_label_checked(Self, Array[Double], view? : @core.Limits) -> String raise @core.DataError
 pub fn SecondaryAxis::formatter_tick_locations_checked(Self, minor? : Bool) -> @ticker.FormatterLocations raise @core.DataError
 pub fn SecondaryAxis::formatter_warnings(Self) -> Array[String]
 pub fn SecondaryAxis::forward(Self) -> (Double) -> Double

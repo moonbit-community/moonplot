@@ -1375,6 +1375,20 @@ formatter.set_decimals(@ticker.PercentDecimals::Number(2.0))
 原源检查通过。支持范围、精度文本和副轴时序见
 [百分比 Formatter 说明](testdata/percent_formatter_README.md)。
 
+D31 已验收命名 `ScalarFormatter`，支持独立的刻度、数据、短标签和 offset 格式化，
+保留可变缓存、原始数值类型、借用参数、locale 分组与实际坐标轴的像素精度。
+
+```moonbit nocheck
+let formatter = @ticker.ScalarFormatter::new(use_math_text=Some(false))
+try! fig.set_x_named_formatter(formatter.as_base_formatter())
+formatter.set_scientific(false)
+```
+
+checked 准备与 offset 错误贯通主次轴、共享轴、secondary 和 SVG；NullLocator 跳过
+刻度批次后仍读取当前 offset。新增 1685 个注册测试承载 5706 个细分验证案例，四目标
+全过，五份新原源检查通过。数值、locale、SVG72 几何与宿主边界见
+[ScalarFormatter 说明](testdata/scalar_formatter_README.md)。
+
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`
 及常见宽度/精度标志，`log_formatter`、`null_formatter` 和 `func_formatter` 分别用于对数、

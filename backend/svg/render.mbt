@@ -1580,8 +1580,7 @@ fn append_secondary_x_axis(
   }
   let ticks = bundle.major
   let labels = bundle.major_labels
-  for index, value in bundle.minor {
-    let primary = axis.inverse()(value)
+  for index, (primary, value) in bundle.minor {
     if tick_in_view(primary, scale.x_axis_scale, scale.xmin, scale.xmax) &&
       !primary.is_nan() &&
       !primary.is_inf() &&
@@ -1692,8 +1691,7 @@ fn append_secondary_y_axis(
   }
   let ticks = bundle.major
   let labels = bundle.major_labels
-  for index, value in bundle.minor {
-    let primary = axis.inverse()(value)
+  for index, (primary, value) in bundle.minor {
     if tick_in_view(primary, scale.y_axis_scale, scale.ymin, scale.ymax) &&
       !primary.is_nan() &&
       !primary.is_inf() &&
@@ -3773,8 +3771,17 @@ pub fn render_with_positions_checked(
   for index, panel in figure.panels() {
     let position = positioned_panel_rect(figure, panel, scales[index])
     positions.push(position)
-    panel.x_axis().set_tick_layout(position.2, true, active=true)
-    panel.y_axis().set_tick_layout(position.3, false, active=true)
+    panel
+    .x_axis()
+    .set_tick_layout(position.2, true, active=true, origin=position.0)
+    panel
+    .y_axis()
+    .set_tick_layout(
+      position.3,
+      false,
+      active=true,
+      origin=figure.height().to_double() - position.1 - position.3,
+    )
     panel.x_axis().set_tick_view(scales[index].xmin, scales[index].xmax)
     panel.y_axis().set_tick_view(scales[index].ymin, scales[index].ymax)
   }

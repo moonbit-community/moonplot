@@ -59,6 +59,7 @@ pub struct FormatterAxisBinding {
   priv minpos : Double?
   priv mut view_provider : (() -> FormatterViewInterval raise @core.DataError)?
   priv mut stored_view : FormatterViewInterval?
+  priv mut short_delta_provider : ((Double) -> Double raise @core.DataError)?
 }
 
 ///|
@@ -79,7 +80,40 @@ pub extend FormatterAxisBinding with Eq::{equal, not_equal}
 
 ///|
 pub fn FormatterAxisBinding::new() -> FormatterAxisBinding {
-  { minpos: None, view_provider: None, stored_view: None, }
+  {
+    minpos: None,
+    view_provider: None,
+    stored_view: None,
+    short_delta_provider: None,
+  }
+}
+
+///|
+/// Bind the data distance to the two neighboring display pixels.
+pub fn FormatterAxisBinding::bind_short_format_delta(
+  self : FormatterAxisBinding,
+  provider : (Double) -> Double raise @core.DataError,
+) -> Unit {
+  self.short_delta_provider = Some(provider)
+}
+
+///|
+pub fn FormatterAxisBinding::clear_short_format_delta(
+  self : FormatterAxisBinding,
+) -> Unit {
+  self.short_delta_provider = None
+}
+
+///|
+/// None selects the formatter's ordinary unnamed-axis fallback.
+pub fn FormatterAxisBinding::short_format_delta(
+  self : FormatterAxisBinding,
+  value : Double,
+) -> Double? raise @core.DataError {
+  match self.short_delta_provider {
+    Some(provider) => Some(provider(value))
+    None => None
+  }
 }
 
 ///|
@@ -157,6 +191,7 @@ priv enum FormatterKind {
   FormatStr(StringFormatterState)
   StrMethod(StringFormatterState)
   Percent(PercentFormatterState)
+  Scalar(ScalarFormatterState)
 }
 
 ///|
@@ -196,7 +231,19 @@ pub fn BaseFormatter::set_locs(
   self : BaseFormatter,
   locations : Array[Double],
 ) -> Unit {
+  try! self.set_locs_checked(locations)
+}
+
+///|
+/// Retain the input before performing a derived formatter's preparation.
+pub fn BaseFormatter::set_locs_checked(
+  self : BaseFormatter,
+  locations : Array[Double],
+) -> Unit raise @core.DataError {
   self.locations = FormatterLocations::Sequence(locations)
+  if self.kind is Scalar(state) {
+    scalar_named_prepare(self, state)
+  }
 }
 
 ///|
@@ -205,7 +252,18 @@ pub fn BaseFormatter::set_locs_view(
   self : BaseFormatter,
   locations : TickValues,
 ) -> Unit {
+  try! self.set_locs_view_checked(locations)
+}
+
+///|
+pub fn BaseFormatter::set_locs_view_checked(
+  self : BaseFormatter,
+  locations : TickValues,
+) -> Unit raise @core.DataError {
   self.locations = FormatterLocations::NdArray(locations)
+  if self.kind is Scalar(state) {
+    scalar_named_prepare(self, state)
+  }
 }
 
 ///|
@@ -231,6 +289,7 @@ pub fn BaseFormatter::create_dummy_axis(
     self.axis = Some({
       minpos: Some(minpos),
       view_provider: None,
+      short_delta_provider: None,
       stored_view: Some(
         FormatterViewInterval::Integers([
           @bigint.BigInt::from_int(0),
@@ -243,10 +302,19 @@ pub fn BaseFormatter::create_dummy_axis(
 
 ///|
 pub fn BaseFormatter::get_offset(self : BaseFormatter) -> String {
+  try! self.get_offset_checked()
+}
+
+///|
+/// Preserve deferred errors from derived offset formatting.
+pub fn BaseFormatter::get_offset_checked(
+  self : BaseFormatter,
+) -> String raise @core.DataError {
   match self.kind {
     Abstract | Null | FormatStr(_) | StrMethod(_) | Percent(_) => ""
     Fixed(state) => state.offset
     Func(state) => state.offset
+    Scalar(state) => scalar_named_offset(self, state)
   }
 }
 
@@ -267,6 +335,19 @@ pub fn BaseFormatter::copy(self : BaseFormatter) -> BaseFormatter {
         decimals: state.decimals,
         symbol: state.symbol,
         is_latex: state.is_latex,
+      })
+    Scalar(state) =>
+      FormatterKind::Scalar({
+        offset: state.offset,
+        use_offset: state.use_offset,
+        offset_threshold: state.offset_threshold,
+        usetex: state.usetex,
+        use_math_text: state.use_math_text,
+        use_locale: state.use_locale,
+        scientific: state.scientific,
+        order: state.order,
+        format_pattern: state.format_pattern,
+        power_limits: state.power_limits,
       })
   }
   { kind, locations: self.locations, axis: self.axis, }

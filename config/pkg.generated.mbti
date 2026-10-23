@@ -24,6 +24,16 @@ pub fn date_epoch() -> String
 
 pub fn date_interval_multiples() -> Bool
 
+pub fn formatter_limits() -> Array[@bigint.BigInt]
+
+pub fn formatter_offset_threshold() -> @bigint.BigInt
+
+pub fn formatter_use_locale() -> Bool
+
+pub fn formatter_use_math_text() -> Bool
+
+pub fn formatter_use_offset() -> Bool
+
 pub fn grid_color() -> String
 
 pub fn grid_linewidth() -> Double
@@ -31,6 +41,8 @@ pub fn grid_linewidth() -> Double
 pub fn grid_visible() -> Bool
 
 pub fn minor_tick_divisions(horizontal? : Bool) -> MinorTickDivisions
+
+pub fn numeric_locale() -> NumericLocale
 
 pub fn rc_params() -> RcParams
 
@@ -50,9 +62,21 @@ pub fn set_date_epoch(String) -> Unit raise @core.DataError
 
 pub fn set_date_interval_multiples(Bool) -> Unit
 
+pub fn set_formatter_limits(Array[@bigint.BigInt]) -> Unit raise @core.DataError
+
+pub fn set_formatter_offset_threshold(@bigint.BigInt) -> Unit
+
+pub fn set_formatter_use_locale(Bool) -> Unit
+
+pub fn set_formatter_use_math_text(Bool) -> Unit
+
+pub fn set_formatter_use_offset(Bool) -> Unit
+
 pub fn set_grid(Bool, String, Double) -> Unit raise @core.DataError
 
 pub fn set_minor_tick_divisions(MinorTickDivisions, horizontal? : Bool) -> Unit raise @core.DataError
+
+pub fn set_numeric_locale(NumericLocale) -> Unit
 
 pub fn set_text_usetex(Bool) -> Unit
 
@@ -86,6 +110,14 @@ pub fn MinorTickDivisions::equal(Self, Self) -> Bool
 pub fn MinorTickDivisions::not_equal(Self, Self) -> Bool
 pub fn MinorTickDivisions::to_repr(Self) -> @debug.Repr
 
+pub struct NumericLocale {
+  // private fields
+}
+pub fn NumericLocale::decimal_point(Self) -> String
+pub fn NumericLocale::grouping(Self) -> Array[Int]
+pub fn NumericLocale::new(decimal_point? : String, thousands_sep? : String, grouping? : Array[Int]) -> Self
+pub fn NumericLocale::thousands_sep(Self) -> String
+
 pub struct RcParams {
   mut date_epoch : String
   color_cycle : Array[String]
@@ -104,6 +136,11 @@ pub fn RcParams::date_autoformatter(Self, String) -> String raise @core.DataErro
 pub fn RcParams::date_converter(Self) -> String
 pub fn RcParams::date_epoch(Self) -> String
 pub fn RcParams::date_interval_multiples(Self) -> Bool
+pub fn RcParams::formatter_limits(Self) -> Array[@bigint.BigInt]
+pub fn RcParams::formatter_offset_threshold(Self) -> @bigint.BigInt
+pub fn RcParams::formatter_use_locale(Self) -> Bool
+pub fn RcParams::formatter_use_math_text(Self) -> Bool
+pub fn RcParams::formatter_use_offset(Self) -> Bool
 pub fn RcParams::grid_color(Self) -> String
 pub fn RcParams::grid_linewidth(Self) -> Double
 pub fn RcParams::grid_visible(Self) -> Bool

@@ -1,0 +1,7067 @@
+{
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5"
+  },
+  "oracle": "Native str.__mod__ on the actual scalar or one-element tuple. No copied parser.",
+  "case_count": 882,
+  "registered_test_count": 28,
+  "cases": [
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "literal",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "literal",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%g",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%g",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%s",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%s",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%r",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%r",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%a",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%a",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%d",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%d",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%i",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%i",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%u",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%u",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%o",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%o",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%x",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%x",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%X",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%X",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%c",
+      "tuple_rhs": false,
+      "result": "\u0000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%c",
+      "tuple_rhs": true,
+      "result": "\u0000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%+08d",
+      "tuple_rhs": false,
+      "result": "+0000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%+08d",
+      "tuple_rhs": true,
+      "result": "+0000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%#08x",
+      "tuple_rhs": false,
+      "result": "0x000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%#08x",
+      "tuple_rhs": true,
+      "result": "0x000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%#08.5x",
+      "tuple_rhs": false,
+      "result": "0x000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%#08.5x",
+      "tuple_rhs": true,
+      "result": "0x000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%-10s",
+      "tuple_rhs": false,
+      "result": "0         ",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%-10s",
+      "tuple_rhs": true,
+      "result": "0         ",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%.1r",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%.1r",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%+.3g",
+      "tuple_rhs": false,
+      "result": "+0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%+.3g",
+      "tuple_rhs": true,
+      "result": "+0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%12.2f",
+      "tuple_rhs": false,
+      "result": "        0.00",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%12.2f",
+      "tuple_rhs": true,
+      "result": "        0.00",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%#.0e",
+      "tuple_rhs": false,
+      "result": "0.e+00",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%#.0e",
+      "tuple_rhs": true,
+      "result": "0.e+00",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%(",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%(",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%(x)",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%(x)",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%(x)f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%(x)f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%((x))q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%((x))q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%.*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%.*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%.*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%.*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%*.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%*.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%g %q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%g %q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%g %*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%g %*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%g %(x)q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%g %(x)q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%q %g",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%q %g",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%5%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%5%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%l",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%l",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%llf",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%llf",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%😀",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%😀",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "😀%q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "😀%q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%\u0000",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%\u0000",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%\n",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%\n",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%.f",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%.f",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%-.0d",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "0",
+      "format": "%-.0d",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "literal",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "literal",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%g",
+      "tuple_rhs": false,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%g",
+      "tuple_rhs": true,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%s",
+      "tuple_rhs": false,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%s",
+      "tuple_rhs": true,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%r",
+      "tuple_rhs": false,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%r",
+      "tuple_rhs": true,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%a",
+      "tuple_rhs": false,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%a",
+      "tuple_rhs": true,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%d",
+      "tuple_rhs": false,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%d",
+      "tuple_rhs": true,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%i",
+      "tuple_rhs": false,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%i",
+      "tuple_rhs": true,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%u",
+      "tuple_rhs": false,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%u",
+      "tuple_rhs": true,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%o",
+      "tuple_rhs": false,
+      "result": "-52",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%o",
+      "tuple_rhs": true,
+      "result": "-52",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%x",
+      "tuple_rhs": false,
+      "result": "-2a",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%x",
+      "tuple_rhs": true,
+      "result": "-2a",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%X",
+      "tuple_rhs": false,
+      "result": "-2A",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%X",
+      "tuple_rhs": true,
+      "result": "-2A",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%c",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: %c arg not in range(0x110000)"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%c",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: %c arg not in range(0x110000)"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%+08d",
+      "tuple_rhs": false,
+      "result": "-0000042",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%+08d",
+      "tuple_rhs": true,
+      "result": "-0000042",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%#08x",
+      "tuple_rhs": false,
+      "result": "-0x0002a",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%#08x",
+      "tuple_rhs": true,
+      "result": "-0x0002a",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%#08.5x",
+      "tuple_rhs": false,
+      "result": "-0x0002a",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%#08.5x",
+      "tuple_rhs": true,
+      "result": "-0x0002a",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%-10s",
+      "tuple_rhs": false,
+      "result": "-42       ",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%-10s",
+      "tuple_rhs": true,
+      "result": "-42       ",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%.1r",
+      "tuple_rhs": false,
+      "result": "-",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%.1r",
+      "tuple_rhs": true,
+      "result": "-",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%+.3g",
+      "tuple_rhs": false,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%+.3g",
+      "tuple_rhs": true,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%12.2f",
+      "tuple_rhs": false,
+      "result": "      -42.00",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%12.2f",
+      "tuple_rhs": true,
+      "result": "      -42.00",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%#.0e",
+      "tuple_rhs": false,
+      "result": "-4.e+01",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%#.0e",
+      "tuple_rhs": true,
+      "result": "-4.e+01",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%(",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%(",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%(x)",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%(x)",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%(x)f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%(x)f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%((x))q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%((x))q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%.*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%.*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%.*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%.*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%*.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%*.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%g %q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%g %q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%g %*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%g %*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%g %(x)q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%g %(x)q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%q %g",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%q %g",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%5%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%5%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%l",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%l",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%llf",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%llf",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%😀",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%😀",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "😀%q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "😀%q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%\u0000",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%\u0000",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%\n",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%\n",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%.f",
+      "tuple_rhs": false,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%.f",
+      "tuple_rhs": true,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%-.0d",
+      "tuple_rhs": false,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-42",
+      "format": "%-.0d",
+      "tuple_rhs": true,
+      "result": "-42",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "literal",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "literal",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%g",
+      "tuple_rhs": false,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%g",
+      "tuple_rhs": true,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%s",
+      "tuple_rhs": false,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%s",
+      "tuple_rhs": true,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%r",
+      "tuple_rhs": false,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%r",
+      "tuple_rhs": true,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%a",
+      "tuple_rhs": false,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%a",
+      "tuple_rhs": true,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%d",
+      "tuple_rhs": false,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%d",
+      "tuple_rhs": true,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%i",
+      "tuple_rhs": false,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%i",
+      "tuple_rhs": true,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%u",
+      "tuple_rhs": false,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%u",
+      "tuple_rhs": true,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%o",
+      "tuple_rhs": false,
+      "result": "101",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%o",
+      "tuple_rhs": true,
+      "result": "101",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%x",
+      "tuple_rhs": false,
+      "result": "41",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%x",
+      "tuple_rhs": true,
+      "result": "41",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%X",
+      "tuple_rhs": false,
+      "result": "41",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%X",
+      "tuple_rhs": true,
+      "result": "41",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%c",
+      "tuple_rhs": false,
+      "result": "A",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%c",
+      "tuple_rhs": true,
+      "result": "A",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%+08d",
+      "tuple_rhs": false,
+      "result": "+0000065",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%+08d",
+      "tuple_rhs": true,
+      "result": "+0000065",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%#08x",
+      "tuple_rhs": false,
+      "result": "0x000041",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%#08x",
+      "tuple_rhs": true,
+      "result": "0x000041",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%#08.5x",
+      "tuple_rhs": false,
+      "result": "0x000041",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%#08.5x",
+      "tuple_rhs": true,
+      "result": "0x000041",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%-10s",
+      "tuple_rhs": false,
+      "result": "65        ",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%-10s",
+      "tuple_rhs": true,
+      "result": "65        ",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%.1r",
+      "tuple_rhs": false,
+      "result": "6",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%.1r",
+      "tuple_rhs": true,
+      "result": "6",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%+.3g",
+      "tuple_rhs": false,
+      "result": "+65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%+.3g",
+      "tuple_rhs": true,
+      "result": "+65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%12.2f",
+      "tuple_rhs": false,
+      "result": "       65.00",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%12.2f",
+      "tuple_rhs": true,
+      "result": "       65.00",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%#.0e",
+      "tuple_rhs": false,
+      "result": "6.e+01",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%#.0e",
+      "tuple_rhs": true,
+      "result": "6.e+01",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%(",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%(",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%(x)",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%(x)",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%(x)f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%(x)f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%((x))q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%((x))q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%.*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%.*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%.*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%.*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%*.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%*.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%g %q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%g %q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%g %*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%g %*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%g %(x)q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%g %(x)q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%q %g",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%q %g",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%5%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%5%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%l",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%l",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%llf",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%llf",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%😀",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%😀",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "😀%q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "😀%q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%\u0000",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%\u0000",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%\n",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%\n",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%.f",
+      "tuple_rhs": false,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%.f",
+      "tuple_rhs": true,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%-.0d",
+      "tuple_rhs": false,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "65",
+      "format": "%-.0d",
+      "tuple_rhs": true,
+      "result": "65",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "literal",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "literal",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%g",
+      "tuple_rhs": false,
+      "result": "1.26765e+30",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%g",
+      "tuple_rhs": true,
+      "result": "1.26765e+30",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%s",
+      "tuple_rhs": false,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%s",
+      "tuple_rhs": true,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%r",
+      "tuple_rhs": false,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%r",
+      "tuple_rhs": true,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%a",
+      "tuple_rhs": false,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%a",
+      "tuple_rhs": true,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%d",
+      "tuple_rhs": false,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%d",
+      "tuple_rhs": true,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%i",
+      "tuple_rhs": false,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%i",
+      "tuple_rhs": true,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%u",
+      "tuple_rhs": false,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%u",
+      "tuple_rhs": true,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%o",
+      "tuple_rhs": false,
+      "result": "2000000000000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%o",
+      "tuple_rhs": true,
+      "result": "2000000000000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%x",
+      "tuple_rhs": false,
+      "result": "10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%x",
+      "tuple_rhs": true,
+      "result": "10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%X",
+      "tuple_rhs": false,
+      "result": "10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%X",
+      "tuple_rhs": true,
+      "result": "10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%c",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: %c arg not in range(0x110000)"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%c",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: %c arg not in range(0x110000)"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%+08d",
+      "tuple_rhs": false,
+      "result": "+1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%+08d",
+      "tuple_rhs": true,
+      "result": "+1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%#08x",
+      "tuple_rhs": false,
+      "result": "0x10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%#08x",
+      "tuple_rhs": true,
+      "result": "0x10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%#08.5x",
+      "tuple_rhs": false,
+      "result": "0x10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%#08.5x",
+      "tuple_rhs": true,
+      "result": "0x10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%-10s",
+      "tuple_rhs": false,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%-10s",
+      "tuple_rhs": true,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%.1r",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%.1r",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%+.3g",
+      "tuple_rhs": false,
+      "result": "+1.27e+30",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%+.3g",
+      "tuple_rhs": true,
+      "result": "+1.27e+30",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%12.2f",
+      "tuple_rhs": false,
+      "result": "1267650600228229401496703205376.00",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%12.2f",
+      "tuple_rhs": true,
+      "result": "1267650600228229401496703205376.00",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%#.0e",
+      "tuple_rhs": false,
+      "result": "1.e+30",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%#.0e",
+      "tuple_rhs": true,
+      "result": "1.e+30",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%(",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%(",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%(x)",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%(x)",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%(x)f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%(x)f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%((x))q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%((x))q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%.*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C int"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%.*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C int"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%.*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C int"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%.*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C int"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C int"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C int"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%*.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%*.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%g %q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%g %q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%g %*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%g %*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%g %(x)q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%g %(x)q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%q %g",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%q %g",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%5%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%5%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%l",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%l",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%llf",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%llf",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%😀",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%😀",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "😀%q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "😀%q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%\u0000",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%\u0000",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%\n",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%\n",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%.f",
+      "tuple_rhs": false,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%.f",
+      "tuple_rhs": true,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%-.0d",
+      "tuple_rhs": false,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "1267650600228229401496703205376",
+      "format": "%-.0d",
+      "tuple_rhs": true,
+      "result": "1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "literal",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "literal",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%g",
+      "tuple_rhs": false,
+      "result": "-1.26765e+30",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%g",
+      "tuple_rhs": true,
+      "result": "-1.26765e+30",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%s",
+      "tuple_rhs": false,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%s",
+      "tuple_rhs": true,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%r",
+      "tuple_rhs": false,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%r",
+      "tuple_rhs": true,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%a",
+      "tuple_rhs": false,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%a",
+      "tuple_rhs": true,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%d",
+      "tuple_rhs": false,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%d",
+      "tuple_rhs": true,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%i",
+      "tuple_rhs": false,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%i",
+      "tuple_rhs": true,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%u",
+      "tuple_rhs": false,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%u",
+      "tuple_rhs": true,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%o",
+      "tuple_rhs": false,
+      "result": "-2000000000000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%o",
+      "tuple_rhs": true,
+      "result": "-2000000000000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%x",
+      "tuple_rhs": false,
+      "result": "-10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%x",
+      "tuple_rhs": true,
+      "result": "-10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%X",
+      "tuple_rhs": false,
+      "result": "-10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%X",
+      "tuple_rhs": true,
+      "result": "-10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%c",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: %c arg not in range(0x110000)"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%c",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: %c arg not in range(0x110000)"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%+08d",
+      "tuple_rhs": false,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%+08d",
+      "tuple_rhs": true,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%#08x",
+      "tuple_rhs": false,
+      "result": "-0x10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%#08x",
+      "tuple_rhs": true,
+      "result": "-0x10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%#08.5x",
+      "tuple_rhs": false,
+      "result": "-0x10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%#08.5x",
+      "tuple_rhs": true,
+      "result": "-0x10000000000000000000000000",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%-10s",
+      "tuple_rhs": false,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%-10s",
+      "tuple_rhs": true,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%.1r",
+      "tuple_rhs": false,
+      "result": "-",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%.1r",
+      "tuple_rhs": true,
+      "result": "-",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%+.3g",
+      "tuple_rhs": false,
+      "result": "-1.27e+30",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%+.3g",
+      "tuple_rhs": true,
+      "result": "-1.27e+30",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%12.2f",
+      "tuple_rhs": false,
+      "result": "-1267650600228229401496703205376.00",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%12.2f",
+      "tuple_rhs": true,
+      "result": "-1267650600228229401496703205376.00",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%#.0e",
+      "tuple_rhs": false,
+      "result": "-1.e+30",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%#.0e",
+      "tuple_rhs": true,
+      "result": "-1.e+30",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%(",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%(",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%(x)",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%(x)",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%(x)f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%(x)f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%((x))q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%((x))q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%.*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C int"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%.*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C int"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%.*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C int"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%.*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C int"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C int"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C int"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%*.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%*.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "OverflowError: Python int too large to convert to C ssize_t"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%g %q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%g %q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%g %*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%g %*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%g %(x)q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%g %(x)q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%q %g",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%q %g",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%5%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%5%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%l",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%l",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%llf",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%llf",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%😀",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%😀",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "😀%q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "😀%q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%\u0000",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%\u0000",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%\n",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%\n",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%.f",
+      "tuple_rhs": false,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%.f",
+      "tuple_rhs": true,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%-.0d",
+      "tuple_rhs": false,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Integer",
+      "value": "-1267650600228229401496703205376",
+      "format": "%-.0d",
+      "tuple_rhs": true,
+      "result": "-1267650600228229401496703205376",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "literal",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "literal",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%g",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%g",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%s",
+      "tuple_rhs": false,
+      "result": "False",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%s",
+      "tuple_rhs": true,
+      "result": "False",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%r",
+      "tuple_rhs": false,
+      "result": "False",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%r",
+      "tuple_rhs": true,
+      "result": "False",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%a",
+      "tuple_rhs": false,
+      "result": "False",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%a",
+      "tuple_rhs": true,
+      "result": "False",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%d",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%d",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%i",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%i",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%u",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%u",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%o",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%o",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%x",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%x",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%X",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%X",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%c",
+      "tuple_rhs": false,
+      "result": "\u0000",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%c",
+      "tuple_rhs": true,
+      "result": "\u0000",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%+08d",
+      "tuple_rhs": false,
+      "result": "+0000000",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%+08d",
+      "tuple_rhs": true,
+      "result": "+0000000",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%#08x",
+      "tuple_rhs": false,
+      "result": "0x000000",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%#08x",
+      "tuple_rhs": true,
+      "result": "0x000000",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%#08.5x",
+      "tuple_rhs": false,
+      "result": "0x000000",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%#08.5x",
+      "tuple_rhs": true,
+      "result": "0x000000",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%-10s",
+      "tuple_rhs": false,
+      "result": "False     ",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%-10s",
+      "tuple_rhs": true,
+      "result": "False     ",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%.1r",
+      "tuple_rhs": false,
+      "result": "F",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%.1r",
+      "tuple_rhs": true,
+      "result": "F",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%+.3g",
+      "tuple_rhs": false,
+      "result": "+0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%+.3g",
+      "tuple_rhs": true,
+      "result": "+0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%12.2f",
+      "tuple_rhs": false,
+      "result": "        0.00",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%12.2f",
+      "tuple_rhs": true,
+      "result": "        0.00",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%#.0e",
+      "tuple_rhs": false,
+      "result": "0.e+00",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%#.0e",
+      "tuple_rhs": true,
+      "result": "0.e+00",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%(",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%(",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%(x)",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%(x)",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%(x)f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%(x)f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%((x))q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%((x))q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%.*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%.*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%.*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%.*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%*.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%*.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%g %q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%g %q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%g %*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%g %*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%g %(x)q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%g %(x)q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%q %g",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%q %g",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%5%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%5%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%l",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%l",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%llf",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%llf",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%😀",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%😀",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "😀%q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "😀%q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%\u0000",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%\u0000",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%\n",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%\n",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%.f",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%.f",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%-.0d",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "False",
+      "format": "%-.0d",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "literal",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "literal",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%g",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%g",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%s",
+      "tuple_rhs": false,
+      "result": "True",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%s",
+      "tuple_rhs": true,
+      "result": "True",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%r",
+      "tuple_rhs": false,
+      "result": "True",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%r",
+      "tuple_rhs": true,
+      "result": "True",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%a",
+      "tuple_rhs": false,
+      "result": "True",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%a",
+      "tuple_rhs": true,
+      "result": "True",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%d",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%d",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%i",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%i",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%u",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%u",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%o",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%o",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%x",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%x",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%X",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%X",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%c",
+      "tuple_rhs": false,
+      "result": "\u0001",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%c",
+      "tuple_rhs": true,
+      "result": "\u0001",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%+08d",
+      "tuple_rhs": false,
+      "result": "+0000001",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%+08d",
+      "tuple_rhs": true,
+      "result": "+0000001",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%#08x",
+      "tuple_rhs": false,
+      "result": "0x000001",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%#08x",
+      "tuple_rhs": true,
+      "result": "0x000001",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%#08.5x",
+      "tuple_rhs": false,
+      "result": "0x000001",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%#08.5x",
+      "tuple_rhs": true,
+      "result": "0x000001",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%-10s",
+      "tuple_rhs": false,
+      "result": "True      ",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%-10s",
+      "tuple_rhs": true,
+      "result": "True      ",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%.1r",
+      "tuple_rhs": false,
+      "result": "T",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%.1r",
+      "tuple_rhs": true,
+      "result": "T",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%+.3g",
+      "tuple_rhs": false,
+      "result": "+1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%+.3g",
+      "tuple_rhs": true,
+      "result": "+1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%12.2f",
+      "tuple_rhs": false,
+      "result": "        1.00",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%12.2f",
+      "tuple_rhs": true,
+      "result": "        1.00",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%#.0e",
+      "tuple_rhs": false,
+      "result": "1.e+00",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%#.0e",
+      "tuple_rhs": true,
+      "result": "1.e+00",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%(",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%(",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%(x)",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%(x)",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%(x)f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%(x)f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%((x))q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%((x))q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%.*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%.*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%.*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%.*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%*.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%*.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%g %q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%g %q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%g %*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%g %*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%g %(x)q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%g %(x)q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%q %g",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%q %g",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%5%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%5%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%l",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%l",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%llf",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%llf",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%😀",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%😀",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "😀%q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "😀%q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%\u0000",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%\u0000",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%\n",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%\n",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%.f",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%.f",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%-.0d",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "Boolean",
+      "value": "True",
+      "format": "%-.0d",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "",
+      "tuple_rhs": false,
+      "result": "",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "literal",
+      "tuple_rhs": false,
+      "result": "literal",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "literal",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%%",
+      "tuple_rhs": false,
+      "result": "%",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%g",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%g",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%s",
+      "tuple_rhs": false,
+      "result": "False",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%s",
+      "tuple_rhs": true,
+      "result": "False",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%r",
+      "tuple_rhs": false,
+      "result": "np.False_",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%r",
+      "tuple_rhs": true,
+      "result": "np.False_",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%a",
+      "tuple_rhs": false,
+      "result": "np.False_",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%a",
+      "tuple_rhs": true,
+      "result": "np.False_",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%d",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%d",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%i",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%i",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%u",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%u",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%o",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: %o format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%o",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: %o format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%x",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: %x format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%x",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: %x format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%X",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: %X format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%X",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: %X format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%c",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: %c requires int or char"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%c",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: %c requires int or char"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%+08d",
+      "tuple_rhs": false,
+      "result": "+0000000",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%+08d",
+      "tuple_rhs": true,
+      "result": "+0000000",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%#08x",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: %x format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%#08x",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: %x format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%#08.5x",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: %x format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%#08.5x",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: %x format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%-10s",
+      "tuple_rhs": false,
+      "result": "False     ",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%-10s",
+      "tuple_rhs": true,
+      "result": "False     ",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%.1r",
+      "tuple_rhs": false,
+      "result": "n",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%.1r",
+      "tuple_rhs": true,
+      "result": "n",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%+.3g",
+      "tuple_rhs": false,
+      "result": "+0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%+.3g",
+      "tuple_rhs": true,
+      "result": "+0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%12.2f",
+      "tuple_rhs": false,
+      "result": "        0.00",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%12.2f",
+      "tuple_rhs": true,
+      "result": "        0.00",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%#.0e",
+      "tuple_rhs": false,
+      "result": "0.e+00",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%#.0e",
+      "tuple_rhs": true,
+      "result": "0.e+00",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%(",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format key"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%(",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%(x)",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "IndexError: invalid index to scalar variable."
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%(x)",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%(x)f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "IndexError: invalid index to scalar variable."
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%(x)f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%((x))q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "IndexError: invalid index to scalar variable."
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%((x))q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%.*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%.*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%.*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%.*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%*.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%*.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%g %q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%g %q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%g %*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%g %*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%g %(x)q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "IndexError: invalid index to scalar variable."
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%g %(x)q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%q %g",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%q %g",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%5%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%5%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%l",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%l",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%llf",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%llf",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%😀",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%😀",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "😀%q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "😀%q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%\u0000",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%\u0000",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%\n",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%\n",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%.f",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%.f",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%-.0d",
+      "tuple_rhs": false,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "False",
+      "format": "%-.0d",
+      "tuple_rhs": true,
+      "result": "0",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "",
+      "tuple_rhs": false,
+      "result": "",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "literal",
+      "tuple_rhs": false,
+      "result": "literal",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "literal",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%%",
+      "tuple_rhs": false,
+      "result": "%",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not all arguments converted during string formatting"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%g",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%g",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%s",
+      "tuple_rhs": false,
+      "result": "True",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%s",
+      "tuple_rhs": true,
+      "result": "True",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%r",
+      "tuple_rhs": false,
+      "result": "np.True_",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%r",
+      "tuple_rhs": true,
+      "result": "np.True_",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%a",
+      "tuple_rhs": false,
+      "result": "np.True_",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%a",
+      "tuple_rhs": true,
+      "result": "np.True_",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%d",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%d",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%i",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%i",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%u",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%u",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%o",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: %o format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%o",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: %o format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%x",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: %x format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%x",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: %x format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%X",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: %X format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%X",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: %X format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%c",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: %c requires int or char"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%c",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: %c requires int or char"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%+08d",
+      "tuple_rhs": false,
+      "result": "+0000001",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%+08d",
+      "tuple_rhs": true,
+      "result": "+0000001",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%#08x",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: %x format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%#08x",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: %x format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%#08.5x",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: %x format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%#08.5x",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: %x format: an integer is required, not numpy.bool"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%-10s",
+      "tuple_rhs": false,
+      "result": "True      ",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%-10s",
+      "tuple_rhs": true,
+      "result": "True      ",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%.1r",
+      "tuple_rhs": false,
+      "result": "n",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%.1r",
+      "tuple_rhs": true,
+      "result": "n",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%+.3g",
+      "tuple_rhs": false,
+      "result": "+1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%+.3g",
+      "tuple_rhs": true,
+      "result": "+1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%12.2f",
+      "tuple_rhs": false,
+      "result": "        1.00",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%12.2f",
+      "tuple_rhs": true,
+      "result": "        1.00",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%#.0e",
+      "tuple_rhs": false,
+      "result": "1.e+00",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%#.0e",
+      "tuple_rhs": true,
+      "result": "1.e+00",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%(",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format key"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%(",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%(x)",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "IndexError: invalid index to scalar variable."
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%(x)",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%(x)f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "IndexError: invalid index to scalar variable."
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%(x)f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%((x))q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "IndexError: invalid index to scalar variable."
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%((x))q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%.*",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%.*",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%.*q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%.*q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%*.*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%*.*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: * wants int"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%g %q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%g %q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%g %*f",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%g %*f",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: not enough arguments for format string"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%g %(x)q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "IndexError: invalid index to scalar variable."
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%g %(x)q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "TypeError: format requires a mapping"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%q %g",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%q %g",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%5%",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%5%",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '%' (0x25) at index 2"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%l",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%l",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: incomplete format"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%llf",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%llf",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'l' (0x6c) at index 2"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%g %.2147483648q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: precision too big"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%9999999999999999999999q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: width too big"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%😀",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%😀",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x1f600) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "😀%q",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "😀%q",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character 'q' (0x71) at index 2"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%\u0000",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%\u0000",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0x0) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%\n",
+      "tuple_rhs": false,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%\n",
+      "tuple_rhs": true,
+      "result": null,
+      "error": "ValueError: unsupported format character '?' (0xa) at index 1"
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%.f",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%.f",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%-.0d",
+      "tuple_rhs": false,
+      "result": "1",
+      "error": null
+    },
+    {
+      "kind": "NumpyBool",
+      "value": "True",
+      "format": "%-.0d",
+      "tuple_rhs": true,
+      "result": "1",
+      "error": null
+    }
+  ]
+}

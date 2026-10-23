@@ -39,6 +39,8 @@ fn formatter_named_call(
         NamedFormatValue::PythonFloat(value),
         position,
       )
+    Scalar(state) =>
+      scalar_named_call(formatter, state, ScalarNumber::Number(value), position)
     Percent(state) =>
       percent_formatter_call(
         formatter,
@@ -64,7 +66,7 @@ pub fn BaseFormatter::format_ticks(
   self : BaseFormatter,
   values : Array[Double],
 ) -> Array[String] raise @core.DataError {
-  self.set_locs(values)
+  self.set_locs_checked(values)
   let labels : Array[String] = []
   let mut index = 0
   while index < values.length() {
@@ -80,7 +82,7 @@ pub fn BaseFormatter::format_ticks_view(
   self : BaseFormatter,
   values : TickValues,
 ) -> Array[String] raise @core.DataError {
-  self.set_locs_view(values)
+  self.set_locs_view_checked(values)
   let length = values.length()
   let labels : Array[String] = []
   for index in 0..<length {
@@ -102,6 +104,14 @@ pub fn BaseFormatter::format_ticks_view(
           NamedFormatValue::NumpyFloat64(values.get(index))
         }
         format_method_checked(state.fmt, value, Some(index))
+      }
+      Scalar(state) => {
+        let value = if values.is_int64() {
+          ScalarNumber::NumpyInt64(values.get_int64(index))
+        } else {
+          ScalarNumber::NumpyFloat64(values.get(index))
+        }
+        scalar_named_call(self, state, value, Some(index))
       }
       Percent(state) => {
         let value = if values.is_int64() {
@@ -185,7 +195,11 @@ pub fn BaseFormatter::format_data(
   self : BaseFormatter,
   value : Double,
 ) -> String raise @core.DataError {
-  formatter_named_call(self, value, None)
+  match self.kind {
+    Scalar(state) =>
+      scalar_named_format_data(state, ScalarNumber::Number(value))
+    _ => formatter_named_call(self, value, None)
+  }
 }
 
 ///|
@@ -193,7 +207,11 @@ pub fn BaseFormatter::format_data_short(
   self : BaseFormatter,
   value : Double,
 ) -> String raise @core.DataError {
-  self.format_data(value)
+  match self.kind {
+    Scalar(state) =>
+      scalar_named_short(self, state, ScalarNumber::Number(value))
+    _ => self.format_data(value)
+  }
 }
 
 ///|

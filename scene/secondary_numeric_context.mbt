@@ -33,6 +33,36 @@ pub fn SecondaryAxis::apply_aspect(
 ) -> Unit raise @core.DataError {
   let (lower, upper) = self.numeric_view_interval()
   self.store_formatter_view(lower, upper)
+  self.formatter_geometry = self.formatter_original_geometry
+}
+
+///|
+// Locator-driven layout passes a physical position, unlike direct apply_aspect.
+fn SecondaryAxis::synchronize_formatter_frame(
+  self : SecondaryAxis,
+) -> Unit raise @core.DataError {
+  let (lower, upper) = self.numeric_view_interval()
+  self.store_formatter_view(lower, upper)
+  self.formatter_geometry = match self.parent_axis {
+    Some(parent) =>
+      parent
+      .formatter_display_geometry()
+      .unwrap_or(self.formatter_original_geometry)
+    None => self.formatter_original_geometry
+  }
+}
+
+///|
+fn SecondaryAxis::numeric_inverse(
+  self : SecondaryAxis,
+  value : Double,
+) -> Double {
+  let primary = if self.parent_axis is Some(parent) && parent.scale().is_log() {
+    @scale.Scale::Log.inverse(value)
+  } else {
+    value
+  }
+  (self.forward)(primary)
 }
 
 ///|

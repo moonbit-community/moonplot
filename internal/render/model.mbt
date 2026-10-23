@@ -452,6 +452,7 @@ pub(all) enum SecondaryLocation {
 ///|
 /// Immutable secondary axis data consumed by a backend.
 pub struct SecondaryAxis {
+  formatter_view_provider : (() -> (Double, Double))?
   synchronize_view_provider : (() -> Unit raise @core.DataError)?
   formatter_provider : ((Bool) -> @ticker.BaseFormatter?)?
   legacy_formatter_provider : (() -> @ticker.Formatter?)?
@@ -499,9 +500,11 @@ pub fn secondary_axis(
   minor_locator~ : @ticker.MinorLocator? = None,
   minor_ticks_provider~ : (() -> Array[Double] raise @core.DataError)? = None,
   synchronize_view_provider~ : (() -> Unit raise @core.DataError)? = None,
+  formatter_view_provider~ : (() -> (Double, Double))? = None,
 ) -> SecondaryAxis {
   {
     synchronize_view_provider,
+    formatter_view_provider,
     named_formatter,
     minor_named_formatter,
     formatter_provider,
@@ -544,6 +547,14 @@ pub fn SecondaryAxis::synchronize_view(
     }
     None => false
   }
+}
+
+///|
+/// Read the owner's stored interval before visibility transforms and offset text.
+pub fn SecondaryAxis::formatter_view_interval(
+  self : SecondaryAxis,
+) -> (Double, Double)? {
+  self.formatter_view_provider.map(provider => provider())
 }
 
 ///|

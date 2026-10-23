@@ -18,6 +18,8 @@ pub struct Axis {
   priv mut minpos_provider : (() -> Double raise @core.DataError)?
   priv mut shared_minpos_provider : (() -> Array[Double] raise @core.DataError)?
   priv mut data_interval_provider : (() -> (Double, Double))?
+  priv mut formatter_geometry_provider : (() -> (Double, Double))?
+  priv mut tick_layout_origin : Double?
   priv mut tick_length_provider : (() -> Double)?
   priv mut numeric_view_provider : (() -> (Double, Double) raise @core.DataError)?
   priv mut tick_layout_length : Double?
@@ -70,6 +72,8 @@ pub fn axis() -> Axis {
     minpos_provider: None,
     shared_minpos_provider: None,
     data_interval_provider: None,
+    formatter_geometry_provider: None,
+    tick_layout_origin: None,
     tick_length_provider: None,
     numeric_view_provider: None,
     tick_layout_length: None,

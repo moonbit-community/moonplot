@@ -60,7 +60,7 @@ fn numeric_axis_bundle(
     }
     (materialize_formatter_locations(locations), labels)
   }
-  let offset = if major_null {
+  let offset = if major_null && axis.named_formatter() is None {
     ""
   } else {
     axis.formatter_offset_label_checked(major, view~)

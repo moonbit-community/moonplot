@@ -151,13 +151,17 @@ pub fn BaseFormatter::format_ticks(Self, Array[Double]) -> Array[String] raise @
 pub fn BaseFormatter::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
 pub fn BaseFormatter::func_formatter(Self) -> FuncFormatter?
 pub fn BaseFormatter::get_offset(Self) -> String
+pub fn BaseFormatter::get_offset_checked(Self) -> String raise @core.DataError
 pub fn BaseFormatter::locations(Self) -> FormatterLocations
 pub fn BaseFormatter::new() -> Self
 pub fn BaseFormatter::null_formatter(Self) -> NullFormatter?
 pub fn BaseFormatter::percent_formatter(Self) -> PercentFormatter?
+pub fn BaseFormatter::scalar_formatter(Self) -> ScalarFormatter?
 pub fn BaseFormatter::set_axis(Self, FormatterAxisBinding?) -> Unit
 pub fn BaseFormatter::set_locs(Self, Array[Double]) -> Unit
+pub fn BaseFormatter::set_locs_checked(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn BaseFormatter::set_locs_view(Self, TickValues) -> Unit
+pub fn BaseFormatter::set_locs_view_checked(Self, TickValues) -> Unit raise @core.DataError
 pub fn BaseFormatter::str_method_formatter(Self) -> StrMethodFormatter?
 
 pub struct FixedFormatter {
@@ -245,13 +249,16 @@ pub fn Formatter::offset_with_view(Self, Array[Double], @core.Limits?) -> Double
 pub struct FormatterAxisBinding {
   // private fields
 }
+pub fn FormatterAxisBinding::bind_short_format_delta(Self, (Double) -> Double raise @core.DataError) -> Unit
 pub fn FormatterAxisBinding::bind_view_interval(Self, () -> FormatterViewInterval raise @core.DataError) -> Unit
+pub fn FormatterAxisBinding::clear_short_format_delta(Self) -> Unit
 pub fn FormatterAxisBinding::dummy_minpos(Self) -> Double?
 pub fn FormatterAxisBinding::equal(Self, Self) -> Bool
 pub fn FormatterAxisBinding::is_dummy(Self) -> Bool
 pub fn FormatterAxisBinding::new() -> Self
 pub fn FormatterAxisBinding::not_equal(Self, Self) -> Bool
 pub fn FormatterAxisBinding::set_view_interval(Self, FormatterViewInterval) -> Unit
+pub fn FormatterAxisBinding::short_format_delta(Self, Double) -> Double? raise @core.DataError
 pub fn FormatterAxisBinding::to_repr(Self) -> @debug.Repr
 pub fn FormatterAxisBinding::view_interval(Self) -> FormatterViewInterval raise @core.DataError
 pub impl Eq for FormatterAxisBinding
@@ -611,6 +618,69 @@ pub(all) enum PercentXMax {
 pub fn PercentXMax::equal(Self, Self) -> Bool
 pub fn PercentXMax::not_equal(Self, Self) -> Bool
 pub fn PercentXMax::to_repr(Self) -> @debug.Repr
+
+pub struct ScalarFormatter {
+  // private fields
+}
+pub fn ScalarFormatter::as_base_formatter(Self) -> BaseFormatter
+pub fn ScalarFormatter::axis(Self) -> FormatterAxisBinding?
+pub fn ScalarFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn ScalarFormatter::call_value(Self, ScalarNumber, pos? : Int) -> String raise @core.DataError
+pub fn ScalarFormatter::copy(Self) -> Self
+pub fn ScalarFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
+pub fn ScalarFormatter::format_data(Self, Double) -> String raise @core.DataError
+pub fn ScalarFormatter::format_data_short(Self, Double) -> String raise @core.DataError
+pub fn ScalarFormatter::format_data_short_masked(Self) -> String
+pub fn ScalarFormatter::format_data_short_value(Self, ScalarNumber) -> String raise @core.DataError
+pub fn ScalarFormatter::format_data_value(Self, ScalarNumber) -> String raise @core.DataError
+pub fn ScalarFormatter::format_pattern(Self) -> String
+pub fn ScalarFormatter::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
+pub fn ScalarFormatter::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
+pub fn ScalarFormatter::get_offset(Self) -> String raise @core.DataError
+pub fn ScalarFormatter::get_use_locale(Self) -> Bool
+pub fn ScalarFormatter::get_use_math_text(Self) -> Bool
+pub fn ScalarFormatter::get_use_offset(Self) -> Bool
+pub fn ScalarFormatter::get_usetex(Self) -> Bool
+pub fn ScalarFormatter::locations(Self) -> FormatterLocations
+pub fn ScalarFormatter::new(use_offset? : ScalarNumber?, use_math_text? : Bool?, use_locale? : Bool?, usetex? : Bool?) -> Self
+pub fn ScalarFormatter::offset(Self) -> ScalarNumber?
+pub fn ScalarFormatter::offset_threshold(Self) -> @bigint.BigInt
+pub fn ScalarFormatter::order_of_magnitude(Self) -> ScalarNumber
+pub fn ScalarFormatter::power_limits(Self) -> ScalarPowerLimits
+pub fn ScalarFormatter::scientific(Self) -> Bool
+pub fn ScalarFormatter::set_axis(Self, FormatterAxisBinding?) -> Unit
+pub fn ScalarFormatter::set_format_pattern(Self, String) -> Unit
+pub fn ScalarFormatter::set_locs(Self, Array[Double]) -> Unit raise @core.DataError
+pub fn ScalarFormatter::set_locs_view(Self, TickValues) -> Unit raise @core.DataError
+pub fn ScalarFormatter::set_offset(Self, ScalarNumber?) -> Unit
+pub fn ScalarFormatter::set_order_of_magnitude(Self, ScalarNumber) -> Unit
+pub fn ScalarFormatter::set_power_limits(Self, ScalarPowerLimits) -> Unit raise @core.DataError
+pub fn ScalarFormatter::set_scientific(Self, Bool) -> Unit
+pub fn ScalarFormatter::set_use_locale(Self, Bool?) -> Unit
+pub fn ScalarFormatter::set_use_math_text(Self, Bool?) -> Unit
+pub fn ScalarFormatter::set_use_offset(Self, ScalarNumber?) -> Unit
+pub fn ScalarFormatter::set_usetex(Self, Bool?) -> Unit
+
+pub(all) enum ScalarNumber {
+  Number(Double)
+  Integer(@bigint.BigInt)
+  Boolean(Bool)
+  NumpyFloat64(Double)
+  NumpyInt64(Int64)
+  NumpyBool(Bool)
+} derive(Eq, @debug.Debug)
+pub fn ScalarNumber::equal(Self, Self) -> Bool
+pub fn ScalarNumber::not_equal(Self, Self) -> Bool
+pub fn ScalarNumber::to_repr(Self) -> @debug.Repr
+
+pub(all) enum ScalarPowerLimits {
+  Sequence(Array[Double])
+  Integers(Array[@bigint.BigInt])
+  Values(Array[ScalarNumber])
+  NdArray(TickValues)
+}
+pub fn ScalarPowerLimits::to_repr(Self) -> @debug.Repr
+pub impl @debug.Debug for ScalarPowerLimits
 
 pub struct StrMethodFormatter {
   // private fields

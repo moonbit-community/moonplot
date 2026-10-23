@@ -12,6 +12,8 @@ import {
 // Values
 pub fn axis() -> Axis
 
+pub fn short_format_pixel_delta(Double, Double, Double, Double, Double, (Double) -> Double, (Double) -> Double) -> Double raise @core.DataError
+
 pub fn tick_space_from_length(Double, Double, Bool) -> Double
 
 // Errors
@@ -46,6 +48,7 @@ pub struct Axis {
 pub fn Axis::auto_date_locator(Self) -> @date.AutoDateLocator?
 pub fn Axis::bind_data_interval(Self, () -> (Double, Double)) -> Unit
 pub fn Axis::bind_formatter_axis(Self, minor? : Bool) -> Unit
+pub fn Axis::bind_formatter_geometry(Self, () -> (Double, Double)) -> Unit
 pub fn Axis::bind_locator_data(Self, minor? : Bool) -> Unit
 pub fn Axis::bind_minpos(Self, () -> Double raise @core.DataError) -> Unit
 pub fn Axis::bind_shared_minpos(Self, () -> Array[Double] raise @core.DataError) -> Unit
@@ -77,8 +80,9 @@ pub fn Axis::date_offset_minutes(Self) -> Int
 pub fn Axis::date_timezone(Self) -> @date.DateTimeZone?
 pub fn Axis::formatter(Self) -> @ticker.Formatter?
 pub fn Axis::formatter_axis_binding(Self) -> @ticker.FormatterAxisBinding
+pub fn Axis::formatter_display_geometry(Self) -> (Double, Double)?
 pub fn Axis::formatter_offset_label(Self, Array[Double]) -> String
-pub fn Axis::formatter_offset_label_checked(Self, Array[Double], view? : @core.Limits) -> String
+pub fn Axis::formatter_offset_label_checked(Self, Array[Double], view? : @core.Limits) -> String raise @core.DataError
 pub fn Axis::formatter_offset_label_with_view(Self, Array[Double], @core.Limits?) -> String
 pub fn Axis::formatter_tick_locations_checked(Self, @core.Limits, minor? : Bool) -> @ticker.FormatterLocations raise @core.DataError
 pub fn Axis::formatter_warnings(Self) -> Array[String]
@@ -135,7 +139,7 @@ pub fn Axis::set_scale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Axis::set_tick_count(Self, Int) -> Unit
 pub fn Axis::set_tick_label_size(Self, Double) -> Unit
 pub fn Axis::set_tick_labels(Self, Array[String]) -> Unit raise @core.DataError
-pub fn Axis::set_tick_layout(Self, Double, Bool, active? : Bool) -> Unit
+pub fn Axis::set_tick_layout(Self, Double, Bool, active? : Bool, origin? : Double) -> Unit
 pub fn Axis::set_tick_position(Self, TickPosition) -> Unit
 pub fn Axis::set_tick_view(Self, Double, Double) -> Unit
 pub fn Axis::set_ticks(Self, Array[Double]) -> Unit raise @core.DataError

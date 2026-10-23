@@ -220,9 +220,9 @@ pub fn SecondaryAxis::formatter_offset_label_checked(
   self : SecondaryAxis,
   values : Array[Double],
   view? : @core.Limits,
-) -> String {
+) -> String raise @core.DataError {
   match self.named_formatter {
-    Some(formatter) => formatter.get_offset()
+    Some(formatter) => formatter.get_offset_checked()
     None =>
       match self.formatter {
         Some(formatter) => formatter.offset_label_with_view(values, view)
