@@ -7,8 +7,8 @@ test "axes expose logarithmic scales and loglog plotting" {
   assert_true(ax.y_scale().is_log())
   let svg = fig.to_svg()
   assert_true(svg.contains("power"))
-  assert_true(svg.contains(">1<"))
-  assert_true(svg.contains(">100<"))
+  assert_true(svg.contains("$\\mathdefault{10^{0}}$"))
+  assert_true(svg.contains("$\\mathdefault{10^{2}}$"))
   assert_true(!svg.contains("NaN"))
 }
 
@@ -84,7 +84,7 @@ test "axes render a symmetric logarithmic scale across zero" {
   assert_true(ax.x_scale().is_nonlinear())
   assert_true(ax.x_scale().is_valid(-1.0))
   let svg = fig.to_svg()
-  assert_true(svg.contains("-100"))
-  assert_true(svg.contains("100"))
+  assert_true(svg.contains("$\\mathdefault{-10^{2}}$"))
+  assert_true(svg.contains("$\\mathdefault{10^{2}}$"))
   assert_true(!svg.contains("NaN"))
 }

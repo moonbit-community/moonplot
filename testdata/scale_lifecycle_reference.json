@@ -1,0 +1,9692 @@
+{
+  "schema": 1,
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "stdlib/contextlib.py": "8b7a477f978a8532852fd81e241c78182516bc4975d672d580a5848a76e11eb6",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "artist.py": "c55a81d86db60ab7b22fcd6e70401aa84558de5d1ba6e40a16c60f6f1f03be7a",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0"
+  },
+  "method_hashes": {
+    "isDefault_majloc": "733f52f04213d3fb95f76a7a18830a631a173de40eb7938dd3a5be6c1dd6591a",
+    "isDefault_majfmt": "1097bdfc1c7dab6c013b5bd5af803782963a9c13280039828ba8fbaa0be1de76",
+    "isDefault_minloc": "bdc5d2283791fd5597f1628371128021eab0113db9e2cd74584f2a9c0a7efc5a",
+    "isDefault_minfmt": "c902b1f48fb50043886bb961ba5e3bf5da88318617c77b5a0f6616430728845f",
+    "_get_shared_axes": "57a634a8f5768e1ca321a9b6b3698470500ced19c1a73afc9934b4f93bf52fd4",
+    "_get_shared_axis": "88550ecbd142299c2a7a719e7e6670b147dd53c232e1fae1247cb488186c7be6",
+    "get_transform": "9d313d4ceba68301b86d6f99580a69d3fb82ec93c57f67159f5ebfe9669d792e",
+    "get_scale": "5767eb57439e99c5e7058f33f8f0498bb92c3fe6ab30ba731a94e9cf284b67d5",
+    "_set_scale": "69f239a0916b72b221094dc9ae8cba7bf55f7c90edbc00c41fa87780e831ccda",
+    "_set_axes_scale": "effd0469c3490fd34b75d7dca96ee4fc3d22503fcac86b18f94136075e3370c8",
+    "get_major_locator": "f8a3b380e4c5882e36f9444ab6e0ec9aa3325c5dbe0c89f7f17fb2f16f4d453d",
+    "get_minor_locator": "b2f4fdf8bd27ebd6020dcd0b1e028aca3e98f637cdfb27a100015f71402ad2db",
+    "get_major_formatter": "ad9c73dce939608d75bc3111fb758ce82dabd072f01cfe96ae1dac770839d169",
+    "get_minor_formatter": "6ef836c901d6055084b186a38223fe84f0237498873d15ab8dc21348ab92fe70",
+    "_update_axisinfo": "0486b367683566c64a7a1c1cef74602c628067cee6a435b20690553aa37d1436",
+    "set_units": "1be7c6a25b89eb3d3ef11ebc338125a4d1b348ab1084fb337970434b08d170b3",
+    "set_major_formatter": "ca3172fff20a31649c758f17c3170003a508f7c4674553c8d7b0afab379c57df",
+    "set_minor_formatter": "aa0c97b1bc59a7b84360dc7ab69cf23ad6905090ad6cb08fb7ada6eb056a38fb",
+    "_set_formatter": "a4fd5bab8b31029115a43fccb7fc31467e21310612994e14d378ac162150fdd4",
+    "set_major_locator": "6b84682df9c6ac9cd4fb9811f62ab407d51f0b52464e6dd7f0d1fb46ff9aaf71",
+    "set_minor_locator": "c66afc4a7bcb2e36c4c99b7274722a855901023792d5afcdfa9f1552cdb2b7f9"
+  },
+  "host_profile": {
+    "original": "complete upstream Ticker, selected complete Axis methods, five complete scale classes, actual ticker constructors and API descriptors",
+    "sinks": "Axis artist identity/stale/pchanged and explicit view/data/space/minpos; no renderer, no Moon-derived expected observations",
+    "portable": "only explicit numeric set_scale for five existing geometry profiles; no constructor/clear/units/secondary lifecycle claim",
+    "remaining_readonly_evidence": "53 stages in ignored D35-axis-default-lifecycle-notes.md cover constructor/clear/units/secondary and shared failure; not consumed as an oracle"
+  },
+  "cases": [
+    {
+      "id": 0,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 0,
+      "before": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 1,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 1,
+      "before": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 2,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 2,
+      "before": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "FixedLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 3,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 3,
+      "before": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "FixedLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 4,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 4,
+      "before": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 5,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 5,
+      "before": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "NullLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 6,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 6,
+      "before": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 7,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 7,
+      "before": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 8,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 8,
+      "before": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 9,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 9,
+      "before": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 10,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 10,
+      "before": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "FixedLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 11,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 11,
+      "before": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "FixedLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 12,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 12,
+      "before": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 13,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 13,
+      "before": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "NullLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 14,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 14,
+      "before": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 15,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "linear",
+      "custom_mask": 15,
+      "before": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 16,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 0,
+      "before": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 17,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 1,
+      "before": {
+        "classes": [
+          "log",
+          "FixedLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 18,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 2,
+      "before": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 19,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 3,
+      "before": {
+        "classes": [
+          "log",
+          "FixedLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 20,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 4,
+      "before": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "NullFormatter",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 21,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 5,
+      "before": {
+        "classes": [
+          "log",
+          "FixedLocator",
+          "LogLocator",
+          "NullFormatter",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          false,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 22,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 6,
+      "before": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          false,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 23,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 7,
+      "before": {
+        "classes": [
+          "log",
+          "FixedLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 24,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 8,
+      "before": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 25,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 9,
+      "before": {
+        "classes": [
+          "log",
+          "FixedLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 26,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 10,
+      "before": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 27,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 11,
+      "before": {
+        "classes": [
+          "log",
+          "FixedLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 28,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 12,
+      "before": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 29,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 13,
+      "before": {
+        "classes": [
+          "log",
+          "FixedLocator",
+          "LogLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 30,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 14,
+      "before": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 31,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "log",
+      "custom_mask": 15,
+      "before": {
+        "classes": [
+          "log",
+          "FixedLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 32,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 0,
+      "before": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 33,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 1,
+      "before": {
+        "classes": [
+          "symlog",
+          "FixedLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 34,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 2,
+      "before": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 35,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 3,
+      "before": {
+        "classes": [
+          "symlog",
+          "FixedLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 36,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 4,
+      "before": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 37,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 5,
+      "before": {
+        "classes": [
+          "symlog",
+          "FixedLocator",
+          "SymmetricalLogLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 38,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 6,
+      "before": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 39,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 7,
+      "before": {
+        "classes": [
+          "symlog",
+          "FixedLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 40,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 8,
+      "before": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 41,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 9,
+      "before": {
+        "classes": [
+          "symlog",
+          "FixedLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 42,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 10,
+      "before": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 43,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 11,
+      "before": {
+        "classes": [
+          "symlog",
+          "FixedLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 44,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 12,
+      "before": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 45,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 13,
+      "before": {
+        "classes": [
+          "symlog",
+          "FixedLocator",
+          "SymmetricalLogLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 46,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 14,
+      "before": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 47,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "symlog",
+      "custom_mask": 15,
+      "before": {
+        "classes": [
+          "symlog",
+          "FixedLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 48,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 0,
+      "before": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 49,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 1,
+      "before": {
+        "classes": [
+          "asinh",
+          "FixedLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 50,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 2,
+      "before": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 51,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 3,
+      "before": {
+        "classes": [
+          "asinh",
+          "FixedLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 52,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 4,
+      "before": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 53,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 5,
+      "before": {
+        "classes": [
+          "asinh",
+          "FixedLocator",
+          "AsinhLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 54,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 6,
+      "before": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 55,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 7,
+      "before": {
+        "classes": [
+          "asinh",
+          "FixedLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 56,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 8,
+      "before": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 57,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 9,
+      "before": {
+        "classes": [
+          "asinh",
+          "FixedLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 58,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 10,
+      "before": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 59,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 11,
+      "before": {
+        "classes": [
+          "asinh",
+          "FixedLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 60,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 12,
+      "before": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 61,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 13,
+      "before": {
+        "classes": [
+          "asinh",
+          "FixedLocator",
+          "AsinhLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 62,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 14,
+      "before": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 63,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "asinh",
+      "custom_mask": 15,
+      "before": {
+        "classes": [
+          "asinh",
+          "FixedLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 64,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 0,
+      "before": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 65,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 1,
+      "before": {
+        "classes": [
+          "logit",
+          "FixedLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 66,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 2,
+      "before": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "FixedLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 67,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 3,
+      "before": {
+        "classes": [
+          "logit",
+          "FixedLocator",
+          "FixedLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 68,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 4,
+      "before": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "NullFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 69,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 5,
+      "before": {
+        "classes": [
+          "logit",
+          "FixedLocator",
+          "LogitLocator",
+          "NullFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 70,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 6,
+      "before": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 71,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 7,
+      "before": {
+        "classes": [
+          "logit",
+          "FixedLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 72,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 8,
+      "before": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 73,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 9,
+      "before": {
+        "classes": [
+          "logit",
+          "FixedLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 74,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 10,
+      "before": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "FixedLocator",
+          "LogitFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 75,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 11,
+      "before": {
+        "classes": [
+          "logit",
+          "FixedLocator",
+          "FixedLocator",
+          "LogitFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 76,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 12,
+      "before": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 77,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 13,
+      "before": {
+        "classes": [
+          "logit",
+          "FixedLocator",
+          "LogitLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 78,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 14,
+      "before": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 79,
+      "label": "repeat same geometry resets independent user slots",
+      "profile": "logit",
+      "custom_mask": 15,
+      "before": {
+        "classes": [
+          "logit",
+          "FixedLocator",
+          "FixedLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "replaced": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "old_handles_keep_axis": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 80,
+      "label": "directed scale switch preserves caller view context",
+      "start": "linear",
+      "finish": "linear",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 81,
+      "label": "directed scale switch preserves caller view context",
+      "start": "linear",
+      "finish": "linear",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 82,
+      "label": "directed scale switch preserves caller view context",
+      "start": "linear",
+      "finish": "log",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 83,
+      "label": "directed scale switch preserves caller view context",
+      "start": "linear",
+      "finish": "log",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 84,
+      "label": "directed scale switch preserves caller view context",
+      "start": "linear",
+      "finish": "symlog",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 85,
+      "label": "directed scale switch preserves caller view context",
+      "start": "linear",
+      "finish": "symlog",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 86,
+      "label": "directed scale switch preserves caller view context",
+      "start": "linear",
+      "finish": "asinh",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 87,
+      "label": "directed scale switch preserves caller view context",
+      "start": "linear",
+      "finish": "asinh",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 88,
+      "label": "directed scale switch preserves caller view context",
+      "start": "linear",
+      "finish": "logit",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 89,
+      "label": "directed scale switch preserves caller view context",
+      "start": "linear",
+      "finish": "logit",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 90,
+      "label": "directed scale switch preserves caller view context",
+      "start": "log",
+      "finish": "linear",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 91,
+      "label": "directed scale switch preserves caller view context",
+      "start": "log",
+      "finish": "linear",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 92,
+      "label": "directed scale switch preserves caller view context",
+      "start": "log",
+      "finish": "log",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 93,
+      "label": "directed scale switch preserves caller view context",
+      "start": "log",
+      "finish": "log",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 94,
+      "label": "directed scale switch preserves caller view context",
+      "start": "log",
+      "finish": "symlog",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 95,
+      "label": "directed scale switch preserves caller view context",
+      "start": "log",
+      "finish": "symlog",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 96,
+      "label": "directed scale switch preserves caller view context",
+      "start": "log",
+      "finish": "asinh",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 97,
+      "label": "directed scale switch preserves caller view context",
+      "start": "log",
+      "finish": "asinh",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 98,
+      "label": "directed scale switch preserves caller view context",
+      "start": "log",
+      "finish": "logit",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 99,
+      "label": "directed scale switch preserves caller view context",
+      "start": "log",
+      "finish": "logit",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 100,
+      "label": "directed scale switch preserves caller view context",
+      "start": "symlog",
+      "finish": "linear",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 101,
+      "label": "directed scale switch preserves caller view context",
+      "start": "symlog",
+      "finish": "linear",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 102,
+      "label": "directed scale switch preserves caller view context",
+      "start": "symlog",
+      "finish": "log",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 103,
+      "label": "directed scale switch preserves caller view context",
+      "start": "symlog",
+      "finish": "log",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 104,
+      "label": "directed scale switch preserves caller view context",
+      "start": "symlog",
+      "finish": "symlog",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 105,
+      "label": "directed scale switch preserves caller view context",
+      "start": "symlog",
+      "finish": "symlog",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 106,
+      "label": "directed scale switch preserves caller view context",
+      "start": "symlog",
+      "finish": "asinh",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 107,
+      "label": "directed scale switch preserves caller view context",
+      "start": "symlog",
+      "finish": "asinh",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 108,
+      "label": "directed scale switch preserves caller view context",
+      "start": "symlog",
+      "finish": "logit",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 109,
+      "label": "directed scale switch preserves caller view context",
+      "start": "symlog",
+      "finish": "logit",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 110,
+      "label": "directed scale switch preserves caller view context",
+      "start": "asinh",
+      "finish": "linear",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 111,
+      "label": "directed scale switch preserves caller view context",
+      "start": "asinh",
+      "finish": "linear",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 112,
+      "label": "directed scale switch preserves caller view context",
+      "start": "asinh",
+      "finish": "log",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 113,
+      "label": "directed scale switch preserves caller view context",
+      "start": "asinh",
+      "finish": "log",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 114,
+      "label": "directed scale switch preserves caller view context",
+      "start": "asinh",
+      "finish": "symlog",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 115,
+      "label": "directed scale switch preserves caller view context",
+      "start": "asinh",
+      "finish": "symlog",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 116,
+      "label": "directed scale switch preserves caller view context",
+      "start": "asinh",
+      "finish": "asinh",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 117,
+      "label": "directed scale switch preserves caller view context",
+      "start": "asinh",
+      "finish": "asinh",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 118,
+      "label": "directed scale switch preserves caller view context",
+      "start": "asinh",
+      "finish": "logit",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 119,
+      "label": "directed scale switch preserves caller view context",
+      "start": "asinh",
+      "finish": "logit",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 120,
+      "label": "directed scale switch preserves caller view context",
+      "start": "logit",
+      "finish": "linear",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 121,
+      "label": "directed scale switch preserves caller view context",
+      "start": "logit",
+      "finish": "linear",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 122,
+      "label": "directed scale switch preserves caller view context",
+      "start": "logit",
+      "finish": "log",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 123,
+      "label": "directed scale switch preserves caller view context",
+      "start": "logit",
+      "finish": "log",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 124,
+      "label": "directed scale switch preserves caller view context",
+      "start": "logit",
+      "finish": "symlog",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 125,
+      "label": "directed scale switch preserves caller view context",
+      "start": "logit",
+      "finish": "symlog",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 126,
+      "label": "directed scale switch preserves caller view context",
+      "start": "logit",
+      "finish": "asinh",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 127,
+      "label": "directed scale switch preserves caller view context",
+      "start": "logit",
+      "finish": "asinh",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 128,
+      "label": "directed scale switch preserves caller view context",
+      "start": "logit",
+      "finish": "logit",
+      "view": [
+        9.0,
+        1.0
+      ],
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          9.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": 129,
+      "label": "directed scale switch preserves caller view context",
+      "start": "logit",
+      "finish": "logit",
+      "view": [
+        -20.0,
+        -1.0
+      ],
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          -20.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "id": 130,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "linear",
+      "finish": "linear",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 131,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "linear",
+      "finish": "log",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 132,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "linear",
+      "finish": "symlog",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 133,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "linear",
+      "finish": "asinh",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 134,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "linear",
+      "finish": "logit",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 135,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "log",
+      "finish": "linear",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 136,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "log",
+      "finish": "log",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 137,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "log",
+      "finish": "symlog",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 138,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "log",
+      "finish": "asinh",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 139,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "log",
+      "finish": "logit",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 140,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "symlog",
+      "finish": "linear",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 141,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "symlog",
+      "finish": "log",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 142,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "symlog",
+      "finish": "symlog",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 143,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "symlog",
+      "finish": "asinh",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 144,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "symlog",
+      "finish": "logit",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 145,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "asinh",
+      "finish": "linear",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 146,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "asinh",
+      "finish": "log",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 147,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "asinh",
+      "finish": "symlog",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 148,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "asinh",
+      "finish": "asinh",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 149,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "asinh",
+      "finish": "logit",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 150,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "logit",
+      "finish": "linear",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 151,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "logit",
+      "finish": "log",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 152,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "logit",
+      "finish": "symlog",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 153,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "logit",
+      "finish": "asinh",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 154,
+      "label": "discarded locator and formatter retain live original axis context",
+      "start": "logit",
+      "finish": "logit",
+      "old_owner_preserved": true,
+      "old_locator_view": [
+        0.2,
+        0.8
+      ]
+    },
+    {
+      "id": 155,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "linear",
+      "slot": 0,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 156,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "linear",
+      "slot": 1,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "FixedLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "FixedLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 157,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "linear",
+      "slot": 2,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 158,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "linear",
+      "slot": 3,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 159,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "log",
+      "slot": 0,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "log",
+          "FixedLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 160,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "log",
+      "slot": 1,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "LogLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 161,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "log",
+      "slot": 2,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "NullFormatter",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "LogLocator",
+          "LogLocator",
+          "NullFormatter",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 162,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "log",
+      "slot": 3,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 163,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "symlog",
+      "slot": 0,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "symlog",
+          "FixedLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 164,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "symlog",
+      "slot": 1,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "SymmetricalLogLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 165,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "symlog",
+      "slot": 2,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 166,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "symlog",
+      "slot": 3,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 167,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "asinh",
+      "slot": 0,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "asinh",
+          "FixedLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 168,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "asinh",
+      "slot": 1,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "AsinhLocator",
+          "FixedLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 169,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "asinh",
+      "slot": 2,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "AsinhLocator",
+          "AsinhLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 170,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "asinh",
+      "slot": 3,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 171,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "logit",
+      "slot": 0,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "logit",
+          "FixedLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "FixedLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 172,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "logit",
+      "slot": 1,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "FixedLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "LogitLocator",
+          "FixedLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "owners": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 173,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "logit",
+      "slot": 2,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "NullFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "LogitLocator",
+          "LogitLocator",
+          "NullFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 174,
+      "label": "share holder without rebind; user setter updates one shared default flag",
+      "profile": "logit",
+      "slot": 3,
+      "before_owner_is_source": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "before_peer_geometry": "linear",
+      "source": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "peer": {
+        "classes": [
+          "linear",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "owners": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 175,
+      "label": "scale installer replaces fixed-label and legacy convenience state",
+      "profile": "linear",
+      "after": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 176,
+      "label": "scale installer replaces fixed-label and legacy convenience state",
+      "profile": "log",
+      "after": {
+        "classes": [
+          "log",
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 177,
+      "label": "scale installer replaces fixed-label and legacy convenience state",
+      "profile": "symlog",
+      "after": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 178,
+      "label": "scale installer replaces fixed-label and legacy convenience state",
+      "profile": "asinh",
+      "after": {
+        "classes": [
+          "asinh",
+          "AsinhLocator",
+          "AsinhLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    },
+    {
+      "id": 179,
+      "label": "scale installer replaces fixed-label and legacy convenience state",
+      "profile": "logit",
+      "after": {
+        "classes": [
+          "logit",
+          "LogitLocator",
+          "LogitLocator",
+          "LogitFormatter",
+          "LogitFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      }
+    }
+  ],
+  "source_only": [
+    {
+      "label": "manually constructed transform bypasses public geometry validation",
+      "base": "0.0",
+      "error": null,
+      "message": null,
+      "state": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "scope": "source-only: public typed geometry constructors validate finite base>1; raw enum representation is not a Python Scale constructor"
+    },
+    {
+      "label": "manually constructed transform bypasses public geometry validation",
+      "base": "1.0",
+      "error": null,
+      "message": null,
+      "state": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "scope": "source-only: public typed geometry constructors validate finite base>1; raw enum representation is not a Python Scale constructor"
+    },
+    {
+      "label": "manually constructed transform bypasses public geometry validation",
+      "base": "-2.0",
+      "error": null,
+      "message": null,
+      "state": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "scope": "source-only: public typed geometry constructors validate finite base>1; raw enum representation is not a Python Scale constructor"
+    },
+    {
+      "label": "manually constructed transform bypasses public geometry validation",
+      "base": "nan",
+      "error": null,
+      "message": null,
+      "state": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "scope": "source-only: public typed geometry constructors validate finite base>1; raw enum representation is not a Python Scale constructor"
+    },
+    {
+      "label": "manually constructed transform bypasses public geometry validation",
+      "base": "inf",
+      "error": null,
+      "message": null,
+      "state": {
+        "classes": [
+          "symlog",
+          "SymmetricalLogLocator",
+          "SymmetricalLogLocator",
+          "LogFormatterSciNotation",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "scope": "source-only: public typed geometry constructors validate finite base>1; raw enum representation is not a Python Scale constructor"
+    },
+    {
+      "label": "custom scale late failure preserves assigned scale and partial tickers",
+      "stage": 1,
+      "before": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "partial",
+          "FixedLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "error": "ValueError",
+      "message": "after major locator",
+      "scope": "source-only dynamic ScaleBase subclass; not an error produced by current valid typed geometry"
+    },
+    {
+      "label": "custom scale late failure preserves assigned scale and partial tickers",
+      "stage": 2,
+      "before": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "partial",
+          "FixedLocator",
+          "NullLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          false,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "error": "ValueError",
+      "message": "after major formatter",
+      "scope": "source-only dynamic ScaleBase subclass; not an error produced by current valid typed geometry"
+    },
+    {
+      "label": "custom scale late failure preserves assigned scale and partial tickers",
+      "stage": 3,
+      "before": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "partial",
+          "FixedLocator",
+          "NullLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "error": "ValueError",
+      "message": "after minor formatter",
+      "scope": "source-only dynamic ScaleBase subclass; not an error produced by current valid typed geometry"
+    },
+    {
+      "label": "custom scale late failure preserves assigned scale and partial tickers",
+      "stage": 4,
+      "before": {
+        "classes": [
+          "linear",
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "after": {
+        "classes": [
+          "partial",
+          "FixedLocator",
+          "NullLocator",
+          "NullFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "owners": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "view": [
+          1.0,
+          100.0
+        ]
+      },
+      "error": "ValueError",
+      "message": "after minor locator",
+      "scope": "source-only dynamic ScaleBase subclass; not an error produced by current valid typed geometry"
+    },
+    {
+      "label": "factory validation fails before assigning scale",
+      "scale": "log",
+      "kwargs": {
+        "base": 1.0
+      },
+      "error": "ValueError",
+      "message": "The log base cannot be <= 0 or == 1",
+      "old_scale_retained": true,
+      "old_slots_retained": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "scope": "source factory error before assignment; current Moon geometry constructors validate separately"
+    },
+    {
+      "label": "factory validation fails before assigning scale",
+      "scale": "asinh",
+      "kwargs": {
+        "linear_width": 0.0
+      },
+      "error": "ValueError",
+      "message": "Scale parameter 'linear_width' must be strictly positive",
+      "old_scale_retained": true,
+      "old_slots_retained": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "scope": "source factory error before assignment; current Moon geometry constructors validate separately"
+    },
+    {
+      "label": "factory validation fails before assigning scale",
+      "scale": "symlog",
+      "kwargs": {
+        "linthresh": 0.0
+      },
+      "error": "ValueError",
+      "message": "'linthresh' must be positive",
+      "old_scale_retained": true,
+      "old_slots_retained": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "scope": "source factory error before assignment; current Moon geometry constructors validate separately"
+    }
+  ],
+  "source_profile_differences": [],
+  "counts": {
+    "portable_cases": 180,
+    "source_only": 12,
+    "registered_groups": 6
+  }
+}

@@ -26,8 +26,8 @@ pub fn Axis::date_nonsingular_bounds(
   upper : Double,
 ) -> @core.Limits {
   if self.date_format is None ||
-    self.locator is Some(_) ||
-    self.fixed_ticks is Some(_) {
+    self.tickers.locator is Some(_) ||
+    self.tickers.fixed_ticks is Some(_) {
     return @core.limits(lower, upper)
   }
   let (first, last) = match self.date_locator {

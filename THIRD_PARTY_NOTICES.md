@@ -491,3 +491,9 @@ MoonBit ScalarNumber arrays, preserving comparison order and NaN behavior.
 It distributes no NumPy runtime, extension module or C backend. Fixed source
 hashes and actual np.sort(dtype=object) evidence are recorded with the D34
 object-sort reference.
+
+D35 的显式 scale 默认安装根据同一固定 Matplotlib v3.11.2 的 scale.py、axis.py、
+axes/_base.py、gridspec.py、cbook.py、figure.py、artist.py 与 ticker.py 行为以 MoonBit
+重写；来源哈希及执行完整原源方法的独立参考见
+[testdata/scale_defaults_README.md](testdata/scale_defaults_README.md)。既有 Matplotlib
+许可证适用；本片没有加入新的外部运行时或分发 Python/NumPy。

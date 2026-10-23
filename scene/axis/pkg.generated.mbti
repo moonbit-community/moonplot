@@ -25,16 +25,11 @@ pub struct Axis {
   mut inverted : Bool
   mut label : String?
   mut tick_count : Int
-  mut locator : @ticker.Locator?
-  mut minor_locator : @ticker.MinorLocator?
-  mut fixed_ticks : Array[Double]?
-  mut fixed_labels : Array[String]?
   mut category : @category.CategoryAxis?
   mut date_format : String?
   mut date_offset_minutes : Int
   mut date_timezone : @date.DateTimeZone?
   mut date_locator : @date.DateLocator?
-  mut formatter : @ticker.Formatter?
   mut scale : @scale.Scale
   mut tick_position : TickPosition?
   mut grid_visible : Bool
@@ -94,9 +89,12 @@ pub fn Axis::grid_width(Self) -> Double
 pub fn Axis::has_named_log_locator(Self) -> Bool
 pub fn Axis::has_named_logit_locator(Self) -> Bool
 pub fn Axis::inverted(Self) -> Bool
+pub fn Axis::is_default_formatter(Self, minor? : Bool) -> Bool
+pub fn Axis::is_default_locator(Self, minor? : Bool) -> Bool
 pub fn Axis::label(Self) -> String?
 pub fn Axis::limits(Self) -> @core.Limits?
 pub fn Axis::locator(Self) -> @ticker.Locator?
+pub fn Axis::locator_default_limits(Self) -> (Double, Double) raise @core.DataError
 pub fn Axis::minor_date_formatter(Self) -> @date.DateFormatter?
 pub fn Axis::minor_date_locator(Self) -> @date.DateLocator?
 pub fn Axis::minor_grid_color(Self) -> String
@@ -144,6 +142,7 @@ pub fn Axis::set_tick_position(Self, TickPosition) -> Unit
 pub fn Axis::set_tick_view(Self, Double, Double) -> Unit
 pub fn Axis::set_ticks(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn Axis::set_view_limits(Self, Double, Double) -> Unit raise @core.DataError
+pub fn Axis::share_numeric_tickers(Self, Self) -> Unit
 pub fn Axis::shared_minpos_checked(Self) -> Array[Double] raise @core.DataError
 pub fn Axis::tick_count(Self) -> Int
 pub fn Axis::tick_group_is_null(Self, minor? : Bool) -> Bool

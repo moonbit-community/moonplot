@@ -1,0 +1,9225 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "stdlib/contextlib.py": "8b7a477f978a8532852fd81e241c78182516bc4975d672d580a5848a76e11eb6",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "artist.py": "c55a81d86db60ab7b22fcd6e70401aa84558de5d1ba6e40a16c60f6f1f03be7a",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "gridspec.py": "df8395306765d9b93f98d6b2e867836a9b2b0786cf5b39a26103309c4331afde",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b",
+    "figure.py": "b440ab0a5be03cb39b13529a2fec497d2d96deb083e3e56d6220593e3ec567da"
+  },
+  "cases": [
+    {
+      "id": 0,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "linear",
+      "mode": "all",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 3,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "AutoLocator",
+            "NullLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "AutoLocator",
+            "NullLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "AutoLocator",
+            "NullLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1,
+            0,
+            2
+          ],
+          "classes": [
+            "AutoLocator",
+            "NullLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "external_formatter_owner": 3,
+          "external_locator_owner": 3,
+          "external_locator_view": [
+            5.0,
+            6.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "linear",
+      "mode": "row",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "AutoLocator",
+            "NullLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "AutoLocator",
+            "NullLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "AutoLocator",
+            "NullLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1
+          ],
+          "classes": [
+            "AutoLocator",
+            "NullLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "linear",
+      "mode": "col",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "AutoLocator",
+            "NullLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "AutoLocator",
+            "NullLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "AutoLocator",
+            "NullLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            2
+          ],
+          "classes": [
+            "AutoLocator",
+            "NullLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            2,
+            2
+          ],
+          "locator_owner": 2,
+          "locator_owner_view": [
+            4.0,
+            5.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "log",
+      "mode": "all",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 3,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1,
+            0,
+            2
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "external_formatter_owner": 3,
+          "external_locator_owner": 3,
+          "external_locator_view": [
+            5.0,
+            6.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "log",
+      "mode": "row",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "log",
+      "mode": "col",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            2
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            2,
+            2
+          ],
+          "locator_owner": 2,
+          "locator_owner_view": [
+            4.0,
+            5.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "symlog",
+      "mode": "all",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 3,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1,
+            0,
+            2
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "external_formatter_owner": 3,
+          "external_locator_owner": 3,
+          "external_locator_view": [
+            5.0,
+            6.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "symlog",
+      "mode": "row",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "symlog",
+      "mode": "col",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            2
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            2,
+            2
+          ],
+          "locator_owner": 2,
+          "locator_owner_view": [
+            4.0,
+            5.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "asinh",
+      "mode": "all",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 3,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1,
+            0,
+            2
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "external_formatter_owner": 3,
+          "external_locator_owner": 3,
+          "external_locator_view": [
+            5.0,
+            6.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "asinh",
+      "mode": "row",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "asinh",
+      "mode": "col",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            2
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            2,
+            2
+          ],
+          "locator_owner": 2,
+          "locator_owner_view": [
+            4.0,
+            5.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "logit",
+      "mode": "all",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 3,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1,
+            0,
+            2
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "external_formatter_owner": 3,
+          "external_locator_owner": 3,
+          "external_locator_view": [
+            5.0,
+            6.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "logit",
+      "mode": "row",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "logit",
+      "mode": "col",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            2
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            2,
+            2
+          ],
+          "locator_owner": 2,
+          "locator_owner_view": [
+            4.0,
+            5.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "linear",
+      "mode": "all",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 3,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "AutoLocator",
+            "AutoMinorLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "AutoLocator",
+            "AutoMinorLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "AutoLocator",
+            "AutoMinorLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1,
+            0,
+            2
+          ],
+          "classes": [
+            "AutoLocator",
+            "AutoMinorLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "external_formatter_owner": 3,
+          "external_locator_owner": 3,
+          "external_locator_view": [
+            5.0,
+            6.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "linear",
+      "mode": "row",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "AutoLocator",
+            "AutoMinorLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "AutoLocator",
+            "AutoMinorLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "AutoLocator",
+            "AutoMinorLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1
+          ],
+          "classes": [
+            "AutoLocator",
+            "AutoMinorLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "linear",
+      "mode": "col",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "AutoLocator",
+            "AutoMinorLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "AutoLocator",
+            "AutoMinorLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "AutoLocator",
+            "AutoMinorLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            2
+          ],
+          "classes": [
+            "AutoLocator",
+            "AutoMinorLocator",
+            "ScalarFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            2,
+            2
+          ],
+          "locator_owner": 2,
+          "locator_owner_view": [
+            4.0,
+            5.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "log",
+      "mode": "all",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 3,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1,
+            0,
+            2
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "external_formatter_owner": 3,
+          "external_locator_owner": 3,
+          "external_locator_view": [
+            5.0,
+            6.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "log",
+      "mode": "row",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "log",
+      "mode": "col",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            2
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            2,
+            2
+          ],
+          "locator_owner": 2,
+          "locator_owner_view": [
+            4.0,
+            5.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "symlog",
+      "mode": "all",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 3,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1,
+            0,
+            2
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "external_formatter_owner": 3,
+          "external_locator_owner": 3,
+          "external_locator_view": [
+            5.0,
+            6.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "symlog",
+      "mode": "row",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "symlog",
+      "mode": "col",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            2
+          ],
+          "classes": [
+            "SymmetricalLogLocator",
+            "SymmetricalLogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            2,
+            2
+          ],
+          "locator_owner": 2,
+          "locator_owner_view": [
+            4.0,
+            5.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "asinh",
+      "mode": "all",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 3,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1,
+            0,
+            2
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "external_formatter_owner": 3,
+          "external_locator_owner": 3,
+          "external_locator_view": [
+            5.0,
+            6.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "asinh",
+      "mode": "row",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "asinh",
+      "mode": "col",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            2
+          ],
+          "classes": [
+            "AsinhLocator",
+            "AsinhLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            2,
+            2
+          ],
+          "locator_owner": 2,
+          "locator_owner_view": [
+            4.0,
+            5.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "logit",
+      "mode": "all",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 3,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1,
+            0,
+            2
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "external_formatter_owner": 3,
+          "external_locator_owner": 3,
+          "external_locator_view": [
+            5.0,
+            6.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "logit",
+      "mode": "row",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "logit",
+      "mode": "col",
+      "host": "Figure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            2
+          ],
+          "classes": [
+            "LogitLocator",
+            "LogitLocator",
+            "LogitFormatter",
+            "LogitFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            2,
+            2
+          ],
+          "locator_owner": 2,
+          "locator_owner_view": [
+            4.0,
+            5.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "log",
+      "mode": "all",
+      "host": "SubFigure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 3,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1,
+            0,
+            2
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "external_formatter_owner": 3,
+          "external_locator_owner": 3,
+          "external_locator_view": [
+            5.0,
+            6.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "log",
+      "mode": "row",
+      "host": "SubFigure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "kind": "shared",
+      "axis": "x",
+      "profile": "log",
+      "mode": "col",
+      "host": "SubFigure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": true,
+                "scaley": false
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            2
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            2,
+            2
+          ],
+          "locator_owner": 2,
+          "locator_owner_view": [
+            4.0,
+            5.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "log",
+      "mode": "all",
+      "host": "SubFigure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 3,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            3,
+            3
+          ],
+          "locator_owner": 3,
+          "locator_owner_view": [
+            5.0,
+            6.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1,
+            0,
+            2
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              3
+            ]
+          ],
+          "external_formatter_owner": 3,
+          "external_locator_owner": 3,
+          "external_locator_view": [
+            5.0,
+            6.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "log",
+      "mode": "row",
+      "host": "SubFigure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            1,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            1
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            1,
+            1
+          ],
+          "locator_owner": 1,
+          "locator_owner_view": [
+            3.0,
+            4.0
+          ],
+          "events": [
+            [
+              "transform",
+              1
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "kind": "shared",
+      "axis": "y",
+      "profile": "log",
+      "mode": "col",
+      "host": "SubFigure",
+      "rows": 2,
+      "columns": 2,
+      "requester": 0,
+      "removed": 0,
+      "stages": [
+        {
+          "stage": "installed",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "direct member override",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "NullFormatter"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            false
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ],
+            [
+              "autoscale",
+              0,
+              {
+                "scalex": false,
+                "scaley": true
+              }
+            ]
+          ]
+        },
+        {
+          "stage": "repeated same scale",
+          "members": [
+            2,
+            0
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            0,
+            0
+          ],
+          "locator_owner": 0,
+          "locator_owner_view": [
+            2.0,
+            3.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "all_handles_replaced": true
+        },
+        {
+          "stage": "removed last owner",
+          "members": [
+            2
+          ],
+          "classes": [
+            "LogLocator",
+            "LogLocator",
+            "LogFormatterSciNotation",
+            "LogFormatterSciNotation"
+          ],
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_slots": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_major_holder": true,
+          "shared_minor_holder": true,
+          "formatter_owners": [
+            2,
+            2
+          ],
+          "locator_owner": 2,
+          "locator_owner_view": [
+            4.0,
+            5.0
+          ],
+          "events": [
+            [
+              "transform",
+              2
+            ],
+            [
+              "transform",
+              0
+            ]
+          ],
+          "external_formatter_owner": 0,
+          "external_locator_owner": 0,
+          "external_locator_view": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "kind": "draw",
+      "axis": "x",
+      "profile": "linear",
+      "raw": [
+        0.01,
+        0.2,
+        0.5,
+        0.8,
+        0.99
+      ],
+      "value": {
+        "visible": [
+          [
+            0.01,
+            "0.01"
+          ],
+          [
+            0.2,
+            "0.20"
+          ],
+          [
+            0.5,
+            "0.50"
+          ],
+          [
+            0.8,
+            "0.80"
+          ],
+          [
+            0.99,
+            "0.99"
+          ]
+        ],
+        "offset": ""
+      }
+    },
+    {
+      "id": 37,
+      "kind": "draw",
+      "axis": "x",
+      "profile": "log",
+      "raw": [
+        0.01,
+        0.2,
+        0.5,
+        0.8,
+        0.99
+      ],
+      "value": {
+        "visible": [
+          [
+            0.01,
+            "$\\mathdefault{10^{-2}}$"
+          ],
+          [
+            0.2,
+            "$\\mathdefault{2\\times10^{-1}}$"
+          ],
+          [
+            0.5,
+            ""
+          ],
+          [
+            0.8,
+            ""
+          ],
+          [
+            0.99,
+            "$\\mathdefault{9.9\\times10^{-1}}$"
+          ]
+        ],
+        "offset": ""
+      }
+    },
+    {
+      "id": 38,
+      "kind": "draw",
+      "axis": "x",
+      "profile": "symlog",
+      "raw": [
+        0.01,
+        0.2,
+        0.5,
+        0.8,
+        0.99
+      ],
+      "value": {
+        "visible": [
+          [
+            0.01,
+            "$\\mathdefault{10^{-2}}$"
+          ],
+          [
+            0.2,
+            "$\\mathdefault{2\\times10^{-1}}$"
+          ],
+          [
+            0.5,
+            "$\\mathdefault{5\\times10^{-1}}$"
+          ],
+          [
+            0.8,
+            "$\\mathdefault{8\\times10^{-1}}$"
+          ],
+          [
+            0.99,
+            "$\\mathdefault{9.9\\times10^{-1}}$"
+          ]
+        ],
+        "offset": ""
+      }
+    },
+    {
+      "id": 39,
+      "kind": "draw",
+      "axis": "x",
+      "profile": "asinh",
+      "raw": [
+        0.01,
+        0.2,
+        0.5,
+        0.8,
+        0.99
+      ],
+      "value": {
+        "visible": [
+          [
+            0.01,
+            "$\\mathdefault{10^{-2}}$"
+          ],
+          [
+            0.2,
+            "$\\mathdefault{2\\times10^{-1}}$"
+          ],
+          [
+            0.5,
+            ""
+          ],
+          [
+            0.8,
+            ""
+          ],
+          [
+            0.99,
+            "$\\mathdefault{9.9\\times10^{-1}}$"
+          ]
+        ],
+        "offset": ""
+      }
+    },
+    {
+      "id": 40,
+      "kind": "draw",
+      "axis": "x",
+      "profile": "logit",
+      "raw": [
+        0.01,
+        0.2,
+        0.5,
+        0.8,
+        0.99
+      ],
+      "value": {
+        "visible": [
+          [
+            0.01,
+            "$\\mathdefault{10^{-2}}$"
+          ],
+          [
+            0.2,
+            "$\\mathdefault{0.2}$"
+          ],
+          [
+            0.5,
+            "$\\mathdefault{\\frac{1}{2}}$"
+          ],
+          [
+            0.8,
+            "$\\mathdefault{0.8}$"
+          ],
+          [
+            0.99,
+            "$\\mathdefault{1-10^{-2}}$"
+          ]
+        ],
+        "offset": ""
+      }
+    },
+    {
+      "id": 41,
+      "kind": "draw",
+      "axis": "y",
+      "profile": "linear",
+      "raw": [
+        0.01,
+        0.2,
+        0.5,
+        0.8,
+        0.99
+      ],
+      "value": {
+        "visible": [
+          [
+            0.01,
+            "0.01"
+          ],
+          [
+            0.2,
+            "0.20"
+          ],
+          [
+            0.5,
+            "0.50"
+          ],
+          [
+            0.8,
+            "0.80"
+          ],
+          [
+            0.99,
+            "0.99"
+          ]
+        ],
+        "offset": ""
+      }
+    },
+    {
+      "id": 42,
+      "kind": "draw",
+      "axis": "y",
+      "profile": "log",
+      "raw": [
+        0.01,
+        0.2,
+        0.5,
+        0.8,
+        0.99
+      ],
+      "value": {
+        "visible": [
+          [
+            0.01,
+            "$\\mathdefault{10^{-2}}$"
+          ],
+          [
+            0.2,
+            "$\\mathdefault{2\\times10^{-1}}$"
+          ],
+          [
+            0.5,
+            ""
+          ],
+          [
+            0.8,
+            ""
+          ],
+          [
+            0.99,
+            "$\\mathdefault{9.9\\times10^{-1}}$"
+          ]
+        ],
+        "offset": ""
+      }
+    },
+    {
+      "id": 43,
+      "kind": "draw",
+      "axis": "y",
+      "profile": "symlog",
+      "raw": [
+        0.01,
+        0.2,
+        0.5,
+        0.8,
+        0.99
+      ],
+      "value": {
+        "visible": [
+          [
+            0.01,
+            "$\\mathdefault{10^{-2}}$"
+          ],
+          [
+            0.2,
+            "$\\mathdefault{2\\times10^{-1}}$"
+          ],
+          [
+            0.5,
+            "$\\mathdefault{5\\times10^{-1}}$"
+          ],
+          [
+            0.8,
+            "$\\mathdefault{8\\times10^{-1}}$"
+          ],
+          [
+            0.99,
+            "$\\mathdefault{9.9\\times10^{-1}}$"
+          ]
+        ],
+        "offset": ""
+      }
+    },
+    {
+      "id": 44,
+      "kind": "draw",
+      "axis": "y",
+      "profile": "asinh",
+      "raw": [
+        0.01,
+        0.2,
+        0.5,
+        0.8,
+        0.99
+      ],
+      "value": {
+        "visible": [
+          [
+            0.01,
+            "$\\mathdefault{10^{-2}}$"
+          ],
+          [
+            0.2,
+            "$\\mathdefault{2\\times10^{-1}}$"
+          ],
+          [
+            0.5,
+            ""
+          ],
+          [
+            0.8,
+            ""
+          ],
+          [
+            0.99,
+            "$\\mathdefault{9.9\\times10^{-1}}$"
+          ]
+        ],
+        "offset": ""
+      }
+    },
+    {
+      "id": 45,
+      "kind": "draw",
+      "axis": "y",
+      "profile": "logit",
+      "raw": [
+        0.01,
+        0.2,
+        0.5,
+        0.8,
+        0.99
+      ],
+      "value": {
+        "visible": [
+          [
+            0.01,
+            "$\\mathdefault{10^{-2}}$"
+          ],
+          [
+            0.2,
+            "$\\mathdefault{0.2}$"
+          ],
+          [
+            0.5,
+            "$\\mathdefault{\\frac{1}{2}}$"
+          ],
+          [
+            0.8,
+            "$\\mathdefault{0.8}$"
+          ],
+          [
+            0.99,
+            "$\\mathdefault{1-10^{-2}}$"
+          ]
+        ],
+        "offset": ""
+      }
+    },
+    {
+      "id": 46,
+      "kind": "schedule",
+      "axis": "x",
+      "profile": "linear",
+      "explicit": false,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "autoscale_requested": false,
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ]
+    },
+    {
+      "id": 47,
+      "kind": "schedule",
+      "axis": "x",
+      "profile": "linear",
+      "explicit": true,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "autoscale_requested": false,
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ]
+    },
+    {
+      "id": 48,
+      "kind": "schedule",
+      "axis": "x",
+      "profile": "log",
+      "explicit": false,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        1,
+        10
+      ],
+      "autoscale_requested": true,
+      "events": [
+        [
+          "transform",
+          0
+        ],
+        [
+          "autoscale",
+          0,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 49,
+      "kind": "schedule",
+      "axis": "x",
+      "profile": "log",
+      "explicit": true,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        1,
+        10
+      ],
+      "autoscale_requested": true,
+      "events": [
+        [
+          "transform",
+          0
+        ],
+        [
+          "autoscale",
+          0,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 50,
+      "kind": "schedule",
+      "axis": "x",
+      "profile": "symlog",
+      "explicit": false,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "autoscale_requested": false,
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ]
+    },
+    {
+      "id": 51,
+      "kind": "schedule",
+      "axis": "x",
+      "profile": "symlog",
+      "explicit": true,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "autoscale_requested": false,
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ]
+    },
+    {
+      "id": 52,
+      "kind": "schedule",
+      "axis": "x",
+      "profile": "asinh",
+      "explicit": false,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "autoscale_requested": false,
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ]
+    },
+    {
+      "id": 53,
+      "kind": "schedule",
+      "axis": "x",
+      "profile": "asinh",
+      "explicit": true,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "autoscale_requested": false,
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ]
+    },
+    {
+      "id": 54,
+      "kind": "schedule",
+      "axis": "x",
+      "profile": "logit",
+      "explicit": false,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        1e-07,
+        0.9999999
+      ],
+      "autoscale_requested": true,
+      "events": [
+        [
+          "transform",
+          0
+        ],
+        [
+          "autoscale",
+          0,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 55,
+      "kind": "schedule",
+      "axis": "x",
+      "profile": "logit",
+      "explicit": true,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        1e-07,
+        0.9999999
+      ],
+      "autoscale_requested": true,
+      "events": [
+        [
+          "transform",
+          0
+        ],
+        [
+          "autoscale",
+          0,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 56,
+      "kind": "schedule",
+      "axis": "y",
+      "profile": "linear",
+      "explicit": false,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "autoscale_requested": false,
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ]
+    },
+    {
+      "id": 57,
+      "kind": "schedule",
+      "axis": "y",
+      "profile": "linear",
+      "explicit": true,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "autoscale_requested": false,
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ]
+    },
+    {
+      "id": 58,
+      "kind": "schedule",
+      "axis": "y",
+      "profile": "log",
+      "explicit": false,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        1,
+        10
+      ],
+      "autoscale_requested": true,
+      "events": [
+        [
+          "transform",
+          0
+        ],
+        [
+          "autoscale",
+          0,
+          {
+            "scalex": false,
+            "scaley": true
+          }
+        ]
+      ]
+    },
+    {
+      "id": 59,
+      "kind": "schedule",
+      "axis": "y",
+      "profile": "log",
+      "explicit": true,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        1,
+        10
+      ],
+      "autoscale_requested": true,
+      "events": [
+        [
+          "transform",
+          0
+        ],
+        [
+          "autoscale",
+          0,
+          {
+            "scalex": false,
+            "scaley": true
+          }
+        ]
+      ]
+    },
+    {
+      "id": 60,
+      "kind": "schedule",
+      "axis": "y",
+      "profile": "symlog",
+      "explicit": false,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "autoscale_requested": false,
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ]
+    },
+    {
+      "id": 61,
+      "kind": "schedule",
+      "axis": "y",
+      "profile": "symlog",
+      "explicit": true,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "autoscale_requested": false,
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ]
+    },
+    {
+      "id": 62,
+      "kind": "schedule",
+      "axis": "y",
+      "profile": "asinh",
+      "explicit": false,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "autoscale_requested": false,
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ]
+    },
+    {
+      "id": 63,
+      "kind": "schedule",
+      "axis": "y",
+      "profile": "asinh",
+      "explicit": true,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "autoscale_requested": false,
+      "events": [
+        [
+          "transform",
+          0
+        ]
+      ]
+    },
+    {
+      "id": 64,
+      "kind": "schedule",
+      "axis": "y",
+      "profile": "logit",
+      "explicit": false,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        1e-07,
+        0.9999999
+      ],
+      "autoscale_requested": true,
+      "events": [
+        [
+          "transform",
+          0
+        ],
+        [
+          "autoscale",
+          0,
+          {
+            "scalex": false,
+            "scaley": true
+          }
+        ]
+      ]
+    },
+    {
+      "id": 65,
+      "kind": "schedule",
+      "axis": "y",
+      "profile": "logit",
+      "explicit": true,
+      "old_default_limits": [
+        -0.05,
+        0.05
+      ],
+      "new_default_limits": [
+        1e-07,
+        0.9999999
+      ],
+      "autoscale_requested": true,
+      "events": [
+        [
+          "transform",
+          0
+        ],
+        [
+          "autoscale",
+          0,
+          {
+            "scalex": false,
+            "scaley": true
+          }
+        ]
+      ]
+    },
+    {
+      "id": 66,
+      "kind": "detached",
+      "axis": "x",
+      "profile": "log",
+      "stages": [
+        {
+          "stage": "shared fixed ticks",
+          "geometries": [
+            "linear",
+            "linear",
+            "linear"
+          ],
+          "same_major_holder": true,
+          "flags": [
+            false,
+            true,
+            false,
+            true
+          ],
+          "locator_owner": 0,
+          "formatter_owner": 0
+        },
+        {
+          "stage": "removed group member",
+          "geometries": [
+            "linear",
+            "linear",
+            "linear"
+          ],
+          "same_major_holder": true,
+          "flags": [
+            false,
+            true,
+            false,
+            true
+          ],
+          "locator_owner": 0,
+          "formatter_owner": 0
+        },
+        {
+          "stage": "removed scale replaces aliased defaults",
+          "geometries": [
+            "linear",
+            "log",
+            "linear"
+          ],
+          "same_major_holder": true,
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "locator_owner": 1,
+          "formatter_owner": 1
+        },
+        {
+          "stage": "removed fixed ticks and labels",
+          "geometries": [
+            "linear",
+            "log",
+            "linear"
+          ],
+          "same_major_holder": true,
+          "flags": [
+            false,
+            true,
+            false,
+            true
+          ],
+          "locator_owner": 1,
+          "formatter_owner": 1
+        }
+      ],
+      "raw_ticks": [
+        100.0
+      ],
+      "raw_labels": [
+        "detached"
+      ],
+      "survivor_view": [
+        5.0,
+        15.0
+      ],
+      "removed_view": [
+        100.0,
+        200.0
+      ],
+      "visible": [
+        {
+          "visible": [],
+          "offset": ""
+        },
+        {
+          "visible": [],
+          "offset": ""
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "kind": "detached",
+      "axis": "y",
+      "profile": "log",
+      "stages": [
+        {
+          "stage": "shared fixed ticks",
+          "geometries": [
+            "linear",
+            "linear",
+            "linear"
+          ],
+          "same_major_holder": true,
+          "flags": [
+            false,
+            true,
+            false,
+            true
+          ],
+          "locator_owner": 0,
+          "formatter_owner": 0
+        },
+        {
+          "stage": "removed group member",
+          "geometries": [
+            "linear",
+            "linear",
+            "linear"
+          ],
+          "same_major_holder": true,
+          "flags": [
+            false,
+            true,
+            false,
+            true
+          ],
+          "locator_owner": 0,
+          "formatter_owner": 0
+        },
+        {
+          "stage": "removed scale replaces aliased defaults",
+          "geometries": [
+            "linear",
+            "log",
+            "linear"
+          ],
+          "same_major_holder": true,
+          "flags": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "locator_owner": 1,
+          "formatter_owner": 1
+        },
+        {
+          "stage": "removed fixed ticks and labels",
+          "geometries": [
+            "linear",
+            "log",
+            "linear"
+          ],
+          "same_major_holder": true,
+          "flags": [
+            false,
+            true,
+            false,
+            true
+          ],
+          "locator_owner": 1,
+          "formatter_owner": 1
+        }
+      ],
+      "raw_ticks": [
+        100.0
+      ],
+      "raw_labels": [
+        "detached"
+      ],
+      "survivor_view": [
+        5.0,
+        15.0
+      ],
+      "removed_view": [
+        100.0,
+        200.0
+      ],
+      "visible": [
+        {
+          "visible": [],
+          "offset": ""
+        },
+        {
+          "visible": [],
+          "offset": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "cases": 68,
+    "source_stages": 182,
+    "registered_groups": 3
+  },
+  "scope": "Actual complete original shared/default/scale bodies and Grouper; view, autoscale scheduling, Text and renderer sinks. No complete constructor/clear/units or secondary lifecycle claim; no Moon algorithm oracle."
+}

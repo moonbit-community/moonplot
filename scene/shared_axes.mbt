@@ -86,7 +86,18 @@ fn initialize_shared_axis_order(axes : Array[Axes]) -> Unit {
       } else {
         axis.y_group_states()
       }
+      let source = if horizontal {
+        states[0].val.x_axis
+      } else {
+        states[0].val.y_axis
+      }
       for index, state in states {
+        let current = if horizontal {
+          state.val.x_axis
+        } else {
+          state.val.y_axis
+        }
+        current.share_numeric_tickers(source)
         let rank = if states.length() > 1 && index < 2 {
           1 - index
         } else {

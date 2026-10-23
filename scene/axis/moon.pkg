@@ -6,3 +6,7 @@ import {
   "mathplotlib/mathplotlib/ticker",
   "mathplotlib/mathplotlib/ticker/scale",
 }
+
+import {
+  "moonbitlang/core/bigint",
+} for "wbtest"

@@ -1,12 +1,59 @@
 ///|
+fn Axes::set_numeric_scale(
+  self : Axes,
+  value : @scale.Scale,
+  horizontal : Bool,
+) -> Unit raise @core.DataError {
+  let states = if horizontal {
+    self.x_group_states()
+  } else {
+    self.y_group_states()
+  }
+  // Install intrinsic x/y context before the scale reads direction-specific rc.
+  // Binding providers does not rebind a locator or formatter's existing owner.
+  for state in states {
+    ({ figure: self.figure, state, } : Axes).bind_axis_data(horizontal)
+  }
+  let axis = if horizontal {
+    self.state.val.x_axis
+  } else {
+    self.state.val.y_axis
+  }
+  let previous_defaults = axis.locator_default_limits()
+  states.sort_by((left, right) => {
+    let first = if horizontal {
+      left.val.share_x_order
+    } else {
+      left.val.share_y_order
+    }
+    let second = if horizontal {
+      right.val.share_x_order
+    } else {
+      right.val.share_y_order
+    }
+    first.compare(second)
+  })
+  for state in states {
+    let current = if horizontal { state.val.x_axis } else { state.val.y_axis }
+    current.set_scale(value)
+  }
+  // Shared Ticker holders retain the last source sibling's installed handles
+  // and owner. Do not rebind the requesting axes after this loop.
+  if previous_defaults != axis.locator_default_limits() {
+    for state in states {
+      let current = if horizontal { state.val.x_axis } else { state.val.y_axis }
+      current.request_autoscale()
+    }
+  }
+}
+
+///|
 /// Set the x-axis scale on this axes and all axes sharing its x coordinate.
 pub fn Axes::set_x_scale(
   self : Axes,
   value : @scale.Scale,
 ) -> Unit raise @core.DataError {
-  for state in self.x_group_states() {
-    state.val.x_axis.set_scale(value)
-  }
+  self.set_numeric_scale(value, true)
 }
 
 ///|
@@ -15,9 +62,7 @@ pub fn Axes::set_y_scale(
   self : Axes,
   value : @scale.Scale,
 ) -> Unit raise @core.DataError {
-  for state in self.y_group_states() {
-    state.val.y_axis.set_scale(value)
-  }
+  self.set_numeric_scale(value, false)
 }
 
 ///|

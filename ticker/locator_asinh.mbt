@@ -106,6 +106,7 @@ pub fn AsinhLocator::set_params(
   if subs is Some(Some(value)) {
     let empty = match value {
       Sequence(values) => values.is_empty()
+      Tuple(values) => values.length() == 0
       NdArray(values) => values.length() == 0
       Text(value) => value.is_empty()
       Number(_) =>

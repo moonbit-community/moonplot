@@ -26,7 +26,7 @@ pub fn Axis::bind_locator_data(self : Axis, minor~ : Bool = false) -> Unit {
     (values.lower(), values.upper())
   }
   if minor {
-    match self.minor_locator {
+    match self.tickers.minor_locator {
       Some(@ticker.MinorLocator::NamedLogit(value)) =>
         self.bind_logit_context(value)
       Some(@ticker.MinorLocator::NamedAsinh(value)) =>
@@ -46,7 +46,7 @@ pub fn Axis::bind_locator_data(self : Axis, minor~ : Bool = false) -> Unit {
       _ => ()
     }
   } else {
-    match self.locator {
+    match self.tickers.locator {
       Some(@ticker.Locator::NamedLogit(value)) => self.bind_logit_context(value)
       Some(@ticker.Locator::NamedAsinh(value)) =>
         value.bind_view_interval(() => self.view_interval_checked())
@@ -68,15 +68,18 @@ pub fn Axis::tick_values_checked(
   self : Axis,
   automatic : @core.Limits,
 ) -> Array[Double] raise @core.DataError {
-  if (self.named_formatter is Some(_) || self.minor_named_formatter is Some(_)) &&
-    self.fixed_ticks is None &&
+  if (
+      self.tickers.named_formatter is Some(_) ||
+      self.tickers.minor_named_formatter is Some(_)
+    ) &&
+    self.tickers.fixed_ticks is None &&
     self.category is None &&
     self.date_format is None &&
-    self.locator is Some(@ticker.Locator::Fixed(values)) {
+    self.tickers.locator is Some(@ticker.Locator::Fixed(values)) {
     return values.copy()
   }
-  if self.fixed_ticks is None && self.category is None {
-    if self.locator
+  if self.tickers.fixed_ticks is None && self.category is None {
+    if self.tickers.locator
       is Some(
         @ticker.Locator::NamedLogit(_)
         | @ticker.Locator::NamedAsinh(_)
@@ -97,7 +100,7 @@ pub fn Axis::tick_values_checked(
       defer {
         self.tick_layout_view = previous
       }
-      return self.locator
+      return self.tickers.locator
         .unwrap()
         .tick_values_for_axis(limits.lower(), limits.upper())
     }
@@ -111,7 +114,7 @@ pub fn Axis::minor_tick_values_checked(
   automatic : @core.Limits,
 ) -> Array[Double] raise @core.DataError {
   if self.minor_date_locator is None && self.category is None {
-    if self.minor_locator is Some(@ticker.MinorLocator::Null(value)) {
+    if self.tickers.minor_locator is Some(@ticker.MinorLocator::Null(value)) {
       let ticks = value.call()
       if self.remove_minor_overlap {
         // Direct Axis getters still read majors/view; rendering skips Null earlier.
@@ -121,12 +124,12 @@ pub fn Axis::minor_tick_values_checked(
       return ticks
     }
     let raw_named_fixed = (
-        self.scale.is_logit() || self.minor_named_formatter is Some(_)
+        self.scale.is_logit() || self.tickers.minor_named_formatter is Some(_)
       ) &&
-      self.minor_locator is Some(@ticker.MinorLocator::NamedFixed(_))
-    let raw_legacy_fixed = self.minor_named_formatter is Some(_) &&
-      self.minor_locator is Some(@ticker.MinorLocator::Fixed(_))
-    if self.minor_locator
+      self.tickers.minor_locator is Some(@ticker.MinorLocator::NamedFixed(_))
+    let raw_legacy_fixed = self.tickers.minor_named_formatter is Some(_) &&
+      self.tickers.minor_locator is Some(@ticker.MinorLocator::Fixed(_))
+    if self.tickers.minor_locator
       is Some(
         @ticker.MinorLocator::NamedAutoMinor(_)
         | @ticker.MinorLocator::NamedLog(_)
@@ -145,7 +148,7 @@ pub fn Axis::minor_tick_values_checked(
         self.tick_layout_view = previous
       }
       // Source minor.call reads its own owner first. Axis overlap reads major again.
-      let ticks = match self.minor_locator.unwrap() {
+      let ticks = match self.tickers.minor_locator.unwrap() {
         @ticker.MinorLocator::Fixed(values) => values.copy()
         @ticker.MinorLocator::NamedFixed(value) => {
           let locations = value.tick_values(0.0, 0.0)
@@ -167,7 +170,7 @@ pub fn Axis::minor_tick_values_checked(
       let (lower, upper) = self.view_interval_checked()
       return self.filter_numeric_minor_ticks(ticks, major, lower, upper)
     }
-    if self.minor_locator
+    if self.tickers.minor_locator
       is Some(
         @ticker.MinorLocator::NamedLinear(_)
         | @ticker.MinorLocator::Index(_)
@@ -184,7 +187,7 @@ pub fn Axis::minor_tick_values_checked(
         self.tick_layout_view = previous
       }
       let major = self.tick_values_checked(automatic)
-      let ticks = self.minor_locator
+      let ticks = self.tickers.minor_locator
         .unwrap()
         .tick_values_for_axis(major, limits.lower(), limits.upper())
       return if self.date_format is Some(_) {
@@ -224,13 +227,14 @@ fn Axis::numeric_scale_name(self : Axis) -> String {
 fn Axis::major_tick_view_checked(
   self : Axis,
 ) -> @ticker.TickValues raise @core.DataError {
-  if self.fixed_ticks is Some(values) {
+  if self.tickers.fixed_ticks is Some(values) {
     return @ticker.TickValues::from_array(values.copy())
   }
   if self.category is None && self.date_locator is None {
-    match self.locator {
-      Some(@ticker.Locator::Fixed(values)) if self.named_formatter is Some(_) ||
-        self.minor_named_formatter is Some(_) =>
+    match self.tickers.locator {
+      Some(@ticker.Locator::Fixed(values)) if self.tickers.named_formatter
+        is Some(_) ||
+        self.tickers.minor_named_formatter is Some(_) =>
         return @ticker.TickValues::from_array(values.copy())
       Some(@ticker.Locator::NamedFixed(value)) =>
         return value.tick_values(0.0, 0.0)
@@ -305,9 +309,9 @@ fn Axis::numeric_minor_selection_mask(
 /// Rendering skips each NullLocator tick group before asking for labels or offsets.
 pub fn Axis::tick_group_is_null(self : Axis, minor~ : Bool = false) -> Bool {
   if minor {
-    self.minor_locator is Some(@ticker.MinorLocator::Null(_))
+    self.tickers.minor_locator is Some(@ticker.MinorLocator::Null(_))
   } else {
-    self.locator is Some(@ticker.Locator::Null(_))
+    self.tickers.locator is Some(@ticker.Locator::Null(_))
   }
 }
 

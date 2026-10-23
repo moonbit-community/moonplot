@@ -1842,3 +1842,12 @@ moon check --target all
 moon test
 moon test --target native
 ```
+
+
+D35 已接通五种既有几何的显式默认刻度安装。`Axis::set_scale`、
+`Axes::set_x_scale` / `set_y_scale` 每次都会创建真实命名 major/minor locator 和 formatter，
+重复设置也重新读取 rc。Linear 的 x/y minor.visible 独立，默认关闭；Asinh minor 使用
+共享不可变 tuple。共享轴共用 ticker 槽和四个默认标志，保留各自视图与几何；移除后
+旧句柄仍保有源 ticker 别名。已有 `set_tick_count` 继续作为显式便利采样入口。
+构造/clear/units/secondary 的完整默认生命周期仍在后续范围，源边界与四目标验收见
+[默认安装说明](testdata/scale_defaults_README.md)。

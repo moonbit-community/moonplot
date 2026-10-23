@@ -306,3 +306,14 @@ Decimal 数学 profile；native libm/NumPy warning 差异保留双值。没有�
 Object dtype 的距离排序另按 NumPy 2.3.5 generic quicksort/introsort 与 heapsort fallback
 重写，以保留 NaN 的实际部分序比较结果；NumPy BSD 许可证保留在
 [LICENSE-NUMPY](LICENSE-NUMPY)。它是专用 MoonBit 协议实现，不加载 NumPy 运行时。
+
+## D35 显式 scale 默认安装
+
+五种既有 typed 几何的显式 scale 安装复用现有命名 locator/formatter、rc 捕获和
+稳定 Axis 上下文绑定，无新数学内核或外部运行时依赖。共享 ticker holder 保存四个
+对象角色、旧便利表示和四个默认标志；Asinh 新增共享不可变 Double tuple 投影。
+三个独立参考执行固定 Matplotlib v3.11.2 的完整 scale/default、Axis/Ticker、
+Grouper/sharex/sharey/GridSpec、移除及 draw 原源方法，宿主 autoscale 只记录调度。
+完整构造/clear/units/secondary 生命周期仍在后续范围；参考依赖沿用已保留的
+Matplotlib/CPython/NumPy 来源与许可证。接口变化和精确复现见
+[testdata/scale_defaults_README.md](testdata/scale_defaults_README.md)。

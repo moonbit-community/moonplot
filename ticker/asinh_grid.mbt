@@ -101,6 +101,12 @@ fn asinh_grid_subs(
       } else {
         (values, true)
       }
+    Some(Tuple(values)) =>
+      if values.length() == 0 {
+        ([1.0], false)
+      } else {
+        (values.values(), true)
+      }
     Some(NdArray(values)) => {
       if values.length() != 1 {
         raise log_grid_error("Asinh ndarray truth value is ambiguous")

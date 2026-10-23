@@ -58,7 +58,7 @@ pub fn Axis::view_limits_checked(
   match (self.limits, self.auto_view) {
     (Some(limits), _) | (None, Some(limits)) => limits
     (None, None) => {
-      let (lower, upper) = match self.locator {
+      let (lower, upper) = match self.tickers.locator {
         Some(@ticker.Locator::NamedLogit(value)) =>
           value.view_limits(automatic.lower(), automatic.upper())
         Some(@ticker.Locator::NamedAsinh(value)) =>
@@ -172,7 +172,7 @@ pub fn Axis::numeric_nonsingular_bounds(
   lower : Double,
   upper : Double,
 ) -> @core.Limits {
-  match self.locator {
+  match self.tickers.locator {
     Some(@ticker.Locator::NamedLogit(value)) => {
       let (first, last) = value.nonsingular(lower, upper) catch {
         _ => (lower, upper)

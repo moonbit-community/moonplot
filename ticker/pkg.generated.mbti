@@ -10,6 +10,8 @@ import {
 }
 
 // Values
+pub fn asinh_default_minor_subs() -> AsinhSubsTuple
+
 pub fn auto_minor_locator(subdivisions? : Int) -> MinorLocator raise @core.DataError
 
 pub fn eng_formatter(unit? : String, places? : Int, sep? : String) -> Formatter raise @core.DataError
@@ -80,12 +82,25 @@ pub fn AsinhLocator::view_limits(Self, Double, Double) -> (Double, Double)
 
 pub(all) enum AsinhSubs {
   Sequence(Array[Double])
+  Tuple(AsinhSubsTuple)
   NdArray(TickValues)
   Number(Double)
   Text(String)
 }
 pub fn AsinhSubs::to_repr(Self) -> @debug.Repr
 pub impl @debug.Debug for AsinhSubs
+
+pub struct AsinhSubsTuple {
+  // private fields
+}
+pub fn AsinhSubsTuple::equal(Self, Self) -> Bool
+pub fn AsinhSubsTuple::length(Self) -> Int
+pub fn AsinhSubsTuple::new(Array[Double]) -> Self
+pub fn AsinhSubsTuple::not_equal(Self, Self) -> Bool
+pub fn AsinhSubsTuple::to_repr(Self) -> @debug.Repr
+pub fn AsinhSubsTuple::values(Self) -> Array[Double]
+pub impl Eq for AsinhSubsTuple
+pub impl @debug.Debug for AsinhSubsTuple
 
 pub struct AutoLocator {
   // private fields

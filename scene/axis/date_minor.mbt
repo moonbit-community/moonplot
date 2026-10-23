@@ -14,7 +14,7 @@ pub fn Axis::set_minor_date_locator(
       _ => locator.copy()
     },
   )
-  self.minor_locator = None
+  self.tickers.minor_locator = None
 }
 
 ///|

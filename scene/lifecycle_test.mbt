@@ -150,7 +150,7 @@ test "figure selection history is independent from creation and drawing order" {
 }
 
 ///|
-test "removed shared axes cannot propagate limits ticks scales or margins" {
+test "removed shared axes keep ticker aliases while limits scales and margins separate" {
   let fig = @scene.figure()
   let panels = fig.subplots(1, 3, share_x=true, share_y=true)
   panels[0].set_xlim(1.0, 10.0)
@@ -173,10 +173,19 @@ test "removed shared axes cannot propagate limits ticks scales or margins" {
   panels[0].set_xlim(5.0, 15.0)
   assert_eq(panels[2].get_xlim().unwrap().lower(), 5.0)
   assert_eq(panels[1].get_xlim().unwrap().lower(), 100.0)
+  // Figure._remove_axes breaks group membership, retaining the shared Ticker.
+  // The detached axis can still replace its aliased tick positions and labels.
+  for index in [0, 2] {
+    let axis = panels[index].x_axis()
+    assert_eq(axis.ticks(), Some([100.0]))
+    assert_true(!axis.is_default_locator())
+    assert_true(!axis.is_default_formatter())
+    assert_eq(axis.tick_labels_checked([100.0]), ["detached"])
+  }
   let svg = fig.to_svg()
   assert_true(!svg.contains(">detached<"))
-  assert_true(svg.contains(">ten<"))
-  // The retained shared fixed ticks remain [1,10], but the view is now [5,15].
+  // The shared raw tick is now100; visibility still uses the survivor's[5,15].
+  assert_true(!svg.contains(">ten<"))
   assert_true(!svg.contains(">one<"))
 }
 
