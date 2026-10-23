@@ -44,7 +44,7 @@
   final逐字cmp同；finalcheck28tasks/8旧Refwarn/0error。所有原JSONexpected保持。
   Root基础feature f92729d（8files）+Log家族feature6dea404（36files）已本地提交；
   无remote/push。D33-before HEAD5f9cfcd archive/全部mbti保留，不重跑D32/D33已过门禁。
-  整体goal仍active，工程估算约46%全目标/80%核心2D，不能用tests充API覆盖分母。
+  整体goal仍active；旧46%/80%已撤回。D33后重估全目标约50%（40–60%区间）、严格静态2D/SVG约55–70%；依据见MIGRATION_PROGRESS.md，不按tests换算。
 - D27无live工具；finalall77638与grid-source71661 exit0，95932旧失败exit2、73479 probe exit0、JS30690 exit0均terminal。
   81493 compileexit1/40418旧5failexit2/62175与29316 sourceexit0都terminal，不轮询。
   D26 final26297/JS82640/source20346/check99335全exit0；
@@ -4355,3 +4355,20 @@ numeric 588d3326fc9e9a0d598e4860a5a2351d2b1ed16411e63bb9dd24278422b87a0a；
 axis 0226199a54374da1f87af2652e2506c2ad73cb5173c82ee94277c4f9fe22cec3；
 float 06779465056b646f07ebf10b5de8e25a2b5fcdcb9b3cf0af8eb836d4d66a5b80。
 所有旧D33/D32 source与Moon sessions terminal，不轮询。目标仍为完整迁移，未complete。
+
+
+用户指出旧46%整夜未重估：Root确认该数最初见D19 baseline1b61c4b，D20–D33后仍照抄，
+已明确承认并撤回，旧80%严格核心兼容说法也撤回。重读SURVEY/COMPAT/PLAN与实际interfaces/
+包目录后新增MIGRATION_PROGRESS.md：明示9能力组权重100和成熟度区间；全目标算术范围
+45.75–60.60%，日常约50%；严格静态2D前7组权重85，53.82–70.41%约55–70%。权重/成熟度
+为工程judgment，非已测API覆盖率，也不能用新旧口径计算昨晚精确涨幅。C独立readonly已指出
+图表/配置/units上界乐观风险，不把宽区间缩为已证50–55。上游AST__all__/继承与mbti核对
+确认12/12具体Locator、12/13具体Formatter已接入（剩Logit）；D19二者具体命名对象均0，
+不是D19完全无相关便利功能。D34只读不算实现。PLAN当前数同步更新，后续每slice附capability
+增量/估算依据，不重复引用旧46/80。纯docs改动，D33生产/gates未失效，不重跑Moon。
+D34 A299行339obs、C251行147obs notes已回，B数值notes仍整理；Root尚未freeze/实现。
+
+进度重估独立review进一步确认：固定Artist enum/许多绘图返回Unit，无通用mutable对象层、
+tight/constrained求解器、font/mathtext；另显式补polar/geographic投影缺口。采用相同权重
+更保守成熟度的敏感性检查40.20–55.95，故对外整体报告约50%（40–60，至少±10点误差），
+不把原模型中点53.175或狭窄50–55当已测结论。MIGRATION_PROGRESS.md/PLAN已同步。
