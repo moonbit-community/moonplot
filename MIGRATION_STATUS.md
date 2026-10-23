@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D44公开Line数据句柄已完整验收并提交9257f05/5b183df；下一D45只读remove候选待freeze；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
+- 当前切片编号：D45稳定Line remove已完整验收并提交8c6c534/65cba7d，下一D46 visibility-only待freeze，D44已完整验收并提交9257f05/5b183df/62bf560；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：保存D45-before（D44 checkpoint commit后），全文读A14actual remove/clear/delaxes与C165line设计，冻结现稳定Line句柄remove窄切。D44累计nonJS22063/JS22070全覆盖，11844补验/静态与13457 source terminal0；41mbti预期5份已审且finalcmp同，勿重跑D44门禁。D44-before61f36fb/41mbti已保存，不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：本checkpointcommit后保存D46-before，基于Root已全文读C129line/A126line+15actual冻结visibility-only（defaultTrue/sameBool no-op/hidden先guard且不clearstale）。D45 full12445与final70588/source22687已全过，feature8c6c534/formal65cba7d已提交；不重D45门禁。D45-before62bf560/41mbti已保存；D44累计nonJS22063/JS22070已验收，不重D44门禁。D44-before61f36fb/41mbti已保存，不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -5727,3 +5727,75 @@ D44 已完整验收，生产提交9257f05已落，formal/source/docs5b183df已�
 Root无live工具，全部tracked STOP；B/C独审报告已读无新具体缺陷。下一本checkpointcommit
 →D45-before→读A14原source与C165line设计；拟仅remove稳定handle，get_lines完整producer
 缺项明确保留，不误将displaycollection几何重建为Line2D。整体goal继续，无用户阻塞。
+
+## D45 已冻结，现稳定 Line 句柄 remove
+
+D45-before已保存62bf5602b04853ae5c60b3153d967cb49cd644d2 HEAD/tracked.tar/41mbti，勿覆盖。
+Root已全文读A170line notes+14completeactualrecords（SHA16847a...d2ffe）、C165line设计。
+仅新增Line2D::remove()->Unit raiseCore。get_lines当前nativeproducer覆盖不足（ecdf/xcorr
+/axhline-vline/stem等未注册，collection显示Line不能猜），本片不加入；原observations仍保留。
+新增priv mut removal_parent:Axes?：attachSome；remove先查binding None→原NotImpl，Some
+物理points匹配Artist::Line，missing→原ValueError；成功删exactartist+exactregistry，detach
+ownerNone但保binding/raw/cache/flags/line.stale，不relim/request/legend/container。两native
+错误按InvalidTicks带Type前缀原文。clear只对attached registry调用clear_attachment()把binding
+None+detach；已removed不在registry，后来clear不能改其重复ValueError。delaxes保owner。
+privateparent查当前list与nativeboundoldlist在无publicreadd/任意插入支持域内等价，general
+add_line、ArtistList/GUI stale/完整producer discovery仍边界。freshIR无removed，retainedIR
+按D44 snapshot/pinnedrefs可绘制完成旧handle，不新wire。
+
+- B独占scene/line2d+line_units、NEWline_remove_wbtest，state/kernel/removalhands。
+- C独占NEWscene/line_remove_render_wbtest与NEWpyplot/line_remove_test，只渲染/公开hands。
+- A独占NEWline_remove generator/JSON/guide/SceneformalWB，保原14fields；9typed rows
+  2/4/5/6/9/10/11/12/13拟3序列，0/1/3/7/8 source-only；最终按实投影核数。
+- Root独占figureclear→clear_attachment与旧D44gen/WB私有fixture机械新增removal_parentNone、
+  checkpoint/docs、centralgates/接口/commits。旧JSON不变。
+
+所有writer仍实施，无D45中央编译/行为验收；Root旧fixture再生已启动，下一读终态/记录liveID，
+审各handoff，全部STOP后统一check/infofmt/四目标。D44门禁已过不重复，失败继续定位修复。
+
+D45 Root owned首步完成：figureclear已调clear_attachment；旧D44 generator/WB私有detachedfixture只加removal_parent None，再生terminal0/JSON d0b1bca...af06c逐字不变。Root已审B生产首diff无具体缺陷，B仍writer写hands。A正式/C新渲染hands仍writer，无中央Moon、无Rootlive工具。下一待各STOP审hand/正式映射，再统一门禁。
+
+D45 B/C tracked STOP，Root已全文读 B50linehandoff/5hands及C38linehandoff/7hands，
+并审完整生产diff，无具体缺陷。新增pendinginvalidremove手测已并入B状态hand：remove
+不转换，后detachedgetter才shapeerror。C显式countpolyline避免staticlegend误判，Category/Date
+单位事件不应访问removedbadshape。A正式仍writer（原14record/9typed拟3seq/5source-only），
+未centralMoon/未生成接口/无Rootlive工具。下一A交付后审正式→全部STOP→统一门禁。
+C仅ignored下一D46最小style/visibility候选窄设计，无freeze/无tracked实施。
+
+D45 全体tracked STOP，A正式交付15profiles=原14完整不变+1actual remove→clear→repeat；
+10typedrecords/5source-only，4连续private场景/1registeredgroup。Root全文读266linegen/
+136lineguide，原14complete records独立exactequal通过，最终JSON
+868fc13def218b269346308dfb30b66ef533bdc75b76c82752a36d2fd0239c26。new13registered=
+1formal+B5+C7。firstcheck20618 terminal0：44tasks/7旧Refwarn/0error；source88356 terminal0
+（新remove+旧D44 --check，旧JSON保持）。info/fmt terminal0，41mbti仅Scene加remove一行已审，
+其余40逐字同，revieweddiff存D45-interface-reviewed.diff。firstfull live12445；下一读终态，
+失败继续诊断，不改原expected。B正在ignored正式独审，C129line下一visibility设计已STOP待Root读，
+A只ignored D46 visibility actualprobe，不freeze/不tracked；无其他Rootlive工具。
+
+D45 full12445仍live；Root全文读B76line正式独审，无新具体缺陷，mandatory hashguard继承
+链与四序列/10typed/5source-only、remove→clear同cache身份均已核。Root已补README/依赖/
+NOTICE实现说明，未先称四目标通过。D46 C129line visibility候选设计已Root全文读，并窄读
+原Artist set_visible及Line.draw首guard；同Bool no-op、hidden先于recache且不clearstale已
+直接源码确认，A实际有限probe在收尾。D46尚未freeze/未实施，所有tracked生产/fixtures STOP。
+
+## D45 行为验收通过（提交前最终门禁）
+
+- [x] firstfull12445 terminal0：wasm/wasm-gc/native各22076/22076，JS22083/22083，0fail。
+- [x] new13registered=1formal（4private场景）+B5+C7；15actualsource记录中10typed/
+  5source-only，原14complete fields Root独立exactequal，JSON868fc13...39c26保持。
+- [x] Root全文读所有生产/12hands/266linegen/136lineguide与B76line独审，无新具体缺陷；
+  41mbti仅Scene remove一行变化已审，其余40逐字同。
+- [x] README/COMPAT/PLAN/PROGRESS/DEPENDENCIES/NOTICE/guide已补实现、验收与边界。
+- [x] final70588 terminal0：info4/fmt1/check24，7旧Refwarn/0error；source22687 terminal0（new+旧D44），41mbti finaldiff逐字同已审，diffcheck0。
+- [x] feature8c6c534（生产/12hands/旧privatefixture机械适配9files）已提交，formal/source/docs65cba7d（10files）已提交；本checkpoint另commit。
+
+Root无其他live工具，全体tracked生产/fixtures STOP。D46 Root已全文读C129line设计、
+A126line notes/15completeactualrecords（SHA666449e4...483bf9），原sameBool no-op、hidden
+先于recache/不clearstale、visible失败/成功顺序已清楚。下一D45最终门禁提交→checkpoint
+→D46-before→visibility-only freeze，不重D45已过full。D46尚未tracked实施。
+
+D45 已完整验收并分批提交feature8c6c534（9files/526insertions/2deletions），formal/source/docs
+65cba7d已提交。full12445四目标0fail，nonJS22076/JS22083；final70588 info4/fmt1/
+check24、source22687全部terminal0；接口final逐字同已审/旧JSON不变。Root无live工具，
+全部trackedSTOP，下一checkpointcommit→D46-before→已读C129/A126+15actual的visibility-only
+freeze。整体goal未完成，无用户阻塞，不重复D45门禁。
