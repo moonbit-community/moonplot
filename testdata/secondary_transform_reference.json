@@ -1,0 +1,4130 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "stdlib/contextlib.py": "8b7a477f978a8532852fd81e241c78182516bc4975d672d580a5848a76e11eb6",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "artist.py": "c55a81d86db60ab7b22fcd6e70401aa84558de5d1ba6e40a16c60f6f1f03be7a",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "axes/_secondary_axes.py": "b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "counts": {
+    "preparation_records": 34,
+    "additional_records": 18,
+    "all_records": 52,
+    "typed_scenarios": 38,
+    "source_only_records": 14,
+    "registered_groups": 2
+  },
+  "host_boundaries": {
+    "source": "Complete original Secondary and native transform/factory/locator/Bbox classes execute in the accepted numeric graphical-constructor/style/aspect host.",
+    "typed": "Direct native Affine2DBase replacement-only immutable profile, plus None reset. Constructor and setter reject whole-matrix nonseparability after location metadata assignment.",
+    "source_only": "Generic composite/wrapper/base Transform provenance, original in-place mutable graph aliases, and the four Bbox primitive comparisons are retained without typed API parity claims.",
+    "capture": "Current positioned operation captures the old installed locator before scalar forward callback. New replacement applies to the next candidate; native old-T in-place mutation remains source-only.",
+    "errors": "Exact native class/message and surviving state retained. Existing Core InvalidTicks error variant is asserted; no new message-text contract.",
+    "nonfinite": "Diagonal/translation NaN and infinities are accepted, then actual native deferred Bbox executes; NaN classification and strict finite/infinite bits are asserted without full SVG requirements."
+  },
+  "context": {
+    "figure_size": [
+      320.0,
+      240.0
+    ],
+    "parent_normalized_rect": [
+      0.2,
+      0.25,
+      0.5,
+      0.5
+    ],
+    "parent_screen_frame": [
+      64.0,
+      60.0,
+      160.0,
+      120.0
+    ],
+    "x_view": [
+      1.0,
+      4.0
+    ],
+    "y_view": [
+      10.0,
+      20.0
+    ]
+  },
+  "affine_inputs": {
+    "translation": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      15.0,
+      25.0
+    ],
+    "scale": [
+      2.0,
+      0.0,
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "negative_scale": [
+      -2.0,
+      -0.0,
+      -0.0,
+      -3.0,
+      15.0,
+      25.0
+    ],
+    "zero_scale": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      15.0,
+      25.0
+    ],
+    "rotation": [
+      0.8660254037844387,
+      0.49999999999999994,
+      -0.49999999999999994,
+      0.8660254037844387,
+      0.0,
+      0.0
+    ],
+    "skew": [
+      1.0,
+      0.36397023426620234,
+      0.17632698070846498,
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "observations": [
+    {
+      "profile": "constructor",
+      "orientation": "x",
+      "label": "None",
+      "input_class": "NoneType",
+      "input_is_separable": null,
+      "input_has_inverse": null,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.375
+            ],
+            [
+              0.7,
+              0.37500000005
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          90.0,
+          160.0,
+          1.2000000992884452e-08
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.375
+            ],
+            [
+              0.7,
+              0.37500000005
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "x",
+      "label": "translation",
+      "input_class": "Affine2D",
+      "input_is_separable": true,
+      "input_has_inverse": true,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.10520833333333333
+            ],
+            [
+              0.7,
+              0.10520833333375
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          25.25,
+          160.0,
+          1.000017846308765e-10
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.10520833333333333
+            ],
+            [
+              0.7,
+              0.10520833333375
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "x",
+      "label": "scale",
+      "input_class": "Affine2D",
+      "input_is_separable": true,
+      "input_has_inverse": true,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.003125
+            ],
+            [
+              0.7,
+              0.0031250000012500003
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          0.75,
+          160.0,
+          3.000000248221113e-10
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.003125
+            ],
+            [
+              0.7,
+              0.0031250000012500003
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "x",
+      "label": "negative_scale",
+      "input_class": "Affine2D",
+      "input_is_separable": true,
+      "input_has_inverse": true,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.10104166666541667
+            ],
+            [
+              0.7,
+              0.10104166666666667
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          24.2499999997,
+          160.0,
+          2.999982484652719e-10
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.10104166666541667
+            ],
+            [
+              0.7,
+              0.10104166666666667
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "x",
+      "label": "zero_scale",
+      "input_class": "Affine2D",
+      "input_is_separable": true,
+      "input_has_inverse": true,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.10416666666666667
+            ],
+            [
+              0.7,
+              0.10416666666666667
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          25.0,
+          160.0,
+          0.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.10416666666666667
+            ],
+            [
+              0.7,
+              0.10416666666666667
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "x",
+      "label": "rotation",
+      "input_class": "Affine2D",
+      "input_is_separable": false,
+      "input_has_inverse": true,
+      "constructor_error": {
+        "type": "ValueError",
+        "message": "Both *x_transform* and *y_transform* must be 2D affine transforms"
+      },
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": null,
+        "parent_cache": null,
+        "scale": "linear",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": null,
+        "locator_points": null
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "x",
+      "label": "skew",
+      "input_class": "Affine2D",
+      "input_is_separable": false,
+      "input_has_inverse": true,
+      "constructor_error": {
+        "type": "ValueError",
+        "message": "Both *x_transform* and *y_transform* must be 2D affine transforms"
+      },
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": null,
+        "parent_cache": null,
+        "scale": "linear",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": null,
+        "locator_points": null
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "x",
+      "label": "generic_composite_rotation",
+      "input_class": "CompositeGenericTransform",
+      "input_is_separable": false,
+      "input_has_inverse": true,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedGenericTransform",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.0009021097956087903
+            ],
+            [
+              0.7,
+              0.002985443129302967
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          0.21650635094610968,
+          160.0,
+          0.5000000000866024
+        ],
+        "location_transform_class": "BlendedGenericTransform",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.0009021097956087903
+            ],
+            [
+              0.7,
+              0.002985443129302967
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "x",
+      "label": "wrapper_rotation",
+      "input_class": "TransformWrapper",
+      "input_is_separable": false,
+      "input_has_inverse": true,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedGenericTransform",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.0009021097956087903
+            ],
+            [
+              0.7,
+              0.002985443129302967
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          0.21650635094610968,
+          160.0,
+          0.5000000000866024
+        ],
+        "location_transform_class": "BlendedGenericTransform",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.0009021097956087903
+            ],
+            [
+              0.7,
+              0.002985443129302967
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "x",
+      "label": "base_no_inverse",
+      "input_class": "Transform",
+      "input_is_separable": false,
+      "input_has_inverse": false,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedGenericTransform",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.0010416666666666667
+            ],
+            [
+              0.7,
+              0.0010416666670833334
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          0.25,
+          160.0,
+          1.000000082740371e-10
+        ],
+        "location_transform_class": "BlendedGenericTransform",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.0010416666666666667
+            ],
+            [
+              0.7,
+              0.0010416666670833334
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "y",
+      "label": "None",
+      "input_class": "NoneType",
+      "input_is_separable": null,
+      "input_has_inverse": null,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.325,
+              0.25
+            ],
+            [
+              0.32500000005,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          104.0,
+          60.0,
+          1.6000001323845936e-08,
+          120.0
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.325,
+              0.25
+            ],
+            [
+              0.32500000005,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "y",
+      "label": "translation",
+      "input_class": "Affine2D",
+      "input_is_separable": true,
+      "input_has_inverse": true,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.04765625,
+              0.25
+            ],
+            [
+              0.0476562500003125,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          15.25,
+          60.0,
+          9.99982319171977e-11,
+          120.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.04765625,
+              0.25
+            ],
+            [
+              0.0476562500003125,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "y",
+      "label": "scale",
+      "input_class": "Affine2D",
+      "input_is_separable": true,
+      "input_has_inverse": true,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.0015625,
+              0.25
+            ],
+            [
+              0.0015625000006250001,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          0.5,
+          60.0,
+          2.000000165480742e-10,
+          120.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.0015625,
+              0.25
+            ],
+            [
+              0.0015625000006250001,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "y",
+      "label": "negative_scale",
+      "input_class": "Affine2D",
+      "input_is_separable": true,
+      "input_has_inverse": true,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.045312499999375,
+              0.25
+            ],
+            [
+              0.0453125,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          14.4999999998,
+          60.0,
+          2.000000165480742e-10,
+          120.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.045312499999375,
+              0.25
+            ],
+            [
+              0.0453125,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "y",
+      "label": "zero_scale",
+      "input_class": "Affine2D",
+      "input_is_separable": true,
+      "input_has_inverse": true,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.046875,
+              0.25
+            ],
+            [
+              0.046875,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          15.0,
+          60.0,
+          0.0,
+          120.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.046875,
+              0.25
+            ],
+            [
+              0.046875,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "y",
+      "label": "rotation",
+      "input_class": "Affine2D",
+      "input_is_separable": false,
+      "input_has_inverse": true,
+      "constructor_error": {
+        "type": "ValueError",
+        "message": "Both *x_transform* and *y_transform* must be 2D affine transforms"
+      },
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": null,
+        "parent_cache": null,
+        "scale": "linear",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": null,
+        "locator_points": null
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "y",
+      "label": "skew",
+      "input_class": "Affine2D",
+      "input_is_separable": false,
+      "input_has_inverse": true,
+      "constructor_error": {
+        "type": "ValueError",
+        "message": "Both *x_transform* and *y_transform* must be 2D affine transforms"
+      },
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": null,
+        "parent_cache": null,
+        "scale": "linear",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": null,
+        "locator_points": null
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "y",
+      "label": "generic_composite_rotation",
+      "input_class": "CompositeGenericTransform",
+      "input_is_separable": false,
+      "input_has_inverse": true,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedGenericTransform",
+        "locator_points": {
+          "value": [
+            [
+              -0.0008859176532934071,
+              0.25
+            ],
+            [
+              0.0006765823469772257,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          -0.28349364905389024,
+          60.0,
+          0.5000000000866025,
+          120.0
+        ],
+        "location_transform_class": "BlendedGenericTransform",
+        "locator_points": {
+          "value": [
+            [
+              -0.0008859176532934071,
+              0.25
+            ],
+            [
+              0.0006765823469772257,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "y",
+      "label": "wrapper_rotation",
+      "input_class": "TransformWrapper",
+      "input_is_separable": false,
+      "input_has_inverse": true,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedGenericTransform",
+        "locator_points": {
+          "value": [
+            [
+              -0.0008859176532934071,
+              0.25
+            ],
+            [
+              0.0006765823469772257,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          -0.28349364905389024,
+          60.0,
+          0.5000000000866025,
+          120.0
+        ],
+        "location_transform_class": "BlendedGenericTransform",
+        "locator_points": {
+          "value": [
+            [
+              -0.0008859176532934071,
+              0.25
+            ],
+            [
+              0.0006765823469772257,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "constructor",
+      "orientation": "y",
+      "label": "base_no_inverse",
+      "input_class": "Transform",
+      "input_is_separable": false,
+      "input_has_inverse": false,
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedGenericTransform",
+        "locator_points": {
+          "value": [
+            [
+              0.00078125,
+              0.25
+            ],
+            [
+              0.0007812500003125001,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          0.25,
+          60.0,
+          1.000000082740371e-10,
+          120.0
+        ],
+        "location_transform_class": "BlendedGenericTransform",
+        "locator_points": {
+          "value": [
+            [
+              0.00078125,
+              0.25
+            ],
+            [
+              0.0007812500003125001,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "profile": "failed_setter",
+      "orientation": "x",
+      "error": {
+        "type": "ValueError",
+        "message": "Both *x_transform* and *y_transform* must be 2D affine transforms"
+      },
+      "state": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.375
+            ],
+            [
+              0.7,
+              0.37500000005
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true
+      }
+    },
+    {
+      "profile": "failed_setter",
+      "orientation": "y",
+      "error": {
+        "type": "ValueError",
+        "message": "Both *x_transform* and *y_transform* must be 2D affine transforms"
+      },
+      "state": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.325,
+              0.25
+            ],
+            [
+              0.32500000005,
+              0.75
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true
+      }
+    },
+    {
+      "profile": "omitted_and_None_reset",
+      "orientation": "x",
+      "before": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.10729166666666667
+            ],
+            [
+              0.7,
+              0.10729166666791667
+            ]
+          ],
+          "error": null
+        }
+      },
+      "omitted": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.625
+            ],
+            [
+              0.7,
+              0.62500000005
+            ]
+          ],
+          "error": null
+        },
+        "uses_parent_transAxes": true
+      },
+      "explicit_None": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.625
+            ],
+            [
+              0.7,
+              0.62500000005
+            ]
+          ],
+          "error": null
+        },
+        "uses_parent_transAxes": true
+      }
+    },
+    {
+      "profile": "omitted_and_None_reset",
+      "orientation": "y",
+      "before": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.0484375,
+              0.25
+            ],
+            [
+              0.048437500000625,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      },
+      "omitted": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.575,
+              0.25
+            ],
+            [
+              0.57500000005,
+              0.75
+            ]
+          ],
+          "error": null
+        },
+        "uses_parent_transAxes": true
+      },
+      "explicit_None": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.575,
+              0.25
+            ],
+            [
+              0.57500000005,
+              0.75
+            ]
+          ],
+          "error": null
+        },
+        "uses_parent_transAxes": true
+      }
+    },
+    {
+      "profile": "mutable_alias",
+      "orientation": "x",
+      "before": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          25.75,
+          160.0,
+          3.000018011789507e-10
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.10729166666666667
+            ],
+            [
+              0.7,
+              0.10729166666791667
+            ]
+          ],
+          "error": null
+        }
+      },
+      "after_mutation_before_aspect": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          25.75,
+          160.0,
+          3.000018011789507e-10
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.2739583333333333
+            ],
+            [
+              0.7,
+              0.2739583333345833
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true
+      },
+      "same_candidate_points_before": [
+        [
+          0.2,
+          0.10729166666666667
+        ],
+        [
+          0.7,
+          0.10729166666791667
+        ]
+      ],
+      "same_candidate_points_after": [
+        [
+          0.2,
+          0.2739583333333333
+        ],
+        [
+          0.7,
+          0.2739583333345833
+        ]
+      ],
+      "after_same_candidate_aspect": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          65.75,
+          160.0,
+          2.999911430379143e-10
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.2739583333333333
+            ],
+            [
+              0.7,
+              0.2739583333345833
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true
+      }
+    },
+    {
+      "profile": "mutable_alias",
+      "orientation": "y",
+      "before": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          15.5,
+          60.0,
+          2.000000165480742e-10,
+          120.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.0484375,
+              0.25
+            ],
+            [
+              0.048437500000625,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      },
+      "after_mutation_before_aspect": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          15.5,
+          60.0,
+          2.000000165480742e-10,
+          120.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.1421875,
+              0.25
+            ],
+            [
+              0.142187500000625,
+              0.75
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true
+      },
+      "same_candidate_points_before": [
+        [
+          0.0484375,
+          0.25
+        ],
+        [
+          0.048437500000625,
+          0.75
+        ]
+      ],
+      "same_candidate_points_after": [
+        [
+          0.1421875,
+          0.25
+        ],
+        [
+          0.142187500000625,
+          0.75
+        ]
+      ],
+      "after_same_candidate_aspect": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          45.5,
+          60.0,
+          1.999964638343954e-10,
+          120.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.1421875,
+              0.25
+            ],
+            [
+              0.142187500000625,
+              0.75
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true
+      }
+    },
+    {
+      "profile": "callback_capture",
+      "orientation": "x",
+      "mutates_old_transform": false,
+      "error": null,
+      "state": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          25.75,
+          160.0,
+          3.000018011789507e-10
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.8364583333333334
+            ],
+            [
+              0.7,
+              0.8364583333337501
+            ]
+          ],
+          "error": null
+        }
+      },
+      "captured_candidate_points_after": [
+        [
+          0.2,
+          0.10729166666666667
+        ],
+        [
+          0.7,
+          0.10729166666791667
+        ]
+      ]
+    },
+    {
+      "profile": "callback_capture",
+      "orientation": "x",
+      "mutates_old_transform": true,
+      "error": null,
+      "state": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          65.75,
+          160.0,
+          2.999911430379143e-10
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.8364583333333334
+            ],
+            [
+              0.7,
+              0.8364583333337501
+            ]
+          ],
+          "error": null
+        }
+      },
+      "captured_candidate_points_after": [
+        [
+          0.2,
+          0.2739583333333333
+        ],
+        [
+          0.7,
+          0.2739583333345833
+        ]
+      ]
+    },
+    {
+      "profile": "callback_capture",
+      "orientation": "y",
+      "mutates_old_transform": false,
+      "error": null,
+      "state": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          15.5,
+          60.0,
+          2.000000165480742e-10,
+          120.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.31484375,
+              0.25
+            ],
+            [
+              0.3148437500003125,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      },
+      "captured_candidate_points_after": [
+        [
+          0.0484375,
+          0.25
+        ],
+        [
+          0.048437500000625,
+          0.75
+        ]
+      ]
+    },
+    {
+      "profile": "callback_capture",
+      "orientation": "y",
+      "mutates_old_transform": true,
+      "error": null,
+      "state": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          45.5,
+          60.0,
+          1.999964638343954e-10,
+          120.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              0.31484375,
+              0.25
+            ],
+            [
+              0.3148437500003125,
+              0.75
+            ]
+          ],
+          "error": null
+        }
+      },
+      "captured_candidate_points_after": [
+        [
+          0.1421875,
+          0.25
+        ],
+        [
+          0.142187500000625,
+          0.75
+        ]
+      ]
+    },
+    {
+      "profile": "bbox_primitive",
+      "raw_points": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "Bbox_transformed": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.7071067811865476,
+          1.4142135623730951
+        ]
+      ],
+      "TransformedBbox": [
+        [
+          -1.414213562373095,
+          0.0
+        ],
+        [
+          0.7071067811865476,
+          2.121320343559643
+        ]
+      ],
+      "all_four_transformed": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.7071067811865476,
+          0.7071067811865475
+        ],
+        [
+          -1.414213562373095,
+          1.4142135623730951
+        ],
+        [
+          -0.7071067811865474,
+          2.121320343559643
+        ]
+      ]
+    },
+    {
+      "profile": "bbox_primitive",
+      "raw_points": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          2.0
+        ]
+      ],
+      "Bbox_transformed": [
+        [
+          0.7071067811865476,
+          0.7071067811865475
+        ],
+        [
+          0.0,
+          2.121320343559643
+        ]
+      ],
+      "TransformedBbox": [
+        [
+          0.7071067811865476,
+          0.0
+        ],
+        [
+          -1.414213562373095,
+          2.121320343559643
+        ]
+      ],
+      "all_four_transformed": [
+        [
+          0.7071067811865476,
+          0.7071067811865475
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -0.7071067811865474,
+          2.121320343559643
+        ],
+        [
+          -1.414213562373095,
+          1.4142135623730951
+        ]
+      ]
+    },
+    {
+      "profile": "bbox_primitive",
+      "raw_points": [
+        [
+          0.0,
+          2.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "Bbox_transformed": [
+        [
+          -1.414213562373095,
+          1.4142135623730951
+        ],
+        [
+          -0.7071067811865474,
+          0.0
+        ]
+      ],
+      "TransformedBbox": [
+        [
+          -1.414213562373095,
+          2.121320343559643
+        ],
+        [
+          0.7071067811865476,
+          0.0
+        ]
+      ],
+      "all_four_transformed": [
+        [
+          -1.414213562373095,
+          1.4142135623730951
+        ],
+        [
+          -0.7071067811865474,
+          2.121320343559643
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.7071067811865476,
+          0.7071067811865475
+        ]
+      ]
+    },
+    {
+      "profile": "bbox_primitive",
+      "raw_points": [
+        [
+          1.0,
+          2.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "Bbox_transformed": [
+        [
+          -0.7071067811865474,
+          2.121320343559643
+        ],
+        [
+          -1.414213562373095,
+          0.7071067811865475
+        ]
+      ],
+      "TransformedBbox": [
+        [
+          0.7071067811865476,
+          2.121320343559643
+        ],
+        [
+          -1.414213562373095,
+          0.0
+        ]
+      ],
+      "all_four_transformed": [
+        [
+          -0.7071067811865474,
+          2.121320343559643
+        ],
+        [
+          -1.414213562373095,
+          1.4142135623730951
+        ],
+        [
+          0.7071067811865476,
+          0.7071067811865475
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "profile": "failed_setter_then_aspect",
+      "orientation": "x",
+      "error": {
+        "type": "ValueError",
+        "message": "Both *x_transform* and *y_transform* must be 2D affine transforms"
+      },
+      "before_aspect": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.375
+            ],
+            [
+              0.7,
+              0.37500000005
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          90.0,
+          160.0,
+          1.2000000992884452e-08
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.375
+            ],
+            [
+              0.7,
+              0.37500000005
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_constructor",
+      "orientation": "x",
+      "label": "selected_diagonal/NaN",
+      "affine_values": [
+        1.0,
+        0.0,
+        0.0,
+        "nan",
+        0.0,
+        0.0
+      ],
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "nan"
+            ],
+            [
+              "nan",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "nan"
+            ],
+            [
+              "nan",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_constructor",
+      "orientation": "x",
+      "label": "selected_diagonal/positive infinity",
+      "affine_values": [
+        1.0,
+        0.0,
+        0.0,
+        "inf",
+        0.0,
+        0.0
+      ],
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "inf"
+            ],
+            [
+              "nan",
+              "inf"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "inf"
+            ],
+            [
+              "nan",
+              "inf"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_constructor",
+      "orientation": "x",
+      "label": "selected_diagonal/negative infinity",
+      "affine_values": [
+        1.0,
+        0.0,
+        0.0,
+        "-inf",
+        0.0,
+        0.0
+      ],
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "-inf"
+            ],
+            [
+              "nan",
+              "-inf"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "-inf"
+            ],
+            [
+              "nan",
+              "-inf"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_constructor",
+      "orientation": "x",
+      "label": "selected_translation/NaN",
+      "affine_values": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        "nan"
+      ],
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "nan"
+            ],
+            [
+              "nan",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "nan"
+            ],
+            [
+              "nan",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_constructor",
+      "orientation": "x",
+      "label": "selected_translation/positive infinity",
+      "affine_values": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        "inf"
+      ],
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "inf"
+            ],
+            [
+              "nan",
+              "inf"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "inf"
+            ],
+            [
+              "nan",
+              "inf"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_constructor",
+      "orientation": "x",
+      "label": "selected_translation/negative infinity",
+      "affine_values": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        "-inf"
+      ],
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "-inf"
+            ],
+            [
+              "nan",
+              "-inf"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "-inf"
+            ],
+            [
+              "nan",
+              "-inf"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_failed_setter",
+      "orientation": "x",
+      "label": "NaN offdiagonal 1",
+      "affine_values": [
+        1.0,
+        "nan",
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "Both *x_transform* and *y_transform* must be 2D affine transforms"
+      },
+      "state": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.375
+            ],
+            [
+              0.7,
+              0.37500000005
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          90.0,
+          160.0,
+          1.2000000992884452e-08
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.375
+            ],
+            [
+              0.7,
+              0.37500000005
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_failed_setter",
+      "orientation": "x",
+      "label": "NaN offdiagonal 2",
+      "affine_values": [
+        1.0,
+        0.0,
+        "nan",
+        1.0,
+        0.0,
+        0.0
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "Both *x_transform* and *y_transform* must be 2D affine transforms"
+      },
+      "state": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          320.0,
+          0.02400000000000091
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.375
+            ],
+            [
+              0.7,
+              0.37500000005
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          1.0,
+          4.0
+        ],
+        "active_bbox": [
+          64.0,
+          90.0,
+          160.0,
+          1.2000000992884452e-08
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.2,
+              0.375
+            ],
+            [
+              0.7,
+              0.37500000005
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "failed_setter_then_aspect",
+      "orientation": "y",
+      "error": {
+        "type": "ValueError",
+        "message": "Both *x_transform* and *y_transform* must be 2D affine transforms"
+      },
+      "before_aspect": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.325,
+              0.25
+            ],
+            [
+              0.32500000005,
+              0.75
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          104.0,
+          60.0,
+          1.6000001323845936e-08,
+          120.0
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.325,
+              0.25
+            ],
+            [
+              0.32500000005,
+              0.75
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_constructor",
+      "orientation": "y",
+      "label": "selected_diagonal/NaN",
+      "affine_values": [
+        "nan",
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "nan"
+            ],
+            [
+              "nan",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "nan"
+            ],
+            [
+              "nan",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_constructor",
+      "orientation": "y",
+      "label": "selected_diagonal/positive infinity",
+      "affine_values": [
+        "inf",
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "inf",
+              "nan"
+            ],
+            [
+              "inf",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "inf",
+              "nan"
+            ],
+            [
+              "inf",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_constructor",
+      "orientation": "y",
+      "label": "selected_diagonal/negative infinity",
+      "affine_values": [
+        "-inf",
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "-inf",
+              "nan"
+            ],
+            [
+              "-inf",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "-inf",
+              "nan"
+            ],
+            [
+              "-inf",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_constructor",
+      "orientation": "y",
+      "label": "selected_translation/NaN",
+      "affine_values": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        "nan",
+        0.0
+      ],
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "nan"
+            ],
+            [
+              "nan",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "nan",
+              "nan"
+            ],
+            [
+              "nan",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_constructor",
+      "orientation": "y",
+      "label": "selected_translation/positive infinity",
+      "affine_values": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        "inf",
+        0.0
+      ],
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "inf",
+              "nan"
+            ],
+            [
+              "inf",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "inf",
+              "nan"
+            ],
+            [
+              "inf",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_constructor",
+      "orientation": "y",
+      "label": "selected_translation/negative infinity",
+      "affine_values": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        "-inf",
+        0.0
+      ],
+      "constructor_error": null,
+      "state": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "-inf",
+              "nan"
+            ],
+            [
+              "-inf",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.25,
+        "position": 0.25,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ],
+        "location_transform_class": "BlendedAffine2D",
+        "locator_points": {
+          "value": [
+            [
+              "-inf",
+              "nan"
+            ],
+            [
+              "-inf",
+              "nan"
+            ]
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_failed_setter",
+      "orientation": "y",
+      "label": "NaN offdiagonal 1",
+      "affine_values": [
+        1.0,
+        "nan",
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "Both *x_transform* and *y_transform* must be 2D affine transforms"
+      },
+      "state": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.325,
+              0.25
+            ],
+            [
+              0.32500000005,
+              0.75
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          104.0,
+          60.0,
+          1.6000001323845936e-08,
+          120.0
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.325,
+              0.25
+            ],
+            [
+              0.32500000005,
+              0.75
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "profile": "nonfinite_failed_setter",
+      "orientation": "y",
+      "label": "NaN offdiagonal 2",
+      "affine_values": [
+        1.0,
+        0.0,
+        "nan",
+        1.0,
+        0.0,
+        0.0
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "Both *x_transform* and *y_transform* must be 2D affine transforms"
+      },
+      "state": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_bbox": [
+          0.0,
+          240.0,
+          0.032,
+          240.0
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.325,
+              0.25
+            ],
+            [
+              0.32500000005,
+              0.75
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "positioned_error": null,
+      "after_positioned": {
+        "raw_location": 0.75,
+        "position": 0.75,
+        "alignment": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_bbox": [
+          104.0,
+          60.0,
+          1.6000001323845936e-08,
+          120.0
+        ],
+        "location_transform_class": "BboxTransformTo",
+        "locator_points": {
+          "value": [
+            [
+              0.325,
+              0.25
+            ],
+            [
+              0.32500000005,
+              0.75
+            ]
+          ],
+          "error": null
+        },
+        "same_locator": true,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    }
+  ]
+}

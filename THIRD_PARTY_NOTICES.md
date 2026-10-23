@@ -537,3 +537,9 @@ axes/_secondary_axes.py、axes/_base.py、transforms.py 与既有 Axis/scale 原
 重写。完整原体执行、来源哈希、56 条分项观察及空图形宿主边界见
 [testdata/secondary_position_README.md](testdata/secondary_position_README.md)。
 无新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。
+
+D43 的次轴位置仿射、blend 失败状态和已安装 locator 快照继续依据固定 Matplotlib
+v3.11.2 的完整 axes/_secondary_axes.py、transforms.py 与既有数值宿主以 MoonBit 重写。
+原源哈希、52 条记录及不可变仿射桥边界见
+[testdata/secondary_transform_README.md](testdata/secondary_transform_README.md)。
+没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。

@@ -1928,5 +1928,17 @@ D42 增加数值位置 `SecondaryAxisLocation::Position(Double)`、`set_location
 绘制在父 scale 名称重置后再次执行定位和范围同步，随后捕获本轴的框与对齐用于输出。
 直接 `apply_aspect()` 会恢复构造时的原始框；`prepare_draw()` 保留较早的数值准备阶段。
 具体原源记录、浮点运算顺序和验证状态见
-[次轴位置与对齐](testdata/secondary_position_README.md)。位置 Transform、任意回调改变
+[次轴位置与对齐](testdata/secondary_position_README.md)。通用位置 Transform 图、任意回调改变
 父面板布局、完整 Tick/Text 图元及非有限位置的完整 SVG 行为仍有独立边界。
+
+D43 为 Axes、Figure 和 pyplot 的次轴创建入口，以及 `set_location`，增加可选的
+`transform : Affine2D?`。传入 `Some(affine)` 时，x 次轴使用该仿射的 y 分量，y 次轴使用
+x 分量，另一方向仍沿父面板；仿射输出使用显示坐标。省略参数或传 `None` 会清除此前
+设置的仿射，恢复父面板归一化坐标。
+
+该入口对应原版直接 Affine2D 的分离条件：两个非对角分量都必须为零，包括当前方向未
+使用的分量。负缩放和零缩放可以使用，也不要求逆变换。更新时先保存合法的请求位置，
+再检查仿射；检查失败会保留新请求位置和旧 locator，后续定位继续使用旧位置与旧仿射。
+一次定位开始后，回调安装的新 locator 留给后续定位。具体参考和验证状态见
+[次轴位置仿射](testdata/secondary_transform_README.md)。这里使用不可变仿射值；原版可变
+Transform 别名、通用或非线性变换图仍有独立边界。

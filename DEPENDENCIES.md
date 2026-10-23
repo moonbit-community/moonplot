@@ -380,3 +380,12 @@ source-only；完整来源、typed callback 边界与复现见
 56 条分项记录、41 个 typed 场景、7 条 source-only 参数记录与宿主边界见
 [testdata/secondary_position_README.md](testdata/secondary_position_README.md)。
 项目不分发 Python/NumPy；既有 Matplotlib 与 NumPy 许可继续适用。
+
+## D43 次坐标轴位置仿射
+
+复用现有不可变 Affine2D、blended transform、BBox 和 D42 定位/渲染钩子；pyplot 仅增加
+模块内 transforms 依赖，没有新增分发依赖。独立参考执行固定完整 Secondary、原生
+blend factory、locator 和 Bbox；52 条记录含 38 个 typed 场景与 14 条 source-only，
+其原生类来源、可变别名与非有限几何边界见
+[testdata/secondary_transform_README.md](testdata/secondary_transform_README.md)。
+没有替换全局变换数学或引入新的运行时；既有 Matplotlib 与 NumPy 许可继续适用。

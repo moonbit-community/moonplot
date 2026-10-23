@@ -84,7 +84,7 @@ MoonBit 工具链映射：Matplotlib 的 `extend` 参数/属性在 MoonBit 端�
 | 向量场 | `quiver`, `barbs`, `streamplot` | `quiver`/`barbs`/`streamplot` 原型（规则网格）；`barbs_with_options` 已支持 half/full/flag 增量、rounding、flip、calm fill 和 tail/middle/tip pivot；streamplot 已支持 1D 与 meshgrid 风格二维坐标、独立 density 轴、显式起点、积分方向、长度限制、积分时断裂占据、按弧长箭头、自适应 RK12、网格 linewidth/color、显示空间箭头、常用 FancyArrowPatch 样式和 `StreamplotSet` 返回对象 |
 | 统计辅助 | `acorr`, `xcorr`, `ecdf`, `hexbin`, `spy` | `acorr`/`xcorr`/`ecdf`/`hexbin`/`spy` 原型；`acorr`/`xcorr` 支持可调用 `detrend`、`detrend_none`、`detrend_mean` 和 `detrend_linear`，会校验 detrend 结果长度与有限值；`hexbin` 支持 `gridsize`、`mincnt`、`extent` 裁剪、`marginals` 边际计数柱、线性/对数/对称对数坐标空间、线性或对数色阶、`edgecolor`/`linewidth`、`values` 的 `mean`/`sum`/`min`/`max`/`count` 聚合和 `hexbin_reducer` 自定义聚合；`spy` 支持 `precision`、`markersize`、`origin`、`aspect=equal/auto` 和常用 marker 形状；置信区间、复数数值和 masked array 输入仍待迁移 |
 | 几何辅助 | `axhline`, `axvline`, `axline`, `axhspan`, `axvspan`, `hlines`, `vlines` | `axhline`/`axvline`/`axline`/`axhspan`/`axvspan`/`hlines`/`vlines` 原型；这些单色入口使用 Axes 属性颜色循环，显式颜色不推进循环；`axline` 支持两点或点加斜率，线性坐标按数据范围裁剪，对数坐标的两点形式按显示空间裁剪 |
-| 坐标和标注 | `text`, `annotate`, `arrow`, `secondary_xaxis`, `secondary_yaxis` | `text`/`annotate`/`arrow` 原型；`annotate` 支持数据坐标、`axes fraction`/`figure fraction`、SVG `display`、`offset points`/`offset pixels`、偏移、箭头、`fontsize` 和 `straight`/`arc3`/`angle` 连接器；次坐标轴支持多个实例、前向/逆向函数、固定刻度、独立 locator/formatter、标签、位置和 SVG 标签；D40独立默认四槽/视图、parent-name缓存、旧context范围设置与创建序/捕获placement已验收，见testdata/secondary_lifecycle_README.md；D41已接入set_functions/identity reset与同名已安装变换缓存；D42数值位置/set_location/set_alignment及完整draw第二定位阶段已验收；位置Transform、完整连接器参数和富文本仍待迁移 |
+| 坐标和标注 | `text`, `annotate`, `arrow`, `secondary_xaxis`, `secondary_yaxis` | `text`/`annotate`/`arrow` 原型；`annotate` 支持数据坐标、`axes fraction`/`figure fraction`、SVG `display`、`offset points`/`offset pixels`、偏移、箭头、`fontsize` 和 `straight`/`arc3`/`angle` 连接器；次坐标轴支持多个实例、前向/逆向函数、固定刻度、独立 locator/formatter、标签、位置和 SVG 标签；D40独立默认四槽/视图、parent-name缓存、旧context范围设置与创建序/捕获placement已验收，见testdata/secondary_lifecycle_README.md；D41已接入set_functions/identity reset与同名已安装变换缓存；D42数值位置/set_location/set_alignment及完整draw第二定位阶段已验收；D43位置Affine参数已验收；通用Transform图、完整连接器参数和富文本仍待迁移 |
 | 三角网格 | `Triangulation`, `triplot`, `tripcolor`, `tricontour`, `tricontourf` | `scene.triangulation`/`pyplot.triangulation` 支持显式索引或自动 Delaunay，派生唯一边、邻接和逐面 mask；`triplot_triangulation`、`tripcolor_triangulation`、`tricontour_triangulation`、`tricontourf_triangulation` 可复用网格；`Triangulation::get_trifinder`/`pyplot.get_trifinder` 支持点和批量查询，返回包含面的索引或 `-1`；三角 contour 线按共享 crossing 拼成连续 polyline，filled band 按边界消除拼成外环/孔洞环，非有限 z 值会被拒绝 |
 
 ## 后端
@@ -145,6 +145,14 @@ D42 次轴位置与对齐已验收：21 个新增注册测试（2 正式组含 4
 两个可选钩子，独立 IR 保留旧回退。位置 Transform、任意父布局回调、完整 Tick/Text
 对象和非有限位置完整 SVG 仍有边界，详见
 [testdata/secondary_position_README.md](testdata/secondary_position_README.md)。
+
+D43 次轴位置仿射已验收：16 个新增注册测试（2 正式组含 38 场景、14 个定向回归），
+完整四目标 wasm/wasm-gc/native 各 22038 项、JS 22045 项，全部通过。52 条原源记录中
+14 条保留为 source-only，原 34 条准备记录逐字段不变。Axes/Figure/pyplot 与 set_location
+接通不可变 Affine2D 可选参数，保留 whole-matrix 分离检查、失败后新请求位置/旧 locator、
+None 清除及入口快照时序。仅 Scene/pyplot 两份接口增加可选参数；通用 Transform 图、
+原生可变别名与非有限位置完整 SVG 仍有边界，见
+[testdata/secondary_transform_README.md](testdata/secondary_transform_README.md)。
 
 ## 完成标准
 
