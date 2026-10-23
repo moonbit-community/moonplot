@@ -10,30 +10,19 @@ pub(all) enum SecondaryAxisLocation {
 ///|
 /// A coordinate axis whose values are derived from a primary axis.
 pub struct SecondaryAxis {
-  priv formatter_axis_binding : @ticker.FormatterAxisBinding
+  priv numeric_axis : @axis.Axis
+  priv draw_order : Int32
   priv mut formatter_geometry : (Double, Double)
   priv mut formatter_original_geometry : (Double, Double)
-  priv mut formatter_view : (Double, Double)
-  priv mut named_formatter : @ticker.BaseFormatter?
-  priv mut minor_named_formatter : @ticker.BaseFormatter?
-  priv formatter_messages : Array[String]
   priv mut parent_axis : @axis.Axis?
-  priv mut minor_locator : @ticker.MinorLocator?
-  priv mut remove_minor_overlap : Bool
-  priv mut tick_label_size : Double
+  priv mut parent_scale_name : String?
+  priv mut ticks_set : Bool
+  priv mut source_ticks_current : Bool
+  priv mut legacy_sampling : Bool
   location : SecondaryAxisLocation
   forward : (Double) -> Double
   inverse : (Double) -> Double
   mut label : String?
-  mut tick_count : Int32
-  mut fixed_ticks : Array[Double]?
-  mut locator : @ticker.Locator?
-  mut formatter : @ticker.Formatter?
-}
-
-///|
-fn copy_secondary_locator(locator : @ticker.Locator) -> @ticker.Locator {
-  locator.copy()
 }
 
 ///|
@@ -41,47 +30,39 @@ fn secondary_axis(
   location : SecondaryAxisLocation,
   forward : (Double) -> Double,
   inverse : (Double) -> Double,
+  draw_order~ : Int32 = 0,
 ) -> SecondaryAxis {
+  let horizontal = location is (Top | Bottom)
   let result : SecondaryAxis = {
-    formatter_axis_binding: @ticker.FormatterAxisBinding::new(),
+    numeric_axis: @axis.axis(horizontal~),
+    draw_order,
     formatter_geometry: (0.0, 1.0),
     formatter_original_geometry: (0.0, 1.0),
-    formatter_view: (0.0, 1.0),
-    named_formatter: None,
-    minor_named_formatter: None,
-    formatter_messages: [],
     parent_axis: None,
-    minor_locator: None,
-    remove_minor_overlap: true,
-    tick_label_size: 10.0,
+    parent_scale_name: None,
+    ticks_set: false,
+    source_ticks_current: false,
+    legacy_sampling: false,
     location,
     forward,
     inverse,
     label: None,
-    tick_count: 6,
-    fixed_ticks: None,
-    locator: None,
-    formatter: None,
   }
-  result.formatter_axis_binding.bind_view_interval(() => {
-    let (lower, upper) = result.formatter_view
-    @ticker.FormatterViewInterval::NdArray(
-      @ticker.TickValues::from_array([lower, upper]),
-    )
-  })
-  result.formatter_axis_binding.bind_short_format_delta(value => {
-    let (lower, upper) = result.formatter_view
-    let (origin, length) = result.formatter_geometry
-    @axis.short_format_pixel_delta(
-      value,
-      lower,
-      upper,
-      origin,
-      length,
-      value => result.numeric_transform(value),
-      value => result.numeric_inverse(value),
-    )
-  })
+  result.numeric_axis.bind_data_interval(() => (1.0 / 0.0, -1.0 / 0.0))
+  result.numeric_axis.bind_minpos(() => 1.0 / 0.0)
+  result.numeric_axis.bind_shared_minpos(() => [1.0 / 0.0])
+  result.numeric_axis.bind_autoscale_minpos(() => [1.0 / 0.0])
+  result.numeric_axis.bind_tick_geometry(
+    () => {
+      let (origin, length) = result.formatter_geometry
+      // The source applies the inverse affine's already-rounded reciprocal.
+      // Dividing each endpoint by 72 changes the y constructor's tick space.
+      let inverse_dpi = 1.0 / 72.0
+      ((origin + length) * inverse_dpi - origin * inverse_dpi) * 72.0
+    },
+    horizontal,
+  )
+  result.numeric_axis.bind_formatter_geometry(() => result.formatter_geometry)
   result
 }
 
@@ -111,16 +92,21 @@ pub fn SecondaryAxis::label(self : SecondaryAxis) -> String? {
 }
 
 ///|
+/// Select the legacy parent-grid sampler only while no explicit locator owns ticks.
 pub fn SecondaryAxis::set_tick_count(
   self : SecondaryAxis,
   value : Int32,
 ) -> Unit {
-  self.tick_count = if value < 2 { 2 } else { value }
+  self.numeric_axis.set_tick_count(value)
+  if self.numeric_axis.locator() is None {
+    self.legacy_sampling = true
+    self.source_ticks_current = false
+  }
 }
 
 ///|
 pub fn SecondaryAxis::tick_count(self : SecondaryAxis) -> Int32 {
-  self.tick_count
+  self.numeric_axis.tick_count()
 }
 
 ///|
@@ -135,23 +121,29 @@ pub fn SecondaryAxis::set_ticks(
       )
     }
   }
-  self.fixed_ticks = Some(values.copy())
-  self.locator = None
+  self.numeric_axis.set_source_ticks(values)
+  self.ticks_set = true
+  self.source_ticks_current = true
+  self.legacy_sampling = false
 }
 
 ///|
+/// Return a copy of the currently retained explicit set_ticks positions.
 pub fn SecondaryAxis::ticks(self : SecondaryAxis) -> Array[Double]? {
-  match self.fixed_ticks {
-    Some(values) => Some(values.copy())
-    None => None
+  if !self.source_ticks_current {
+    return None
+  }
+  match self.numeric_axis.locator() {
+    Some(@ticker.Locator::NamedFixed(value)) =>
+      // set_source_ticks owns this buffer; only checked element mutation is
+      // exposed through its view, so this compatibility projection is valid.
+      Some(try! value.locations().to_array())
+    _ => None
   }
 }
 
 ///|
-/// Set the locator used to generate secondary tick values.
-///
-/// Locator values live in secondary-axis coordinates. The SVG backend maps
-/// each generated value back through `inverse` before placing the tick.
+/// Install a locator in the secondary axis' own coordinates and stable context.
 pub fn SecondaryAxis::set_locator(
   self : SecondaryAxis,
   locator : @ticker.Locator,
@@ -167,54 +159,41 @@ pub fn SecondaryAxis::set_locator(
       }
     _ => ()
   }
-  self.locator = Some(copy_secondary_locator(locator))
-  self.fixed_ticks = None
-  if locator is @ticker.Locator::Index(value) {
-    value.bind_data_interval(fn() { (1.0 / 0.0, -1.0 / 0.0) })
-  }
-  self.bind_numeric_locator_context(locator)
+  self.numeric_axis.set_locator(locator)
+  self.source_ticks_current = false
+  self.legacy_sampling = false
 }
 
 ///|
-/// Return the configured secondary locator, if any.
 pub fn SecondaryAxis::locator(self : SecondaryAxis) -> @ticker.Locator? {
-  match self.locator {
-    Some(value) => Some(copy_secondary_locator(value))
-    None => None
-  }
+  self.numeric_axis.locator()
 }
 
 ///|
-/// Clear the secondary locator and restore tick-count sampling.
+/// Explicit convenience extension restoring the legacy parent-grid sampler.
 pub fn SecondaryAxis::clear_locator(self : SecondaryAxis) -> Unit {
-  self.locator = None
+  self.numeric_axis.clear_locator()
+  self.source_ticks_current = false
+  self.legacy_sampling = true
 }
 
 ///|
-/// Set the formatter used for secondary tick labels.
 pub fn SecondaryAxis::set_formatter(
   self : SecondaryAxis,
   formatter : @ticker.Formatter,
 ) -> Unit {
-  self.formatter = Some(formatter.copy())
-  self.named_formatter = None
-  self.formatter_messages.clear()
+  self.numeric_axis.set_formatter(formatter)
 }
 
 ///|
-/// Return the configured secondary formatter, if any.
 pub fn SecondaryAxis::formatter(self : SecondaryAxis) -> @ticker.Formatter? {
-  match self.formatter {
-    Some(value) => Some(value.copy())
-    None => None
-  }
+  self.numeric_axis.formatter()
 }
 
 ///|
-/// Clear the secondary formatter and restore numeric labels.
+/// Clear both major formatter roles and restore explicit plain numeric labels.
 pub fn SecondaryAxis::clear_formatter(self : SecondaryAxis) -> Unit {
-  self.formatter = None
-  self.named_formatter = None
+  self.numeric_axis.clear_formatter()
 }
 
 ///|
@@ -232,7 +211,13 @@ pub fn Axes::secondary_xaxis(
         message="secondary x axis location must be top or bottom",
       )
   }
-  let result = secondary_axis(location, forward, inverse)
+  let result = secondary_axis(
+    location,
+    forward,
+    inverse,
+    draw_order=self.state.val.secondary_x.length() +
+      self.state.val.secondary_y.length(),
+  )
   result.parent_axis = Some(self.x_axis())
   result.formatter_original_geometry = (0.0, self.figure.width.to_double())
   result.formatter_geometry = result.formatter_original_geometry
@@ -256,7 +241,13 @@ pub fn Axes::secondary_yaxis(
         message="secondary y axis location must be left or right",
       )
   }
-  let result = secondary_axis(location, forward, inverse)
+  let result = secondary_axis(
+    location,
+    forward,
+    inverse,
+    draw_order=self.state.val.secondary_x.length() +
+      self.state.val.secondary_y.length(),
+  )
   result.parent_axis = Some(self.y_axis())
   result.formatter_original_geometry = (
     self.figure.height.to_double(),

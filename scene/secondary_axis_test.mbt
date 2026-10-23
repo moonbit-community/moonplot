@@ -11,7 +11,7 @@ test "secondary axes render transformed ticks and labels" {
   assert_true(svg.contains("double x"))
   assert_true(svg.contains("shifted y"))
   assert_true(svg.contains(">4<"))
-  assert_true(svg.contains(">11<"))
+  assert_true(svg.contains(">11.0<"))
 }
 
 ///|
@@ -42,7 +42,7 @@ test "multiple secondary axes render independently" {
   assert_true(svg.contains("y triple"))
   assert_true(svg.contains("y shifted"))
   assert_true(svg.contains(">12<"))
-  assert_true(svg.contains(">20<"))
+  assert_true(svg.contains(">20.00<"))
 }
 
 ///|

@@ -561,6 +561,8 @@ test "Logit original secondary own function view and empty minpos 0" {
   let secondary = axes.secondary_xaxis(value => value * 2.0 + 5.0, value => {
     (value - 5.0) / 2.0
   })
+  // Match source host _set_lims before custom locator installation.
+  secondary.apply_aspect()
   let major = @ticker.LogitLocator::new(
     minor=false,
     nbins=Some(@ticker.MaxNBins::Count(4)),
@@ -590,6 +592,8 @@ test "Logit original secondary own function view and empty minpos 1" {
   let secondary = axes.secondary_xaxis(value => value * 2.0, value => {
     value / 2.0
   })
+  // Match source host _set_lims before custom locator installation.
+  secondary.apply_aspect()
   let major = @ticker.LogitLocator::new(
     minor=false,
     nbins=Some(@ticker.MaxNBins::Count(4)),
@@ -620,6 +624,8 @@ test "Logit original secondary own function view and empty minpos 2" {
   let secondary = axes.secondary_yaxis(value => value * 2.0 + 5.0, value => {
     (value - 5.0) / 2.0
   })
+  // Match source host _set_lims before custom locator installation.
+  secondary.apply_aspect()
   let major = @ticker.LogitLocator::new(
     minor=false,
     nbins=Some(@ticker.MaxNBins::Count(4)),
@@ -649,6 +655,8 @@ test "Logit original secondary own function view and empty minpos 3" {
   let secondary = axes.secondary_yaxis(value => value * 2.0, value => {
     value / 2.0
   })
+  // Match source host _set_lims before custom locator installation.
+  secondary.apply_aspect()
   let major = @ticker.LogitLocator::new(
     minor=false,
     nbins=Some(@ticker.MaxNBins::Count(4)),

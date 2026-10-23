@@ -301,7 +301,8 @@ test "numeric secondary axes use parent direction length and their own rendered 
   defer { @config.set_classic_mode(previous) }
   @config.set_classic_mode(false)
   let figure = @scene.figure(width=480, height=240)
-  let axes = figure.add_axes(0.0, 0.0, 0.5, 0.5)
+  // This origin preserves the source supplied physical lengths through the real affine.
+  let axes = figure.add_axes(0.25, 0.25, 0.5, 0.5)
   axes.set_x_limits(0.0, 20.0)
   axes.set_y_limits(0.0, 20.0)
   let secondary_x = axes.secondary_xaxis(x => x * 2.0, x => x / 2.0)
@@ -314,6 +315,8 @@ test "numeric secondary axes use parent direction length and their own rendered 
   secondary_y.set_locator(y_auto.as_locator())
   secondary_x.set_formatter(@ticker.format_str_formatter("ctx-secondary-x=%.1f"))
   secondary_y.set_formatter(@ticker.format_str_formatter("ctx-secondary-y=%.1f"))
+  // Source physical profile is positioned; constructor geometry is full figure.
+  ignore(figure.to_svg_checked())
   assert_eq(secondary_x.get_tick_space(), 4.0)
   assert_eq(secondary_y.get_tick_space(), 3.0)
   axes.x_axis().set_tick_label_size(40.0)
@@ -345,6 +348,9 @@ test "numeric calls resolve automatic views and copied callbacks propagate check
   let failing = @ticker.LinearLocator::new(numticks=2)
   axes.set_x_locator(failing.as_locator())
   @config.set_axes_autolimit_mode("round_numbers")
+  // Replacing a locator or changing rc does not request a view recomputation.
+  // The prior call consumed the plot request; explicitly enter view_limits.
+  axes.request_autoscale_view(axis="x", tight=false)
   assert_true(try { ignore(copied.call()); false } catch { @core.DataError::InvalidTicks(..) => true; _ => false })
   @config.set_axes_autolimit_mode("data")
   verify_numeric_axis_values(copied.call(), __AUTO8__)
@@ -394,7 +400,8 @@ test "numeric handle rebound to secondary reads secondary range and label size" 
   defer { @config.set_classic_mode(previous) }
   @config.set_classic_mode(false)
   let figure = @scene.figure(width=480, height=240)
-  let axes = figure.add_axes(0.0, 0.0, 0.5, 0.5)
+  // This origin preserves the source supplied physical lengths through the real affine.
+  let axes = figure.add_axes(0.25, 0.0, 0.5, 0.5)
   axes.set_x_limits(0.0, 20.0)
   axes.set_y_limits(0.0, 1.0)
   let auto = @ticker.AutoLocator::new()
@@ -404,8 +411,9 @@ test "numeric handle rebound to secondary reads secondary range and label size" 
   secondary.set_tick_label_size(20.0)
   secondary.set_locator(auto.as_locator())
   secondary.set_formatter(@ticker.format_str_formatter("ctx-rebound-secondary=%.1f"))
-  verify_numeric_axis_values(auto.call(), __SECONDARY_OWNER__)
+  // Resolve positioned frame and mapped own view before the direct owner query.
   let svg = figure.to_svg_checked()
+  verify_numeric_axis_values(auto.call(), __SECONDARY_OWNER__)
   assert_true(!svg.contains(">ctx-primary="))
   assert_eq(svg.split(">ctx-rebound-secondary=").count() - 1, 5)
   axes.set_x_locator(auto.as_locator())

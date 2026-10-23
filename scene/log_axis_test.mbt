@@ -162,7 +162,7 @@ test "Log actual axis physical budgets retain integer transport for huge exponen
 }
 
 ///|
-test "Log secondary checked SVG keeps its empty minpos and permits recovery by replacing the locator" {
+test "Log secondary finalizes its own view before locator queries and propagates minor errors" {
   let figure = @scene.figure(width=240, height=120)
   let axes = figure.axes()
   axes.plot([0.001, 100.0], [1.0, 1.0])
@@ -171,15 +171,11 @@ test "Log secondary checked SVG keeps its empty minpos and permits recovery by r
   let secondary = axes.secondary_xaxis(value => value, value => value)
   let major = @ticker.LogLocator::new()
   secondary.set_locator(major.as_locator())
-  assert_true(
-    try {
-      ignore(figure.to_svg_checked())
-      false
-    } catch {
-      @core.DataError::InvalidTicks(..) => true
-      _ => false
-    },
-  )
+  // Source _set_lims uses the old major LogLocator.nonsingular first. Its
+  // empty-data minpos fallback makes the view positive before the tick query.
+  ignore(figure.to_svg_checked())
+  let major_view = major.view_interval_provider().unwrap()()
+  assert_eq(major_view, (1.0e-300, 100.0))
   secondary.set_locator(
     @ticker.FixedLocator::new([1.0, 10.0, 100.0]).as_locator(),
   )

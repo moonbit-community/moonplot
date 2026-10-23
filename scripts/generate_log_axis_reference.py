@@ -482,11 +482,13 @@ def generated_scene(payload):
     for index, row in enumerate(payload["secondary"]):
         name = row["name"]
         code += f'\n///|\ntest "Log original secondary empty minpos {index}" {{\n'
-        code += "  let classic = @config.classic_mode()\n  defer @config.set_classic_mode(classic)\n  @config.set_classic_mode(false)\n  let figure = @scene.figure(width=240, height=120)\n  let axes = figure.add_axes(0.0, 0.0, 1.0, 1.0)\n  axes.set_" + name + "_limits(1.0, 100.0)\n"
-        if row["parent_scale"] == "log":
-            code += "  axes." + name + "_axis().set_scale(@scale.log_scale())\n"
-        shift = num(row["shift"])
-        code += "  let secondary = axes.secondary_" + name + "axis(value => value + (" + shift + "), value => value - (" + shift + "))\n  let locator = @ticker.LogLocator::new()\n  secondary.set_locator(locator.as_locator())\n"
+        # The original adapter uses raw set_lim storage and records scale names.
+        # It does not run a Secondary constructor or a limit finalizer.
+        code += "  // Controlled original raw-view host, independent of constructor/draw finalization.\n"
+        code += "  let classic = @config.classic_mode()\n  defer @config.set_classic_mode(classic)\n  @config.set_classic_mode(false)\n  let axis = @axis.axis()\n  axis.set_scale(@scale.log_scale())\n"
+        code += "  axis.set_tick_layout(" + ("120.0, true" if name == "x" else "80.0, false") + ")\n"
+        code += "  axis.bind_view_interval(() => (" + ", ".join(num(v) for v in row["view"]) + "))\n  axis.bind_minpos(() => 1.0 / 0.0)\n  axis.bind_shared_minpos(() => [1.0 / 0.0])\n"
+        code += "  let locator = @ticker.LogLocator::new()\n  axis.set_locator(locator.as_locator())\n"
         code += verify("locator.call()", row["call"], "verify_log_axis_numbers")
         args = ", ".join(num(v) for v in row["view"])
         code += verify("{ let pair = locator.nonsingular(" + args + "); [pair.0, pair.1] }", row["nonsingular"], "verify_log_axis_numbers")

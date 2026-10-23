@@ -664,6 +664,8 @@ test "AutoMinor original secondary own major view scale 0" {
   let secondary = axes.secondary_xaxis(value => value * 2.0 + 10.0, value => {
     (value - 10.0) / 2.0
   })
+  // Match source stage host _set_lims before minor locator installation.
+  secondary.apply_aspect()
   secondary.set_locator(
     @ticker.FixedLocator::new([12.0, 14.0, 15.00005]).as_locator(),
   )
@@ -691,6 +693,8 @@ test "AutoMinor original secondary own major view scale 1" {
   let secondary = axes.secondary_xaxis(value => value * 2.0 + 10.0, value => {
     (value - 10.0) / 2.0
   })
+  // Match source stage host _set_lims before minor locator installation.
+  secondary.apply_aspect()
   secondary.set_locator(
     @ticker.FixedLocator::new([12.0, 14.0, 15.00005]).as_locator(),
   )
@@ -719,6 +723,8 @@ test "AutoMinor original secondary own major view scale 2" {
   let secondary = axes.secondary_xaxis(value => value * 2.0 + 10.0, value => {
     (value - 10.0) / 2.0
   })
+  // Match source stage host _set_lims before minor locator installation.
+  secondary.apply_aspect()
   secondary.set_locator(
     @ticker.FixedLocator::new([12.0, 14.0, 15.00005]).as_locator(),
   )
@@ -747,6 +753,8 @@ test "AutoMinor original secondary own major view scale 3" {
   let secondary = axes.secondary_xaxis(value => value * 2.0 + 10.0, value => {
     (value - 10.0) / 2.0
   })
+  // Match source stage host _set_lims before minor locator installation.
+  secondary.apply_aspect()
   secondary.set_locator(
     @ticker.FixedLocator::new([12.0, 14.0, 15.00005]).as_locator(),
   )
@@ -774,6 +782,8 @@ test "AutoMinor original secondary own major view scale 4" {
   let secondary = axes.secondary_yaxis(value => value * 2.0 + 10.0, value => {
     (value - 10.0) / 2.0
   })
+  // Match source stage host _set_lims before minor locator installation.
+  secondary.apply_aspect()
   secondary.set_locator(
     @ticker.FixedLocator::new([12.0, 14.0, 15.00005]).as_locator(),
   )
@@ -801,6 +811,8 @@ test "AutoMinor original secondary own major view scale 5" {
   let secondary = axes.secondary_yaxis(value => value * 2.0 + 10.0, value => {
     (value - 10.0) / 2.0
   })
+  // Match source stage host _set_lims before minor locator installation.
+  secondary.apply_aspect()
   secondary.set_locator(
     @ticker.FixedLocator::new([12.0, 14.0, 15.00005]).as_locator(),
   )
@@ -829,6 +841,8 @@ test "AutoMinor original secondary own major view scale 6" {
   let secondary = axes.secondary_yaxis(value => value * 2.0 + 10.0, value => {
     (value - 10.0) / 2.0
   })
+  // Match source stage host _set_lims before minor locator installation.
+  secondary.apply_aspect()
   secondary.set_locator(
     @ticker.FixedLocator::new([12.0, 14.0, 15.00005]).as_locator(),
   )
@@ -857,6 +871,8 @@ test "AutoMinor original secondary own major view scale 7" {
   let secondary = axes.secondary_yaxis(value => value * 2.0 + 10.0, value => {
     (value - 10.0) / 2.0
   })
+  // Match source stage host _set_lims before minor locator installation.
+  secondary.apply_aspect()
   secondary.set_locator(
     @ticker.FixedLocator::new([12.0, 14.0, 15.00005]).as_locator(),
   )

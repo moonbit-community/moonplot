@@ -265,7 +265,7 @@ def generated_scene(payload):
         code+='}\n'
     for index,row in enumerate(payload['secondary']):
         name=row['name']
-        code+=f'\n///|\ntest "Asinh original secondary own function view and raw overlap {index}" {{\n  let figure = @scene.figure()\n  let axes = figure.axes()\n  axes.set_'+name+'_scale(@scale.asinh_scale())\n  axes.set_'+name+'_limits(-100.0, 100.0)\n  let secondary = axes.secondary_'+name+'axis(value => value * 2.0 + 5.0, value => (value - 5.0) / 2.0)\n  let major = '+locator()+'\n  let minor = '+locator((2,5))+'\n  secondary.set_locator(major.as_locator())\n  secondary.set_minor_locator(minor.as_minor_locator())\n'
+        code+=f'\n///|\ntest "Asinh original secondary own function view and raw overlap {index}" {{\n  let figure = @scene.figure()\n  let axes = figure.axes()\n  axes.set_'+name+'_scale(@scale.asinh_scale())\n  axes.set_'+name+'_limits(-100.0, 100.0)\n  let secondary = axes.secondary_'+name+'axis(value => value * 2.0 + 5.0, value => (value - 5.0) / 2.0)\n  // Match source host _set_lims before custom locator installation.\n  secondary.apply_aspect()\n  let major = '+locator()+'\n  let minor = '+locator((2,5))+'\n  secondary.set_locator(major.as_locator())\n  secondary.set_minor_locator(minor.as_minor_locator())\n'
         code+='  verify_asinh_axis_source(major.call(), '+arr(row['raw_major']['values'])+')\n  verify_asinh_axis_source(minor.call(), '+arr(row['raw_minor']['values'])+')\n  verify_asinh_axis_source(secondary.tick_values_checked(), '+arr(row['raw_major']['values'])+')\n  verify_asinh_axis_source(secondary.minor_tick_values_checked(), '+arr(row['filtered']['values'])+')\n}\n'
     return formatted(code)
 

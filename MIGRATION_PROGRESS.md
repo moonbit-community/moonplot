@@ -47,7 +47,7 @@ D33 完整验收结果为 wasm/wasm-gc/native 各 21700/21700，JS 21707/21707�
 | 数据/数组、颜色、变换与路径 | 15 | 45%–65% | `core`/`core/colors`/`transforms` 有公开接口与测试；完整 ArrayLike/广播、非仿射/失效传播等未齐 |
 | Figure/Axes/Artist、布局、图例、表格、颜色条 | 17 | 50%–70% | 多轴/网格/共享/位置/aspect 与 SVG 已接入；Artist 为专用模型，完整可变对象层级、约束布局等未齐 |
 | 二维图表、图像、等值线、三角网格与统计 | 18 | 65%–80% | COMPATIBILITY 中多组图表已有模型与 SVG 输出；不少条目仍是原型，参数和对象行为未全面深度验收 |
-| scale/ticker/dates/category/units | 12 | 80%–90% | D01–D37 原源切片已验收，含数值 scale 默认安装/clear/autoscale；通用 units、日期/类别生命周期和 secondary 等仍缺 |
+| scale/ticker/dates/category/units | 12 | 80%–90% | D01–D40 原源切片已验收，含默认安装/clear/autoscale、内建Date/Category与secondary默认/独立视图；任意registry、通用Transform和动态协议等仍缺 |
 | SVG 与渲染 IR | 8 | 70%–85% | 唯一完整可用的当前绘图输出链，支持路径/图像/文字等；完整后端协议和高级文本测量未齐 |
 | pyplot、配置与 style | 7 | 40%–60% | 门面/当前 Figure 与 Axes/部分 rc 已接入；完整状态函数、主题与 rcParams 未齐，不按转发函数数量累计完成度 |
 | Text、mathtext 与字体系统 | 8 | 10%–25% | 有基本文字/标注和数学标签字符串；完整数学排版、FreeType 与字体发现/测量未实现 |
@@ -115,3 +115,11 @@ D39 已保留每条 Line 的逐坐标 Numeric/Category/Date 原始输入，接�
 public lazy Line API 的 source-only 记录。四目标 nonJS21952 / JS21959 全过，41份公开
 接口无变化。secondary默认生命周期、任意registry及完整可变Artist仍待迁移，继续保留
 约50%（40–60%）宽估算，不按本批测试数量换算百分点。
+
+D40 已验收次坐标轴独立 Axis 的默认四槽/标志、stored view、parent-name 缓存和旧上下文
+范围设置顺序；SVG 保留创建序、每子轴已捕获变换及旧 formatter 的实际 own view。
+新增38注册测试=2正式组+36定向回归；53正式源观察分开记录宿主边界。第二轮完整四目标
+仅余两项旧物理夹具失败，原源确认后单文件86项四目标补验全过，累计nonJS21990/JS21997
+全覆盖，所有旧JSON不变。公开 set_functions、Transform/location 参数、任意registry 与
+完整可变 Artist 仍待迁移；本片补齐既有能力组的生命周期，不据测试数量上调约50%
+（40–60%）的宽估算。

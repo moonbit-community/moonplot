@@ -467,6 +467,7 @@ def generated_axes(payload):
             code += "  axes." + name + "_axis().set_scale(@scale.log_scale())\n"
         code += "  axes.set_" + name + "_locator(@ticker.FixedLocator::new([1.0, 2.0, 3.0]).as_locator())\n"
         code += "  let secondary = axes.secondary_" + name + "axis(value => value * 2.0 + 10.0, value => (value - 10.0) / 2.0)\n"
+        code += "  // Match source stage host _set_lims before minor locator installation.\n  secondary.apply_aspect()\n"
         code += "  secondary.set_locator(@ticker.FixedLocator::new(" + array(row["major_values"]) + ").as_locator())\n"
         code += "  let minor = @ticker.AutoMinorLocator::new(ndivs=Some(@config.MinorTickDivisions::Number(2.0)))\n  secondary.set_minor_locator(minor.as_minor_locator())\n"
         code += "  verify_auto_minor_axis_numbers(minor.call(), " + array(row["raw"]["values"]) + ")\n"

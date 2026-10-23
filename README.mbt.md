@@ -1894,3 +1894,15 @@ dataLim 并仅请求事件方向；晚失败保留前面 Line 和单位映射已
 Scatter 和生成的 contour/streamplot 显示线继续使用已转换几何。公开 Artist 和 render
 模型仍为数值快照，未新增可变 Line2D 句柄或 lazy getter/setter。原源对照与边界见
 [testdata/line_units_README.md](testdata/line_units_README.md)。
+
+D40 为每个次坐标轴保留独立的数值 Axis、默认 locator/formatter、四个默认标志和视图。
+非 log 父轴的子轴初始视图为 `[0,1]`；`apply_aspect` 同步父范围，绘制时先按旧子轴
+上下文设置范围，再按父 scale 名称决定是否重装默认对象。只有父轴名称恰为 `log`
+才安装 functionlog。`set_ticks` 的历史标志在直接替换 locator 后仍保留；父 scale 名称
+变化时恢复的是当前 locator 的刻度，而不是旧的 `set_ticks` 参数。
+
+SVG 按次轴创建顺序准备完整主次刻度批次，使用各自已经安装的变换与独立视图放置刻度。
+显式 `set_tick_count` / `clear_locator` 采样仍是便利扩展。旧可变 `tick_count`、`fixed_ticks`、
+`locator`、`formatter` 字段已收束为现有 getter/setter，避免形成两份状态。
+完整源构造器、物理尺寸、错误阶段及尚未覆盖的 Transform/GUI 协议见
+[次坐标轴生命周期](testdata/secondary_lifecycle_README.md)。本片行为验收结果见执行检查点。

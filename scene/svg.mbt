@@ -246,10 +246,26 @@ fn to_render_secondary_axis(axis : SecondaryAxis) -> @render.SecondaryAxis {
       axis.formatter_tick_locations_checked(minor=true)
     }),
     tick_label_size=axis.tick_label_size(),
+    draw_order=Some(axis.draw_order),
     minor_locator=axis.minor_locator(),
     minor_ticks_provider=Some(() => axis.minor_tick_values_checked()),
     synchronize_view_provider=Some(() => axis.synchronize_formatter_frame()),
-    formatter_view_provider=Some(() => axis.formatter_view),
+    prepare_draw_provider=Some(() => axis.prepare_draw()),
+    locator_provider=Some(() => axis.locator()),
+    minor_locator_provider=Some(() => axis.minor_locator()),
+    fixed_ticks_provider=Some(() => axis.ticks()),
+    placement_provider=Some(() => {
+      let view = axis.numeric_axis.stored_view_limits()
+      @render.SecondaryPlacement::new(
+        view.lower(),
+        view.upper(),
+        axis.numeric_axis.coordinate_transform(),
+      )
+    }),
+    formatter_view_provider=Some(() => {
+      let view = axis.numeric_axis.stored_view_limits()
+      (view.lower(), view.upper())
+    }),
   )
 }
 

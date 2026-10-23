@@ -352,3 +352,13 @@ Line 原始坐标使用私有 MoonBit 数组保存，仍输出既有数值 Artis
 并复用已固定的 Axis、units/category/date、CallbackRegistry、共享 Ticker 与 Bbox 原源。
 执行边界、受控数值 Path 宿主和未迁移的 public lazy Line API 见
 [testdata/line_units_README.md](testdata/line_units_README.md)。既有 Matplotlib 与 NumPy 许可继续适用。
+
+## D40 次坐标轴默认对象与独立视图
+
+复用既有 Axis 默认安装、autoscale、formatter 与 SVG 协议，没有新分发依赖。
+独立参考执行固定 v3.11.2 的完整 `SecondaryAxis`，并复用真实 Axis、function scale、
+Bbox 和数值 autoscale 方法；`axes/_secondary_axes.py` SHA256 为
+`b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93`。
+图形 superclass 构造和最终绘制宿主边界、53 个源观察及两个注册测试组见
+[testdata/secondary_lifecycle_README.md](testdata/secondary_lifecycle_README.md)。
+不分发 Python/NumPy，也不把数值宿主视为完整 GUI 或通用 Transform 协议。

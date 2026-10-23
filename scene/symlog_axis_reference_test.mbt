@@ -778,6 +778,7 @@ test "SymLog original secondary own view function and raw overlap 0" {
   let secondary = axes.secondary_xaxis(value => 2.0 * value + 5.0, value => {
     (value - 5.0) / 2.0
   })
+  secondary.apply_aspect()
   let major = @ticker.SymmetricalLogLocator::new(base=10.0, linthresh=1.0)
   let minor = @ticker.SymmetricalLogLocator::new(
     base=10.0,
@@ -811,6 +812,7 @@ test "SymLog original secondary own view function and raw overlap 1" {
   let secondary = axes.secondary_xaxis(value => 2.0 * value + 5.0, value => {
     (value - 5.0) / 2.0
   })
+  secondary.apply_aspect()
   let major = @ticker.SymmetricalLogLocator::new(base=10.0, linthresh=1.0)
   let minor = @ticker.SymmetricalLogLocator::new(
     base=10.0,
@@ -836,6 +838,7 @@ test "SymLog original secondary own view function and raw overlap 2" {
   let secondary = axes.secondary_yaxis(value => 2.0 * value + 5.0, value => {
     (value - 5.0) / 2.0
   })
+  secondary.apply_aspect()
   let major = @ticker.SymmetricalLogLocator::new(base=10.0, linthresh=1.0)
   let minor = @ticker.SymmetricalLogLocator::new(
     base=10.0,
@@ -869,6 +872,7 @@ test "SymLog original secondary own view function and raw overlap 3" {
   let secondary = axes.secondary_yaxis(value => 2.0 * value + 5.0, value => {
     (value - 5.0) / 2.0
   })
+  secondary.apply_aspect()
   let major = @ticker.SymmetricalLogLocator::new(base=10.0, linthresh=1.0)
   let minor = @ticker.SymmetricalLogLocator::new(
     base=10.0,

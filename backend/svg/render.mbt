@@ -1506,16 +1506,23 @@ fn secondary_axis_tick_labels(
     return formatter.format_ticks(values)
   }
   match axis.formatter() {
-    Some(formatter) =>
-      formatter.format_values_with_view(
-        values,
+    Some(formatter) => {
+      let view = if axis.has_placement_provider() {
+        // An owned child's source interval may include nonsingular expansion,
+        // or still precede a later function sync. Do not remap parent bounds.
+        axis
+        .formatter_view_interval()
+        .map(bounds => @core.limits(bounds.0, bounds.1))
+      } else {
         Some(
           @core.limits(
             axis.forward()(primary_lower),
             axis.forward()(primary_upper),
           ),
-        ),
-      )
+        )
+      }
+      formatter.format_values_with_view(values, view)
+    }
     None => values.map(secondary_value_label)
   }
 }
@@ -1581,12 +1588,19 @@ fn append_secondary_x_axis(
   let ticks = bundle.major
   let labels = bundle.major_labels
   for index, (primary, value) in bundle.minor {
-    if tick_in_view(primary, scale.x_axis_scale, scale.xmin, scale.xmax) &&
-      !primary.is_nan() &&
-      !primary.is_inf() &&
-      !value.is_nan() &&
-      !value.is_inf() {
-      let x = map_x(scale, left, plot_width, primary)
+    if secondary_tick_fraction(
+        bundle,
+        primary,
+        value,
+        scale.x_axis_scale,
+        scale.xmin,
+        scale.xmax,
+      )
+      is Some(fraction) {
+      let x = match bundle.placement {
+        Some(_) => left + fraction * plot_width
+        None => map_x(scale, left, plot_width, primary)
+      }
       let direction = if at_top { -1.0 } else { 1.0 }
       try! writer.empty_element("line", [
         ("x1", float_text(x)),
@@ -1610,12 +1624,19 @@ fn append_secondary_x_axis(
   }
   for index, tick in ticks {
     let (primary, value) = tick
-    if tick_in_view(primary, scale.x_axis_scale, scale.xmin, scale.xmax) &&
-      !primary.is_nan() &&
-      !primary.is_inf() &&
-      !value.is_nan() &&
-      !value.is_inf() {
-      let x = map_x(scale, left, plot_width, primary)
+    if secondary_tick_fraction(
+        bundle,
+        primary,
+        value,
+        scale.x_axis_scale,
+        scale.xmin,
+        scale.xmax,
+      )
+      is Some(fraction) {
+      let x = match bundle.placement {
+        Some(_) => left + fraction * plot_width
+        None => map_x(scale, left, plot_width, primary)
+      }
       let direction = if at_top { -1.0 } else { 1.0 }
       try! writer.empty_element("line", [
         ("x1", float_text(x)),
@@ -1692,12 +1713,19 @@ fn append_secondary_y_axis(
   let ticks = bundle.major
   let labels = bundle.major_labels
   for index, (primary, value) in bundle.minor {
-    if tick_in_view(primary, scale.y_axis_scale, scale.ymin, scale.ymax) &&
-      !primary.is_nan() &&
-      !primary.is_inf() &&
-      !value.is_nan() &&
-      !value.is_inf() {
-      let y = map_y(scale, top, plot_height, primary)
+    if secondary_tick_fraction(
+        bundle,
+        primary,
+        value,
+        scale.y_axis_scale,
+        scale.ymin,
+        scale.ymax,
+      )
+      is Some(fraction) {
+      let y = match bundle.placement {
+        Some(_) => top + (1.0 - fraction) * plot_height
+        None => map_y(scale, top, plot_height, primary)
+      }
       let direction = if at_right { 1.0 } else { -1.0 }
       try! writer.empty_element("line", [
         ("x1", float_text(axis_x)),
@@ -1725,12 +1753,19 @@ fn append_secondary_y_axis(
   }
   for index, tick in ticks {
     let (primary, value) = tick
-    if tick_in_view(primary, scale.y_axis_scale, scale.ymin, scale.ymax) &&
-      !primary.is_nan() &&
-      !primary.is_inf() &&
-      !value.is_nan() &&
-      !value.is_inf() {
-      let y = map_y(scale, top, plot_height, primary)
+    if secondary_tick_fraction(
+        bundle,
+        primary,
+        value,
+        scale.y_axis_scale,
+        scale.ymin,
+        scale.ymax,
+      )
+      is Some(fraction) {
+      let y = match bundle.placement {
+        Some(_) => top + (1.0 - fraction) * plot_height
+        None => map_y(scale, top, plot_height, primary)
+      }
       let direction = if at_right { 1.0 } else { -1.0 }
       try! writer.empty_element("line", [
         ("x1", float_text(axis_x)),
@@ -3383,34 +3418,50 @@ fn render_panel(
   // The default child-axes zorder precedes the primary Axis artists. Evaluate
   // live secondary batches now; their XML can still follow the plot artists.
   let secondary_scale = scale
-  let secondary_x_bundles = panel
-    .secondary_x()
-    .map(axis => {
-      let owned_view = axis.synchronize_view()
-      if owned_view &&
-        (
-          axis.named_formatter() is Some(_) ||
-          axis.minor_named_formatter() is Some(_)
-        ) {
-        Some(secondary_axis_bundle(axis, [], scale.xmin, scale.xmax))
+  let secondary_order = ordered_secondary_axes(panel)
+  let secondary_x_bundles : Array[SecondaryTickBundle?] = Array::make(
+    panel.secondary_x().length(),
+    None,
+  )
+  let secondary_y_bundles : Array[SecondaryTickBundle?] = Array::make(
+    panel.secondary_y().length(),
+    None,
+  )
+  let mut owned_child_prepared = false
+  for (horizontal, index, axis, _) in secondary_order {
+    let prepared = if axis.prepare_draw() {
+      owned_child_prepared = true
+      let (lower, upper) = if horizontal {
+        (scale.xmin, scale.xmax)
       } else {
-        None
+        (scale.ymin, scale.ymax)
       }
-    })
-  let secondary_y_bundles = panel
-    .secondary_y()
-    .map(axis => {
-      let owned_view = axis.synchronize_view()
-      if owned_view &&
-        (
-          axis.named_formatter() is Some(_) ||
-          axis.minor_named_formatter() is Some(_)
-        ) {
-        Some(secondary_axis_bundle(axis, [], scale.ymin, scale.ymax))
-      } else {
-        None
-      }
-    })
+      Some(secondary_axis_bundle(axis, [], lower, upper))
+    } else {
+      None
+    }
+    if horizontal {
+      secondary_x_bundles[index] = prepared
+    } else {
+      secondary_y_bundles[index] = prepared
+    }
+  }
+  // Child callbacks update the source parent's live transData before its
+  // primary axes and data artists draw. Never redo finished child bundles.
+  let scale = if owned_child_prepared {
+    let (xmin, xmax) = panel.x_axis().view_interval_checked()
+    let (ymin, ymax) = panel.y_axis().view_interval_checked()
+    {
+      xmin,
+      xmax,
+      ymin,
+      ymax,
+      x_axis_scale: panel.x_axis().scale(),
+      y_axis_scale: panel.y_axis().scale(),
+    }
+  } else {
+    scale
+  }
   let x_bundle = numeric_axis_bundle(
     panel.x_axis(),
     @core.limits(scale.xmin, scale.xmax),
@@ -3652,31 +3703,32 @@ fn render_panel(
     }
   }
   if panel.frame_visible() {
-    for index, axis in panel.secondary_x() {
-      append_secondary_x_axis(
-        writer,
-        secondary_scale,
-        left,
-        top,
-        plot_width,
-        plot_height,
-        x_ticks,
-        axis,
-        prepared=secondary_x_bundles[index],
-      )
-    }
-    for index, axis in panel.secondary_y() {
-      append_secondary_y_axis(
-        writer,
-        secondary_scale,
-        left,
-        top,
-        plot_width,
-        plot_height,
-        y_ticks,
-        axis,
-        prepared=secondary_y_bundles[index],
-      )
+    for (horizontal, index, axis, _) in secondary_order {
+      if horizontal {
+        append_secondary_x_axis(
+          writer,
+          secondary_scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          x_ticks,
+          axis,
+          prepared=secondary_x_bundles[index],
+        )
+      } else {
+        append_secondary_y_axis(
+          writer,
+          secondary_scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          y_ticks,
+          axis,
+          prepared=secondary_y_bundles[index],
+        )
+      }
     }
   }
   append_legend(writer, left, top, plot_width, panel.legend())
@@ -3786,10 +3838,7 @@ pub fn render_with_positions_checked(
     panel.y_axis().set_tick_view(scales[index].ymin, scales[index].ymax)
   }
   for panel in figure.panels() {
-    for axis in panel.secondary_x() {
-      ignore(axis.synchronize_view())
-    }
-    for axis in panel.secondary_y() {
+    for (_, _, axis, _) in ordered_secondary_axes(panel) {
       ignore(axis.synchronize_view())
     }
   }

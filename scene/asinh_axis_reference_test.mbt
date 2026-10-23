@@ -533,6 +533,8 @@ test "Asinh original secondary own function view and raw overlap 0" {
   let secondary = axes.secondary_xaxis(value => value * 2.0 + 5.0, value => {
     (value - 5.0) / 2.0
   })
+  // Match source host _set_lims before custom locator installation.
+  secondary.apply_aspect()
   let major = @ticker.AsinhLocator::new(1.0)
   let minor = @ticker.AsinhLocator::new(
     1.0,
@@ -563,6 +565,8 @@ test "Asinh original secondary own function view and raw overlap 1" {
   let secondary = axes.secondary_yaxis(value => value * 2.0 + 5.0, value => {
     (value - 5.0) / 2.0
   })
+  // Match source host _set_lims before custom locator installation.
+  secondary.apply_aspect()
   let major = @ticker.AsinhLocator::new(1.0)
   let minor = @ticker.AsinhLocator::new(
     1.0,

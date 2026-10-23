@@ -5,6 +5,9 @@ priv struct SecondaryTickBundle {
   minor : Array[(Double, Double)]
   minor_labels : Array[String]
   offset : String
+  // Some: coordinates already use the owned child's installed transform.
+  // None: preserve the explicit ownerless primary-coordinate transport.
+  placement : (Double, Double)?
 }
 
 ///|
@@ -54,7 +57,8 @@ fn secondary_axis_bundle(
   lower : Double,
   upper : Double,
 ) -> SecondaryTickBundle raise @core.DataError {
-  let (values, major_labels, legacy_major) = if axis.named_formatter() is None &&
+  let (values, major_labels, legacy_major) = if !axis.has_placement_provider() &&
+    axis.named_formatter() is None &&
     axis.minor_named_formatter() is None {
     let major = secondary_axis_ticks(axis, primary_ticks, lower, upper)
     let labels = secondary_axis_tick_labels(
@@ -104,22 +108,136 @@ fn secondary_axis_bundle(
       None => Array::make(minor_locations.length(), "")
     }
   }
-  // Axis._update_ticks transforms view endpoints and both full tick groups
-  // before Axis.draw asks the major formatter for its final offset text.
-  if axis.formatter_view_interval() is Some((first, last)) {
-    ignore(axis.inverse()(first))
-    ignore(axis.inverse()(last))
+  // Capture the installed child transform only after both full batches.
+  // This is the source view/visibility transform stage, before late offset text.
+  let (major, minor, placement) = match axis.placement() {
+    Some(context) => {
+      let transform = context.transform()
+      let reversed = context.lower() > context.upper()
+      let (lower, upper) = if reversed {
+        (context.upper(), context.lower())
+      } else {
+        (context.lower(), context.upper())
+      }
+      let first = transform(lower)
+      let last = transform(upper)
+      // TransformedBbox sorts transformed corners, then restores the raw
+      // Bbox inversion. A decreasing function does not itself invert the axis.
+      let (low, high) = if first.is_nan() || last.is_nan() {
+        (0.0 / 0.0, 0.0 / 0.0)
+      } else if first > last {
+        (last, first)
+      } else {
+        (first, last)
+      }
+      let bounds = if reversed { (high, low) } else { (low, high) }
+      let major = values.map(value => (transform(value), value))
+      let minor = materialize_formatter_locations(minor_locations).map(value => {
+        (transform(value), value)
+      })
+      (major, minor, Some(bounds))
+    }
+    None => {
+      // Standalone IR keeps its established explicit numeric transport.
+      if axis.formatter_view_interval() is Some((first, last)) {
+        ignore(axis.inverse()(first))
+        ignore(axis.inverse()(last))
+      }
+      let major = match legacy_major {
+        Some(major) => major
+        None => values.map(value => (axis.inverse()(value), value))
+      }
+      let minor = materialize_formatter_locations(minor_locations).map(value => {
+        (axis.inverse()(value), value)
+      })
+      (major, minor, None)
+    }
   }
-  let major = match legacy_major {
-    Some(major) => major
-    None => values.map(value => (axis.inverse()(value), value))
-  }
-  let minor = materialize_formatter_locations(minor_locations).map(value => {
-    (axis.inverse()(value), value)
-  })
   let offset = match axis.named_formatter() {
     Some(formatter) => formatter.get_offset_checked()
     None => ""
   }
-  { major, major_labels, minor, minor_labels, offset, }
+  { major, major_labels, minor, minor_labels, offset, placement, }
+}
+
+///|
+// Owned positions are transformed exactly once while preparing their bundle.
+// Ownerless IR retains the previous scale mapping and finite-value policy.
+fn secondary_tick_fraction(
+  bundle : SecondaryTickBundle,
+  position : Double,
+  value : Double,
+  scale : @ticker_scale.Scale,
+  lower : Double,
+  upper : Double,
+) -> Double? {
+  match bundle.placement {
+    Some((first, last)) => {
+      let (low, high) = if first > last { (last, first) } else { (first, last) }
+      let tolerance = (high - low) * 1.0e-10
+      if !(low - tolerance <= position && position <= high + tolerance) {
+        return None
+      }
+      let fraction = (position - first) / (last - first)
+      if fraction.is_nan() || fraction.is_inf() {
+        None
+      } else {
+        Some(fraction)
+      }
+    }
+    None => {
+      if !tick_in_view(position, scale, lower, upper) ||
+        position.is_nan() ||
+        position.is_inf() ||
+        value.is_nan() ||
+        value.is_inf() {
+        return None
+      }
+      let first = scale.transform(lower)
+      let last = scale.transform(upper)
+      Some(
+        if first == last {
+          0.5
+        } else {
+          (scale.transform(position) - first) / (last - first)
+        },
+      )
+    }
+  }
+}
+
+///|
+// With no owner metadata, retain the established x-then-y transport order.
+// A sequence tiebreaker makes mixed owned/ownerless inputs a total order.
+fn ordered_secondary_axes(
+  panel : @render.Panel,
+) -> Array[(Bool, Int32, @render.SecondaryAxis, Int64)] {
+  let result : Array[(Bool, Int32, @render.SecondaryAxis, Int64)] = []
+  let horizontal = panel.secondary_x()
+  for index, axis in horizontal {
+    result.push((true, index, axis, index.to_int64()))
+  }
+  for index, axis in panel.secondary_y() {
+    result.push(
+      (false, index, axis, horizontal.length().to_int64() + index.to_int64()),
+    )
+  }
+  result.sort_by((first, second) => {
+    let first_key = first.2
+      .draw_order()
+      .map(order => order.to_int64())
+      .unwrap_or(first.3)
+    let second_key = second.2
+      .draw_order()
+      .map(order => order.to_int64())
+      .unwrap_or(second.3)
+    if first_key < second_key {
+      -1
+    } else if first_key > second_key {
+      1
+    } else {
+      first.3.compare(second.3)
+    }
+  })
+  result
 }

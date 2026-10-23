@@ -450,10 +450,50 @@ pub(all) enum SecondaryLocation {
 }
 
 ///|
-/// Immutable secondary axis data consumed by a backend.
+/// Immutable own-view geometry captured after a secondary's full tick batches.
+pub struct SecondaryPlacement {
+  lower : Double
+  upper : Double
+  transform : (Double) -> Double
+}
+
+///|
+pub fn SecondaryPlacement::new(
+  lower : Double,
+  upper : Double,
+  transform : (Double) -> Double,
+) -> SecondaryPlacement {
+  { lower, upper, transform, }
+}
+
+///|
+pub fn SecondaryPlacement::lower(self : SecondaryPlacement) -> Double {
+  self.lower
+}
+
+///|
+pub fn SecondaryPlacement::upper(self : SecondaryPlacement) -> Double {
+  self.upper
+}
+
+///|
+pub fn SecondaryPlacement::transform(
+  self : SecondaryPlacement,
+) -> (Double) -> Double {
+  self.transform
+}
+
+///|
+/// Secondary transport with optional live Scene-owner lifecycle callbacks.
 pub struct SecondaryAxis {
+  draw_order : Int32?
   formatter_view_provider : (() -> (Double, Double))?
   synchronize_view_provider : (() -> Unit raise @core.DataError)?
+  prepare_draw_provider : (() -> Unit raise @core.DataError)?
+  placement_provider : (() -> SecondaryPlacement)?
+  locator_provider : (() -> @ticker.Locator?)?
+  minor_locator_provider : (() -> @ticker.MinorLocator?)?
+  fixed_ticks_provider : (() -> Array[Double]?)?
   formatter_provider : ((Bool) -> @ticker.BaseFormatter?)?
   legacy_formatter_provider : (() -> @ticker.Formatter?)?
   null_group_provider : ((Bool) -> Bool)?
@@ -500,10 +540,22 @@ pub fn secondary_axis(
   minor_locator~ : @ticker.MinorLocator? = None,
   minor_ticks_provider~ : (() -> Array[Double] raise @core.DataError)? = None,
   synchronize_view_provider~ : (() -> Unit raise @core.DataError)? = None,
+  prepare_draw_provider~ : (() -> Unit raise @core.DataError)? = None,
+  placement_provider~ : (() -> SecondaryPlacement)? = None,
+  locator_provider~ : (() -> @ticker.Locator?)? = None,
+  minor_locator_provider~ : (() -> @ticker.MinorLocator?)? = None,
+  fixed_ticks_provider~ : (() -> Array[Double]?)? = None,
   formatter_view_provider~ : (() -> (Double, Double))? = None,
+  draw_order~ : Int32? = None,
 ) -> SecondaryAxis {
   {
+    draw_order,
     synchronize_view_provider,
+    prepare_draw_provider,
+    placement_provider,
+    locator_provider,
+    minor_locator_provider,
+    fixed_ticks_provider,
     formatter_view_provider,
     named_formatter,
     minor_named_formatter,
@@ -536,7 +588,7 @@ pub fn secondary_axis(
 }
 
 ///|
-/// Refresh an owned secondary view. Return whether a live owner supplied it.
+/// Run the aspect-only owner synchronization, without changing default tickers.
 pub fn SecondaryAxis::synchronize_view(
   self : SecondaryAxis,
 ) -> Bool raise @core.DataError {
@@ -550,11 +602,41 @@ pub fn SecondaryAxis::synchronize_view(
 }
 
 ///|
+/// Run one owned child draw preparation after aspect layout and before batches.
+pub fn SecondaryAxis::prepare_draw(
+  self : SecondaryAxis,
+) -> Bool raise @core.DataError {
+  match self.prepare_draw_provider {
+    Some(provider) => {
+      provider()
+      true
+    }
+    None => false
+  }
+}
+
+///|
+pub fn SecondaryAxis::has_placement_provider(self : SecondaryAxis) -> Bool {
+  self.placement_provider is Some(_)
+}
+
+///|
+pub fn SecondaryAxis::placement(self : SecondaryAxis) -> SecondaryPlacement? {
+  self.placement_provider.map(provider => provider())
+}
+
+///|
 /// Read the owner's stored interval before visibility transforms and offset text.
 pub fn SecondaryAxis::formatter_view_interval(
   self : SecondaryAxis,
 ) -> (Double, Double)? {
   self.formatter_view_provider.map(provider => provider())
+}
+
+///|
+/// Scene child creation order; absent for standalone transport.
+pub fn SecondaryAxis::draw_order(self : SecondaryAxis) -> Int32? {
+  self.draw_order
 }
 
 ///|
@@ -584,18 +666,31 @@ pub fn SecondaryAxis::tick_count(self : SecondaryAxis) -> Int32 {
 
 ///|
 pub fn SecondaryAxis::fixed_ticks(self : SecondaryAxis) -> Array[Double]? {
-  match self.fixed_ticks {
-    Some(values) => Some(values.copy())
-    None => None
+  let values = match self.fixed_ticks_provider {
+    Some(provider) => provider()
+    None => self.fixed_ticks
   }
+  values.map(values => values.copy())
 }
 
 ///|
 pub fn SecondaryAxis::locator(self : SecondaryAxis) -> @ticker.Locator? {
-  match self.locator {
-    Some(value) => Some(copy_secondary_locator(value))
-    None => None
+  let locator = match self.locator_provider {
+    Some(provider) => provider()
+    None => self.locator
   }
+  locator.map(value => copy_secondary_locator(value))
+}
+
+///|
+pub fn SecondaryAxis::minor_locator(
+  self : SecondaryAxis,
+) -> @ticker.MinorLocator? {
+  let locator = match self.minor_locator_provider {
+    Some(provider) => provider()
+    None => self.minor_locator
+  }
+  locator.map(value => value.copy())
 }
 
 ///|
@@ -1160,8 +1255,8 @@ pub fn SecondaryAxis::tick_group_is_null(
     return provider(minor)
   }
   if minor {
-    self.minor_locator is Some(@ticker.MinorLocator::Null(_))
+    self.minor_locator() is Some(@ticker.MinorLocator::Null(_))
   } else {
-    self.locator is Some(@ticker.Locator::Null(_))
+    self.locator() is Some(@ticker.Locator::Null(_))
   }
 }

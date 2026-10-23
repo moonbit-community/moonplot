@@ -407,6 +407,8 @@ def generated_scene(payload):
         code += f'\n///|\ntest "SymLog original secondary own view function and raw overlap {index}" {{\n'
         code += '  let figure = @scene.figure()\n  let axes = figure.axes()\n  axes.set_'+name+'_scale('+('@scale.symlog_scale(linthresh=2.0)' if row['scale']=='symlog' else '@scale.log_scale()')+')\n'
         code += '  axes.set_'+name+'_limits('+', '.join(num(v) for v in row['view'])+')\n  let secondary = axes.secondary_'+name+'axis(value => 2.0 * value + 5.0, value => (value - 5.0) / 2.0)\n'
+        # Original controlled Secondary runs _set_lims before these locators.
+        code += '  secondary.apply_aspect()\n'
         code += '  let major = '+locator()+'\n  let minor = '+locator([1.,2.])+'\n  secondary.set_locator(major.as_locator())\n  secondary.set_minor_locator(minor.as_minor_locator())\n'
         code += '  verify_symlog_axis_source(major.call(), '+arr(row['raw_major']['values'])+')\n  verify_symlog_axis_source(minor.call(), '+arr(row['raw_minor']['values'])+')\n'
         code += '  verify_symlog_axis_source(secondary.tick_values_checked(), '+arr(row['raw_major']['values'])+')\n  verify_symlog_axis_source(secondary.minor_tick_values_checked(), '+arr(row['filtered_minor']['values'])+')\n}\n'

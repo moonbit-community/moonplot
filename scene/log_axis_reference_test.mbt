@@ -696,17 +696,18 @@ test "Log original axis context 11" {
 
 ///|
 test "Log original secondary empty minpos 0" {
+  // Controlled original raw-view host, independent of constructor/draw finalization.
   let classic = @config.classic_mode()
   defer @config.set_classic_mode(classic)
   @config.set_classic_mode(false)
-  let figure = @scene.figure(width=240, height=120)
-  let axes = figure.add_axes(0.0, 0.0, 1.0, 1.0)
-  axes.set_x_limits(1.0, 100.0)
-  let secondary = axes.secondary_xaxis(value => value + 0.0, value => {
-    value - 0.0
-  })
+  let axis = @axis.axis()
+  axis.set_scale(@scale.log_scale())
+  axis.set_tick_layout(120.0, true)
+  axis.bind_view_interval(() => (1.0, 100.0))
+  axis.bind_minpos(() => 1.0 / 0.0)
+  axis.bind_shared_minpos(() => [1.0 / 0.0])
   let locator = @ticker.LogLocator::new()
-  secondary.set_locator(locator.as_locator())
+  axis.set_locator(locator.as_locator())
   verify_log_axis_numbers(locator.call(), [0.1, 1.0, 10.0, 100.0, 1000.0])
   verify_log_axis_numbers(
     {
@@ -719,17 +720,18 @@ test "Log original secondary empty minpos 0" {
 
 ///|
 test "Log original secondary empty minpos 1" {
+  // Controlled original raw-view host, independent of constructor/draw finalization.
   let classic = @config.classic_mode()
   defer @config.set_classic_mode(classic)
   @config.set_classic_mode(false)
-  let figure = @scene.figure(width=240, height=120)
-  let axes = figure.add_axes(0.0, 0.0, 1.0, 1.0)
-  axes.set_x_limits(1.0, 100.0)
-  let secondary = axes.secondary_xaxis(value => value + -2.0, value => {
-    value - -2.0
-  })
+  let axis = @axis.axis()
+  axis.set_scale(@scale.log_scale())
+  axis.set_tick_layout(120.0, true)
+  axis.bind_view_interval(() => (-1.0, 98.0))
+  axis.bind_minpos(() => 1.0 / 0.0)
+  axis.bind_shared_minpos(() => [1.0 / 0.0])
   let locator = @ticker.LogLocator::new()
-  secondary.set_locator(locator.as_locator())
+  axis.set_locator(locator.as_locator())
   assert_true(
     try {
       ignore(locator.call())
@@ -750,18 +752,18 @@ test "Log original secondary empty minpos 1" {
 
 ///|
 test "Log original secondary empty minpos 2" {
+  // Controlled original raw-view host, independent of constructor/draw finalization.
   let classic = @config.classic_mode()
   defer @config.set_classic_mode(classic)
   @config.set_classic_mode(false)
-  let figure = @scene.figure(width=240, height=120)
-  let axes = figure.add_axes(0.0, 0.0, 1.0, 1.0)
-  axes.set_x_limits(1.0, 100.0)
-  axes.x_axis().set_scale(@scale.log_scale())
-  let secondary = axes.secondary_xaxis(value => value + 0.0, value => {
-    value - 0.0
-  })
+  let axis = @axis.axis()
+  axis.set_scale(@scale.log_scale())
+  axis.set_tick_layout(120.0, true)
+  axis.bind_view_interval(() => (1.0, 100.0))
+  axis.bind_minpos(() => 1.0 / 0.0)
+  axis.bind_shared_minpos(() => [1.0 / 0.0])
   let locator = @ticker.LogLocator::new()
-  secondary.set_locator(locator.as_locator())
+  axis.set_locator(locator.as_locator())
   verify_log_axis_numbers(locator.call(), [0.1, 1.0, 10.0, 100.0, 1000.0])
   verify_log_axis_numbers(
     {
@@ -774,18 +776,18 @@ test "Log original secondary empty minpos 2" {
 
 ///|
 test "Log original secondary empty minpos 3" {
+  // Controlled original raw-view host, independent of constructor/draw finalization.
   let classic = @config.classic_mode()
   defer @config.set_classic_mode(classic)
   @config.set_classic_mode(false)
-  let figure = @scene.figure(width=240, height=120)
-  let axes = figure.add_axes(0.0, 0.0, 1.0, 1.0)
-  axes.set_x_limits(1.0, 100.0)
-  axes.x_axis().set_scale(@scale.log_scale())
-  let secondary = axes.secondary_xaxis(value => value + -2.0, value => {
-    value - -2.0
-  })
+  let axis = @axis.axis()
+  axis.set_scale(@scale.log_scale())
+  axis.set_tick_layout(120.0, true)
+  axis.bind_view_interval(() => (-1.0, 98.0))
+  axis.bind_minpos(() => 1.0 / 0.0)
+  axis.bind_shared_minpos(() => [1.0 / 0.0])
   let locator = @ticker.LogLocator::new()
-  secondary.set_locator(locator.as_locator())
+  axis.set_locator(locator.as_locator())
   assert_true(
     try {
       ignore(locator.call())
@@ -806,17 +808,18 @@ test "Log original secondary empty minpos 3" {
 
 ///|
 test "Log original secondary empty minpos 4" {
+  // Controlled original raw-view host, independent of constructor/draw finalization.
   let classic = @config.classic_mode()
   defer @config.set_classic_mode(classic)
   @config.set_classic_mode(false)
-  let figure = @scene.figure(width=240, height=120)
-  let axes = figure.add_axes(0.0, 0.0, 1.0, 1.0)
-  axes.set_y_limits(1.0, 100.0)
-  let secondary = axes.secondary_yaxis(value => value + 0.0, value => {
-    value - 0.0
-  })
+  let axis = @axis.axis()
+  axis.set_scale(@scale.log_scale())
+  axis.set_tick_layout(80.0, false)
+  axis.bind_view_interval(() => (1.0, 100.0))
+  axis.bind_minpos(() => 1.0 / 0.0)
+  axis.bind_shared_minpos(() => [1.0 / 0.0])
   let locator = @ticker.LogLocator::new()
-  secondary.set_locator(locator.as_locator())
+  axis.set_locator(locator.as_locator())
   verify_log_axis_numbers(locator.call(), [0.1, 1.0, 10.0, 100.0, 1000.0])
   verify_log_axis_numbers(
     {
@@ -829,17 +832,18 @@ test "Log original secondary empty minpos 4" {
 
 ///|
 test "Log original secondary empty minpos 5" {
+  // Controlled original raw-view host, independent of constructor/draw finalization.
   let classic = @config.classic_mode()
   defer @config.set_classic_mode(classic)
   @config.set_classic_mode(false)
-  let figure = @scene.figure(width=240, height=120)
-  let axes = figure.add_axes(0.0, 0.0, 1.0, 1.0)
-  axes.set_y_limits(1.0, 100.0)
-  let secondary = axes.secondary_yaxis(value => value + -2.0, value => {
-    value - -2.0
-  })
+  let axis = @axis.axis()
+  axis.set_scale(@scale.log_scale())
+  axis.set_tick_layout(80.0, false)
+  axis.bind_view_interval(() => (-1.0, 98.0))
+  axis.bind_minpos(() => 1.0 / 0.0)
+  axis.bind_shared_minpos(() => [1.0 / 0.0])
   let locator = @ticker.LogLocator::new()
-  secondary.set_locator(locator.as_locator())
+  axis.set_locator(locator.as_locator())
   assert_true(
     try {
       ignore(locator.call())
@@ -860,18 +864,18 @@ test "Log original secondary empty minpos 5" {
 
 ///|
 test "Log original secondary empty minpos 6" {
+  // Controlled original raw-view host, independent of constructor/draw finalization.
   let classic = @config.classic_mode()
   defer @config.set_classic_mode(classic)
   @config.set_classic_mode(false)
-  let figure = @scene.figure(width=240, height=120)
-  let axes = figure.add_axes(0.0, 0.0, 1.0, 1.0)
-  axes.set_y_limits(1.0, 100.0)
-  axes.y_axis().set_scale(@scale.log_scale())
-  let secondary = axes.secondary_yaxis(value => value + 0.0, value => {
-    value - 0.0
-  })
+  let axis = @axis.axis()
+  axis.set_scale(@scale.log_scale())
+  axis.set_tick_layout(80.0, false)
+  axis.bind_view_interval(() => (1.0, 100.0))
+  axis.bind_minpos(() => 1.0 / 0.0)
+  axis.bind_shared_minpos(() => [1.0 / 0.0])
   let locator = @ticker.LogLocator::new()
-  secondary.set_locator(locator.as_locator())
+  axis.set_locator(locator.as_locator())
   verify_log_axis_numbers(locator.call(), [0.1, 1.0, 10.0, 100.0, 1000.0])
   verify_log_axis_numbers(
     {
@@ -884,18 +888,18 @@ test "Log original secondary empty minpos 6" {
 
 ///|
 test "Log original secondary empty minpos 7" {
+  // Controlled original raw-view host, independent of constructor/draw finalization.
   let classic = @config.classic_mode()
   defer @config.set_classic_mode(classic)
   @config.set_classic_mode(false)
-  let figure = @scene.figure(width=240, height=120)
-  let axes = figure.add_axes(0.0, 0.0, 1.0, 1.0)
-  axes.set_y_limits(1.0, 100.0)
-  axes.y_axis().set_scale(@scale.log_scale())
-  let secondary = axes.secondary_yaxis(value => value + -2.0, value => {
-    value - -2.0
-  })
+  let axis = @axis.axis()
+  axis.set_scale(@scale.log_scale())
+  axis.set_tick_layout(80.0, false)
+  axis.bind_view_interval(() => (-1.0, 98.0))
+  axis.bind_minpos(() => 1.0 / 0.0)
+  axis.bind_shared_minpos(() => [1.0 / 0.0])
   let locator = @ticker.LogLocator::new()
-  secondary.set_locator(locator.as_locator())
+  axis.set_locator(locator.as_locator())
   assert_true(
     try {
       ignore(locator.call())

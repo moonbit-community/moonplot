@@ -719,10 +719,6 @@ pub struct SecondaryAxis {
   forward : (Double) -> Double
   inverse : (Double) -> Double
   mut label : String?
-  mut tick_count : Int
-  mut fixed_ticks : Array[Double]?
-  mut locator : @ticker.Locator?
-  mut formatter : @ticker.Formatter?
   // private fields
 }
 pub fn SecondaryAxis::apply_aspect(Self) -> Unit raise @core.DataError
@@ -748,6 +744,7 @@ pub fn SecondaryAxis::minor_overlap_removal(Self) -> Bool
 pub fn SecondaryAxis::minor_tick_labels_checked(Self, Array[Double], view? : @core.Limits) -> Array[String] raise @core.DataError
 pub fn SecondaryAxis::minor_tick_values_checked(Self) -> Array[Double] raise @core.DataError
 pub fn SecondaryAxis::named_formatter(Self) -> @ticker.BaseFormatter?
+pub fn SecondaryAxis::prepare_draw(Self) -> Unit raise @core.DataError
 pub fn SecondaryAxis::set_formatter(Self, @ticker.Formatter) -> Unit
 pub fn SecondaryAxis::set_label(Self, String) -> Unit
 pub fn SecondaryAxis::set_locator(Self, @ticker.Locator) -> Unit raise @core.DataError

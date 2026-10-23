@@ -519,3 +519,9 @@ D39 的 Line 原始输入、强制单位回算及逐 Line 错误顺序依据同�
 存储等宿主与 public lazy Line API 边界明确记录于
 [testdata/line_units_README.md](testdata/line_units_README.md)。Matplotlib 许可保留在
 [LICENSE-MATPLOTLIB](LICENSE-MATPLOTLIB)；没有加入新的分发运行时。
+
+D40 的次坐标轴默认安装、独立视图、父 scale 缓存和数值绘制阶段依据同一固定
+Matplotlib v3.11.2 的 axes/_secondary_axes.py、axis.py、scale.py、ticker.py 与
+transforms.py 以 MoonBit 重写。完整所选原体执行、SHA256、物理上下文和图形宿主
+边界见 [testdata/secondary_lifecycle_README.md](testdata/secondary_lifecycle_README.md)。
+既有 Matplotlib 与 NumPy 许可继续适用；没有新增分发运行时。
