@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D46 visibility已完整验收并提交f12f161/ca6c47e，下一D47 visible_only待freeze；D45已完整验收提交8c6c534/65cba7d/ce6326c，D44已完整验收并提交9257f05/5b183df/62bf560；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
+- 当前切片编号：D47 relim visible_only已完整验收并提交94cfe00/b607073，下一D48 linewidth候选待freeze，D46已验收提交f12f161/ca6c47e/5a11683；D45已完整验收提交8c6c534/65cba7d/ce6326c，D44已完整验收并提交9257f05/5b183df/62bf560；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：本checkpointcommit→保存D47-before→基于Root已读C62line/A95line+9actual冻结relim visible_only。D46 full13472四目标nonJS22091/JS22098全过，final4861/source33749 terminal0，featuref12f161/formalca6c47e已提交；不重D46门禁。D46-before ce6326c/41mbti已存；D45全过已commit，不重门禁。D45-before62bf560/41mbti已保存；D44累计nonJS22063/JS22070已验收，不重D44门禁。D44-before61f36fb/41mbti已保存，不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：本checkpointcommit后保存D48-before；Root已读C87line liveStyle设计，待A linewidth/原SVG style窄probe最终notes后freeze。D47 full73059仅1初始view夹具失败，补验7449四目标全过，累计nonJS22102/JS22109；final99636/source7820全0且接口finalcmp同，feature94cfe00/formalb607073已提交，不重门禁。D47-before5a11683/41mbti已存，D46门禁已过已提交不重。D46-before ce6326c/41mbti已存；D45全过已commit，不重门禁。D45-before62bf560/41mbti已保存；D44累计nonJS22063/JS22070已验收，不重D44门禁。D44-before61f36fb/41mbti已保存，不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -5869,3 +5869,82 @@ D46已完整验收并提交f12f161+ca6c47e。full13472四目标0fail，nonJS2209
 final4861 info4/fmt1/check24与source33749全terminal0，7旧warn0error，接口final逐字同
 已审且旧JSON保持。Root无live工具/全trackedSTOP。下一本checkpointcommit→D47-before
 →已读C62/A95+9records的visible_only freeze；D47尚未实施，无用户阻塞，整体goal继续。
+
+## D47 已冻结，relim visible_only 可选过滤
+
+D47-before已保存5a1168342321dcd1a396d432ae61c51da6a0d6f4 HEAD/tracked.tar/41mbti，勿覆盖。
+Root已全文读C62line/A95line+9completeactualrecords，SHA
+b0644b5316391445ac31e506fd6ee14cc023bfbc36f09a8cfdcd88bbe3164b7c。
+公开Axes::relim/relim_checked加visible_only~Bool=false，pure原try!转发，原effect不改。
+entryreset/nullBBox/oldminpos/ignore仍先行；单artist物理Line lookup命中后true&&hidden
+在points_snapshot_checked之前标skip，break后outercontinue，不能仍merge旧geometry。
+false短路不查visible，所有无registry displayLine及其他artists默认可见，不造handle。
+成功/晚错误保prefix，无request/view/autoOn/line.stale修改。unitscallback无参defaultFalse
+保持forceAllLines→relim→request，不加SVG/units/getters全局过滤。
+
+- B独占scene/autoscale_data.mbt/NEWrelim_visible_wbtest：两entry+coreedgehands。
+- C独占NEWscene/relim_visible_render_wbtest/NEWpyplot/relim_visible_test：真实SVG/
+  viewport/request/autoscale与公开Axes调用，无新pyplotAPI/production改动。
+- A独占NEWgenerate_relim_visible_reference.py/JSON/guide/SceneWB，保原9completefields，
+  拟单连续sequence/1group，typed ordinaryin_autoscale=True与staticvisibility边界明示。
+- Root独占checkpoint/docs、独审、centralgates/接口/commits，无需旧fixture机械更改。
+
+全部writers实施，无D47中央check/行为验收/接口生成，Root无live工具。下一各STOP后
+审handoff/正式映射，统一check/infofmt/41mbti/四目标；失败继续原source诊断修复，不重D46。
+整体goal仍未完成，用户多commit/parallelagents授权持续有效，无用户阻塞。
+
+D47 Root已审B生产首diff并直接读原fullrelim 2671–2695行：visibility先于in_autoscale/type/path，ordinary eligibility=True为typed边界；outer skip、false短路/pure转发与entryreset/minpos均吻合freeze，无具体缺陷。B仍writer写hands，C/A新hands/formal仍writer；无centralMoon/无Rootlive工具。
+
+D47 全体tracked STOP。Root全文读生产/10hands/A160linegen/115guide；原9completefields
+独立exactequal通过，JSON85eac4285171592dfd225887149ab964f3dbea874bdab04f43a4f01539677490。
+new11registered=1formal（9ops单连续sequence）+B5+C5。firstcheck36827 terminal0：44tasks/
+7旧Refwarn/0error；source85080 terminal0。info/fmt0，41mbti仅Scene两relim可选Bool已审，
+其余40逐字同，diff存D47-interface-reviewed.diff。firstfull已启动，下一记录liveID/读终态。
+B正在ignored正式独审；C新hands第二caseearlierchild内relim/autoscale同frame期望需用行为
+验收确认（当前无已知实际失败），不据静态检查声称运行通过。Root无其他live工具。
+
+D47 firstfull live73059，全体tracked生产/fixtures STOP。Root全文读B71line正式独审，无新
+具体缺陷；Inf dict、nullBBox旧minpos、pure/checked选择与storedview不偷转换已核。Root补
+README/依赖/NOTICE实现说明，尚未称四目标通过。A/C仅ignored D48 linewidth必要source/
+Styletransport候选，不freeze/不tracked；Root无其他live工具，下一读73059终态再final/commit。
+
+D47 full73059仍live，wasm/wasm-gc各22101/22102、JS22108/22109同1formal失败，其余
+全过（含C earlierchild/liveview）。Root解码bits13811459193234742314=-0.05500000000000001，
+source期望initialstoredview0，失败为受控fixture初始view：ref.Host.viewLim是plainBox[0,1]，
+Scenecategorysetup经bound_autoscale_view在defaultinterval阶段读取view时先解析empty范围。
+直接读原XAxis.set_default_intervals可见viewLim条件访问，原hostplainBox未模拟descriptor
+unstale。relim本身不改storedview，生产暂不改。待full终态后只修newformalsetup：第一次
+从source row0.before.views输入Axis.set_view_limits（保autoOn，不用set_limits），再consume
+初始requests；明确受控host初始view bridge，原9records/JSON不改。随后单文件四目标补验，
+若还有失败继续诊断。A已知root接管修fixture，其他tracked STOP；A/C D48仍仅ignored。
+
+D47 full73059 terminal2：四目标同1formal初始view夹具失败，其余nonJS22101/22102、
+JS22108/22109全过。Root依据原viewLim descriptor及当前provider证据只修正式setup，
+从row0.before.views输入一次Axis.set_view_limits保autoOn，不在每步normalize，不改生产。
+generator+generatedWB与guide已补controlledview桥，原JSON85eac428...77490逐字不变；
+再生exit0/单文件四目标补验已启动，下一记录liveID/读终态，若有后续失败继续定位。
+C动态callback/实际SVG五hands全过。A/C D48只ignored，无其他trackedwriter。
+
+## D47 行为验收通过（提交前最终门禁）
+
+- [x] firstfull73059 terminal2：四目标同1formal初始view夹具差异，其余全过。Root仅
+  一次初始set_view_limits对齐host输入，生产/JSON不改；补验7449 terminal0，该1组×4
+  targets全过，累计nonJS22102/JS22109全覆盖。
+- [x] new11registered=1formal（9ops单连续sequence）+B5+C5；原9completefields Root
+  独立exactequal，JSON85eac428...77490保持。
+- [x] Root全文读生产/10hands/A160gen/115guide与B71line独审；已读原viewLim/默认interval
+  descriptor及当前typedprovider，fixture桥修正依据明确，无新具体缺陷。
+- [x] 41mbti仅Scene两relim新增可选Bool已审，其余40逐字同；6docs/guide已补能力验收。
+- [x] final99636 terminal0：info4/fmt2/check24，7旧Refwarn/0error；source7820 terminal0，41mbti finaldiff逐字同已审，diffcheck0。
+- [x] feature94cfe00（生产/10hands/接口5files）与formal/source/docsb607073（10files）已本地提交；本checkpoint另commit，不push。
+
+Root无live工具，全部tracked生产/fixtures STOP。C87line D48 linewidth/style设计已Root全文读，
+需要singleprovider返回points+currentStyle+completion，oldIR不可只读旧enumStyle；Axes.artists
+currentstyle纯投影及attach cache-before-color顺序须freeze。A D48原source窄probe仍在收尾，
+尚未Root读最终notes/未freeze/未tracked实施。下一D47 final/commit→checkpoint→D48-before。
+
+D47已完整验收并提交94cfe00+b607073。full73059四目标仅同1formal初始view夹具，补验
+7449四目标全过，其余full已过；累计nonJS22102/JS22109全覆盖。final99636 info4/fmt2/
+check24、source7820全terminal0，7旧warn0error，接口final逐字同已审，原JSON85eac...77490
+保持。Root无live工具/全trackedSTOP。下一checkpointcommit→D48-before→A原linewidth+SVG
+style必要证据最终handoff（仍ignored收尾）+C87line已读设计freeze。D48未实施，无用户阻塞。
