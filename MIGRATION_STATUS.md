@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D47 relim visible_only已完整验收并提交94cfe00/b607073，下一D48 linewidth候选待freeze，D46已验收提交f12f161/ca6c47e/5a11683；D45已完整验收提交8c6c534/65cba7d/ce6326c，D44已完整验收并提交9257f05/5b183df/62bf560；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
+- 当前切片编号：D48 linewidth/liveStyle已验收并提交bdc57b1/c635b17，D49 String color原源/设计准备中，D47已验收提交94cfe00/b607073/f904d5e，D46已验收提交f12f161/ca6c47e/5a11683；D45已完整验收提交8c6c534/65cba7d/ce6326c，D44已完整验收并提交9257f05/5b183df/62bf560；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：本checkpointcommit后保存D48-before；Root已读C87line liveStyle设计，待A linewidth/原SVG style窄probe最终notes后freeze。D47 full73059仅1初始view夹具失败，补验7449四目标全过，累计nonJS22102/JS22109；final99636/source7820全0且接口finalcmp同，feature94cfe00/formalb607073已提交，不重门禁。D47-before5a11683/41mbti已存，D46门禁已过已提交不重。D46-before ce6326c/41mbti已存；D45全过已commit，不重门禁。D45-before62bf560/41mbti已保存；D44累计nonJS22063/JS22070已验收，不重D44门禁。D44-before61f36fb/41mbti已保存，不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：D48 final/check/source/四目标全过并已commit；保存本checkpoint后D49-before，全文读A最终color notes/49实际records与已读C100/B65设计，再freeze最小完整String color/rawauthority/late派生合同。无live工具，全部tracked STOP；勿重D48及更早已过门禁。D48-beforef904d5e/41mbti已存；D47已过勿重门禁。D47-before5a11683/41mbti已存，D46门禁已过已提交不重。D46-before ce6326c/41mbti已存；D45全过已commit，不重门禁。D45-before62bf560/41mbti已保存；D44累计nonJS22063/JS22070已验收，不重D44门禁。D44-before61f36fb/41mbti已保存，不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -5948,3 +5948,90 @@ D47已完整验收并提交94cfe00+b607073。full73059四目标仅同1formal初�
 check24、source7820全terminal0，7旧warn0error，接口final逐字同已审，原JSON85eac...77490
 保持。Root无live工具/全trackedSTOP。下一checkpointcommit→D48-before→A原linewidth+SVG
 style必要证据最终handoff（仍ignored收尾）+C87line已读设计freeze。D48未实施，无用户阻塞。
+
+D48-before已保存f904d5e97ec2f3bfa0717c667590bb8870de68a1 HEAD/tracked.tar/41mbti，勿覆盖。D47 B对一次初始view桥的16line addendum Root已全文读，无具体缺陷：每步36view/auto/request断言原样，不掩盖后续relim变化。A D48 source仍收尾，C87line设计已读；尚未freeze/无tracked实施，无Rootlive工具。
+
+## D48 已冻结，Line linewidth 与 live Style
+
+Root已全文读A128line notes、28setter关键IEEE/sideeffects（独立核28×4不变字段）与
+11SVGstyleprimitive全记录、C87line设计及必要原setter/getter/_scale_dashes/现Style/IR接点。
+source39=28setter（scale_dashes true/false各14）+11独立SVG primitive，SHA
+1e8f2db4d7ed55ac6f022a8f8f14833a9bb6ed07256da023f5178421dd9b373f。
+额外固定官方v3.11.2 backend_svg/backend_bases/colors三文件hash在A原notes/probe记录并强校验。
+
+pub get_linewidth()->Double/set_linewidth(Double)->Unit；同一Line private mut style:@core.Style
+为唯一appearanceauthority。setter IEEE oldwidth!=new仅置stale，但总重建style存newwidth，
+保color/radius/fill/font_size/marker；signedzero不normalize，NaNrepeat置stale，Inf相同不置。
+无positive/finiteguard，不动data/cache/flags/visible/owner/removalbinding/range/request。
+attach保原copiedoriginal/cache先于resolve_color的顺序，Style同时赋Line与Artist，旧default
+width2便利合同不改成native rc1.5。solid profile无新dashrc/style/color/marker API。
+
+single IR line_provider/prepare_line拓宽Some((points,Style,completion))。Scene hidden先返回
+([],line.style,noop)，visible snapshot后捕获currentStyle+markdrawn；BackendSome用returnedStyle，
+None原staticfallback保持。旧IR引用stableLine到draw时才取Style，后续Line不能retroactive改
+已写输出。Axes.artists()纯physical lookup投影currentStyle并copy旧geometry，不recache；
+旧返回快照保旧immutableStyle，staticlegend/container不变。现SVG serializer便利profile保留，
+11原SVGdict/CSSprimitive source-only（±0 omitstroke/1 omitwidth/fixed6/极值）不冒typed exact
+CSS或SVGviewerparity；28settertyped仅width/stale/data副作用，dashoffset元数据不伪造实现。
+
+- B独占scene/line2d+line_units/NEWline_width_wbtest，state/get-set/init/corehands。
+- C独占IRmodel/SceneSVG/backendrender/旧backendline2dWB tuple适配，NEWScene/backend/pyplot
+  linewidthhands（实际必要分配），不改Root旧refs/figure。
+- A独占NEWgenerate_line_width_reference/JSON/guide/SceneWB，保28+11完整fields，新sources
+  正式selfcontained固定官方tag+mandatorySHA，拟2×14setter场景/1group+11source-only。
+- Root独占figure.Axes.artists当前style纯投影；旧D44gen/WB detachedfixture style初始字段；
+  旧D46gen/WB helper triple解构；NEWrootline_width_test.mbt；docs/gates/接口/commits。
+
+Root上述首步已写并单filefmt新rootBB0；旧D44与D46gen再生各terminal0，两oldJSON
+d0b1bca...af06c/af0b4ea...33b1a逐字不变。newrootBB验证rootreexport/get-set/currentartistStyle
+与旧快照、pendingbadshape query不recache、不改range/旧cache。全部writer实施中，尚未D48
+centralcheck/infofmt/行为验收，无Rootlive工具。下一各STOP后全文审并统一门禁，失败继续
+source诊断修复；勿重D47已验收门禁，整体goal未完成，无用户阻塞。
+
+D48 全体tracked STOP。Root全文读B生产/4hands/22linehandoff、C生产/7hands/36linehandoff、
+A220linegenerator/124lineguide与正式WB映射；原28setter+11SVG完整fields、5methodhash及
+host_boundary独立exactequal，JSON63bac549a89c0363ffc5cce4a756abd182b4f9d70733f4cbe49510c66386d88e。
+new13registered=1formal（28typedops/2连续场景）+B4+C7+Root1。firstcheck live20134，
+source新linewidth/旧D44/旧D46 --check全部terminal0（日志D48-source-check/old-data-check/
+old-visible-check），原oldJSON不变。尚未infofmt/四目标行为验收。下一读20134终态，
+infofmt→41mbti全文审→四目标；B ignored正式独审，A/C仅下一color必要source/design，无tracked。
+
+D48 firstcheck20134 terminal0：64tasks/7旧Refwarn/0error；info6/fmt15 terminal0。
+Root全文审41mbti diff，仅Scene get/set_linewidth两新method、IR provider/prepare_line携Style
+triple为预期变化，其余39逐字同，已存D48-interface-reviewed.diff。firstfull已启动，
+下一记录liveID/读终态；A/C仅ignored下一候选color，B ignored正式独审。无其他Rootlive。
+
+D48 firstfull live4864。Root已补README/DEPENDENCIES/NOTICE实现说明，未声称四目标验收；
+全部tracked生产/fixtures STOP，下一终态/诊断或final/6docs验收/分批commit，无其他Rootlive。
+
+D48 full4864仍live。Root全文读B62line正式独审，无新具体缺陷：原AST段hash/28IEEE与
+cache/data row-major顺序/2连续场景/mark_drawn输入桥及11source-only边界已独核。
+Root另读B65line D49候选color窄notes，仅准备：native先validate后保存原String、合法同色也
+无条件stale；不能复用旧resolve_color空串sentinel/cycleconsume，现parse_color不是完整native
+String规则，rawgetter与lateSVG颜色派生需分别freeze。A/C仍仅ignored必要source/design，
+D49未freeze/无tracked实施，无其他Rootlive工具。
+
+D48 full4864仍live：wasm/wasm-gc各22115/22115、JS22122/22122已全过，native待终态。
+Root已全文读C100line D49 color设计：private provenance tag保旧plot CSS便利合同，rawString
+只在Line.style.color，显式setter先validator后存原值/无条件stale，latevisible先points再
+派生Style/Cn读globalrc，hidden不解析；不新增IR协议。A49record实际probe已报完成，
+Root尚未读最终notes/records，D49不freeze不tracked。下一full native终态→D48 final提交。
+
+## D48 行为验收通过（提交前最终门禁）
+
+- [x] firstfull4864 terminal0：wasm/wasm-gc/native各22115/22115、JS22122/22122，0fail。
+- [x] new13registered=1formal（28typedops/2连续场景）+B4+C7+Root1，39原准备records
+  全字段/5methodhash/host边界Root独比exactequal；JSON63bac549...6d88e。
+- [x] Root全文读全部生产/12hands/A220linegen/124guide、B62line正式独审，无具体缺陷。
+  41mbti仅Scene get/set_linewidth和IR Style triple为预期变化，其余39逐字同已审。
+- [x] 6docs/guide已补实现、验收、原源与SVG便利profile/source-only边界。
+- [x] final info4/fmt1/check24 terminal0（7旧Refwarn/0error），new/旧D44/旧D46 sourcefinal全部0；41mbti finaldiff逐字cmp同已审、diffcheck0。featurebdc57b1（18files）与formal/source/docsc635b17（10files）已本地提交。
+
+Root无live工具，全部tracked生产/fixtures STOP；D49 A仅ignored49record source待最终
+notes Root读，C100line/B65line设计已读，尚不freeze不实施。下一D48 final/commits。
+
+D48已完整验收并提交bdc57b1（18files/597insertions/28deletions）+c635b17（10files/
+4524insertions/2deletions）。full4864 terminal0 nonJS22115/JS22122，finalinfo4/fmt1/check24
+与三sourcefinal全部terminal0；7旧warn/0error，接口final逐字同已审，原JSON不变。
+Root无live工具，全部tracked STOP。下一checkpointcommit→D49-before→A49原records/最终
+notes Root全文审→结合C100/B65已读设计freeze。整体goal未完成，无用户阻塞，不重D48门禁。
