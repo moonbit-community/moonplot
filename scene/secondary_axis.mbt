@@ -20,8 +20,8 @@ pub struct SecondaryAxis {
   priv mut source_ticks_current : Bool
   priv mut legacy_sampling : Bool
   location : SecondaryAxisLocation
-  forward : (Double) -> Double
-  inverse : (Double) -> Double
+  priv mut forward : (Double) -> Double
+  priv mut inverse : (Double) -> Double
   mut label : String?
 }
 

@@ -123,3 +123,9 @@ D40 已验收次坐标轴独立 Axis 的默认四槽/标志、stored view、pare
 全覆盖，所有旧JSON不变。公开 set_functions、Transform/location 参数、任意registry 与
 完整可变 Artist 仍待迁移；本片补齐既有能力组的生命周期，不据测试数量上调约50%
 （40–60%）的宽估算。
+
+D41 已接通次坐标轴公开函数替换和 identity reset，保留同名旧安装变换、后续映射、
+新名称立即重装与 CURRENT locator 查询失败后的新函数/旧状态。11个新增注册测试包含
+1正式组（27场景）和10定向回归；46源观察保留14个source-only动态参数边界。四目标
+nonJS22001/JS22008完整全过，21行接口差异已审。数值位置、location/alignment、用户
+Transform和完整绘制阶段仍有缺项；约50%（40–60%）宽估计不按测试数量机械上调。

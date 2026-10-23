@@ -1,0 +1,3455 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "stdlib/contextlib.py": "8b7a477f978a8532852fd81e241c78182516bc4975d672d580a5848a76e11eb6",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "artist.py": "c55a81d86db60ab7b22fcd6e70401aa84558de5d1ba6e40a16c60f6f1f03be7a",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "axes/_secondary_axes.py": "b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scope": "Complete original Secondary class and accepted numeric graphical storage/presentation host; original Axis/Scale/transform/autoscale execute. No full renderer/GUI or arbitrary callable shape/effect parity.",
+  "counts": {
+    "parameter_observations": 40,
+    "typed_parameter_observations": 26,
+    "source_only_parameter_observations": 14,
+    "nonlinear_observations": 6,
+    "typed_scenarios": 27,
+    "registered_groups": 1
+  },
+  "typed_bridge_boundaries": {
+    "functions": "Two nonraising Double callbacks; reset_functions corresponds to source None. Source tuple/Transform/vector identity and invalid dynamic parameter inputs are retained metadata, not typed parity claims.",
+    "installed_transform_identity": "Original identity bool retained; typed fixtures verify exact installed numerical mapping at interior and endpoint values, not closure physical identity.",
+    "source_errors": "Native Python exception text retained verbatim. Existing Core InvalidTicks checked projection is tested with exact surviving state; native error text equivalence is not claimed.",
+    "nan": "Native NaN outputs retained as sentinel; typed NaN classification is asserted without payload parity.",
+    "events_and_pixels": "Original trace/pixels retained; generated Scene assertions cover own state and coordinate mapping. C focused render tests cover their separate renderer projection; no generic super.draw renderer parity."
+  },
+  "parameter_observations": [
+    {
+      "label": "constructor x/pair",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "forward_1_4": {
+          "value": [
+            2.0,
+            8.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            0.5,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "constructor x/None",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            9.0
+          ],
+          "error": null
+        },
+        "forward_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "constructor x/FuncTransform",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            3.0
+          ],
+          "error": null
+        },
+        "forward_1_4": {
+          "value": [
+            3.0,
+            12.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            0.3333333333333333,
+            1.3333333333333333
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "constructor y/pair",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "forward_1_4": {
+          "value": [
+            2.0,
+            8.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            0.5,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "constructor y/None",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            9.0
+          ],
+          "error": null
+        },
+        "forward_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "constructor y/FuncTransform",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            3.0
+          ],
+          "error": null
+        },
+        "forward_1_4": {
+          "value": [
+            3.0,
+            12.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            0.3333333333333333,
+            1.3333333333333333
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "constructor invalid list of two callables",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "functions argument of secondary Axes must be a two-tuple of callable functions with the first function being the transform and the second being the inverse"
+      },
+      "operation_events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "list",
+        "parent_cache": null,
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "linear",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            9.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "constructor invalid empty tuple",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "functions argument of secondary Axes must be a two-tuple of callable functions with the first function being the transform and the second being the inverse"
+      },
+      "operation_events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": null,
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "linear",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            9.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "constructor invalid length1 tuple",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "functions argument of secondary Axes must be a two-tuple of callable functions with the first function being the transform and the second being the inverse"
+      },
+      "operation_events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": null,
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "linear",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            9.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "constructor invalid length3 tuple",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "functions argument of secondary Axes must be a two-tuple of callable functions with the first function being the transform and the second being the inverse"
+      },
+      "operation_events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": null,
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "linear",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            9.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "constructor invalid noncallable second",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "functions argument of secondary Axes must be a two-tuple of callable functions with the first function being the transform and the second being the inverse"
+      },
+      "operation_events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": null,
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "linear",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            9.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "constructor Transform acceptance Affine2D",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": null,
+          "error": {
+            "type": "ValueError",
+            "message": "matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 1)"
+          }
+        },
+        "forward_1_4": {
+          "value": [
+            2.0,
+            12.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            0.5,
+            1.3333333333333333
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "constructor Transform acceptance base Transform",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": null,
+          "error": {
+            "type": "NotImplementedError",
+            "message": ""
+          }
+        },
+        "forward_1_4": {
+          "value": null,
+          "error": {
+            "type": "TypeError",
+            "message": "'NoneType' object cannot be interpreted as an integer"
+          }
+        },
+        "inverse_1_4": {
+          "value": null,
+          "error": {
+            "type": "NotImplementedError",
+            "message": ""
+          }
+        }
+      }
+    },
+    {
+      "label": "setter invalid list of two callables",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "functions argument of secondary Axes must be a two-tuple of callable functions with the first function being the transform and the second being the inverse"
+      },
+      "operation_events": [],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": true,
+        "same_function_components": [
+          true,
+          true
+        ],
+        "forward_1_4": {
+          "value": [
+            2.0,
+            8.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            0.5,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "setter invalid empty tuple",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "functions argument of secondary Axes must be a two-tuple of callable functions with the first function being the transform and the second being the inverse"
+      },
+      "operation_events": [],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": true,
+        "same_function_components": [
+          true,
+          true
+        ],
+        "forward_1_4": {
+          "value": [
+            2.0,
+            8.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            0.5,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "setter invalid length1 tuple",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "functions argument of secondary Axes must be a two-tuple of callable functions with the first function being the transform and the second being the inverse"
+      },
+      "operation_events": [],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": true,
+        "same_function_components": [
+          true,
+          true
+        ],
+        "forward_1_4": {
+          "value": [
+            2.0,
+            8.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            0.5,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "setter invalid length3 tuple",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "functions argument of secondary Axes must be a two-tuple of callable functions with the first function being the transform and the second being the inverse"
+      },
+      "operation_events": [],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": true,
+        "same_function_components": [
+          true,
+          true
+        ],
+        "forward_1_4": {
+          "value": [
+            2.0,
+            8.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            0.5,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "setter invalid noncallable second",
+      "typed_pair_or_reset_profile": false,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "functions argument of secondary Axes must be a two-tuple of callable functions with the first function being the transform and the second being the inverse"
+      },
+      "operation_events": [],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": true,
+        "same_function_components": [
+          true,
+          true
+        ],
+        "forward_1_4": {
+          "value": [
+            2.0,
+            8.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            0.5,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "same name x/pair",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            16.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "same name x/None",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "same name y/pair",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            16.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "same name y/None",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "changed name x/symlog/pair",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "symlog",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            3.0
+          ],
+          "error": null
+        },
+        "same_handles": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "same_installed_transform": false,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            16.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "changed name x/log/pair",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.scale",
+          1,
+          "x",
+          "functionlog"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "LogLocator"
+        ],
+        [
+          "autoscale_view",
+          1,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ],
+        [
+          "axis.minpos",
+          1,
+          "x"
+        ],
+        [
+          "axis.minpos",
+          1,
+          "x"
+        ],
+        [
+          "axis.minpos",
+          1,
+          "x"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "log",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.8912509381337456,
+          11.220184543019638
+        ],
+        "scale": "functionlog",
+        "classes": [
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            0.47712125471966244
+          ],
+          "error": null
+        },
+        "same_handles": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "same_installed_transform": false,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            16.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "changed name x/symlog/None",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "symlog",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            9.0
+          ],
+          "error": null
+        },
+        "same_handles": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "same_installed_transform": false,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "changed name y/symlog/pair",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "symlog",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            3.0
+          ],
+          "error": null
+        },
+        "same_handles": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "same_installed_transform": false,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            16.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "changed name y/log/pair",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.scale",
+          1,
+          "y",
+          "functionlog"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "LogLocator"
+        ],
+        [
+          "autoscale_view",
+          1,
+          {
+            "scalex": false,
+            "scaley": true
+          }
+        ],
+        [
+          "axis.minpos",
+          1,
+          "y"
+        ],
+        [
+          "axis.minpos",
+          1,
+          "y"
+        ],
+        [
+          "axis.minpos",
+          1,
+          "y"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "log",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          0.8912509381337456,
+          11.220184543019638
+        ],
+        "scale": "functionlog",
+        "classes": [
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            0.47712125471966244
+          ],
+          "error": null
+        },
+        "same_handles": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "same_installed_transform": false,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            16.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "changed name y/symlog/None",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "symlog",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            9.0
+          ],
+          "error": null
+        },
+        "same_handles": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "same_installed_transform": false,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "latch CURRENT Int64 view x",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.scale",
+          1,
+          "x",
+          "functionlog"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "LogLocator"
+        ],
+        [
+          "autoscale_view",
+          1,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "log",
+        "ticks_set": true,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          3.0
+        ],
+        "scale": "functionlog",
+        "classes": [
+          "FixedLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "default_flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": [
+          4,
+          7
+        ],
+        "current_fixed_dtype": "int64",
+        "installed_transform_9": {
+          "value": [
+            0.47712125471966244
+          ],
+          "error": null
+        },
+        "same_handles": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "same_installed_transform": false,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            16.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            2.0
+          ],
+          "error": null
+        }
+      },
+      "restored_locs_same_view": true,
+      "old_locator_still_bound": true,
+      "owner_before_mutation": [
+        1,
+        4,
+        7,
+        9
+      ],
+      "owner_after_mutation": [
+        1,
+        6,
+        7,
+        9
+      ],
+      "old_locator_after_mutation": [
+        6,
+        7
+      ]
+    },
+    {
+      "label": "latch CURRENT Int64 view y",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.scale",
+          1,
+          "y",
+          "functionlog"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "LogLocator"
+        ],
+        [
+          "autoscale_view",
+          1,
+          {
+            "scalex": false,
+            "scaley": true
+          }
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "log",
+        "ticks_set": true,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          0.0,
+          3.0
+        ],
+        "scale": "functionlog",
+        "classes": [
+          "FixedLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "default_flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": [
+          4,
+          7
+        ],
+        "current_fixed_dtype": "int64",
+        "installed_transform_9": {
+          "value": [
+            0.47712125471966244
+          ],
+          "error": null
+        },
+        "same_handles": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "same_installed_transform": false,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            16.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            2.0
+          ],
+          "error": null
+        }
+      },
+      "restored_locs_same_view": true,
+      "old_locator_still_bound": true,
+      "owner_before_mutation": [
+        1,
+        4,
+        7,
+        9
+      ],
+      "owner_after_mutation": [
+        1,
+        6,
+        7,
+        9
+      ],
+      "old_locator_after_mutation": [
+        6,
+        7
+      ]
+    },
+    {
+      "label": "CURRENT locator failure x/pair",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "Data cannot be log-scaled because all values are <= 0."
+      },
+      "operation_events": [
+        [
+          "axis.minpos",
+          1,
+          "x"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": true,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "LogLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            16.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "CURRENT locator failure x/None",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "Data cannot be log-scaled because all values are <= 0."
+      },
+      "operation_events": [
+        [
+          "axis.minpos",
+          1,
+          "x"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": true,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "LogLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "CURRENT locator failure y/pair",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "Data cannot be log-scaled because all values are <= 0."
+      },
+      "operation_events": [
+        [
+          "axis.minpos",
+          1,
+          "y"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": true,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "LogLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            16.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            2.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "CURRENT locator failure y/None",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "Data cannot be log-scaled because all values are <= 0."
+      },
+      "operation_events": [
+        [
+          "axis.minpos",
+          1,
+          "y"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": true,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "LogLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "post-install NaN forward fallback success x",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.scale",
+          1,
+          "x",
+          "functionlog"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "LogLocator"
+        ],
+        [
+          "autoscale_view",
+          1,
+          {
+            "scalex": true,
+            "scaley": false
+          }
+        ],
+        [
+          "axis.minpos",
+          1,
+          "x"
+        ],
+        [
+          "axis.minpos",
+          1,
+          "x"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "log",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          1.0,
+          10.0
+        ],
+        "scale": "functionlog",
+        "classes": [
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            0.9542425094393249
+          ],
+          "error": null
+        },
+        "same_handles": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "same_installed_transform": false,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "post-install NaN forward fallback success y",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [
+        [
+          "axis.scale",
+          1,
+          "y",
+          "functionlog"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "LogLocator"
+        ],
+        [
+          "autoscale_view",
+          1,
+          {
+            "scalex": false,
+            "scaley": true
+          }
+        ],
+        [
+          "axis.minpos",
+          1,
+          "y"
+        ],
+        [
+          "axis.minpos",
+          1,
+          "y"
+        ]
+      ],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "log",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          1.0,
+          10.0
+        ],
+        "scale": "functionlog",
+        "classes": [
+          "LogLocator",
+          "LogLocator",
+          "LogFormatterSciNotation",
+          "LogFormatterSciNotation"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            0.9542425094393249
+          ],
+          "error": null
+        },
+        "same_handles": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "same_installed_transform": false,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "same-name accepts NaN function x",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "later aspect rejects NaN function x",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "Axis limits cannot be NaN or Inf"
+      },
+      "operation_events": [],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "x",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "same-name accepts NaN function y",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": null,
+      "operation_events": [],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "label": "later aspect rejects NaN function y",
+      "typed_pair_or_reset_profile": true,
+      "operation_error": {
+        "type": "ValueError",
+        "message": "Axis limits cannot be NaN or Inf"
+      },
+      "operation_events": [],
+      "operation_warnings": [],
+      "state": {
+        "published_functions_type": "tuple",
+        "parent_cache": "linear",
+        "ticks_set": false,
+        "location_assigned": true,
+        "orientation": "y",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "scale": "function",
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "default_flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "current_fixed_values": null,
+        "current_fixed_dtype": null,
+        "installed_transform_9": {
+          "value": [
+            4.5
+          ],
+          "error": null
+        },
+        "same_handles": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_installed_transform": true,
+        "same_functions_tuple": false,
+        "same_function_components": [
+          false,
+          false
+        ],
+        "forward_1_4": {
+          "value": [
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "inverse_1_4": {
+          "value": [
+            1.0,
+            4.0
+          ],
+          "error": null
+        }
+      }
+    }
+  ],
+  "nonlinear_observations": [
+    {
+      "label": "initial applied affine pair",
+      "own_view": [
+        2.0,
+        8.0
+      ],
+      "parentscale_cache": "linear",
+      "same_initial_transform": true,
+      "forward_parent_endpoints": [
+        2.0,
+        8.0
+      ],
+      "installed_transform_value": 2.0,
+      "raw_tick": 4.0,
+      "display_x": 106.66666666666666,
+      "bbox": [
+        0.0,
+        320.0
+      ],
+      "installed_transform_view_endpoints": [
+        1.0,
+        4.0
+      ]
+    },
+    {
+      "label": "same-name setter changes functions only",
+      "own_view": [
+        2.0,
+        8.0
+      ],
+      "parentscale_cache": "linear",
+      "same_initial_transform": true,
+      "forward_parent_endpoints": [
+        1.0,
+        16.0
+      ],
+      "installed_transform_value": 2.0,
+      "raw_tick": 4.0,
+      "display_x": 106.66666666666666,
+      "bbox": [
+        0.0,
+        320.0
+      ],
+      "installed_transform_view_endpoints": [
+        1.0,
+        4.0
+      ]
+    },
+    {
+      "label": "aspect maps new endpoints while retaining old installed transform",
+      "own_view": [
+        1.0,
+        16.0
+      ],
+      "parentscale_cache": "linear",
+      "same_initial_transform": true,
+      "forward_parent_endpoints": [
+        1.0,
+        16.0
+      ],
+      "installed_transform_value": 2.0,
+      "raw_tick": 4.0,
+      "display_x": 64.0,
+      "bbox": [
+        0.0,
+        320.0
+      ],
+      "installed_transform_view_endpoints": [
+        0.5,
+        8.0
+      ]
+    },
+    {
+      "label": "same-name draw still retains old installed transform",
+      "own_view": [
+        1.0,
+        16.0
+      ],
+      "parentscale_cache": "linear",
+      "same_initial_transform": true,
+      "forward_parent_endpoints": [
+        1.0,
+        16.0
+      ],
+      "installed_transform_value": 2.0,
+      "raw_tick": 4.0,
+      "display_x": 64.0,
+      "bbox": [
+        0.0,
+        320.0
+      ],
+      "installed_transform_view_endpoints": [
+        0.5,
+        8.0
+      ]
+    },
+    {
+      "label": "changed nonlog parent name installs new nonlinear pair",
+      "own_view": [
+        1.0,
+        16.0
+      ],
+      "parentscale_cache": "symlog",
+      "same_initial_transform": false,
+      "forward_parent_endpoints": [
+        1.0,
+        16.0
+      ],
+      "installed_transform_value": 2.0,
+      "raw_tick": 4.0,
+      "display_x": 106.66666666666666,
+      "bbox": [
+        0.0,
+        320.0
+      ],
+      "installed_transform_view_endpoints": [
+        1.0,
+        4.0
+      ]
+    },
+    {
+      "label": "None restores identity limit functions but keeps prior transform",
+      "own_view": [
+        1.0,
+        4.0
+      ],
+      "parentscale_cache": "symlog",
+      "same_initial_transform": false,
+      "forward_parent_endpoints": [
+        1.0,
+        4.0
+      ],
+      "installed_transform_value": 1.5,
+      "raw_tick": 2.25,
+      "display_x": 160.0,
+      "bbox": [
+        0.0,
+        320.0
+      ],
+      "installed_transform_view_endpoints": [
+        1.0,
+        2.0
+      ]
+    }
+  ]
+}

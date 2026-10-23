@@ -1906,3 +1906,14 @@ SVG 按次轴创建顺序准备完整主次刻度批次，使用各自已经安�
 `locator`、`formatter` 字段已收束为现有 getter/setter，避免形成两份状态。
 完整源构造器、物理尺寸、错误阶段及尚未覆盖的 Transform/GUI 协议见
 [次坐标轴生命周期](testdata/secondary_lifecycle_README.md)。本片行为验收结果见执行检查点。
+
+D41 增加 `SecondaryAxis::set_functions(forward, inverse)` 与 `reset_functions()`，后者
+对应原版的 `set_functions(None)`。当前函数通过原有 `forward()` / `inverse()` getter
+取得，旧 getter 返回的函数值仍可使用；原公开只读字段现由私有可变存储承接。
+同名父 scale 下，替换函数保留已安装的变换、刻度对象和当前视图。之后 aspect/draw
+用新函数映射父范围，已安装变换则等父 scale 名称变化才重装。
+
+新函数先存入，再执行名称检查与必要重装；CURRENT locator 查询失败时保留新函数和
+之前的子轴状态。原始参数、NaN 回退、别名及绘制时替换的验证见
+[次轴函数替换](testdata/secondary_functions_README.md)。本入口接受两个非抛错 Double
+回调；用户 Transform 对象及通用向量回调仍按后续切片推进。

@@ -525,3 +525,9 @@ Matplotlib v3.11.2 的 axes/_secondary_axes.py、axis.py、scale.py、ticker.py 
 transforms.py 以 MoonBit 重写。完整所选原体执行、SHA256、物理上下文和图形宿主
 边界见 [testdata/secondary_lifecycle_README.md](testdata/secondary_lifecycle_README.md)。
 既有 Matplotlib 与 NumPy 许可继续适用；没有新增分发运行时。
+
+D41 的 SecondaryAxis 函数替换、identity reset 和缓存/部分失败行为继续依据同一固定
+Matplotlib v3.11.2 的完整 axes/_secondary_axes.py 与既有 Axis/scale 原源以 MoonBit
+重写。46个源观察、动态参数边界与图形宿主见
+[testdata/secondary_functions_README.md](testdata/secondary_functions_README.md)。
+没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。

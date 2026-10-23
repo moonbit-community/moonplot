@@ -716,8 +716,6 @@ pub fn PathCollection::styles(Self) -> Array[@core.Style]
 
 pub struct SecondaryAxis {
   location : SecondaryAxisLocation
-  forward : (Double) -> Double
-  inverse : (Double) -> Double
   mut label : String?
   // private fields
 }
@@ -745,7 +743,9 @@ pub fn SecondaryAxis::minor_tick_labels_checked(Self, Array[Double], view? : @co
 pub fn SecondaryAxis::minor_tick_values_checked(Self) -> Array[Double] raise @core.DataError
 pub fn SecondaryAxis::named_formatter(Self) -> @ticker.BaseFormatter?
 pub fn SecondaryAxis::prepare_draw(Self) -> Unit raise @core.DataError
+pub fn SecondaryAxis::reset_functions(Self) -> Unit raise @core.DataError
 pub fn SecondaryAxis::set_formatter(Self, @ticker.Formatter) -> Unit
+pub fn SecondaryAxis::set_functions(Self, (Double) -> Double, (Double) -> Double) -> Unit raise @core.DataError
 pub fn SecondaryAxis::set_label(Self, String) -> Unit
 pub fn SecondaryAxis::set_locator(Self, @ticker.Locator) -> Unit raise @core.DataError
 pub fn SecondaryAxis::set_minor_locator(Self, @ticker.MinorLocator) -> Unit

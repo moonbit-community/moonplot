@@ -362,3 +362,11 @@ Bbox 和数值 autoscale 方法；`axes/_secondary_axes.py` SHA256 为
 图形 superclass 构造和最终绘制宿主边界、53 个源观察及两个注册测试组见
 [testdata/secondary_lifecycle_README.md](testdata/secondary_lifecycle_README.md)。
 不分发 Python/NumPy，也不把数值宿主视为完整 GUI 或通用 Transform 协议。
+
+## D41 次坐标轴函数替换
+
+复用 D40 的完整原类、Axis/scale/autoscale 与数值图形宿主，无新增源码来源或分发依赖。
+独立原源记录46个观察（40参数/生命周期与6非线性阶段），其中14个动态参数明确保留为
+source-only；完整来源、typed callback 边界与复现见
+[testdata/secondary_functions_README.md](testdata/secondary_functions_README.md)。
+现有 Matplotlib 与 NumPy 许可继续适用，运行时仍为纯 MoonBit 实现。
