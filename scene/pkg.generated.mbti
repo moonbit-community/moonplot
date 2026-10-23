@@ -11,6 +11,7 @@ import {
   "mathplotlib/mathplotlib/ticker",
   "mathplotlib/mathplotlib/ticker/date",
   "mathplotlib/mathplotlib/ticker/scale",
+  "mathplotlib/mathplotlib/transforms",
   "moonbitlang/core/ref",
 }
 
@@ -214,8 +215,8 @@ pub fn Axes::scatter_category(Self, Array[String], Array[Double], color? : Strin
 pub fn Axes::scatter_category_y(Self, Array[Double], Array[String], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::scatter_collection(Self, Array[@core.Point], colors? : Array[String], sizes? : Array[Double], label? : String) -> PathCollection raise @core.DataError
 pub fn Axes::scatter_masked(Self, @core.MaskedArray, @core.MaskedArray, color? : String, label? : String) -> Unit raise @core.DataError
-pub fn Axes::secondary_xaxis(Self, (Double) -> Double, (Double) -> Double, location? : SecondaryAxisLocation) -> SecondaryAxis raise @core.DataError
-pub fn Axes::secondary_yaxis(Self, (Double) -> Double, (Double) -> Double, location? : SecondaryAxisLocation) -> SecondaryAxis raise @core.DataError
+pub fn Axes::secondary_xaxis(Self, (Double) -> Double, (Double) -> Double, location? : SecondaryAxisLocation, transform? : @transforms.Affine2D?) -> SecondaryAxis raise @core.DataError
+pub fn Axes::secondary_yaxis(Self, (Double) -> Double, (Double) -> Double, location? : SecondaryAxisLocation, transform? : @transforms.Affine2D?) -> SecondaryAxis raise @core.DataError
 pub fn Axes::semilogx(Self, Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::semilogy(Self, Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::set_adjustable(Self, String, share? : Bool) -> Unit raise @core.DataError
@@ -522,8 +523,8 @@ pub fn Figure::scatter_category(Self, Array[String], Array[Double], color? : Str
 pub fn Figure::scatter_category_y(Self, Array[Double], Array[String], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::scatter_collection(Self, Array[@core.Point], colors? : Array[String], sizes? : Array[Double], label? : String) -> PathCollection raise @core.DataError
 pub fn Figure::scatter_masked(Self, @core.MaskedArray, @core.MaskedArray, color? : String, label? : String) -> Unit raise @core.DataError
-pub fn Figure::secondary_xaxis(Self, (Double) -> Double, (Double) -> Double, location? : SecondaryAxisLocation) -> SecondaryAxis raise @core.DataError
-pub fn Figure::secondary_yaxis(Self, (Double) -> Double, (Double) -> Double, location? : SecondaryAxisLocation) -> SecondaryAxis raise @core.DataError
+pub fn Figure::secondary_xaxis(Self, (Double) -> Double, (Double) -> Double, location? : SecondaryAxisLocation, transform? : @transforms.Affine2D?) -> SecondaryAxis raise @core.DataError
+pub fn Figure::secondary_yaxis(Self, (Double) -> Double, (Double) -> Double, location? : SecondaryAxisLocation, transform? : @transforms.Affine2D?) -> SecondaryAxis raise @core.DataError
 pub fn Figure::semilogx(Self, Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::semilogy(Self, Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::set_adjustable(Self, String, share? : Bool) -> Unit raise @core.DataError
@@ -749,7 +750,7 @@ pub fn SecondaryAxis::set_alignment(Self, SecondaryAxisAlignment) -> Unit raise 
 pub fn SecondaryAxis::set_formatter(Self, @ticker.Formatter) -> Unit
 pub fn SecondaryAxis::set_functions(Self, (Double) -> Double, (Double) -> Double) -> Unit raise @core.DataError
 pub fn SecondaryAxis::set_label(Self, String) -> Unit
-pub fn SecondaryAxis::set_location(Self, SecondaryAxisLocation) -> Unit raise @core.DataError
+pub fn SecondaryAxis::set_location(Self, SecondaryAxisLocation, transform? : @transforms.Affine2D?) -> Unit raise @core.DataError
 pub fn SecondaryAxis::set_locator(Self, @ticker.Locator) -> Unit raise @core.DataError
 pub fn SecondaryAxis::set_minor_locator(Self, @ticker.MinorLocator) -> Unit
 pub fn SecondaryAxis::set_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit

@@ -1,4 +1,12 @@
 ///|
+// A failed blend leaves the installed locator unchanged even though the raw
+// location metadata has already been assigned by set_location.
+priv struct SecondaryLocationLocator {
+  position : Double
+  transform : @transforms.Affine2D?
+}
+
+///|
 fn secondary_location_position(location : SecondaryAxisLocation) -> Double {
   match location {
     Top | Right => 1.0
@@ -8,7 +16,7 @@ fn secondary_location_position(location : SecondaryAxisLocation) -> Double {
 }
 
 ///|
-/// Return the parent-normalized location without changing active geometry.
+/// Return the requested numerical location without changing active geometry.
 pub fn SecondaryAxis::position(self : SecondaryAxis) -> Double {
   secondary_location_position(self.location)
 }
@@ -23,6 +31,7 @@ pub fn SecondaryAxis::alignment(self : SecondaryAxis) -> SecondaryAxisAlignment 
 pub fn SecondaryAxis::set_location(
   self : SecondaryAxis,
   location : SecondaryAxisLocation,
+  transform~ : @transforms.Affine2D? = None,
 ) -> Unit raise @core.DataError {
   let valid = if self.horizontal {
     location is (Top | Bottom | Position(_))
@@ -39,6 +48,15 @@ pub fn SecondaryAxis::set_location(
     )
   }
   self.location = location
+  if transform is Some(value) && !value.is_separable() {
+    raise @core.DataError::InvalidTicks(
+      message="ValueError: Both *x_transform* and *y_transform* must be 2D affine transforms",
+    )
+  }
+  self.location_locator = {
+    position: secondary_location_position(location),
+    transform,
+  }
 }
 
 ///|
@@ -106,7 +124,8 @@ fn SecondaryAxis::positioned_aspect(
   width : Double,
   height : Double,
 ) -> Unit raise @core.DataError {
-  let position = self.position()
+  let locator = self.location_locator
+  let position = locator.position
   let requested = if self.horizontal {
     @transforms.bbox_from_bounds(0.0, position, 1.0, 1.0e-10)
   } else {
@@ -125,7 +144,19 @@ fn SecondaryAxis::positioned_aspect(
     left,
     figure_height - top - height,
   )
-  let candidate = requested.transformed(figure_from.then(parent_to))
+  let location_to = match locator.transform {
+    None => parent_to
+    Some(value) => {
+      let parent = @transforms.affine_transform(parent_to)
+      let user = @transforms.affine_transform(value)
+      if self.horizontal {
+        @transforms.blended_transform(parent, user).affine()
+      } else {
+        @transforms.blended_transform(user, parent).affine()
+      }
+    }
+  }
+  let candidate = requested.transformed(figure_from.then(location_to))
   let (lower, upper) = self.mapped_parent_view_interval()
   self.store_formatter_view(lower, upper)
   self.active_bounds = candidate

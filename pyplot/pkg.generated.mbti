@@ -11,6 +11,7 @@ import {
   "mathplotlib/mathplotlib/ticker",
   "mathplotlib/mathplotlib/ticker/date",
   "mathplotlib/mathplotlib/ticker/scale",
+  "mathplotlib/mathplotlib/transforms",
 }
 
 // Values
@@ -210,9 +211,9 @@ pub fn scatter_collection(Array[Double], Array[Double], colors? : Array[String],
 
 pub fn scatter_masked(@core.MaskedArray, @core.MaskedArray, color? : String, label? : String) -> Unit raise @core.DataError
 
-pub fn secondary_xaxis((Double) -> Double, (Double) -> Double, location? : @scene.SecondaryAxisLocation) -> @scene.SecondaryAxis raise @core.DataError
+pub fn secondary_xaxis((Double) -> Double, (Double) -> Double, location? : @scene.SecondaryAxisLocation, transform? : @transforms.Affine2D?) -> @scene.SecondaryAxis raise @core.DataError
 
-pub fn secondary_yaxis((Double) -> Double, (Double) -> Double, location? : @scene.SecondaryAxisLocation) -> @scene.SecondaryAxis raise @core.DataError
+pub fn secondary_yaxis((Double) -> Double, (Double) -> Double, location? : @scene.SecondaryAxisLocation, transform? : @transforms.Affine2D?) -> @scene.SecondaryAxis raise @core.DataError
 
 pub fn semilogx(Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 

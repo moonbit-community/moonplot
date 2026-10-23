@@ -32,6 +32,7 @@ pub struct SecondaryAxis {
   priv mut source_ticks_current : Bool
   priv mut legacy_sampling : Bool
   priv mut location : SecondaryAxisLocation
+  priv mut location_locator : SecondaryLocationLocator
   priv mut alignment : SecondaryAxisAlignment
   priv mut forward : (Double) -> Double
   priv mut inverse : (Double) -> Double
@@ -77,6 +78,10 @@ fn secondary_axis(
     source_ticks_current: false,
     legacy_sampling: false,
     location,
+    location_locator: {
+      position: secondary_location_position(location),
+      transform: None,
+    },
     alignment,
     forward,
     inverse,
@@ -237,6 +242,7 @@ pub fn Axes::secondary_xaxis(
   forward : (Double) -> Double,
   inverse : (Double) -> Double,
   location~ : SecondaryAxisLocation = SecondaryAxisLocation::Top,
+  transform~ : @transforms.Affine2D? = None,
 ) -> SecondaryAxis raise @core.DataError {
   match location {
     SecondaryAxisLocation::Top
@@ -262,6 +268,7 @@ pub fn Axes::secondary_xaxis(
       self.state.val.secondary_y.length(),
   )
   result.parent_axis = Some(self.x_axis())
+  result.set_location(location, transform~)
   result.initialize_formatter_view()
   self.state.val.secondary_x.push(result)
   result
@@ -274,6 +281,7 @@ pub fn Axes::secondary_yaxis(
   forward : (Double) -> Double,
   inverse : (Double) -> Double,
   location~ : SecondaryAxisLocation = SecondaryAxisLocation::Right,
+  transform~ : @transforms.Affine2D? = None,
 ) -> SecondaryAxis raise @core.DataError {
   match location {
     SecondaryAxisLocation::Left
@@ -299,6 +307,7 @@ pub fn Axes::secondary_yaxis(
       self.state.val.secondary_y.length(),
   )
   result.parent_axis = Some(self.y_axis())
+  result.set_location(location, transform~)
   result.initialize_formatter_view()
   self.state.val.secondary_y.push(result)
   result
@@ -311,8 +320,9 @@ pub fn Figure::secondary_xaxis(
   forward : (Double) -> Double,
   inverse : (Double) -> Double,
   location~ : SecondaryAxisLocation = SecondaryAxisLocation::Top,
+  transform~ : @transforms.Affine2D? = None,
 ) -> SecondaryAxis raise @core.DataError {
-  self.axes().secondary_xaxis(forward, inverse, location~)
+  self.axes().secondary_xaxis(forward, inverse, location~, transform~)
 }
 
 ///|
@@ -322,6 +332,7 @@ pub fn Figure::secondary_yaxis(
   forward : (Double) -> Double,
   inverse : (Double) -> Double,
   location~ : SecondaryAxisLocation = SecondaryAxisLocation::Right,
+  transform~ : @transforms.Affine2D? = None,
 ) -> SecondaryAxis raise @core.DataError {
-  self.axes().secondary_yaxis(forward, inverse, location~)
+  self.axes().secondary_yaxis(forward, inverse, location~, transform~)
 }

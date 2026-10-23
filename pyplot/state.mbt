@@ -2264,8 +2264,9 @@ pub fn secondary_xaxis(
   forward : (Double) -> Double,
   inverse : (Double) -> Double,
   location~ : @scene.SecondaryAxisLocation = @scene.SecondaryAxisLocation::Top,
+  transform~ : @transforms.Affine2D? = None,
 ) -> @scene.SecondaryAxis raise @core.DataError {
-  require_axes().secondary_xaxis(forward, inverse, location~)
+  require_axes().secondary_xaxis(forward, inverse, location~, transform~)
 }
 
 ///|
@@ -2274,8 +2275,9 @@ pub fn secondary_yaxis(
   forward : (Double) -> Double,
   inverse : (Double) -> Double,
   location~ : @scene.SecondaryAxisLocation = @scene.SecondaryAxisLocation::Right,
+  transform~ : @transforms.Affine2D? = None,
 ) -> @scene.SecondaryAxis raise @core.DataError {
-  require_axes().secondary_yaxis(forward, inverse, location~)
+  require_axes().secondary_yaxis(forward, inverse, location~, transform~)
 }
 
 ///|
