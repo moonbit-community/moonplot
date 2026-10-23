@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D41 public set_functions/identity reset已完整四目标验收并通过最终静态/source门禁；feature e2be84b已提交，checkpoint提交后准备D42 location/alignment。先读文件尾，不重跑D37–D41已过门禁。
+- 当前切片编号：D42 secondary numeric location/alignment已完整四目标验收并分批提交48d1c3c/b8ee64a；checkpoint后准备D43位置Affine参数。先读文件尾，勿重跑D37–D42已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D41 full8825 terminal0，nonJS22001/JS22008全过；final17646 info4/fmt2/check24/source0，21line接口逐字同，feature已提交；本checkpoint提交后保存D42-before，读A43source/C189line+12obs位置/完整draw notes，再freeze。Root保central门禁/接口/commit。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：D42 full3809四目标全过，finalstatic info4/fmt1/check24与source74829均terminal0，接口final逐字同；feature48d1c3c与reference/docs b8ee64a已提交。提交本checkpoint→保存D43-before→读C187line/A34actualrecords最终notes→freeze窄Affine参数与installed locator快照，不重D42门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -5409,3 +5409,114 @@ D41 feature e2be84b与最终门禁已完成，所有Root工具terminal无live。
 C D42只读189line/12actualobs已STOP，A43locationrecords/11operationerrors notes收尾；
 Root尚未读最终D42notes/未freeze。下一checkpointcommit→D42-before→读必要notes决定
 稳定orientation/rawposition/alignment与完整superdraw第二sync最小接线，不重D41门禁。
+
+D41 feature e2be84b + checkpoint c7aee5e均已提交，当时工作树clean；D42-before已保存
+c7aee5e09a6f140fbccce2188caac486d5e05604 HEAD/tracked.tar/41mbti，勿覆盖。Root已全文读
+A184line source notes（43obs/36Double-named候选+7dynamic/11operrors）与C189line
+render notes（12actualobs=10geometry+2完整Base.draw）；都仅ignored资料/全部STOP。
+确认后set_location不改alignment/view/tickers/cache，constructor仅初次pos<.5选style，
+numericNaN/Inf原接受，deferred NaNbbox无setterfiniteerror；完整Base.draw新阶段在reset后
+再次locator→apply_aspect→_set_lims，constant4最终[1,10]而D40superdrawsink阶段[3.8,4.2]
+仍正确旧profile。D42尚未freeze/无生产写。拟现Location加Position(Double)、稳定private
+orientation、私有mutrawlocation与独立alignment、position派生getter；具体IRframe/style
+capture与真实thinbbox1e-10算术仍待设计窄审。下一只读必要现Scene/IR/backend位置段，
+与B/C定最小边界后一次freeze独占实现；不重D41门禁。Root无live工具/无用户阻塞。
+
+D42后续窄审（仍无tracked实施）：Root读必要Scene构造/locationhelpers/SceneSVG/IRmodel/
+backend early+perchild+append与transforms affine方法，B/C同意原/active normalizedBBox
+为authority（派生1Dformatter geometry，不添mirror），新positioned_aspect(frame)在limits
+成功后commit先capture候选，directapply回original，pubprepare_draw保持D40低层阶段。
+IR拟optional positioned_aspect_provider与immutable SecondaryDrawingContext四screenedges+
+alignment；early调用newhook替同owned旧sync，perchild oldmap/reset后再newhook，fullbatch
+及owntransform后capture drawingctx入bundle，append只cached。parentFrame沿现render固定
+rect，任意parent-position callback动态layout不扩scope。独立pubAlignment四edgeenum，
+Location新增Position(Double)，numericAlignment仍typed不可表达而source-only。
+Root核Moon Affine.then(self,other)=self*other（other先应用），故figureFrom.then(parentTo)
+正确，存normalized后单独figureTo。B实际source逆矩阵probe证generic determinant inverse
+1ULP差异，采用直接1/W,1/H或现BBoxFrom diagonal，不改全局Affine.inverse。B另source
+probe证forward内set_location后metadata新而本次active仍hook入口旧capture。旧53source
+与新完整BaseDraw先oldNS[3.8,4.2]再secondNS[1,10]各保独立profile。等待B最终helpers/file
+handoff后一次freeze；A/C只ignored准备，无Rootlive工具。
+
+## D42 已冻结，三路独占实施中
+
+Root已全文读最终B148line设计、A184line源记录、C288line真实geometry/fullBaseDraw证据。
+用户再次明确继续；freeze已分别发给现有A/B/C，全部writer，尚未central编译/行为验收。
+
+- B独占Scene: secondary_axis/newsecondary_position/secondary_numeric_context/
+  secondary_lifecycle、scene/moon.pkg、toptypes、新positionhands；另旧Scalar/Eng/lifecycle
+  fixtures与Scalar/lifecycle templates共5files只机械formatter_geometry() getter适配，旧JSON不改。
+- C独占SceneSVG/IRmodel/backendsecondary_formatter/render与2newpositionrenderhands。
+- A独占NEW positionformal generator/JSON/guide/SceneWB，tracked自包含，旧source期望不改。
+- Root独占checkpoint/docs与后续central gates/interfaces/commits，无生产写，无live工具。
+
+公共Location增加Position(Double)，独立四边Alignment；orientation固定，rawlocation私有mutable，
+position派生。constructor只一次pos<.5选style；set_location只raw，set_alignment只style，跨向
+先error，任意Double含NaN/Inf位置接受。private原/active normalizedBBox唯一authority，入口
+capture候选后map/store成功才commit；directaspect回original；prepare_draw保持D40低层阶段。
+newpositionedhook early替owned旧sync，perchild oldmap/reset后再positionedaspect；fullbatch/
+transform后capture immutable四screenedge+alignment，append只cached，ownerless旧fallback。
+figureFrom.then(parentTo)存normalized，再单独figureTo；thinbbox pos+1e-10先算，不改global
+inverse；fixedparentFrame边界保留。下一等各STOP与handoff，全文审后central静态、接口、四目标，
+若失败按具体source排查修复。不要并发centralMoon或重复已验收D41门禁。
+
+D42 B/C生产首版已落，仍各自writer写新hands。Root已全文读B Scene5prod/newposition与
+C IR/adapter/backend4prod diff及bundle/append数值段：固定orientation、原/activeBBox、
+入口capture/成功commit、true thinbbox两阶段、bottomup formatter、cachedfraction使用最终
+activeframe均未发现新具体缺陷；尚未Moon编译或行为验收。A最终formal拟56records=
+原43setter+C10geometry+C2fullBaseDraw+B1capture，41scenario funcs/2groups待正式交付。
+43profile真实parentwidth128.00000000000003而Scene便利rect128，fixture显式传actualframe，
+这是incomingframe宿主边界，不冒完整Scene布局bitparity。全部writer未STOP，禁止centralMoon。
+Root无live工具；下一继续handoff独审、全部STOP后central门禁。
+
+D42 B/C已全部tracked STOP，Root全文读B333line8hands、C两newfiles11hands与全部生产diff。
+C两个StringView helper已精修to_owned，Root进一步要求fullDrawhand删提前prepare_draw，避免
+earlyhook掩盖缺失perchild第二hook，C补强后STOP。B旧Scalar/Eng/lifecycle三source
+--check session7167 terminal0，原3JSON SHA保持（D40 f08b4d...76c5c）。B仅ignored只读独审A。
+Root独立原43+C10+C2+B1的56完整records exactequal通过，新JSON e71b2a...40252；最终
+counts43参数=36typed/7source-only，10geometry、2fullBaseDraw、1capture，41func/2groups。
+A仍guide/--check收尾writer；等待A STOP后centralcheck→infofmt/41mbti审→full4target。
+新注册预计21=2formal+B8+C11，未Moon行为验收；无Rootlive工具，不把sourcepass当Moonpass。
+
+D42全体tracked STOP，Root已全文读A459line gen/4951line WB主要投影与157lineguide，B/C
+新hands与生产均已审。firstcheck80513 terminal0：76tasks/7旧Refwarnings/0errors；Root
+独立source84375 terminal0，56records/41func/2groups/JSON e71b2a...40252保持。info10tasks
+及fmt17tasks terminal0，diffcheck0。Root全文审41mbti对D42-before仅3files/预期变化：
+Scene rawlocation只读字段收私有（getter保留）、Position(Double)、独立Alignment及4methods；
+顶层Alignment reexport；IR immutableDrawingContext+2optionalproviders/methods。已保存完整
+D42-interface-reviewed.diff，其他38mbti逐字同。四目标firstfull已启动，log
+D42-test-all-first.log，下一记录liveID/读具体终态；失败继续按原source诊断修复。新21registered
+=2formal+B8+C11，未行为验收；B只ignored独审A投影，A/C全部STOP。
+D42 firstfull live session3809（D42-test-all-first.log）；不可中央并发编译/写生产或fixtures。
+
+D42 full3809仍live：wasm/wasm-gc各22022/22022、JS22029/22029均0fail，native待终态。
+Root全文读B84line正式独审，未发现新source/projection缺陷；source-only7与incomingframe
+边界、41func唯一调用均复核。README/DEPENDENCIES/NOTICE已补实现/source边界，尚未宣称
+四目标验收。A/C只ignored只读D43候选locationAffine参数：原nonseparable directAffine
+失败发生rawlocation更新后、oldlocator保留，需区分rawmetadata和installedlocator快照；
+不是D42已冻结范围内缺陷。D43未freeze/未实施，先读3809终态，最终静态/source与commit。
+
+## D42 行为验收通过（提交前最终门禁）
+
+- [x] firstfull3809 terminal0：wasm/wasm-gc/native各22022/22022，JS22029/22029，0fail。
+- [x] 新21registered=2formal（41private场景）+B8Scenehands+C11Scene/backendhands；
+  56source profile records=43参数（36typed/7source-only）+10geometry+2fullBaseDraw+1capture。
+- [x] Root原43+C10+C2+B1 complete records exactequal、B84line正式独审无新具体缺陷；
+  source --check0/JSON e71b2a...40252保持，旧Scalar/Eng/lifecycle --check0且JSON不变。
+- [x] Root全文审生产/新hands/157lineguide，预期3mbti变化全文审/其余38逐字同；
+  README/COMPAT/PLAN/PROGRESS/DEPENDENCIES/NOTICE/newguide已补能力、验收与边界。
+- [x] 最终info4/fmt1/check24全部terminal0（7旧Refwarnings/0errors）；source74829
+  terminal0/原JSON e71b2a...40252保持；41mbti finaldiff逐字同reviewedinterface，diffcheck0。
+- [x] 分批本地提交48d1c3c（生产/19hands/旧getter适配21files）与b8ee64a（formal/source/
+  guide/6docs，10files）；本checkpoint另commit。整体goal未完成，无remote/push。
+
+A/C仅ignored D43候选read-only，C187line设计已STOP待Root读，A实际矩阵收尾；D43未freeze。
+全部tracked writer停，未再改production/fixtures，不重D42 full。
+
+D42已完整验收并提交48d1c3c+b8ee64a，Root无live工具/全部tracked STOP。full3809四目标
+各22022（JS22029）全部通过；final info4/fmt1/check24/source74829全0，7旧warn0error，
+接口final逐字同，旧JSON保持。下一本checkpointcommit后保存D43-before，读C187line设计与
+A34条actualTransform最终notes后一次freeze；当前只有ignored只读资料，D43无tracked实施。
+Affine-only桥拟复用现Affine2D且不宣称mutable/nativeWrapper/Generic图；原nonsep失败后
+metadata新/oldlocator旧、defaultNoneclear、lazy mutabletransform证据必须明示，不误推广
+D42eager候选为任意liveTransform协议。无用户阻塞，继续整体goal，不重D42测试。
