@@ -8,8 +8,8 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D28准备（命名基础Formatter）；D27已验收并提交。
-- 最近完成D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
+- 当前切片编号：D29准备（命名字符串Formatter）；D28已验收并提交feature53ed70d。
+- 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
 - D26最终四目标：wasm/wasm-gc/native各11116/11116，JS11123/11123；新增1061=
@@ -23,16 +23,20 @@
   checkall31tasks/8旧warnings/0error。info&&fmt0、预期接口已审，MaxN/date公共签名不变。
   三source --check全部exit0（grid最新71661；params/axis此前通过后未变化）。新增879=
   A参数121+Bgrid633+Caxis124+root独立MaxN回归1；所有tracked writers停写。
-- 下一条具体动作：等待并全文读取A/B/C的D28-formatter-{params,batch,axis}-notes.md（ignored
-  checkpoints）；root已定向读必要本地/原源，下一步冻结D28 typed合同/文件所有权后再实现。
-  D27 feature524b673/checkpoint04909a0已提交；当前只有D28准备记录改动，无tracked实现。
+- D28最终验收：new352=A85+B196+C70+root1；全suite29320 exit0，wasm/wasm-gc/native各
+  12347/12347，JS12354/12354。B随后仅删8条空samples恒真比较，JSON/其余断言原样；
+  final1325 infofmt0、checkall24tasks/8旧warnings/0error、192generated×四目标全过。
+  三source root复验0（B final0）；接口全文审且finaldiff逐字未变，旧Formatter pure签名不变。
+- 下一条具体动作：提交本checkpoint后，D29定向准备命名FormatStrFormatter/
+  StrMethodFormatter的原源/现有string engine合同；三agents只读参数状态/格式语义/轴参考
+  notes再freeze，不提前tracked实现、不重做survey。D28全部代码与refs停写，无live工具。
   不重做survey；完整默认scale/formatter安装、tight与域外clip renderer仍未完成。
 - D27无live工具；finalall77638与grid-source71661 exit0，95932旧失败exit2、73479 probe exit0、JS30690 exit0均terminal。
   81493 compileexit1/40418旧5failexit2/62175与29316 sourceexit0都terminal，不轮询。
   D26 final26297/JS82640/source20346/check99335全exit0；
   过早check65209经主动SIGINT exit130已terminal；所有writers停写，不轮询旧sessions。
 - Git本地基线1b61c4b（D01–D19）；D20 d385718、D21 2403fcb、D22 fee6885、
-  D23 179f365、D24 13ef0b1、D25 c2f6edf；D26 feature61f768f/checkpoint78b0b68、D27 feature524b673已提交。无remote、不push。
+  D23 179f365、D24 13ef0b1、D25 c2f6edf；D26 feature61f768f/checkpoint78b0b68、D27 feature524b673、D28 feature53ed70d已提交。无remote、不push。
   用户已授权分批commit与独立并行subagents，覆盖历史不commit指令。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
   CPython v3.11.0 timedelta 源码在 .moonagent/upstream/cpython-v3.11.0/，仅行为
@@ -3647,3 +3651,88 @@ append shape，TickValues仅固定shapeview，不能不说明混同。旧pure fo
 沿Locator空结果兼容映射、新checked路径直达SVG尚待合同；不能让render吞新error。
 无liveMoon/source sessions，A/B/C只读ignored notes仍在执行。精确下一步等三份notes交齐
 后root全文读并freeze，未提前分配tracked文件，不重跑D27已有效checks。
+
+本goal回合承接前回合分类为progress：D27 feature524b673/04909a0已验收提交，D28只读准备
+cc2c537已提交，当前Gitclean。A325行params notes已全文读，93原类/真实deprecated helper
+观察有效并停写。完整deprecation.py当时内存从固定官方tag读取，SHA364d069a9bcdf2b10f2f
+641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2；正式reference需保存ignored pinned源并校验，
+不能用fake descriptor。B57原AST观察/C38原AST观察仍在写最终notes，无Moon sessions。
+root moon ide doc Array::iter已确认固定bounds，不能用于Python list live-append batch。
+D28合同尚未冻结：pos倾向Int32?typed，locs Sequence(Array[Double])|NdArray(TickValues)，
+copy浅共享容器但slot独立，Base动态kind+三wrapper保virtualcall，axis拟opaqueidentity而非
+发明无实际读取的四provider；动态rawPython/完整Dummy API为明确边界待notes汇总。
+
+## D28执行顺序（命名基础Formatter）
+
+- [x] D28-01 原A325/B239/C281定向notes全文读，冻结D28-contract-frozen.md及HEADcc2c537 snapshot。
+- [x] D28-02 独占并行实现对象/批量算法/真实source refs及rootchecked integration；四目标验收待下项。
+- [x] D28-03 三source/四目标/infofmt/接口与生成测试警告清理后复验通过，最终docs/feature53ed70d提交；本checkpoint紧随。
+
+D28已冻结：Base私有dynamic kind+Null/Fixed/Funcwrapper livebase，locs SequenceArray动态
+length或TickValues固定shape/liveget，共享classdefault；浅copy容器/provider共享但slot独立。
+posInt32?，Func(Double,Int32?)->String raiseCore，错误直传，原序/reentrant/func重绑保留；
+Base.fix_minus动态Boolrc，无batch100000cap。Axis身份opaquebinding+dummyminposmetadata，
+完整动态TickHelper/DummyAPI与rawPython位置信息明确typed边界。独立namedsetter/getter槽
+保旧Formatterenum所有purehelper/copy合同，不新增吞error桥；primary/shared/secondary主次
+checked源perAxis顺序，rawFixed formatter-aware获取与真实overlap，legacyhelperclip不全改。
+A负责formatter_base/named与params/shared真实descriptorloader，B named_batch与batchrefs，
+C axisrefs/tests/guide，rootconfig与所有integration。A真实deprecation缓存pin核sha，C正式
+不能沿只读fake descriptor。当前无liveMoongates，三writers正式工作中，root先config。
+
+D28 root主体已落：config unicode_minus字段/snapshot/reset与独立gettersetter；Axis稳定
+binding+独立named主次槽/安装warning/checkedlabels/liveoffset，Scene shared requester重绑与
+removal存活owner重绑、Secondary同槽、IR参数/借用locationsproviders、SVG按每轴major→minor。
+C正式源probe发现额外alias要求：Fixed/Linear preset owner在callback0修改影响callback1，
+minor overlap=false同view，true boolmaskfresh。Root已用FormatterLocations贯穿raw采集→
+format_ticks_view→batch后Tickposition snapshot，不能先.to_array；Secondary IR也保view且
+majorformat先于display inverse。合同末尾已记证据细化。16root文件单stdinmoonfmt parse0，
+非Moongates；root补config snapshot1test。A停写85tests/gencheck0，B停写196/gencheck0；
+C仍独占增加alias refs/tests并生成。无liveMoon工具；下一等C停写后统一static/infofmt。
+
+D28 A/B独立rootreview发现3真实缺口，root正在修并让C新增原AST回归，尚未Moongates：
+secondary IR增加live formatter/nullgroup provider，回调换minor locator/formatter或major
+formatter后offset取current handle；raw Multiple直接对象call不能fallthrough旧clip/catch；
+newnamed fullFixed/Linear preset运输移除100000 cap（其他locator已接受primitivecap不改）。
+C先前60tests暂时已停，现独占补slot替换/Multiple/full125001 profile；A/B正式refs停写，
+root --check复验两份均exit0。显式date/category按原清legacy点同步清named避免复活；不宣称
+完整隐式defaultreset。A128/B124只读review notes已交，无liveMoon工具；下一C再停后static。
+
+D28 root三缺口修正已落：IR formatter_provider(Bool)->Base? 与null_group_provider(Bool)->Bool
+从Scene live获取nextstage slots；legacy Secondary fastbranch不再earlyreturn，允许其major回调
+安装namedminor后commonminor阶段看见；手工IR无provider保snapshot。newraw Multiple主次
+直call对象；全Fixed/presetview运输无cap，secondary overlap=true NamedFixed/Linear也不再
+截断（oldnonNamed acceptedprofile保持旧cap）。显式date/category原清formatter点同步清
+named主次；set_tick_labels成功也清namedmajor，legacyinstall清warning snapshot。Root8个
+修正文件单stdinmoonfmt parse0；A128/B124只读reviews已全文读，未见其余具体缺陷。
+C仍独占新增10原源cases（secondary x/y slot替换6、Multiple2、full125001 transport2），
+旧expected会逐键比对不变。A/B与root其余writers已停，无liveMoon工具；下一C停后gates。
+
+D28 C补10回归后再次停写，70=62generated+8hand；旧期望逐键对照完全不变，sourcegen/check0。
+Root三source --check复验均exit0（D28-{params,batch,axis}-source-check.log），info&&fmt0，
+8旧warnings/0error；D28-interface.diff已全文审仅预期新Base/3wrapper/locations/binding/
+unicodeMinus/checkedAxis/Scene/IR；旧Formatter enum/purehelper签名完全不变。
+New352=A85+B196+C70+rootconfigsnapshot1，期望nonJS12347/JS12354。全部tracked writers停写。
+唯一live工具29320运行checkall→testall，D28-check-all.log/D28-test-all.log，root负责轮询；
+不再轮询D27旧sessions。仍未accepted/未commit，待全目标结果后更新docs/guide并本地提交。
+
+D28 allgate29320已exit0：wasm/wasm-gc/native各12347/12347，JS12354/12354，全0fail。
+checkall131tasks/16warnings=8旧Ref+8新增generated samples空[]互比未定类型；不是生产
+缺陷。B已获独占授权只改batchgenerator/generatedtest：if samples非空才emit比较，空情况
+已有actual labels.length()==0等真实断言，全部事件/状态/非空样点断言保留，JSON不改。
+当前无liveMoon，B仅这两tracked文件在写。停写后root infofmt/checkall回8旧warn，并只
+重跑该192generated×四目标，生产与其余测试没改，首次全suite证据继续有效。
+
+D28最终qualitygate1325已exit0：info&&fmt0，checkall24tasks/8旧Refwarnings/0error，batch
+192generated各四目标全过；B仅省略8空samples恒真断言，其余实际query/length/events/状态/
+非空样点断言逐字保留，JSON字节不变。root B source-final复验0，A/Csource此前root复验0
+后均未改；D28-interface.diff final逐字比较相同。原fullsuite29320(12347/12354各全过)证据
+有效，生产未改不重复全suite。D28实现与验收均完成；C唯一guide更新accepted中，其余
+writers停。root总体docs已accepted，待guide停写后featurecommit排除checkpoint，再checkpoint
+commit；整体goal仍active，约46%/80%工程估计不机械变化。下一D29字符串命名formatter
+仅定向source/oldengine准备，不重survey/不提前混入复杂Scalar或完整default/Text生命周期。
+
+D28最终guide已accepted并停写；feature53ed70d已提交46files。全部code/refs/docs均完成本片
+验收，Git只剩本checkpoint；无remote/push，无live工具。Goal仍active，不能因本片完成
+标整个v3.11.2迁移complete。接下来D29候选命名FormatStrFormatter/StrMethodFormatter，
+先定向原完整类与旧formatter_printf/string/numeric引擎的参数/格式/轴引用notes，沿D28
+Base状态与checked管线复用，不提前改已验收D28 API或重开全项目survey。
