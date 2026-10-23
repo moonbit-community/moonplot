@@ -27,9 +27,10 @@
   12347/12347，JS12354/12354。B随后仅删8条空samples恒真比较，JSON/其余断言原样；
   final1325 infofmt0、checkall24tasks/8旧warnings/0error、192generated×四目标全过。
   三source root复验0（B final0）；接口全文审且finaldiff逐字未变，旧Formatter pure签名不变。
-- 下一条具体动作：提交本checkpoint后，D29定向准备命名FormatStrFormatter/
-  StrMethodFormatter的原源/现有string engine合同；三agents只读参数状态/格式语义/轴参考
-  notes再freeze，不提前tracked实现、不重做survey。D28全部代码与refs停写，无live工具。
+- 下一条具体动作：D28 checkpointf70da14已提交且随后Gitclean。D29已派三agents只读notes：
+  A D29-string-formatter-params-notes.md；B D29-formatstr-engine-notes.md；
+  C D29-strmethod-engine-notes.md（均ignored checkpoints）。root定向读原2class/helper与旧
+  printf/string/numeric共享边界，等notes交齐全文读再freeze。无tracked实现/无liveMoon工具。
   不重做survey；完整默认scale/formatter安装、tight与域外clip renderer仍未完成。
 - D27无live工具；finalall77638与grid-source71661 exit0，95932旧失败exit2、73479 probe exit0、JS30690 exit0均terminal。
   81493 compileexit1/40418旧5failexit2/62175与29316 sourceexit0都terminal，不轮询。
@@ -3736,3 +3737,17 @@ D28最终guide已accepted并停写；feature53ed70d已提交46files。全部code
 标整个v3.11.2迁移complete。接下来D29候选命名FormatStrFormatter/StrMethodFormatter，
 先定向原完整类与旧formatter_printf/string/numeric引擎的参数/格式/轴引用notes，沿D28
 Base状态与checked管线复用，不提前改已验收D28 API或重开全项目survey。
+
+D28 checkpointf70da14已提交，之后Gitclean。D29只读准备按三个大独立块派发原agents：
+A对象/fmt slot/浅copy/继承Base兼容，B原旧式% engine，C原StrMethod/_UnicodeMinusFormat
+engine；精确notes名见head。必须完整原AST/真实Python格式算子独立观察，不用port作oracle，
+不提前tracked实现、不Moongates、不为容易过测试保留错误literal fallback。Root只读必要
+原类与旧engine接口；下一notes全文读后freezeTyped/所有权/完整数值与String格式范围。
+整体goal active；D28所有sessions terminal，无liveMoon/source工具，仅三agents只读notes。
+
+D29 root定向初读完成：原FormatStr.call只fmt%x，StrMethod.call每次新建_UnicodeMinusFormat
+并format(fmt,x=x,pos=pos)；helper只在format_field结果上fix_minus，literal不改。旧printf
+明确bounded literal-fallback，旧StrMethod接受value别名/按g6，不能直接复用冒称新named源合同。
+C已独立证实{x:d}在Double域原ValueError而旧helper接受，默认{x}原shortest含1.0的.0，
+旧g6不同；正完成更多真实AST probes。Root仅读旧engine接口/共享decimal helpers清单，
+A/B/C notes仍运行，无tracked生产、无liveMoon/source session；等最终三notes全文读后freeze。
