@@ -717,6 +717,7 @@ pub fn Line2D::data_values_checked(Self) -> (@ticker.TickValues, @ticker.TickVal
 pub fn Line2D::get_alpha(Self) -> Double?
 pub fn Line2D::get_color(Self) -> String
 pub fn Line2D::get_data(Self) -> (LineData, LineData)
+pub fn Line2D::get_linestyle(Self) -> String
 pub fn Line2D::get_linewidth(Self) -> Double
 pub fn Line2D::get_visible(Self) -> Bool
 pub fn Line2D::get_xdata(Self) -> LineData
@@ -726,6 +727,7 @@ pub fn Line2D::remove(Self) -> Unit raise @core.DataError
 pub fn Line2D::set_alpha(Self, Double?) -> Unit raise @core.DataError
 pub fn Line2D::set_color(Self, String) -> Unit raise @core.DataError
 pub fn Line2D::set_data(Self, LineData, LineData) -> Unit
+pub fn Line2D::set_linestyle(Self, String) -> Unit raise @core.DataError
 pub fn Line2D::set_linewidth(Self, Double) -> Unit
 pub fn Line2D::set_visible(Self, Bool) -> Unit
 pub fn Line2D::set_xdata(Self, LineData) -> Unit

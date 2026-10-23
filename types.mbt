@@ -10,6 +10,7 @@ pub using @core {
   type Point,
   type Series,
   type Style,
+  type LineStroke,
   bounds,
   bounds_from_points,
   limits,
@@ -18,6 +19,7 @@ pub using @core {
   point,
   series,
   style,
+  line_stroke,
 }
 
 ///|

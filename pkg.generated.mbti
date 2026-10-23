@@ -39,6 +39,8 @@ pub fn index_formatter(Array[String]) -> @ticker.Formatter
 
 pub fn limits(Double, Double) -> @core.Limits
 
+pub fn line_stroke(String, offset? : Double, dashes? : Array[Double]?) -> @core.LineStroke
+
 pub fn linear_scale() -> @scale.Scale
 
 pub fn log_formatter(base? : Double, label_only_base? : Bool) -> @ticker.Formatter raise @core.DataError
@@ -69,7 +71,7 @@ pub fn series(Array[Double], Array[Double]) -> @core.Series raise @core.DataErro
 
 pub fn str_method_formatter(String) -> @ticker.Formatter
 
-pub fn style(String, width? : Double, radius? : Double, fill? : String, font_size? : Double, marker? : String, line_alpha? : Double?) -> @core.Style
+pub fn style(String, width? : Double, radius? : Double, fill? : String, font_size? : Double, marker? : String, line_alpha? : Double?, line_stroke? : @core.LineStroke) -> @core.Style
 
 // Errors
 
@@ -105,6 +107,8 @@ pub using @core {type Limits}
 pub using @scene {type Line2D}
 
 pub using @scene {type LineData}
+
+pub using @core {type LineStroke}
 
 pub using @core {type MaskError}
 

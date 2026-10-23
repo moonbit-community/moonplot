@@ -8,6 +8,8 @@ pub fn bounds_from_points(Array[Point]) -> Bounds?
 
 pub fn limits(Double, Double) -> Limits
 
+pub fn line_stroke(String, offset? : Double, dashes? : Array[Double]?) -> LineStroke
+
 pub fn masked_array(Array[Double], mask? : Array[Bool]) -> MaskedArray raise MaskError
 
 pub fn masked_matrix(Array[Array[Double]], mask? : Array[Array[Bool]]) -> MaskedMatrix raise MaskError
@@ -16,7 +18,7 @@ pub fn point(Double, Double) -> Point
 
 pub fn series(Array[Double], Array[Double]) -> Series raise DataError
 
-pub fn style(String, width? : Double, radius? : Double, fill? : String, font_size? : Double, marker? : String, line_alpha? : Double?) -> Style
+pub fn style(String, width? : Double, radius? : Double, fill? : String, font_size? : Double, marker? : String, line_alpha? : Double?, line_stroke? : LineStroke) -> Style
 
 // Errors
 pub(all) suberror DataError {
@@ -62,6 +64,13 @@ pub struct Limits {
 pub fn Limits::is_finite(Self) -> Bool
 pub fn Limits::lower(Self) -> Double
 pub fn Limits::upper(Self) -> Double
+
+pub struct LineStroke {
+  // private fields
+}
+pub fn LineStroke::dash_offset(Self) -> Double
+pub fn LineStroke::dash_sequence(Self) -> Array[Double]?
+pub fn LineStroke::linestyle(Self) -> String
 
 pub struct MaskedArray {
   // private fields
@@ -125,6 +134,7 @@ pub fn Style::color(Self) -> String
 pub fn Style::fill(Self) -> String
 pub fn Style::font_size(Self) -> Double
 pub fn Style::line_alpha(Self) -> Double?
+pub fn Style::line_stroke(Self) -> LineStroke
 pub fn Style::marker(Self) -> String
 pub fn Style::radius(Self) -> Double
 pub fn Style::width(Self) -> Double

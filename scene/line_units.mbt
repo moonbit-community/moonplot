@@ -74,6 +74,7 @@ fn Axes::attach_line_handle(
   let line : Line2D = {
     points: attached,
     style,
+    unscaled_dash_pattern: { offset: 0.0, dashes: None, },
     source_color: false,
     x,
     y,

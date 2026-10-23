@@ -78,6 +78,12 @@ pub fn Style::line_alpha(self : Style) -> Double? {
 }
 
 ///|
+/// Effective appearance for Line strokes; other Artist consumers are unchanged.
+pub fn Style::line_stroke(self : Style) -> LineStroke {
+  self.line_stroke
+}
+
+///|
 /// Styling shared by line, scatter, and bar plots.
 pub struct Style {
   color : String
@@ -87,6 +93,7 @@ pub struct Style {
   font_size : Double
   marker : String
   priv line_alpha : Double?
+  priv line_stroke : LineStroke
 }
 
 ///|
@@ -99,8 +106,9 @@ pub fn style(
   font_size~ : Double = 12.0,
   marker~ : String = "o",
   line_alpha~ : Double? = None,
+  line_stroke~ : LineStroke = default_line_stroke(),
 ) -> Style {
-  { color, width, radius, fill, font_size, marker, line_alpha, }
+  { color, width, radius, fill, font_size, marker, line_alpha, line_stroke, }
 }
 
 ///|

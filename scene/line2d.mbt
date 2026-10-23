@@ -7,10 +7,19 @@ priv struct Line2DCache {
 }
 
 ///|
+// This is captured source metadata, distinct from Style's effective appearance.
+// A width edit rescales this pattern, never the current config template.
+priv struct LineDashPattern {
+  offset : Double
+  dashes : Array[Double]?
+}
+
+///|
 /// A stable Line data handle with copied originals and lazy converted views.
 pub struct Line2D {
   priv points : Array[@core.Point]
   priv mut style : @core.Style
+  priv mut unscaled_dash_pattern : LineDashPattern
   priv mut source_color : Bool
   priv mut x : LineData
   priv mut y : LineData
@@ -117,6 +126,103 @@ pub fn Line2D::get_linewidth(self : Line2D) -> Double {
 }
 
 ///|
+pub fn Line2D::get_linestyle(self : Line2D) -> String {
+  self.style.line_stroke().linestyle()
+}
+
+///|
+fn line_style_capture(canonical : String) -> LineDashPattern {
+  let dashes = match canonical {
+    "--" => Some(@config.lines_dashed_pattern())
+    "-." => Some(@config.lines_dashdot_pattern())
+    ":" => Some(@config.lines_dotted_pattern())
+    _ => None
+  }
+  let offset = match dashes {
+    None => 0.0
+    Some(values) => {
+      let total = line_style_float_sum(values)
+      if total.is_nan() {
+        0.0 / 0.0
+      } else if total < 0.0 {
+        -0.0
+      } else {
+        0.0
+      }
+    }
+  }
+  { offset, dashes, }
+}
+
+///|
+fn LineDashPattern::scaled(
+  self : LineDashPattern,
+  canonical : String,
+  width : Double,
+) -> @core.LineStroke {
+  if @config.lines_scale_dashes() {
+    @core.line_stroke(
+      canonical,
+      offset=self.offset * width,
+      dashes=self.dashes.map(values => values.map(value => value * width)),
+    )
+  } else {
+    @core.line_stroke(canonical, offset=self.offset, dashes=self.dashes)
+  }
+}
+
+///|
+fn Line2D::replace_line_stroke(
+  self : Line2D,
+  stroke : @core.LineStroke,
+) -> Unit {
+  let style = self.style
+  self.style = @core.style(
+    style.color(),
+    width=style.width(),
+    radius=style.radius(),
+    fill=style.fill(),
+    font_size=style.font_size(),
+    marker=style.marker(),
+    line_alpha=style.line_alpha(),
+    line_stroke=stroke,
+  )
+}
+
+///|
+pub fn Line2D::set_linestyle(
+  self : Line2D,
+  linestyle : String,
+) -> Unit raise @core.DataError {
+  let canonical = match linestyle {
+    "-" | "solid" => "-"
+    "--" | "dashed" => "--"
+    "-." | "dashdot" => "-."
+    ":" | "dotted" => ":"
+    "" | " " | "none" | "None" => "None"
+    _ =>
+      raise @core.DataError::InvalidTicks(
+        message=line_style_invalid_message(linestyle),
+      )
+  }
+  // Preserve the original assignment order: canonical appearance first,
+  // captured unscaled metadata second, effective scaling third, then stale.
+  let previous = self.style.line_stroke()
+  self.replace_line_stroke(
+    @core.line_stroke(
+      canonical,
+      offset=previous.dash_offset(),
+      dashes=previous.dash_sequence(),
+    ),
+  )
+  self.unscaled_dash_pattern = line_style_capture(canonical)
+  self.replace_line_stroke(
+    self.unscaled_dash_pattern.scaled(canonical, self.style.width()),
+  )
+  self.stale = true
+}
+
+///|
 pub fn Line2D::get_alpha(self : Line2D) -> Double? {
   self.style.line_alpha()
 }
@@ -151,6 +257,7 @@ pub fn Line2D::set_alpha(
     font_size=style.font_size(),
     marker=style.marker(),
     line_alpha=alpha,
+    line_stroke=style.line_stroke(),
   )
   self.stale = true
 }
@@ -177,13 +284,14 @@ pub fn Line2D::set_color(
     font_size=style.font_size(),
     marker=style.marker(),
     line_alpha=style.line_alpha(),
+    line_stroke=style.line_stroke(),
   )
   self.source_color = true
   self.stale = true
 }
 
 ///|
-/// Set solid-line width, preserving every other appearance and data field.
+/// Set linewidth and refresh scaling of its captured unscaled dash metadata.
 pub fn Line2D::set_linewidth(self : Line2D, width : Double) -> Unit {
   let style = self.style
   if style.width() != width {
@@ -198,6 +306,10 @@ pub fn Line2D::set_linewidth(self : Line2D, width : Double) -> Unit {
     font_size=style.font_size(),
     marker=style.marker(),
     line_alpha=style.line_alpha(),
+    line_stroke=style.line_stroke(),
+  )
+  self.replace_line_stroke(
+    self.unscaled_dash_pattern.scaled(self.get_linestyle(), width),
   )
 }
 

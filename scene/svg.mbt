@@ -384,7 +384,9 @@ fn Figure::to_render_figure(
               }
               let current = line.points_snapshot_checked()
               let style = line.style
-              let drawing_style = if line.source_color && !current.is_empty() {
+              let drawing_style = if line.source_color &&
+                !current.is_empty() &&
+                style.line_stroke().linestyle() != "None" {
                 @core.style(
                   line_color_rgba(style.color(), alpha=style.line_alpha()).to_css(),
                   width=style.width(),
@@ -393,6 +395,7 @@ fn Figure::to_render_figure(
                   font_size=style.font_size(),
                   marker=style.marker(),
                   line_alpha=None,
+                  line_stroke=style.line_stroke(),
                 )
               } else {
                 style

@@ -18,6 +18,10 @@ pub struct RcParams {
   priv mut timezone : String
   priv mut date_converter : String
   priv mut date_interval_multiples : Bool
+  priv mut lines_scale_dashes : Bool
+  priv mut lines_dashed_pattern : Array[Double]
+  priv mut lines_dashdot_pattern : Array[Double]
+  priv mut lines_dotted_pattern : Array[Double]
   priv date_autoformats : Array[String]
   mut date_epoch : String
   color_cycle : Array[String]
@@ -59,6 +63,10 @@ fn default_rc_params() -> RcParams {
     timezone: "UTC",
     date_converter: "auto",
     date_interval_multiples: true,
+    lines_scale_dashes: true,
+    lines_dashed_pattern: [3.7, 1.6],
+    lines_dashdot_pattern: [6.4, 1.6, 1.0, 1.6],
+    lines_dotted_pattern: [1.0, 1.65],
     date_autoformats: [
       "%Y", "%Y-%m", "%Y-%m-%d", "%m-%d %H", "%d %H:%M", "%H:%M:%S", "%M:%S.%f",
     ],
@@ -122,6 +130,10 @@ pub fn rc_params() -> RcParams {
     timezone: value.timezone,
     date_converter: value.date_converter,
     date_interval_multiples: value.date_interval_multiples,
+    lines_scale_dashes: value.lines_scale_dashes,
+    lines_dashed_pattern: value.lines_dashed_pattern.copy(),
+    lines_dashdot_pattern: value.lines_dashdot_pattern.copy(),
+    lines_dotted_pattern: value.lines_dotted_pattern.copy(),
     date_autoformats: value.date_autoformats.copy(),
     date_epoch: value.date_epoch,
     color_cycle: value.color_cycle.copy(),
