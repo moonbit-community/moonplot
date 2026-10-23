@@ -531,3 +531,9 @@ Matplotlib v3.11.2 的完整 axes/_secondary_axes.py 与既有 Axis/scale 原源
 重写。46个源观察、动态参数边界与图形宿主见
 [testdata/secondary_functions_README.md](testdata/secondary_functions_README.md)。
 没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。
+
+D42 的次轴数值位置、独立对齐和定位绘制阶段继续依据固定 Matplotlib v3.11.2 的
+axes/_secondary_axes.py、axes/_base.py、transforms.py 与既有 Axis/scale 原源以 MoonBit
+重写。完整原体执行、来源哈希、56 条分项观察及空图形宿主边界见
+[testdata/secondary_position_README.md](testdata/secondary_position_README.md)。
+无新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。

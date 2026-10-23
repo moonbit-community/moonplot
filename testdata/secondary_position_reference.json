@@ -1,0 +1,4745 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "stdlib/contextlib.py": "8b7a477f978a8532852fd81e241c78182516bc4975d672d580a5848a76e11eb6",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "artist.py": "c55a81d86db60ab7b22fcd6e70401aa84558de5d1ba6e40a16c60f6f1f03be7a",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "axes/_secondary_axes.py": "b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "counts": {
+    "parameter_records": 43,
+    "typed_parameter_records": 36,
+    "source_only_parameter_records": 7,
+    "geometry_records": 10,
+    "full_draw_traces": 2,
+    "capture_traces": 1,
+    "all_profile_records": 56,
+    "typed_scenarios": 41,
+    "registered_groups": 2
+  },
+  "host_boundaries": {
+    "parameters": "Complete original Secondary methods, real Bbox/locator/aspect. Spine visibility and tick/label side are presentation stores, not full Tick/Text artists.",
+    "geometry": "Actual original deferred locator and normalized/display Bboxes. Incoming frame is the measured original parent Bbox; no claim that Scene convenience rect arithmetic reproduces the complete parent transform graph.",
+    "full_draw": "Complete original _AxesBase.draw body beneath Secondary.draw with decorator excluded, empty graphical artists and compositor/title/group sinks; actual second locator/aspect executes.",
+    "typed_projection": "Named and Double locations, separate named alignment. Dynamic Python scalar/container/Transform inputs remain source-only; native locator/transform identity recorded without a new public handle protocol.",
+    "errors": "Native messages retained. Existing Core InvalidTicks mapping and exact surviving typed state are asserted without claiming verbatim message parity.",
+    "nonfinite": "NaN/Inf receipt is accepted. Deferred NaN Bbox is asserted without requiring complete SVG export; no NaN payload parity.",
+    "callbacks": "Existing nonraising scalar callback bridge, not full vector callback count/effect parity."
+  },
+  "parameter_context": {
+    "figure_size": [
+      320.0,
+      240.0
+    ],
+    "parent_bbox_bounds": [
+      64.0,
+      48.0,
+      128.00000000000003,
+      144.0
+    ],
+    "parent_screen_frame": [
+      64.0,
+      48.0,
+      128.00000000000003,
+      144.0
+    ]
+  },
+  "parameter_observations": [
+    {
+      "label": "constructor x/default named",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": "top",
+        "raw_location_type": "str",
+        "position": 1.0,
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": true,
+          "bottom": false
+        },
+        "ticks_position_sink": "top",
+        "label_position_sink": "top",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          1.0,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.8,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor x/opposite named",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": "bottom",
+        "raw_location_type": "str",
+        "position": 0.0,
+        "locstrings": [
+          "bottom",
+          "top"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": true
+        },
+        "ticks_position_sink": "bottom",
+        "label_position_sink": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          0.0,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.2,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor x/negative outside",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": -0.25,
+        "raw_location_type": "float",
+        "position": -0.25,
+        "locstrings": [
+          "bottom",
+          "top"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": true
+        },
+        "ticks_position_sink": "bottom",
+        "label_position_sink": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          -0.25,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.05000000000000002,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor x/below half",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": 0.49999999999999994,
+        "raw_location_type": "float",
+        "position": 0.49999999999999994,
+        "locstrings": [
+          "bottom",
+          "top"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": true
+        },
+        "ticks_position_sink": "bottom",
+        "label_position_sink": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          0.49999999999999994,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.49999999999999994,
+            0.4000000000000001,
+            6.000006047557349e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor x/exact half",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": 0.5,
+        "raw_location_type": "float",
+        "position": 0.5,
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": true,
+          "bottom": false
+        },
+        "ticks_position_sink": "top",
+        "label_position_sink": "top",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          0.5,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.5,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor x/above one",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": 1.25,
+        "raw_location_type": "float",
+        "position": 1.25,
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": true,
+          "bottom": false
+        },
+        "ticks_position_sink": "top",
+        "label_position_sink": "top",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          1.25,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.95,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor x/NaN",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": "nan",
+        "raw_location_type": "float",
+        "position": "nan",
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": true,
+          "bottom": false
+        },
+        "ticks_position_sink": "top",
+        "label_position_sink": "top",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          "nan",
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            "nan",
+            "nan",
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor x/negative infinity",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": "-inf",
+        "raw_location_type": "float",
+        "position": "-inf",
+        "locstrings": [
+          "bottom",
+          "top"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": true
+        },
+        "ticks_position_sink": "bottom",
+        "label_position_sink": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          "-inf",
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            "nan",
+            "-inf",
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor x/positive infinity",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": "inf",
+        "raw_location_type": "float",
+        "position": "inf",
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": true,
+          "bottom": false
+        },
+        "ticks_position_sink": "top",
+        "label_position_sink": "top",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          "inf",
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            "nan",
+            "inf",
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor y/default named",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": "right",
+        "raw_location_type": "str",
+        "position": 1.0,
+        "locstrings": [
+          "right",
+          "left"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": true,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "right",
+        "label_position_sink": "right",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          1.0,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.6000000000000001,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor y/opposite named",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": "left",
+        "raw_location_type": "str",
+        "position": 0.0,
+        "locstrings": [
+          "left",
+          "right"
+        ],
+        "spine_visible": {
+          "left": true,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "left",
+        "label_position_sink": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          0.0,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor y/negative outside",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": -0.25,
+        "raw_location_type": "float",
+        "position": -0.25,
+        "locstrings": [
+          "left",
+          "right"
+        ],
+        "spine_visible": {
+          "left": true,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "left",
+        "label_position_sink": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          -0.25,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.09999999999999998,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor y/below half",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": 0.49999999999999994,
+        "raw_location_type": "float",
+        "position": 0.49999999999999994,
+        "locstrings": [
+          "left",
+          "right"
+        ],
+        "spine_visible": {
+          "left": true,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "left",
+        "label_position_sink": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          0.49999999999999994,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.4,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor y/exact half",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": 0.5,
+        "raw_location_type": "float",
+        "position": 0.5,
+        "locstrings": [
+          "right",
+          "left"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": true,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "right",
+        "label_position_sink": "right",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          0.5,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.4000000000000001,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor y/above one",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": 1.25,
+        "raw_location_type": "float",
+        "position": 1.25,
+        "locstrings": [
+          "right",
+          "left"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": true,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "right",
+        "label_position_sink": "right",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          1.25,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.7000000000000002,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor y/NaN",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": "nan",
+        "raw_location_type": "float",
+        "position": "nan",
+        "locstrings": [
+          "right",
+          "left"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": true,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "right",
+        "label_position_sink": "right",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          "nan",
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            "nan",
+            "nan",
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor y/negative infinity",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": "-inf",
+        "raw_location_type": "float",
+        "position": "-inf",
+        "locstrings": [
+          "left",
+          "right"
+        ],
+        "spine_visible": {
+          "left": true,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "left",
+        "label_position_sink": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          "-inf",
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            "-inf",
+            "nan",
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor y/positive infinity",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": "inf",
+        "raw_location_type": "float",
+        "position": "inf",
+        "locstrings": [
+          "right",
+          "left"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": true,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "right",
+        "label_position_sink": "right",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          "inf",
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            "inf",
+            "nan",
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor scalar domain PythonFalse",
+      "profile": "numeric-origin source-only",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": false,
+        "raw_location_type": "bool",
+        "position": false,
+        "locstrings": [
+          "bottom",
+          "top"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": true
+        },
+        "ticks_position_sink": "bottom",
+        "label_position_sink": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          false,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.2,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor scalar domain PythonTrue",
+      "profile": "numeric-origin source-only",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "function"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": true,
+        "raw_location_type": "bool",
+        "position": true,
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": true,
+          "bottom": false
+        },
+        "ticks_position_sink": "top",
+        "label_position_sink": "top",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          true,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.8,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor scalar domain NumPyBool",
+      "profile": "numeric-origin source-only",
+      "operation_error": {
+        "type": "ValueError",
+        "message": "location must be 'top', 'bottom', or a float, not np.True_"
+      },
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": null,
+        "raw_location_type": "NoneType",
+        "position": null,
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": null,
+          "right": null,
+          "top": null,
+          "bottom": null
+        },
+        "ticks_position_sink": null,
+        "label_position_sink": null,
+        "parent_cache": null,
+        "scale": "linear",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": null,
+        "candidate_normalized_position": null,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor wrong direction x",
+      "profile": "typed double or named location",
+      "operation_error": {
+        "type": "ValueError",
+        "message": "'left' is not a valid value for location. Supported values are 'top', 'bottom'"
+      },
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": null,
+        "raw_location_type": "NoneType",
+        "position": null,
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": null,
+          "right": null,
+          "top": null,
+          "bottom": null
+        },
+        "ticks_position_sink": null,
+        "label_position_sink": null,
+        "parent_cache": null,
+        "scale": "linear",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": null,
+        "candidate_normalized_position": null,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "constructor wrong direction y",
+      "profile": "typed double or named location",
+      "operation_error": {
+        "type": "ValueError",
+        "message": "'bottom' is not a valid value for location. Supported values are 'right', 'left'"
+      },
+      "events": [
+        [
+          "axis.clear",
+          1,
+          "x"
+        ],
+        [
+          "axis.scale",
+          1,
+          "x",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "x",
+          "NullLocator"
+        ],
+        [
+          "axis.clear",
+          1,
+          "y"
+        ],
+        [
+          "axis.scale",
+          1,
+          "y",
+          "linear"
+        ],
+        [
+          "minor.install",
+          1,
+          "y",
+          "NullLocator"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": null,
+        "raw_location_type": "NoneType",
+        "position": null,
+        "locstrings": [
+          "right",
+          "left"
+        ],
+        "spine_visible": {
+          "left": null,
+          "right": null,
+          "top": null,
+          "bottom": null
+        },
+        "ticks_position_sink": null,
+        "label_position_sink": null,
+        "parent_cache": null,
+        "scale": "linear",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": null,
+        "candidate_normalized_position": null,
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "setter moves to first but keeps initial low alignment x",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": "top",
+        "raw_location_type": "str",
+        "position": 1.0,
+        "locstrings": [
+          "bottom",
+          "top"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": true
+        },
+        "ticks_position_sink": "bottom",
+        "label_position_sink": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          1.0,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.8,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": false,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "explicit first alignment does not move location x",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": "top",
+        "raw_location_type": "str",
+        "position": 1.0,
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": true,
+          "bottom": false
+        },
+        "ticks_position_sink": "top",
+        "label_position_sink": "top",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          1.0,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.8,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": true,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "setter moves to last but keeps explicit high alignment x",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": "bottom",
+        "raw_location_type": "str",
+        "position": 0.0,
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": true,
+          "bottom": false
+        },
+        "ticks_position_sink": "top",
+        "label_position_sink": "top",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          0.0,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.2,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": false,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "numeric setter keeps explicit high alignment x",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": 0.75,
+        "raw_location_type": "float",
+        "position": 0.75,
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": true,
+          "bottom": false
+        },
+        "ticks_position_sink": "top",
+        "label_position_sink": "top",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          0.75,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.6499999999999999,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": false,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "apply positioned locator only now changes active rectangle x",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.minpos",
+          1,
+          "x"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": 0.75,
+        "raw_location_type": "float",
+        "position": 0.75,
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": true,
+          "bottom": false
+        },
+        "ticks_position_sink": "top",
+        "label_position_sink": "top",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_position": [
+          0.2,
+          0.6499999999999999,
+          0.4000000000000001,
+          6.000000496442226e-11
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          0.75,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.6499999999999999,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": true,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "setter moves to first but keeps initial low alignment y",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": "right",
+        "raw_location_type": "str",
+        "position": 1.0,
+        "locstrings": [
+          "left",
+          "right"
+        ],
+        "spine_visible": {
+          "left": true,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "left",
+        "label_position_sink": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          1.0,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.6000000000000001,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": false,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "explicit first alignment does not move location y",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": "right",
+        "raw_location_type": "str",
+        "position": 1.0,
+        "locstrings": [
+          "right",
+          "left"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": true,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "right",
+        "label_position_sink": "right",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          1.0,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.6000000000000001,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": true,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "setter moves to last but keeps explicit high alignment y",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": "left",
+        "raw_location_type": "str",
+        "position": 0.0,
+        "locstrings": [
+          "right",
+          "left"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": true,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "right",
+        "label_position_sink": "right",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          0.0,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": false,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "numeric setter keeps explicit high alignment y",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": 0.75,
+        "raw_location_type": "float",
+        "position": 0.75,
+        "locstrings": [
+          "right",
+          "left"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": true,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "right",
+        "label_position_sink": "right",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          0.75,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.5000000000000001,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": false,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "apply positioned locator only now changes active rectangle y",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.minpos",
+          1,
+          "y"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": 0.75,
+        "raw_location_type": "float",
+        "position": 0.75,
+        "locstrings": [
+          "right",
+          "left"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": true,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "right",
+        "label_position_sink": "right",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          30.0,
+          40.0
+        ],
+        "active_position": [
+          0.5000000000000001,
+          0.2,
+          4.000000330961484e-11,
+          0.6000000000000001
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          0.75,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.5000000000000001,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": true,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "failed update x/wrong named location",
+      "profile": "typed named error",
+      "operation_error": {
+        "type": "ValueError",
+        "message": "'left' is not a valid value for location. Supported values are 'bottom', 'top'"
+      },
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": 0.25,
+        "raw_location_type": "float",
+        "position": 0.25,
+        "locstrings": [
+          "bottom",
+          "top"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": true
+        },
+        "ticks_position_sink": "bottom",
+        "label_position_sink": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          0.25,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.35,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": true,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "failed update x/None location",
+      "profile": "dynamic source-only",
+      "operation_error": {
+        "type": "ValueError",
+        "message": "location must be 'bottom', 'top', or a float, not None"
+      },
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": 0.25,
+        "raw_location_type": "float",
+        "position": 0.25,
+        "locstrings": [
+          "bottom",
+          "top"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": true
+        },
+        "ticks_position_sink": "bottom",
+        "label_position_sink": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          0.25,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.35,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": true,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "failed update x/wrong alignment",
+      "profile": "typed named error",
+      "operation_error": {
+        "type": "ValueError",
+        "message": "'left' is not a valid value for align. Supported values are 'bottom', 'top'"
+      },
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": 0.25,
+        "raw_location_type": "float",
+        "position": 0.25,
+        "locstrings": [
+          "bottom",
+          "top"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": true
+        },
+        "ticks_position_sink": "bottom",
+        "label_position_sink": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          0.25,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.35,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": true,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "failed update x/numeric alignment",
+      "profile": "dynamic source-only",
+      "operation_error": {
+        "type": "ValueError",
+        "message": "0.75 is not a valid value for align. Supported values are 'bottom', 'top'"
+      },
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": 0.25,
+        "raw_location_type": "float",
+        "position": 0.25,
+        "locstrings": [
+          "bottom",
+          "top"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": true
+        },
+        "ticks_position_sink": "bottom",
+        "label_position_sink": "bottom",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          0.25,
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.2,
+            0.35,
+            0.4000000000000001,
+            6.000000496442226e-11
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": true,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "failed update y/wrong named location",
+      "profile": "typed named error",
+      "operation_error": {
+        "type": "ValueError",
+        "message": "'top' is not a valid value for location. Supported values are 'left', 'right'"
+      },
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": 0.25,
+        "raw_location_type": "float",
+        "position": 0.25,
+        "locstrings": [
+          "left",
+          "right"
+        ],
+        "spine_visible": {
+          "left": true,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "left",
+        "label_position_sink": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          0.25,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.30000000000000004,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": true,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "failed update y/None location",
+      "profile": "dynamic source-only",
+      "operation_error": {
+        "type": "ValueError",
+        "message": "location must be 'left', 'right', or a float, not None"
+      },
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": 0.25,
+        "raw_location_type": "float",
+        "position": 0.25,
+        "locstrings": [
+          "left",
+          "right"
+        ],
+        "spine_visible": {
+          "left": true,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "left",
+        "label_position_sink": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          0.25,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.30000000000000004,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": true,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "failed update y/wrong alignment",
+      "profile": "typed named error",
+      "operation_error": {
+        "type": "ValueError",
+        "message": "'top' is not a valid value for align. Supported values are 'left', 'right'"
+      },
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": 0.25,
+        "raw_location_type": "float",
+        "position": 0.25,
+        "locstrings": [
+          "left",
+          "right"
+        ],
+        "spine_visible": {
+          "left": true,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "left",
+        "label_position_sink": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          0.25,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.30000000000000004,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": true,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "failed update y/numeric alignment",
+      "profile": "dynamic source-only",
+      "operation_error": {
+        "type": "ValueError",
+        "message": "0.75 is not a valid value for align. Supported values are 'left', 'right'"
+      },
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "y",
+        "raw_location": 0.25,
+        "raw_location_type": "float",
+        "position": 0.25,
+        "locstrings": [
+          "left",
+          "right"
+        ],
+        "spine_visible": {
+          "left": true,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "ticks_position_sink": "left",
+        "label_position_sink": "left",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          0.0001,
+          1.0
+        ],
+        "bounds": [
+          0.25,
+          0,
+          1e-10,
+          1
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            0.30000000000000004,
+            0.2,
+            4.000000330961484e-11,
+            0.6000000000000001
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": true,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "NaN location setter is accepted before locator evaluation",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": "nan",
+        "raw_location_type": "float",
+        "position": "nan",
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": true,
+          "bottom": false
+        },
+        "ticks_position_sink": "top",
+        "label_position_sink": "top",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          0.0,
+          1.0
+        ],
+        "active_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          "nan",
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            "nan",
+            "nan",
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": false,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "NaN positioned aspect leaves geometric NaNs not a location validation error",
+      "profile": "typed double or named location",
+      "operation_error": null,
+      "events": [
+        [
+          "axis.minpos",
+          1,
+          "x"
+        ]
+      ],
+      "warnings": [],
+      "state": {
+        "orientation": "x",
+        "raw_location": "nan",
+        "raw_location_type": "float",
+        "position": "nan",
+        "locstrings": [
+          "top",
+          "bottom"
+        ],
+        "spine_visible": {
+          "left": false,
+          "right": false,
+          "top": true,
+          "bottom": false
+        },
+        "ticks_position_sink": "top",
+        "label_position_sink": "top",
+        "parent_cache": "linear",
+        "scale": "function",
+        "own_view": [
+          10.0,
+          20.0
+        ],
+        "active_position": [
+          "nan",
+          "nan",
+          "nan",
+          "nan"
+        ],
+        "original_position": [
+          0.0,
+          1.0,
+          1.0,
+          9.999999999998899e-05
+        ],
+        "bounds": [
+          0,
+          "nan",
+          1.0,
+          1e-10
+        ],
+        "candidate_normalized_position": {
+          "value": [
+            "nan",
+            "nan",
+            "nan",
+            "nan"
+          ],
+          "error": null
+        },
+        "classes": [
+          "AutoLocator",
+          "NullLocator",
+          "ScalarFormatter",
+          "NullFormatter"
+        ],
+        "flags": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "same_locator": true,
+        "same_installed_transform": true,
+        "same_slots": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    }
+  ],
+  "geometry_context": {
+    "figure_size": [
+      320.0,
+      240.0
+    ],
+    "parent_bbox_bounds": [
+      64.0,
+      60.0,
+      160.0,
+      120.0
+    ],
+    "parent_screen_frame": [
+      64.0,
+      60.0,
+      160.0,
+      120.0
+    ]
+  },
+  "geometry_observations": [
+    {
+      "orientation": "x",
+      "stage": "constructor before locator application",
+      "location": 0.75,
+      "pos": 0.75,
+      "locstrings": [
+        "top",
+        "bottom"
+      ],
+      "tick_side": "top",
+      "label_side": "top",
+      "visible_spines": [
+        "top"
+      ],
+      "active_bbox": [
+        0.0,
+        240.0,
+        320.0,
+        0.02400000000000091
+      ],
+      "own_view": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "orientation": "x",
+      "stage": "positioned at .75",
+      "location": 0.75,
+      "pos": 0.75,
+      "locstrings": [
+        "top",
+        "bottom"
+      ],
+      "tick_side": "top",
+      "label_side": "top",
+      "visible_spines": [
+        "top"
+      ],
+      "active_bbox": [
+        64.0,
+        150.0,
+        160.0,
+        1.1999986782029737e-08
+      ],
+      "own_view": [
+        1.0,
+        4.0
+      ]
+    },
+    {
+      "orientation": "x",
+      "stage": "location assigned .25 before next aspect",
+      "location": 0.25,
+      "pos": 0.25,
+      "locstrings": [
+        "top",
+        "bottom"
+      ],
+      "tick_side": "top",
+      "label_side": "top",
+      "visible_spines": [
+        "top"
+      ],
+      "active_bbox": [
+        64.0,
+        150.0,
+        160.0,
+        1.1999986782029737e-08
+      ],
+      "own_view": [
+        1.0,
+        4.0
+      ]
+    },
+    {
+      "orientation": "x",
+      "stage": "positioned at .25 with prior alignment",
+      "location": 0.25,
+      "pos": 0.25,
+      "locstrings": [
+        "top",
+        "bottom"
+      ],
+      "tick_side": "top",
+      "label_side": "top",
+      "visible_spines": [
+        "top"
+      ],
+      "active_bbox": [
+        64.0,
+        90.0,
+        160.0,
+        1.2000000992884452e-08
+      ],
+      "own_view": [
+        1.0,
+        4.0
+      ]
+    },
+    {
+      "orientation": "x",
+      "stage": "alignment changed without moving active bbox",
+      "location": 0.25,
+      "pos": 0.25,
+      "locstrings": [
+        "bottom",
+        "top"
+      ],
+      "tick_side": "bottom",
+      "label_side": "bottom",
+      "visible_spines": [
+        "bottom"
+      ],
+      "active_bbox": [
+        64.0,
+        90.0,
+        160.0,
+        1.2000000992884452e-08
+      ],
+      "own_view": [
+        1.0,
+        4.0
+      ]
+    },
+    {
+      "orientation": "y",
+      "stage": "constructor before locator application",
+      "location": 0.75,
+      "pos": 0.75,
+      "locstrings": [
+        "right",
+        "left"
+      ],
+      "tick_side": "right",
+      "label_side": "right",
+      "visible_spines": [
+        "right"
+      ],
+      "active_bbox": [
+        0.0,
+        240.0,
+        0.032,
+        240.0
+      ],
+      "own_view": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "orientation": "y",
+      "stage": "positioned at .75",
+      "location": 0.75,
+      "pos": 0.75,
+      "locstrings": [
+        "right",
+        "left"
+      ],
+      "tick_side": "right",
+      "label_side": "right",
+      "visible_spines": [
+        "right"
+      ],
+      "active_bbox": [
+        184.0,
+        60.0,
+        1.6000001323845936e-08,
+        120.0
+      ],
+      "own_view": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "orientation": "y",
+      "stage": "location assigned .25 before next aspect",
+      "location": 0.25,
+      "pos": 0.25,
+      "locstrings": [
+        "right",
+        "left"
+      ],
+      "tick_side": "right",
+      "label_side": "right",
+      "visible_spines": [
+        "right"
+      ],
+      "active_bbox": [
+        184.0,
+        60.0,
+        1.6000001323845936e-08,
+        120.0
+      ],
+      "own_view": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "orientation": "y",
+      "stage": "positioned at .25 with prior alignment",
+      "location": 0.25,
+      "pos": 0.25,
+      "locstrings": [
+        "right",
+        "left"
+      ],
+      "tick_side": "right",
+      "label_side": "right",
+      "visible_spines": [
+        "right"
+      ],
+      "active_bbox": [
+        104.0,
+        60.0,
+        1.6000001323845936e-08,
+        120.0
+      ],
+      "own_view": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "orientation": "y",
+      "stage": "alignment changed without moving active bbox",
+      "location": 0.25,
+      "pos": 0.25,
+      "locstrings": [
+        "left",
+        "right"
+      ],
+      "tick_side": "left",
+      "label_side": "left",
+      "visible_spines": [
+        "left"
+      ],
+      "active_bbox": [
+        104.0,
+        60.0,
+        1.6000001323845936e-08,
+        120.0
+      ],
+      "own_view": [
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "full_draw_profile": {
+    "draw_body_sha256": "fd1ee29a1bfb093c3a42fd9ba5175c8a704c3cdc8c6cc7c985614cf379050fa9",
+    "context": {
+      "figure_size": [
+        320.0,
+        240.0
+      ],
+      "parent_bbox_bounds": [
+        64.0,
+        60.0,
+        160.0,
+        120.0
+      ],
+      "parent_screen_frame": [
+        64.0,
+        60.0,
+        160.0,
+        120.0
+      ]
+    },
+    "observations": [
+      {
+        "orientation": "x",
+        "stages": [
+          [
+            "before_set_lims",
+            "function",
+            [
+              0.0,
+              1.0
+            ]
+          ],
+          [
+            "after_set_lims",
+            "function",
+            [
+              3.8,
+              4.2
+            ]
+          ],
+          [
+            "open_group"
+          ],
+          [
+            "before_set_lims",
+            "functionlog",
+            [
+              3.8,
+              4.2
+            ]
+          ],
+          [
+            "after_set_lims",
+            "functionlog",
+            [
+              1.0,
+              10.0
+            ]
+          ],
+          [
+            "composite",
+            [
+              1.0,
+              10.0
+            ]
+          ],
+          [
+            "close_group"
+          ]
+        ],
+        "result": {
+          "view": [
+            1.0,
+            10.0
+          ],
+          "child_scale": "functionlog",
+          "parent_cache": "log",
+          "bbox": [
+            64.0,
+            180.0,
+            160.0,
+            1.1999986782029737e-08
+          ]
+        }
+      },
+      {
+        "orientation": "y",
+        "stages": [
+          [
+            "before_set_lims",
+            "function",
+            [
+              0.0,
+              1.0
+            ]
+          ],
+          [
+            "after_set_lims",
+            "function",
+            [
+              3.8,
+              4.2
+            ]
+          ],
+          [
+            "open_group"
+          ],
+          [
+            "before_set_lims",
+            "functionlog",
+            [
+              3.8,
+              4.2
+            ]
+          ],
+          [
+            "after_set_lims",
+            "functionlog",
+            [
+              1.0,
+              10.0
+            ]
+          ],
+          [
+            "composite",
+            [
+              1.0,
+              10.0
+            ]
+          ],
+          [
+            "close_group"
+          ]
+        ],
+        "result": {
+          "view": [
+            1.0,
+            10.0
+          ],
+          "child_scale": "functionlog",
+          "parent_cache": "log",
+          "bbox": [
+            224.0,
+            60.0,
+            1.6000001323845936e-08,
+            120.0
+          ]
+        }
+      }
+    ],
+    "host_scope": "Complete original Secondary.draw and _AxesBase.draw numeric/control bodies. Rasterization decorator is excluded; empty graphical artist/compositor, title and renderer group sinks are explicit. Actual locator and both apply_aspect/_set_lims calls execute."
+  },
+  "capture_context": {
+    "figure_size": [
+      320.0,
+      240.0
+    ],
+    "parent_bbox_bounds": [
+      64.0,
+      60.0,
+      160.0,
+      120.0
+    ],
+    "parent_screen_frame": [
+      64.0,
+      60.0,
+      160.0,
+      120.0
+    ]
+  },
+  "capture_observation": {
+    "raw_location_after_forward": 0.75,
+    "position_after_forward": 0.75,
+    "active_bbox": [
+      64.0,
+      90.0,
+      160.0,
+      1.2000000992884452e-08
+    ],
+    "captured_position": 0.25,
+    "new_requested_position": 0.75,
+    "own_view": [
+      1.0,
+      4.0
+    ]
+  }
+}

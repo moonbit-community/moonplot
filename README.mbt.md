@@ -1917,3 +1917,16 @@ D41 增加 `SecondaryAxis::set_functions(forward, inverse)` 与 `reset_functions
 之前的子轴状态。原始参数、NaN 回退、别名及绘制时替换的验证见
 [次轴函数替换](testdata/secondary_functions_README.md)。本入口接受两个非抛错 Double
 回调；用户 Transform 对象及通用向量回调仍按后续切片推进。
+
+D42 增加数值位置 `SecondaryAxisLocation::Position(Double)`、`set_location` 和
+`set_alignment`。`location()` 返回原始命名或数值位置，`position()` 返回归一化位置，
+`alignment()` 返回独立的 `SecondaryAxisAlignment`。构造时，小于 0.5 的位置选择底部或
+左侧，其余选择顶部或右侧；之后移动位置会保留已选方向，显式对齐不会移动坐标轴。
+位置允许超出 `[0,1]`，也在接收时保留 NaN/Inf；实际几何到 aspect/draw 阶段才更新。
+
+次轴保存自己的原始框和当前框，短格式、刻度空间和 SVG 从同一份几何派生。完整 SVG
+绘制在父 scale 名称重置后再次执行定位和范围同步，随后捕获本轴的框与对齐用于输出。
+直接 `apply_aspect()` 会恢复构造时的原始框；`prepare_draw()` 保留较早的数值准备阶段。
+具体原源记录、浮点运算顺序和验证状态见
+[次轴位置与对齐](testdata/secondary_position_README.md)。位置 Transform、任意回调改变
+父面板布局、完整 Tick/Text 图元及非有限位置的完整 SVG 行为仍有独立边界。

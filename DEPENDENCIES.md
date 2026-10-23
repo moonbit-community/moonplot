@@ -370,3 +370,13 @@ Bbox 和数值 autoscale 方法；`axes/_secondary_axes.py` SHA256 为
 source-only；完整来源、typed callback 边界与复现见
 [testdata/secondary_functions_README.md](testdata/secondary_functions_README.md)。
 现有 Matplotlib 与 NumPy 许可继续适用，运行时仍为纯 MoonBit 实现。
+
+## D42 次坐标轴位置与对齐
+
+复用现有 `transforms` 的 BBox/Affine、Axis 与 SVG 管线，没有新增分发依赖。
+原源参考执行完整 Secondary 位置与对齐方法、实际 locator/Bbox/aspect，并为两个空图形
+宿主场景执行完整 `_AxesBase.draw` 数值控制体；该方法体 SHA256 为
+`fd1ee29a1bfb093c3a42fd9ba5175c8a704c3cdc8c6cc7c985614cf379050fa9`。
+56 条分项记录、41 个 typed 场景、7 条 source-only 参数记录与宿主边界见
+[testdata/secondary_position_README.md](testdata/secondary_position_README.md)。
+项目不分发 Python/NumPy；既有 Matplotlib 与 NumPy 许可继续适用。
