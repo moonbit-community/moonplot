@@ -426,3 +426,19 @@ coefficients and mathematical profile evidence are recorded separately;
 no native LAPACK or compiled geometry kernel is distributed. Scope and
 reproduction are in
 [testdata/scalar_formatter_README.md](testdata/scalar_formatter_README.md).
+
+## Named engineering formatter
+
+EngFormatter follows the complete pinned Matplotlib v3.11.2 class and its
+ScalarFormatter ancestry. Matplotlib's license and notice above apply.
+Independent references execute the original classes, real axis/draw/secondary
+bodies and the fixed CPython 3.12.14 builtin numeric dictionary. Numeric hashing
+and combined-table probe, deletion, growth and copy behavior are informed by
+CPython v3.12.14 `Objects/dictobject.c` (SHA256
+`2139caefe57c6659db766fdda5e53c57f0e42e9335227875756307acfcdb51dd`).
+Existing Python notices apply; no Python or NumPy runtime is distributed.
+Natural logarithms and powers reuse the project's directed BigInt mathematical
+primitives, with actual native results retained separately. Native NaN address
+hashes, font/locale discovery and GUI/Text/TeX rendering remain stated host
+boundaries. Scope and reproduction are documented in
+[testdata/eng_formatter_README.md](testdata/eng_formatter_README.md).

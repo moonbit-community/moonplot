@@ -158,7 +158,26 @@ pub fn ScalarFormatter::new(
 fn scalar_formatter_state(formatter : ScalarFormatter) -> ScalarFormatterState {
   match formatter.base.kind {
     Scalar(state) => state
+    Eng(state) => state.scalar
     _ => abort("invalid ScalarFormatter kind")
+  }
+}
+
+///|
+fn scalar_formatter_copy_state(
+  state : ScalarFormatterState,
+) -> ScalarFormatterState {
+  {
+    offset: state.offset,
+    use_offset: state.use_offset,
+    offset_threshold: state.offset_threshold,
+    usetex: state.usetex,
+    use_math_text: state.use_math_text,
+    use_locale: state.use_locale,
+    scientific: state.scientific,
+    order: state.order,
+    format_pattern: state.format_pattern,
+    power_limits: state.power_limits,
   }
 }
 
@@ -326,7 +345,7 @@ pub fn BaseFormatter::scalar_formatter(
   self : BaseFormatter,
 ) -> ScalarFormatter? {
   match self.kind {
-    Scalar(_) => Some({ base: self, })
+    Scalar(_) | Eng(_) => Some({ base: self, })
     _ => None
   }
 }
@@ -400,7 +419,10 @@ pub fn ScalarFormatter::call_value(
   value : ScalarNumber,
   pos? : Int32,
 ) -> String raise @core.DataError {
-  scalar_named_call(self.base, scalar_formatter_state(self), value, pos)
+  match self.base.kind {
+    Eng(state) => eng_named_call(self.base, state, value, pos)
+    _ => scalar_named_call(self.base, scalar_formatter_state(self), value, pos)
+  }
 }
 
 ///|
@@ -432,7 +454,10 @@ pub fn ScalarFormatter::format_data_value(
   self : ScalarFormatter,
   value : ScalarNumber,
 ) -> String raise @core.DataError {
-  scalar_named_format_data(scalar_formatter_state(self), value)
+  match self.base.kind {
+    Eng(state) => eng_named_format_data(state, value)
+    _ => scalar_named_format_data(scalar_formatter_state(self), value)
+  }
 }
 
 ///|

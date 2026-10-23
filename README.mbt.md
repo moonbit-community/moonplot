@@ -1389,6 +1389,24 @@ checked 准备与 offset 错误贯通主次轴、共享轴、secondary 和 SVG�
 全过，五份新原源检查通过。数值、locale、SVG72 几何与宿主边界见
 [ScalarFormatter 说明](testdata/scalar_formatter_README.md)。
 
+D32 已验收命名 `EngFormatter`，保留工程前缀、动态单位和精度、自动 offset、可变前缀表，
+并通过同一对象的 `ScalarFormatter` 视图访问继承状态。
+
+```moonbit nocheck
+let formatter = @ticker.EngFormatter::new(
+  unit="Hz",
+  use_offset=Some(@ticker.ScalarNumber::Boolean(true)),
+)
+try! fig.set_x_named_formatter(formatter.as_base_formatter())
+formatter.set_unit("s")
+formatter.as_scalar_formatter().set_use_locale(Some(false))
+```
+
+主次轴、共享轴、secondary 与 SVG 保留完整批次和最终 offset 的调用顺序。新增 62 个
+注册测试承载 1740 个验证案例，另含 6200 步字典操作轨迹；四目标全过，五份新原源
+检查通过。数值与 NaN 身份哈希的可移植 profile、类型和宿主边界见
+[EngFormatter 说明](testdata/eng_formatter_README.md)。
+
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`
 及常见宽度/精度标志，`log_formatter`、`null_formatter` 和 `func_formatter` 分别用于对数、

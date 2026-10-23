@@ -297,3 +297,14 @@ def load_scalar_formatter(ticker_path):
     namespace['source_hashes'].update({name: hashlib.sha256(value).hexdigest()
                                        for name, value in sources.items()})
     return namespace
+
+
+def load_eng_formatter(ticker_path):
+    """Load the complete original Eng class after the accepted Scalar profile."""
+    namespace = load_scalar_formatter(ticker_path)
+    nodes = [node for node in ast.parse(Path(ticker_path).read_bytes()).body
+             if isinstance(node, ast.ClassDef) and node.name == 'EngFormatter']
+    if len(nodes) != 1:
+        raise ValueError('fixed EngFormatter class missing')
+    exec(compile(ast.Module(body=nodes, type_ignores=[]), str(ticker_path), 'exec'), namespace)
+    return namespace

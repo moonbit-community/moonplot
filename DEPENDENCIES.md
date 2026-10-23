@@ -270,3 +270,15 @@ findfont 走捕获 ValueError 分支，没有模拟查找结果或声称系统�
 短标签复用现有 SVG72 几何；正逆 affine 运算分开保留，逆矩阵使用独立数学 profile，
 原 Darwin NumPy/LAPACK 系数另存为证据。没有新的 Python/NumPy/C/TeX 或外部运行时依赖；
 完整类型、资源与宿主边界见[testdata/scalar_formatter_README.md](testdata/scalar_formatter_README.md)。
+
+## D32 命名 EngFormatter
+
+EngFormatter 复用同一 Base/Scalar 状态、checked 批量及 late-offset 接线；继承的短标签
+使用原有 SVG72 像素 provider。工程数值复用精确格式、BigInt 定向区间、独立 Python/
+NumPy 舍入和整数/分数幂，新增先分别舍入两个自然对数再相除的阶数计算。动态数字前缀
+表保留固定 64 位 CPython 数字哈希、combined-table 探测/删除/扩容/复制与 NumPy 弱相等。
+NaN 的可移植身份哈希为零，原宿主地址派生的哈希碰撞行为单列边界；不宣称地址复刻。
+参考执行完整原 Eng/Scalar 类、builtin dict、实际 Axis/draw/secondary 与独立 Decimal
+数学 profile。CPython v3.12.14 dictobject.c 是行为依据，未分发 Python/NumPy 运行时或
+新增外部依赖。具体来源、数值差异和复现见
+[testdata/eng_formatter_README.md](testdata/eng_formatter_README.md)。

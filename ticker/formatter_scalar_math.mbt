@@ -242,17 +242,18 @@ fn scalar_math_numpy_round(value : Double, decimals : Int32) -> Double {
 }
 
 ///|
-fn scalar_math_round_ten(
+fn scalar_math_round_digits(
   value : ScalarNumber,
+  digits : Int32,
 ) -> ScalarNumber raise @core.DataError {
   let number = scalar_numeric_double(value)
   if scalar_numeric_numpy(value) {
-    return ScalarNumber::NumpyFloat64(scalar_math_numpy_round(number, 10))
+    return ScalarNumber::NumpyFloat64(scalar_math_numpy_round(number, digits))
   }
   if number.is_nan() || number.is_inf() || number == 0.0 {
     return ScalarNumber::Number(number)
   }
-  let integer = decimal_round(number, 10)
+  let integer = decimal_round(number, digits)
   let integer = if number < 0.0 { integer.neg() } else { integer }
   let rounded = if integer.is_zero() {
     if number < 0.0 {
@@ -260,10 +261,19 @@ fn scalar_math_round_ten(
     } else {
       0.0
     }
+  } else if digits >= 0 {
+    log_grid_integer_ratio(integer, decimal_power(digits))
   } else {
-    log_grid_integer_ratio(integer, decimal_power(10))
+    index_round_binary(integer * decimal_power(-digits), 0)
   }
   ScalarNumber::Number(rounded)
+}
+
+///|
+fn scalar_math_round_ten(
+  value : ScalarNumber,
+) -> ScalarNumber raise @core.DataError {
+  scalar_math_round_digits(value, 10)
 }
 
 ///|

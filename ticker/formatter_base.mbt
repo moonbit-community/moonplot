@@ -192,6 +192,7 @@ priv enum FormatterKind {
   StrMethod(StringFormatterState)
   Percent(PercentFormatterState)
   Scalar(ScalarFormatterState)
+  Eng(EngFormatterState)
 }
 
 ///|
@@ -241,8 +242,10 @@ pub fn BaseFormatter::set_locs_checked(
   locations : Array[Double],
 ) -> Unit raise @core.DataError {
   self.locations = FormatterLocations::Sequence(locations)
-  if self.kind is Scalar(state) {
-    scalar_named_prepare(self, state)
+  match self.kind {
+    Scalar(state) => scalar_named_prepare(self, state)
+    Eng(state) => eng_named_prepare(self, state)
+    _ => ()
   }
 }
 
@@ -261,8 +264,10 @@ pub fn BaseFormatter::set_locs_view_checked(
   locations : TickValues,
 ) -> Unit raise @core.DataError {
   self.locations = FormatterLocations::NdArray(locations)
-  if self.kind is Scalar(state) {
-    scalar_named_prepare(self, state)
+  match self.kind {
+    Scalar(state) => scalar_named_prepare(self, state)
+    Eng(state) => eng_named_prepare(self, state)
+    _ => ()
   }
 }
 
@@ -315,6 +320,7 @@ pub fn BaseFormatter::get_offset_checked(
     Fixed(state) => state.offset
     Func(state) => state.offset
     Scalar(state) => scalar_named_offset(self, state)
+    Eng(state) => eng_named_offset(self, state)
   }
 }
 
@@ -336,18 +342,14 @@ pub fn BaseFormatter::copy(self : BaseFormatter) -> BaseFormatter {
         symbol: state.symbol,
         is_latex: state.is_latex,
       })
-    Scalar(state) =>
-      FormatterKind::Scalar({
-        offset: state.offset,
-        use_offset: state.use_offset,
-        offset_threshold: state.offset_threshold,
-        usetex: state.usetex,
-        use_math_text: state.use_math_text,
-        use_locale: state.use_locale,
-        scientific: state.scientific,
-        order: state.order,
-        format_pattern: state.format_pattern,
-        power_limits: state.power_limits,
+    Scalar(state) => FormatterKind::Scalar(scalar_formatter_copy_state(state))
+    Eng(state) =>
+      FormatterKind::Eng({
+        scalar: scalar_formatter_copy_state(state.scalar),
+        unit: state.unit,
+        places: state.places,
+        sep: state.sep,
+        prefixes: state.prefixes,
       })
   }
   { kind, locations: self.locations, axis: self.axis, }

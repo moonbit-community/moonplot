@@ -1,0 +1,50 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scope": "Independent complete-class anchors for Base/Scalar/Eng virtual dispatch.",
+  "observations": {
+    "empty": [
+      "−1.23 kunit−hyphen−",
+      "-1.23 kunit-hyphen-",
+      "9007199254740993"
+    ],
+    "view_batch": [
+      "0.00 unit−hyphen−",
+      "1.00 kunit−hyphen−",
+      "2.00 kunit−hyphen−"
+    ],
+    "cached": [
+      "0.000",
+      "0.002",
+      "1.00 kunit−hyphen−+1.00 Munit−hyphen−"
+    ],
+    "cached_after_bad_places": "0.002",
+    "bad_places": [
+      "ValueError",
+      "Unknown format code 'd' for object of type 'float'"
+    ],
+    "empty_offset": "",
+    "float_batch": [
+      "−9.22337 EHz"
+    ],
+    "integer_view_error": [
+      "ValueError",
+      "math domain error"
+    ],
+    "integer_view_warnings": [
+      "overflow encountered in scalar negative"
+    ]
+  },
+  "registered_test_count": 3
+}
