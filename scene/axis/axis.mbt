@@ -13,6 +13,7 @@ pub(all) enum TickPosition {
 pub struct Axis {
   priv formatter_axis_binding : @ticker.FormatterAxisBinding
   priv mut tickers : AxisNumericTickers
+  priv mut installing_scale_defaults : Bool
   priv formatter_messages : Array[String]
   priv mut minpos_provider : (() -> Double raise @core.DataError)?
   priv mut shared_minpos_provider : (() -> Array[Double] raise @core.DataError)?
@@ -21,6 +22,7 @@ pub struct Axis {
   priv mut tick_layout_origin : Double?
   priv mut tick_length_provider : (() -> Double)?
   priv mut numeric_view_provider : (() -> (Double, Double) raise @core.DataError)?
+  priv mut render_view_provider : (() -> (Double, Double) raise @core.DataError)?
   priv mut tick_layout_length : Double?
   priv mut tick_layout_view : (Double, Double)?
   priv mut tick_layout_active : Bool
@@ -56,11 +58,12 @@ pub struct Axis {
 }
 
 ///|
-/// Construct an automatic axis.
-pub fn axis() -> Axis {
+/// Construct an axis with fresh linear locator and formatter defaults.
+pub fn axis(horizontal~ : Bool = true) -> Axis {
   let result : Axis = {
     formatter_axis_binding: @ticker.FormatterAxisBinding::new(),
     tickers: AxisNumericTickers::new(),
+    installing_scale_defaults: false,
     formatter_messages: [],
     minpos_provider: None,
     shared_minpos_provider: None,
@@ -69,10 +72,11 @@ pub fn axis() -> Axis {
     tick_layout_origin: None,
     tick_length_provider: None,
     numeric_view_provider: None,
+    render_view_provider: None,
     tick_layout_length: None,
     tick_layout_view: None,
     tick_layout_active: false,
-    tick_horizontal: true,
+    tick_horizontal: horizontal,
     tick_label_size: None,
     limits: None,
     auto_view: None,
@@ -113,6 +117,9 @@ pub fn axis() -> Axis {
     .symlog_linthresh()
     .map(value => @ticker.ScalarNumber::Number(value))
   })
+  // All linear constructors are pure. There is no date/category state or
+  // user callback here, so the checked setter's preconditions cannot fail.
+  try! result.set_scale(@scale.linear_scale())
   result
 }
 
@@ -159,14 +166,11 @@ pub fn Axis::clear_limits(self : Axis) -> Unit {
 }
 
 ///|
-/// Restore this axis to its initial automatic state.
+/// Restore tickers, units and presentation while retaining the view and context.
+/// Shared peers observe the replacement ticker objects through the same holder.
 pub fn Axis::clear(self : Axis) -> Unit {
-  self.tickers = AxisNumericTickers::new()
   self.formatter_messages.clear()
   self.tick_label_size = None
-  self.limits = None
-  self.auto_view = None
-  self.inverted = false
   self.label = None
   self.tick_count = 6
   self.tick_count_configured = false
@@ -182,8 +186,6 @@ pub fn Axis::clear(self : Axis) -> Unit {
   self.date_formatter_default = false
   self.minor_date_locator = None
   self.minor_date_formatter = None
-  self.remove_minor_overlap = true
-  self.scale = @scale.linear_scale()
   self.tick_position = None
   self.grid_visible = @config.grid_visible()
   self.grid_color = @config.grid_color()
@@ -191,6 +193,10 @@ pub fn Axis::clear(self : Axis) -> Unit {
   self.minor_grid_visible = false
   self.minor_grid_color = @config.grid_color()
   self.minor_grid_width = @config.grid_linewidth() / 2.0
+  // Clear the typed converter guards before installing numeric defaults. The
+  // constructors/setters cannot fail in this linear, callback-free profile.
+  // Do not replace the holder or detach any previously retained object.
+  try! self.set_scale(@scale.linear_scale())
 }
 
 ///|
@@ -210,10 +216,9 @@ pub fn Axis::set_scale(
     )
   }
   self.scale = value
-  if self.date_format is Some(_) || self.category is Some(_) {
-    // Date/category converter defaults retain their separate lifecycle bridge.
-    self.request_autoscale()
-    return
+  self.installing_scale_defaults = true
+  defer {
+    self.installing_scale_defaults = false
   }
   self.install_scale_defaults()
   self.mark_scale_defaults()
@@ -377,7 +382,9 @@ pub fn Axis::set_locator(
   self : Axis,
   locator : @ticker.Locator,
 ) -> Unit raise @core.DataError {
-  if self.category is Some(_) {
+  if !self.installing_scale_defaults &&
+    !self.numeric_tickers_active() &&
+    self.category is Some(_) {
     raise @core.DataError::InvalidTicks(
       message="numeric locator cannot be combined with category data",
     )
@@ -429,7 +436,9 @@ pub fn Axis::set_minor_locator(
   self : Axis,
   locator : @ticker.MinorLocator,
 ) -> Unit raise @core.DataError {
-  if self.category is Some(_) {
+  if !self.installing_scale_defaults &&
+    !self.numeric_tickers_active() &&
+    self.category is Some(_) {
     raise @core.DataError::InvalidTicks(
       message="minor locator cannot be combined with category data",
     )
@@ -558,6 +567,11 @@ fn Axis::configure_date_format(
   }
   self.sync_default_date_formatter()
   self.category = None
+  if self.tickers.major_locator_default {
+    // The implicit numeric default yields to the date converter's default.
+    // Explicit numeric/fixed locators keep their existing typed bridge.
+    self.tickers.locator = None
+  }
   self.tickers.formatter = None
   self.tickers.named_formatter = None
   self.tickers.minor_named_formatter = None
@@ -740,7 +754,8 @@ pub fn Axis::set_formatter(
   self : Axis,
   formatter : @ticker.Formatter,
 ) -> Unit raise @core.DataError {
-  if self.date_format is Some(_) || self.category is Some(_) {
+  if !self.numeric_tickers_active() &&
+    (self.date_format is Some(_) || self.category is Some(_)) {
     raise @core.DataError::InvalidTicks(
       message="numeric formatter cannot be combined with date or category data",
     )
@@ -780,11 +795,16 @@ pub fn Axis::formatter_offset_label_with_view(
   values : Array[Double],
   view : @core.Limits?,
 ) -> String {
+  if self.numeric_tickers_active() &&
+    self.tickers.named_formatter is Some(value) {
+    return value.get_offset_checked() catch { _ => "" }
+  }
   // Explicit labels own their text, and category axes have no shared offset.
-  if self.tickers.fixed_labels is Some(_) || self.category is Some(_) {
+  if self.tickers.fixed_labels is Some(_) ||
+    self.category_for_ticks() is Some(_) {
     return ""
   }
-  if self.date_format is Some(_) {
+  if self.date_format_for_ticks() is Some(_) {
     return match self.date_formatter {
       Some(formatter) => {
         let (ticks, inverted, _) = self.date_formatter_values(values, view)
@@ -948,14 +968,18 @@ pub fn Axis::tick_labels_with_view(
   values : Array[Double],
   view : @core.Limits?,
 ) -> Array[String] {
+  if self.numeric_tickers_active() &&
+    self.tickers.named_formatter is Some(value) {
+    return value.format_ticks(values) catch { _ => [] }
+  }
   match self.tickers.fixed_labels {
     Some(labels) => labels.copy()
     None =>
-      match self.category {
+      match self.category_for_ticks() {
         Some(converter) => converter.tick_labels()
         None => {
           let result = Array(capacity=values.length())
-          match self.date_format {
+          match self.date_format_for_ticks() {
             Some(format) => {
               if self.date_formatter is Some(formatter) {
                 let (ticks, inverted, reversed) = self.date_formatter_values(
@@ -1021,13 +1045,16 @@ pub fn Axis::tick_values(
   automatic : @core.Limits,
 ) -> Array[Double] {
   if self.tickers.fixed_ticks is None &&
-    self.category is None &&
+    (self.category_for_ticks() is None || self.numeric_tickers_active()) &&
     self.tickers.locator
     is Some(
       @ticker.Locator::NamedLogit(_)
       | @ticker.Locator::NamedAsinh(_)
       | @ticker.Locator::NamedSymLog(_)
       | @ticker.Locator::NamedLog(_)
+      | @ticker.Locator::Null(_)
+      | @ticker.Locator::NamedLinear(_)
+      | @ticker.Locator::NamedFixed(_)
       | @ticker.Locator::Index(_)
       | @ticker.Locator::NamedMaxN(_)
       | @ticker.Locator::NamedAuto(_)
@@ -1037,7 +1064,7 @@ pub fn Axis::tick_values(
   match self.tickers.fixed_ticks {
     Some(values) => values.copy()
     None =>
-      match self.category {
+      match self.category_for_ticks() {
         Some(converter) => converter.tick_positions()
         None => {
           let limits = match self.limits {
@@ -1048,7 +1075,7 @@ pub fn Axis::tick_values(
             limits.lower(),
             limits.upper(),
           )
-          match self.date_format {
+          match self.date_format_for_ticks() {
             Some(_) =>
               match self.date_locator {
                 Some(locator) =>
@@ -1090,8 +1117,10 @@ pub fn Axis::minor_tick_values(
   self : Axis,
   automatic : @core.Limits,
 ) -> Array[Double] {
-  if self.category is None &&
-    self.minor_date_locator is None &&
+  if (
+      self.numeric_tickers_active() ||
+      (self.category_for_ticks() is None && self.minor_date_locator is None)
+    ) &&
     self.tickers.minor_locator
     is Some(
       @ticker.MinorLocator::NamedLogit(_)
@@ -1126,7 +1155,7 @@ pub fn Axis::minor_tick_values(
         None => automatic
       }
       let major = self.tick_values(automatic)
-      if self.date_format is Some(_) {
+      if self.date_format_for_ticks() is Some(_) {
         let ticks = match locator {
           @ticker.MinorLocator::Fixed(_) =>
             locator.tick_values([], limits.lower(), limits.upper())

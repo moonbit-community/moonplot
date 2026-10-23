@@ -120,62 +120,32 @@ pub fn SubFigure::subplots_with_grid(
   grid : @gridspec.GridSpec,
 ) -> Array[Axes] raise @gridspec.LayoutError {
   let result : Array[Axes] = []
-  let x_group = match grid.share_x_mode() {
-    @gridspec.ShareMode::None => None
-    @gridspec.ShareMode::All => Some(self.figure.allocate_share_group(1))
-    @gridspec.ShareMode::Row =>
-      Some(self.figure.allocate_share_group(grid.rows()))
-    @gridspec.ShareMode::Column =>
-      Some(self.figure.allocate_share_group(grid.columns()))
-  }
-  let y_group = match grid.share_y_mode() {
-    @gridspec.ShareMode::None => None
-    @gridspec.ShareMode::All => Some(self.figure.allocate_share_group(1))
-    @gridspec.ShareMode::Row =>
-      Some(self.figure.allocate_share_group(grid.rows()))
-    @gridspec.ShareMode::Column =>
-      Some(self.figure.allocate_share_group(grid.columns()))
-  }
   for row in 0..<grid.rows() {
     for column in 0..<grid.columns() {
-      let axes = self.add_subplot(grid.cell_spec(row, column))
-      match x_group {
-        Some(group) =>
-          axes.state.val.share_x_group = Some(
-            match grid.share_x_mode() {
-              @gridspec.ShareMode::All => group
-              @gridspec.ShareMode::Row => group - row
-              @gridspec.ShareMode::Column => group - column
-              @gridspec.ShareMode::None => group
-            },
-          )
-        None => axes.state.val.share_x_group = None
-      }
-      match y_group {
-        Some(group) =>
-          axes.state.val.share_y_group = Some(
-            match grid.share_y_mode() {
-              @gridspec.ShareMode::All => group
-              @gridspec.ShareMode::Row => group - row
-              @gridspec.ShareMode::Column => group - column
-              @gridspec.ShareMode::None => group
-            },
-          )
-        None => axes.state.val.share_y_group = None
-      }
-      axes.state.val.show_x_tick_labels = match grid.share_x_mode() {
-        @gridspec.ShareMode::All | @gridspec.ShareMode::Column =>
-          row == grid.rows() - 1
-        @gridspec.ShareMode::None | @gridspec.ShareMode::Row => true
-      }
-      axes.state.val.show_y_tick_labels = match grid.share_y_mode() {
-        @gridspec.ShareMode::All | @gridspec.ShareMode::Row => column == 0
-        @gridspec.ShareMode::None | @gridspec.ShareMode::Column => true
-      }
+      let x_target = grid_share_target(
+        result,
+        grid.share_x_mode(),
+        row,
+        column,
+        grid.columns(),
+      )
+      let y_target = grid_share_target(
+        result,
+        grid.share_y_mode(),
+        row,
+        column,
+        grid.columns(),
+      )
+      let axes = self.figure.add_subplot_with_targets(
+        grid.cell_spec(row, column),
+        x_target,
+        y_target,
+      )
+      self.data.val.axes.push(axes.state)
+      axes.apply_grid_label_visibility(grid, row, column)
       result.push(axes)
     }
   }
-  initialize_shared_axis_order(result)
   result
 }
 
@@ -222,5 +192,25 @@ pub fn SubFigure::get_axes(self : SubFigure) -> Array[Axes] {
 ///|
 /// Clear this nested region's axes and title.
 pub fn SubFigure::clear(self : SubFigure) -> Unit {
-  self.data.val.clear()
+  try! self.clear_checked()
+}
+
+///|
+/// Clear each panel in this retained nested region through the same checked path.
+pub fn SubFigure::clear_checked(self : SubFigure) -> Unit raise @core.DataError {
+  self.data.val.clear_axes_checked(self.figure)
+}
+
+///|
+fn SubFigureData::clear_axes_checked(
+  self : SubFigureData,
+  figure : Figure,
+) -> Unit raise @core.DataError {
+  for state in self.axes.copy() {
+    ({ figure, state, } : Axes).clear_checked()
+  }
+  for child in self.subfigures {
+    child.val.clear_axes_checked(figure)
+  }
+  self.title = None
 }

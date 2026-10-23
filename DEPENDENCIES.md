@@ -317,3 +317,13 @@ Grouper/sharex/sharey/GridSpec、移除及 draw 原源方法，宿主 autoscale 
 完整构造/clear/units/secondary 生命周期仍在后续范围；参考依赖沿用已保留的
 Matplotlib/CPython/NumPy 来源与许可证。接口变化和精确复现见
 [testdata/scale_defaults_README.md](testdata/scale_defaults_README.md)。
+
+## D36 构造与 clear 生命周期
+
+复用同一命名默认对象与 typed 线性 reset；新增真实有序共享组和创建 target 引用，
+保留显式 handles 下的删除/rejoin状态。Axis 生命周期视图与 Scene 绘制投影分开，
+显式用户 provider 仍优先并按 checked 路径传播错误。原源参考执行完整 Axis.__init__/
+clear、Axes.__clear、Grouper/sharex/y/_set_lim/GridSpec 与 Figure 移除体；保留转换信息的
+完整 tick 查询也有独立参考。没有新数值内核或外部运行时依赖；强 typed 引用不承诺
+Python weakref 到期时序。验收和后续范围见
+[testdata/initial_clear_README.md](testdata/initial_clear_README.md)。

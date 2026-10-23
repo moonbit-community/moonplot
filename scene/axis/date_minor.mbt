@@ -33,6 +33,7 @@ pub fn Axis::set_minor_date_formatter(
     self.set_date()
   }
   self.minor_date_formatter = Some(formatter.copy())
+  self.tickers.minor_named_formatter = None
 }
 
 ///|
@@ -67,6 +68,10 @@ pub fn Axis::minor_tick_labels(
   values : Array[Double],
   view? : @core.Limits,
 ) -> Array[String] {
+  if self.numeric_tickers_active() &&
+    self.tickers.minor_named_formatter is Some(formatter) {
+    return formatter.format_ticks(values) catch { _ => [] }
+  }
   match self.minor_date_formatter {
     None => Array::make(values.length(), "")
     Some(formatter) => {

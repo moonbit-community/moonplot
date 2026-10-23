@@ -118,6 +118,7 @@ pub fn Axes::boxplot(Self, Array[Array[Double]], horizontal? : Bool, color? : St
 pub fn Axes::broken_barh(Self, Array[(Double, Double)], (Double, Double), color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::clabel(Self, ContourSet, inline? : Bool, fontsize? : Int, color? : String) -> Unit raise @core.DataError
 pub fn Axes::clear(Self) -> Unit
+pub fn Axes::clear_checked(Self) -> Unit raise @core.DataError
 pub fn Axes::clear_legend(Self) -> Unit
 pub fn Axes::color_cycle(Self) -> Array[String]
 pub fn Axes::containers(Self) -> Array[Container]
@@ -412,6 +413,7 @@ pub fn Figure::boxplot(Self, Array[Array[Double]], horizontal? : Bool, color? : 
 pub fn Figure::broken_barh(Self, Array[(Double, Double)], (Double, Double), color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::clabel(Self, ContourSet, inline? : Bool, fontsize? : Int, color? : String) -> Unit raise @core.DataError
 pub fn Figure::clear(Self) -> Unit
+pub fn Figure::clear_checked(Self) -> Unit raise @core.DataError
 pub fn Figure::color_cycle(Self) -> Array[String]
 pub fn Figure::colorbar(Self, @colors.ColorNorm, @colors.ColorMap, orientation? : @colorbar.Orientation) -> @colorbar.Colorbar
 pub fn Figure::colorbars(Self) -> Array[@colorbar.Colorbar]
@@ -786,6 +788,7 @@ pub fn SubFigure::add_subfigure(Self, @gridspec.SubplotSpec) -> Self
 pub fn SubFigure::add_subplot(Self, @gridspec.SubplotSpec) -> Axes
 pub fn SubFigure::axes_list(Self) -> Array[Axes]
 pub fn SubFigure::clear(Self) -> Unit
+pub fn SubFigure::clear_checked(Self) -> Unit raise @core.DataError
 pub fn SubFigure::delaxes(Self, Axes) -> Unit raise @core.DataError
 pub fn SubFigure::figure(Self) -> Figure
 pub fn SubFigure::get_axes(Self) -> Array[Axes]

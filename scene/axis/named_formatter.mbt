@@ -18,7 +18,7 @@ fn Axis::check_named_formatter_install(
   minor : Bool,
 ) -> Unit raise @core.DataError {
   self.formatter_messages.clear()
-  if self.date_format is Some(_) || self.category is Some(_) {
+  if !self.installing_scale_defaults && !self.numeric_tickers_active() {
     raise @core.DataError::InvalidTicks(
       message="numeric formatter cannot be combined with date or category data",
     )
@@ -115,7 +115,7 @@ pub fn Axis::formatter_tick_locations_checked(
   } else {
     self.tickers.named_formatter
   }
-  if active is None || self.date_format is Some(_) || self.category is Some(_) {
+  if active is None || !self.numeric_tickers_active() {
     return @ticker.FormatterLocations::Sequence(
       if minor {
         self.minor_tick_values_checked(automatic)
@@ -126,7 +126,7 @@ pub fn Axis::formatter_tick_locations_checked(
   }
   let limits = self.limits.unwrap_or(automatic)
   let previous = self.tick_layout_view
-  if previous is None && self.numeric_view_provider is None {
+  if previous is None && !self.has_view_interval_provider() {
     self.tick_layout_view = Some((limits.lower(), limits.upper()))
   }
   defer {
@@ -195,8 +195,7 @@ pub fn Axis::tick_labels_checked(
   values : Array[Double],
   view? : @core.Limits,
 ) -> Array[String] raise @core.DataError {
-  if self.date_format is None &&
-    self.category is None &&
+  if self.numeric_tickers_active() &&
     self.tickers.named_formatter is Some(formatter) {
     return formatter.format_ticks(values)
   }
@@ -209,8 +208,7 @@ pub fn Axis::minor_tick_labels_checked(
   values : Array[Double],
   view? : @core.Limits,
 ) -> Array[String] raise @core.DataError {
-  if self.date_format is None &&
-    self.category is None &&
+  if self.numeric_tickers_active() &&
     self.tickers.minor_named_formatter is Some(formatter) {
     return formatter.format_ticks(values)
   }
@@ -227,8 +225,7 @@ pub fn Axis::formatter_offset_label_checked(
   values : Array[Double],
   view? : @core.Limits,
 ) -> String raise @core.DataError {
-  if self.date_format is None &&
-    self.category is None &&
+  if self.numeric_tickers_active() &&
     self.tickers.named_formatter is Some(formatter) {
     return formatter.get_offset_checked()
   }

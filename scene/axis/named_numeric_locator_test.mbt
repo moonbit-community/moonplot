@@ -39,7 +39,7 @@ test "named Fixed adapter ignores reversed and nonfinite bounds without sorting"
 }
 
 ///|
-test "named Linear and Fixed major minor live bindings preserve fixed minor order" {
+test "named Linear and Fixed getters retain raw minor order before draw filtering" {
   let major = @ticker.LinearLocator::new(numticks=3)
   let locations = [3.0, 1.5, 0.5, 1.0, -0.5, 0.0 / 0.0, 1.0 / 0.0]
   let minor = @ticker.FixedLocator::new(locations)
@@ -49,9 +49,13 @@ test "named Linear and Fixed major minor live bindings preserve fixed minor orde
   axis.set_limits(2.0, 0.0)
   let view = @core.limits(0.0, 2.0)
   assert_eq(axis.tick_values_checked(view), [2.0, 1.0, 0.0])
-  assert_eq(axis.minor_tick_values_checked(view), [1.5, 0.5])
+  assert_fixed_minor_source_rows(axis.minor_tick_values_checked(view), [
+    3.0, 1.5, 0.5, -0.5,
+  ])
   major.presets().set(0.0, 2.0, [0.0, 2.0])
-  assert_eq(axis.minor_tick_values_checked(view), [1.5, 0.5, 1.0])
+  assert_fixed_minor_source_rows(axis.minor_tick_values_checked(view), [
+    3.0, 1.5, 0.5, 1.0, -0.5,
+  ])
   axis
   .minor_locator()
   .unwrap()
@@ -60,7 +64,24 @@ test "named Linear and Fixed major minor live bindings preserve fixed minor orde
   .tick_values(0.0, 0.0)
   .set(1, 1.75)
   assert_eq(locations[1], 1.75)
-  assert_eq(axis.minor_tick_values_checked(view), [1.75, 0.5, 1.0])
+  assert_fixed_minor_source_rows(axis.minor_tick_values_checked(view), [
+    3.0, 1.75, 0.5, 1.0, -0.5,
+  ])
+}
+
+///|
+// Original get_minorticklocs removes major overlap, leaving visibility filtering
+// to draw. Its fixed raw tail retains NaN and positive infinity at all stages.
+fn assert_fixed_minor_source_rows(
+  actual : Array[Double],
+  finite : Array[Double],
+) -> Unit raise {
+  assert_eq(actual.length(), finite.length() + 2)
+  for index, expected in finite {
+    assert_eq(actual[index], expected)
+  }
+  assert_true(actual[finite.length()].is_nan())
+  assert_eq(actual[finite.length() + 1], 1.0 / 0.0)
 }
 
 ///|

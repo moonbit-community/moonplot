@@ -1,19 +1,26 @@
 ///|
-fn share_group_for_cell(
+fn grid_share_target(
+  previous : Array[Axes],
   mode : @gridspec.ShareMode,
   row : Int32,
   column : Int32,
-) -> Int32? {
-  match mode {
-    @gridspec.ShareMode::None => None
-    @gridspec.ShareMode::All => Some(0)
-    @gridspec.ShareMode::Row => Some(row)
-    @gridspec.ShareMode::Column => Some(column)
+  columns : Int32,
+) -> @ref.Ref[AxesData]? {
+  let index = match mode {
+    @gridspec.ShareMode::None => return None
+    @gridspec.ShareMode::All => 0
+    @gridspec.ShareMode::Row => row * columns
+    @gridspec.ShareMode::Column => column
+  }
+  if index < previous.length() {
+    Some(previous[index].state)
+  } else {
+    None
   }
 }
 
 ///|
-/// Create axes panels according to a GridSpec's sharing constraints.
+/// Create axes sequentially, retaining each coordinate's construction target.
 pub fn Figure::subplots_with_grid(
   self : Figure,
   grid : @gridspec.GridSpec,
@@ -21,95 +28,50 @@ pub fn Figure::subplots_with_grid(
   self.axes.clear()
   self.axes_selection.clear()
   self.colorbars.clear()
-  let result = Array(capacity=grid.rows() * grid.columns())
+  let result : Array[Axes] = []
   for row in 0..<grid.rows() {
     for column in 0..<grid.columns() {
-      let spec = grid.cell_spec(row, column)
-      let cell = self.subplot_rect(spec)
-      let state = @ref.new({
-        artists: [],
-        x_axis: @axis.axis(),
-        y_axis: @axis.axis(),
-        title: None,
-        explicit_bounds: None,
-        legend: [],
-        auto_legend: [],
-        explicit_legend: false,
-        containers: [],
-        rect: Some(cell),
-        position_override: None,
-        active_position: None,
-        subplot_spec: Some(spec),
-        share_x_group: share_group_for_cell(grid.share_x_mode(), row, column),
-        share_y_group: share_group_for_cell(grid.share_y_mode(), row, column),
-        share_x_order: 0,
-        share_y_order: 0,
-        show_x_tick_labels: match grid.share_x_mode() {
-          @gridspec.ShareMode::All | @gridspec.ShareMode::Column =>
-            row == grid.rows() - 1
-          @gridspec.ShareMode::None | @gridspec.ShareMode::Row => true
-        },
-        show_y_tick_labels: match grid.share_y_mode() {
-          @gridspec.ShareMode::All | @gridspec.ShareMode::Row => column == 0
-          @gridspec.ShareMode::None | @gridspec.ShareMode::Column => true
-        },
-        frame_visible: true,
-        spines: default_spines(),
-        x_margin: @config.x_margin(),
-        y_margin: @config.y_margin(),
-        color_cycle: default_color_cycle(),
-        color_cycle_index: 0,
-        data_aspect: None,
-        anchor: Anchor::Named("C"),
-        adjustable: "box",
-        box_aspect: None,
-        secondary_x: [],
-        secondary_y: [],
-      })
-      self.axes.push(state)
-      self.axes_selection.push(state)
-      result.push({ figure: self, state, })
+      let x_target = grid_share_target(
+        result,
+        grid.share_x_mode(),
+        row,
+        column,
+        grid.columns(),
+      )
+      let y_target = grid_share_target(
+        result,
+        grid.share_y_mode(),
+        row,
+        column,
+        grid.columns(),
+      )
+      let axes = self.add_subplot_with_targets(
+        grid.cell_spec(row, column),
+        x_target,
+        y_target,
+      )
+      axes.apply_grid_label_visibility(grid, row, column)
+      result.push(axes)
     }
   }
-  initialize_shared_axis_order(result)
   result
 }
 
 ///|
-// Grouper registers the second subplot before its first shared partner.
-// Retain these initial ranks after removals instead of reordering survivors.
-fn initialize_shared_axis_order(axes : Array[Axes]) -> Unit {
-  for horizontal in [true, false] {
-    for axis in axes {
-      let states = if horizontal {
-        axis.x_group_states()
-      } else {
-        axis.y_group_states()
-      }
-      let source = if horizontal {
-        states[0].val.x_axis
-      } else {
-        states[0].val.y_axis
-      }
-      for index, state in states {
-        let current = if horizontal {
-          state.val.x_axis
-        } else {
-          state.val.y_axis
-        }
-        current.share_numeric_tickers(source)
-        let rank = if states.length() > 1 && index < 2 {
-          1 - index
-        } else {
-          index
-        }
-        if horizontal {
-          state.val.share_x_order = rank
-        } else {
-          state.val.share_y_order = rank
-        }
-      }
-    }
+fn Axes::apply_grid_label_visibility(
+  self : Axes,
+  grid : @gridspec.GridSpec,
+  row : Int32,
+  column : Int32,
+) -> Unit {
+  self.state.val.show_x_tick_labels = match grid.share_x_mode() {
+    @gridspec.ShareMode::All | @gridspec.ShareMode::Column =>
+      row == grid.rows() - 1
+    @gridspec.ShareMode::None | @gridspec.ShareMode::Row => true
+  }
+  self.state.val.show_y_tick_labels = match grid.share_y_mode() {
+    @gridspec.ShareMode::All | @gridspec.ShareMode::Row => column == 0
+    @gridspec.ShareMode::None | @gridspec.ShareMode::Column => true
   }
 }
 
@@ -191,36 +153,16 @@ pub fn Axes::is_attached(self : Axes) -> Bool {
 
 ///|
 fn Axes::x_group_states(self : Axes) -> Array[@ref.Ref[AxesData]] {
-  if !self.is_attached() {
-    return [self.state]
+  match self.state.val.share_x_members {
+    Some(group) => group.members.copy()
+    None => [self.state]
   }
-  let result = Array(capacity=self.figure.axes.length())
-  match self.state.val.share_x_group {
-    Some(group) =>
-      for state in self.figure.axes {
-        if state.val.share_x_group == Some(group) {
-          result.push(state)
-        }
-      }
-    None => result.push(self.state)
-  }
-  result
 }
 
 ///|
 fn Axes::y_group_states(self : Axes) -> Array[@ref.Ref[AxesData]] {
-  if !self.is_attached() {
-    return [self.state]
+  match self.state.val.share_y_members {
+    Some(group) => group.members.copy()
+    None => [self.state]
   }
-  let result = Array(capacity=self.figure.axes.length())
-  match self.state.val.share_y_group {
-    Some(group) =>
-      for state in self.figure.axes {
-        if state.val.share_y_group == Some(group) {
-          result.push(state)
-        }
-      }
-    None => result.push(self.state)
-  }
-  result
 }

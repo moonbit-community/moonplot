@@ -91,43 +91,18 @@ pub fn Figure::delaxes(
     data.val.forget_axes(axes.state)
   }
   for horizontal in [true, false] {
-    let group = if horizontal {
-      axes.state.val.share_x_group
-    } else {
-      axes.state.val.share_y_group
-    }
-    if group is Some(group) {
-      let mut first : @ref.Ref[AxesData]? = None
-      let mut first_rank = 2147483647
-      for state in self.axes {
-        let candidate = if horizontal {
-          state.val.share_x_group
-        } else {
-          state.val.share_y_group
-        }
-        let rank = if horizontal {
-          state.val.share_x_order
-        } else {
-          state.val.share_y_order
-        }
-        if candidate == Some(group) && rank < first_rank {
-          first = Some(state)
-          first_rank = rank
-        }
-      }
-      if first is Some(state) {
-        let remaining : Axes = { figure: self, state, }
-        remaining.bind_axis_data(horizontal)
-        let axis = if horizontal { state.val.x_axis } else { state.val.y_axis }
-        axis.bind_locator_data()
-        axis.bind_locator_data(minor=true)
-        axis.bind_formatter_axis()
-        axis.bind_formatter_axis(minor=true)
-      }
+    let remaining_states = axes.unregister_shared_axis(horizontal)
+    if remaining_states.length() > 0 {
+      let state = remaining_states[0]
+      let remaining : Axes = { figure: self, state, }
+      remaining.bind_axis_data(horizontal)
+      let axis = if horizontal { state.val.x_axis } else { state.val.y_axis }
+      axis.bind_locator_data()
+      axis.bind_locator_data(minor=true)
+      axis.bind_formatter_axis()
+      axis.bind_formatter_axis(minor=true)
     }
   }
-  axes.state.val.share_x_group = None
-  axes.state.val.share_y_group = None
 }
 
 ///|

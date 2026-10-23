@@ -206,8 +206,12 @@ struct AxesData {
   mut subplot_spec : @gridspec.SubplotSpec?
   mut share_x_group : Int32?
   mut share_y_group : Int32?
-  mut share_x_order : Int32
-  mut share_y_order : Int32
+  mut share_x_order : Int64
+  mut share_y_order : Int64
+  mut share_x_target : @ref.Ref[AxesData]?
+  mut share_y_target : @ref.Ref[AxesData]?
+  mut share_x_members : SharedAxesGroup?
+  mut share_y_members : SharedAxesGroup?
   mut show_x_tick_labels : Bool
   mut show_y_tick_labels : Bool
   mut frame_visible : Bool
@@ -235,21 +239,16 @@ struct SubFigureData {
 
 ///|
 /// Clear the presentation state retained by a nested figure tree.
-fn SubFigureData::clear(self : SubFigureData) -> Unit {
-  for state in self.axes {
-    state.val.clear()
-  }
+fn SubFigureData::clear_titles(self : SubFigureData) -> Unit {
   for child in self.subfigures {
-    child.val.clear()
+    child.val.clear_titles()
   }
   self.title = None
 }
 
 ///|
-fn AxesData::clear(self : AxesData) -> Unit {
+fn AxesData::clear_presentation(self : AxesData) -> Unit {
   self.artists.clear()
-  self.x_axis.clear()
-  self.y_axis.clear()
   self.title = None
   self.explicit_bounds = None
   self.legend.clear()
@@ -286,6 +285,8 @@ pub struct Figure {
   subfigures : Array[@ref.Ref[SubFigureData]]
   colorbars : Array[@colorbar.Colorbar]
   mut share_group_seed : Int32
+  priv mut share_x_next_order : Int64
+  priv mut share_y_next_order : Int64
   mut title : String?
   priv mut subplot_left : Double
   priv mut subplot_bottom : Double
@@ -314,7 +315,7 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
   let default_axes = @ref.new({
     artists: [],
     x_axis: @axis.axis(),
-    y_axis: @axis.axis(),
+    y_axis: @axis.axis(horizontal=false),
     title: None,
     explicit_bounds: None,
     legend: [],
@@ -327,8 +328,12 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
     subplot_spec: None,
     share_x_group: None,
     share_y_group: None,
-    share_x_order: 0,
-    share_y_order: 0,
+    share_x_order: 0L,
+    share_y_order: 0L,
+    share_x_target: None,
+    share_y_target: None,
+    share_x_members: None,
+    share_y_members: None,
     show_x_tick_labels: true,
     show_y_tick_labels: true,
     frame_visible: true,
@@ -344,7 +349,7 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
     secondary_x: [],
     secondary_y: [],
   })
-  {
+  let result : Figure = {
     width,
     height,
     margin,
@@ -353,6 +358,8 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
     subfigures: [],
     colorbars: [],
     share_group_seed: -1,
+    share_x_next_order: 0L,
+    share_y_next_order: 0L,
     title: None,
     subplot_left: left,
     subplot_bottom: bottom,
@@ -361,10 +368,15 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
     subplot_wspace: None,
     subplot_hspace: None,
   }
+  let axes : Axes = { figure: result, state: default_axes, }
+  axes.bind_axis_data(true)
+  axes.bind_axis_data(false)
+  try! axes.clear_checked()
+  result
 }
 
 ///|
-/// Allocate a share-group identifier outside the non-negative GridSpec groups.
+/// Allocate a never-reused projection id for a retained sharing group.
 fn Figure::allocate_share_group(self : Figure, count : Int32) -> Int32 {
   let result = self.share_group_seed
   self.share_group_seed -= count
@@ -405,16 +417,22 @@ pub fn Figure::set_title(self : Figure, title : String) -> Unit {
 /// Clear all axes, artists, legends, and colorbars while retaining the
 /// figure's dimensions and subplot layout.
 pub fn Figure::clear(self : Figure) -> Unit {
-  for state in self.axes {
-    state.val.clear()
+  try! self.clear_checked()
+}
+
+///|
+/// Execute the checked Axes clear lifecycle once per retained panel.
+/// The panel-preserving Figure convenience contract remains unchanged.
+pub fn Figure::clear_checked(self : Figure) -> Unit raise @core.DataError {
+  for state in self.axes.copy() {
+    ({ figure: self, state, } : Axes).clear_checked()
   }
   for data in self.subfigures {
-    data.val.clear()
+    data.val.clear_titles()
   }
   self.title = None
   self.subfigures.clear()
   self.colorbars.clear()
-  self.share_group_seed = -1
 }
 
 ///|
@@ -789,11 +807,13 @@ fn Figure::insert_axes_state(self : Figure, state : @ref.Ref[AxesData]) -> Unit 
       self.axes_selection.retain(item => !physical_equal(item, self.axes[0]))
       self.axes[0] = state
       self.axes_selection.push(state)
+      self.initialize_axes_state(state)
       return
     }
   }
   self.axes.push(state)
   self.axes_selection.push(state)
+  self.initialize_axes_state(state)
 }
 
 ///|
@@ -805,7 +825,7 @@ fn new_axes_state(
   @ref.new({
     artists: [],
     x_axis: @axis.axis(),
-    y_axis: @axis.axis(),
+    y_axis: @axis.axis(horizontal=false),
     title: None,
     explicit_bounds: None,
     legend: [],
@@ -818,8 +838,12 @@ fn new_axes_state(
     subplot_spec: spec,
     share_x_group: None,
     share_y_group: None,
-    share_x_order: 0,
-    share_y_order: 0,
+    share_x_order: 0L,
+    share_y_order: 0L,
+    share_x_target: None,
+    share_y_target: None,
+    share_x_members: None,
+    share_y_members: None,
     show_x_tick_labels: true,
     show_y_tick_labels: true,
     frame_visible: true,
@@ -840,10 +864,35 @@ fn new_axes_state(
 ///|
 /// Add a panel at a GridSpec span. A fresh figure reuses its default panel.
 pub fn Figure::add_subplot(self : Figure, spec : @gridspec.SubplotSpec) -> Axes {
+  self.add_subplot_with_targets(spec, None, None)
+}
+
+///|
+fn Figure::add_subplot_with_targets(
+  self : Figure,
+  spec : @gridspec.SubplotSpec,
+  x_target : @ref.Ref[AxesData]?,
+  y_target : @ref.Ref[AxesData]?,
+) -> Axes {
   let rect = self.subplot_rect(spec)
   let state = new_axes_state(Some(rect), Some(spec))
+  state.val.share_x_target = x_target
+  state.val.share_y_target = y_target
   self.insert_axes_state(state)
   { figure: self, state, }
+}
+
+///|
+fn Figure::initialize_axes_state(
+  self : Figure,
+  state : @ref.Ref[AxesData],
+) -> Unit {
+  let axes : Axes = { figure: self, state, }
+  axes.bind_axis_data(true)
+  axes.bind_axis_data(false)
+  // Only fresh panels and fresh construction targets reach this private path.
+  // Public clear_checked retains checked failures from later user providers.
+  try! axes.clear_checked()
 }
 
 ///|
@@ -1417,7 +1466,7 @@ pub fn Axes::set_y_tick_labels(
 /// Clear this axes' artists and presentation state while retaining its panel
 /// rectangle and shared-axis membership.
 pub fn Axes::clear(self : Axes) -> Unit {
-  self.state.val.clear()
+  try! self.clear_checked()
 }
 
 ///|

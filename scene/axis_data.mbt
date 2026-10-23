@@ -14,36 +14,12 @@ fn Axes::bind_axis_data(self : Axes, horizontal : Bool) -> Unit {
     @svg.artist_minpos(state.val.artists.map(to_render_artist), horizontal)
   })
   axis.bind_shared_minpos(() => {
-    let group = if horizontal {
-      state.val.share_x_group
+    let axes : Axes = { figure, state, }
+    let siblings = if horizontal {
+      axes.x_group_states()
     } else {
-      state.val.share_y_group
+      axes.y_group_states()
     }
-    let attached = figure.axes.any(candidate => physical_equal(candidate, state))
-    if !attached || group is None {
-      return [axis.get_minpos()]
-    }
-    let siblings = figure.axes.filter(candidate => {
-      (if horizontal {
-        candidate.val.share_x_group
-      } else {
-        candidate.val.share_y_group
-      }) ==
-      group
-    })
-    siblings.sort_by((left, right) => {
-      let first = if horizontal {
-        left.val.share_x_order
-      } else {
-        left.val.share_y_order
-      }
-      let second = if horizontal {
-        right.val.share_x_order
-      } else {
-        right.val.share_y_order
-      }
-      first.compare(second)
-    })
     siblings.map(candidate => {
       let sibling_axis = if horizontal {
         candidate.val.x_axis
@@ -78,7 +54,7 @@ fn Axes::bind_axis_data(self : Axes, horizontal : Bool) -> Unit {
       (figure.height.to_double() - rect.y() - rect.height(), rect.height())
     }
   })
-  axis.bind_view_interval(fn() raise @core.DataError {
+  axis.bind_render_view_interval(fn() raise @core.DataError {
     for index, candidate in figure.axes {
       if physical_equal(candidate, state) {
         if @svg.panel_view(figure.to_render_figure(), index) is Some((_, x, y)) {

@@ -12,7 +12,9 @@ test "provisional limits fit images without disabling automatic scaling" {
   assert_eq((expanded.lower(), expanded.upper()), (11.0, -11.0))
   axis.clear()
   let cleared = axis.view_limits(automatic)
-  assert_eq((cleared.lower(), cleared.upper()), (-11.0, 11.0))
+  // Axis.clear replaces tickers; the outer Axes clear owns view resets.
+  assert_true(axis.inverted())
+  assert_eq((cleared.lower(), cleared.upper()), (11.0, -11.0))
 }
 
 ///|

@@ -25,7 +25,8 @@ pub fn Axis::date_nonsingular_bounds(
   lower : Double,
   upper : Double,
 ) -> @core.Limits {
-  if self.date_format is None ||
+  if self.numeric_tickers_active() ||
+    self.date_format is None ||
     self.tickers.locator is Some(_) ||
     self.tickers.fixed_ticks is Some(_) {
     return @core.limits(lower, upper)

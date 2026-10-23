@@ -95,6 +95,38 @@ pub fn Axis::bind_view_interval(
 }
 
 ///|
+/// Bind Scene's projected rendering view without replacing a user override.
+pub fn Axis::bind_render_view_interval(
+  self : Axis,
+  provider : () -> (Double, Double) raise @core.DataError,
+) -> Unit {
+  self.render_view_provider = Some(provider)
+}
+
+///|
+fn Axis::has_view_interval_provider(self : Axis) -> Bool {
+  self.numeric_view_provider is Some(_) || self.render_view_provider is Some(_)
+}
+
+///|
+/// Read the panel's own view for lifecycle operations, preserving user overrides.
+/// A render projection is needed only when no view has been stored yet.
+pub fn Axis::lifecycle_view_interval_checked(
+  self : Axis,
+) -> (Double, Double) raise @core.DataError {
+  if self.numeric_view_provider is Some(provider) {
+    return provider()
+  }
+  if self.current_view_limits() is Some(view) {
+    return (view.lower(), view.upper())
+  }
+  match self.render_view_provider {
+    Some(provider) => provider()
+    None => (0.0, 1.0)
+  }
+}
+
+///|
 pub fn Axis::view_interval_checked(
   self : Axis,
 ) -> (Double, Double) raise @core.DataError {
@@ -104,6 +136,9 @@ pub fn Axis::view_interval_checked(
   match self.numeric_view_provider {
     Some(provider) => provider()
     None => {
+      if self.render_view_provider is Some(provider) {
+        return provider()
+      }
       let view = self.current_view_limits().unwrap_or(@core.limits(0.0, 1.0))
       (view.lower(), view.upper())
     }

@@ -32,9 +32,42 @@ fn AxisNumericTickers::new() -> AxisNumericTickers {
 }
 
 ///|
+// Converter metadata can outlive a later numeric default installation. Source
+// Axis queries use the installed ticker objects, independently from that metadata.
+fn Axis::numeric_tickers_active(self : Axis) -> Bool {
+  (self.date_format is None && self.category is None) ||
+  self.tickers.named_formatter is Some(_) ||
+  self.tickers.minor_named_formatter is Some(_)
+}
+
+///|
+fn Axis::category_for_ticks(self : Axis) -> @category.CategoryAxis? {
+  if self.numeric_tickers_active() {
+    None
+  } else {
+    self.category
+  }
+}
+
+///|
+fn Axis::date_format_for_ticks(self : Axis) -> String? {
+  if self.numeric_tickers_active() {
+    None
+  } else {
+    self.date_format
+  }
+}
+
+///|
 /// Share numeric ticker slots without changing geometry or object ownership.
 pub fn Axis::share_numeric_tickers(self : Axis, source : Axis) -> Unit {
   self.tickers = source.tickers
+}
+
+///|
+/// Inherit geometry without reinstalling tickers, as shared-axis linking does.
+pub fn Axis::inherit_scale_from(self : Axis, source : Axis) -> Unit {
+  self.scale = source.scale
 }
 
 ///|
@@ -69,8 +102,15 @@ fn Axis::mark_scale_defaults(self : Axis) -> Unit {
 pub fn Axis::locator_default_limits(
   self : Axis,
 ) -> (Double, Double) raise @core.DataError {
-  let lower = -1.0 / 0.0
-  let upper = 1.0 / 0.0
+  self.locator_nonsingular(-1.0 / 0.0, 1.0 / 0.0)
+}
+
+///|
+fn Axis::locator_nonsingular(
+  self : Axis,
+  lower : Double,
+  upper : Double,
+) -> (Double, Double) raise @core.DataError {
   match self.tickers.locator {
     Some(@ticker.Locator::NamedLogit(value)) => value.nonsingular(lower, upper)
     Some(@ticker.Locator::NamedAsinh(value)) => value.nonsingular(lower, upper)
@@ -84,5 +124,50 @@ pub fn Axis::locator_default_limits(
     Some(@ticker.Locator::Multiple(value)) => value.nonsingular(lower, upper)
     Some(@ticker.Locator::Null(value)) => value.nonsingular(lower, upper)
     _ => @ticker.NullLocator::new().nonsingular(lower, upper)
+  }
+}
+
+///|
+/// Finalize a numeric view after a linear lifecycle reset.
+/// The outer Scene operation controls sibling propagation and target inheritance.
+pub fn Axis::set_cleared_view_limits(
+  self : Axis,
+  lower : Double,
+  upper : Double,
+  automatic~ : Bool,
+) -> Unit raise @core.DataError {
+  if self.scale.is_nonlinear() {
+    raise @core.DataError::InvalidTicks(
+      message="clear view finalization requires linear geometry",
+    )
+  }
+  if !@core.limits(lower, upper).is_finite() {
+    raise @core.DataError::NonFiniteLimit(axis="axis")
+  }
+  let reversed = lower > upper
+  let (first, last) = self.locator_nonsingular(lower, upper)
+  // Source Axis.limit_range_for_scale reads own minpos even for LinearScale.
+  let (first, last) = self.scale.limit_range_for_scale(
+    first,
+    last,
+    self.get_minpos(),
+  )
+  let low = Double::min(first, last)
+  let high = Double::max(first, last)
+  let view = if reversed {
+    @core.limits(high, low)
+  } else {
+    @core.limits(low, high)
+  }
+  if automatic {
+    self.limits = None
+    self.auto_view = Some(view)
+  } else {
+    self.limits = Some(view)
+    self.auto_view = None
+  }
+  self.inverted = reversed
+  if self.tick_layout_view is Some(_) {
+    self.tick_layout_view = Some((view.lower(), view.upper()))
   }
 }

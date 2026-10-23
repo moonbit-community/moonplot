@@ -497,3 +497,7 @@ axes/_base.py、gridspec.py、cbook.py、figure.py、artist.py 与 ticker.py 行
 重写；来源哈希及执行完整原源方法的独立参考见
 [testdata/scale_defaults_README.md](testdata/scale_defaults_README.md)。既有 Matplotlib
 许可证适用；本片没有加入新的外部运行时或分发 Python/NumPy。
+
+D36 的构造与 clear 生命周期继续依据同一固定 Matplotlib v3.11.2 原源以 MoonBit 重写。
+完整 Axis/Axes clear、共享排序与尾部 limits 原方法的独立执行、哈希和宿主边界见
+[testdata/initial_clear_README.md](testdata/initial_clear_README.md)。没有增加新的分发依赖。

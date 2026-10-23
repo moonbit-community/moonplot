@@ -80,7 +80,8 @@ test "minor date overlap removal and timezone broadcast follow axis configuratio
   axis.clear_minor_locator()
   assert_true(axis.minor_date_locator() is None)
   axis.clear()
-  assert_true(axis.minor_overlap_removal())
+  // Original Axis.clear preserves the configured overlap-removal policy.
+  assert_true(!axis.minor_overlap_removal())
 }
 
 ///|

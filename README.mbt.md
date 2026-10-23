@@ -1851,3 +1851,12 @@ D35 已接通五种既有几何的显式默认刻度安装。`Axis::set_scale`�
 旧句柄仍保有源 ticker 别名。已有 `set_tick_count` 继续作为显式便利采样入口。
 构造/clear/units/secondary 的完整默认生命周期仍在后续范围，源边界与四目标验收见
 [默认安装说明](testdata/scale_defaults_README.md)。
+
+
+D36 已接通构造与 clear 的实际默认生命周期。`axis(horizontal=false)` 在构造时读取 y
+配置；`Axis::clear` 原位替换共享 ticker，保留视图与 overlap 设置。`Axes::clear_checked`
+按原源清理自己、共享成员、late minor rc 与目标视图；Figure/SubFigure 也提供 checked
+入口，嵌套面板只走一次清理。共享组与 Figure 绘制列表分开，已移除目标可以重新加入
+刻度组。源对照、保留转换信息、用户回调错误及两类视图 provider 的区别见
+[构造与清理说明](testdata/initial_clear_README.md)。完整自动范围状态与通用 units 更新
+仍按后续切片推进。
