@@ -9,6 +9,8 @@ pub struct RcParams {
   priv mut formatter_limits : Array[@bigint.BigInt]
   priv mut text_usetex : Bool
   priv mut unicode_minus : Bool
+  priv mut x_minor_ticks_visible : Bool
+  priv mut y_minor_ticks_visible : Bool
   priv mut x_minor_tick_divisions : MinorTickDivisions
   priv mut y_minor_tick_divisions : MinorTickDivisions
   priv mut classic_mode : Bool
@@ -48,6 +50,8 @@ fn default_rc_params() -> RcParams {
     ],
     text_usetex: false,
     unicode_minus: true,
+    x_minor_ticks_visible: false,
+    y_minor_ticks_visible: false,
     x_minor_tick_divisions: Text("auto"),
     y_minor_tick_divisions: Text("auto"),
     classic_mode: false,
@@ -109,6 +113,8 @@ pub fn rc_params() -> RcParams {
     formatter_limits: value.formatter_limits,
     text_usetex: value.text_usetex,
     unicode_minus: value.unicode_minus,
+    x_minor_ticks_visible: value.x_minor_ticks_visible,
+    y_minor_ticks_visible: value.y_minor_ticks_visible,
     x_minor_tick_divisions: value.x_minor_tick_divisions,
     y_minor_tick_divisions: value.y_minor_tick_divisions,
     classic_mode: value.classic_mode,

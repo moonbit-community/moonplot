@@ -44,6 +44,8 @@ pub fn grid_visible() -> Bool
 
 pub fn minor_tick_divisions(horizontal? : Bool) -> MinorTickDivisions
 
+pub fn minor_ticks_visible(horizontal? : Bool) -> Bool
+
 pub fn numeric_locale() -> NumericLocale
 
 pub fn rc_params() -> RcParams
@@ -79,6 +81,8 @@ pub fn set_formatter_use_offset(Bool) -> Unit
 pub fn set_grid(Bool, String, Double) -> Unit raise @core.DataError
 
 pub fn set_minor_tick_divisions(MinorTickDivisions, horizontal? : Bool) -> Unit raise @core.DataError
+
+pub fn set_minor_ticks_visible(Bool, horizontal? : Bool) -> Unit
 
 pub fn set_numeric_locale(NumericLocale) -> Unit
 
@@ -150,6 +154,7 @@ pub fn RcParams::grid_color(Self) -> String
 pub fn RcParams::grid_linewidth(Self) -> Double
 pub fn RcParams::grid_visible(Self) -> Bool
 pub fn RcParams::minor_tick_divisions(Self, horizontal? : Bool) -> MinorTickDivisions
+pub fn RcParams::minor_ticks_visible(Self, horizontal? : Bool) -> Bool
 pub fn RcParams::text_usetex(Self) -> Bool
 pub fn RcParams::timezone(Self) -> String
 pub fn RcParams::unicode_minus(Self) -> Bool
