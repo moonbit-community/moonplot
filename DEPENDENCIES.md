@@ -417,3 +417,11 @@ blend factory、locator 和 Bbox；52 条记录含 38 个 typed 场景与 14 条
 完成阶段。15 条原源操作保留为一个连续 typed 场景，具体来源哈希与边界见
 [testdata/line_visible_README.md](testdata/line_visible_README.md)。
 项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。
+
+## D47 relim 的可见性过滤
+
+复用 D37/D44 的范围内核、稳定 Line 身份与 D46 可见性，无新运行时或分发依赖。
+独立参考执行完整固定 Axes.relim、Bbox 更新/重置及 Line cache，9 条原源记录保留为
+一个连续 typed 场景。来源哈希、非有限值表示与 ordinary in_autoscale 边界见
+[testdata/relim_visible_README.md](testdata/relim_visible_README.md)。
+项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。

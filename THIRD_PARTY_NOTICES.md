@@ -561,3 +561,9 @@ lines.py 与既有单位原源以 MoonBit 重写。完整 Line.draw 控制体、
 no-style/no-marker 呈现宿主边界见
 [testdata/line_visible_README.md](testdata/line_visible_README.md)。
 没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。
+
+D47 的 relim 可见性过滤继续依据固定 Matplotlib v3.11.2 的 axes/_base.py、
+artist.py、transforms.py 与 Line 原源以 MoonBit 重写。9 条完整原源记录、空范围的
+minpos 元数据与晚失败边界见
+[testdata/relim_visible_README.md](testdata/relim_visible_README.md)。
+没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。

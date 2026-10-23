@@ -1,0 +1,1711 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "stdlib/contextlib.py": "8b7a477f978a8532852fd81e241c78182516bc4975d672d580a5848a76e11eb6",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "artist.py": "c55a81d86db60ab7b22fcd6e70401aa84558de5d1ba6e40a16c60f6f1f03be7a",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "lines.py": "e928511cec1f9ce19455008c1863d337b0dbd1c71ac2b8d40224c8d5c069e05c",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b",
+    "category.py": "52c67cadb003007f7a61fa630fe3750cb4dc4bf710c25b332084366516a25a6e",
+    "units.py": "ecefa595cf24dc6a5da2d52cdad59c1068285071d7f98ee8d11edffb526f7b79"
+  },
+  "python": "3.12.14",
+  "counts": {
+    "source_records": 9,
+    "typed_records": 9,
+    "source_only_records": 0,
+    "typed_sequences": 1,
+    "registered_groups": 1
+  },
+  "host_boundaries": {
+    "source": "Complete accepted original Axes.relim/_update_line_limits and Bbox ignore/set_points/update_from_path; original Artist visibility/in_autoscale methods; numeric short/default-style Line/Path host.",
+    "typed": "Optional Bool visible_only on existing relim/relim_checked. Both public convenience and checked paths are exercised; native failure observations use the checked bridge.",
+    "eligibility": "Ordinary source Lines have private in_autoscale=True. No new public autoscale-eligibility or whole-Artist visibility system is introduced. Existing independent static artists remain eligible.",
+    "snapshots": "Retained cache is read directly and view uses stored limits, not processed Line getters or lazy get_xlim. Exact old-minpos/null-Bbox/prefix state is preserved.",
+    "events": "Get-visible and in-autoscale wrappers only record original order. They are not a new public callback protocol; hidden pending error/cache state proves the typed skip stage.",
+    "units": "Original units handler remains force-all Lines then default relim then event-axis request; explicit visible_only does not change that separate callback pipeline.",
+    "errors": "Exact native broadcast error wording maps to existing Core InvalidTicks without a new wrapper or rollback.",
+    "numeric": "Finite/infinite values use binary64 bits and NaN uses classification. Source JSON preserves the existing explicit nonfinite dictionary representation."
+  },
+  "observations": [
+    {
+      "id": 0,
+      "label": "default relim includes a hidden Line",
+      "before": {
+        "data": [
+          [
+            1.0,
+            10.0
+          ],
+          [
+            200.0,
+            400.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                1.0,
+                10.0
+              ],
+              [
+                2.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "data": [
+          [
+            1.0,
+            10.0
+          ],
+          [
+            200.0,
+            400.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                1.0,
+                10.0
+              ],
+              [
+                2.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "events": [
+        [
+          "pchanged",
+          "second"
+        ],
+        [
+          "relim.begin"
+        ],
+        [
+          "get_in_autoscale",
+          "first"
+        ],
+        [
+          "get_in_autoscale",
+          "second"
+        ],
+        [
+          "relim.end"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 1,
+      "label": "visible_only excludes hidden and recomputes the visible range",
+      "before": {
+        "data": [
+          [
+            1.0,
+            10.0
+          ],
+          [
+            200.0,
+            400.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                1.0,
+                10.0
+              ],
+              [
+                2.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "data": [
+          [
+            1.0,
+            10.0
+          ],
+          [
+            2.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                1.0,
+                10.0
+              ],
+              [
+                2.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "events": [
+        [
+          "relim.begin"
+        ],
+        [
+          "get_visible",
+          "first"
+        ],
+        [
+          "get_in_autoscale",
+          "first"
+        ],
+        [
+          "get_visible",
+          "second"
+        ],
+        [
+          "relim.end"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 2,
+      "label": "all hidden yields null bbox but retains previous minimum-positive metadata",
+      "before": {
+        "data": [
+          [
+            1.0,
+            10.0
+          ],
+          [
+            2.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                1.0,
+                10.0
+              ],
+              [
+                2.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "data": [
+          [
+            {
+              "float": "inf"
+            },
+            {
+              "float": "inf"
+            }
+          ],
+          [
+            {
+              "float": "-inf"
+            },
+            {
+              "float": "-inf"
+            }
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "ignore_existing": true,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                1.0,
+                10.0
+              ],
+              [
+                2.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "events": [
+        [
+          "pchanged",
+          "first"
+        ],
+        [
+          "relim.begin"
+        ],
+        [
+          "get_visible",
+          "first"
+        ],
+        [
+          "get_visible",
+          "second"
+        ],
+        [
+          "relim.end"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 3,
+      "label": "default False still includes both hidden Lines",
+      "before": {
+        "data": [
+          [
+            {
+              "float": "inf"
+            },
+            {
+              "float": "inf"
+            }
+          ],
+          [
+            {
+              "float": "-inf"
+            },
+            {
+              "float": "-inf"
+            }
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "ignore_existing": true,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                1.0,
+                10.0
+              ],
+              [
+                2.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "data": [
+          [
+            1.0,
+            10.0
+          ],
+          [
+            200.0,
+            400.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                1.0,
+                10.0
+              ],
+              [
+                2.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "events": [
+        [
+          "relim.begin"
+        ],
+        [
+          "get_in_autoscale",
+          "first"
+        ],
+        [
+          "get_in_autoscale",
+          "second"
+        ],
+        [
+          "relim.end"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 4,
+      "label": "visible_only recaches visible edited prefix and skips hidden pending shape error",
+      "before": {
+        "data": [
+          [
+            1.0,
+            10.0
+          ],
+          [
+            200.0,
+            400.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                1.0,
+                10.0
+              ],
+              [
+                2.0,
+                20.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "data": [
+          [
+            5.0,
+            50.0
+          ],
+          [
+            6.0,
+            60.0
+          ]
+        ],
+        "minpos": [
+          5.0,
+          50.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                5.0,
+                50.0
+              ],
+              [
+                6.0,
+                60.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              true
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "events": [
+        [
+          "pchanged",
+          "first"
+        ],
+        [
+          "relim.begin"
+        ],
+        [
+          "get_visible",
+          "first"
+        ],
+        [
+          "get_in_autoscale",
+          "first"
+        ],
+        [
+          "recache.begin",
+          "first",
+          false
+        ],
+        [
+          "convert.x",
+          "first"
+        ],
+        [
+          "convert.y",
+          "first"
+        ],
+        [
+          "recache.end",
+          "first"
+        ],
+        [
+          "get_visible",
+          "second"
+        ],
+        [
+          "relim.end"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 5,
+      "label": "default relim reaches hidden error after visible prefix merge",
+      "before": {
+        "data": [
+          [
+            5.0,
+            50.0
+          ],
+          [
+            6.0,
+            60.0
+          ]
+        ],
+        "minpos": [
+          5.0,
+          50.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                5.0,
+                50.0
+              ],
+              [
+                6.0,
+                60.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              true
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "data": [
+          [
+            5.0,
+            50.0
+          ],
+          [
+            6.0,
+            60.0
+          ]
+        ],
+        "minpos": [
+          5.0,
+          50.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                5.0,
+                50.0
+              ],
+              [
+                6.0,
+                60.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              true
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "events": [
+        [
+          "relim.begin"
+        ],
+        [
+          "get_in_autoscale",
+          "first"
+        ],
+        [
+          "get_in_autoscale",
+          "second"
+        ],
+        [
+          "recache.begin",
+          "second",
+          false
+        ],
+        [
+          "convert.y",
+          "second"
+        ],
+        [
+          "recache.error",
+          "second",
+          "ValueError"
+        ]
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (2,) and arg 1 with shape (3,)."
+      }
+    },
+    {
+      "id": 6,
+      "label": "show then visible_only reaches same late error and keeps prefix",
+      "before": {
+        "data": [
+          [
+            5.0,
+            50.0
+          ],
+          [
+            6.0,
+            60.0
+          ]
+        ],
+        "minpos": [
+          5.0,
+          50.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                5.0,
+                50.0
+              ],
+              [
+                6.0,
+                60.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              true
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "data": [
+          [
+            5.0,
+            50.0
+          ],
+          [
+            6.0,
+            60.0
+          ]
+        ],
+        "minpos": [
+          5.0,
+          50.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                5.0,
+                50.0
+              ],
+              [
+                6.0,
+                60.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              true
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "events": [
+        [
+          "pchanged",
+          "second"
+        ],
+        [
+          "relim.begin"
+        ],
+        [
+          "get_visible",
+          "first"
+        ],
+        [
+          "get_in_autoscale",
+          "first"
+        ],
+        [
+          "get_visible",
+          "second"
+        ],
+        [
+          "get_in_autoscale",
+          "second"
+        ],
+        [
+          "recache.begin",
+          "second",
+          false
+        ],
+        [
+          "convert.y",
+          "second"
+        ],
+        [
+          "recache.error",
+          "second",
+          "ValueError"
+        ]
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (2,) and arg 1 with shape (3,)."
+      }
+    },
+    {
+      "id": 7,
+      "label": "repair then visible_only merges the full visible range",
+      "before": {
+        "data": [
+          [
+            5.0,
+            50.0
+          ],
+          [
+            6.0,
+            60.0
+          ]
+        ],
+        "minpos": [
+          5.0,
+          50.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                5.0,
+                50.0
+              ],
+              [
+                6.0,
+                60.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              true
+            ],
+            "xy": [
+              [
+                100.0,
+                300.0
+              ],
+              [
+                200.0,
+                400.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "data": [
+          [
+            5.0,
+            50.0
+          ],
+          [
+            200.0,
+            80.0
+          ]
+        ],
+        "minpos": [
+          5.0,
+          50.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                5.0,
+                50.0
+              ],
+              [
+                6.0,
+                60.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                100.0,
+                70.0
+              ],
+              [
+                200.0,
+                80.0
+              ]
+            ]
+          }
+        ]
+      },
+      "events": [
+        [
+          "relim.begin"
+        ],
+        [
+          "get_visible",
+          "first"
+        ],
+        [
+          "get_in_autoscale",
+          "first"
+        ],
+        [
+          "get_visible",
+          "second"
+        ],
+        [
+          "get_in_autoscale",
+          "second"
+        ],
+        [
+          "recache.begin",
+          "second",
+          false
+        ],
+        [
+          "convert.y",
+          "second"
+        ],
+        [
+          "recache.end",
+          "second"
+        ],
+        [
+          "relim.end"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 8,
+      "label": "all hidden after new finite range keeps its updated minpos",
+      "before": {
+        "data": [
+          [
+            5.0,
+            50.0
+          ],
+          [
+            200.0,
+            80.0
+          ]
+        ],
+        "minpos": [
+          5.0,
+          50.0
+        ],
+        "ignore_existing": false,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                5.0,
+                50.0
+              ],
+              [
+                6.0,
+                60.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": true,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                100.0,
+                70.0
+              ],
+              [
+                200.0,
+                80.0
+              ]
+            ]
+          }
+        ]
+      },
+      "after": {
+        "data": [
+          [
+            {
+              "float": "inf"
+            },
+            {
+              "float": "inf"
+            }
+          ],
+          [
+            {
+              "float": "-inf"
+            },
+            {
+              "float": "-inf"
+            }
+          ]
+        ],
+        "minpos": [
+          5.0,
+          50.0
+        ],
+        "ignore_existing": true,
+        "requests": {
+          "x": false,
+          "y": false
+        },
+        "views": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            0.0,
+            1.0
+          ]
+        },
+        "auto_on": {
+          "x": true,
+          "y": true
+        },
+        "lines": [
+          {
+            "name": "first",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                5.0,
+                50.0
+              ],
+              [
+                6.0,
+                60.0
+              ]
+            ]
+          },
+          {
+            "name": "second",
+            "visible": false,
+            "stale": true,
+            "invalid": [
+              false,
+              false
+            ],
+            "xy": [
+              [
+                100.0,
+                70.0
+              ],
+              [
+                200.0,
+                80.0
+              ]
+            ]
+          }
+        ]
+      },
+      "events": [
+        [
+          "pchanged",
+          "first"
+        ],
+        [
+          "pchanged",
+          "second"
+        ],
+        [
+          "relim.begin"
+        ],
+        [
+          "get_visible",
+          "first"
+        ],
+        [
+          "get_visible",
+          "second"
+        ],
+        [
+          "relim.end"
+        ]
+      ],
+      "error": null
+    }
+  ]
+}

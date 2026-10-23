@@ -1998,3 +1998,17 @@ let visible_svg = fig.to_svg_checked()
 隐藏不修改数据、范围或自动范围请求；显式 getter、单位更新及默认 relim 仍处理该 Line。
 已导出的 IR 在到达 Line 绘制阶段时读取当前可见性。原源记录与 leaf-draw 宿主边界见
 [Line 可见性](testdata/line_visible_README.md)。
+
+D47 为 `Axes::relim` 和 `relim_checked` 增加可选的 `visible_only`，默认为 false。
+传 true 时，隐藏的稳定 Line 会在数据转换与范围合并之前跳过；默认仍包含隐藏 Line。
+全部隐藏时，原始范围变为空范围，之前的最小正值元数据保留。晚失败依旧保留先前已合并
+的可见图元范围，不回滚整个调用。
+
+```moonbit nocheck
+fig.axes().relim_checked(visible_only=true)
+fig.axes().autoscale_view()
+```
+
+relim 本身不请求自动范围、不改变 viewport 或 auto-enable；单位更新仍强制回算每条
+Line 并使用默认 relim。尚无可变可见性的独立图元沿用可见默认。复现与边界见
+[按可见性重算范围](testdata/relim_visible_README.md)。
