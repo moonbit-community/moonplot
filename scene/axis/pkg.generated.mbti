@@ -45,6 +45,7 @@ pub struct Axis {
 }
 pub fn Axis::auto_date_locator(Self) -> @date.AutoDateLocator?
 pub fn Axis::bind_data_interval(Self, () -> (Double, Double)) -> Unit
+pub fn Axis::bind_formatter_axis(Self, minor? : Bool) -> Unit
 pub fn Axis::bind_locator_data(Self, minor? : Bool) -> Unit
 pub fn Axis::bind_minpos(Self, () -> Double raise @core.DataError) -> Unit
 pub fn Axis::bind_shared_minpos(Self, () -> Array[Double] raise @core.DataError) -> Unit
@@ -60,6 +61,8 @@ pub fn Axis::clear_limits(Self) -> Unit
 pub fn Axis::clear_locator(Self) -> Unit
 pub fn Axis::clear_minor_date_formatter(Self) -> Unit
 pub fn Axis::clear_minor_locator(Self) -> Unit
+pub fn Axis::clear_minor_named_formatter(Self) -> Unit
+pub fn Axis::clear_named_formatter(Self) -> Unit
 pub fn Axis::clear_tick_layout(Self) -> Unit
 pub fn Axis::clear_tick_position(Self) -> Unit
 pub fn Axis::clear_ticks(Self) -> Unit
@@ -73,8 +76,12 @@ pub fn Axis::date_nonsingular_bounds(Self, Double, Double) -> @core.Limits
 pub fn Axis::date_offset_minutes(Self) -> Int
 pub fn Axis::date_timezone(Self) -> @date.DateTimeZone?
 pub fn Axis::formatter(Self) -> @ticker.Formatter?
+pub fn Axis::formatter_axis_binding(Self) -> @ticker.FormatterAxisBinding
 pub fn Axis::formatter_offset_label(Self, Array[Double]) -> String
+pub fn Axis::formatter_offset_label_checked(Self, Array[Double], view? : @core.Limits) -> String
 pub fn Axis::formatter_offset_label_with_view(Self, Array[Double], @core.Limits?) -> String
+pub fn Axis::formatter_tick_locations_checked(Self, @core.Limits, minor? : Bool) -> @ticker.FormatterLocations raise @core.DataError
+pub fn Axis::formatter_warnings(Self) -> Array[String]
 pub fn Axis::get_minpos(Self) -> Double raise @core.DataError
 pub fn Axis::get_tick_space(Self) -> Double
 pub fn Axis::grid_color(Self) -> String
@@ -92,10 +99,13 @@ pub fn Axis::minor_grid_color(Self) -> String
 pub fn Axis::minor_grid_visible(Self) -> Bool
 pub fn Axis::minor_grid_width(Self) -> Double
 pub fn Axis::minor_locator(Self) -> @ticker.MinorLocator?
+pub fn Axis::minor_named_formatter(Self) -> @ticker.BaseFormatter?
 pub fn Axis::minor_overlap_removal(Self) -> Bool
 pub fn Axis::minor_tick_labels(Self, Array[Double], view? : @core.Limits) -> Array[String]
+pub fn Axis::minor_tick_labels_checked(Self, Array[Double], view? : @core.Limits) -> Array[String] raise @core.DataError
 pub fn Axis::minor_tick_values(Self, @core.Limits) -> Array[Double]
 pub fn Axis::minor_tick_values_checked(Self, @core.Limits) -> Array[Double] raise @core.DataError
+pub fn Axis::named_formatter(Self) -> @ticker.BaseFormatter?
 pub fn Axis::numeric_nonsingular_bounds(Self, Double, Double) -> @core.Limits
 pub fn Axis::numeric_nonsingular_bounds_checked(Self, Double, Double) -> @core.Limits raise @core.DataError
 pub fn Axis::request_autoscale(Self) -> Unit
@@ -118,7 +128,9 @@ pub fn Axis::set_minor_date_formatter(Self, @date.DateFormatter) -> Unit raise @
 pub fn Axis::set_minor_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
 pub fn Axis::set_minor_grid(Self, Bool, String, Double) -> Unit raise @core.DataError
 pub fn Axis::set_minor_locator(Self, @ticker.MinorLocator) -> Unit raise @core.DataError
+pub fn Axis::set_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
 pub fn Axis::set_minor_overlap_removal(Self, Bool) -> Unit
+pub fn Axis::set_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
 pub fn Axis::set_scale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Axis::set_tick_count(Self, Int) -> Unit
 pub fn Axis::set_tick_label_size(Self, Double) -> Unit
@@ -133,6 +145,7 @@ pub fn Axis::tick_count(Self) -> Int
 pub fn Axis::tick_group_is_null(Self, minor? : Bool) -> Bool
 pub fn Axis::tick_label_size(Self) -> Double
 pub fn Axis::tick_labels(Self, Array[Double]) -> Array[String]
+pub fn Axis::tick_labels_checked(Self, Array[Double], view? : @core.Limits) -> Array[String] raise @core.DataError
 pub fn Axis::tick_labels_with_view(Self, Array[Double], @core.Limits?) -> Array[String]
 pub fn Axis::tick_position(Self) -> TickPosition?
 pub fn Axis::tick_space_length(Self) -> Double?

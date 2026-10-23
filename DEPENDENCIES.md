@@ -227,3 +227,11 @@ checked数值体。新增私有context hooks只在原raw_step阶段读取投影�
 原源参考执行完整AST并保留raw重复/zero、单独的Data诊断与未迁移logger边界。
 没有运行时Python/NumPy/C调用或新外部依赖；重现见
 [testdata/logit_locator_README.md](testdata/logit_locator_README.md)。
+
+## D28 命名基础 Formatter
+
+BaseFormatter 与 Null/Fixed/Func 共享真实可变对象状态，重用 TickValues 保留数值 view，
+Array 则保动态长度；独立 checked 管线贯通 primary/shared/secondary 与 SVG。旧纯函数
+Formatter enum 不改变接口或复制行为。unicode_minus 只在显式 fix_minus 调用时读取。
+参考脚本加载完整原类、真实 _api 与固定 deprecation.py，校验源码 SHA；没有运行时
+Python/NumPy/C 调用或新外部依赖。完整动态 Python、Text 缓存与默认重置单独后续迁移。

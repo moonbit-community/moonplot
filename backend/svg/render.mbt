@@ -1498,9 +1498,12 @@ fn secondary_axis_tick_labels(
   values : Array[Double],
   primary_lower : Double,
   primary_upper : Double,
-) -> Array[String] {
+) -> Array[String] raise @core.DataError {
   if axis.tick_group_is_null() {
     return []
+  }
+  if axis.named_formatter() is Some(formatter) {
+    return formatter.format_ticks(values)
   }
   match axis.formatter() {
     Some(formatter) =>
@@ -1570,10 +1573,15 @@ fn append_secondary_x_axis(
     ("stroke", "#374151"),
     ("stroke-width", "1"),
   ])
-  let ticks = secondary_axis_ticks(axis, primary_ticks, scale.xmin, scale.xmax)
-  let values = ticks.map(tick => tick.1)
-  let labels = secondary_axis_tick_labels(axis, values, scale.xmin, scale.xmax)
-  for value in axis.minor_tick_values() {
+  let bundle = secondary_axis_bundle(
+    axis,
+    primary_ticks,
+    scale.xmin,
+    scale.xmax,
+  )
+  let ticks = bundle.major
+  let labels = bundle.major_labels
+  for index, value in bundle.minor {
     let primary = axis.inverse()(value)
     if tick_in_view(primary, scale.x_axis_scale, scale.xmin, scale.xmax) &&
       !primary.is_nan() &&
@@ -1590,6 +1598,16 @@ fn append_secondary_x_axis(
         ("stroke", "#374151"),
         ("stroke-width", "0.7"),
       ])
+      if index < bundle.minor_labels.length() {
+        append_text(
+          writer,
+          x,
+          axis_y + direction * 17.0,
+          bundle.minor_labels[index],
+          "middle",
+          axis.tick_label_size(),
+        )
+      }
     }
   }
   for index, tick in ticks {
@@ -1618,6 +1636,16 @@ fn append_secondary_x_axis(
         axis.tick_label_size(),
       )
     }
+  }
+  if bundle.offset != "" {
+    append_text(
+      writer,
+      left + plot_width,
+      axis_y + (if at_top { -8.0 } else { 30.0 }),
+      bundle.offset,
+      "end",
+      9,
+    )
   }
   match axis.label() {
     Some(value) =>
@@ -1658,10 +1686,15 @@ fn append_secondary_y_axis(
     ("stroke", "#374151"),
     ("stroke-width", "1"),
   ])
-  let ticks = secondary_axis_ticks(axis, primary_ticks, scale.ymin, scale.ymax)
-  let values = ticks.map(tick => tick.1)
-  let labels = secondary_axis_tick_labels(axis, values, scale.ymin, scale.ymax)
-  for value in axis.minor_tick_values() {
+  let bundle = secondary_axis_bundle(
+    axis,
+    primary_ticks,
+    scale.ymin,
+    scale.ymax,
+  )
+  let ticks = bundle.major
+  let labels = bundle.major_labels
+  for index, value in bundle.minor {
     let primary = axis.inverse()(value)
     if tick_in_view(primary, scale.y_axis_scale, scale.ymin, scale.ymax) &&
       !primary.is_nan() &&
@@ -1678,6 +1711,20 @@ fn append_secondary_y_axis(
         ("stroke", "#374151"),
         ("stroke-width", "0.7"),
       ])
+      if index < bundle.minor_labels.length() {
+        append_text(
+          writer,
+          axis_x + direction * 8.0,
+          y + 3.0,
+          bundle.minor_labels[index],
+          if at_right {
+            "start"
+          } else {
+            "end"
+          },
+          axis.tick_label_size(),
+        )
+      }
     }
   }
   for index, tick in ticks {
@@ -1710,6 +1757,20 @@ fn append_secondary_y_axis(
         axis.tick_label_size(),
       )
     }
+  }
+  if bundle.offset != "" {
+    append_text(
+      writer,
+      axis_x + (if at_right { 8.0 } else { -8.0 }),
+      top - 8.0,
+      bundle.offset,
+      if at_right {
+        "start"
+      } else {
+        "end"
+      },
+      9,
+    )
   }
   match axis.label() {
     Some(value) =>
@@ -3312,66 +3373,24 @@ fn render_panel(
   position : (Double, Double, Double, Double),
 ) -> Unit raise @core.DataError {
   let (left, top, plot_width, plot_height) = position
-  let x_null = panel.x_axis().tick_group_is_null()
-  let y_null = panel.y_axis().tick_group_is_null()
-  let x_minor_null = panel.x_axis().tick_group_is_null(minor=true)
-  let y_minor_null = panel.y_axis().tick_group_is_null(minor=true)
-  let x_ticks = if x_null {
-    []
-  } else {
-    panel.x_axis().tick_values_checked(@core.limits(scale.xmin, scale.xmax))
-  }
-  let y_ticks = if y_null {
-    []
-  } else {
-    panel.y_axis().tick_values_checked(@core.limits(scale.ymin, scale.ymax))
-  }
-  let x_minor_ticks = if x_minor_null {
-    []
-  } else {
-    panel
-    .x_axis()
-    .minor_tick_values_checked(@core.limits(scale.xmin, scale.xmax))
-  }
-  let y_minor_ticks = if y_minor_null {
-    []
-  } else {
-    panel
-    .y_axis()
-    .minor_tick_values_checked(@core.limits(scale.ymin, scale.ymax))
-  }
-  let viewport = @core.limits(scale.xmin, scale.xmax)
-  let y_viewport = @core.limits(scale.ymin, scale.ymax)
-  let x_minor_labels = if x_minor_null {
-    []
-  } else {
-    panel.x_axis().minor_tick_labels(x_minor_ticks, view=viewport)
-  }
-  let y_minor_labels = if y_minor_null {
-    []
-  } else {
-    panel.y_axis().minor_tick_labels(y_minor_ticks, view=y_viewport)
-  }
-  let x_labels = if x_null {
-    []
-  } else {
-    panel.x_axis().tick_labels_with_view(x_ticks, Some(viewport))
-  }
-  let y_labels = if y_null {
-    []
-  } else {
-    panel.y_axis().tick_labels_with_view(y_ticks, Some(y_viewport))
-  }
-  let x_offset_label = if x_null {
-    ""
-  } else {
-    panel.x_axis().formatter_offset_label_with_view(x_ticks, Some(viewport))
-  }
-  let y_offset_label = if y_null {
-    ""
-  } else {
-    panel.y_axis().formatter_offset_label_with_view(y_ticks, Some(y_viewport))
-  }
+  let x_bundle = numeric_axis_bundle(
+    panel.x_axis(),
+    @core.limits(scale.xmin, scale.xmax),
+  )
+  let y_bundle = numeric_axis_bundle(
+    panel.y_axis(),
+    @core.limits(scale.ymin, scale.ymax),
+  )
+  let x_ticks = x_bundle.major
+  let y_ticks = y_bundle.major
+  let x_minor_ticks = x_bundle.minor
+  let y_minor_ticks = y_bundle.minor
+  let x_labels = x_bundle.major_labels
+  let y_labels = y_bundle.major_labels
+  let x_minor_labels = x_bundle.minor_labels
+  let y_minor_labels = y_bundle.minor_labels
+  let x_offset_label = x_bundle.offset
+  let y_offset_label = y_bundle.offset
   if panel.frame_visible() {
     append_grid(
       writer,

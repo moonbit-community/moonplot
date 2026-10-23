@@ -1,0 +1,75 @@
+///|
+priv struct AxisTickBundle {
+  major : Array[Double]
+  major_labels : Array[String]
+  minor : Array[Double]
+  minor_labels : Array[String]
+  offset : String
+}
+
+///|
+// Formatting can mutate state or raise, so resolve one axis in source order.
+fn numeric_axis_bundle(
+  axis : @axis.Axis,
+  view : @core.Limits,
+) -> AxisTickBundle raise @core.DataError {
+  let major_null = axis.tick_group_is_null()
+  let (major, major_labels) = if major_null {
+    ([], [])
+  } else {
+    let locations = axis.formatter_tick_locations_checked(view)
+    let labels = match (axis.named_formatter(), locations) {
+      (Some(formatter), @ticker.FormatterLocations::NdArray(_)) =>
+        format_retained_locations(formatter, locations)
+      _ =>
+        axis.tick_labels_checked(
+          materialize_formatter_locations(locations),
+          view~,
+        )
+    }
+    (materialize_formatter_locations(locations), labels)
+  }
+  let minor_null = axis.tick_group_is_null(minor=true)
+  let (minor, minor_labels) = if minor_null {
+    ([], [])
+  } else {
+    let locations = axis.formatter_tick_locations_checked(view, minor=true)
+    let labels = match (axis.minor_named_formatter(), locations) {
+      (Some(formatter), @ticker.FormatterLocations::NdArray(_)) =>
+        format_retained_locations(formatter, locations)
+      _ =>
+        axis.minor_tick_labels_checked(
+          materialize_formatter_locations(locations),
+          view~,
+        )
+    }
+    (materialize_formatter_locations(locations), labels)
+  }
+  let offset = if major_null {
+    ""
+  } else {
+    axis.formatter_offset_label_checked(major, view~)
+  }
+  { major, major_labels, minor, minor_labels, offset, }
+}
+
+///|
+fn format_retained_locations(
+  formatter : @ticker.BaseFormatter,
+  locations : @ticker.FormatterLocations,
+) -> Array[String] raise @core.DataError {
+  match locations {
+    Sequence(values) => formatter.format_ticks(values)
+    NdArray(values) => formatter.format_ticks_view(values)
+  }
+}
+
+///|
+fn materialize_formatter_locations(
+  locations : @ticker.FormatterLocations,
+) -> Array[Double] raise @core.DataError {
+  match locations {
+    Sequence(values) => values.copy()
+    NdArray(values) => values.to_array()
+  }
+}

@@ -452,6 +452,13 @@ pub(all) enum SecondaryLocation {
 ///|
 /// Immutable secondary axis data consumed by a backend.
 pub struct SecondaryAxis {
+  formatter_provider : ((Bool) -> @ticker.BaseFormatter?)?
+  legacy_formatter_provider : (() -> @ticker.Formatter?)?
+  null_group_provider : ((Bool) -> Bool)?
+  named_formatter : @ticker.BaseFormatter?
+  minor_named_formatter : @ticker.BaseFormatter?
+  major_formatter_locations_provider : (() -> @ticker.FormatterLocations raise @core.DataError)?
+  minor_formatter_locations_provider : (() -> @ticker.FormatterLocations raise @core.DataError)?
   minor_locator : @ticker.MinorLocator?
   minor_ticks_provider : (() -> Array[Double] raise @core.DataError)?
   tick_label_size : Double
@@ -480,11 +487,25 @@ pub fn secondary_axis(
   fixed_ticks : Array[Double]?,
   locator : @ticker.Locator?,
   formatter : @ticker.Formatter?,
+  named_formatter~ : @ticker.BaseFormatter? = None,
+  minor_named_formatter~ : @ticker.BaseFormatter? = None,
+  formatter_provider~ : ((Bool) -> @ticker.BaseFormatter?)? = None,
+  legacy_formatter_provider~ : (() -> @ticker.Formatter?)? = None,
+  null_group_provider~ : ((Bool) -> Bool)? = None,
+  major_formatter_locations_provider~ : (() -> @ticker.FormatterLocations raise @core.DataError)? = None,
+  minor_formatter_locations_provider~ : (() -> @ticker.FormatterLocations raise @core.DataError)? = None,
   tick_label_size~ : Double = 10.0,
   minor_locator~ : @ticker.MinorLocator? = None,
   minor_ticks_provider~ : (() -> Array[Double] raise @core.DataError)? = None,
 ) -> SecondaryAxis {
   {
+    named_formatter,
+    minor_named_formatter,
+    formatter_provider,
+    legacy_formatter_provider,
+    null_group_provider,
+    major_formatter_locations_provider,
+    minor_formatter_locations_provider,
     minor_locator: minor_locator.map(value => value.copy()),
     minor_ticks_provider,
     tick_label_size,
@@ -551,8 +572,48 @@ pub fn SecondaryAxis::locator(self : SecondaryAxis) -> @ticker.Locator? {
 
 ///|
 pub fn SecondaryAxis::formatter(self : SecondaryAxis) -> @ticker.Formatter? {
-  match self.formatter {
+  let formatter = match self.legacy_formatter_provider {
+    Some(provider) => provider()
+    None => self.formatter
+  }
+  match formatter {
     Some(value) => Some(value.copy())
+    None => None
+  }
+}
+
+///|
+pub fn SecondaryAxis::named_formatter(
+  self : SecondaryAxis,
+) -> @ticker.BaseFormatter? {
+  match self.formatter_provider {
+    Some(provider) => provider(false)
+    None => self.named_formatter
+  }
+}
+
+///|
+pub fn SecondaryAxis::minor_named_formatter(
+  self : SecondaryAxis,
+) -> @ticker.BaseFormatter? {
+  match self.formatter_provider {
+    Some(provider) => provider(true)
+    None => self.minor_named_formatter
+  }
+}
+
+///|
+pub fn SecondaryAxis::formatter_tick_locations(
+  self : SecondaryAxis,
+  minor~ : Bool = false,
+) -> @ticker.FormatterLocations? raise @core.DataError {
+  let provider = if minor {
+    self.minor_formatter_locations_provider
+  } else {
+    self.major_formatter_locations_provider
+  }
+  match provider {
+    Some(provider) => Some(provider())
     None => None
   }
 }
@@ -1053,7 +1114,7 @@ pub fn SecondaryAxis::tick_label_size(self : SecondaryAxis) -> Double {
 pub fn SecondaryAxis::minor_tick_values(
   self : SecondaryAxis,
 ) -> Array[Double] raise @core.DataError {
-  if self.minor_locator is Some(@ticker.MinorLocator::Null(_)) {
+  if self.tick_group_is_null(minor=true) {
     return []
   }
   match self.minor_ticks_provider {
@@ -1063,6 +1124,16 @@ pub fn SecondaryAxis::minor_tick_values(
 }
 
 ///|
-pub fn SecondaryAxis::tick_group_is_null(self : SecondaryAxis) -> Bool {
-  self.locator is Some(@ticker.Locator::Null(_))
+pub fn SecondaryAxis::tick_group_is_null(
+  self : SecondaryAxis,
+  minor~ : Bool = false,
+) -> Bool {
+  if self.null_group_provider is Some(provider) {
+    return provider(minor)
+  }
+  if minor {
+    self.minor_locator is Some(@ticker.MinorLocator::Null(_))
+  } else {
+    self.locator is Some(@ticker.Locator::Null(_))
+  }
 }

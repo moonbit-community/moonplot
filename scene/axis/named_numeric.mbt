@@ -68,6 +68,13 @@ pub fn Axis::tick_values_checked(
   self : Axis,
   automatic : @core.Limits,
 ) -> Array[Double] raise @core.DataError {
+  if (self.named_formatter is Some(_) || self.minor_named_formatter is Some(_)) &&
+    self.fixed_ticks is None &&
+    self.category is None &&
+    self.date_format is None &&
+    self.locator is Some(@ticker.Locator::Fixed(values)) {
+    return values.copy()
+  }
   if self.fixed_ticks is None && self.category is None {
     if self.locator
       is Some(
@@ -113,8 +120,12 @@ pub fn Axis::minor_tick_values_checked(
       }
       return ticks
     }
-    let logit_fixed = self.scale.is_logit() &&
+    let raw_named_fixed = (
+        self.scale.is_logit() || self.minor_named_formatter is Some(_)
+      ) &&
       self.minor_locator is Some(@ticker.MinorLocator::NamedFixed(_))
+    let raw_legacy_fixed = self.minor_named_formatter is Some(_) &&
+      self.minor_locator is Some(@ticker.MinorLocator::Fixed(_))
     if self.minor_locator
       is Some(
         @ticker.MinorLocator::NamedAutoMinor(_)
@@ -123,7 +134,8 @@ pub fn Axis::minor_tick_values_checked(
         | @ticker.MinorLocator::NamedAsinh(_)
         | @ticker.MinorLocator::NamedSymLog(_)
       ) ||
-      logit_fixed {
+      raw_named_fixed ||
+      raw_legacy_fixed {
       let limits = self.limits.unwrap_or(automatic)
       let previous = self.tick_layout_view
       if previous is None && self.numeric_view_provider is None {
@@ -134,6 +146,7 @@ pub fn Axis::minor_tick_values_checked(
       }
       // Source minor.call reads its own owner first. Axis overlap reads major again.
       let ticks = match self.minor_locator.unwrap() {
+        @ticker.MinorLocator::Fixed(values) => values.copy()
         @ticker.MinorLocator::NamedFixed(value) => {
           let locations = value.tick_values(0.0, 0.0)
           locations
@@ -216,6 +229,9 @@ fn Axis::major_tick_view_checked(
   }
   if self.category is None && self.date_locator is None {
     match self.locator {
+      Some(@ticker.Locator::Fixed(values)) if self.named_formatter is Some(_) ||
+        self.minor_named_formatter is Some(_) =>
+        return @ticker.TickValues::from_array(values.copy())
       Some(@ticker.Locator::NamedFixed(value)) =>
         return value.tick_values(0.0, 0.0)
       Some(@ticker.Locator::Null(_)) =>

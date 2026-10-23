@@ -1,6 +1,7 @@
 ///|
 /// Mutable defaults shared by newly created figures and axes.
 pub struct RcParams {
+  priv mut unicode_minus : Bool
   priv mut x_minor_tick_divisions : MinorTickDivisions
   priv mut y_minor_tick_divisions : MinorTickDivisions
   priv mut classic_mode : Bool
@@ -29,6 +30,7 @@ fn tab10() -> Array[String] {
 ///|
 fn default_rc_params() -> RcParams {
   {
+    unicode_minus: true,
     x_minor_tick_divisions: Text("auto"),
     y_minor_tick_divisions: Text("auto"),
     classic_mode: false,
@@ -82,6 +84,7 @@ fn validate_color_cycle(colors : Array[String]) -> Unit raise @core.DataError {
 pub fn rc_params() -> RcParams {
   let value = current.val
   {
+    unicode_minus: value.unicode_minus,
     x_minor_tick_divisions: value.x_minor_tick_divisions,
     y_minor_tick_divisions: value.y_minor_tick_divisions,
     classic_mode: value.classic_mode,

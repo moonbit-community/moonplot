@@ -1,0 +1,3002 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "figure.py": "b440ab0a5be03cb39b13529a2fec497d2d96deb083e3e56d6220593e3ec567da",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b",
+    "axes/_secondary_axes.py": "b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2"
+  },
+  "scope": "Complete original Formatter classes via shared real _api/deprecation loader, actual Axis setters/update/get_ticks and transformed minor overlap, real Grouper/removal and Secondary function setup; numeric Bbox, units, Tick/Text/default formatter/GUI/affine sinks.",
+  "warning_protocol": "Original global warn_external observations; port Axis.formatter_warnings is latest-installation snapshot, not an upstream Formatter API. Host warning filters/stacklevel exceptions are outside typed scope.",
+  "installs": [
+    {
+      "minor": false,
+      "labels": [],
+      "locator": "named_fixed",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": false,
+      "labels": [],
+      "locator": "legacy_fixed",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": false,
+      "labels": [],
+      "locator": "other",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": false,
+      "labels": [],
+      "locator": "null",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": false,
+      "labels": [
+        "A",
+        "B"
+      ],
+      "locator": "named_fixed",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": false,
+      "labels": [
+        "A",
+        "B"
+      ],
+      "locator": "legacy_fixed",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": false,
+      "labels": [
+        "A",
+        "B"
+      ],
+      "locator": "other",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": [
+          "FixedFormatter should only be used together with FixedLocator"
+        ]
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": false,
+      "labels": [
+        "A",
+        "B"
+      ],
+      "locator": "null",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": [
+          "FixedFormatter should only be used together with FixedLocator"
+        ]
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": true,
+      "labels": [],
+      "locator": "named_fixed",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": true,
+      "labels": [],
+      "locator": "legacy_fixed",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": true,
+      "labels": [],
+      "locator": "other",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": true,
+      "labels": [],
+      "locator": "null",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": true,
+      "labels": [
+        "A",
+        "B"
+      ],
+      "locator": "named_fixed",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": true,
+      "labels": [
+        "A",
+        "B"
+      ],
+      "locator": "legacy_fixed",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": true,
+      "labels": [
+        "A",
+        "B"
+      ],
+      "locator": "other",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": [
+          "FixedFormatter should only be used together with FixedLocator"
+        ]
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "minor": true,
+      "labels": [
+        "A",
+        "B"
+      ],
+      "locator": "null",
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": [
+          "FixedFormatter should only be used together with FixedLocator"
+        ]
+      },
+      "replacement": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "next_install": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    }
+  ],
+  "cases": [
+    {
+      "label": "full major/minor positions",
+      "major_kind": "func",
+      "minor_kind": "func",
+      "null_major": false,
+      "null_minor": false,
+      "failure": null,
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 0.0,
+            "label": "major:1"
+          },
+          {
+            "level": "major",
+            "value": 1.0,
+            "label": "major:2"
+          },
+          {
+            "level": "minor",
+            "value": 0.5,
+            "label": "minor:1"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x",
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              1.0,
+              2.0
+            ]
+          },
+          {
+            "level": "minor",
+            "values": [
+              -2.0,
+              0.5,
+              3.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        {
+          "level": "major",
+          "value": -1.0,
+          "pos": 0
+        },
+        {
+          "level": "major",
+          "value": 0.0,
+          "pos": 1
+        },
+        {
+          "level": "major",
+          "value": 1.0,
+          "pos": 2
+        },
+        {
+          "level": "major",
+          "value": 2.0,
+          "pos": 3
+        },
+        {
+          "level": "minor",
+          "value": -2.0,
+          "pos": 0
+        },
+        {
+          "level": "minor",
+          "value": 0.5,
+          "pos": 1
+        },
+        {
+          "level": "minor",
+          "value": 3.0,
+          "pos": 2
+        }
+      ],
+      "major_locs": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "minor_locs": [
+        -2.0,
+        0.5,
+        3.0
+      ],
+      "source_major_raw": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "source_minor_filtered": [
+        -2.0,
+        0.5,
+        3.0
+      ]
+    },
+    {
+      "label": "fixed positions include hidden neighbors",
+      "major_kind": "fixed",
+      "minor_kind": "fixed",
+      "null_major": false,
+      "null_minor": false,
+      "failure": null,
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 0.0,
+            "label": "major:1"
+          },
+          {
+            "level": "major",
+            "value": 1.0,
+            "label": "major:2"
+          },
+          {
+            "level": "minor",
+            "value": 0.5,
+            "label": "minor:1"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x",
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              1.0,
+              2.0
+            ]
+          },
+          {
+            "level": "minor",
+            "values": [
+              -2.0,
+              0.5,
+              3.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [],
+      "major_locs": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "minor_locs": [
+        -2.0,
+        0.5,
+        3.0
+      ],
+      "source_major_raw": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "source_minor_filtered": [
+        -2.0,
+        0.5,
+        3.0
+      ]
+    },
+    {
+      "label": "null formatter still batches",
+      "major_kind": "null",
+      "minor_kind": "func",
+      "null_major": false,
+      "null_minor": false,
+      "failure": null,
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 0.0,
+            "label": ""
+          },
+          {
+            "level": "major",
+            "value": 1.0,
+            "label": ""
+          },
+          {
+            "level": "minor",
+            "value": 0.5,
+            "label": "minor:1"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x",
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              1.0,
+              2.0
+            ]
+          },
+          {
+            "level": "minor",
+            "values": [
+              -2.0,
+              0.5,
+              3.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        {
+          "level": "minor",
+          "value": -2.0,
+          "pos": 0
+        },
+        {
+          "level": "minor",
+          "value": 0.5,
+          "pos": 1
+        },
+        {
+          "level": "minor",
+          "value": 3.0,
+          "pos": 2
+        }
+      ],
+      "major_locs": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "minor_locs": [
+        -2.0,
+        0.5,
+        3.0
+      ],
+      "source_major_raw": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "source_minor_filtered": [
+        -2.0,
+        0.5,
+        3.0
+      ]
+    },
+    {
+      "label": "null minor formatter still batches",
+      "major_kind": "func",
+      "minor_kind": "null",
+      "null_major": false,
+      "null_minor": false,
+      "failure": null,
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 0.0,
+            "label": "major:1"
+          },
+          {
+            "level": "major",
+            "value": 1.0,
+            "label": "major:2"
+          },
+          {
+            "level": "minor",
+            "value": 0.5,
+            "label": ""
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x",
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              1.0,
+              2.0
+            ]
+          },
+          {
+            "level": "minor",
+            "values": [
+              -2.0,
+              0.5,
+              3.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        {
+          "level": "major",
+          "value": -1.0,
+          "pos": 0
+        },
+        {
+          "level": "major",
+          "value": 0.0,
+          "pos": 1
+        },
+        {
+          "level": "major",
+          "value": 1.0,
+          "pos": 2
+        },
+        {
+          "level": "major",
+          "value": 2.0,
+          "pos": 3
+        }
+      ],
+      "major_locs": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "minor_locs": [
+        -2.0,
+        0.5,
+        3.0
+      ],
+      "source_major_raw": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "source_minor_filtered": [
+        -2.0,
+        0.5,
+        3.0
+      ]
+    },
+    {
+      "label": "null locator skips major",
+      "major_kind": "func",
+      "minor_kind": "func",
+      "null_major": true,
+      "null_minor": false,
+      "failure": null,
+      "result": {
+        "values": [
+          {
+            "level": "minor",
+            "value": 0.5,
+            "label": "minor:1"
+          },
+          {
+            "level": "minor",
+            "value": 1.0,
+            "label": "minor:2"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x",
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "minor",
+            "values": [
+              -2.0,
+              0.5,
+              1.0,
+              3.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        {
+          "level": "minor",
+          "value": -2.0,
+          "pos": 0
+        },
+        {
+          "level": "minor",
+          "value": 0.5,
+          "pos": 1
+        },
+        {
+          "level": "minor",
+          "value": 1.0,
+          "pos": 2
+        },
+        {
+          "level": "minor",
+          "value": 3.0,
+          "pos": 3
+        }
+      ],
+      "major_locs": [],
+      "minor_locs": [
+        -2.0,
+        0.5,
+        1.0,
+        3.0
+      ],
+      "source_major_raw": [],
+      "source_minor_filtered": [
+        -2.0,
+        0.5,
+        1.0,
+        3.0
+      ]
+    },
+    {
+      "label": "null locator skips minor",
+      "major_kind": "func",
+      "minor_kind": "func",
+      "null_major": false,
+      "null_minor": true,
+      "failure": null,
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 0.0,
+            "label": "major:1"
+          },
+          {
+            "level": "major",
+            "value": 1.0,
+            "label": "major:2"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              1.0,
+              2.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        {
+          "level": "major",
+          "value": -1.0,
+          "pos": 0
+        },
+        {
+          "level": "major",
+          "value": 0.0,
+          "pos": 1
+        },
+        {
+          "level": "major",
+          "value": 1.0,
+          "pos": 2
+        },
+        {
+          "level": "major",
+          "value": 2.0,
+          "pos": 3
+        }
+      ],
+      "major_locs": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "minor_locs": [],
+      "source_major_raw": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "source_minor_filtered": []
+    },
+    {
+      "label": "shared formatter final locations",
+      "major_kind": "shared",
+      "minor_kind": "shared",
+      "null_major": false,
+      "null_minor": false,
+      "failure": null,
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 0.0,
+            "label": "shared:1"
+          },
+          {
+            "level": "major",
+            "value": 1.0,
+            "label": "shared:2"
+          },
+          {
+            "level": "minor",
+            "value": 0.5,
+            "label": "shared:1"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x",
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "shared",
+            "values": [
+              -1.0,
+              0.0,
+              1.0,
+              2.0
+            ]
+          },
+          {
+            "level": "shared",
+            "values": [
+              -2.0,
+              0.5,
+              3.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        {
+          "level": "shared",
+          "value": -1.0,
+          "pos": 0
+        },
+        {
+          "level": "shared",
+          "value": 0.0,
+          "pos": 1
+        },
+        {
+          "level": "shared",
+          "value": 1.0,
+          "pos": 2
+        },
+        {
+          "level": "shared",
+          "value": 2.0,
+          "pos": 3
+        },
+        {
+          "level": "shared",
+          "value": -2.0,
+          "pos": 0
+        },
+        {
+          "level": "shared",
+          "value": 0.5,
+          "pos": 1
+        },
+        {
+          "level": "shared",
+          "value": 3.0,
+          "pos": 2
+        }
+      ],
+      "major_locs": [
+        -2.0,
+        0.5,
+        3.0
+      ],
+      "minor_locs": [
+        -2.0,
+        0.5,
+        3.0
+      ],
+      "source_major_raw": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "source_minor_filtered": [
+        -2.0,
+        0.5,
+        3.0
+      ]
+    },
+    {
+      "label": "abstract major errors after assigning locations",
+      "major_kind": "abstract",
+      "minor_kind": "func",
+      "null_major": false,
+      "null_minor": false,
+      "failure": null,
+      "result": {
+        "values": null,
+        "error": "NotImplementedError",
+        "message": "Derived must override",
+        "events": [],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              1.0,
+              2.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [],
+      "major_locs": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "minor_locs": [],
+      "source_major_raw": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "source_minor_filtered": [
+        -2.0,
+        0.5,
+        3.0
+      ]
+    },
+    {
+      "label": "abstract minor errors after assigning locations",
+      "major_kind": "func",
+      "minor_kind": "abstract",
+      "null_major": false,
+      "null_minor": false,
+      "failure": null,
+      "result": {
+        "values": null,
+        "error": "NotImplementedError",
+        "message": "Derived must override",
+        "events": [
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              1.0,
+              2.0
+            ]
+          },
+          {
+            "level": "minor",
+            "values": [
+              -2.0,
+              0.5,
+              3.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        {
+          "level": "major",
+          "value": -1.0,
+          "pos": 0
+        },
+        {
+          "level": "major",
+          "value": 0.0,
+          "pos": 1
+        },
+        {
+          "level": "major",
+          "value": 1.0,
+          "pos": 2
+        },
+        {
+          "level": "major",
+          "value": 2.0,
+          "pos": 3
+        }
+      ],
+      "major_locs": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "minor_locs": [
+        -2.0,
+        0.5,
+        3.0
+      ],
+      "source_major_raw": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "source_minor_filtered": [
+        -2.0,
+        0.5,
+        3.0
+      ]
+    },
+    {
+      "label": "offscreen major callback errors before minor",
+      "major_kind": "func",
+      "minor_kind": "func",
+      "null_major": false,
+      "null_minor": false,
+      "failure": "major",
+      "result": {
+        "values": null,
+        "error": "ValueError",
+        "message": "major callback",
+        "events": [],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              1.0,
+              2.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        {
+          "level": "major",
+          "value": -1.0,
+          "pos": 0
+        }
+      ],
+      "major_locs": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "minor_locs": [],
+      "source_major_raw": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "source_minor_filtered": [
+        -2.0,
+        0.5,
+        3.0
+      ]
+    },
+    {
+      "label": "offscreen minor callback errors after major",
+      "major_kind": "func",
+      "minor_kind": "func",
+      "null_major": false,
+      "null_minor": false,
+      "failure": "minor",
+      "result": {
+        "values": null,
+        "error": "ValueError",
+        "message": "minor callback",
+        "events": [
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              1.0,
+              2.0
+            ]
+          },
+          {
+            "level": "minor",
+            "values": [
+              -2.0,
+              0.5,
+              3.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        {
+          "level": "major",
+          "value": -1.0,
+          "pos": 0
+        },
+        {
+          "level": "major",
+          "value": 0.0,
+          "pos": 1
+        },
+        {
+          "level": "major",
+          "value": 1.0,
+          "pos": 2
+        },
+        {
+          "level": "major",
+          "value": 2.0,
+          "pos": 3
+        },
+        {
+          "level": "minor",
+          "value": -2.0,
+          "pos": 0
+        }
+      ],
+      "major_locs": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "minor_locs": [
+        -2.0,
+        0.5,
+        3.0
+      ],
+      "source_major_raw": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "source_minor_filtered": [
+        -2.0,
+        0.5,
+        3.0
+      ]
+    }
+  ],
+  "aliases": [
+    {
+      "family": "fixed",
+      "level": "major",
+      "overlap": true,
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 0.0,
+            "label": "alias:0"
+          },
+          {
+            "level": "major",
+            "value": 0.5,
+            "label": "alias:1"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              0.0,
+              1.0,
+              2.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          0.0,
+          0
+        ],
+        [
+          0.5,
+          1
+        ],
+        [
+          2.0,
+          2
+        ]
+      ],
+      "owner": [
+        0.0,
+        0.5,
+        2.0
+      ],
+      "locations": [
+        0.0,
+        0.5,
+        2.0
+      ],
+      "shares_owner": true
+    },
+    {
+      "family": "fixed",
+      "level": "minor",
+      "overlap": false,
+      "result": {
+        "values": [
+          {
+            "level": "minor",
+            "value": 0.0,
+            "label": "alias:0"
+          },
+          {
+            "level": "minor",
+            "value": 0.5,
+            "label": "alias:1"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "minor",
+            "values": [
+              0.0,
+              1.0,
+              2.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          0.0,
+          0
+        ],
+        [
+          0.5,
+          1
+        ],
+        [
+          2.0,
+          2
+        ]
+      ],
+      "owner": [
+        0.0,
+        0.5,
+        2.0
+      ],
+      "locations": [
+        0.0,
+        0.5,
+        2.0
+      ],
+      "shares_owner": true
+    },
+    {
+      "family": "fixed",
+      "level": "minor",
+      "overlap": true,
+      "result": {
+        "values": [
+          {
+            "level": "minor",
+            "value": 0.0,
+            "label": "alias:0"
+          },
+          {
+            "level": "minor",
+            "value": 1.0,
+            "label": "alias:1"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x",
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "minor",
+            "values": [
+              0.0,
+              1.0,
+              2.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          0.0,
+          0
+        ],
+        [
+          1.0,
+          1
+        ],
+        [
+          2.0,
+          2
+        ]
+      ],
+      "owner": [
+        0.0,
+        0.5,
+        2.0
+      ],
+      "locations": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "shares_owner": false
+    },
+    {
+      "family": "linear",
+      "level": "major",
+      "overlap": true,
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 0.0,
+            "label": "alias:0"
+          },
+          {
+            "level": "major",
+            "value": 0.5,
+            "label": "alias:1"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x",
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              0.0,
+              1.0,
+              2.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          0.0,
+          0
+        ],
+        [
+          0.5,
+          1
+        ],
+        [
+          2.0,
+          2
+        ]
+      ],
+      "owner": [
+        0.0,
+        0.5,
+        2.0
+      ],
+      "locations": [
+        0.0,
+        0.5,
+        2.0
+      ],
+      "shares_owner": true
+    },
+    {
+      "family": "linear",
+      "level": "minor",
+      "overlap": false,
+      "result": {
+        "values": [
+          {
+            "level": "minor",
+            "value": 0.0,
+            "label": "alias:0"
+          },
+          {
+            "level": "minor",
+            "value": 0.5,
+            "label": "alias:1"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x",
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "minor",
+            "values": [
+              0.0,
+              1.0,
+              2.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          0.0,
+          0
+        ],
+        [
+          0.5,
+          1
+        ],
+        [
+          2.0,
+          2
+        ]
+      ],
+      "owner": [
+        0.0,
+        0.5,
+        2.0
+      ],
+      "locations": [
+        0.0,
+        0.5,
+        2.0
+      ],
+      "shares_owner": true
+    }
+  ],
+  "owners": [
+    {
+      "name": "x",
+      "initial_copy": [
+        "first",
+        "first"
+      ],
+      "removed": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "installed": [
+        "first",
+        "first"
+      ],
+      "outside": [
+        "second",
+        "second"
+      ]
+    },
+    {
+      "name": "y",
+      "initial_copy": [
+        "first",
+        "first"
+      ],
+      "removed": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      },
+      "installed": [
+        "first",
+        "first"
+      ],
+      "outside": [
+        "second",
+        "second"
+      ]
+    }
+  ],
+  "secondary": [
+    {
+      "name": "x",
+      "own_view": [
+        5.0,
+        7.0
+      ],
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 5.0,
+            "label": "secondary-major:1"
+          },
+          {
+            "level": "major",
+            "value": 6.0,
+            "label": "secondary-major:2"
+          },
+          {
+            "level": "major",
+            "value": 7.0,
+            "label": "secondary-major:3"
+          },
+          {
+            "level": "minor",
+            "value": 5.5,
+            "label": "secondary-minor:1"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.x",
+          "secondary.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              3.0,
+              5.0,
+              6.0,
+              7.0,
+              9.0
+            ]
+          },
+          {
+            "level": "minor",
+            "values": [
+              4.0,
+              5.5,
+              8.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        {
+          "level": "major",
+          "value": 3.0,
+          "pos": 0
+        },
+        {
+          "level": "major",
+          "value": 5.0,
+          "pos": 1
+        },
+        {
+          "level": "major",
+          "value": 6.0,
+          "pos": 2
+        },
+        {
+          "level": "major",
+          "value": 7.0,
+          "pos": 3
+        },
+        {
+          "level": "major",
+          "value": 9.0,
+          "pos": 4
+        },
+        {
+          "level": "minor",
+          "value": 4.0,
+          "pos": 0
+        },
+        {
+          "level": "minor",
+          "value": 5.5,
+          "pos": 1
+        },
+        {
+          "level": "minor",
+          "value": 8.0,
+          "pos": 2
+        }
+      ],
+      "major_locs": [
+        3.0,
+        5.0,
+        6.0,
+        7.0,
+        9.0
+      ],
+      "minor_locs": [
+        4.0,
+        5.5,
+        8.0
+      ],
+      "offset": "secondary offset"
+    },
+    {
+      "name": "y",
+      "own_view": [
+        5.0,
+        7.0
+      ],
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 5.0,
+            "label": "secondary-major:1"
+          },
+          {
+            "level": "major",
+            "value": 6.0,
+            "label": "secondary-major:2"
+          },
+          {
+            "level": "major",
+            "value": 7.0,
+            "label": "secondary-major:3"
+          },
+          {
+            "level": "minor",
+            "value": 5.5,
+            "label": "secondary-minor:1"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "secondary.view.y",
+          "secondary.view.y"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              3.0,
+              5.0,
+              6.0,
+              7.0,
+              9.0
+            ]
+          },
+          {
+            "level": "minor",
+            "values": [
+              4.0,
+              5.5,
+              8.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        {
+          "level": "major",
+          "value": 3.0,
+          "pos": 0
+        },
+        {
+          "level": "major",
+          "value": 5.0,
+          "pos": 1
+        },
+        {
+          "level": "major",
+          "value": 6.0,
+          "pos": 2
+        },
+        {
+          "level": "major",
+          "value": 7.0,
+          "pos": 3
+        },
+        {
+          "level": "major",
+          "value": 9.0,
+          "pos": 4
+        },
+        {
+          "level": "minor",
+          "value": 4.0,
+          "pos": 0
+        },
+        {
+          "level": "minor",
+          "value": 5.5,
+          "pos": 1
+        },
+        {
+          "level": "minor",
+          "value": 8.0,
+          "pos": 2
+        }
+      ],
+      "major_locs": [
+        3.0,
+        5.0,
+        6.0,
+        7.0,
+        9.0
+      ],
+      "minor_locs": [
+        4.0,
+        5.5,
+        8.0
+      ],
+      "offset": "secondary offset"
+    }
+  ],
+  "secondary_aliases": [
+    {
+      "name": "x",
+      "family": "fixed",
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 5.0,
+            "label": "secondary-alias:0"
+          },
+          {
+            "level": "major",
+            "value": 5.5,
+            "label": "secondary-alias:1"
+          },
+          {
+            "level": "major",
+            "value": 7.0,
+            "label": "secondary-alias:2"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              5.0,
+              6.0,
+              7.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          5.0,
+          0
+        ],
+        [
+          5.5,
+          1
+        ],
+        [
+          7.0,
+          2
+        ]
+      ],
+      "owner": [
+        5.0,
+        5.5,
+        7.0
+      ],
+      "locations": [
+        5.0,
+        5.5,
+        7.0
+      ],
+      "shares_owner": true
+    },
+    {
+      "name": "x",
+      "family": "linear",
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 5.0,
+            "label": "secondary-alias:0"
+          },
+          {
+            "level": "major",
+            "value": 5.5,
+            "label": "secondary-alias:1"
+          },
+          {
+            "level": "major",
+            "value": 7.0,
+            "label": "secondary-alias:2"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              5.0,
+              6.0,
+              7.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          5.0,
+          0
+        ],
+        [
+          5.5,
+          1
+        ],
+        [
+          7.0,
+          2
+        ]
+      ],
+      "owner": [
+        5.0,
+        5.5,
+        7.0
+      ],
+      "locations": [
+        5.0,
+        5.5,
+        7.0
+      ],
+      "shares_owner": true
+    },
+    {
+      "name": "y",
+      "family": "fixed",
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 5.0,
+            "label": "secondary-alias:0"
+          },
+          {
+            "level": "major",
+            "value": 5.5,
+            "label": "secondary-alias:1"
+          },
+          {
+            "level": "major",
+            "value": 7.0,
+            "label": "secondary-alias:2"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.y"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              5.0,
+              6.0,
+              7.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          5.0,
+          0
+        ],
+        [
+          5.5,
+          1
+        ],
+        [
+          7.0,
+          2
+        ]
+      ],
+      "owner": [
+        5.0,
+        5.5,
+        7.0
+      ],
+      "locations": [
+        5.0,
+        5.5,
+        7.0
+      ],
+      "shares_owner": true
+    },
+    {
+      "name": "y",
+      "family": "linear",
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 5.0,
+            "label": "secondary-alias:0"
+          },
+          {
+            "level": "major",
+            "value": 5.5,
+            "label": "secondary-alias:1"
+          },
+          {
+            "level": "major",
+            "value": 7.0,
+            "label": "secondary-alias:2"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.y",
+          "axes.view.y"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              5.0,
+              6.0,
+              7.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          5.0,
+          0
+        ],
+        [
+          5.5,
+          1
+        ],
+        [
+          7.0,
+          2
+        ]
+      ],
+      "owner": [
+        5.0,
+        5.5,
+        7.0
+      ],
+      "locations": [
+        5.0,
+        5.5,
+        7.0
+      ],
+      "shares_owner": true
+    }
+  ],
+  "multiple_minors": [
+    {
+      "overlap": true,
+      "result": {
+        "values": [
+          {
+            "level": "minor",
+            "value": 0.0,
+            "label": "multiple:1"
+          },
+          {
+            "level": "minor",
+            "value": 0.5,
+            "label": "multiple:2"
+          },
+          {
+            "level": "minor",
+            "value": 1.0,
+            "label": "multiple:3"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x",
+          "axis.view.x",
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "minor",
+            "values": [
+              -0.5,
+              0.0,
+              0.5,
+              1.0,
+              1.5
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          -0.5,
+          0
+        ],
+        [
+          0.0,
+          1
+        ],
+        [
+          0.5,
+          2
+        ],
+        [
+          1.0,
+          3
+        ],
+        [
+          1.5,
+          4
+        ]
+      ],
+      "locations": [
+        -0.5,
+        0.0,
+        0.5,
+        1.0,
+        1.5
+      ]
+    },
+    {
+      "overlap": false,
+      "result": {
+        "values": [
+          {
+            "level": "minor",
+            "value": 0.0,
+            "label": "multiple:1"
+          },
+          {
+            "level": "minor",
+            "value": 0.5,
+            "label": "multiple:2"
+          },
+          {
+            "level": "minor",
+            "value": 1.0,
+            "label": "multiple:3"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x",
+          "axis.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "minor",
+            "values": [
+              -0.5,
+              0.0,
+              0.5,
+              1.0,
+              1.5
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          -0.5,
+          0
+        ],
+        [
+          0.0,
+          1
+        ],
+        [
+          0.5,
+          2
+        ],
+        [
+          1.0,
+          3
+        ],
+        [
+          1.5,
+          4
+        ]
+      ],
+      "locations": [
+        -0.5,
+        0.0,
+        0.5,
+        1.0,
+        1.5
+      ]
+    }
+  ],
+  "secondary_mutations": [
+    {
+      "name": "x",
+      "mutation": "enable_minor",
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 5.0,
+            "label": "major:0"
+          },
+          {
+            "level": "major",
+            "value": 6.0,
+            "label": "major:1"
+          },
+          {
+            "level": "major",
+            "value": 7.0,
+            "label": "major:2"
+          },
+          {
+            "level": "minor",
+            "value": 5.5,
+            "label": "new-minor:0"
+          },
+          {
+            "level": "minor",
+            "value": 6.5,
+            "label": "new-minor:1"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x",
+          "axes.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              5.0,
+              6.0,
+              7.0
+            ]
+          },
+          {
+            "level": "new-minor",
+            "values": [
+              5.5,
+              6.5
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          "major",
+          5.0,
+          0
+        ],
+        [
+          "major",
+          6.0,
+          1
+        ],
+        [
+          "major",
+          7.0,
+          2
+        ],
+        [
+          "new-minor",
+          5.5,
+          0
+        ],
+        [
+          "new-minor",
+          6.5,
+          1
+        ]
+      ],
+      "offset": "initial offset",
+      "replacement_locs": []
+    },
+    {
+      "name": "x",
+      "mutation": "disable_minor",
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 5.0,
+            "label": "major:0"
+          },
+          {
+            "level": "major",
+            "value": 6.0,
+            "label": "major:1"
+          },
+          {
+            "level": "major",
+            "value": 7.0,
+            "label": "major:2"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              5.0,
+              6.0,
+              7.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          "major",
+          5.0,
+          0
+        ],
+        [
+          "major",
+          6.0,
+          1
+        ],
+        [
+          "major",
+          7.0,
+          2
+        ]
+      ],
+      "offset": "initial offset",
+      "replacement_locs": []
+    },
+    {
+      "name": "x",
+      "mutation": "replace_major",
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 5.0,
+            "label": "major:0"
+          },
+          {
+            "level": "major",
+            "value": 6.0,
+            "label": "major:1"
+          },
+          {
+            "level": "major",
+            "value": 7.0,
+            "label": "major:2"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.x"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              5.0,
+              6.0,
+              7.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          "major",
+          5.0,
+          0
+        ],
+        [
+          "major",
+          6.0,
+          1
+        ],
+        [
+          "major",
+          7.0,
+          2
+        ]
+      ],
+      "offset": "replacement offset",
+      "replacement_locs": []
+    },
+    {
+      "name": "y",
+      "mutation": "enable_minor",
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 5.0,
+            "label": "major:0"
+          },
+          {
+            "level": "major",
+            "value": 6.0,
+            "label": "major:1"
+          },
+          {
+            "level": "major",
+            "value": 7.0,
+            "label": "major:2"
+          },
+          {
+            "level": "minor",
+            "value": 5.5,
+            "label": "new-minor:0"
+          },
+          {
+            "level": "minor",
+            "value": 6.5,
+            "label": "new-minor:1"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.y",
+          "axes.view.y"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              5.0,
+              6.0,
+              7.0
+            ]
+          },
+          {
+            "level": "new-minor",
+            "values": [
+              5.5,
+              6.5
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          "major",
+          5.0,
+          0
+        ],
+        [
+          "major",
+          6.0,
+          1
+        ],
+        [
+          "major",
+          7.0,
+          2
+        ],
+        [
+          "new-minor",
+          5.5,
+          0
+        ],
+        [
+          "new-minor",
+          6.5,
+          1
+        ]
+      ],
+      "offset": "initial offset",
+      "replacement_locs": []
+    },
+    {
+      "name": "y",
+      "mutation": "disable_minor",
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 5.0,
+            "label": "major:0"
+          },
+          {
+            "level": "major",
+            "value": 6.0,
+            "label": "major:1"
+          },
+          {
+            "level": "major",
+            "value": 7.0,
+            "label": "major:2"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.y"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              5.0,
+              6.0,
+              7.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          "major",
+          5.0,
+          0
+        ],
+        [
+          "major",
+          6.0,
+          1
+        ],
+        [
+          "major",
+          7.0,
+          2
+        ]
+      ],
+      "offset": "initial offset",
+      "replacement_locs": []
+    },
+    {
+      "name": "y",
+      "mutation": "replace_major",
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 5.0,
+            "label": "major:0"
+          },
+          {
+            "level": "major",
+            "value": 6.0,
+            "label": "major:1"
+          },
+          {
+            "level": "major",
+            "value": 7.0,
+            "label": "major:2"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axes.view.y"
+        ],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              5.0,
+              6.0,
+              7.0
+            ]
+          }
+        ]
+      },
+      "callbacks": [
+        [
+          "major",
+          5.0,
+          0
+        ],
+        [
+          "major",
+          6.0,
+          1
+        ],
+        [
+          "major",
+          7.0,
+          2
+        ]
+      ],
+      "offset": "replacement offset",
+      "replacement_locs": []
+    }
+  ],
+  "large_transports": [
+    {
+      "secondary": false,
+      "count": 125001,
+      "calls": 125001,
+      "label_count": 125001,
+      "samples": [
+        0,
+        99999,
+        100000,
+        125000
+      ],
+      "sample_labels": [
+        "0",
+        "99999",
+        "100000",
+        "125000"
+      ],
+      "sample_locations": [
+        0.0,
+        99999.0,
+        100000.0,
+        125000.0
+      ],
+      "shares_owner": true,
+      "scope": "Complete original Axis.get_majorticklocs -> Formatter.format_ticks original bodies; full batch evaluated, no SVG/Text-cache lifecycle claim."
+    },
+    {
+      "secondary": true,
+      "count": 125001,
+      "calls": 125001,
+      "label_count": 125001,
+      "samples": [
+        0,
+        99999,
+        100000,
+        125000
+      ],
+      "sample_labels": [
+        "0",
+        "99999",
+        "100000",
+        "125000"
+      ],
+      "sample_locations": [
+        0.0,
+        99999.0,
+        100000.0,
+        125000.0
+      ],
+      "shares_owner": true,
+      "scope": "Complete original Axis.get_majorticklocs -> Formatter.format_ticks original bodies; full batch evaluated, no SVG/Text-cache lifecycle claim."
+    }
+  ],
+  "frozen_major": {
+    "result": {
+      "values": [
+        {
+          "level": "major",
+          "value": 0.0,
+          "label": "frozen-major:0"
+        },
+        {
+          "level": "major",
+          "value": 1.0,
+          "label": "frozen-major:1"
+        },
+        {
+          "level": "minor",
+          "value": 0.5,
+          "label": "frozen-minor:0"
+        }
+      ],
+      "error": null,
+      "message": null,
+      "events": [
+        "axis.view.x",
+        "axis.view.x"
+      ],
+      "warnings": [],
+      "set_locs": [
+        {
+          "level": "major",
+          "values": [
+            0.0,
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "level": "minor",
+          "values": [
+            0.5
+          ]
+        }
+      ]
+    },
+    "owner": [
+      0.0,
+      0.25,
+      2.0
+    ],
+    "major_locations": [
+      0.0,
+      0.25,
+      2.0
+    ]
+  },
+  "source_only": [
+    {
+      "scope": "Full Text/cache getter remains outside typed label helpers",
+      "labels": {
+        "values": [
+          "text:0",
+          "text:1",
+          "text:2",
+          "text:3"
+        ],
+        "error": null,
+        "message": null,
+        "events": [
+          "axis.view.x"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "scope": "Arbitrary locator .base wrapper protocol is outside the typed locator classes",
+      "minor": false,
+      "labels": [],
+      "fixed_base": false,
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "scope": "Arbitrary locator .base wrapper protocol is outside the typed locator classes",
+      "minor": false,
+      "labels": [],
+      "fixed_base": true,
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "scope": "Arbitrary locator .base wrapper protocol is outside the typed locator classes",
+      "minor": false,
+      "labels": [
+        "A",
+        "B"
+      ],
+      "fixed_base": false,
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": [
+          "FixedFormatter should only be used together with FixedLocator"
+        ]
+      }
+    },
+    {
+      "scope": "Arbitrary locator .base wrapper protocol is outside the typed locator classes",
+      "minor": false,
+      "labels": [
+        "A",
+        "B"
+      ],
+      "fixed_base": true,
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "scope": "Arbitrary locator .base wrapper protocol is outside the typed locator classes",
+      "minor": true,
+      "labels": [],
+      "fixed_base": false,
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "scope": "Arbitrary locator .base wrapper protocol is outside the typed locator classes",
+      "minor": true,
+      "labels": [],
+      "fixed_base": true,
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    },
+    {
+      "scope": "Arbitrary locator .base wrapper protocol is outside the typed locator classes",
+      "minor": true,
+      "labels": [
+        "A",
+        "B"
+      ],
+      "fixed_base": false,
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": [
+          "FixedFormatter should only be used together with FixedLocator"
+        ]
+      }
+    },
+    {
+      "scope": "Arbitrary locator .base wrapper protocol is outside the typed locator classes",
+      "minor": true,
+      "labels": [
+        "A",
+        "B"
+      ],
+      "fixed_base": true,
+      "result": {
+        "values": null,
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": []
+      }
+    }
+  ]
+}

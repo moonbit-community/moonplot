@@ -8,6 +8,7 @@ import {
   "mathplotlib/mathplotlib/internal/render",
   "mathplotlib/mathplotlib/internal/png",
   "mathplotlib/mathplotlib/ticker/scale" @ticker_scale,
+  "mathplotlib/mathplotlib/ticker",
   "moonbitlang/core/buffer",
   "moonbitlang/core/math",
 }

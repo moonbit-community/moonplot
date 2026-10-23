@@ -378,3 +378,12 @@ upstream C code or new third-party runtime is distributed. Matplotlib's license
 and notice above apply. Explicit default/tight/clip-renderer boundaries and
 reproduction are documented in
 [testdata/logit_locator_README.md](testdata/logit_locator_README.md).
+
+## Named basic formatters
+
+BaseFormatter and the named NullFormatter, FixedFormatter and FuncFormatter
+follow the pinned Matplotlib v3.11.2 classes, preserving source operation order
+and borrowed state within the documented numeric/String typed domain. Independent
+references execute the complete original formatter classes and real API/deprecation
+helpers. Matplotlib's license and notice above apply. These helpers are source
+reference inputs, not a new Python/C runtime dependency.

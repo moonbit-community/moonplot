@@ -121,6 +121,8 @@ pub fn Figure::delaxes(
         let axis = if horizontal { state.val.x_axis } else { state.val.y_axis }
         axis.bind_locator_data()
         axis.bind_locator_data(minor=true)
+        axis.bind_formatter_axis()
+        axis.bind_formatter_axis(minor=true)
       }
     }
   }

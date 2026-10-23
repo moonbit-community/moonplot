@@ -1327,6 +1327,23 @@ Logit 自身的查询继续读取所属轴 view、投影名称、实际 tick spa
 和域外 clip 路径仍在后续范围。新增 879 项测试，四目标及三份原源参考检查全部通过；
 MaxN 的两处十进制幂复用可移植正确舍入原语，修复非 JS 目标的刻度起点误差。准确范围见 [LogitLocator说明](testdata/logit_locator_README.md)。
 
+D28 已验收命名基础 `BaseFormatter`、`NullFormatter`、`FixedFormatter` 与
+`FuncFormatter`。这些对象保留借用的刻度位置、可变序列和轴身份，通过独立的 checked
+接口安装；原有 formatter 便利函数的复制与纯函数合同继续保留：
+
+```moonbit nocheck
+let formatter = @ticker.FuncFormatter::new(fn(value, pos) {
+  let index = pos.unwrap_or(-1)
+  "\{value}@\{index}"
+})
+try! fig.set_x_named_formatter(formatter.as_base_formatter())
+```
+
+带位置的回调读取整组原始刻度，视图外标签也先参与格式化；回调错误会传给 SVG 调用方。
+原始数值 view 在批量执行后才物化，保留回调内修改未来元素的行为；完整 Text/Tick 缓存和
+默认格式器安装生命周期仍待后续。新增 352 项测试，四目标及三份原源参考检查全部通过；
+具体范围见 [基础 Formatter 说明](testdata/basic_formatter_README.md)。
+
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`
 及常见宽度/精度标志，`log_formatter`、`null_formatter` 和 `func_formatter` 分别用于对数、

@@ -135,6 +135,50 @@ pub fn AutoMinorLocator::view_interval_provider(Self) -> (() -> (Double, Double)
 pub fn AutoMinorLocator::view_limits(Self, Double, Double) -> (Double, Double)
 pub fn AutoMinorLocator::warnings(Self) -> Array[String]
 
+pub struct BaseFormatter {
+  // private fields
+}
+pub fn BaseFormatter::axis(Self) -> FormatterAxisBinding?
+pub fn BaseFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn BaseFormatter::copy(Self) -> Self
+pub fn BaseFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
+pub fn BaseFormatter::fix_minus(String) -> String
+pub fn BaseFormatter::fixed_formatter(Self) -> FixedFormatter?
+pub fn BaseFormatter::format_data(Self, Double) -> String raise @core.DataError
+pub fn BaseFormatter::format_data_short(Self, Double) -> String raise @core.DataError
+pub fn BaseFormatter::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
+pub fn BaseFormatter::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
+pub fn BaseFormatter::func_formatter(Self) -> FuncFormatter?
+pub fn BaseFormatter::get_offset(Self) -> String
+pub fn BaseFormatter::locations(Self) -> FormatterLocations
+pub fn BaseFormatter::new() -> Self
+pub fn BaseFormatter::null_formatter(Self) -> NullFormatter?
+pub fn BaseFormatter::set_axis(Self, FormatterAxisBinding?) -> Unit
+pub fn BaseFormatter::set_locs(Self, Array[Double]) -> Unit
+pub fn BaseFormatter::set_locs_view(Self, TickValues) -> Unit
+
+pub struct FixedFormatter {
+  // private fields
+}
+pub fn FixedFormatter::as_base_formatter(Self) -> BaseFormatter
+pub fn FixedFormatter::axis(Self) -> FormatterAxisBinding?
+pub fn FixedFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn FixedFormatter::copy(Self) -> Self
+pub fn FixedFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
+pub fn FixedFormatter::format_data(Self, Double) -> String raise @core.DataError
+pub fn FixedFormatter::format_data_short(Self, Double) -> String raise @core.DataError
+pub fn FixedFormatter::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
+pub fn FixedFormatter::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
+pub fn FixedFormatter::get_offset(Self) -> String
+pub fn FixedFormatter::locations(Self) -> FormatterLocations
+pub fn FixedFormatter::new(Array[String]) -> Self
+pub fn FixedFormatter::seq(Self) -> Array[String]
+pub fn FixedFormatter::set_axis(Self, FormatterAxisBinding?) -> Unit
+pub fn FixedFormatter::set_locs(Self, Array[Double]) -> Unit
+pub fn FixedFormatter::set_locs_view(Self, TickValues) -> Unit
+pub fn FixedFormatter::set_offset_string(Self, String) -> Unit
+pub fn FixedFormatter::set_seq(Self, Array[String]) -> Unit
+
 pub struct FixedLocator {
   // private fields
 }
@@ -173,6 +217,46 @@ pub fn Formatter::offset(Self, Array[Double]) -> Double
 pub fn Formatter::offset_label(Self, Array[Double]) -> String
 pub fn Formatter::offset_label_with_view(Self, Array[Double], @core.Limits?) -> String
 pub fn Formatter::offset_with_view(Self, Array[Double], @core.Limits?) -> Double
+
+pub struct FormatterAxisBinding {
+  // private fields
+} derive(@debug.Debug)
+pub fn FormatterAxisBinding::dummy_minpos(Self) -> Double?
+pub fn FormatterAxisBinding::equal(Self, Self) -> Bool
+pub fn FormatterAxisBinding::is_dummy(Self) -> Bool
+pub fn FormatterAxisBinding::new() -> Self
+pub fn FormatterAxisBinding::not_equal(Self, Self) -> Bool
+pub fn FormatterAxisBinding::to_repr(Self) -> @debug.Repr
+pub impl Eq for FormatterAxisBinding
+
+pub(all) enum FormatterLocations {
+  Sequence(Array[Double])
+  NdArray(TickValues)
+}
+pub fn FormatterLocations::get(Self, Int) -> Double raise @core.DataError
+pub fn FormatterLocations::length(Self) -> Int
+
+pub struct FuncFormatter {
+  // private fields
+}
+pub fn FuncFormatter::as_base_formatter(Self) -> BaseFormatter
+pub fn FuncFormatter::axis(Self) -> FormatterAxisBinding?
+pub fn FuncFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn FuncFormatter::copy(Self) -> Self
+pub fn FuncFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
+pub fn FuncFormatter::format_data(Self, Double) -> String raise @core.DataError
+pub fn FuncFormatter::format_data_short(Self, Double) -> String raise @core.DataError
+pub fn FuncFormatter::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
+pub fn FuncFormatter::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
+pub fn FuncFormatter::func(Self) -> (Double, Int?) -> String raise @core.DataError
+pub fn FuncFormatter::get_offset(Self) -> String
+pub fn FuncFormatter::locations(Self) -> FormatterLocations
+pub fn FuncFormatter::new((Double, Int?) -> String raise @core.DataError) -> Self
+pub fn FuncFormatter::set_axis(Self, FormatterAxisBinding?) -> Unit
+pub fn FuncFormatter::set_func(Self, (Double, Int?) -> String raise @core.DataError) -> Unit
+pub fn FuncFormatter::set_locs(Self, Array[Double]) -> Unit
+pub fn FuncFormatter::set_locs_view(Self, TickValues) -> Unit
+pub fn FuncFormatter::set_offset_string(Self, String) -> Unit
 
 pub struct IndexLocator {
   // private fields
@@ -407,6 +491,25 @@ pub fn MultipleLocator::offset(Self) -> Double
 pub fn MultipleLocator::set_params(Self, base? : Double, offset? : Double) -> Unit raise @core.DataError
 pub fn MultipleLocator::tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
 pub fn MultipleLocator::view_limits(Self, Double, Double) -> (Double, Double)
+
+pub struct NullFormatter {
+  // private fields
+}
+pub fn NullFormatter::as_base_formatter(Self) -> BaseFormatter
+pub fn NullFormatter::axis(Self) -> FormatterAxisBinding?
+pub fn NullFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn NullFormatter::copy(Self) -> Self
+pub fn NullFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
+pub fn NullFormatter::format_data(Self, Double) -> String raise @core.DataError
+pub fn NullFormatter::format_data_short(Self, Double) -> String raise @core.DataError
+pub fn NullFormatter::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
+pub fn NullFormatter::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
+pub fn NullFormatter::get_offset(Self) -> String
+pub fn NullFormatter::locations(Self) -> FormatterLocations
+pub fn NullFormatter::new() -> Self
+pub fn NullFormatter::set_axis(Self, FormatterAxisBinding?) -> Unit
+pub fn NullFormatter::set_locs(Self, Array[Double]) -> Unit
+pub fn NullFormatter::set_locs_view(Self, TickValues) -> Unit
 
 pub struct NullLocator {
   // private fields

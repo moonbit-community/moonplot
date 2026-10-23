@@ -1,0 +1,4081 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scope": "Complete original basic Formatter classes and real pinned API/deprecation module. Double values, String labels/offset/callback outputs, Int32 optional positions, mutable list or Float64/Int64 TickValues locations. State copy is shallow; opaque axis binding identity/dummy-minpos metadata excludes dynamic Axis/dummy getters. Legacy convenience formatters unchanged. Deprecated locs property and unsupported dynamic parameter domains are source-only evidence.",
+  "observation_count": 308,
+  "generated_test_count": 81,
+  "cases": [
+    {
+      "label": "basic formatter original defaults Formatter",
+      "specification": {
+        "kind": "Formatter"
+      },
+      "observations": {
+        "value": {
+          "offset": "",
+          "locations": [],
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original defaults NullFormatter",
+      "specification": {
+        "kind": "NullFormatter"
+      },
+      "observations": {
+        "value": {
+          "offset": "",
+          "locations": [],
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original defaults FixedFormatter",
+      "specification": {
+        "kind": "FixedFormatter"
+      },
+      "observations": {
+        "value": {
+          "offset": "",
+          "locations": [],
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original defaults FuncFormatter",
+      "specification": {
+        "kind": "FuncFormatter"
+      },
+      "observations": {
+        "value": {
+          "offset": "",
+          "locations": [],
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original shared class default locations",
+      "specification": {
+        "kinds": [
+          "Formatter",
+          "NullFormatter",
+          "FixedFormatter",
+          "FuncFormatter"
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              7.0
+            ],
+            [
+              7.0
+            ],
+            [
+              7.0
+            ],
+            [
+              7.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              9.0
+            ],
+            [
+              7.0
+            ],
+            [
+              7.0
+            ],
+            [
+              7.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original callback getter copy and raw replacement",
+      "specification": {},
+      "observations": [
+        {
+          "value": [
+            "original",
+            "original"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "captured-mutated",
+            "captured-mutated",
+            "captured-mutated"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "replacement",
+            "captured-mutated",
+            "captured-mutated"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original label alias 0",
+      "specification": {
+        "labels": []
+      },
+      "observations": [
+        {
+          "value": {
+            "labels": [],
+            "shared": true
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "labels": [
+              "mutated"
+            ],
+            "copied_labels": [
+              "mutated"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "labels": [
+              "replacement"
+            ],
+            "copied_labels": [
+              "mutated"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "mutated",
+            "through-copy"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original label alias 1",
+      "specification": {
+        "labels": [
+          ""
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "labels": [
+              ""
+            ],
+            "shared": true
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "labels": [
+              "mutated",
+              "appended"
+            ],
+            "copied_labels": [
+              "mutated",
+              "appended"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "labels": [
+              "replacement"
+            ],
+            "copied_labels": [
+              "mutated",
+              "appended"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "mutated",
+            "appended",
+            "through-copy"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original label alias 2",
+      "specification": {
+        "labels": [
+          "a",
+          "b"
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "labels": [
+              "a",
+              "b"
+            ],
+            "shared": true
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "labels": [
+              "mutated",
+              "b",
+              "appended"
+            ],
+            "copied_labels": [
+              "mutated",
+              "b",
+              "appended"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "labels": [
+              "replacement"
+            ],
+            "copied_labels": [
+              "mutated",
+              "b",
+              "appended"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "mutated",
+            "b",
+            "appended",
+            "through-copy"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original label alias 3",
+      "specification": {
+        "labels": [
+          "-1",
+          "\u22122",
+          "\ud834\udd1e"
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "labels": [
+              "-1",
+              "\u22122",
+              "\ud834\udd1e"
+            ],
+            "shared": true
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "labels": [
+              "mutated",
+              "\u22122",
+              "\ud834\udd1e",
+              "appended"
+            ],
+            "copied_labels": [
+              "mutated",
+              "\u22122",
+              "\ud834\udd1e",
+              "appended"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "labels": [
+              "replacement"
+            ],
+            "copied_labels": [
+              "mutated",
+              "\u22122",
+              "\ud834\udd1e",
+              "appended"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "mutated",
+            "\u22122",
+            "\ud834\udd1e",
+            "appended",
+            "through-copy"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original label alias 4",
+      "specification": {
+        "labels": [
+          "same",
+          "same"
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "labels": [
+              "same",
+              "same"
+            ],
+            "shared": true
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "labels": [
+              "mutated",
+              "same",
+              "appended"
+            ],
+            "copied_labels": [
+              "mutated",
+              "same",
+              "appended"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "labels": [
+              "replacement"
+            ],
+            "copied_labels": [
+              "mutated",
+              "same",
+              "appended"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "mutated",
+            "same",
+            "appended",
+            "through-copy"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original offset FixedFormatter 0",
+      "specification": {
+        "kind": "FixedFormatter",
+        "offset": ""
+      },
+      "observations": [
+        {
+          "value": [
+            "",
+            ""
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "rebound",
+            ""
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original offset FixedFormatter 1",
+      "specification": {
+        "kind": "FixedFormatter",
+        "offset": "-"
+      },
+      "observations": [
+        {
+          "value": [
+            "-",
+            "-"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "rebound",
+            "-"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original offset FixedFormatter 2",
+      "specification": {
+        "kind": "FixedFormatter",
+        "offset": "\u22121 + 2"
+      },
+      "observations": [
+        {
+          "value": [
+            "\u22121 + 2",
+            "\u22121 + 2"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "rebound",
+            "\u22121 + 2"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original offset FixedFormatter 3",
+      "specification": {
+        "kind": "FixedFormatter",
+        "offset": "first\nsecond"
+      },
+      "observations": [
+        {
+          "value": [
+            "first\nsecond",
+            "first\nsecond"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "rebound",
+            "first\nsecond"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original offset FixedFormatter 4",
+      "specification": {
+        "kind": "FixedFormatter",
+        "offset": "\ud834\udd1e caf\u00e9"
+      },
+      "observations": [
+        {
+          "value": [
+            "\ud834\udd1e caf\u00e9",
+            "\ud834\udd1e caf\u00e9"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "rebound",
+            "\ud834\udd1e caf\u00e9"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original offset FuncFormatter 0",
+      "specification": {
+        "kind": "FuncFormatter",
+        "offset": ""
+      },
+      "observations": [
+        {
+          "value": [
+            "",
+            ""
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "rebound",
+            ""
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original offset FuncFormatter 1",
+      "specification": {
+        "kind": "FuncFormatter",
+        "offset": "-"
+      },
+      "observations": [
+        {
+          "value": [
+            "-",
+            "-"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "rebound",
+            "-"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original offset FuncFormatter 2",
+      "specification": {
+        "kind": "FuncFormatter",
+        "offset": "\u22121 + 2"
+      },
+      "observations": [
+        {
+          "value": [
+            "\u22121 + 2",
+            "\u22121 + 2"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "rebound",
+            "\u22121 + 2"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original offset FuncFormatter 3",
+      "specification": {
+        "kind": "FuncFormatter",
+        "offset": "first\nsecond"
+      },
+      "observations": [
+        {
+          "value": [
+            "first\nsecond",
+            "first\nsecond"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "rebound",
+            "first\nsecond"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original offset FuncFormatter 4",
+      "specification": {
+        "kind": "FuncFormatter",
+        "offset": "\ud834\udd1e caf\u00e9"
+      },
+      "observations": [
+        {
+          "value": [
+            "\ud834\udd1e caf\u00e9",
+            "\ud834\udd1e caf\u00e9"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "rebound",
+            "\ud834\udd1e caf\u00e9"
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs list Formatter 0",
+      "specification": {
+        "kind": "Formatter",
+        "values": []
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "locations": []
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              -2.25
+            ],
+            [
+              -2.25
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              9.0
+            ],
+            [
+              -2.25
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs list Formatter 1",
+      "specification": {
+        "kind": "Formatter",
+        "values": [
+          -0.0
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "locations": [
+              -0.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              -2.25,
+              7.5
+            ],
+            [
+              -2.25,
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              9.0
+            ],
+            [
+              -2.25,
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs list Formatter 2",
+      "specification": {
+        "kind": "Formatter",
+        "values": [
+          -3.0,
+          2.0,
+          "inf"
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "locations": [
+              -3.0,
+              2.0,
+              "inf"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              -2.25,
+              2.0,
+              "inf",
+              7.5
+            ],
+            [
+              -2.25,
+              2.0,
+              "inf",
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              9.0
+            ],
+            [
+              -2.25,
+              2.0,
+              "inf",
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs list NullFormatter 0",
+      "specification": {
+        "kind": "NullFormatter",
+        "values": []
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "locations": []
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              -2.25
+            ],
+            [
+              -2.25
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              9.0
+            ],
+            [
+              -2.25
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs list NullFormatter 1",
+      "specification": {
+        "kind": "NullFormatter",
+        "values": [
+          -0.0
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "locations": [
+              -0.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              -2.25,
+              7.5
+            ],
+            [
+              -2.25,
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              9.0
+            ],
+            [
+              -2.25,
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs list NullFormatter 2",
+      "specification": {
+        "kind": "NullFormatter",
+        "values": [
+          -3.0,
+          2.0,
+          "inf"
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "locations": [
+              -3.0,
+              2.0,
+              "inf"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              -2.25,
+              2.0,
+              "inf",
+              7.5
+            ],
+            [
+              -2.25,
+              2.0,
+              "inf",
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              9.0
+            ],
+            [
+              -2.25,
+              2.0,
+              "inf",
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs list FixedFormatter 0",
+      "specification": {
+        "kind": "FixedFormatter",
+        "values": []
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "locations": []
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              -2.25
+            ],
+            [
+              -2.25
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              9.0
+            ],
+            [
+              -2.25
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs list FixedFormatter 1",
+      "specification": {
+        "kind": "FixedFormatter",
+        "values": [
+          -0.0
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "locations": [
+              -0.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              -2.25,
+              7.5
+            ],
+            [
+              -2.25,
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              9.0
+            ],
+            [
+              -2.25,
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs list FixedFormatter 2",
+      "specification": {
+        "kind": "FixedFormatter",
+        "values": [
+          -3.0,
+          2.0,
+          "inf"
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "locations": [
+              -3.0,
+              2.0,
+              "inf"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              -2.25,
+              2.0,
+              "inf",
+              7.5
+            ],
+            [
+              -2.25,
+              2.0,
+              "inf",
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              9.0
+            ],
+            [
+              -2.25,
+              2.0,
+              "inf",
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs list FuncFormatter 0",
+      "specification": {
+        "kind": "FuncFormatter",
+        "values": []
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "locations": []
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              -2.25
+            ],
+            [
+              -2.25
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              9.0
+            ],
+            [
+              -2.25
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs list FuncFormatter 1",
+      "specification": {
+        "kind": "FuncFormatter",
+        "values": [
+          -0.0
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "locations": [
+              -0.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              -2.25,
+              7.5
+            ],
+            [
+              -2.25,
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              9.0
+            ],
+            [
+              -2.25,
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs list FuncFormatter 2",
+      "specification": {
+        "kind": "FuncFormatter",
+        "values": [
+          -3.0,
+          2.0,
+          "inf"
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "shared": true,
+            "locations": [
+              -3.0,
+              2.0,
+              "inf"
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              -2.25,
+              2.0,
+              "inf",
+              7.5
+            ],
+            [
+              -2.25,
+              2.0,
+              "inf",
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              9.0
+            ],
+            [
+              -2.25,
+              2.0,
+              "inf",
+              7.5
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs view float64 full",
+      "specification": {
+        "integer": false,
+        "name": "full",
+        "chain": [
+          [
+            0,
+            1,
+            8
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "values": [
+              0.0,
+              1.0,
+              2.0,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              7.0
+            ],
+            "shared": true,
+            "dtype": "float64"
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            41.5,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "values": [
+              -3.75,
+              1.0,
+              2.0,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              7.0
+            ],
+            "owner": [
+              -3.75,
+              1.0,
+              2.0,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              7.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -3.75,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs view float64 reverse",
+      "specification": {
+        "integer": false,
+        "name": "reverse",
+        "chain": [
+          [
+            7,
+            -2,
+            4
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "values": [
+              7.0,
+              5.0,
+              3.0,
+              1.0
+            ],
+            "shared": true,
+            "dtype": "float64"
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            41.5,
+            5.0,
+            3.0,
+            1.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "values": [
+              -3.75,
+              5.0,
+              3.0,
+              1.0
+            ],
+            "owner": [
+              0.0,
+              1.0,
+              2.0,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              -3.75
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -3.75,
+            5.0,
+            3.0,
+            1.0
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs view float64 stride",
+      "specification": {
+        "integer": false,
+        "name": "stride",
+        "chain": [
+          [
+            1,
+            2,
+            4
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "values": [
+              1.0,
+              3.0,
+              5.0,
+              7.0
+            ],
+            "shared": true,
+            "dtype": "float64"
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            41.5,
+            3.0,
+            5.0,
+            7.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "values": [
+              -3.75,
+              3.0,
+              5.0,
+              7.0
+            ],
+            "owner": [
+              0.0,
+              -3.75,
+              2.0,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              7.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -3.75,
+            3.0,
+            5.0,
+            7.0
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs view float64 nested",
+      "specification": {
+        "integer": false,
+        "name": "nested",
+        "chain": [
+          [
+            1,
+            2,
+            4
+          ],
+          [
+            3,
+            -1,
+            4
+          ],
+          [
+            1,
+            2,
+            2
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "values": [
+              5.0,
+              1.0
+            ],
+            "shared": true,
+            "dtype": "float64"
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            41.5,
+            1.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "values": [
+              -3.75,
+              1.0
+            ],
+            "owner": [
+              0.0,
+              1.0,
+              2.0,
+              3.0,
+              4.0,
+              -3.75,
+              6.0,
+              7.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -3.75,
+            1.0
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs view float64 zero",
+      "specification": {
+        "integer": false,
+        "name": "zero",
+        "chain": [
+          [
+            2,
+            0,
+            3
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "values": [
+              2.0,
+              2.0,
+              2.0
+            ],
+            "shared": true,
+            "dtype": "float64"
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            41.5,
+            41.5,
+            41.5
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "values": [
+              -3.75,
+              -3.75,
+              -3.75
+            ],
+            "owner": [
+              0.0,
+              1.0,
+              -3.75,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              7.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -3.75,
+            -3.75,
+            -3.75
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs view float64 empty",
+      "specification": {
+        "integer": false,
+        "name": "empty",
+        "chain": [
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "values": [],
+            "shared": true,
+            "dtype": "float64"
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "values": [],
+            "owner": [
+              0.0,
+              1.0,
+              2.0,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              7.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs view int64 full",
+      "specification": {
+        "integer": true,
+        "name": "full",
+        "chain": [
+          [
+            0,
+            1,
+            8
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "values": [
+              0.0,
+              1.0,
+              2.0,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              7.0
+            ],
+            "shared": true,
+            "dtype": "int64"
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            41.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "values": [
+              -3.0,
+              1.0,
+              2.0,
+              3.0,
+              4.0,
+              5.0,
+              6.0,
+              7.0
+            ],
+            "owner": [
+              -3,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -3.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs view int64 reverse",
+      "specification": {
+        "integer": true,
+        "name": "reverse",
+        "chain": [
+          [
+            7,
+            -2,
+            4
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "values": [
+              7.0,
+              5.0,
+              3.0,
+              1.0
+            ],
+            "shared": true,
+            "dtype": "int64"
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            41.0,
+            5.0,
+            3.0,
+            1.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "values": [
+              -3.0,
+              5.0,
+              3.0,
+              1.0
+            ],
+            "owner": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              -3
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -3.0,
+            5.0,
+            3.0,
+            1.0
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs view int64 stride",
+      "specification": {
+        "integer": true,
+        "name": "stride",
+        "chain": [
+          [
+            1,
+            2,
+            4
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "values": [
+              1.0,
+              3.0,
+              5.0,
+              7.0
+            ],
+            "shared": true,
+            "dtype": "int64"
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            41.0,
+            3.0,
+            5.0,
+            7.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "values": [
+              -3.0,
+              3.0,
+              5.0,
+              7.0
+            ],
+            "owner": [
+              0,
+              -3,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -3.0,
+            3.0,
+            5.0,
+            7.0
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs view int64 nested",
+      "specification": {
+        "integer": true,
+        "name": "nested",
+        "chain": [
+          [
+            1,
+            2,
+            4
+          ],
+          [
+            3,
+            -1,
+            4
+          ],
+          [
+            1,
+            2,
+            2
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "values": [
+              5.0,
+              1.0
+            ],
+            "shared": true,
+            "dtype": "int64"
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            41.0,
+            1.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "values": [
+              -3.0,
+              1.0
+            ],
+            "owner": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              -3,
+              6,
+              7
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -3.0,
+            1.0
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs view int64 zero",
+      "specification": {
+        "integer": true,
+        "name": "zero",
+        "chain": [
+          [
+            2,
+            0,
+            3
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "values": [
+              2.0,
+              2.0,
+              2.0
+            ],
+            "shared": true,
+            "dtype": "int64"
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            41.0,
+            41.0,
+            41.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "values": [
+              -3.0,
+              -3.0,
+              -3.0
+            ],
+            "owner": [
+              0,
+              1,
+              -3,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -3.0,
+            -3.0,
+            -3.0
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs view int64 empty",
+      "specification": {
+        "integer": true,
+        "name": "empty",
+        "chain": [
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": {
+            "values": [],
+            "shared": true,
+            "dtype": "int64"
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "values": [],
+            "owner": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original locs index False -2147483648",
+      "specification": {
+        "ndarray": false,
+        "index": -2147483648
+      },
+      "observations": {
+        "value": null,
+        "source_error": "IndexError",
+        "message": "list index out of range",
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index False -4",
+      "specification": {
+        "ndarray": false,
+        "index": -4
+      },
+      "observations": {
+        "value": null,
+        "source_error": "IndexError",
+        "message": "list index out of range",
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index False -3",
+      "specification": {
+        "ndarray": false,
+        "index": -3
+      },
+      "observations": {
+        "value": 1.0,
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index False -1",
+      "specification": {
+        "ndarray": false,
+        "index": -1
+      },
+      "observations": {
+        "value": "inf",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index False 0",
+      "specification": {
+        "ndarray": false,
+        "index": 0
+      },
+      "observations": {
+        "value": 1.0,
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index False 2",
+      "specification": {
+        "ndarray": false,
+        "index": 2
+      },
+      "observations": {
+        "value": "inf",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index False 3",
+      "specification": {
+        "ndarray": false,
+        "index": 3
+      },
+      "observations": {
+        "value": null,
+        "source_error": "IndexError",
+        "message": "list index out of range",
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index False 2147483647",
+      "specification": {
+        "ndarray": false,
+        "index": 2147483647
+      },
+      "observations": {
+        "value": null,
+        "source_error": "IndexError",
+        "message": "list index out of range",
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index True -2147483648",
+      "specification": {
+        "ndarray": true,
+        "index": -2147483648
+      },
+      "observations": {
+        "value": null,
+        "source_error": "IndexError",
+        "message": "index -2147483648 is out of bounds for axis 0 with size 3",
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index True -4",
+      "specification": {
+        "ndarray": true,
+        "index": -4
+      },
+      "observations": {
+        "value": null,
+        "source_error": "IndexError",
+        "message": "index -4 is out of bounds for axis 0 with size 3",
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index True -3",
+      "specification": {
+        "ndarray": true,
+        "index": -3
+      },
+      "observations": {
+        "value": 1.0,
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index True -1",
+      "specification": {
+        "ndarray": true,
+        "index": -1
+      },
+      "observations": {
+        "value": "inf",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index True 0",
+      "specification": {
+        "ndarray": true,
+        "index": 0
+      },
+      "observations": {
+        "value": 1.0,
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index True 2",
+      "specification": {
+        "ndarray": true,
+        "index": 2
+      },
+      "observations": {
+        "value": "inf",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index True 3",
+      "specification": {
+        "ndarray": true,
+        "index": 3
+      },
+      "observations": {
+        "value": null,
+        "source_error": "IndexError",
+        "message": "index 3 is out of bounds for axis 0 with size 3",
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original locs index True 2147483647",
+      "specification": {
+        "ndarray": true,
+        "index": 2147483647
+      },
+      "observations": {
+        "value": null,
+        "source_error": "IndexError",
+        "message": "index 2147483647 is out of bounds for axis 0 with size 3",
+        "warnings": []
+      }
+    },
+    {
+      "label": "basic formatter original axis copy Formatter 0",
+      "specification": {
+        "kind": "Formatter",
+        "minpos": 0.0
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            0.0,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            0.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy Formatter 1",
+      "specification": {
+        "kind": "Formatter",
+        "minpos": -0.0
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -0.0,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            -0.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy Formatter 2",
+      "specification": {
+        "kind": "Formatter",
+        "minpos": 0.25
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            0.25,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            0.25
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy Formatter 3",
+      "specification": {
+        "kind": "Formatter",
+        "minpos": "inf"
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "inf",
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            "inf"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy Formatter 4",
+      "specification": {
+        "kind": "Formatter",
+        "minpos": "nan"
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "nan",
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            "nan"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy NullFormatter 0",
+      "specification": {
+        "kind": "NullFormatter",
+        "minpos": 0.0
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            0.0,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            0.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy NullFormatter 1",
+      "specification": {
+        "kind": "NullFormatter",
+        "minpos": -0.0
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -0.0,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            -0.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy NullFormatter 2",
+      "specification": {
+        "kind": "NullFormatter",
+        "minpos": 0.25
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            0.25,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            0.25
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy NullFormatter 3",
+      "specification": {
+        "kind": "NullFormatter",
+        "minpos": "inf"
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "inf",
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            "inf"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy NullFormatter 4",
+      "specification": {
+        "kind": "NullFormatter",
+        "minpos": "nan"
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "nan",
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            "nan"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy FixedFormatter 0",
+      "specification": {
+        "kind": "FixedFormatter",
+        "minpos": 0.0
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            0.0,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            0.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy FixedFormatter 1",
+      "specification": {
+        "kind": "FixedFormatter",
+        "minpos": -0.0
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -0.0,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            -0.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy FixedFormatter 2",
+      "specification": {
+        "kind": "FixedFormatter",
+        "minpos": 0.25
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            0.25,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            0.25
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy FixedFormatter 3",
+      "specification": {
+        "kind": "FixedFormatter",
+        "minpos": "inf"
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "inf",
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            "inf"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy FixedFormatter 4",
+      "specification": {
+        "kind": "FixedFormatter",
+        "minpos": "nan"
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "nan",
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            "nan"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy FuncFormatter 0",
+      "specification": {
+        "kind": "FuncFormatter",
+        "minpos": 0.0
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            0.0,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            0.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy FuncFormatter 1",
+      "specification": {
+        "kind": "FuncFormatter",
+        "minpos": -0.0
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            -0.0,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            -0.0
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy FuncFormatter 2",
+      "specification": {
+        "kind": "FuncFormatter",
+        "minpos": 0.25
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            0.25,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            0.25
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy FuncFormatter 3",
+      "specification": {
+        "kind": "FuncFormatter",
+        "minpos": "inf"
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "inf",
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            "inf"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "basic formatter original axis copy FuncFormatter 4",
+      "specification": {
+        "kind": "FuncFormatter",
+        "minpos": "nan"
+      },
+      "observations": [
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "nan",
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            "nan"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    }
+  ],
+  "source_only": [
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": null,
+      "position": null,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": null,
+      "position": -1,
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "object of type 'NoneType' has no len()",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": null,
+      "position": 0,
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "object of type 'NoneType' has no len()",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": null,
+      "position": 2.0,
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "object of type 'NoneType' has no len()",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": null,
+      "position": "nan",
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "object of type 'NoneType' has no len()",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": null,
+      "position": 1267650600228229401496703205376,
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "object of type 'NoneType' has no len()",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": null,
+      "position": -1267650600228229401496703205376,
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "object of type 'NoneType' has no len()",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": 0,
+      "position": null,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": 0,
+      "position": -1,
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "object of type 'int' has no len()",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": 0,
+      "position": 0,
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "object of type 'int' has no len()",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": 0,
+      "position": 2.0,
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "object of type 'int' has no len()",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": 0,
+      "position": "nan",
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "object of type 'int' has no len()",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": 0,
+      "position": 1267650600228229401496703205376,
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "object of type 'int' has no len()",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": 0,
+      "position": -1267650600228229401496703205376,
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "object of type 'int' has no len()",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "typed-control",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [],
+      "position": null,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "typed-control",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [],
+      "position": -1,
+      "observation": {
+        "value": null,
+        "source_error": "IndexError",
+        "message": "list index out of range",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "typed-control",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [],
+      "position": 0,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [],
+      "position": 2.0,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [],
+      "position": "nan",
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "list indices must be integers or slices, not float",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [],
+      "position": 1267650600228229401496703205376,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [],
+      "position": -1267650600228229401496703205376,
+      "observation": {
+        "value": null,
+        "source_error": "IndexError",
+        "message": "cannot fit 'int' into an index-sized integer",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "typed-control",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        "a",
+        "b"
+      ],
+      "position": null,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "typed-control",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        "a",
+        "b"
+      ],
+      "position": -1,
+      "observation": {
+        "value": "b",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "typed-control",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        "a",
+        "b"
+      ],
+      "position": 0,
+      "observation": {
+        "value": "a",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        "a",
+        "b"
+      ],
+      "position": 2.0,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        "a",
+        "b"
+      ],
+      "position": "nan",
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "list indices must be integers or slices, not float",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        "a",
+        "b"
+      ],
+      "position": 1267650600228229401496703205376,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        "a",
+        "b"
+      ],
+      "position": -1267650600228229401496703205376,
+      "observation": {
+        "value": null,
+        "source_error": "IndexError",
+        "message": "cannot fit 'int' into an index-sized integer",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        1,
+        null
+      ],
+      "position": null,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        1,
+        null
+      ],
+      "position": -1,
+      "observation": {
+        "value": null,
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        1,
+        null
+      ],
+      "position": 0,
+      "observation": {
+        "value": 1,
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        1,
+        null
+      ],
+      "position": 2.0,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        1,
+        null
+      ],
+      "position": "nan",
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "list indices must be integers or slices, not float",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        1,
+        null
+      ],
+      "position": 1267650600228229401496703205376,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": [
+        1,
+        null
+      ],
+      "position": -1267650600228229401496703205376,
+      "observation": {
+        "value": null,
+        "source_error": "IndexError",
+        "message": "cannot fit 'int' into an index-sized integer",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": "a\ud834\udd1eb",
+      "position": null,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": "a\ud834\udd1eb",
+      "position": -1,
+      "observation": {
+        "value": "b",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": "a\ud834\udd1eb",
+      "position": 0,
+      "observation": {
+        "value": "a",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": "a\ud834\udd1eb",
+      "position": 2.0,
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "string indices must be integers, not 'float'",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": "a\ud834\udd1eb",
+      "position": "nan",
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "string indices must be integers, not 'float'",
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": "a\ud834\udd1eb",
+      "position": 1267650600228229401496703205376,
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "domain": "outside-typed-domain",
+      "reason": "source-only dynamic/control comparison, not additional passing Moon count",
+      "seq": "a\ud834\udd1eb",
+      "position": -1267650600228229401496703205376,
+      "observation": {
+        "value": null,
+        "source_error": "IndexError",
+        "message": "cannot fit 'int' into an index-sized integer",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "arbitrary Python sequences are outside Array[String]; no giant allocation",
+      "length": 3,
+      "position": null,
+      "events": [],
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "arbitrary Python sequences are outside Array[String]; no giant allocation",
+      "length": 3,
+      "position": 0,
+      "events": [
+        "len",
+        [
+          "getitem",
+          0
+        ]
+      ],
+      "observation": {
+        "value": "virtual",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "arbitrary Python sequences are outside Array[String]; no giant allocation",
+      "length": 3,
+      "position": 3,
+      "events": [
+        "len"
+      ],
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "arbitrary Python sequences are outside Array[String]; no giant allocation",
+      "length": 3,
+      "position": -1267650600228229401496703205376,
+      "events": [
+        "len",
+        [
+          "getitem",
+          -1267650600228229401496703205376
+        ]
+      ],
+      "observation": {
+        "value": "virtual",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "arbitrary Python sequences are outside Array[String]; no giant allocation",
+      "length": 9223372036854775807,
+      "position": null,
+      "events": [],
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "arbitrary Python sequences are outside Array[String]; no giant allocation",
+      "length": 9223372036854775807,
+      "position": 0,
+      "events": [
+        "len",
+        [
+          "getitem",
+          0
+        ]
+      ],
+      "observation": {
+        "value": "virtual",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "arbitrary Python sequences are outside Array[String]; no giant allocation",
+      "length": 9223372036854775807,
+      "position": 9223372036854775807,
+      "events": [
+        "len"
+      ],
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "arbitrary Python sequences are outside Array[String]; no giant allocation",
+      "length": 9223372036854775807,
+      "position": -1267650600228229401496703205376,
+      "events": [
+        "len",
+        [
+          "getitem",
+          -1267650600228229401496703205376
+        ]
+      ],
+      "observation": {
+        "value": "virtual",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "arbitrary Python sequences are outside Array[String]; no giant allocation",
+      "length": 9223372036854775808,
+      "position": null,
+      "events": [],
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "arbitrary Python sequences are outside Array[String]; no giant allocation",
+      "length": 9223372036854775808,
+      "position": 0,
+      "events": [
+        "len"
+      ],
+      "observation": {
+        "value": null,
+        "source_error": "OverflowError",
+        "message": "cannot fit 'int' into an index-sized integer",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "arbitrary Python sequences are outside Array[String]; no giant allocation",
+      "length": 9223372036854775808,
+      "position": 9223372036854775808,
+      "events": [
+        "len"
+      ],
+      "observation": {
+        "value": null,
+        "source_error": "OverflowError",
+        "message": "cannot fit 'int' into an index-sized integer",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "arbitrary Python sequences are outside Array[String]; no giant allocation",
+      "length": 9223372036854775808,
+      "position": -1267650600228229401496703205376,
+      "events": [
+        "len"
+      ],
+      "observation": {
+        "value": null,
+        "source_error": "OverflowError",
+        "message": "cannot fit 'int' into an index-sized integer",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "noncallable raw constructor accepted, outside typed function domain",
+      "observation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "'NoneType' object is not callable",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "real deprecated property",
+      "operation": "read",
+      "observation": {
+        "value": [],
+        "source_error": null,
+        "warnings": [
+          {
+            "category": "MatplotlibDeprecationWarning",
+            "message": "The locs attribute was deprecated in Matplotlib 3.11 and will be removed in 3.13."
+          }
+        ]
+      }
+    },
+    {
+      "reason": "real deprecated property",
+      "operation": "write",
+      "observation": {
+        "value": null,
+        "source_error": null,
+        "warnings": [
+          {
+            "category": "MatplotlibDeprecationWarning",
+            "message": "The locs attribute was deprecated in Matplotlib 3.11 and will be removed in 3.13."
+          }
+        ]
+      }
+    },
+    {
+      "reason": "real deprecated property",
+      "operation": "delete",
+      "observation": {
+        "value": null,
+        "source_error": "AttributeError",
+        "message": "property of 'Formatter' object has no deleter",
+        "warnings": [
+          {
+            "category": "MatplotlibDeprecationWarning",
+            "message": "The locs attribute was deprecated in Matplotlib 3.11 and will be removed in 3.13."
+          }
+        ]
+      }
+    }
+  ]
+}

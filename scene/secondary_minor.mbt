@@ -102,6 +102,9 @@ fn SecondaryAxis::major_tick_view_checked(
     return @ticker.TickValues::from_array(values.copy())
   }
   match self.locator {
+    Some(@ticker.Locator::Fixed(values)) if self.named_formatter is Some(_) ||
+      self.minor_named_formatter is Some(_) =>
+      return @ticker.TickValues::from_array(values.copy())
     Some(@ticker.Locator::Null(_)) => return @ticker.TickValues::from_array([])
     Some(@ticker.Locator::NamedFixed(value)) =>
       return value.tick_values(0.0, 0.0)
@@ -171,8 +174,42 @@ pub fn SecondaryAxis::minor_tick_values_checked(
     | @ticker.MinorLocator::NamedLog(_)
     | @ticker.MinorLocator::NamedLogit(_)
     | @ticker.MinorLocator::NamedAsinh(_)
-    | @ticker.MinorLocator::NamedSymLog(_)) {
+    | @ticker.MinorLocator::NamedSymLog(_)) ||
+    (
+      self.minor_named_formatter is Some(_) &&
+      locator
+      is (@ticker.MinorLocator::NamedFixed(_)
+      | @ticker.MinorLocator::Fixed(_)
+      | @ticker.MinorLocator::NamedLinear(_)
+      | @ticker.MinorLocator::Multiple(_)
+      | @ticker.MinorLocator::Index(_)
+      | @ticker.MinorLocator::NamedMaxN(_)
+      | @ticker.MinorLocator::NamedAuto(_))
+    ) {
     let ticks = match locator {
+      @ticker.MinorLocator::Fixed(values) => values.copy()
+      @ticker.MinorLocator::NamedFixed(value) => {
+        let locations = value.tick_values(0.0, 0.0)
+        if self.minor_named_formatter is Some(_) {
+          locations.to_array()
+        } else {
+          locations
+          .view(0, 1, Int32::min(100000, locations.length()))
+          .to_array()
+        }
+      }
+      @ticker.MinorLocator::NamedLinear(value) => {
+        let (lower, upper) = self.numeric_view_interval()
+        let locations = value.tick_values(lower, upper)
+        locations.to_array()
+      }
+      @ticker.MinorLocator::Multiple(value) => {
+        let (lower, upper) = self.numeric_view_interval()
+        value.tick_values(lower, upper)
+      }
+      @ticker.MinorLocator::Index(value) => value.call()
+      @ticker.MinorLocator::NamedMaxN(value) => value.call()
+      @ticker.MinorLocator::NamedAuto(value) => value.call()
       @ticker.MinorLocator::NamedAutoMinor(value) => value.call()
       @ticker.MinorLocator::NamedLog(value) => value.call()
       @ticker.MinorLocator::NamedLogit(value) => value.call()

@@ -236,6 +236,8 @@ pub fn Axes::set_x_margin(Self, Double) -> Unit raise @core.DataError
 pub fn Axes::set_x_minor_date_formatter(Self, @date.DateFormatter) -> Unit raise @core.DataError
 pub fn Axes::set_x_minor_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
 pub fn Axes::set_x_minor_locator(Self, @ticker.MinorLocator) -> Unit raise @core.DataError
+pub fn Axes::set_x_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
+pub fn Axes::set_x_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
 pub fn Axes::set_x_scale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Axes::set_x_tick_labels(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Axes::set_x_tick_labels_visible(Self, Bool) -> Unit
@@ -263,6 +265,8 @@ pub fn Axes::set_y_margin(Self, Double) -> Unit raise @core.DataError
 pub fn Axes::set_y_minor_date_formatter(Self, @date.DateFormatter) -> Unit raise @core.DataError
 pub fn Axes::set_y_minor_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
 pub fn Axes::set_y_minor_locator(Self, @ticker.MinorLocator) -> Unit raise @core.DataError
+pub fn Axes::set_y_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
+pub fn Axes::set_y_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
 pub fn Axes::set_y_scale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Axes::set_y_tick_labels(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Axes::set_y_tick_labels_visible(Self, Bool) -> Unit
@@ -519,6 +523,8 @@ pub fn Figure::set_x_margin(Self, Double) -> Unit raise @core.DataError
 pub fn Figure::set_x_minor_date_formatter(Self, @date.DateFormatter) -> Unit raise @core.DataError
 pub fn Figure::set_x_minor_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
 pub fn Figure::set_x_minor_locator(Self, @ticker.MinorLocator) -> Unit raise @core.DataError
+pub fn Figure::set_x_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
+pub fn Figure::set_x_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
 pub fn Figure::set_x_scale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Figure::set_x_tick_labels(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Figure::set_x_tick_position(Self, @axis.TickPosition) -> Unit
@@ -543,6 +549,8 @@ pub fn Figure::set_y_margin(Self, Double) -> Unit raise @core.DataError
 pub fn Figure::set_y_minor_date_formatter(Self, @date.DateFormatter) -> Unit raise @core.DataError
 pub fn Figure::set_y_minor_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
 pub fn Figure::set_y_minor_locator(Self, @ticker.MinorLocator) -> Unit raise @core.DataError
+pub fn Figure::set_y_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
+pub fn Figure::set_y_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
 pub fn Figure::set_y_scale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Figure::set_y_tick_labels(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Figure::set_y_tick_position(Self, @axis.TickPosition) -> Unit
@@ -689,7 +697,13 @@ pub struct SecondaryAxis {
 pub fn SecondaryAxis::clear_formatter(Self) -> Unit
 pub fn SecondaryAxis::clear_locator(Self) -> Unit
 pub fn SecondaryAxis::clear_minor_locator(Self) -> Unit
+pub fn SecondaryAxis::clear_minor_named_formatter(Self) -> Unit
+pub fn SecondaryAxis::clear_named_formatter(Self) -> Unit
 pub fn SecondaryAxis::formatter(Self) -> @ticker.Formatter?
+pub fn SecondaryAxis::formatter_axis_binding(Self) -> @ticker.FormatterAxisBinding
+pub fn SecondaryAxis::formatter_offset_label_checked(Self, Array[Double], view? : @core.Limits) -> String
+pub fn SecondaryAxis::formatter_tick_locations_checked(Self, minor? : Bool) -> @ticker.FormatterLocations raise @core.DataError
+pub fn SecondaryAxis::formatter_warnings(Self) -> Array[String]
 pub fn SecondaryAxis::forward(Self) -> (Double) -> Double
 pub fn SecondaryAxis::get_tick_space(Self) -> Double
 pub fn SecondaryAxis::inverse(Self) -> (Double) -> Double
@@ -697,18 +711,25 @@ pub fn SecondaryAxis::label(Self) -> String?
 pub fn SecondaryAxis::location(Self) -> SecondaryAxisLocation
 pub fn SecondaryAxis::locator(Self) -> @ticker.Locator?
 pub fn SecondaryAxis::minor_locator(Self) -> @ticker.MinorLocator?
+pub fn SecondaryAxis::minor_named_formatter(Self) -> @ticker.BaseFormatter?
 pub fn SecondaryAxis::minor_overlap_removal(Self) -> Bool
+pub fn SecondaryAxis::minor_tick_labels_checked(Self, Array[Double], view? : @core.Limits) -> Array[String] raise @core.DataError
 pub fn SecondaryAxis::minor_tick_values_checked(Self) -> Array[Double] raise @core.DataError
+pub fn SecondaryAxis::named_formatter(Self) -> @ticker.BaseFormatter?
 pub fn SecondaryAxis::set_formatter(Self, @ticker.Formatter) -> Unit
 pub fn SecondaryAxis::set_label(Self, String) -> Unit
 pub fn SecondaryAxis::set_locator(Self, @ticker.Locator) -> Unit raise @core.DataError
 pub fn SecondaryAxis::set_minor_locator(Self, @ticker.MinorLocator) -> Unit
+pub fn SecondaryAxis::set_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit
 pub fn SecondaryAxis::set_minor_overlap_removal(Self, Bool) -> Unit
+pub fn SecondaryAxis::set_named_formatter(Self, @ticker.BaseFormatter) -> Unit
 pub fn SecondaryAxis::set_tick_count(Self, Int) -> Unit
 pub fn SecondaryAxis::set_tick_label_size(Self, Double) -> Unit
 pub fn SecondaryAxis::set_ticks(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn SecondaryAxis::tick_count(Self) -> Int
+pub fn SecondaryAxis::tick_group_is_null(Self, minor? : Bool) -> Bool
 pub fn SecondaryAxis::tick_label_size(Self) -> Double
+pub fn SecondaryAxis::tick_labels_checked(Self, Array[Double], view? : @core.Limits) -> Array[String] raise @core.DataError
 pub fn SecondaryAxis::tick_values_checked(Self) -> Array[Double] raise @core.DataError
 pub fn SecondaryAxis::ticks(Self) -> Array[Double]?
 

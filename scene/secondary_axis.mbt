@@ -10,6 +10,10 @@ pub(all) enum SecondaryAxisLocation {
 ///|
 /// A coordinate axis whose values are derived from a primary axis.
 pub struct SecondaryAxis {
+  priv formatter_axis_binding : @ticker.FormatterAxisBinding
+  priv mut named_formatter : @ticker.BaseFormatter?
+  priv mut minor_named_formatter : @ticker.BaseFormatter?
+  priv formatter_messages : Array[String]
   priv mut parent_axis : @axis.Axis?
   priv mut minor_locator : @ticker.MinorLocator?
   priv mut remove_minor_overlap : Bool
@@ -36,6 +40,10 @@ fn secondary_axis(
   inverse : (Double) -> Double,
 ) -> SecondaryAxis {
   {
+    formatter_axis_binding: @ticker.FormatterAxisBinding::new(),
+    named_formatter: None,
+    minor_named_formatter: None,
+    formatter_messages: [],
     parent_axis: None,
     minor_locator: None,
     remove_minor_overlap: true,
@@ -163,6 +171,8 @@ pub fn SecondaryAxis::set_formatter(
   formatter : @ticker.Formatter,
 ) -> Unit {
   self.formatter = Some(formatter.copy())
+  self.named_formatter = None
+  self.formatter_messages.clear()
 }
 
 ///|
@@ -178,6 +188,7 @@ pub fn SecondaryAxis::formatter(self : SecondaryAxis) -> @ticker.Formatter? {
 /// Clear the secondary formatter and restore numeric labels.
 pub fn SecondaryAxis::clear_formatter(self : SecondaryAxis) -> Unit {
   self.formatter = None
+  self.named_formatter = None
 }
 
 ///|

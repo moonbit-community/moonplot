@@ -228,6 +228,23 @@ fn to_render_secondary_axis(axis : SecondaryAxis) -> @render.SecondaryAxis {
     axis.ticks(),
     axis.locator(),
     axis.formatter(),
+    named_formatter=axis.named_formatter(),
+    minor_named_formatter=axis.minor_named_formatter(),
+    formatter_provider=Some(fn(minor) {
+      if minor {
+        axis.minor_named_formatter()
+      } else {
+        axis.named_formatter()
+      }
+    }),
+    legacy_formatter_provider=Some(() => axis.formatter()),
+    null_group_provider=Some(fn(minor) { axis.tick_group_is_null(minor~) }),
+    major_formatter_locations_provider=Some(() => {
+      axis.formatter_tick_locations_checked()
+    }),
+    minor_formatter_locations_provider=Some(() => {
+      axis.formatter_tick_locations_checked(minor=true)
+    }),
     tick_label_size=axis.tick_label_size(),
     minor_locator=axis.minor_locator(),
     minor_ticks_provider=Some(() => axis.minor_tick_values_checked()),

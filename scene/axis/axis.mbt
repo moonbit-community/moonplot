@@ -11,6 +11,10 @@ pub(all) enum TickPosition {
 ///|
 /// A coordinate axis with limits, tick formatting, and presentation settings.
 pub struct Axis {
+  priv formatter_axis_binding : @ticker.FormatterAxisBinding
+  priv mut named_formatter : @ticker.BaseFormatter?
+  priv mut minor_named_formatter : @ticker.BaseFormatter?
+  priv formatter_messages : Array[String]
   priv mut minpos_provider : (() -> Double raise @core.DataError)?
   priv mut shared_minpos_provider : (() -> Array[Double] raise @core.DataError)?
   priv mut data_interval_provider : (() -> (Double, Double))?
@@ -59,6 +63,10 @@ pub struct Axis {
 /// Construct an automatic axis.
 pub fn axis() -> Axis {
   {
+    formatter_axis_binding: @ticker.FormatterAxisBinding::new(),
+    named_formatter: None,
+    minor_named_formatter: None,
+    formatter_messages: [],
     minpos_provider: None,
     shared_minpos_provider: None,
     data_interval_provider: None,
@@ -143,6 +151,9 @@ pub fn Axis::clear_limits(self : Axis) -> Unit {
 ///|
 /// Restore this axis to its initial automatic state.
 pub fn Axis::clear(self : Axis) -> Unit {
+  self.named_formatter = None
+  self.minor_named_formatter = None
+  self.formatter_messages.clear()
   self.tick_label_size = None
   self.limits = None
   self.auto_view = None
@@ -580,6 +591,9 @@ fn Axis::configure_date_format(
   self.sync_default_date_formatter()
   self.category = None
   self.formatter = None
+  self.named_formatter = None
+  self.minor_named_formatter = None
+  self.formatter_messages.clear()
 }
 
 ///|
@@ -719,6 +733,9 @@ pub fn Axis::set_date_locator(
   self.fixed_labels = None
   self.category = None
   self.formatter = None
+  self.named_formatter = None
+  self.minor_named_formatter = None
+  self.formatter_messages.clear()
 }
 
 ///|
@@ -761,6 +778,8 @@ pub fn Axis::set_formatter(
     )
   }
   self.formatter = Some(formatter.copy())
+  self.named_formatter = None
+  self.formatter_messages.clear()
 }
 
 ///|
@@ -821,6 +840,7 @@ pub fn Axis::formatter_offset_label_with_view(
 /// Clear the numeric formatter and restore scale-based labels.
 pub fn Axis::clear_formatter(self : Axis) -> Unit {
   self.formatter = None
+  self.named_formatter = None
 }
 
 ///|
@@ -856,6 +876,9 @@ pub fn Axis::set_categories(
   self.fixed_labels = None
   self.date_locator = None
   self.formatter = None
+  self.named_formatter = None
+  self.minor_named_formatter = None
+  self.formatter_messages.clear()
 }
 
 ///|
@@ -903,6 +926,9 @@ pub fn Axis::category_positions(
   self.fixed_labels = None
   self.date_locator = None
   self.formatter = None
+  self.named_formatter = None
+  self.minor_named_formatter = None
+  self.formatter_messages.clear()
   positions
 }
 
@@ -920,6 +946,7 @@ pub fn Axis::set_tick_labels(
         )
       } else {
         self.fixed_labels = Some(labels.copy())
+        self.named_formatter = None
       }
     None =>
       raise @core.DataError::InvalidTicks(

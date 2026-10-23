@@ -24,7 +24,7 @@ pub fn panel(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.
 
 pub fn panel_with_sharing(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.Bounds?, @axis.Axis, @axis.Axis, Int?, Int?, Bool, Array[SecondaryAxis], Array[SecondaryAxis], show_x_tick_labels? : Bool, show_y_tick_labels? : Bool, frame_visible? : Bool, x_margin? : Double, y_margin? : Double, spines? : Array[Spine], aspect? : Double, anchor? : (Double, Double), adjustable? : String, box_aspect? : Double) -> Panel
 
-pub fn secondary_axis(SecondaryLocation, (Double) -> Double, (Double) -> Double, String?, Int, Array[Double]?, @ticker.Locator?, @ticker.Formatter?, tick_label_size? : Double, minor_locator? : @ticker.MinorLocator?, minor_ticks_provider? : (() -> Array[Double] raise @core.DataError)?) -> SecondaryAxis
+pub fn secondary_axis(SecondaryLocation, (Double) -> Double, (Double) -> Double, String?, Int, Array[Double]?, @ticker.Locator?, @ticker.Formatter?, named_formatter? : @ticker.BaseFormatter?, minor_named_formatter? : @ticker.BaseFormatter?, formatter_provider? : ((Bool) -> @ticker.BaseFormatter?)?, legacy_formatter_provider? : (() -> @ticker.Formatter?)?, null_group_provider? : ((Bool) -> Bool)?, major_formatter_locations_provider? : (() -> @ticker.FormatterLocations raise @core.DataError)?, minor_formatter_locations_provider? : (() -> @ticker.FormatterLocations raise @core.DataError)?, tick_label_size? : Double, minor_locator? : @ticker.MinorLocator?, minor_ticks_provider? : (() -> Array[Double] raise @core.DataError)?) -> SecondaryAxis
 
 pub fn spine(SpineSide, Bool, String, Double, SpinePosition, (Double, Double)?) -> Spine
 
@@ -205,6 +205,13 @@ pub fn Panel::y_axis(Self) -> @axis.Axis
 pub fn Panel::y_margin(Self) -> Double
 
 pub struct SecondaryAxis {
+  formatter_provider : ((Bool) -> @ticker.BaseFormatter?)?
+  legacy_formatter_provider : (() -> @ticker.Formatter?)?
+  null_group_provider : ((Bool) -> Bool)?
+  named_formatter : @ticker.BaseFormatter?
+  minor_named_formatter : @ticker.BaseFormatter?
+  major_formatter_locations_provider : (() -> @ticker.FormatterLocations raise @core.DataError)?
+  minor_formatter_locations_provider : (() -> @ticker.FormatterLocations raise @core.DataError)?
   minor_locator : @ticker.MinorLocator?
   minor_ticks_provider : (() -> Array[Double] raise @core.DataError)?
   tick_label_size : Double
@@ -219,14 +226,17 @@ pub struct SecondaryAxis {
 }
 pub fn SecondaryAxis::fixed_ticks(Self) -> Array[Double]?
 pub fn SecondaryAxis::formatter(Self) -> @ticker.Formatter?
+pub fn SecondaryAxis::formatter_tick_locations(Self, minor? : Bool) -> @ticker.FormatterLocations? raise @core.DataError
 pub fn SecondaryAxis::forward(Self) -> (Double) -> Double
 pub fn SecondaryAxis::inverse(Self) -> (Double) -> Double
 pub fn SecondaryAxis::label(Self) -> String?
 pub fn SecondaryAxis::location(Self) -> SecondaryLocation
 pub fn SecondaryAxis::locator(Self) -> @ticker.Locator?
+pub fn SecondaryAxis::minor_named_formatter(Self) -> @ticker.BaseFormatter?
 pub fn SecondaryAxis::minor_tick_values(Self) -> Array[Double] raise @core.DataError
+pub fn SecondaryAxis::named_formatter(Self) -> @ticker.BaseFormatter?
 pub fn SecondaryAxis::tick_count(Self) -> Int
-pub fn SecondaryAxis::tick_group_is_null(Self) -> Bool
+pub fn SecondaryAxis::tick_group_is_null(Self, minor? : Bool) -> Bool
 pub fn SecondaryAxis::tick_label_size(Self) -> Double
 
 pub(all) enum SecondaryLocation {
