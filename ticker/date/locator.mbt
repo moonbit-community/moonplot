@@ -599,27 +599,40 @@ pub fn DateLocator::tick_values(
   lower : Double,
   upper : Double,
 ) -> Array[Double] {
+  self.tick_values_checked(lower, upper) catch {
+    _ => []
+  }
+}
+
+///|
+/// Generate calendar ticks while preserving date conversion and selection errors.
+/// The legacy tick_values convenience method returns [] on these errors.
+pub fn DateLocator::tick_values_checked(
+  self : DateLocator,
+  lower : Double,
+  upper : Double,
+) -> Array[Double] raise DateError {
   if self.microsecond_object is Some(value) {
-    return value.numeric_tick_values(lower, upper) catch { _ => [] }
+    return value.numeric_tick_values(lower, upper)
   }
   if self.wrapper_locator is Some(value) {
-    return value.numeric_tick_values(lower, upper) catch { _ => [] }
+    return value.numeric_tick_values(lower, upper)
   }
   if self.automatic is Some(value) {
-    return value.tick_values(lower, upper) catch { _ => [] }
+    return value.tick_values(lower, upper)
   }
-  if lower.is_nan() || upper.is_nan() {
-    return []
+  let (first, last) = if lower > upper {
+    (upper, lower)
+  } else {
+    (lower, upper)
   }
-  let first = Double::min(lower, upper)
-  let last = Double::max(lower, upper)
-  let first_date = match self.date_from_ordinal(first) {
-    Some(value) => value
-    None => return []
+  let first_date = match self.timezone {
+    Some(zone) => zone.to_datetime(first)
+    None => from_ordinal(first, offset_minutes=self.offset_minutes)
   }
-  let last_date = match self.date_from_ordinal(last) {
-    Some(value) => value
-    None => return []
+  let last_date = match self.timezone {
+    Some(zone) => zone.to_datetime(last)
+    None => from_ordinal(last, offset_minutes=self.offset_minutes)
   }
   self.ticks_for_dates(first, last, first_date, last_date, lower <= upper)
 }

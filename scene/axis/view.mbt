@@ -62,6 +62,17 @@ pub fn Axis::view_limits_checked(
   match (self.limits, self.auto_view) {
     (Some(limits), _) | (None, Some(limits)) => limits
     (None, None) => {
+      if self.tickers.major_locator_kind != Numeric {
+        let bounds = self.locator_view_limits_checked(
+          automatic.lower(),
+          automatic.upper(),
+        )
+        return if self.inverted {
+          @core.limits(bounds.upper(), bounds.lower())
+        } else {
+          bounds
+        }
+      }
       let (lower, upper) = match self.tickers.locator {
         Some(@ticker.Locator::NamedLogit(value)) =>
           value.view_limits(automatic.lower(), automatic.upper())

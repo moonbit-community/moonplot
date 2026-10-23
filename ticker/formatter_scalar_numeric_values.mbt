@@ -286,6 +286,12 @@ fn scalar_numeric_location(
 ) -> ScalarNumber raise @core.DataError {
   match locations {
     Sequence(values) => ScalarNumber::NumpyFloat64(values[index])
+    Integers(values) =>
+      LogitInput::from_keys(
+        values.map(value => LogitKey::new(ScalarNumber::Integer(value))),
+      )
+      .snapshot()
+      .get_value(index)
     NdArray(values) =>
       if values.is_int64() {
         ScalarNumber::NumpyInt64(values.get_int64(index))

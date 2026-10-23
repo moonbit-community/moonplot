@@ -1,6 +1,29 @@
 ///|
+// Each installed ticker slot has its own geometry/formatting role.
+priv enum AxisTickerKind {
+  Numeric
+  Date
+  Category
+} derive(Eq)
+
+///|
 // Numeric ticker state is shared independently from an Axis's geometry/context.
 priv struct AxisNumericTickers {
+  mut major_locator_kind : AxisTickerKind
+  mut minor_locator_kind : AxisTickerKind
+  mut major_formatter_kind : AxisTickerKind
+  mut minor_formatter_kind : AxisTickerKind
+  mut major_date_view_provider : (() -> (Double, Double) raise @core.DataError)?
+  mut minor_date_view_provider : (() -> (Double, Double) raise @core.DataError)?
+  mut automatic_date_locator : @date.AutoDateLocator?
+  mut date_locator : @date.DateLocator?
+  mut date_formatter : @date.DateFormatter?
+  mut date_formatter_default : Bool
+  mut minor_date_locator : @date.DateLocator?
+  mut minor_date_formatter : @date.DateFormatter?
+  mut date_format : String?
+  mut category_locator_units : CategoryUnits?
+  mut category_formatter_units : CategoryUnits?
   mut locator : @ticker.Locator?
   mut minor_locator : @ticker.MinorLocator?
   mut named_formatter : @ticker.BaseFormatter?
@@ -17,6 +40,21 @@ priv struct AxisNumericTickers {
 ///|
 fn AxisNumericTickers::new() -> AxisNumericTickers {
   {
+    major_locator_kind: Numeric,
+    minor_locator_kind: Numeric,
+    major_formatter_kind: Numeric,
+    minor_formatter_kind: Numeric,
+    major_date_view_provider: None,
+    minor_date_view_provider: None,
+    automatic_date_locator: None,
+    date_locator: None,
+    date_formatter: None,
+    date_formatter_default: false,
+    minor_date_locator: None,
+    minor_date_formatter: None,
+    date_format: None,
+    category_locator_units: None,
+    category_formatter_units: None,
     locator: None,
     minor_locator: None,
     named_formatter: None,
@@ -32,29 +70,44 @@ fn AxisNumericTickers::new() -> AxisNumericTickers {
 }
 
 ///|
-// Converter metadata can outlive a later numeric default installation. Source
-// Axis queries use the installed ticker objects, independently from that metadata.
+// Converter metadata can outlive explicit ticker replacement.
 fn Axis::numeric_tickers_active(self : Axis) -> Bool {
-  (self.date_format is None && self.category is None) ||
-  self.tickers.named_formatter is Some(_) ||
-  self.tickers.minor_named_formatter is Some(_)
+  self.tickers.major_locator_kind == Numeric
 }
 
 ///|
-fn Axis::category_for_ticks(self : Axis) -> @category.CategoryAxis? {
-  if self.numeric_tickers_active() {
-    None
+fn Axis::category_for_ticks(self : Axis) -> CategoryUnits? {
+  if self.tickers.major_locator_kind == Category {
+    self.tickers.category_locator_units
   } else {
-    self.category
+    None
+  }
+}
+
+///|
+fn Axis::category_for_labels(self : Axis) -> CategoryUnits? {
+  if self.tickers.major_formatter_kind == Category {
+    self.tickers.category_formatter_units
+  } else {
+    None
   }
 }
 
 ///|
 fn Axis::date_format_for_ticks(self : Axis) -> String? {
-  if self.numeric_tickers_active() {
-    None
+  if self.tickers.major_locator_kind == Date {
+    Some(self.date_format.unwrap_or(""))
   } else {
-    self.date_format
+    None
+  }
+}
+
+///|
+fn Axis::date_format_for_labels(self : Axis) -> String? {
+  if self.tickers.major_formatter_kind == Date {
+    Some(self.tickers.date_format.unwrap_or(""))
+  } else {
+    None
   }
 }
 
@@ -111,6 +164,19 @@ fn Axis::locator_nonsingular(
   lower : Double,
   upper : Double,
 ) -> (Double, Double) raise @core.DataError {
+  if self.tickers.major_locator_kind == Date {
+    return match self.tickers.date_locator {
+      Some(locator) => locator.nonsingular(lower, upper)
+      None =>
+        match self.tickers.automatic_date_locator {
+          Some(locator) => locator.nonsingular(lower, upper)
+          None => @ticker.NullLocator::new().nonsingular(lower, upper)
+        }
+    }
+  }
+  if self.tickers.major_locator_kind == Category {
+    return @ticker.NullLocator::new().nonsingular(lower, upper)
+  }
   match self.tickers.locator {
     Some(@ticker.Locator::NamedLogit(value)) => value.nonsingular(lower, upper)
     Some(@ticker.Locator::NamedAsinh(value)) => value.nonsingular(lower, upper)
@@ -172,5 +238,65 @@ pub fn Axis::set_cleared_view_limits(
   self.autoscale_pending = false
   if self.tick_layout_view is Some(_) {
     self.tick_layout_view = Some((view.lower(), view.upper()))
+  }
+}
+
+///|
+// Converter axisinfo never overwrites a manually selected slot.
+fn Axis::install_date_unit_defaults(
+  self : Axis,
+  info : @date.DateAxisInfo,
+) -> Unit {
+  // Keep the convenience snapshot available even with an explicit numeric slot.
+  if self.tickers.automatic_date_locator is None {
+    self.tickers.automatic_date_locator = Some(
+      self.make_default_date_locator(info),
+    )
+  }
+  if self.tickers.major_locator_default {
+    self.tickers.major_locator_kind = Date
+    self.tickers.locator = None
+    self.tickers.fixed_ticks = None
+    self.tickers.date_locator = None
+    self.tickers.automatic_date_locator = Some(
+      self.make_default_date_locator(info),
+    )
+    self.bind_locator_data()
+    self.tickers.major_locator_default = true
+  }
+  if self.tickers.major_formatter_default {
+    self.tickers.major_formatter_kind = Date
+    self.tickers.named_formatter = None
+    self.tickers.formatter = None
+    self.tickers.fixed_labels = None
+    self.tickers.date_format = Some("")
+    self.tickers.date_formatter = Some(info.major_formatter())
+    self.tickers.date_formatter_default = true
+    self.tickers.major_formatter_default = true
+  }
+  if self.label_default {
+    self.label = Some(info.label())
+  }
+}
+
+///|
+fn Axis::install_category_unit_defaults(
+  self : Axis,
+  units : CategoryUnits,
+) -> Unit {
+  if self.tickers.major_locator_default {
+    self.tickers.major_locator_kind = Category
+    self.tickers.locator = None
+    self.tickers.fixed_ticks = None
+    self.tickers.category_locator_units = Some(units)
+    self.tickers.major_locator_default = true
+  }
+  if self.tickers.major_formatter_default {
+    self.tickers.major_formatter_kind = Category
+    self.tickers.named_formatter = None
+    self.tickers.formatter = None
+    self.tickers.fixed_labels = None
+    self.tickers.category_formatter_units = Some(units)
+    self.tickers.major_formatter_default = true
   }
 }

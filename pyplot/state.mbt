@@ -2232,17 +2232,13 @@ pub fn yaxis_locator(locator : @ticker.Locator) -> Unit raise @core.DataError {
 
 ///|
 /// Configure a numeric formatter on the current x axis.
-pub fn xaxis_formatter(
-  formatter : @ticker.Formatter,
-) -> Unit raise @core.DataError {
+pub fn xaxis_formatter(formatter : @ticker.Formatter) -> Unit {
   require_axes().set_x_formatter(formatter)
 }
 
 ///|
 /// Configure a numeric formatter on the current y axis.
-pub fn yaxis_formatter(
-  formatter : @ticker.Formatter,
-) -> Unit raise @core.DataError {
+pub fn yaxis_formatter(formatter : @ticker.Formatter) -> Unit {
   require_axes().set_y_formatter(formatter)
 }
 

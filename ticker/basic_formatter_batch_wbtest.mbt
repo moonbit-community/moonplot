@@ -89,6 +89,7 @@ test "named view batches retain Int64 storage while converting callback values" 
       assert_true(retained.is_int64())
       assert_eq(retained.get_int64(1), 20L)
     }
-    Sequence(_) | Typed(_) => fail("a numeric view must retain its storage")
+    Sequence(_) | Integers(_) | Typed(_) =>
+      fail("a numeric view must retain its storage")
   }
 }

@@ -5,26 +5,34 @@
 pub fn Axis::set_date_formatter(
   self : Axis,
   formatter : @date.DateFormatter,
-) -> Unit raise @core.DataError {
-  self.set_date_format(formatter.format())
-  self.date_formatter = Some(formatter.copy())
-  self.date_formatter_default = false
+) -> Unit {
+  self.tickers.major_formatter_kind = Date
+  self.tickers.major_formatter_default = false
+  self.tickers.date_format = Some(formatter.format())
+  self.tickers.named_formatter = None
+  self.tickers.formatter = None
+  self.tickers.fixed_labels = None
+  self.tickers.date_formatter = Some(formatter.copy())
+  self.tickers.date_formatter_default = false
 }
 
 ///|
 /// Return a copy of the configured date formatter, if any.
 pub fn Axis::date_formatter(self : Axis) -> @date.DateFormatter? {
-  self.date_formatter.map(formatter => {
+  if self.tickers.major_formatter_kind != Date {
+    return None
+  }
+  self.tickers.date_formatter.map(formatter => {
     formatter.with_locator_unit(self.date_formatter_unit([], None, false))
   })
 }
 
 ///|
 fn Axis::sync_default_date_formatter(self : Axis) -> Unit {
-  if !self.date_formatter_default || self.date_timezone_is_default {
+  if !self.tickers.date_formatter_default || self.date_timezone_is_default {
     return
   }
-  self.date_formatter = self.date_formatter.map(formatter => {
+  self.tickers.date_formatter = self.tickers.date_formatter.map(formatter => {
     match self.date_timezone {
       Some(timezone) => formatter.with_timezone(timezone)
       None => try! formatter.with_offset(self.date_offset_minutes)
@@ -46,8 +54,20 @@ fn Axis::date_formatter_unit(
   let limits = limits.map(bounds => {
     self.date_nonsingular_bounds(bounds.lower(), bounds.upper())
   })
-  let concrete = if minor { self.minor_date_locator } else { self.date_locator }
-  if minor || (self.tickers.fixed_ticks is None && self.tickers.locator is None) {
+  let kind = if minor {
+    self.tickers.minor_locator_kind
+  } else {
+    self.tickers.major_locator_kind
+  }
+  if kind != Date {
+    return 1.0
+  }
+  let concrete = if minor {
+    self.tickers.minor_date_locator
+  } else {
+    self.tickers.date_locator
+  }
+  if concrete is Some(_) {
     if concrete is Some(locator) {
       if locator.automatic_locator() is Some(auto) {
         match limits {
@@ -61,12 +81,10 @@ fn Axis::date_formatter_unit(
       return locator.unit_scale()
     }
   }
-  if minor ||
-    self.tickers.fixed_ticks is Some(_) ||
-    self.tickers.locator is Some(_) {
+  if minor {
     return 1.0
   }
-  if self.automatic_date_locator is Some(auto) {
+  if self.tickers.automatic_date_locator is Some(auto) {
     match limits {
       Some(bounds) =>
         ignore(auto.get_locator_for_range(bounds.lower(), bounds.upper())) catch {
@@ -104,7 +122,7 @@ fn Axis::date_formatter_values(
     Some(limits) => limits.lower() > limits.upper()
     None => self.inverted
   }
-  let reversed = self.tickers.fixed_ticks is None &&
+  let reversed = self.tickers.major_locator_kind == Date &&
     values.length() > 1 &&
     values[0] > values[values.length() - 1]
   (if reversed { values.rev() } else { values }, inverted, reversed)

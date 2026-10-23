@@ -20,7 +20,8 @@ fn numeric_axis_bundle(
   } else {
     let locations = axis.formatter_tick_locations_checked(view)
     let labels = match (axis.named_formatter(), locations) {
-      (Some(formatter), @ticker.FormatterLocations::NdArray(_)) =>
+      (Some(formatter), @ticker.FormatterLocations::NdArray(_))
+      | (Some(formatter), @ticker.FormatterLocations::Integers(_)) =>
         format_retained_locations(formatter, locations)
       _ =>
         axis.tick_labels_checked(
@@ -50,7 +51,8 @@ fn numeric_axis_bundle(
   } else {
     let locations = axis.formatter_tick_locations_checked(view, minor=true)
     let labels = match (axis.minor_named_formatter(), locations) {
-      (Some(formatter), @ticker.FormatterLocations::NdArray(_)) =>
+      (Some(formatter), @ticker.FormatterLocations::NdArray(_))
+      | (Some(formatter), @ticker.FormatterLocations::Integers(_)) =>
         format_retained_locations(formatter, locations)
       _ =>
         axis.minor_tick_labels_checked(
@@ -75,6 +77,7 @@ fn format_retained_locations(
 ) -> Array[String] raise @core.DataError {
   match locations {
     Sequence(values) => formatter.format_ticks(values)
+    Integers(values) => formatter.format_ticks_integers(values)
     NdArray(values) => formatter.format_ticks_view(values)
     // Extra typed snapshots belong to formatter caches. Axis providers retain
     // Sequence/NdArray inputs; geometry materialization uses Double coordinates.
@@ -89,6 +92,13 @@ fn materialize_formatter_locations(
 ) -> Array[Double] raise @core.DataError {
   match locations {
     Sequence(values) => values.copy()
+    Integers(values) => {
+      let result : Array[Double] = []
+      for index in 0..<values.length() {
+        result.push(locations.get(index))
+      }
+      result
+    }
     NdArray(values) => values.to_array()
     Typed(values) => {
       let result : Array[Double] = []

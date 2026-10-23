@@ -2,6 +2,7 @@
 /// Preserve the actual scalar produced by the retained list or ndarray.
 priv enum NamedFormatValue {
   PythonFloat(Double)
+  PythonInteger(@bigint.BigInt)
   NumpyFloat64(Double)
   NumpyInt64(Int64)
 }
@@ -15,26 +16,35 @@ fn named_format_error(
 }
 
 ///|
-fn named_format_value_double(value : NamedFormatValue) -> Double {
+fn named_format_value_double(
+  value : NamedFormatValue,
+) -> Double raise @core.DataError {
   match value {
     PythonFloat(number) | NumpyFloat64(number) => number
+    PythonInteger(number) => percent_python_integer_double(number)
     NumpyInt64(number) => number.to_double()
   }
 }
 
 ///|
-fn named_format_value_str(value : NamedFormatValue) -> String {
+fn named_format_value_str(
+  value : NamedFormatValue,
+) -> String raise @core.DataError {
   match value {
     PythonFloat(number) | NumpyFloat64(number) =>
       named_format_float_repr(number)
+    PythonInteger(number) => scalar_percent_integer_str(number)
     NumpyInt64(number) => number.to_string()
   }
 }
 
 ///|
-fn named_format_value_repr(value : NamedFormatValue) -> String {
+fn named_format_value_repr(
+  value : NamedFormatValue,
+) -> String raise @core.DataError {
   match value {
     PythonFloat(number) => named_format_float_repr(number)
+    PythonInteger(number) => scalar_percent_integer_str(number)
     NumpyFloat64(number) =>
       "np.float64(" + named_format_float_repr(number) + ")"
     NumpyInt64(number) => "np.int64(" + number.to_string() + ")"

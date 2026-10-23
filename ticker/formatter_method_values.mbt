@@ -72,6 +72,7 @@ fn method_quote(value : String, ascii~ : Bool = false) -> String {
 fn method_type_name(value : MethodFormatValue) -> String {
   match value {
     Scalar(PythonFloat(_)) => "float"
+    Scalar(PythonInteger(_)) => "int"
     Scalar(NumpyFloat64(_)) => "float64"
     Scalar(NumpyInt64(_)) => "int64"
     Integer(_) => "int"
@@ -82,7 +83,7 @@ fn method_type_name(value : MethodFormatValue) -> String {
 }
 
 ///|
-fn method_str(value : MethodFormatValue) -> String {
+fn method_str(value : MethodFormatValue) -> String raise @core.DataError {
   match value {
     Scalar(value) => named_format_value_str(value)
     Integer(value) => value.to_string()
@@ -100,7 +101,10 @@ fn method_str(value : MethodFormatValue) -> String {
 }
 
 ///|
-fn method_repr(value : MethodFormatValue, ascii~ : Bool = false) -> String {
+fn method_repr(
+  value : MethodFormatValue,
+  ascii~ : Bool = false,
+) -> String raise @core.DataError {
   match value {
     Scalar(value) => named_format_value_repr(value)
     Text(value) => method_quote(value, ascii~)
@@ -122,6 +126,11 @@ fn method_attribute(
     (Scalar(NumpyFloat64(number)), "real") => Scalar(NumpyFloat64(number))
     (Scalar(PythonFloat(_)), "imag") => Scalar(PythonFloat(0.0))
     (Scalar(NumpyFloat64(_)), "imag") => Scalar(NumpyFloat64(0.0))
+    (Scalar(PythonInteger(number)), "real" | "numerator") =>
+      Scalar(PythonInteger(number))
+    (Scalar(PythonInteger(_)), "imag") =>
+      Scalar(PythonInteger(@bigint.BigInt::from_int(0)))
+    (Scalar(PythonInteger(_)), "denominator") => Integer(1L)
     (Scalar(NumpyInt64(number)), "real" | "numerator") =>
       Scalar(NumpyInt64(number))
     (Scalar(NumpyInt64(_)), "imag") => Scalar(NumpyInt64(0L))

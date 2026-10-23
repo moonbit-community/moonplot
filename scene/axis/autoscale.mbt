@@ -70,9 +70,9 @@ pub fn Axis::has_autoscale_view_provider(self : Axis) -> Bool {
 }
 
 ///|
-/// Whether the installed tickers use the numeric autoscaling protocol.
-pub fn Axis::uses_numeric_autoscale(self : Axis) -> Bool {
-  self.numeric_tickers_active()
+/// Whether installed tickers support the shared numeric-coordinate range pipeline.
+pub fn Axis::uses_numeric_autoscale(_self : Axis) -> Bool {
+  true
 }
 
 ///|
@@ -119,12 +119,7 @@ fn Axis::autoscale_nonsingular(
   lower : Double,
   upper : Double,
 ) -> (Double, Double) raise @core.DataError {
-  if !self.numeric_tickers_active() && self.date_format is Some(_) {
-    let bounds = self.date_nonsingular_bounds(lower, upper)
-    (bounds.lower(), bounds.upper())
-  } else {
-    self.locator_nonsingular(lower, upper)
-  }
+  self.locator_nonsingular(lower, upper)
 }
 
 ///|
@@ -148,6 +143,20 @@ fn autoscale_locator_view_limits(
     _ => @ticker.NullLocator::new().view_limits(lower, upper)
   }
   @core.limits(first, last)
+}
+
+///|
+fn Axis::locator_view_limits_checked(
+  self : Axis,
+  lower : Double,
+  upper : Double,
+) -> @core.Limits raise @core.DataError {
+  let locator = if self.tickers.major_locator_kind == Numeric {
+    self.tickers.locator
+  } else {
+    None
+  }
+  autoscale_locator_view_limits(locator, lower, upper)
 }
 
 ///|
@@ -197,7 +206,11 @@ pub fn Axis::autoscale_bounds_checked(
   }
   // The source keeps this locator object across later data/provider callbacks.
   // Final Axis._set_lim independently fetches the then-current major locator.
-  let locator = self.tickers.locator
+  let locator = if self.tickers.major_locator_kind == Numeric {
+    self.tickers.locator
+  } else {
+    None
+  }
   let (lower, upper) = self.autoscale_nonsingular(lower, upper)
   let minpos_values = self.autoscale_minpos_checked(data_minpos)
   if minpos_values.is_empty() {

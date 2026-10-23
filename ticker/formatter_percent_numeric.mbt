@@ -35,13 +35,19 @@ fn percent_convert_to_pct(
   xmax : PercentXMax,
   value : NamedFormatValue,
 ) -> Double raise @core.DataError {
+  if value is PythonInteger(integer) {
+    // Integer true division can be finite even when neither operand fits a
+    // Double. For floating xmax the helper converts the numerator first, just
+    // as Python does before checking floating zero division.
+    return percent_integer_range_to_pct(xmax, integer)
+  }
   let denominator = match xmax {
     Number(number) | NumpyFloat64(number) => number
     Integer(integer) => percent_python_integer_double(integer)
     Boolean(boolean) => if boolean { 1.0 } else { 0.0 }
     NumpyInt64(number) => number.to_double()
   }
-  let numpy = !(value is PythonFloat(_)) ||
+  let numpy = !(value is (PythonFloat(_) | PythonInteger(_))) ||
     xmax is (PercentXMax::NumpyFloat64(_) | PercentXMax::NumpyInt64(_))
   if denominator == 0.0 && !numpy {
     raise @core.DataError::InvalidTicks(
@@ -116,9 +122,9 @@ priv enum PercentDisplayRange {
 }
 
 ///|
-// A Python integer axis interval retains integer true division with a raw
-// Integer/Boolean xmax. Huge operands can have a finite quotient without either
-// operand being representable as a Double.
+// Python integer values and axis intervals retain integer true division with a
+// raw Integer/Boolean xmax. Huge operands can have a finite quotient without
+// either operand being representable as a Double.
 fn percent_integer_range_to_pct(
   xmax : PercentXMax,
   numerator : @bigint.BigInt,

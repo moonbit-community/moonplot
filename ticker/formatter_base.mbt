@@ -2,6 +2,7 @@
 /// Retained locations support live lists, fixed-shape views and numeric snapshots.
 pub(all) enum FormatterLocations {
   Sequence(Array[Double])
+  Integers(Array[@bigint.BigInt])
   NdArray(TickValues)
   Typed(NumericArray)
 }
@@ -10,6 +11,7 @@ pub(all) enum FormatterLocations {
 pub fn FormatterLocations::length(self : FormatterLocations) -> Int32 {
   match self {
     Sequence(values) => values.length()
+    Integers(values) => values.length()
     NdArray(values) => values.length()
     Typed(values) => values.length()
   }
@@ -19,7 +21,7 @@ pub fn FormatterLocations::length(self : FormatterLocations) -> Int32 {
 /// Return the ndarray dtype, or None for a retained Python-style sequence.
 pub fn FormatterLocations::dtype(self : FormatterLocations) -> String? {
   match self {
-    Sequence(_) => None
+    Sequence(_) | Integers(_) => None
     NdArray(values) => Some(if values.is_int64() { "int64" } else { "float64" })
     Typed(values) => Some(values.dtype())
   }
@@ -44,6 +46,19 @@ pub fn FormatterLocations::get(
       }
       values[index.to_int()]
     }
+    Integers(values) => {
+      let normalized = if index < 0 {
+        Int64::from_int(values.length()) + Int64::from_int(index)
+      } else {
+        Int64::from_int(index)
+      }
+      if normalized < 0L || normalized >= Int64::from_int(values.length()) {
+        raise @core.DataError::InvalidTicks(
+          message="formatter location index is out of bounds",
+        )
+      }
+      percent_python_integer_double(values[normalized.to_int()])
+    }
     NdArray(values) => values.get(index)
     Typed(values) => values.get(index)
   }
@@ -58,6 +73,19 @@ pub fn FormatterLocations::get_value(
 ) -> ScalarNumber raise @core.DataError {
   match self {
     Sequence(_) => ScalarNumber::Number(self.get(index))
+    Integers(values) => {
+      let normalized = if index < 0 {
+        Int64::from_int(values.length()) + Int64::from_int(index)
+      } else {
+        Int64::from_int(index)
+      }
+      if normalized < 0L || normalized >= Int64::from_int(values.length()) {
+        raise @core.DataError::InvalidTicks(
+          message="formatter location index is out of bounds",
+        )
+      }
+      ScalarNumber::Integer(values[normalized.to_int()])
+    }
     NdArray(values) =>
       if values.is_int64() {
         ScalarNumber::NumpyInt64(values.get_int64(index))
@@ -430,4 +458,32 @@ pub fn BaseFormatter::copy(self : BaseFormatter) -> BaseFormatter {
       })
   }
   { kind, locations: self.locations, axis: self.axis, }
+}
+
+///|
+/// Retain a Python integer list without converting its scalar origins to NumPy.
+pub fn BaseFormatter::set_locs_integers_checked(
+  self : BaseFormatter,
+  locations : Array[@bigint.BigInt],
+) -> Unit raise @core.DataError {
+  if self.kind is Log(state) {
+    log_named_prepare(self, state)
+    return
+  }
+  if self.kind is Logit(state) {
+    logit_named_prepare(
+      self,
+      state,
+      LogitInput::from_keys(
+        locations.map(value => LogitKey::new(ScalarNumber::Integer(value))),
+      ),
+    )
+    return
+  }
+  self.locations = FormatterLocations::Integers(locations)
+  match self.kind {
+    Scalar(state) => scalar_named_prepare(self, state)
+    Eng(state) => eng_named_prepare(self, state)
+    _ => ()
+  }
 }

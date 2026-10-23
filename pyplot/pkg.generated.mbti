@@ -290,7 +290,7 @@ pub fn xaxis_date_offset(Int) -> Unit raise @core.DataError
 
 pub fn xaxis_date_timezone(@date.DateTimeZone) -> Unit raise @core.DataError
 
-pub fn xaxis_formatter(@ticker.Formatter) -> Unit raise @core.DataError
+pub fn xaxis_formatter(@ticker.Formatter) -> Unit
 
 pub fn xaxis_locator(@ticker.Locator) -> Unit raise @core.DataError
 
@@ -322,7 +322,7 @@ pub fn yaxis_date_offset(Int) -> Unit raise @core.DataError
 
 pub fn yaxis_date_timezone(@date.DateTimeZone) -> Unit raise @core.DataError
 
-pub fn yaxis_formatter(@ticker.Formatter) -> Unit raise @core.DataError
+pub fn yaxis_formatter(@ticker.Formatter) -> Unit
 
 pub fn yaxis_locator(@ticker.Locator) -> Unit raise @core.DataError
 

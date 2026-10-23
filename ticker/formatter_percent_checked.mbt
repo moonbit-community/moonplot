@@ -418,6 +418,7 @@ fn format_percent_checked(
     format,
     match value {
       PythonFloat(value) => ScalarNumber::Number(value)
+      PythonInteger(value) => ScalarNumber::Integer(value)
       NumpyFloat64(value) => ScalarNumber::NumpyFloat64(value)
       NumpyInt64(value) => ScalarNumber::NumpyInt64(value)
     },

@@ -10,14 +10,10 @@ fn category_x_points(
       actual=values.length(),
     )
   }
-  let positions = axes.state.val.x_axis.category_positions(categories)
-  let all_categories = match axes.state.val.x_axis.categories() {
-    Some(labels) => labels
-    None => []
+  if !axes.state.val.x_axis.have_units() {
+    ignore(axes.state.val.x_axis.update_category_units(categories))
   }
-  for state in axes.x_group_states() {
-    state.val.x_axis.set_categories(all_categories)
-  }
+  let positions = axes.state.val.x_axis.convert_category_units(categories)
   let points = Array(capacity=values.length())
   for i in 0..<values.length() {
     points.push(@core.point(positions[i], values[i]))
@@ -37,14 +33,10 @@ fn category_y_points(
       actual=categories.length(),
     )
   }
-  let positions = axes.state.val.y_axis.category_positions(categories)
-  let all_categories = match axes.state.val.y_axis.categories() {
-    Some(labels) => labels
-    None => []
+  if !axes.state.val.y_axis.have_units() {
+    ignore(axes.state.val.y_axis.update_category_units(categories))
   }
-  for state in axes.y_group_states() {
-    state.val.y_axis.set_categories(all_categories)
-  }
+  let positions = axes.state.val.y_axis.convert_category_units(categories)
   let points = Array(capacity=values.length())
   for i in 0..<values.length() {
     points.push(@core.point(values[i], positions[i]))
@@ -58,8 +50,9 @@ pub fn Axes::set_x_categories(
   self : Axes,
   labels : Array[String],
 ) -> Unit raise @core.DataError {
+  let units = @axis.CategoryUnits::new(labels)
   for state in self.x_group_states() {
-    state.val.x_axis.set_categories(labels)
+    state.val.x_axis.set_category_units(units)
   }
 }
 
@@ -78,8 +71,9 @@ pub fn Axes::set_y_categories(
   self : Axes,
   labels : Array[String],
 ) -> Unit raise @core.DataError {
+  let units = @axis.CategoryUnits::new(labels)
   for state in self.y_group_states() {
-    state.val.y_axis.set_categories(labels)
+    state.val.y_axis.set_category_units(units)
   }
 }
 

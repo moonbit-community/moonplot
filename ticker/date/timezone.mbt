@@ -379,3 +379,21 @@ fn DateTimeZone::offset_info_at_microseconds(
     (transition.offset_seconds, transition.abbreviation)
   }
 }
+
+///|
+/// Unit equality for retained rule-zone identities and fixed-offset snapshots.
+/// Fixed offsets compare by seconds, including independently constructed values;
+/// rule-based zones retain their object identity.
+pub fn DateTimeZone::unit_equal(
+  self : DateTimeZone,
+  other : DateTimeZone,
+) -> Bool {
+  physical_equal(self, other) ||
+  (
+    self.footer is None &&
+    other.footer is None &&
+    self.transitions.is_empty() &&
+    other.transitions.is_empty() &&
+    self.initial_offset_seconds == other.initial_offset_seconds
+  )
+}

@@ -400,3 +400,40 @@ pub fn FuncFormatter::format_data_short(
 ) -> String raise @core.DataError {
   self.base.format_data_short(value)
 }
+
+///|
+/// Format a retained Python integer list, preserving integer formatting and repr.
+pub fn BaseFormatter::format_ticks_integers(
+  self : BaseFormatter,
+  values : Array[@bigint.BigInt],
+) -> Array[String] raise @core.DataError {
+  self.set_locs_integers_checked(values)
+  let labels : Array[String] = []
+  let mut index = 0
+  while index < values.length() {
+    let integer = values[index]
+    let value = ScalarNumber::Integer(integer)
+    let named = NamedFormatValue::PythonInteger(integer)
+    labels.push(
+      match self.kind {
+        FormatStr(state) => format_percent_checked(state.fmt, named)
+        StrMethod(state) => format_method_checked(state.fmt, named, Some(index))
+        Scalar(state) => scalar_named_call(self, state, value, Some(index))
+        Eng(state) => eng_named_call(self, state, value, Some(index))
+        Log(state) => log_named_call(self, state, value, Some(index))
+        Logit(state) =>
+          logit_named_call(self, state, LogitKey::new(value), Some(index))
+        Percent(state) => percent_formatter_call(self, state, named)
+        Func(_) =>
+          formatter_named_call(
+            self,
+            percent_python_integer_double(integer),
+            Some(index),
+          )
+        _ => formatter_named_call(self, 0.0, Some(index))
+      },
+    )
+    index += 1
+  }
+  labels
+}

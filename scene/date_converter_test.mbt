@@ -1,9 +1,11 @@
 ///|
-test "rc concise converter renders default date plot and empty plots enable date mode" {
+test "explicit date mode captures concise conversion before empty and later plots" {
   @config.reset()
   @config.set_date_converter("concise")
   let figure = @scene.figure(width=620, height=300)
   figure.plot_date([], [])
+  assert_true(figure.x_axis().date_converter() is None)
+  figure.axes().set_x_date()
   @config.reset()
   assert_true(figure.x_axis().date_converter() is Some(_))
   let empty = figure.to_svg()

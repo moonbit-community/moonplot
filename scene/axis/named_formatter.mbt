@@ -16,23 +16,22 @@ fn Axis::check_named_formatter_install(
   self : Axis,
   formatter : @ticker.BaseFormatter,
   minor : Bool,
-) -> Unit raise @core.DataError {
+) -> Unit {
   self.formatter_messages.clear()
-  if !self.installing_scale_defaults && !self.numeric_tickers_active() {
-    raise @core.DataError::InvalidTicks(
-      message="numeric formatter cannot be combined with date or category data",
-    )
-  }
   let fixed_locator = if minor {
+    self.tickers.minor_locator_kind == Numeric &&
     self.tickers.minor_locator
     is Some(
       @ticker.MinorLocator::NamedFixed(_)
       | @ticker.MinorLocator::Fixed(_)
     )
   } else {
-    self.tickers.fixed_ticks is Some(_) ||
-    self.tickers.locator
-    is Some(@ticker.Locator::NamedFixed(_) | @ticker.Locator::Fixed(_))
+    self.tickers.major_locator_kind == Numeric &&
+    (
+      self.tickers.fixed_ticks is Some(_) ||
+      self.tickers.locator
+      is Some(@ticker.Locator::NamedFixed(_) | @ticker.Locator::Fixed(_))
+    )
   }
   if formatter.fixed_formatter() is Some(fixed) &&
     fixed.seq().length() > 0 &&
@@ -48,44 +47,59 @@ fn Axis::check_named_formatter_install(
 pub fn Axis::set_named_formatter(
   self : Axis,
   formatter : @ticker.BaseFormatter,
-) -> Unit raise @core.DataError {
+) -> Unit {
   self.check_named_formatter_install(formatter, false)
+  self.tickers.major_formatter_kind = Numeric
   self.tickers.major_formatter_default = false
   self.tickers.named_formatter = Some(formatter)
   self.tickers.formatter = None
+  self.tickers.date_formatter = None
+  self.tickers.date_format = None
   self.tickers.fixed_labels = None
   self.bind_formatter_axis()
 }
 
 ///|
 pub fn Axis::named_formatter(self : Axis) -> @ticker.BaseFormatter? {
-  self.tickers.named_formatter
+  if self.tickers.major_formatter_kind == Numeric {
+    self.tickers.named_formatter
+  } else {
+    None
+  }
 }
 
 ///|
 pub fn Axis::set_minor_named_formatter(
   self : Axis,
   formatter : @ticker.BaseFormatter,
-) -> Unit raise @core.DataError {
+) -> Unit {
   self.check_named_formatter_install(formatter, true)
+  self.tickers.minor_formatter_kind = Numeric
   self.tickers.minor_formatter_default = false
   self.tickers.minor_named_formatter = Some(formatter)
+  self.tickers.minor_date_formatter = None
   self.bind_formatter_axis(minor=true)
 }
 
 ///|
 pub fn Axis::minor_named_formatter(self : Axis) -> @ticker.BaseFormatter? {
-  self.tickers.minor_named_formatter
+  if self.tickers.minor_formatter_kind == Numeric {
+    self.tickers.minor_named_formatter
+  } else {
+    None
+  }
 }
 
 ///|
 pub fn Axis::clear_named_formatter(self : Axis) -> Unit {
+  self.tickers.major_formatter_kind = Numeric
   self.tickers.major_formatter_default = false
   self.tickers.named_formatter = None
 }
 
 ///|
 pub fn Axis::clear_minor_named_formatter(self : Axis) -> Unit {
+  self.tickers.minor_formatter_kind = Numeric
   self.tickers.minor_formatter_default = false
   self.tickers.minor_named_formatter = None
 }
@@ -94,9 +108,9 @@ pub fn Axis::clear_minor_named_formatter(self : Axis) -> Unit {
 /// Rebind installed handles after shared-axis installation or removal.
 pub fn Axis::bind_formatter_axis(self : Axis, minor~ : Bool = false) -> Unit {
   let formatter = if minor {
-    self.tickers.minor_named_formatter
+    self.minor_named_formatter()
   } else {
-    self.tickers.named_formatter
+    self.named_formatter()
   }
   if formatter is Some(formatter) {
     formatter.set_axis(Some(self.formatter_axis_binding))
@@ -111,11 +125,31 @@ pub fn Axis::formatter_tick_locations_checked(
   minor~ : Bool = false,
 ) -> @ticker.FormatterLocations raise @core.DataError {
   let active = if minor {
-    self.tickers.minor_named_formatter
+    self.minor_named_formatter()
   } else {
-    self.tickers.named_formatter
+    self.named_formatter()
   }
-  if active is None || !self.numeric_tickers_active() {
+  let kind = if minor {
+    self.tickers.minor_locator_kind
+  } else {
+    self.tickers.major_locator_kind
+  }
+  if kind == Category {
+    let values = self.tickers.category_locator_units
+      .map(units => {
+        Array::makei(units.labels().length(), index => {
+          @bigint.BigInt::from_int(index)
+        })
+      })
+      .unwrap_or([])
+    return @ticker.FormatterLocations::Integers(values)
+  }
+  let formatter_kind = if minor {
+    self.tickers.minor_formatter_kind
+  } else {
+    self.tickers.major_formatter_kind
+  }
+  if active is None && formatter_kind == Numeric {
     return @ticker.FormatterLocations::Sequence(
       if minor {
         self.minor_tick_values_checked(automatic)
@@ -134,6 +168,8 @@ pub fn Axis::formatter_tick_locations_checked(
   }
   let view = if minor {
     self.raw_formatter_minor_view_checked(limits)
+  } else if kind == Date {
+    self.major_tick_view_checked()
   } else if self.tickers.fixed_ticks is Some(values) {
     @ticker.TickValues::from_array(values)
   } else if self.tickers.locator is Some(@ticker.Locator::Fixed(values)) {
@@ -163,6 +199,14 @@ fn Axis::raw_formatter_minor_view_checked(
   self : Axis,
   limits : @core.Limits,
 ) -> @ticker.TickValues raise @core.DataError {
+  if self.tickers.minor_locator_kind == Date {
+    return @ticker.TickValues::from_array(
+      self.date_locator_tick_values_checked(limits, true),
+    )
+  }
+  if self.tickers.minor_locator_kind == Category {
+    return @ticker.TickValues::from_array([])
+  }
   let values = match self.tickers.minor_locator {
     None => return @ticker.TickValues::from_array([])
     Some(@ticker.MinorLocator::NamedFixed(locator)) =>
@@ -195,7 +239,13 @@ pub fn Axis::tick_labels_checked(
   values : Array[Double],
   view? : @core.Limits,
 ) -> Array[String] raise @core.DataError {
-  if self.numeric_tickers_active() &&
+  if self.tickers.major_formatter_kind == Category {
+    return match self.category_for_labels() {
+      Some(units) => units.format_values(values)
+      None => Array::make(values.length(), "")
+    }
+  }
+  if self.tickers.major_formatter_kind == Numeric &&
     self.tickers.named_formatter is Some(formatter) {
     return formatter.format_ticks(values)
   }
@@ -208,7 +258,7 @@ pub fn Axis::minor_tick_labels_checked(
   values : Array[Double],
   view? : @core.Limits,
 ) -> Array[String] raise @core.DataError {
-  if self.numeric_tickers_active() &&
+  if self.tickers.minor_formatter_kind == Numeric &&
     self.tickers.minor_named_formatter is Some(formatter) {
     return formatter.format_ticks(values)
   }
@@ -225,7 +275,7 @@ pub fn Axis::formatter_offset_label_checked(
   values : Array[Double],
   view? : @core.Limits,
 ) -> String raise @core.DataError {
-  if self.numeric_tickers_active() &&
+  if self.tickers.major_formatter_kind == Numeric &&
     self.tickers.named_formatter is Some(formatter) {
     return formatter.get_offset_checked()
   }

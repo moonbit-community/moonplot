@@ -2,6 +2,8 @@
 test "svg renders category tick labels from an axis" {
   let x_axis = @axis.axis()
   try! x_axis.set_categories(["alpha", "beta"])
+  // Unit labels do not contribute artist data bounds. Show both positions.
+  x_axis.set_limits(0.0, 1.0)
   let y_axis = @axis.axis()
   let panel = @render.panel(
     None,

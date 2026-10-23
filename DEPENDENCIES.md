@@ -334,3 +334,12 @@ Python weakref 到期时序。验收和后续范围见
 完整原 autoscale/request/unstale/bound/limit 及 Bbox 缓存算法由独立 Python generator 执行；
 controlled interval/Path/ownership hosts、精确来源 hash 和边界见
 [testdata/autoscale_README.md](testdata/autoscale_README.md)。四目标行为验收已通过，nonJS 各21892项、JS21899项。
+
+## D38 内建 Date/Category 单位接线
+
+复用同一 MoonBit 日期/类别转换、共享 ticker holder 与 D37 缓存范围内核，无新分发依赖。
+独立参考新增执行固定 v3.11.2 的 units.py 与 category.py，源码从官方固定 tag 缓存并逐字
+校验 SHA256；同时执行原 Axis 单位方法、Date 具体类、真实共享 Ticker 和完整 autoscale。
+来源哈希、90 个原源案例、epoch 隔离及动态协议边界见
+[testdata/units_lifecycle_README.md](testdata/units_lifecycle_README.md)。整数 formatter 来源
+复用已有 BigInt/Scalar/Logit NumPy 促型代码；项目不分发 Python 或 NumPy 运行时。

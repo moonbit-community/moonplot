@@ -200,6 +200,7 @@ pub fn Axes::plot(Self, Array[Double], Array[Double], color? : String, label? : 
 pub fn Axes::plot_category(Self, Array[String], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::plot_category_y(Self, Array[Double], Array[String], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::plot_date(Self, Array[@date.DateTime], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
+pub fn Axes::plot_date_units(Self, Array[@date.RRuleDateTime], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::plot_masked(Self, @core.MaskedArray, @core.MaskedArray, color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::quiver(Self, Array[Double], Array[Double], Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::quiverkey(Self, Double, Double, Double, String, color? : String) -> Unit raise @core.DataError
@@ -244,7 +245,7 @@ pub fn Axes::set_x_date_formatter(Self, @date.DateFormatter) -> Unit raise @core
 pub fn Axes::set_x_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
 pub fn Axes::set_x_date_offset(Self, Int) -> Unit raise @core.DataError
 pub fn Axes::set_x_date_timezone(Self, @date.DateTimeZone) -> Unit raise @core.DataError
-pub fn Axes::set_x_formatter(Self, @ticker.Formatter) -> Unit raise @core.DataError
+pub fn Axes::set_x_formatter(Self, @ticker.Formatter) -> Unit
 pub fn Axes::set_x_label(Self, String) -> Unit
 pub fn Axes::set_x_limits(Self, Double, Double) -> Unit raise @core.DataError
 pub fn Axes::set_x_locator(Self, @ticker.Locator) -> Unit raise @core.DataError
@@ -252,13 +253,14 @@ pub fn Axes::set_x_margin(Self, Double) -> Unit raise @core.DataError
 pub fn Axes::set_x_minor_date_formatter(Self, @date.DateFormatter) -> Unit raise @core.DataError
 pub fn Axes::set_x_minor_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
 pub fn Axes::set_x_minor_locator(Self, @ticker.MinorLocator) -> Unit raise @core.DataError
-pub fn Axes::set_x_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
-pub fn Axes::set_x_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
+pub fn Axes::set_x_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit
+pub fn Axes::set_x_named_formatter(Self, @ticker.BaseFormatter) -> Unit
 pub fn Axes::set_x_scale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Axes::set_x_tick_labels(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Axes::set_x_tick_labels_visible(Self, Bool) -> Unit
 pub fn Axes::set_x_tick_position(Self, @axis.TickPosition) -> Unit
 pub fn Axes::set_x_ticks(Self, Array[Double]) -> Unit raise @core.DataError
+pub fn Axes::set_x_units(Self, @axis.AxisUnitTag?) -> Unit raise @core.DataError
 pub fn Axes::set_xlabel(Self, String) -> Unit
 pub fn Axes::set_xlim(Self, Double, Double, auto? : Bool?) -> Unit raise @core.DataError
 pub fn Axes::set_xmargin(Self, Double) -> Unit raise @core.DataError
@@ -273,7 +275,7 @@ pub fn Axes::set_y_date_formatter(Self, @date.DateFormatter) -> Unit raise @core
 pub fn Axes::set_y_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
 pub fn Axes::set_y_date_offset(Self, Int) -> Unit raise @core.DataError
 pub fn Axes::set_y_date_timezone(Self, @date.DateTimeZone) -> Unit raise @core.DataError
-pub fn Axes::set_y_formatter(Self, @ticker.Formatter) -> Unit raise @core.DataError
+pub fn Axes::set_y_formatter(Self, @ticker.Formatter) -> Unit
 pub fn Axes::set_y_label(Self, String) -> Unit
 pub fn Axes::set_y_limits(Self, Double, Double) -> Unit raise @core.DataError
 pub fn Axes::set_y_locator(Self, @ticker.Locator) -> Unit raise @core.DataError
@@ -281,13 +283,14 @@ pub fn Axes::set_y_margin(Self, Double) -> Unit raise @core.DataError
 pub fn Axes::set_y_minor_date_formatter(Self, @date.DateFormatter) -> Unit raise @core.DataError
 pub fn Axes::set_y_minor_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
 pub fn Axes::set_y_minor_locator(Self, @ticker.MinorLocator) -> Unit raise @core.DataError
-pub fn Axes::set_y_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
-pub fn Axes::set_y_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
+pub fn Axes::set_y_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit
+pub fn Axes::set_y_named_formatter(Self, @ticker.BaseFormatter) -> Unit
 pub fn Axes::set_y_scale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Axes::set_y_tick_labels(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Axes::set_y_tick_labels_visible(Self, Bool) -> Unit
 pub fn Axes::set_y_tick_position(Self, @axis.TickPosition) -> Unit
 pub fn Axes::set_y_ticks(Self, Array[Double]) -> Unit raise @core.DataError
+pub fn Axes::set_y_units(Self, @axis.AxisUnitTag?) -> Unit raise @core.DataError
 pub fn Axes::set_ylabel(Self, String) -> Unit
 pub fn Axes::set_ylim(Self, Double, Double, auto? : Bool?) -> Unit raise @core.DataError
 pub fn Axes::set_ymargin(Self, Double) -> Unit raise @core.DataError
@@ -317,6 +320,10 @@ pub fn Axes::triplot(Self, Array[Double], Array[Double], Array[Array[Int]], colo
 pub fn Axes::triplot_triangulation(Self, Triangulation, color? : String, linewidth? : Double, label? : String) -> Unit raise @core.DataError
 pub fn Axes::unstale_view(Self) -> Unit raise @core.DataError
 pub fn Axes::update_datalim(Self, Array[@core.Point], update_x? : Bool, update_y? : Bool) -> Unit
+pub fn Axes::update_x_category_units(Self, Array[String]) -> Bool raise @core.DataError
+pub fn Axes::update_x_date_units(Self, Array[@date.RRuleDateTime]) -> Bool raise @core.DataError
+pub fn Axes::update_y_category_units(Self, Array[String]) -> Bool raise @core.DataError
+pub fn Axes::update_y_date_units(Self, Array[@date.RRuleDateTime]) -> Bool raise @core.DataError
 pub fn Axes::use_sticky_edges(Self) -> Bool
 pub fn Axes::violin(Self, Array[ViolinStats], positions? : Array[Double], width? : Double, widths? : Array[Double], horizontal? : Bool, side? : ViolinSide, showmeans? : Bool, showextrema? : Bool, showmedians? : Bool, color? : String, facecolor? : String, linecolor? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::violinplot(Self, Array[Array[Double]], positions? : Array[Double], width? : Double, widths? : Array[Double], horizontal? : Bool, side? : ViolinSide, showmeans? : Bool, showextrema? : Bool, showmedians? : Bool, quantiles? : Array[Array[Double]], points? : Int, bandwidth? : ViolinBandwidth, color? : String, facecolor? : String, linecolor? : String, label? : String) -> Array[ViolinStats] raise @core.DataError
@@ -328,6 +335,7 @@ pub fn Axes::x_date_timezone(Self) -> @date.DateTimeZone?
 pub fn Axes::x_limits(Self) -> @core.Limits?
 pub fn Axes::x_margin(Self) -> Double
 pub fn Axes::x_scale(Self) -> @scale.Scale
+pub fn Axes::x_units(Self) -> @axis.AxisUnitTag?
 pub fn Axes::xaxis_date(Self, format? : String) -> Unit raise @core.DataError
 pub fn Axes::xcorr(Self, Array[Double], Array[Double], normed? : Bool, usevlines? : Bool, maxlags? : Int, color? : String, label? : String, detrend? : (Array[Double]) -> Array[Double]) -> Correlation raise @core.DataError
 pub fn Axes::y_axis(Self) -> @axis.Axis
@@ -337,6 +345,7 @@ pub fn Axes::y_date_timezone(Self) -> @date.DateTimeZone?
 pub fn Axes::y_limits(Self) -> @core.Limits?
 pub fn Axes::y_margin(Self) -> Double
 pub fn Axes::y_scale(Self) -> @scale.Scale
+pub fn Axes::y_units(Self) -> @axis.AxisUnitTag?
 pub fn Axes::yaxis_date(Self, format? : String) -> Unit raise @core.DataError
 
 type AxesData
@@ -503,6 +512,7 @@ pub fn Figure::plot(Self, Array[Double], Array[Double], color? : String, label? 
 pub fn Figure::plot_category(Self, Array[String], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::plot_category_y(Self, Array[Double], Array[String], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::plot_date(Self, Array[@date.DateTime], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
+pub fn Figure::plot_date_units(Self, Array[@date.RRuleDateTime], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::plot_masked(Self, @core.MaskedArray, @core.MaskedArray, color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::quiver(Self, Array[Double], Array[Double], Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::quiverkey(Self, Double, Double, Double, String, color? : String) -> Unit raise @core.DataError
@@ -536,7 +546,7 @@ pub fn Figure::set_x_date_formatter(Self, @date.DateFormatter) -> Unit raise @co
 pub fn Figure::set_x_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
 pub fn Figure::set_x_date_offset(Self, Int) -> Unit raise @core.DataError
 pub fn Figure::set_x_date_timezone(Self, @date.DateTimeZone) -> Unit raise @core.DataError
-pub fn Figure::set_x_formatter(Self, @ticker.Formatter) -> Unit raise @core.DataError
+pub fn Figure::set_x_formatter(Self, @ticker.Formatter) -> Unit
 pub fn Figure::set_x_label(Self, String) -> Unit
 pub fn Figure::set_x_limits(Self, Double, Double) -> Unit raise @core.DataError
 pub fn Figure::set_x_locator(Self, @ticker.Locator) -> Unit raise @core.DataError
@@ -544,8 +554,8 @@ pub fn Figure::set_x_margin(Self, Double) -> Unit raise @core.DataError
 pub fn Figure::set_x_minor_date_formatter(Self, @date.DateFormatter) -> Unit raise @core.DataError
 pub fn Figure::set_x_minor_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
 pub fn Figure::set_x_minor_locator(Self, @ticker.MinorLocator) -> Unit raise @core.DataError
-pub fn Figure::set_x_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
-pub fn Figure::set_x_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
+pub fn Figure::set_x_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit
+pub fn Figure::set_x_named_formatter(Self, @ticker.BaseFormatter) -> Unit
 pub fn Figure::set_x_scale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Figure::set_x_tick_labels(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Figure::set_x_tick_position(Self, @axis.TickPosition) -> Unit
@@ -562,7 +572,7 @@ pub fn Figure::set_y_date_formatter(Self, @date.DateFormatter) -> Unit raise @co
 pub fn Figure::set_y_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
 pub fn Figure::set_y_date_offset(Self, Int) -> Unit raise @core.DataError
 pub fn Figure::set_y_date_timezone(Self, @date.DateTimeZone) -> Unit raise @core.DataError
-pub fn Figure::set_y_formatter(Self, @ticker.Formatter) -> Unit raise @core.DataError
+pub fn Figure::set_y_formatter(Self, @ticker.Formatter) -> Unit
 pub fn Figure::set_y_label(Self, String) -> Unit
 pub fn Figure::set_y_limits(Self, Double, Double) -> Unit raise @core.DataError
 pub fn Figure::set_y_locator(Self, @ticker.Locator) -> Unit raise @core.DataError
@@ -570,8 +580,8 @@ pub fn Figure::set_y_margin(Self, Double) -> Unit raise @core.DataError
 pub fn Figure::set_y_minor_date_formatter(Self, @date.DateFormatter) -> Unit raise @core.DataError
 pub fn Figure::set_y_minor_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
 pub fn Figure::set_y_minor_locator(Self, @ticker.MinorLocator) -> Unit raise @core.DataError
-pub fn Figure::set_y_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
-pub fn Figure::set_y_named_formatter(Self, @ticker.BaseFormatter) -> Unit raise @core.DataError
+pub fn Figure::set_y_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit
+pub fn Figure::set_y_named_formatter(Self, @ticker.BaseFormatter) -> Unit
 pub fn Figure::set_y_scale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Figure::set_y_tick_labels(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Figure::set_y_tick_position(Self, @axis.TickPosition) -> Unit

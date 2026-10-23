@@ -341,29 +341,14 @@ pub fn Axes::plot_date(
       actual=values.length(),
     )
   }
-  let converter = self.state.val.x_axis
-    .date_converter()
-    .unwrap_or(@date.default_date_converter())
-  let ordinals = converter.convert(dates)
-  if self.state.val.x_axis.date_format() is None {
-    if dates.is_empty() {
-      self.set_x_date()
-    } else {
-      // The first date establishes the axis timezone. Subsequent series keep
-      // the shared axis configuration, including explicit ticks and labels.
-      match dates[0].timezone() {
-        Some(zone) => self.set_x_date_timezone(zone)
-        None =>
-          if dates[0].offset_seconds() % 60 == 0 {
-            self.set_x_date_offset(dates[0].offset_minutes())
-          } else {
-            let zone = converter.default_units(dates).unwrap()
-            self.set_x_date_timezone(zone)
-          }
-      }
-    }
-  }
-  self.plot(ordinals, values, color~, label~)
+  // DateTime stores aware instants even when no retained rule-zone handle is
+  // present; RRuleDateTime carries the separate naive source domain.
+  self.plot_date_units(
+    dates.map(value => @date.RRuleDateTime::aware(value)),
+    values,
+    color~,
+    label~,
+  )
 }
 
 ///|

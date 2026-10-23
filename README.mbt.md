@@ -610,12 +610,15 @@ let info = converter.axisinfo(unit=@date.fixed_timezone_seconds(561))
 `Axes` / `Figure` 提供 `set_x_date_converter` / `set_y_date_converter`，`pyplot` 提供
 `xaxis_date_converter` / `yaxis_date_converter`，共享轴会先统一校验再安装副本。
 替换默认配置保留已有显式 locator、fixed ticks/labels 和时区；显式日期格式继续优先。
-`plot_date` 复用转换器，空输入也启用日期模式，后续序列保留已设置的单位和标签。
+`plot_date` 复用已有转换配置；普通空输入不推断 converter，需要空日期轴时先显式调用
+`Axes::set_x_date()`。后续序列保留已设置的单位和标签。
 
 固定 v3.11.2 的 `ConciseDateConverter` 父类初始化会把 `interval_multiples` 重置为
 `true`，这里保留该行为，包括 rc 切换路径；普通 `DateConverter` 尊重传入值。当前
-输入为已有 `DateTime` 和扁平日期数组：该类型始终有 offset（含 UTC），没有单独的
-naive/NumPy datetime64/掩码数组或动态 units registry。六项格式数组复用 concise
+输入为已有 `DateTime` 和扁平日期数组：该类型始终有 offset（含 UTC）。
+`plot_date_units` 与 `update_x_date_units` / `update_y_date_units` 接收
+`RRuleDateTime::naive` / `aware`，明确区分无时区日期和有时区 instant。NumPy datetime64、
+掩码数组及任意动态 registry 仍属后续范围。六项格式数组复用 concise
 formatter 的校验与空数组默认扩展。证据与边界见
 [日期转换器参考](testdata/date_converter_README.md)。
 
@@ -1870,3 +1873,16 @@ D36 已接通构造与 clear 的实际默认生命周期。`axis(horizontal=fals
 刻度组。源对照、保留转换信息、用户回调错误及两类视图 provider 的区别见
 [构造与清理说明](testdata/initial_clear_README.md)。完整自动范围状态与通用 units 更新
 仍按后续切片推进。
+
+D38 已接通内建 Date/Category 单位生命周期。四个 locator/formatter 槽位独立保留用户设置，
+重复类别输入只追加共享 `CategoryUnits` 映射；日期单位变化按真实共享顺序更新默认对象、
+执行 checked 单位回调，再请求对应方向自动范围。同 converter、同单位的重复数据不会因为
+rc 改变而重装默认对象。日期和类别都使用与 numeric 相同的缓存范围、stale、auto-enable、
+stored view 和 SVG 路径；类别没有固定半格扩边。
+
+`AxisUnitTag` 与 `Axes::set_x_units` / `set_y_units` 是有序、失败保留前置修改的单位入口；
+已有 `set_x_date_converter` 等预校验便利操作继续保留其原合同。类别刻度向命名 formatter
+传递 Python 整数列表来源，`{x:d}` 与 `{x!r}` 可正确格式化；显式 Double 批次仍保留浮点来源。
+公开日期 locator 查询可用 `tick_values_checked` 保留错误。原始字符串尚未保留到 Line 时，
+类别 unit 重排会明确拒绝；现有显式类别配置替换仍是单独的便利扩展。精确范围与复现见
+[testdata/units_lifecycle_README.md](testdata/units_lifecycle_README.md)。

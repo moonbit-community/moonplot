@@ -164,6 +164,7 @@ pub fn BaseFormatter::format_data(Self, Double) -> String raise @core.DataError
 pub fn BaseFormatter::format_data_short(Self, Double) -> String raise @core.DataError
 pub fn BaseFormatter::format_str_formatter(Self) -> FormatStrFormatter?
 pub fn BaseFormatter::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
+pub fn BaseFormatter::format_ticks_integers(Self, Array[@bigint.BigInt]) -> Array[String] raise @core.DataError
 pub fn BaseFormatter::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
 pub fn BaseFormatter::func_formatter(Self) -> FuncFormatter?
 pub fn BaseFormatter::get_offset(Self) -> String
@@ -181,6 +182,7 @@ pub fn BaseFormatter::scalar_formatter(Self) -> ScalarFormatter?
 pub fn BaseFormatter::set_axis(Self, FormatterAxisBinding?) -> Unit
 pub fn BaseFormatter::set_locs(Self, Array[Double]) -> Unit
 pub fn BaseFormatter::set_locs_checked(Self, Array[Double]) -> Unit raise @core.DataError
+pub fn BaseFormatter::set_locs_integers_checked(Self, Array[@bigint.BigInt]) -> Unit raise @core.DataError
 pub fn BaseFormatter::set_locs_view(Self, TickValues) -> Unit
 pub fn BaseFormatter::set_locs_view_checked(Self, TickValues) -> Unit raise @core.DataError
 pub fn BaseFormatter::str_method_formatter(Self) -> StrMethodFormatter?
@@ -353,6 +355,7 @@ pub impl @debug.Debug for FormatterAxisBinding
 
 pub(all) enum FormatterLocations {
   Sequence(Array[Double])
+  Integers(Array[@bigint.BigInt])
   NdArray(TickValues)
   Typed(NumericArray)
 }

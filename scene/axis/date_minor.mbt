@@ -3,23 +3,26 @@
 pub fn Axis::set_minor_date_locator(
   self : Axis,
   locator : @date.DateLocator,
-) -> Unit raise @core.DataError {
-  if self.date_format is None {
-    self.set_date()
-  }
-  self.minor_date_locator = Some(
+) -> Unit {
+  self.tickers.minor_locator_kind = Date
+  self.tickers.minor_locator_default = false
+  self.tickers.minor_date_locator = Some(
     match self.date_timezone {
-      Some(zone) if !self.date_timezone_is_default =>
-        locator.with_timezone(zone)
+      Some(zone) if self.date_timezone_override => locator.with_timezone(zone)
       _ => locator.copy()
     },
   )
   self.tickers.minor_locator = None
+  self.bind_locator_data(minor=true)
 }
 
 ///|
 pub fn Axis::minor_date_locator(self : Axis) -> @date.DateLocator? {
-  self.minor_date_locator.map(value => value.copy())
+  if self.tickers.minor_locator_kind == Date {
+    self.tickers.minor_date_locator.map(value => value.copy())
+  } else {
+    None
+  }
 }
 
 ///|
@@ -28,24 +31,28 @@ pub fn Axis::minor_date_locator(self : Axis) -> @date.DateLocator? {
 pub fn Axis::set_minor_date_formatter(
   self : Axis,
   formatter : @date.DateFormatter,
-) -> Unit raise @core.DataError {
-  if self.date_format is None {
-    self.set_date()
-  }
-  self.minor_date_formatter = Some(formatter.copy())
+) -> Unit {
+  self.tickers.minor_formatter_kind = Date
+  self.tickers.minor_formatter_default = false
+  self.tickers.minor_date_formatter = Some(formatter.copy())
   self.tickers.minor_named_formatter = None
 }
 
 ///|
 pub fn Axis::minor_date_formatter(self : Axis) -> @date.DateFormatter? {
-  self.minor_date_formatter.map(formatter => {
+  if self.tickers.minor_formatter_kind != Date {
+    return None
+  }
+  self.tickers.minor_date_formatter.map(formatter => {
     formatter.with_locator_unit(self.date_formatter_unit([], None, true))
   })
 }
 
 ///|
 pub fn Axis::clear_minor_date_formatter(self : Axis) -> Unit {
-  self.minor_date_formatter = None
+  self.tickers.minor_date_formatter = None
+  self.tickers.minor_formatter_kind = Numeric
+  self.tickers.minor_formatter_default = false
 }
 
 ///|
@@ -68,11 +75,16 @@ pub fn Axis::minor_tick_labels(
   values : Array[Double],
   view? : @core.Limits,
 ) -> Array[String] {
-  if self.numeric_tickers_active() &&
+  if self.tickers.minor_formatter_kind == Numeric &&
     self.tickers.minor_named_formatter is Some(formatter) {
     return formatter.format_ticks(values) catch { _ => [] }
   }
-  match self.minor_date_formatter {
+  let formatter = if self.tickers.minor_formatter_kind == Date {
+    self.tickers.minor_date_formatter
+  } else {
+    None
+  }
+  match formatter {
     None => Array::make(values.length(), "")
     Some(formatter) => {
       let effective_view = match view {

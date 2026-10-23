@@ -50,7 +50,7 @@ test "named major and minor callbacks keep the last real axis identity across pr
 }
 
 ///|
-test "named formatter rejects existing date category conflicts without rebinding its identity" {
+test "named formatter installation binds its identity without replacing date or category locators" {
   for date in [true, false] {
     let axis = @axis.axis()
     if date {
@@ -58,28 +58,24 @@ test "named formatter rejects existing date category conflicts without rebinding
     } else {
       axis.set_categories(["a", "b"])
     }
+    let view = @core.limits(0.0, 1.0)
+    let positions = axis.tick_values_checked(view)
     let formatter = @ticker.NullFormatter::new().as_base_formatter()
+    axis.set_named_formatter(formatter)
+    axis.set_minor_named_formatter(formatter)
+    assert_eq(formatter.axis(), Some(axis.formatter_axis_binding()))
+    assert_true(physical_equal(axis.named_formatter().unwrap(), formatter))
     assert_true(
-      try {
-        axis.set_named_formatter(formatter)
-        false
-      } catch {
-        @core.DataError::InvalidTicks(..) => true
-        _ => false
-      },
+      physical_equal(axis.minor_named_formatter().unwrap(), formatter),
     )
-    assert_true(
-      try {
-        axis.set_minor_named_formatter(formatter)
-        false
-      } catch {
-        @core.DataError::InvalidTicks(..) => true
-        _ => false
-      },
-    )
-    assert_true(formatter.axis() is None)
-    assert_true(axis.named_formatter() is None)
-    assert_true(axis.minor_named_formatter() is None)
+    assert_eq(axis.tick_labels_checked([0.0, 1.0]), ["", ""])
+    assert_eq(axis.minor_tick_labels_checked([0.0, 1.0]), ["", ""])
+    assert_eq(axis.tick_values_checked(view), positions)
+    if date {
+      assert_true(axis.auto_date_locator() is Some(_))
+    } else {
+      assert_eq(axis.categories(), Some(["a", "b"]))
+    }
   }
 }
 

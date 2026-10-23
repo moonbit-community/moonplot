@@ -2,8 +2,9 @@
 fn scalar_prepare_locations(
   base : BaseFormatter,
 ) -> Array[ScalarNumber] raise @core.DataError {
-  Array::makei(base.locations.length(), index => {
-    scalar_numeric_location(base.locations, index)
+  let locations = scalar_numpy_locations(base.locations)
+  Array::makei(locations.length(), index => {
+    scalar_numeric_location(locations, index)
   })
 }
 
@@ -13,6 +14,7 @@ fn scalar_prepare_visible(
   lower : ScalarNumber,
   upper : ScalarNumber,
 ) -> Array[ScalarNumber] raise @core.DataError {
+  let locations = scalar_numpy_locations(locations)
   let result = []
   for index in 0..<locations.length() {
     let value = scalar_numeric_location(locations, index)
@@ -233,6 +235,7 @@ fn scalar_prepare_format(
   let mut locations = if short {
     match base.locations {
       Sequence(values) => values.map(value => ScalarNumber::Number(value))
+      Integers(values) => values.map(value => ScalarNumber::Integer(value))
       NdArray(_) | Typed(_) => scalar_prepare_locations(base)
     }
   } else {
@@ -346,5 +349,18 @@ fn scalar_named_prepare(
     }
     scalar_prepare_order(base, state)
     scalar_prepare_format(base, state)
+  }
+}
+
+///|
+fn scalar_numpy_locations(
+  locations : FormatterLocations,
+) -> FormatterLocations raise @core.DataError {
+  match locations {
+    Integers(values) =>
+      LogitInput::from_keys(
+        values.map(value => LogitKey::new(ScalarNumber::Integer(value))),
+      ).snapshot()
+    _ => locations
   }
 }

@@ -1,0 +1,8020 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "stdlib/contextlib.py": "8b7a477f978a8532852fd81e241c78182516bc4975d672d580a5848a76e11eb6",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "artist.py": "c55a81d86db60ab7b22fcd6e70401aa84558de5d1ba6e40a16c60f6f1f03be7a",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "units.py": "ecefa595cf24dc6a5da2d52cdad59c1068285071d7f98ee8d11edffb526f7b79",
+    "category.py": "52c67cadb003007f7a61fa630fe3750cb4dc4bf710c25b332084366516a25a6e",
+    "dates.py": "fb8d673fbc57c2499f2dd138c87c6c9520a59b38b60b01a6d59d5eb6540ef233"
+  },
+  "numpy_binary_sha256": "b11f1ef3534cc6bb0a9c8141206350b27cadf48632c34acfcfc97ca6e700363e",
+  "counts": {
+    "unit_cases": 23,
+    "unit_stages": 49,
+    "range_cases": 67,
+    "cases": 90,
+    "registered_groups": 3
+  },
+  "unit_cases": [
+    {
+      "label": "category first/repeat mask 0 shared False",
+      "mask": 0,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "b",
+              "a",
+              "b"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "default_intervals",
+              "units-callback",
+              "major.locator",
+              "major.formatter",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "c",
+              "a"
+            ],
+            "panel": 0
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1,
+                2
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                "c"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 0
+    },
+    {
+      "label": "category first/repeat mask 1 shared False",
+      "mask": 1,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "b",
+              "a",
+              "b"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "FixedLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "0"
+          ],
+          "events": [
+            [
+              "major.formatter",
+              "default_intervals",
+              "units-callback",
+              "major.formatter",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "c",
+              "a"
+            ],
+            "panel": 0
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                "c"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 1
+    },
+    {
+      "label": "category first/repeat mask 2 shared False",
+      "mask": 2,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "b",
+              "a",
+              "b"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "default_intervals",
+              "units-callback",
+              "major.locator",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "c",
+              "a"
+            ],
+            "panel": 0
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": [
+                0,
+                1,
+                2
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 2
+    },
+    {
+      "label": "category first/repeat mask 4 shared False",
+      "mask": 4,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "b",
+              "a",
+              "b"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "FixedLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                false,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "FixedLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                false,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "default_intervals",
+              "units-callback",
+              "major.locator",
+              "major.formatter",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "c",
+              "a"
+            ],
+            "panel": 0
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "FixedLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                false,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "FixedLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                false,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1,
+                2
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                "c"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 3
+    },
+    {
+      "label": "category first/repeat mask 8 shared False",
+      "mask": 8,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "b",
+              "a",
+              "b"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "default_intervals",
+              "units-callback",
+              "major.locator",
+              "major.formatter",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "c",
+              "a"
+            ],
+            "panel": 0
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "locs": [
+                0,
+                1,
+                2
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                "c"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 4
+    },
+    {
+      "label": "category first/repeat mask 15 shared False",
+      "mask": 15,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "b",
+              "a",
+              "b"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "FixedLocator",
+                "FixedLocator",
+                "FuncFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "FixedLocator",
+                "FuncFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "0"
+          ],
+          "events": [
+            [
+              "default_intervals",
+              "units-callback",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "c",
+              "a"
+            ],
+            "panel": 0
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "FixedLocator",
+                "FuncFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "FixedLocator",
+                "FuncFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 5
+    },
+    {
+      "label": "category first/repeat mask 0 shared True",
+      "mask": 0,
+      "shared": true,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "b",
+              "a",
+              "b"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "1",
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "default_intervals",
+              "units-callback",
+              "major.locator",
+              "major.formatter",
+              "default_intervals"
+            ],
+            [
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        },
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "c",
+              "a"
+            ],
+            "panel": 1
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1,
+                2
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                "c"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1,
+                2
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                "c"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            [],
+            [
+              "major.locator",
+              "major.formatter",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        }
+      ],
+      "id": 6
+    },
+    {
+      "label": "category first/repeat mask 1 shared True",
+      "mask": 1,
+      "shared": true,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "b",
+              "a",
+              "b"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "FixedLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "FixedLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "1",
+            "0"
+          ],
+          "events": [
+            [
+              "major.formatter",
+              "default_intervals",
+              "units-callback",
+              "major.formatter",
+              "default_intervals"
+            ],
+            [
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        },
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "c",
+              "a"
+            ],
+            "panel": 1
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                "c"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                "c"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            [],
+            [
+              "major.formatter",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        }
+      ],
+      "id": 7
+    },
+    {
+      "label": "category first/repeat mask 2 shared True",
+      "mask": 2,
+      "shared": true,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "b",
+              "a",
+              "b"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "1",
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "default_intervals",
+              "units-callback",
+              "major.locator",
+              "default_intervals"
+            ],
+            [
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        },
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "c",
+              "a"
+            ],
+            "panel": 1
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": [
+                0,
+                1,
+                2
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": [
+                0,
+                1,
+                2
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            [],
+            [
+              "major.locator",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        }
+      ],
+      "id": 8
+    },
+    {
+      "label": "category first/repeat mask 4 shared True",
+      "mask": 4,
+      "shared": true,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "b",
+              "a",
+              "b"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "FixedLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                false,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "FixedLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                false,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "FixedLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                false,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "FixedLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                false,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "1",
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "default_intervals",
+              "units-callback",
+              "major.locator",
+              "major.formatter",
+              "default_intervals"
+            ],
+            [
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        },
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "c",
+              "a"
+            ],
+            "panel": 1
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "FixedLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                false,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "FixedLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                false,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "FixedLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                false,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1,
+                2
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                "c"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "FixedLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                false,
+                true,
+                true
+              ],
+              "locs": [
+                0,
+                1,
+                2
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                "c"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            [],
+            [
+              "major.locator",
+              "major.formatter",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        }
+      ],
+      "id": 9
+    },
+    {
+      "label": "category first/repeat mask 8 shared True",
+      "mask": 8,
+      "shared": true,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "b",
+              "a",
+              "b"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "1",
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "default_intervals",
+              "units-callback",
+              "major.locator",
+              "major.formatter",
+              "default_intervals"
+            ],
+            [
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        },
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "c",
+              "a"
+            ],
+            "panel": 1
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "locs": [
+                0,
+                1
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "locs": [
+                0,
+                1,
+                2
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                "c"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "locs": [
+                0,
+                1,
+                2
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "b",
+                "a",
+                "c"
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            [],
+            [
+              "major.locator",
+              "major.formatter",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        }
+      ],
+      "id": 10
+    },
+    {
+      "label": "category first/repeat mask 15 shared True",
+      "mask": 15,
+      "shared": true,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "b",
+              "a",
+              "b"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "FixedLocator",
+                "FixedLocator",
+                "FuncFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "FixedLocator",
+                "FixedLocator",
+                "FuncFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "FixedLocator",
+                "FuncFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "FixedLocator",
+                "FuncFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "1",
+            "0"
+          ],
+          "events": [
+            [
+              "default_intervals",
+              "units-callback",
+              "default_intervals"
+            ],
+            [
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        },
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "c",
+              "a"
+            ],
+            "panel": 1
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "FixedLocator",
+                "FuncFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "FixedLocator",
+                "FuncFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "FixedLocator",
+                "FuncFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "b",
+                  0
+                ],
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "c",
+                  2
+                ]
+              ],
+              "slots": [
+                "FixedLocator",
+                "FixedLocator",
+                "FuncFormatter",
+                "FuncFormatter"
+              ],
+              "flags": [
+                false,
+                false,
+                false,
+                false
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            [],
+            [
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        }
+      ],
+      "id": 11
+    },
+    {
+      "label": "date first/rc-repeat/new timezone None",
+      "mask": 0,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "date",
+            "zone": null
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "label:",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "rc",
+            "mode": "concise",
+            "multiple": false
+          },
+          "before": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": null,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "date",
+            "zone": null
+          },
+          "before": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "unit_zone",
+            "zone": 3600
+          },
+          "before": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC+01:00",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "ConciseDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 3600,
+              "labels": [
+                "Jan",
+                "02",
+                "03"
+              ],
+              "offset": "1970-Jan",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": null,
+          "error": null,
+          "callbacks": [
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "label:",
+              "default_intervals",
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 12
+    },
+    {
+      "label": "date first/rc-repeat/new timezone 0",
+      "mask": 0,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "date",
+            "zone": 0
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 0,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "label:",
+              "default_intervals",
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "rc",
+            "mode": "concise",
+            "multiple": false
+          },
+          "before": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 0,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 0,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": null,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "date",
+            "zone": 0
+          },
+          "before": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 0,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 0,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "unit_zone",
+            "zone": 3600
+          },
+          "before": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 0,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC+01:00",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "ConciseDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 3600,
+              "labels": [
+                "Jan",
+                "02",
+                "03"
+              ],
+              "offset": "1970-Jan",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": null,
+          "error": null,
+          "callbacks": [
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "label:",
+              "default_intervals",
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 13
+    },
+    {
+      "label": "date first/rc-repeat/new timezone 10800",
+      "mask": 0,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "date",
+            "zone": 10800
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC+03:00",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 10800,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "label:",
+              "default_intervals",
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "rc",
+            "mode": "concise",
+            "multiple": false
+          },
+          "before": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC+03:00",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 10800,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC+03:00",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 10800,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": null,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "date",
+            "zone": 10800
+          },
+          "before": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC+03:00",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 10800,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC+03:00",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 10800,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "unit_zone",
+            "zone": 3600
+          },
+          "before": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC+03:00",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 10800,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC+01:00",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "ConciseDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 3600,
+              "labels": [
+                "Jan",
+                "02",
+                "03"
+              ],
+              "offset": "1970-Jan",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": null,
+          "error": null,
+          "callbacks": [
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "label:",
+              "default_intervals",
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 14
+    },
+    {
+      "label": "date shared preserves explicit formatter",
+      "mask": 2,
+      "shared": true,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "date",
+            "zone": 0
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 0,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": "UTC",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 0,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "1",
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "label:",
+              "default_intervals",
+              "units-callback"
+            ],
+            [
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        },
+        {
+          "operation": {
+            "kind": "date",
+            "zone": 10800,
+            "panel": 1
+          },
+          "before": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 0,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": "UTC",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 0,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "after": [
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 0,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            },
+            {
+              "converter": "_SwitchableDateConverter",
+              "explicit": false,
+              "unit": "UTC",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "FuncFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                false,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 0,
+              "labels": [
+                "custom",
+                "custom",
+                "custom"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": true
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            [],
+            [
+              "major.locator",
+              "label:",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [
+            true
+          ],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        }
+      ],
+      "id": 15
+    },
+    {
+      "label": "explicit DateConverter initial False",
+      "mask": 0,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "explicit",
+            "multiple": false
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "DateConverter",
+              "explicit": true,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": null,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "date",
+            "zone": null
+          },
+          "before": [
+            {
+              "converter": "DateConverter",
+              "explicit": true,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "DateConverter",
+              "explicit": true,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 16
+    },
+    {
+      "label": "explicit DateConverter initial True",
+      "mask": 0,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "explicit",
+            "multiple": false
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "DateConverter",
+              "explicit": true,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": null,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "date",
+            "zone": 0
+          },
+          "before": [
+            {
+              "converter": "DateConverter",
+              "explicit": true,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "DateConverter",
+              "explicit": true,
+              "unit": "UTC",
+              "slots": [
+                "AutoDateLocator",
+                "NullLocator",
+                "AutoDateFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Date",
+              "unit_seconds": 0,
+              "labels": [
+                "1970",
+                "1970",
+                "1970"
+              ],
+              "offset": "",
+              "roles": [
+                "Date",
+                "Numeric",
+                "Date",
+                "Numeric"
+              ],
+              "interval_multiples": false
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "label:",
+              "default_intervals",
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 17
+    },
+    {
+      "label": "empty homogeneous sequence category",
+      "mask": 0,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [],
+            "empty": true
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": false,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 18
+    },
+    {
+      "label": "empty homogeneous sequence date",
+      "mask": 0,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "date",
+            "values": [],
+            "empty": true
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": false,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 19
+    },
+    {
+      "label": "same converter after numeric scale keeps numeric defaults",
+      "mask": 0,
+      "shared": false,
+      "fail_callback": null,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "a"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "a",
+                  0
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": [
+                0
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "a",
+                "",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "default_intervals",
+              "units-callback",
+              "major.locator",
+              "major.formatter",
+              "default_intervals"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "scale"
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "a",
+                  0
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": [
+                0
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "a",
+                "",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "a",
+                  0
+                ]
+              ],
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": null,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "minor.formatter",
+              "minor.locator"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        },
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "b"
+            ]
+          },
+          "before": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "a",
+                  0
+                ]
+              ],
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "a",
+                  0
+                ],
+                [
+                  "b",
+                  1
+                ]
+              ],
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": true,
+          "error": null,
+          "callbacks": [],
+          "events": [
+            []
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": false
+        }
+      ],
+      "id": 20
+    },
+    {
+      "label": "shared callback partial 0",
+      "mask": 0,
+      "shared": true,
+      "fail_callback": 0,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "a"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": [
+                [
+                  "a",
+                  0
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": [
+                0
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "a",
+                "",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "a",
+                  0
+                ]
+              ],
+              "slots": [
+                "StrCategoryLocator",
+                "NullLocator",
+                "StrCategoryFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": [
+                0
+              ],
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": [
+                "a",
+                "",
+                ""
+              ],
+              "offset": "",
+              "roles": [
+                "Category",
+                "Numeric",
+                "Category",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": null,
+          "error": {
+            "type": "ValueError",
+            "message": "units callback failure"
+          },
+          "callbacks": [
+            "1",
+            "0"
+          ],
+          "events": [
+            [
+              "major.locator",
+              "major.formatter",
+              "default_intervals",
+              "units-callback"
+            ],
+            [
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": true,
+          "shared_ticker_identity": true
+        }
+      ],
+      "id": 21
+    },
+    {
+      "label": "shared callback partial 1",
+      "mask": 0,
+      "shared": true,
+      "fail_callback": 1,
+      "stages": [
+        {
+          "operation": {
+            "kind": "category",
+            "values": [
+              "a"
+            ]
+          },
+          "before": [
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "after": [
+            {
+              "converter": "StrCategoryConverter",
+              "explicit": false,
+              "unit": null,
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": null,
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            },
+            {
+              "converter": null,
+              "explicit": false,
+              "unit": [
+                [
+                  "a",
+                  0
+                ]
+              ],
+              "slots": [
+                "AutoLocator",
+                "NullLocator",
+                "ScalarFormatter",
+                "NullFormatter"
+              ],
+              "flags": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "locs": null,
+              "view": [
+                0.0,
+                1.0
+              ],
+              "unit_kind": "Category",
+              "unit_seconds": null,
+              "labels": null,
+              "offset": null,
+              "roles": [
+                "Numeric",
+                "Numeric",
+                "Numeric",
+                "Numeric"
+              ],
+              "interval_multiples": null
+            }
+          ],
+          "result": null,
+          "error": {
+            "type": "ValueError",
+            "message": "units callback failure"
+          },
+          "callbacks": [
+            "1"
+          ],
+          "events": [
+            [],
+            [
+              "units-callback"
+            ]
+          ],
+          "warnings": [],
+          "custom_retained": [],
+          "shared_unit_identity": false,
+          "shared_ticker_identity": true
+        }
+      ],
+      "id": 22
+    }
+  ],
+  "range_cases": [
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "base",
+      "bounds": [
+        {
+          "float": "inf"
+        },
+        {
+          "float": "-inf"
+        }
+      ],
+      "result": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "base",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "result": [
+        9998.0,
+        10002.0
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "base",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "result": [
+        9998.0,
+        10002.0000001
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "base",
+      "bounds": [
+        2.0,
+        0.0
+      ],
+      "result": [
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "base",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "result": [
+        9990.0,
+        10010.0
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "base",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "result": [
+        10000.0,
+        10000.0000001
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "auto",
+      "bounds": [
+        {
+          "float": "inf"
+        },
+        {
+          "float": "-inf"
+        }
+      ],
+      "result": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "auto",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "result": [
+        9270.0,
+        10730.0
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "auto",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "result": [
+        10000.0,
+        10000.0000001
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "auto",
+      "bounds": [
+        2.0,
+        0.0
+      ],
+      "result": [
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "auto",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "result": [
+        9990.0,
+        10010.0
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "auto",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "result": [
+        10000.0,
+        10000.0000001
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "micro0.5",
+      "bounds": [
+        {
+          "float": "inf"
+        },
+        {
+          "float": "-inf"
+        }
+      ],
+      "result": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "micro0.5",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "result": [
+        9999.999999999989,
+        10000.000000000011
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "micro0.5",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "result": [
+        9999.999999999989,
+        10000.000000100012
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "micro0.5",
+      "bounds": [
+        2.0,
+        0.0
+      ],
+      "result": [
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "micro0.5",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "result": [
+        9990.0,
+        10010.0
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "micro0.5",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "result": [
+        10000.0,
+        10000.0000001
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "base",
+      "bounds": [
+        {
+          "float": "inf"
+        },
+        {
+          "float": "-inf"
+        }
+      ],
+      "result": [
+        -10957.0,
+        -10956.0
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "base",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "result": [
+        9998.0,
+        10002.0
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "base",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "result": [
+        9998.0,
+        10002.0000001
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "base",
+      "bounds": [
+        2.0,
+        0.0
+      ],
+      "result": [
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "base",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "result": [
+        9990.0,
+        10010.0
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "base",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "result": [
+        10000.0,
+        10000.0000001
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "auto",
+      "bounds": [
+        {
+          "float": "inf"
+        },
+        {
+          "float": "-inf"
+        }
+      ],
+      "result": [
+        -10957.0,
+        -10956.0
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "auto",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "result": [
+        9270.0,
+        10730.0
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "auto",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "result": [
+        10000.0,
+        10000.0000001
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "auto",
+      "bounds": [
+        2.0,
+        0.0
+      ],
+      "result": [
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "auto",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "result": [
+        9990.0,
+        10010.0
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "auto",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "result": [
+        10000.0,
+        10000.0000001
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "micro0.5",
+      "bounds": [
+        {
+          "float": "inf"
+        },
+        {
+          "float": "-inf"
+        }
+      ],
+      "result": [
+        -10957.0,
+        -10956.0
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "micro0.5",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "result": [
+        9999.999999999989,
+        10000.000000000011
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "micro0.5",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "result": [
+        9999.999999999989,
+        10000.000000100012
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "micro0.5",
+      "bounds": [
+        2.0,
+        0.0
+      ],
+      "result": [
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "micro0.5",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "result": [
+        9990.0,
+        10010.0
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "2000-01-01T00:00:00",
+      "family": "micro0.5",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "result": [
+        10000.0,
+        10000.0000001
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "category",
+      "bounds": [
+        {
+          "float": "inf"
+        },
+        {
+          "float": "-inf"
+        }
+      ],
+      "result": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "category",
+      "bounds": [
+        {
+          "float": "inf"
+        },
+        {
+          "float": "-inf"
+        }
+      ],
+      "result": [
+        -0.001,
+        0.001
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "category",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "result": [
+        -0.05,
+        0.05
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "category",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "result": [
+        -0.001,
+        0.001
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "category",
+      "bounds": [
+        4.0,
+        4.0
+      ],
+      "result": [
+        3.8,
+        4.2
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "category",
+      "bounds": [
+        4.0,
+        4.0
+      ],
+      "result": [
+        3.996,
+        4.004
+      ]
+    },
+    {
+      "kind": "ns",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "category",
+      "bounds": [
+        2.0,
+        0.0
+      ],
+      "result": [
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "kind": "view",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "category",
+      "bounds": [
+        2.0,
+        0.0
+      ],
+      "result": [
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "kind": "category_ticks",
+      "result": [
+        0,
+        1
+      ]
+    },
+    {
+      "kind": "category_labels",
+      "values": [
+        0.0,
+        1.0,
+        2.0,
+        -0.5,
+        0.5,
+        1.5
+      ],
+      "result": [
+        "first",
+        "second",
+        "",
+        "first",
+        "first",
+        ""
+      ]
+    },
+    {
+      "kind": "category_live_ticks",
+      "result": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "kind": "category_live_labels",
+      "values": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "result": [
+        "first",
+        "second",
+        "third"
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "category",
+      "label": "empty",
+      "bounds": null,
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        -0.05500000000000001,
+        0.05500000000000001
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "category",
+      "label": "point0",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        -0.05500000000000001,
+        0.05500000000000001
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "category",
+      "label": "point10000",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        9450.0,
+        10550.0
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "category",
+      "label": "narrow",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        9999.999999995,
+        10000.000000105001
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "auto",
+      "label": "empty",
+      "bounds": null,
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        -0.05,
+        1.05
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "auto",
+      "label": "point0",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        -803.0,
+        803.0
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "auto",
+      "label": "point10000",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        9197.0,
+        10803.0
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "auto",
+      "label": "narrow",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        9999.999999995,
+        10000.000000105001
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "base",
+      "label": "empty",
+      "bounds": null,
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        -0.05,
+        1.05
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "base",
+      "label": "point0",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        -2.2,
+        2.2
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "base",
+      "label": "point10000",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        9997.8,
+        10002.2
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "base",
+      "label": "narrow",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        9997.799999995,
+        10002.200000105
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "micro0.5",
+      "label": "empty",
+      "bounds": null,
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        -0.05,
+        1.05
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "micro0.5",
+      "label": "point0",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        -2.4305555555555555e-11,
+        2.4305555555555555e-11
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "micro0.5",
+      "label": "point10000",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        9999.999999999976,
+        10000.000000000024
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "micro0.5",
+      "label": "narrow",
+      "bounds": [
+        10000.0,
+        10000.0000001
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        9999.999999994978,
+        10000.000000105023
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "micro0.1",
+      "label": "point10000",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        9989.999999999998,
+        10010.000000000002
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "micro0.01",
+      "label": "point10000",
+      "bounds": [
+        10000.0,
+        10000.0
+      ],
+      "initial": [
+        0.0,
+        1.0
+      ],
+      "result": [
+        9990.0,
+        10010.0
+      ]
+    },
+    {
+      "kind": "autoscale",
+      "epoch": "1970-01-01T00:00:00",
+      "family": "auto",
+      "label": "empty mutated",
+      "bounds": null,
+      "initial": [
+        100.0,
+        200.0
+      ],
+      "result": [
+        100.0,
+        200.0
+      ]
+    }
+  ],
+  "scope": "Complete original Axis units and real registry/date/category/callback source; actual original sharex creates shared Ticker holders. Unit Axis presentation/Bbox storage and units-event observer are explicit hosts. Range corpus executes original locator policies and complete original autoscale+final-limit bodies. Moon tests separate Axis unit graph and candidate/local-finalization profiles; no arbitrary Python converter or full artist-recache claim."
+}

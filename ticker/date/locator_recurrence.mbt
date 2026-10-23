@@ -1,32 +1,4 @@
 ///|
-// Bound the input before from_ordinal converts a Double to an Int. This also
-// prevents backend-dependent conversion overflow for very large ordinals.
-fn locator_date_from_ordinal(
-  value : Double,
-  offset_minutes : Int32,
-) -> DateTime? {
-  if value.is_nan() || value.is_inf() {
-    return None
-  }
-  Some(from_ordinal(value, offset_minutes~)) catch {
-    _ => None
-  }
-}
-
-///|
-// Resolve an ordinal in the locator's configured local calendar. A timezone
-// keeps the UTC instant while selecting the offset active at that instant.
-fn DateLocator::date_from_ordinal(
-  self : DateLocator,
-  value : Double,
-) -> DateTime? {
-  match self.timezone {
-    Some(timezone) => Some(timezone.to_datetime(value)) catch { _ => None }
-    None => locator_date_from_ordinal(value, self.offset_minutes)
-  }
-}
-
-///|
 // Expand a local calendar candidate to every UTC instant it can represent.
 // Fixed-offset locators have exactly one candidate.
 fn DateLocator::ordinals_for_date(

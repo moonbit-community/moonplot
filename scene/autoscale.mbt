@@ -179,9 +179,8 @@ fn Axes::autoscale_coordinate(
   } else {
     self.state.val.y_axis
   }
-  // Date/category conversion retains its existing range projection. Installing
-  // numeric scale defaults makes this protocol active even with retained units.
-  if !axis.uses_numeric_autoscale() || !axis.autoscale_on() {
+  // All installed ticker roles share the same raw-data/view lifecycle.
+  if !axis.autoscale_on() {
     return
   }
   let endpoints : Array[Double] = []

@@ -433,7 +433,7 @@ fn method_format_float(
 
 ///|
 fn method_format_integer(
-  value : Int64,
+  value : @bigint.BigInt,
   spec : MethodFormatSpec,
   available~ : Int64 = 2147483647L,
 ) -> String raise @core.DataError {
@@ -445,7 +445,11 @@ fn method_format_integer(
     code == 'g' ||
     code == 'G' ||
     code == '%' {
-    return method_format_float(value.to_double(), spec, available~)
+    return method_format_float(
+      percent_python_integer_double(value),
+      spec,
+      available~,
+    )
   }
   if (code != '\u0000' || spec.explicit_code) &&
     code != 'b' &&
@@ -498,12 +502,14 @@ fn method_format_integer(
         "ValueError", "Alternate form (#) not allowed with integer format specifier 'c'",
       )
     }
-    if value < 0L || value > 1114111L {
+    if value < @bigint.BigInt::from_int(0) ||
+      value > @bigint.BigInt::from_int(1114111) {
       return named_format_error(
         "OverflowError", "%c arg not in range(0x110000)",
       )
     }
-    if value >= 55296L && value <= 57343L {
+    if value >= @bigint.BigInt::from_int(55296) &&
+      value <= @bigint.BigInt::from_int(57343) {
       return named_format_error(
         "Unsupported", "unpaired surrogate output cannot be represented portably",
       )
@@ -515,12 +521,8 @@ fn method_format_integer(
       available~,
     )
   }
-  let negative = value < 0L
-  let magnitude = if negative {
-    0UL - value.reinterpret_as_uint64()
-  } else {
-    value.reinterpret_as_uint64()
-  }
+  let negative = value < @bigint.BigInt::from_int(0)
+  let magnitude = if negative { value.neg() } else { value }
   let radix = if code == 'b' {
     2
   } else if code == 'o' {
@@ -529,6 +531,11 @@ fn method_format_integer(
     16
   } else {
     10
+  }
+  if radix == 10 {
+    // Apply the pinned Python decimal conversion limit at the selected field,
+    // after parsing and all earlier format-field errors, rather than at input.
+    ignore(scalar_percent_integer_str(value))
   }
   let digits = magnitude.to_string(radix~)
   let digits = if code == 'X' { digits.to_upper() } else { digits }
@@ -639,13 +646,19 @@ fn method_format_field(
       )
     Integer(integer) =>
       method_format_integer(
+        @bigint.BigInt::from_int64(integer),
+        method_parse_spec(format, "int"),
+        available~,
+      )
+    Scalar(PythonInteger(integer)) =>
+      method_format_integer(
         integer,
         method_parse_spec(format, "int"),
         available~,
       )
     Scalar(NumpyInt64(integer)) =>
       method_format_integer(
-        integer,
+        @bigint.BigInt::from_int64(integer),
         method_parse_spec(format, "int"),
         available~,
       )

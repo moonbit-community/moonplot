@@ -1848,7 +1848,7 @@ fn logit_formatter_axis_case_73() -> Unit raise {
   replacement.set_offset_string("late offset")
   axis.set_minor_named_formatter(
     @ticker.FuncFormatter::new((_, _) => {
-      try! axis.set_named_formatter(replacement.as_base_formatter())
+      axis.set_named_formatter(replacement.as_base_formatter())
       "minor"
     }).as_base_formatter(),
   )
@@ -2295,7 +2295,7 @@ fn logit_formatter_axis_case_83() -> Unit raise {
   replacement.set_offset_string("late offset")
   axis.set_minor_named_formatter(
     @ticker.FuncFormatter::new((_, _) => {
-      try! axis.set_named_formatter(replacement.as_base_formatter())
+      axis.set_named_formatter(replacement.as_base_formatter())
       "minor"
     }).as_base_formatter(),
   )
@@ -2732,7 +2732,7 @@ fn logit_formatter_axis_case_93() -> Unit raise {
   replacement.set_offset_string("late offset")
   axis.set_minor_named_formatter(
     @ticker.FuncFormatter::new((_, _) => {
-      try! axis.set_named_formatter(replacement.as_base_formatter())
+      axis.set_named_formatter(replacement.as_base_formatter())
       "minor"
     }).as_base_formatter(),
   )
@@ -3179,7 +3179,7 @@ fn logit_formatter_axis_case_103() -> Unit raise {
   replacement.set_offset_string("late offset")
   axis.set_minor_named_formatter(
     @ticker.FuncFormatter::new((_, _) => {
-      try! axis.set_named_formatter(replacement.as_base_formatter())
+      axis.set_named_formatter(replacement.as_base_formatter())
       "minor"
     }).as_base_formatter(),
   )

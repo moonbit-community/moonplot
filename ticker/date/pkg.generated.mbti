@@ -289,6 +289,7 @@ pub fn DateLocator::offset_minutes(Self) -> Int
 pub fn DateLocator::rrule_locator(Self) -> RRuleLocator?
 pub fn DateLocator::selector(Self) -> Int
 pub fn DateLocator::tick_values(Self, Double, Double) -> Array[Double]
+pub fn DateLocator::tick_values_checked(Self, Double, Double) -> Array[Double] raise DateError
 pub fn DateLocator::timezone(Self) -> DateTimeZone?
 pub fn DateLocator::unit_scale(Self) -> Double
 pub fn DateLocator::with_offset(Self, Int) -> Self raise DateError
@@ -380,6 +381,7 @@ pub fn DateTimeZone::offset_seconds_at(Self, Double) -> Int raise DateError
 pub fn DateTimeZone::to_datetime(Self, Double) -> DateTime raise DateError
 pub fn DateTimeZone::to_ordinal(Self, DateTime) -> Double raise DateError
 pub fn DateTimeZone::transitions(Self) -> Array[TimeZoneTransition]
+pub fn DateTimeZone::unit_equal(Self, Self) -> Bool
 
 pub struct DayLocator {
   // private fields

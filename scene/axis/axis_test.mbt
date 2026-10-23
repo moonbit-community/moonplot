@@ -62,12 +62,12 @@ test "category axis conversion extends without renumbering" {
 }
 
 ///|
-test "fixed numeric ticks replace category mode" {
+test "fixed numeric ticks replace category locators while retaining conversion units" {
   let axis = @axis.axis()
   try! axis.set_categories(["one", "two"])
   try! axis.set_ticks([10.0, 20.0])
   try! axis.set_tick_labels(["ten", "twenty"])
-  assert_eq(axis.categories(), None)
+  assert_eq(axis.categories(), Some(["one", "two"]))
   let ticks = axis.tick_values(@core.limits(0.0, 1.0))
   assert_eq(ticks, [10.0, 20.0])
   assert_eq(axis.tick_labels(ticks), ["ten", "twenty"])
@@ -142,7 +142,7 @@ test "axis accepts major and minor locators" {
 test "axis applies numeric formatter to generated labels" {
   let value = @axis.axis()
   try! value.set_limits(0.0, 2.0)
-  try! value.set_formatter(@ticker.format_str_formatter("x=%.1f"))
+  value.set_formatter(@ticker.format_str_formatter("x=%.1f"))
   assert_eq(value.tick_labels([0.0, 1.0, 2.0]), ["x=0.0", "x=1.0", "x=2.0"])
   value.clear_formatter()
   match value.formatter() {
@@ -179,7 +179,7 @@ test "axis locator getters and setters isolate array storage" {
 test "axis passes its viewport to automatic percentage labels" {
   let value = @axis.axis()
   try! value.set_limits(0.0, 100.0)
-  try! value.set_formatter(try! @ticker.percent_formatter(xmax=100.0))
+  value.set_formatter(try! @ticker.percent_formatter(xmax=100.0))
   assert_eq(value.tick_labels([95.0]), ["95%"])
   assert_eq(value.tick_labels_with_view([95.0], Some(@core.limits(0.0, 1.0))), [
     "95.00%",
@@ -189,9 +189,9 @@ test "axis passes its viewport to automatic percentage labels" {
 ///|
 test "axis exposes scalar formatter offset labels" {
   let value = @axis.axis()
-  try! value.set_formatter(try! @ticker.scalar_formatter())
+  value.set_formatter(try! @ticker.scalar_formatter())
   assert_eq(value.formatter_offset_label([1000000.0, 1000001.0]), "+1e6")
-  try! value.set_formatter(try! @ticker.scalar_formatter(use_offset=false))
+  value.set_formatter(try! @ticker.scalar_formatter(use_offset=false))
   assert_eq(value.formatter_offset_label([1000000.0, 1000001.0]), "1e6")
   try! value.set_ticks([1000000.0, 1000001.0])
   try! value.set_tick_labels(["a", "b"])
@@ -199,25 +199,21 @@ test "axis exposes scalar formatter offset labels" {
 }
 
 ///|
-test "axis rejects numeric formatter in date and category modes" {
+test "numeric formatter installation preserves independent date and category locators" {
   let date_axis = @axis.axis()
-  try! date_axis.set_date()
-  try date_axis.set_formatter(@ticker.null_formatter()) catch {
-    @core.DataError::InvalidTicks(message~) =>
-      assert_true(message.contains("date"))
-    _ => fail("expected date formatter conflict")
-  } noraise {
-    _ => fail("expected date formatter conflict")
-  }
+  date_axis.set_date()
+  let view = @core.limits(0.0, 1.0)
+  let dates = date_axis.tick_values_checked(view)
+  date_axis.set_formatter(@ticker.null_formatter())
+  assert_eq(date_axis.tick_labels([0.0, 1.0]), ["", ""])
+  assert_eq(date_axis.tick_values_checked(view), dates)
+  assert_true(date_axis.auto_date_locator() is Some(_))
   let category_axis = @axis.axis()
-  try! category_axis.set_categories(["a", "b"])
-  try category_axis.set_formatter(@ticker.null_formatter()) catch {
-    @core.DataError::InvalidTicks(message~) =>
-      assert_true(message.contains("category"))
-    _ => fail("expected category formatter conflict")
-  } noraise {
-    _ => fail("expected category formatter conflict")
-  }
+  category_axis.set_categories(["a", "b"])
+  category_axis.set_formatter(@ticker.null_formatter())
+  assert_eq(category_axis.tick_labels([0.0, 1.0]), ["", ""])
+  assert_eq(category_axis.tick_values_checked(view), [0.0, 1.0])
+  assert_eq(category_axis.categories(), Some(["a", "b"]))
 }
 
 ///|

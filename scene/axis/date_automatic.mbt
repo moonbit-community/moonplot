@@ -14,7 +14,7 @@ fn Axis::make_default_date_locator(
 /// Return a copy of the default automatic date selector and its last state.
 /// Explicit calendar locators are available through date_locator().
 pub fn Axis::auto_date_locator(self : Axis) -> @date.AutoDateLocator? {
-  self.automatic_date_locator.map(value => value.copy())
+  self.tickers.automatic_date_locator.map(value => value.copy())
 }
 
 ///|
@@ -25,16 +25,13 @@ pub fn Axis::date_nonsingular_bounds(
   lower : Double,
   upper : Double,
 ) -> @core.Limits {
-  if self.numeric_tickers_active() ||
-    self.date_format is None ||
-    self.tickers.locator is Some(_) ||
-    self.tickers.fixed_ticks is Some(_) {
+  if self.tickers.major_locator_kind != Date {
     return @core.limits(lower, upper)
   }
-  let (first, last) = match self.date_locator {
+  let (first, last) = match self.tickers.date_locator {
     Some(value) => value.nonsingular(lower, upper)
     None =>
-      match self.automatic_date_locator {
+      match self.tickers.automatic_date_locator {
         Some(value) => value.nonsingular(lower, upper)
         None => return @core.limits(lower, upper)
       }

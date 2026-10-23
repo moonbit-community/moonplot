@@ -5,7 +5,7 @@ fn logit_array_complement(
   locations : FormatterLocations,
 ) -> FormatterLocations raise @core.DataError {
   match locations {
-    Sequence(_) =>
+    Sequence(_) | Integers(_) =>
       raise log_format_error(
         "TypeError: unsupported operand type(s) for -: 'int' and 'list'",
       )
@@ -76,6 +76,22 @@ fn logit_array_second_distance(
         distances.push(Double::abs(other - x))
       }
     }
+    Integers(values) => {
+      if !scalar_numeric_numpy(value) {
+        let kind = if value is Integer(_) { "int" } else { "float" }
+        raise log_format_error(
+          "TypeError: unsupported operand type(s) for -: 'list' and '" +
+          kind +
+          "'",
+        )
+      }
+      let input = LogitInput::from_keys(
+        values.map(value => LogitKey::new(ScalarNumber::Integer(value))),
+      ).snapshot()
+      for index in 0..<input.length() {
+        distances.push(Double::abs(input.get(index) - x))
+      }
+    }
     NdArray(values) =>
       for index in 0..<values.length() {
         distances.push(Double::abs(values.get(index) - x))
@@ -132,7 +148,7 @@ fn logit_array_logits(
 ) -> Array[Double] raise @core.DataError {
   let values : Array[Double] = []
   match locations {
-    Sequence(_) =>
+    Sequence(_) | Integers(_) =>
       raise log_format_error(
         "TypeError: unsupported operand type(s) for /: 'int' and 'list'",
       )

@@ -13,6 +13,37 @@ fn Axes::bind_axis_data(self : Axes, horizontal : Bool) -> Unit {
   let axis = if horizontal { state.val.x_axis } else { state.val.y_axis }
   axis.bind_data_interval(provider)
   let figure = self.figure
+  axis.bind_unit_group(() => {
+    let axes : Axes = { figure, state, }
+    let states = if horizontal {
+      axes.x_group_states()
+    } else {
+      axes.y_group_states()
+    }
+    states.map(peer => {
+      if horizontal {
+        peer.val.x_axis
+      } else {
+        peer.val.y_axis
+      }
+    })
+  })
+  axis.bind_unit_data_mutated(() => {
+    let current = state.val
+    let values = if horizontal {
+      current.raw_x_data
+    } else {
+      current.raw_y_data
+    }
+    values.lower() != 1.0 / 0.0 || values.upper() != -1.0 / 0.0
+  })
+  axis.bind_units_changed(() => {
+    let axes : Axes = { figure, state, }
+    // Supported units only append categories or change date display timezone;
+    // those recaches retain numeric vertices before recomputing raw dataLim.
+    axes.relim()
+    axes.request_autoscale_view(axis=if horizontal { "x" } else { "y" })
+  })
   axis.bind_autoscale_view(() => {
     let axes : Axes = { figure, state, }
     axes.unstale_view()

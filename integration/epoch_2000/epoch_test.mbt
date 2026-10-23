@@ -3,6 +3,7 @@ test "2000 epoch matches independent pinned reference" {
   @date.set_epoch("2000-01-01T00:00:00")
   assert_eq(@date.get_epoch(), "2000-01-01T00:00:00")
   verify_reference()
+  verify_units_lifecycle_epoch_reference()
   assert_eq(@date.datetime(1970, 1, 1).to_ordinal(), -10957.0)
   assert_true(
     try {

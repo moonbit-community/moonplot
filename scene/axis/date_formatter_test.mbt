@@ -19,6 +19,8 @@ test "date formatter preserves fixed ticks and manual labels suppress shared tex
   assert_eq(axis.tick_labels(ticks), ["left", "right"])
   assert_eq(axis.formatter_offset_label(ticks), "")
   axis.clear_ticks()
+  // Clearing fixed positions does not restore an earlier formatter object.
+  axis.set_date_formatter(@date.concise_date_formatter().as_formatter())
   assert_eq(axis.formatter_offset_label(ticks), "2024-Feb")
   axis.set_date_format("%Y-%m-%d")
   assert_true(axis.date_formatter() is None)
@@ -29,6 +31,7 @@ test "date formatter preserves fixed ticks and manual labels suppress shared tex
 ///|
 test "inverted date axes select the same offset endpoint as upstream" {
   let axis = @axis.axis()
+  axis.set_date()
   let ticks = concise_axis_ticks()
   axis.set_date_formatter(@date.concise_date_formatter().as_formatter())
   axis.set_limits(ticks[1], ticks[0])
@@ -78,29 +81,21 @@ test "formatter timezone controls labels independently of locator timezone" {
 }
 
 ///|
-test "date formatter rejects incompatible axes without changing their settings" {
+test "date formatter installation preserves independent logarithmic and category locators" {
   let axis = @axis.axis()
   axis.set_scale(@scale.log_scale())
-  assert_true(
-    try {
-      axis.set_date_formatter(@date.concise_date_formatter().as_formatter())
-      false
-    } catch {
-      _ => true
-    },
-  )
-  assert_true(axis.date_formatter() is None)
+  let view = @core.limits(1.0, 100.0)
+  let ticks = axis.tick_values_checked(view)
+  axis.set_date_formatter(@date.concise_date_formatter().as_formatter())
+  assert_true(axis.date_formatter() is Some(_))
+  assert_true(axis.scale().is_log())
+  assert_eq(axis.tick_values_checked(view), ticks)
   assert_true(axis.date_format() is None)
   axis.set_scale(@scale.linear_scale())
   axis.set_categories(["a", "b"])
-  assert_true(
-    try {
-      axis.set_date_formatter(@date.date_formatter("%Y"))
-      false
-    } catch {
-      _ => true
-    },
-  )
+  axis.set_date_formatter(@date.date_formatter("%Y", tz="UTC"))
   assert_eq(axis.categories(), Some(["a", "b"]))
-  assert_true(axis.date_formatter() is None)
+  assert_eq(axis.tick_values_checked(@core.limits(0.0, 1.0)), [0.0, 1.0])
+  assert_eq(axis.tick_labels_checked([0.0, 1.0]), ["1970", "1970"])
+  assert_true(axis.date_formatter() is Some(_))
 }

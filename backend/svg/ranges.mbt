@@ -1,20 +1,4 @@
 ///|
-fn source_numeric_limits(axis : @axis.Axis) -> Bool {
-  axis.has_named_log_locator() ||
-  axis.has_named_logit_locator() ||
-  axis.scale().is_logit()
-}
-
-///|
-fn finite_or(value : Double, fallback : Double) -> Double {
-  if value.is_nan() || value.is_inf() {
-    fallback
-  } else {
-    value
-  }
-}
-
-///|
 fn include_point(scale : Scale, p : @core.Point) -> Scale {
   if p.is_missing() ||
     !scale.x_axis_scale.is_valid(p.x()) ||
@@ -261,142 +245,6 @@ fn include_artist(scale : Scale, artist : @render.Artist) -> Scale {
 }
 
 ///|
-fn normalize_axis_bounds(
-  lower : Double,
-  upper : Double,
-  axis_scale : @ticker_scale.Scale,
-  margin : Double,
-  stickies : Array[Double],
-) -> (Double, Double) {
-  let transformed_lower = axis_scale.transform(lower)
-  let transformed_upper = axis_scale.transform(upper)
-  let padding = finite_or((transformed_upper - transformed_lower) * margin, 0.0)
-  let (padded_lower, padded_upper) = (
-    axis_scale.inverse(transformed_lower - padding),
-    axis_scale.inverse(transformed_upper + padding),
-  )
-  clamp_sticky_bounds(
-    lower, upper, padded_lower, padded_upper, axis_scale, stickies,
-  )
-}
-
-///|
-fn normalize_auto_scale(
-  scale : Scale,
-  x_margin : Double,
-  y_margin : Double,
-  x_stickies : Array[Double],
-  y_stickies : Array[Double],
-) -> Scale {
-  let mut xmin = finite_or(
-    scale.xmin,
-    if scale.x_axis_scale.is_log() {
-      1.0
-    } else {
-      0.0
-    },
-  )
-  let mut xmax = finite_or(
-    scale.xmax,
-    if scale.x_axis_scale.is_log() {
-      10.0
-    } else {
-      1.0
-    },
-  )
-  let mut ymin = finite_or(
-    scale.ymin,
-    if scale.y_axis_scale.is_log() {
-      1.0
-    } else {
-      0.0
-    },
-  )
-  let mut ymax = finite_or(
-    scale.ymax,
-    if scale.y_axis_scale.is_log() {
-      10.0
-    } else {
-      1.0
-    },
-  )
-  if scale.x_axis_scale.is_log() {
-    if xmin <= 0.0 {
-      xmin = 1.0
-    }
-    if xmax <= 0.0 {
-      xmax = 10.0
-    }
-  }
-  if scale.y_axis_scale.is_log() {
-    if ymin <= 0.0 {
-      ymin = 1.0
-    }
-    if ymax <= 0.0 {
-      ymax = 10.0
-    }
-  }
-  if xmin > xmax {
-    if scale.x_axis_scale.is_log() {
-      xmin = 1.0
-      xmax = 10.0
-    } else {
-      xmin = 0.0
-      xmax = 1.0
-    }
-  }
-  if ymin > ymax {
-    if scale.y_axis_scale.is_log() {
-      ymin = 1.0
-      ymax = 10.0
-    } else {
-      ymin = 0.0
-      ymax = 1.0
-    }
-  }
-  if xmin == xmax {
-    if scale.x_axis_scale.is_log() {
-      xmin = xmin / 2.0
-      xmax = xmax * 2.0
-    } else {
-      xmin = xmin - 0.5
-      xmax = xmax + 0.5
-    }
-  }
-  if ymin == ymax {
-    if scale.y_axis_scale.is_log() {
-      ymin = ymin / 2.0
-      ymax = ymax * 2.0
-    } else {
-      ymin = ymin - 0.5
-      ymax = ymax + 0.5
-    }
-  }
-  let (normalized_xmin, normalized_xmax) = normalize_axis_bounds(
-    xmin,
-    xmax,
-    scale.x_axis_scale,
-    x_margin,
-    x_stickies,
-  )
-  let (normalized_ymin, normalized_ymax) = normalize_axis_bounds(
-    ymin,
-    ymax,
-    scale.y_axis_scale,
-    y_margin,
-    y_stickies,
-  )
-  {
-    xmin: normalized_xmin,
-    xmax: normalized_xmax,
-    ymin: normalized_ymin,
-    ymax: normalized_ymax,
-    x_axis_scale: scale.x_axis_scale,
-    y_axis_scale: scale.y_axis_scale,
-  }
-}
-
-///|
 fn artist_data_scale(panel : @render.Panel) -> Scale {
   artists_data_scale(
     panel.artists(),
@@ -443,51 +291,6 @@ pub fn artist_data_interval(
 }
 
 ///|
-fn raw_scale(panel : @render.Panel) -> Scale {
-  let x_axis_scale = panel.x_axis().scale()
-  let y_axis_scale = panel.y_axis().scale()
-  let base = match panel.explicit_bounds() {
-    Some(limits) =>
-      {
-        xmin: limits.xmin(),
-        xmax: limits.xmax(),
-        ymin: limits.ymin(),
-        ymax: limits.ymax(),
-        x_axis_scale,
-        y_axis_scale,
-      }
-    None => {
-      let data = artist_data_scale(panel)
-      let x = if source_numeric_limits(panel.x_axis()) {
-        artist_data_interval(panel.artists(), true)
-      } else {
-        @core.limits(data.xmin, data.xmax)
-      }
-      let y = if source_numeric_limits(panel.y_axis()) {
-        artist_data_interval(panel.artists(), false)
-      } else {
-        @core.limits(data.ymin, data.ymax)
-      }
-      {
-        ..data,
-        xmin: x.lower(),
-        xmax: x.upper(),
-        ymin: y.lower(),
-        ymax: y.upper(),
-      }
-    }
-  }
-  let with_x = match panel.x_axis().limits() {
-    Some(limits) => { ..base, xmin: limits.lower(), xmax: limits.upper(), }
-    None => base
-  }
-  match panel.y_axis().limits() {
-    Some(limits) => { ..with_x, ymin: limits.lower(), ymax: limits.upper(), }
-    None => with_x
-  }
-}
-
-///|
 fn same_group(
   target : Int32?,
   candidate : Int32?,
@@ -502,90 +305,6 @@ fn same_group(
       }
     None => target_index == candidate_index
   }
-}
-
-///|
-fn group_limit(
-  figure : @render.Figure,
-  target_index : Int32,
-  horizontal : Bool,
-) -> @core.Limits? {
-  let target = figure.panels()[target_index]
-  let target_group = if horizontal {
-    target.share_x_group()
-  } else {
-    target.share_y_group()
-  }
-  let mut result : @core.Limits? = None
-  for index, panel in figure.panels() {
-    let candidate_group = if horizontal {
-      panel.share_x_group()
-    } else {
-      panel.share_y_group()
-    }
-    if same_group(target_group, candidate_group, target_index, index) {
-      let limit = if horizontal {
-        panel.x_axis().limits()
-      } else {
-        panel.y_axis().limits()
-      }
-      match (result, limit) {
-        (None, Some(value)) => result = Some(value)
-        _ => ()
-      }
-    }
-  }
-  result
-}
-
-///|
-fn grouped_raw_scale(figure : @render.Figure, target_index : Int32) -> Scale {
-  let target = figure.panels()[target_index]
-  let mut result = raw_scale(target)
-  for index, panel in figure.panels() {
-    if index == target_index {
-      continue
-    }
-    let include_x = same_group(
-      target.share_x_group(),
-      panel.share_x_group(),
-      target_index,
-      index,
-    )
-    let include_y = same_group(
-      target.share_y_group(),
-      panel.share_y_group(),
-      target_index,
-      index,
-    )
-    if include_x || include_y {
-      let candidate = raw_scale(panel)
-      result = {
-        ..result,
-        xmin: if include_x {
-          Double::min(result.xmin, candidate.xmin)
-        } else {
-          result.xmin
-        },
-        xmax: if include_x {
-          Double::max(result.xmax, candidate.xmax)
-        } else {
-          result.xmax
-        },
-        ymin: if include_y {
-          Double::min(result.ymin, candidate.ymin)
-        } else {
-          result.ymin
-        },
-        ymax: if include_y {
-          Double::max(result.ymax, candidate.ymax)
-        } else {
-          result.ymax
-        },
-      }
-    }
-  }
-  result
 }
 
 ///|
@@ -703,7 +422,7 @@ fn ir_group_data_endpoints(
 }
 
 ///|
-fn numeric_axis_view(
+fn installed_axis_view(
   figure : @render.Figure,
   target_index : Int32,
   horizontal : Bool,
@@ -782,91 +501,6 @@ fn numeric_axis_view(
 }
 
 ///|
-// Date/category and explicit legacy helper profiles retain their old view
-// selection. New numeric autoscaling never enters this finite normalizer.
-fn legacy_axis_view(
-  figure : @render.Figure,
-  target_index : Int32,
-  horizontal : Bool,
-) -> @core.Limits raise @core.DataError {
-  let target = figure.panels()[target_index]
-  let axis = if horizontal { target.x_axis() } else { target.y_axis() }
-  let raw = grouped_raw_scale(figure, target_index)
-  let data = if horizontal {
-    @core.limits(raw.xmin, raw.xmax)
-  } else {
-    @core.limits(raw.ymin, raw.ymax)
-  }
-  let date = axis.date_nonsingular_bounds(data.lower(), data.upper())
-  let date = axis.numeric_nonsingular_bounds_checked(date.lower(), date.upper())
-  let normalized = normalize_auto_scale(
-    {
-      xmin: if horizontal {
-        date.lower()
-      } else {
-        0.0
-      },
-      xmax: if horizontal {
-        date.upper()
-      } else {
-        1.0
-      },
-      ymin: if horizontal {
-        0.0
-      } else {
-        date.lower()
-      },
-      ymax: if horizontal {
-        1.0
-      } else {
-        date.upper()
-      },
-      x_axis_scale: if horizontal {
-        axis.scale()
-      } else {
-        @ticker_scale.Linear
-      },
-      y_axis_scale: if horizontal {
-        @ticker_scale.Linear
-      } else {
-        axis.scale()
-      },
-    },
-    if horizontal {
-      target.x_margin()
-    } else {
-      0.0
-    },
-    if horizontal {
-      0.0
-    } else {
-      target.y_margin()
-    },
-    if horizontal {
-      image_sticky_edges(figure, target_index, true)
-    } else {
-      []
-    },
-    if horizontal {
-      []
-    } else {
-      image_sticky_edges(figure, target_index, false)
-    },
-  )
-  match group_limit(figure, target_index, horizontal) {
-    Some(limits) => axis.date_nonsingular_bounds(limits.lower(), limits.upper())
-    None =>
-      axis.view_limits_checked(
-        if horizontal {
-          @core.limits(normalized.xmin, normalized.xmax)
-        } else {
-          @core.limits(normalized.ymin, normalized.ymax)
-        },
-      )
-  }
-}
-
-///|
 fn compute_scale(
   figure : @render.Figure,
   target_index : Int32,
@@ -875,16 +509,8 @@ fn compute_scale(
   bind_render_data_minima(figure)
   let x_axis = target.x_axis()
   let y_axis = target.y_axis()
-  let x_view = if x_axis.uses_numeric_autoscale() {
-    numeric_axis_view(figure, target_index, true)
-  } else {
-    legacy_axis_view(figure, target_index, true)
-  }
-  let y_view = if y_axis.uses_numeric_autoscale() {
-    numeric_axis_view(figure, target_index, false)
-  } else {
-    legacy_axis_view(figure, target_index, false)
-  }
+  let x_view = installed_axis_view(figure, target_index, true)
+  let y_view = installed_axis_view(figure, target_index, false)
   {
     xmin: x_view.lower(),
     xmax: x_view.upper(),
