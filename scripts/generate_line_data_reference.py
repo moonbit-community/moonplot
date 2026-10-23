@@ -200,7 +200,7 @@ fn line_data_source_aliases(first : @ticker.TickValues, second : @ticker.TickVal
 fn line_data_source_detached(x : LineData, y : LineData) -> Line2D {
   { points: [], x: x.copy(), y: y.copy(), cache: line2d_cache_from_flat([]),
     invalid_x: true, invalid_y: true, owner: None, removal_parent: None,
-    visible: true, stale: true }
+    style: @core.style("#1f77b4"), visible: true, stale: true }
 }
 '''
 

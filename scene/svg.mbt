@@ -380,10 +380,10 @@ fn Figure::to_render_figure(
           for line in lines {
             if physical_equal(points, line.points) {
               if !line.get_visible() {
-                return Some(([], () => ()))
+                return Some(([], line.style, () => ()))
               }
               let current = line.points_snapshot_checked()
-              return Some((current, () => line.mark_drawn()))
+              return Some((current, line.style, () => line.mark_drawn()))
             }
           }
           None

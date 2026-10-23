@@ -65,11 +65,18 @@ fn Axes::attach_line_handle(
   label~ : String = "",
 ) -> Line2D raise @core.DataError {
   let attached = copy_points(points)
+  let x = x_original.copy()
+  let y = y_original.copy()
+  let cache = line2d_cache_from_points(attached)
+  // Preserve copy/cache failure order before consuming an automatic color.
+  let resolved_color = self.resolve_color(color)
+  let style = @core.style(resolved_color)
   let line : Line2D = {
     points: attached,
-    x: x_original.copy(),
-    y: y_original.copy(),
-    cache: line2d_cache_from_points(attached),
+    style,
+    x,
+    y,
+    cache,
     invalid_x: false,
     invalid_y: false,
     owner: Some(self),
@@ -77,9 +84,8 @@ fn Axes::attach_line_handle(
     visible: true,
     stale: true,
   }
-  let resolved_color = self.resolve_color(color)
   self.state.val.line_originals.push(line)
-  self.push_artist(Artist::Line(attached, @core.style(resolved_color)))
+  self.push_artist(Artist::Line(attached, style))
   self.add_auto_legend(label, resolved_color, LegendKind::Line)
   line
 }

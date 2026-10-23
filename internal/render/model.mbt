@@ -895,7 +895,11 @@ pub fn Spine::bounds(self : Spine) -> (Double, Double)? {
 pub struct Panel {
   rect : @gridspec.Rect?
   artists : Array[Artist]
-  line_provider : ((Array[@core.Point]) -> (Array[@core.Point], () -> Unit)? raise @core.DataError)?
+  line_provider : ((Array[@core.Point]) -> (
+    Array[@core.Point],
+    @core.Style,
+    () -> Unit,
+  )? raise @core.DataError)?
   title : String?
   legend : Array[LegendEntry]
   explicit_bounds : @core.Bounds?
@@ -937,7 +941,11 @@ pub fn panel(
   anchor~ : (Double, Double) = (0.5, 0.5),
   adjustable~ : String = "box",
   box_aspect? : Double,
-  line_provider~ : ((Array[@core.Point]) -> (Array[@core.Point], () -> Unit)? raise @core.DataError)? = None,
+  line_provider~ : ((Array[@core.Point]) -> (
+    Array[@core.Point],
+    @core.Style,
+    () -> Unit,
+  )? raise @core.DataError)? = None,
 ) -> Panel {
   panel_with_sharing(
     rect,
@@ -988,7 +996,11 @@ pub fn panel_with_sharing(
   anchor~ : (Double, Double) = (0.5, 0.5),
   adjustable~ : String = "box",
   box_aspect? : Double,
-  line_provider~ : ((Array[@core.Point]) -> (Array[@core.Point], () -> Unit)? raise @core.DataError)? = None,
+  line_provider~ : ((Array[@core.Point]) -> (
+    Array[@core.Point],
+    @core.Style,
+    () -> Unit,
+  )? raise @core.DataError)? = None,
 ) -> Panel {
   {
     rect,
@@ -1020,12 +1032,12 @@ pub fn panel_with_sharing(
 }
 
 ///|
-/// Resolve current owned Line geometry only at the data-artist draw stage.
+/// Resolve current owned Line geometry and style at the data-artist draw stage.
 /// A successful append invokes the returned completion for that same Line.
 pub fn Panel::prepare_line(
   self : Panel,
   points : Array[@core.Point],
-) -> (Array[@core.Point], () -> Unit)? raise @core.DataError {
+) -> (Array[@core.Point], @core.Style, () -> Unit)? raise @core.DataError {
   match self.line_provider {
     Some(provider) => provider(points)
     None => None

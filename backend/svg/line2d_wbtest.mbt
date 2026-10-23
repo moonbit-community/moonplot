@@ -1,7 +1,11 @@
 ///|
 fn line2d_ir_fixture(
   artists : Array[@render.Artist],
-  line_provider~ : ((Array[@core.Point]) -> (Array[@core.Point], () -> Unit)? raise @core.DataError)? = None,
+  line_provider~ : ((Array[@core.Point]) -> (
+    Array[@core.Point],
+    @core.Style,
+    () -> Unit,
+  )? raise @core.DataError)? = None,
   primary~ : @ticker.BaseFormatter? = None,
 ) -> @render.Figure raise @core.DataError {
   let x = @axis.axis()
@@ -51,7 +55,7 @@ test "Line provider is queried after primary batches and completed after appendi
     line_provider=Some(points => {
       events.push("prepare")
       matched[0] = physical_equal(points, original)
-      Some((current, () => events.push("complete")))
+      Some((current, @core.style("#12ab34"), () => events.push("complete")))
     }),
     primary=Some(
       @ticker.FuncFormatter::new((_, _) => {
@@ -85,12 +89,14 @@ test "failed lazy Line leaves its completion pending while prior Line completion
     ],
     line_provider=Some(points => {
       if physical_equal(points, first) {
-        return Some((first, () => first_completions[0] += 1))
+        return Some(
+          (first, @core.style("#123abc"), () => first_completions[0] += 1),
+        )
       }
       if should_fail[0] {
         raise @core.DataError::InvalidTicks(message="late Line recache")
       }
-      Some((second, () => second_stale[0] = false))
+      Some((second, @core.style("#456def"), () => second_stale[0] = false))
     }),
   )
   try render_with_positions_checked(figure) catch {
@@ -147,7 +153,19 @@ test "empty and fully nonfinite Lines still invoke completion after a normal dra
     ],
     line_provider=Some(points => {
       prepared[0] += 1
-      Some((points, () => completed[0] += 1))
+      Some(
+        (
+          points,
+          @core.style(
+            if physical_equal(points, empty) {
+              "#001122"
+            } else {
+              "#334455"
+            },
+          ),
+          () => completed[0] += 1,
+        ),
+      )
     }),
   )
   let (svg, _) = render_with_positions_checked(figure)

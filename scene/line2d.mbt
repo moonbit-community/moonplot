@@ -10,6 +10,7 @@ priv struct Line2DCache {
 /// A stable Line data handle with copied originals and lazy converted views.
 pub struct Line2D {
   priv points : Array[@core.Point]
+  priv mut style : @core.Style
   priv mut x : LineData
   priv mut y : LineData
   priv mut cache : Line2DCache
@@ -107,6 +108,29 @@ pub fn Line2D::set_visible(self : Line2D, visible : Bool) -> Unit {
     self.visible = visible
     self.stale = true
   }
+}
+
+///|
+pub fn Line2D::get_linewidth(self : Line2D) -> Double {
+  self.style.width()
+}
+
+///|
+/// Set solid-line width, preserving every other appearance and data field.
+pub fn Line2D::set_linewidth(self : Line2D, width : Double) -> Unit {
+  let style = self.style
+  if style.width() != width {
+    self.stale = true
+  }
+  // Assignment is unconditional: equal signed zeroes still have distinct bits.
+  self.style = @core.style(
+    style.color(),
+    width~,
+    radius=style.radius(),
+    fill=style.fill(),
+    font_size=style.font_size(),
+    marker=style.marker(),
+  )
 }
 
 ///|

@@ -3579,9 +3579,9 @@ fn render_panel(
     match artist {
       @render.Artist::Line(points, style) =>
         match panel.prepare_line(points) {
-          Some((current, complete)) => {
+          Some((current, current_style, complete)) => {
             append_line(
-              writer, scale, left, top, plot_width, plot_height, current, style,
+              writer, scale, left, top, plot_width, plot_height, current, current_style,
             )
             complete()
           }

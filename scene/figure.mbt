@@ -1235,10 +1235,25 @@ pub fn Figure::color_cycle(self : Figure) -> Array[String] {
 ///|
 /// Return this panel's artists in insertion order.
 pub fn Axes::artists(self : Axes) -> Array[Artist] {
-  let artists = self.state.val.artists
+  let state = self.state.val
+  let artists = state.artists
   let result = Array(capacity=artists.length())
   for artist in artists {
-    result.push(copy_artist(artist))
+    match artist {
+      Artist::Line(points, style) => {
+        let mut current_style = style
+        for line in state.line_originals {
+          if physical_equal(points, line.points) {
+            current_style = line.style
+            break
+          }
+        }
+        // Appearance is a current immutable snapshot; this query must not
+        // trigger conversion of pending original data.
+        result.push(Artist::Line(copy_points(points), current_style))
+      }
+      _ => result.push(copy_artist(artist))
+    }
   }
   result
 }
