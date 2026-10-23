@@ -3578,9 +3578,18 @@ fn render_panel(
   for artist_index, artist in panel.artists() {
     match artist {
       @render.Artist::Line(points, style) =>
-        append_line(
-          writer, scale, left, top, plot_width, plot_height, points, style,
-        )
+        match panel.prepare_line(points) {
+          Some((current, complete)) => {
+            append_line(
+              writer, scale, left, top, plot_width, plot_height, current, style,
+            )
+            complete()
+          }
+          None =>
+            append_line(
+              writer, scale, left, top, plot_width, plot_height, points, style,
+            )
+        }
       @render.Artist::Scatter(points, style) =>
         append_scatter(
           writer, scale, left, top, plot_width, plot_height, points, style,

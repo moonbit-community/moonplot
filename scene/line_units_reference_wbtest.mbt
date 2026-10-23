@@ -56,8 +56,8 @@ fn line_units_source_case_0() -> Unit raise {
         4626322717216342016UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["a", "b"]),
+    LineData::Numeric([
       4621819117588971520UL.reinterpret_as_double(),
       4626322717216342016UL.reinterpret_as_double(),
     ]),
@@ -73,11 +73,11 @@ fn line_units_source_case_0() -> Unit raise {
         4630826316843712512UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Numeric([
+    LineData::Numeric([
       13835058055282163712UL.reinterpret_as_double(),
       4617315517961601024UL.reinterpret_as_double(),
     ]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Numeric([
       4629137466983448576UL.reinterpret_as_double(),
       4630826316843712512UL.reinterpret_as_double(),
     ]),
@@ -144,11 +144,11 @@ fn line_units_source_case_0() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -173,7 +173,7 @@ fn line_units_source_case_0() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[1].x {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         13835058055282163712UL.reinterpret_as_double(),
         4617315517961601024UL.reinterpret_as_double(),
@@ -181,7 +181,7 @@ fn line_units_source_case_0() -> Unit raise {
     _ => fail("expected Numeric original coordinate")
   }
   match panels[0].state.val.line_originals[1].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -239,11 +239,11 @@ fn line_units_source_case_0() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -268,7 +268,7 @@ fn line_units_source_case_0() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[1].x {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         13835058055282163712UL.reinterpret_as_double(),
         4617315517961601024UL.reinterpret_as_double(),
@@ -276,7 +276,7 @@ fn line_units_source_case_0() -> Unit raise {
     _ => fail("expected Numeric original coordinate")
   }
   match panels[0].state.val.line_originals[1].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -309,8 +309,8 @@ fn line_units_source_case_1() -> Unit raise {
         4626322717216342016UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["a", "b"]),
+    LineData::Numeric([
       4621819117588971520UL.reinterpret_as_double(),
       4626322717216342016UL.reinterpret_as_double(),
     ]),
@@ -326,11 +326,11 @@ fn line_units_source_case_1() -> Unit raise {
         4630826316843712512UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Numeric([
+    LineData::Numeric([
       13835058055282163712UL.reinterpret_as_double(),
       4617315517961601024UL.reinterpret_as_double(),
     ]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Numeric([
       4629137466983448576UL.reinterpret_as_double(),
       4630826316843712512UL.reinterpret_as_double(),
     ]),
@@ -398,11 +398,11 @@ fn line_units_source_case_1() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -427,7 +427,7 @@ fn line_units_source_case_1() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[1].x {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         13835058055282163712UL.reinterpret_as_double(),
         4617315517961601024UL.reinterpret_as_double(),
@@ -435,7 +435,7 @@ fn line_units_source_case_1() -> Unit raise {
     _ => fail("expected Numeric original coordinate")
   }
   match panels[0].state.val.line_originals[1].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -493,11 +493,11 @@ fn line_units_source_case_1() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -522,7 +522,7 @@ fn line_units_source_case_1() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[1].x {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         13835058055282163712UL.reinterpret_as_double(),
         4617315517961601024UL.reinterpret_as_double(),
@@ -530,7 +530,7 @@ fn line_units_source_case_1() -> Unit raise {
     _ => fail("expected Numeric original coordinate")
   }
   match panels[0].state.val.line_originals[1].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -563,8 +563,8 @@ fn line_units_source_case_2() -> Unit raise {
         4626322717216342016UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["a", "b"]),
+    LineData::Numeric([
       4621819117588971520UL.reinterpret_as_double(),
       4626322717216342016UL.reinterpret_as_double(),
     ]),
@@ -580,11 +580,11 @@ fn line_units_source_case_2() -> Unit raise {
         4630826316843712512UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Numeric([
+    LineData::Numeric([
       13835058055282163712UL.reinterpret_as_double(),
       4617315517961601024UL.reinterpret_as_double(),
     ]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Numeric([
       4629137466983448576UL.reinterpret_as_double(),
       4630826316843712512UL.reinterpret_as_double(),
     ]),
@@ -652,11 +652,11 @@ fn line_units_source_case_2() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -681,7 +681,7 @@ fn line_units_source_case_2() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[1].x {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         13835058055282163712UL.reinterpret_as_double(),
         4617315517961601024UL.reinterpret_as_double(),
@@ -689,7 +689,7 @@ fn line_units_source_case_2() -> Unit raise {
     _ => fail("expected Numeric original coordinate")
   }
   match panels[0].state.val.line_originals[1].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -750,11 +750,11 @@ fn line_units_source_case_2() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -779,7 +779,7 @@ fn line_units_source_case_2() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[1].x {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         13835058055282163712UL.reinterpret_as_double(),
         4617315517961601024UL.reinterpret_as_double(),
@@ -787,7 +787,7 @@ fn line_units_source_case_2() -> Unit raise {
     _ => fail("expected Numeric original coordinate")
   }
   match panels[0].state.val.line_originals[1].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -820,8 +820,8 @@ fn line_units_source_case_3() -> Unit raise {
         4626322717216342016UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["a", "b"]),
+    LineData::Numeric([
       4621819117588971520UL.reinterpret_as_double(),
       4626322717216342016UL.reinterpret_as_double(),
     ]),
@@ -837,11 +837,11 @@ fn line_units_source_case_3() -> Unit raise {
         4630826316843712512UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Numeric([
+    LineData::Numeric([
       13835058055282163712UL.reinterpret_as_double(),
       4617315517961601024UL.reinterpret_as_double(),
     ]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Numeric([
       4629137466983448576UL.reinterpret_as_double(),
       4630826316843712512UL.reinterpret_as_double(),
     ]),
@@ -912,11 +912,11 @@ fn line_units_source_case_3() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -941,7 +941,7 @@ fn line_units_source_case_3() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[1].x {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         13835058055282163712UL.reinterpret_as_double(),
         4617315517961601024UL.reinterpret_as_double(),
@@ -949,7 +949,7 @@ fn line_units_source_case_3() -> Unit raise {
     _ => fail("expected Numeric original coordinate")
   }
   match panels[0].state.val.line_originals[1].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -1009,11 +1009,11 @@ fn line_units_source_case_3() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -1038,7 +1038,7 @@ fn line_units_source_case_3() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[1].x {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         13835058055282163712UL.reinterpret_as_double(),
         4617315517961601024UL.reinterpret_as_double(),
@@ -1046,7 +1046,7 @@ fn line_units_source_case_3() -> Unit raise {
     _ => fail("expected Numeric original coordinate")
   }
   match panels[0].state.val.line_originals[1].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -1079,8 +1079,8 @@ fn line_units_source_case_4() -> Unit raise {
         4626322717216342016UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["a", "b"]),
+    LineData::Numeric([
       4621819117588971520UL.reinterpret_as_double(),
       4626322717216342016UL.reinterpret_as_double(),
     ]),
@@ -1096,11 +1096,11 @@ fn line_units_source_case_4() -> Unit raise {
         4630826316843712512UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Numeric([
+    LineData::Numeric([
       13835058055282163712UL.reinterpret_as_double(),
       4617315517961601024UL.reinterpret_as_double(),
     ]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Numeric([
       4629137466983448576UL.reinterpret_as_double(),
       4630826316843712512UL.reinterpret_as_double(),
     ]),
@@ -1171,11 +1171,11 @@ fn line_units_source_case_4() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -1200,7 +1200,7 @@ fn line_units_source_case_4() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[1].x {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         13835058055282163712UL.reinterpret_as_double(),
         4617315517961601024UL.reinterpret_as_double(),
@@ -1208,7 +1208,7 @@ fn line_units_source_case_4() -> Unit raise {
     _ => fail("expected Numeric original coordinate")
   }
   match panels[0].state.val.line_originals[1].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -1269,11 +1269,11 @@ fn line_units_source_case_4() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -1298,7 +1298,7 @@ fn line_units_source_case_4() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[1].x {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         13835058055282163712UL.reinterpret_as_double(),
         4617315517961601024UL.reinterpret_as_double(),
@@ -1306,7 +1306,7 @@ fn line_units_source_case_4() -> Unit raise {
     _ => fail("expected Numeric original coordinate")
   }
   match panels[0].state.val.line_originals[1].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -1337,8 +1337,8 @@ fn line_units_source_case_5() -> Unit raise {
         4607182418800017408UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Category(["v", "u"]),
+    LineData::Category(["a", "b"]),
+    LineData::Category(["v", "u"]),
   )
   panels[0].state.val.raw_x_data = @core.limits(
     0UL.reinterpret_as_double(),
@@ -1404,11 +1404,11 @@ fn line_units_source_case_5() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["v", "u"])
+    LineData::Category(values) => assert_eq(values, ["v", "u"])
     _ => fail("expected Category original coordinate")
   }
   let replacement = @axis.CategoryUnits::new(["b", "a"])
@@ -1464,11 +1464,11 @@ fn line_units_source_case_5() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["v", "u"])
+    LineData::Category(values) => assert_eq(values, ["v", "u"])
     _ => fail("expected Category original coordinate")
   }
 }
@@ -1497,8 +1497,8 @@ fn line_units_source_case_6() -> Unit raise {
         4626322717216342016UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["a", "b"]),
+    LineData::Numeric([
       4621819117588971520UL.reinterpret_as_double(),
       4626322717216342016UL.reinterpret_as_double(),
     ]),
@@ -1514,8 +1514,8 @@ fn line_units_source_case_6() -> Unit raise {
         4630826316843712512UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Category(["not-numeric", "bad"]),
+    LineData::Category(["a", "b"]),
+    LineData::Category(["not-numeric", "bad"]),
   )
   panels[0].attach_line_with_originals(
     [
@@ -1528,8 +1528,8 @@ fn line_units_source_case_6() -> Unit raise {
         4633641066610819072UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["a", "b"]),
+    LineData::Numeric([
       4632233691727265792UL.reinterpret_as_double(),
       4633641066610819072UL.reinterpret_as_double(),
     ]),
@@ -1596,11 +1596,11 @@ fn line_units_source_case_6() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -1622,12 +1622,11 @@ fn line_units_source_case_6() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[1].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[1].y {
-    LineOriginalCoordinate::Category(values) =>
-      assert_eq(values, ["not-numeric", "bad"])
+    LineData::Category(values) => assert_eq(values, ["not-numeric", "bad"])
     _ => fail("expected Category original coordinate")
   }
   line_units_ref_points(panels[0].state.val.line_originals[2].points, [
@@ -1645,11 +1644,11 @@ fn line_units_source_case_6() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[2].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[2].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4632233691727265792UL.reinterpret_as_double(),
         4633641066610819072UL.reinterpret_as_double(),
@@ -1714,11 +1713,11 @@ fn line_units_source_case_6() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -1740,12 +1739,11 @@ fn line_units_source_case_6() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[1].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[1].y {
-    LineOriginalCoordinate::Category(values) =>
-      assert_eq(values, ["not-numeric", "bad"])
+    LineData::Category(values) => assert_eq(values, ["not-numeric", "bad"])
     _ => fail("expected Category original coordinate")
   }
   line_units_ref_points(panels[0].state.val.line_originals[2].points, [
@@ -1763,11 +1761,11 @@ fn line_units_source_case_6() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[2].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[2].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4632233691727265792UL.reinterpret_as_double(),
         4633641066610819072UL.reinterpret_as_double(),
@@ -1800,8 +1798,8 @@ fn line_units_source_case_7() -> Unit raise {
         4626322717216342016UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["a", "b"]),
+    LineData::Numeric([
       4621819117588971520UL.reinterpret_as_double(),
       4626322717216342016UL.reinterpret_as_double(),
       4629137466983448576UL.reinterpret_as_double(),
@@ -1869,11 +1867,11 @@ fn line_units_source_case_7() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -1941,11 +1939,11 @@ fn line_units_source_case_7() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -1980,8 +1978,8 @@ fn line_units_source_case_8() -> Unit raise {
         4626322717216342016UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(incoming),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(incoming),
+    LineData::Numeric([
       4621819117588971520UL.reinterpret_as_double(),
       4626322717216342016UL.reinterpret_as_double(),
     ]),
@@ -2049,11 +2047,11 @@ fn line_units_source_case_8() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -2110,11 +2108,11 @@ fn line_units_source_case_8() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -2151,8 +2149,8 @@ fn line_units_source_case_14() -> Unit raise {
         4613937818241073152UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["a"]),
+    LineData::Numeric([
       4607182418800017408UL.reinterpret_as_double(),
       4611686018427387904UL.reinterpret_as_double(),
       4613937818241073152UL.reinterpret_as_double(),
@@ -2218,11 +2216,11 @@ fn line_units_source_case_14() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a"])
+    LineData::Category(values) => assert_eq(values, ["a"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4607182418800017408UL.reinterpret_as_double(),
         4611686018427387904UL.reinterpret_as_double(),
@@ -2278,11 +2276,11 @@ fn line_units_source_case_14() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a"])
+    LineData::Category(values) => assert_eq(values, ["a"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4607182418800017408UL.reinterpret_as_double(),
         4611686018427387904UL.reinterpret_as_double(),
@@ -2321,8 +2319,8 @@ fn line_units_source_case_15() -> Unit raise {
         4671150871432658944UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Date([
+    LineData::Category(["a", "b"]),
+    LineData::Date([
       @date.RRuleDateTime::aware(
         @date.datetime(
           2024,
@@ -2418,11 +2416,11 @@ fn line_units_source_case_15() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Date(values) => {
+    LineData::Date(values) => {
       assert_eq(values.length(), 2)
       assert_eq(values[0].is_naive(), false)
       assert_eq(
@@ -2513,11 +2511,11 @@ fn line_units_source_case_15() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Date(values) => {
+    LineData::Date(values) => {
       assert_eq(values.length(), 2)
       assert_eq(values[0].is_naive(), false)
       assert_eq(
@@ -2581,7 +2579,7 @@ fn line_units_source_case_16() -> Unit raise {
         4607182418800017408UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Date([
+    LineData::Date([
       @date.RRuleDateTime::aware(
         @date.datetime(
           2024,
@@ -2607,7 +2605,7 @@ fn line_units_source_case_16() -> Unit raise {
         ),
       ),
     ]),
-    LineOriginalCoordinate::Category(["u", "v"]),
+    LineData::Category(["u", "v"]),
   )
   panels[0].state.val.raw_x_data = @core.limits(
     4671150630914490368UL.reinterpret_as_double(),
@@ -2678,7 +2676,7 @@ fn line_units_source_case_16() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Date(values) => {
+    LineData::Date(values) => {
       assert_eq(values.length(), 2)
       assert_eq(values[0].is_naive(), false)
       assert_eq(
@@ -2712,7 +2710,7 @@ fn line_units_source_case_16() -> Unit raise {
     _ => fail("expected Date original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["u", "v"])
+    LineData::Category(values) => assert_eq(values, ["u", "v"])
     _ => fail("expected Category original coordinate")
   }
   let replacement = @axis.CategoryUnits::new(["v", "u"])
@@ -2773,7 +2771,7 @@ fn line_units_source_case_16() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Date(values) => {
+    LineData::Date(values) => {
       assert_eq(values.length(), 2)
       assert_eq(values[0].is_naive(), false)
       assert_eq(
@@ -2807,7 +2805,7 @@ fn line_units_source_case_16() -> Unit raise {
     _ => fail("expected Date original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["u", "v"])
+    LineData::Category(values) => assert_eq(values, ["u", "v"])
     _ => fail("expected Category original coordinate")
   }
 }
@@ -2841,7 +2839,7 @@ fn line_units_source_case_17() -> Unit raise {
         0UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Date([
+    LineData::Date([
       @date.RRuleDateTime::aware(
         @date.datetime(
           2024,
@@ -2867,7 +2865,7 @@ fn line_units_source_case_17() -> Unit raise {
         ),
       ),
     ]),
-    LineOriginalCoordinate::Category(["u", "v"]),
+    LineData::Category(["u", "v"]),
   )
   panels[0].state.val.raw_x_data = @core.limits(
     4671150630914490368UL.reinterpret_as_double(),
@@ -2939,7 +2937,7 @@ fn line_units_source_case_17() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Date(values) => {
+    LineData::Date(values) => {
       assert_eq(values.length(), 2)
       assert_eq(values[0].is_naive(), false)
       assert_eq(
@@ -2973,7 +2971,7 @@ fn line_units_source_case_17() -> Unit raise {
     _ => fail("expected Date original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["u", "v"])
+    LineData::Category(values) => assert_eq(values, ["u", "v"])
     _ => fail("expected Category original coordinate")
   }
   panels[0].set_x_units(
@@ -3035,7 +3033,7 @@ fn line_units_source_case_17() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Date(values) => {
+    LineData::Date(values) => {
       assert_eq(values.length(), 2)
       assert_eq(values[0].is_naive(), false)
       assert_eq(
@@ -3069,7 +3067,7 @@ fn line_units_source_case_17() -> Unit raise {
     _ => fail("expected Date original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["u", "v"])
+    LineData::Category(values) => assert_eq(values, ["u", "v"])
     _ => fail("expected Category original coordinate")
   }
 }
@@ -3099,8 +3097,8 @@ fn line_units_source_case_18() -> Unit raise {
         4626322717216342016UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["a", "b"]),
+    LineData::Numeric([
       4621819117588971520UL.reinterpret_as_double(),
       4626322717216342016UL.reinterpret_as_double(),
     ]),
@@ -3167,11 +3165,11 @@ fn line_units_source_case_18() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -3189,8 +3187,8 @@ fn line_units_source_case_18() -> Unit raise {
         4630826316843712512UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["b", "a"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["b", "a"]),
+    LineData::Numeric([
       4629137466983448576UL.reinterpret_as_double(),
       4630826316843712512UL.reinterpret_as_double(),
     ]),
@@ -3257,11 +3255,11 @@ fn line_units_source_case_18() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[1].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["b", "a"])
+    LineData::Category(values) => assert_eq(values, ["b", "a"])
     _ => fail("expected Category original coordinate")
   }
   match panels[1].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -3322,11 +3320,11 @@ fn line_units_source_case_18() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -3385,11 +3383,11 @@ fn line_units_source_case_18() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[1].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["b", "a"])
+    LineData::Category(values) => assert_eq(values, ["b", "a"])
     _ => fail("expected Category original coordinate")
   }
   match panels[1].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -3430,8 +3428,8 @@ fn line_units_source_case_19() -> Unit raise {
         4626322717216342016UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Category(["bad", "data"]),
+    LineData::Category(["a", "b"]),
+    LineData::Category(["bad", "data"]),
   )
   panels[0].state.val.raw_x_data = @core.limits(
     0UL.reinterpret_as_double(),
@@ -3495,12 +3493,11 @@ fn line_units_source_case_19() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Category(values) =>
-      assert_eq(values, ["bad", "data"])
+    LineData::Category(values) => assert_eq(values, ["bad", "data"])
     _ => fail("expected Category original coordinate")
   }
   panels[1].attach_line_with_originals(
@@ -3514,8 +3511,8 @@ fn line_units_source_case_19() -> Unit raise {
         4630826316843712512UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["b", "a"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["b", "a"]),
+    LineData::Numeric([
       4629137466983448576UL.reinterpret_as_double(),
       4630826316843712512UL.reinterpret_as_double(),
     ]),
@@ -3582,11 +3579,11 @@ fn line_units_source_case_19() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[1].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["b", "a"])
+    LineData::Category(values) => assert_eq(values, ["b", "a"])
     _ => fail("expected Category original coordinate")
   }
   match panels[1].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -3651,12 +3648,11 @@ fn line_units_source_case_19() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Category(values) =>
-      assert_eq(values, ["bad", "data"])
+    LineData::Category(values) => assert_eq(values, ["bad", "data"])
     _ => fail("expected Category original coordinate")
   }
   assert_eq(panels[1].state.val.x_axis.unit_converter_kind(), Some("category"))
@@ -3711,11 +3707,11 @@ fn line_units_source_case_19() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[1].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["b", "a"])
+    LineData::Category(values) => assert_eq(values, ["b", "a"])
     _ => fail("expected Category original coordinate")
   }
   match panels[1].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4629137466983448576UL.reinterpret_as_double(),
         4630826316843712512UL.reinterpret_as_double(),
@@ -3756,8 +3752,8 @@ fn line_units_source_case_20() -> Unit raise {
         4626322717216342016UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["a", "b"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["a", "b"]),
+    LineData::Numeric([
       4621819117588971520UL.reinterpret_as_double(),
       4626322717216342016UL.reinterpret_as_double(),
     ]),
@@ -3824,11 +3820,11 @@ fn line_units_source_case_20() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -3846,8 +3842,8 @@ fn line_units_source_case_20() -> Unit raise {
         4630826316843712512UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["b", "a"]),
-    LineOriginalCoordinate::Category(["bad", "data"]),
+    LineData::Category(["b", "a"]),
+    LineData::Category(["bad", "data"]),
   )
   panels[1].state.val.raw_x_data = @core.limits(
     0UL.reinterpret_as_double(),
@@ -3911,12 +3907,11 @@ fn line_units_source_case_20() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[1].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["b", "a"])
+    LineData::Category(values) => assert_eq(values, ["b", "a"])
     _ => fail("expected Category original coordinate")
   }
   match panels[1].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Category(values) =>
-      assert_eq(values, ["bad", "data"])
+    LineData::Category(values) => assert_eq(values, ["bad", "data"])
     _ => fail("expected Category original coordinate")
   }
   let replacement = @axis.CategoryUnits::new(["z", "b"])
@@ -3977,11 +3972,11 @@ fn line_units_source_case_20() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a", "b"])
+    LineData::Category(values) => assert_eq(values, ["a", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4621819117588971520UL.reinterpret_as_double(),
         4626322717216342016UL.reinterpret_as_double(),
@@ -4037,12 +4032,11 @@ fn line_units_source_case_20() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[1].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["b", "a"])
+    LineData::Category(values) => assert_eq(values, ["b", "a"])
     _ => fail("expected Category original coordinate")
   }
   match panels[1].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Category(values) =>
-      assert_eq(values, ["bad", "data"])
+    LineData::Category(values) => assert_eq(values, ["bad", "data"])
     _ => fail("expected Category original coordinate")
   }
   assert_eq(
@@ -4069,10 +4063,8 @@ fn line_units_source_case_21() -> Unit raise {
   ignore(panels[0].state.val.x_axis.update_category_units(["a", "b"]))
   panels[0].attach_line_with_originals(
     [],
-    LineOriginalCoordinate::Category([]),
-    LineOriginalCoordinate::Numeric([
-      4607182418800017408UL.reinterpret_as_double(),
-    ]),
+    LineData::Category([]),
+    LineData::Numeric([4607182418800017408UL.reinterpret_as_double()]),
   )
   panels[0].state.val.raw_x_data = @core.limits(
     9218868437227405312UL.reinterpret_as_double(),
@@ -4130,11 +4122,11 @@ fn line_units_source_case_21() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, [])
+    LineData::Category(values) => assert_eq(values, [])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4607182418800017408UL.reinterpret_as_double(),
       ])
@@ -4185,11 +4177,11 @@ fn line_units_source_case_21() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, [])
+    LineData::Category(values) => assert_eq(values, [])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4607182418800017408UL.reinterpret_as_double(),
       ])
@@ -4212,8 +4204,8 @@ fn line_units_source_case_22() -> Unit raise {
   ignore(panels[0].state.val.x_axis.update_category_units(["a", "b"]))
   panels[0].attach_line_with_originals(
     [],
-    LineOriginalCoordinate::Category(["a"]),
-    LineOriginalCoordinate::Numeric([]),
+    LineData::Category(["a"]),
+    LineData::Numeric([]),
   )
   panels[0].state.val.raw_x_data = @core.limits(
     9218868437227405312UL.reinterpret_as_double(),
@@ -4271,12 +4263,11 @@ fn line_units_source_case_22() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a"])
+    LineData::Category(values) => assert_eq(values, ["a"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
-      line_units_ref_numbers(values, [])
+    LineData::Numeric(values) => line_units_ref_numbers(values, [])
     _ => fail("expected Numeric original coordinate")
   }
   let replacement = @axis.CategoryUnits::new(["b", "a"])
@@ -4324,12 +4315,11 @@ fn line_units_source_case_22() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) => assert_eq(values, ["a"])
+    LineData::Category(values) => assert_eq(values, ["a"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
-      line_units_ref_numbers(values, [])
+    LineData::Numeric(values) => line_units_ref_numbers(values, [])
     _ => fail("expected Numeric original coordinate")
   }
 }
@@ -4358,8 +4348,8 @@ fn line_units_source_case_23() -> Unit raise {
         4626322717216342016UL.reinterpret_as_double(),
       ),
     ],
-    LineOriginalCoordinate::Category(["fresh", "b"]),
-    LineOriginalCoordinate::Numeric([
+    LineData::Category(["fresh", "b"]),
+    LineData::Numeric([
       4607182418800017408UL.reinterpret_as_double(),
       4611686018427387904UL.reinterpret_as_double(),
       4613937818241073152UL.reinterpret_as_double(),
@@ -4427,12 +4417,11 @@ fn line_units_source_case_23() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) =>
-      assert_eq(values, ["fresh", "b"])
+    LineData::Category(values) => assert_eq(values, ["fresh", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4607182418800017408UL.reinterpret_as_double(),
         4611686018427387904UL.reinterpret_as_double(),
@@ -4500,12 +4489,11 @@ fn line_units_source_case_23() -> Unit raise {
     _ => fail("expected exact Line buffer")
   }
   match panels[0].state.val.line_originals[0].x {
-    LineOriginalCoordinate::Category(values) =>
-      assert_eq(values, ["fresh", "b"])
+    LineData::Category(values) => assert_eq(values, ["fresh", "b"])
     _ => fail("expected Category original coordinate")
   }
   match panels[0].state.val.line_originals[0].y {
-    LineOriginalCoordinate::Numeric(values) =>
+    LineData::Numeric(values) =>
       line_units_ref_numbers(values, [
         4607182418800017408UL.reinterpret_as_double(),
         4611686018427387904UL.reinterpret_as_double(),

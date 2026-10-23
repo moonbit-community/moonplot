@@ -1,4 +1,10 @@
 ///|
+/// Parse a numeric string with the shared Python float-text semantics.
+pub fn parse_float_text(value : String) -> Double raise @core.DataError {
+  log_text_float(value)
+}
+
+///|
 // Python float(str) shares decimal digits and outer whitespace with the
 // existing int-text consumer, but has no integer digit limit or repr truncation.
 fn log_text_float(value : String) -> Double raise @core.DataError {

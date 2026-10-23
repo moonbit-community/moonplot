@@ -97,8 +97,8 @@ pub fn Axes::plot_category(
 ) -> Unit raise @core.DataError {
   self.attach_line_with_originals(
     category_x_points(self, categories, values),
-    LineOriginalCoordinate::Category(categories),
-    LineOriginalCoordinate::Numeric(values),
+    LineData::Category(categories),
+    LineData::Numeric(values),
     color~,
     label~,
   )
@@ -139,8 +139,8 @@ pub fn Axes::plot_category_y(
 ) -> Unit raise @core.DataError {
   self.attach_line_with_originals(
     category_y_points(self, values, categories),
-    LineOriginalCoordinate::Numeric(values),
-    LineOriginalCoordinate::Category(categories),
+    LineData::Numeric(values),
+    LineData::Category(categories),
     color~,
     label~,
   )

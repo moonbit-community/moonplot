@@ -30,6 +30,8 @@ pub using @scene {
   type Artist,
   type Axes,
   type Figure,
+  type Line2D,
+  type LineData,
   type SubFigure,
   type Histogram,
   type ContourSet,

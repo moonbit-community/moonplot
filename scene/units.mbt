@@ -81,8 +81,8 @@ pub fn Axes::plot_date_units(
   let points = @core.series(ordinals, values).points()
   self.attach_line_with_originals(
     points,
-    LineOriginalCoordinate::Date(dates),
-    LineOriginalCoordinate::Numeric(values),
+    LineData::Date(dates),
+    LineData::Numeric(values),
     color~,
     label~,
   )

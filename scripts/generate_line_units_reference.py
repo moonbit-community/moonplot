@@ -268,21 +268,21 @@ def rule_date(value):
  return '@date.RRuleDateTime::'+('naive'if offset is None else'aware')+'('+out+')'
 
 def original_code(values,*,empty_category=False):
- if values and isinstance(values[0],dict):return 'LineOriginalCoordinate::Date(['+', '.join(rule_date(v)for v in values)+'])'
- if values and isinstance(values[0],str)or not values and empty_category:return 'LineOriginalCoordinate::Category('+moon(values)+')'
- return 'LineOriginalCoordinate::Numeric('+moon([float(v)for v in values])+')'
+ if values and isinstance(values[0],dict):return 'LineData::Date(['+', '.join(rule_date(v)for v in values)+'])'
+ if values and isinstance(values[0],str)or not values and empty_category:return 'LineData::Category('+moon(values)+')'
+ return 'LineData::Numeric('+moon([float(v)for v in values])+')'
 
 def original_assert(value,expected,empty_category=False):
  if expected and isinstance(expected[0],dict):
-  out=['match '+value+' { LineOriginalCoordinate::Date(values) => {','assert_eq(values.length(), '+str(len(expected))+')']
+  out=['match '+value+' { LineData::Date(values) => {','assert_eq(values.length(), '+str(len(expected))+')']
   for i,item in enumerate(expected):
    d=dt.datetime.fromisoformat(item['datetime']);v='values['+str(i)+']'
    out+=['assert_eq('+v+'.is_naive(), '+moon(item['offset_seconds']is None)+')',
          'assert_eq(['+', '.join(v+'.date().'+field+'()'for field in['year','month','day','hour','minute','second','microsecond','offset_seconds'])+'], '+moon([d.year,d.month,d.day,d.hour,d.minute,d.second,d.microsecond,item['offset_seconds']or 0])+')']
   return out+['}; _ => fail("expected Date original coordinate") }']
  if expected and isinstance(expected[0],str)or not expected and empty_category:
-  return ['match '+value+' { LineOriginalCoordinate::Category(values) => assert_eq(values, '+moon(expected)+'); _ => fail("expected Category original coordinate") }']
- return ['match '+value+' { LineOriginalCoordinate::Numeric(values) => line_units_ref_numbers(values, '+moon([float(v)for v in expected])+'); _ => fail("expected Numeric original coordinate") }']
+  return ['match '+value+' { LineData::Category(values) => assert_eq(values, '+moon(expected)+'); _ => fail("expected Category original coordinate") }']
+ return ['match '+value+' { LineData::Numeric(values) => line_units_ref_numbers(values, '+moon([float(v)for v in expected])+'); _ => fail("expected Numeric original coordinate") }']
 
 def assert_snapshot(s,i):
  panel='panels['+str(i)+']';state=panel+'.state.val';out=[]
@@ -341,7 +341,7 @@ def render_case(row):
    y=original_code(line['yorig'],empty_category=not line['yorig']and s['yconverter']=='StrCategoryConverter')
    if index==8:
     out+=['let incoming = '+moon(line['xorig'])]
-    x='LineOriginalCoordinate::Category(incoming)'
+    x='LineData::Category(incoming)'
    out += [panel+'.attach_line_with_originals(['+', '.join('@core.point('+moon(float(p[0]))+', '+moon(float(p[1]))+')'for p in line['xy'])+'], '+x+', '+y+')']
    if index==8:out+=['incoming[0] = "outside"']
   out += [state+'.raw_x_data = @core.limits('+moon(float(s['data'][0][0]))+', '+moon(float(s['data'][1][0]))+')',

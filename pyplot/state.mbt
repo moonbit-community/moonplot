@@ -168,6 +168,17 @@ pub fn plot(
 }
 
 ///|
+/// Add typed line data and retain a mutable data handle.
+pub fn plot_line(
+  xs : @scene.LineData,
+  ys : @scene.LineData,
+  color~ : String = "",
+  label~ : String = "",
+) -> @scene.Line2D raise @core.DataError {
+  require_axes().plot_line(xs, ys, color~, label~)
+}
+
+///|
 /// Add a line whose x coordinates are string categories to the current axes.
 pub fn plot_category(
   categories : Array[String],

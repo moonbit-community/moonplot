@@ -102,6 +102,10 @@ pub using @gridspec {type LayoutError}
 
 pub using @core {type Limits}
 
+pub using @scene {type Line2D}
+
+pub using @scene {type LineData}
+
 pub using @core {type MaskError}
 
 pub using @core {type MaskedArray}

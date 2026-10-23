@@ -71,6 +71,12 @@ fn Axes::update_artist_data_limits(self : Axes, artist : Artist) -> Unit {
 /// This does not request a view update or enable autoscaling.
 /// Scene artists do not yet expose a visibility property.
 pub fn Axes::relim(self : Axes) -> Unit {
+  try! self.relim_checked()
+}
+
+///|
+/// Rebuild data limits in artist order, retaining a merged prefix on failure.
+pub fn Axes::relim_checked(self : Axes) -> Unit raise @core.DataError {
   let state = self.state.val
   state.raw_x_data = empty_data_interval()
   state.raw_y_data = empty_data_interval()
@@ -78,6 +84,14 @@ pub fn Axes::relim(self : Axes) -> Unit {
   // The next successful ignore update resets only its selected coordinates.
   state.ignore_existing_data_limits = true
   for artist in state.artists {
+    if artist is Artist::Line(points, _) {
+      for line in state.line_originals {
+        if physical_equal(points, line.points) {
+          ignore(line.points_snapshot_checked())
+          break
+        }
+      }
+    }
     self.update_artist_data_limits(artist)
   }
 }

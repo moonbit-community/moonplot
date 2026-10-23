@@ -192,7 +192,7 @@ fn default_color_cycle() -> Array[String] {
 /// Mutable state owned by one independent axes panel.
 struct AxesData {
   artists : Array[Artist]
-  line_originals : Array[LineOriginal]
+  line_originals : Array[Line2D]
   x_axis : @axis.Axis
   y_axis : @axis.Axis
   mut title : String?
@@ -256,6 +256,9 @@ fn SubFigureData::clear_titles(self : SubFigureData) -> Unit {
 
 ///|
 fn AxesData::clear_presentation(self : AxesData) -> Unit {
+  for line in self.line_originals {
+    line.detach()
+  }
   self.artists.clear()
   self.line_originals.clear()
   self.title = None
@@ -1519,8 +1522,8 @@ pub fn Axes::line(
 ) -> Unit {
   self.attach_line_with_originals(
     points,
-    LineOriginalCoordinate::Numeric(points.map(point => point.x())),
-    LineOriginalCoordinate::Numeric(points.map(point => point.y())),
+    LineData::Numeric(points.map(point => point.x())),
+    LineData::Numeric(points.map(point => point.y())),
     color~,
     label~,
   )

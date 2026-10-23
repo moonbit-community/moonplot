@@ -185,6 +185,8 @@ pub fn plot_category_y(Array[Double], Array[String], color? : String, label? : S
 
 pub fn plot_date(Array[@date.DateTime], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 
+pub fn plot_line(@scene.LineData, @scene.LineData, color? : String, label? : String) -> @scene.Line2D raise @core.DataError
+
 pub fn plot_masked(@core.MaskedArray, @core.MaskedArray, color? : String, label? : String) -> Unit raise @core.DataError
 
 pub fn quiver(Array[Double], Array[Double], Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError

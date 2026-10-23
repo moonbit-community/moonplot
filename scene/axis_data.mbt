@@ -40,7 +40,7 @@ fn Axes::bind_axis_data(self : Axes, horizontal : Bool) -> Unit {
   axis.bind_units_changed(() => {
     let axes : Axes = { figure, state, }
     axes.recache_line_units()
-    axes.relim()
+    axes.relim_checked()
     axes.request_autoscale_view(axis=if horizontal { "x" } else { "y" })
   })
   axis.bind_autoscale_view(() => {

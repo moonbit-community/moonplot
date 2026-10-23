@@ -202,11 +202,13 @@ pub fn Axes::plot_category(Self, Array[String], Array[Double], color? : String, 
 pub fn Axes::plot_category_y(Self, Array[Double], Array[String], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::plot_date(Self, Array[@date.DateTime], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::plot_date_units(Self, Array[@date.RRuleDateTime], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
+pub fn Axes::plot_line(Self, LineData, LineData, color? : String, label? : String) -> Line2D raise @core.DataError
 pub fn Axes::plot_masked(Self, @core.MaskedArray, @core.MaskedArray, color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::quiver(Self, Array[Double], Array[Double], Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::quiverkey(Self, Double, Double, Double, String, color? : String) -> Unit raise @core.DataError
 pub fn Axes::rect(Self) -> @gridspec.Rect?
 pub fn Axes::relim(Self) -> Unit
+pub fn Axes::relim_checked(Self) -> Unit raise @core.DataError
 pub fn Axes::remove(Self) -> Unit raise @core.DataError
 pub fn Axes::request_autoscale_view(Self, axis? : String, tight? : Bool) -> Unit raise @core.DataError
 pub fn Axes::reset_position(Self) -> Unit raise @core.DataError
@@ -514,6 +516,7 @@ pub fn Figure::plot_category(Self, Array[String], Array[Double], color? : String
 pub fn Figure::plot_category_y(Self, Array[Double], Array[String], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::plot_date(Self, Array[@date.DateTime], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::plot_date_units(Self, Array[@date.RRuleDateTime], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
+pub fn Figure::plot_line(Self, LineData, LineData, color? : String, label? : String) -> Line2D raise @core.DataError
 pub fn Figure::plot_masked(Self, @core.MaskedArray, @core.MaskedArray, color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::quiver(Self, Array[Double], Array[Double], Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::quiverkey(Self, Double, Double, Double, String, color? : String) -> Unit raise @core.DataError
@@ -705,6 +708,28 @@ pub(all) enum LegendKind {
   Line
   Marker
   Patch
+}
+
+pub struct Line2D {
+  // private fields
+}
+pub fn Line2D::data_values_checked(Self) -> (@ticker.TickValues, @ticker.TickValues) raise @core.DataError
+pub fn Line2D::get_data(Self) -> (LineData, LineData)
+pub fn Line2D::get_xdata(Self) -> LineData
+pub fn Line2D::get_ydata(Self) -> LineData
+pub fn Line2D::recache_checked(Self, always? : Bool) -> Unit raise @core.DataError
+pub fn Line2D::set_data(Self, LineData, LineData) -> Unit
+pub fn Line2D::set_xdata(Self, LineData) -> Unit
+pub fn Line2D::set_ydata(Self, LineData) -> Unit
+pub fn Line2D::stale(Self) -> Bool
+pub fn Line2D::x_values_checked(Self) -> @ticker.TickValues raise @core.DataError
+pub fn Line2D::xy_values_checked(Self) -> @ticker.TickValues raise @core.DataError
+pub fn Line2D::y_values_checked(Self) -> @ticker.TickValues raise @core.DataError
+
+pub(all) enum LineData {
+  Numeric(Array[Double])
+  Category(Array[String])
+  Date(Array[@date.RRuleDateTime])
 }
 
 pub struct PathCollection {

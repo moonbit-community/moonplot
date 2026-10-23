@@ -46,6 +46,8 @@ pub fn multiple_locator(base? : Double, offset? : Double) -> Locator raise @core
 
 pub fn null_formatter() -> Formatter
 
+pub fn parse_float_text(String) -> Double raise @core.DataError
+
 pub fn percent_formatter(xmax? : Double, decimals? : Int, symbol? : String) -> Formatter raise @core.DataError
 
 pub fn scalar_formatter(use_offset? : Bool, use_math_text? : Bool, power_min? : Int, power_max? : Int) -> Formatter raise @core.DataError

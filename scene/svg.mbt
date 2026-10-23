@@ -317,6 +317,9 @@ fn Figure::to_render_figure(
   let panels = Array(capacity=states.length())
   for state_ref in states {
     let state = state_ref.val
+    // Pin this frame's stable Line identities, without touching invalid data.
+    // A later clear/new attachment must not redirect an old IR completion.
+    let lines = state.line_originals.copy()
     let artists = Array(capacity=state.artists.length())
     for artist in state.artists {
       artists.push(to_render_artist(artist))
@@ -373,6 +376,15 @@ fn Figure::to_render_figure(
         anchor=try! state.anchor.coordinates(),
         adjustable=state.adjustable,
         box_aspect?,
+        line_provider=Some(points => {
+          for line in lines {
+            if physical_equal(points, line.points) {
+              let current = line.points_snapshot_checked()
+              return Some((current, () => line.mark_drawn()))
+            }
+          }
+          None
+        }),
       ),
     )
   }
