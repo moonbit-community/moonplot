@@ -55,6 +55,7 @@ fn line_data_source_detached(x : LineData, y : LineData) -> Line2D {
     owner: None,
     removal_parent: None,
     style: @core.style("#1f77b4"),
+    source_color: false,
     visible: true,
     stale: true,
   }

@@ -383,7 +383,20 @@ fn Figure::to_render_figure(
                 return Some(([], line.style, () => ()))
               }
               let current = line.points_snapshot_checked()
-              return Some((current, line.style, () => line.mark_drawn()))
+              let style = line.style
+              let drawing_style = if line.source_color && !current.is_empty() {
+                @core.style(
+                  line_color_rgba(style.color()).to_css(),
+                  width=style.width(),
+                  radius=style.radius(),
+                  fill=style.fill(),
+                  font_size=style.font_size(),
+                  marker=style.marker(),
+                )
+              } else {
+                style
+              }
+              return Some((current, drawing_style, () => line.mark_drawn()))
             }
           }
           None

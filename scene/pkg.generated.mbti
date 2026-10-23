@@ -714,6 +714,7 @@ pub struct Line2D {
   // private fields
 }
 pub fn Line2D::data_values_checked(Self) -> (@ticker.TickValues, @ticker.TickValues) raise @core.DataError
+pub fn Line2D::get_color(Self) -> String
 pub fn Line2D::get_data(Self) -> (LineData, LineData)
 pub fn Line2D::get_linewidth(Self) -> Double
 pub fn Line2D::get_visible(Self) -> Bool
@@ -721,6 +722,7 @@ pub fn Line2D::get_xdata(Self) -> LineData
 pub fn Line2D::get_ydata(Self) -> LineData
 pub fn Line2D::recache_checked(Self, always? : Bool) -> Unit raise @core.DataError
 pub fn Line2D::remove(Self) -> Unit raise @core.DataError
+pub fn Line2D::set_color(Self, String) -> Unit raise @core.DataError
 pub fn Line2D::set_data(Self, LineData, LineData) -> Unit
 pub fn Line2D::set_linewidth(Self, Double) -> Unit
 pub fn Line2D::set_visible(Self, Bool) -> Unit

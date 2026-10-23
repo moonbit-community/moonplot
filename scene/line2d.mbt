@@ -11,6 +11,7 @@ priv struct Line2DCache {
 pub struct Line2D {
   priv points : Array[@core.Point]
   priv mut style : @core.Style
+  priv mut source_color : Bool
   priv mut x : LineData
   priv mut y : LineData
   priv mut cache : Line2DCache
@@ -113,6 +114,32 @@ pub fn Line2D::set_visible(self : Line2D, visible : Bool) -> Unit {
 ///|
 pub fn Line2D::get_linewidth(self : Line2D) -> Double {
   self.style.width()
+}
+
+///|
+/// Return the original color spelling, without resolving a color-cycle token.
+pub fn Line2D::get_color(self : Line2D) -> String {
+  self.style.color()
+}
+
+///|
+/// Validate a source color and preserve its spelling for later drawing.
+pub fn Line2D::set_color(
+  self : Line2D,
+  color : String,
+) -> Unit raise @core.DataError {
+  line_color_validate(color)
+  let style = self.style
+  self.style = @core.style(
+    color,
+    width=style.width(),
+    radius=style.radius(),
+    fill=style.fill(),
+    font_size=style.font_size(),
+    marker=style.marker(),
+  )
+  self.source_color = true
+  self.stale = true
 }
 
 ///|

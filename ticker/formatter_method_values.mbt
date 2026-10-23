@@ -69,6 +69,12 @@ fn method_quote(value : String, ascii~ : Bool = false) -> String {
 }
 
 ///|
+/// Represent a String using the existing Python quoting and Unicode profile.
+pub fn python_string_repr(value : String) -> String {
+  method_quote(value)
+}
+
+///|
 fn method_type_name(value : MethodFormatValue) -> String {
   match value {
     Scalar(PythonFloat(_)) => "float"
