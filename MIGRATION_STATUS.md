@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D48 linewidth/liveStyle已验收并提交bdc57b1/c635b17，D49 String color已验收并提交9510dad/027f9b3，D50alpha已验收并提交372ec54/b8c2044，D51linestyle已验收并提交b06ed77/3134baa，D52drawstyle必要source/design已备待Root读，D47已验收提交94cfe00/b607073/f904d5e，D46已验收提交f12f161/ca6c47e/5a11683；D45已完整验收提交8c6c534/65cba7d/ce6326c，D44已完整验收并提交9257f05/5b183df/62bf560；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
+- 当前切片编号：D48 linewidth/liveStyle已验收并提交bdc57b1/c635b17，D49 String color已验收并提交9510dad/027f9b3，D50alpha已验收并提交372ec54/b8c2044，D51linestyle已验收并提交b06ed77/3134baa，D52drawstyle已验收并提交1740934/c821ac9，D53gapcolor必要source/design准备中，D47已验收提交94cfe00/b607073/f904d5e，D46已验收提交f12f161/ca6c47e/5a11683；D45已完整验收提交8c6c534/65cba7d/ce6326c，D44已完整验收并提交9257f05/5b183df/62bf560；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D51 full55009/final1406/sourcechecks全过并featureb06ed77/formal3134baa；本checkpointcommit→D52-before→读A183line notes/actual75records+完整probe与B/C设计，再freeze drawstyle/cachedPath。全trackedSTOP，无live工具；勿重D51及更早门禁。D51-before d510f8d/41mbti已存。D48-beforef904d5e/41mbti已存；D47已过勿重门禁。D47-before5a11683/41mbti已存，D46门禁已过已提交不重。D46-before ce6326c/41mbti已存；D45全过已commit，不重门禁。D45-before62bf560/41mbti已保存；D44累计nonJS22063/JS22070已验收，不重D44门禁。D44-before61f36fb/41mbti已保存，不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：D52 full50447/final55524/sourcechecks全过并1740934/c821ac9；本checkpointcommit→D53-before→读A最终gapcolor notes/54实际records、B/C必要设计再freeze两笔stroke。全trackedSTOP，无live工具，D53未实施；勿重D52与更早门禁。D52-before dce368f/41mbti已存。D48-beforef904d5e/41mbti已存；D47已过勿重门禁。D47-before5a11683/41mbti已存，D46门禁已过已提交不重。D46-before ce6326c/41mbti已存；D45全过已commit，不重门禁。D45-before62bf560/41mbti已保存；D44累计nonJS22063/JS22070已验收，不重D44门禁。D44-before61f36fb/41mbti已保存，不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -6398,3 +6398,99 @@ D51 formal/docs 3134baa（12files/16664insertions/5deletions）已本地提交�
 验收；下一checkpointcommit，勿重门禁。A D52最终183line source notes/完整75records JSON
 SHAa47d23b3136bbdeeccb9a7ac08b912405752605a44035f46e6d8c7336c9e34f4已STOP，Root尚待读。
 C133line设计已读（5choice supportedvalues纠正），B必要内核notes收束仅ignored。没有live工具。
+
+## D52 已冻结，String drawstyle / cached Path / processed query 分离
+
+D52-before dce368f4476d9ceb66348a88968c18d13c8efe04 HEAD/tracked.tar/41mbti已存勿覆盖。
+Root全文读A183line notes/162line实际probe/75records（中段28–36补读所有pathbits），独核setter/
+矩阵raw/data/minpos/requests/view/unit/Pathmetadata不变字段及完整native metadata；JSON SHA
+ a47d23b3136bbdeeccb9a7ac08b912405752605a44035f46e6d8c7336c9e34f4。已读B191/C133line设计，
+原Line必要方法/3step/cbookfloatcoercion/完整Pathconstructor与update/vertices/codes。真实Path
+5c726cf2765c7c4549de79d3327adabd5613dba0dd4e9bf208fafb48799ee12f，非旧PathStorage简化。
+
+pub Line get_drawstyle()->String/set_drawstyle(String) raises DataError，支持原ordered五names
+(default/steps-mid/steps-pre/steps-post/steps)，getter留steps不canonical。先validate，invalid全保；
+same完全保flags/stale，changed仅invalidX=true/stale=true+新String，yflag保、不eagerrecache。
+Roothelper line_drawstyle_invalid_message为Pythonrepr+原Supported values有序列表（5项无fuzzy）。
+75source中id12nativeNone唯一sourceonly，74typed；完整原fields/metadata保，physical ndarray
+shape/strides/contiguity、Pathmetadata/warnings不冒typedlayout/generalPath/GUIwarning兼容。
+
+Line新增private drawstyle default和path_values:TickValues。pub path_values_checked借用flat
+[x0,y0,...]，是原get_path.vertices的typed桥，eitherinvalid recache；x/y/xy原N点和单flag/混代
+合同保持。default cachedpath直接同cache.flat（含empty对象），steps另配展开generation。
+借用xy写→defaultpath同步/steppath保持；path写→defaultxy同步/stepsxy保持；oldgens保留。
+recache转换x/y→broadcast→commitXY→build/rebindPath→clearflags→materializepath；shape/conversion
+失败旧XY/path、sideeffects保；Path地址异常只在XYcommit后且原flags不改，不能预检查或强置flag。
+points stableArray身份保持，共用points_snapshot从cachedpath物化，现relim与SVG同一路；不新IR/
+Stylefield/backendstepper。Category重排row64 rawxy[1,0,1]而midpath[1,.5,.5,.5,.5,1]，relim必须
+得[.5,1]而非[0,1]。hidden仍转换前skip，linestyleNone仍recachepath再skipcolor/正常complete。
+
+展开按原3step赋值，pre/post max(2N-1,0)、mid2N，empty0/midN1重复，mid严格(left+right)/2；
+全序列含nonmonotonic/duplicates/NaNInf/signedzero保留，不sort/filter/cap。Int64只真实2M cells
+地址检查，无巨分配测试。全Style/dash/alpha/color、owner/remove/clear、单位强制回算与旧view合同保。
+不冒generalPath/codes/readonly/interpolation、marker、large sorted clip subslice/native transforms。
+
+B独占line2d/line_units/newstephelper/newkernelhands；C仅新Scene/pyplot/必要backendhands；A独占
+newformalgen/JSON/guide/WB；Root独占exacterrorhelper/rootBB/D44oldtemplate+regen/docs/gates/
+interfaces/commits。所有writers在实施，当前无centralMoon/行为验收/Rootlive工具。D51已验收并
+提交b06ed77/3134baa/dce368f，勿重门禁；整体goal仍推进，失败继续排查修复。
+
+D52 Root own首步已实现并stdinFmt0：NEW Scene line_drawstyle_error私有exactSupported5message；
+NEW root line_drawstyle_test.mbt 1BB核default双向alias、changedstyle仅invalidX/validmutatedY保留、
+steps独立path、same保borrowedpath、invalid先校验、alwaysrestore/oldgens与appearance保留。
+D44private模板先建localcache后drawstyledefault/path=cache.flat，再生旧WB终态0，旧JSON仍
+ d0b1bca67d729e16e232180bc06fa2a0b5034a1a29290ee4a07ed98b208af06c。不改sourceexpected。
+A/B/C仍trackedwriters，无centralMoon/接口生成/行为验收，Root无live工具。下一各STOP后审
+production/hands/formal75原fields独比→统一check/infofmt/41mbti/4targets，失败继续精修。
+
+D52 Root全文审B首productiondiff：新增drawstyle/path_values、pub3methods、XYcommit后pathbuild、
+materialize从path+stableArray、attach defaultshare；stephelper pre/post/mid逐点算法/Int64cells
+检查位置正确，无具体缺陷。Root README/DEPENDENCIES/NOTICE实现与边界说明已补，不声称验收。
+A/B/C仍trackedwriters；没有centralMoon/接口生成/行为验收，Root无live工具。下一等STOP审hands/
+formal及原75完整payload相同，再统一门禁。D51已commit完整验收不重跑。
+
+D52 B/C trackedSTOP。Root全文读B73linehandoff/321line8hands/69stephelper（含local length修range
+precedence）与额外12cbookprimitive证据（仅Bhand验证不加正式75count），C41linehandoff/310line7
+Scenehands+42line1pyplot，全部最终productiondiff；无具体缺陷。A385linegen/完整当前guide已读，
+正式original完整payload独立dict==preparation，75原fields/hash/host/count保持；JSON
+161fd2c18e59e12c96576113f2133ac2d67adf0051a94c0a1e6f811b217e6244。21newregistered=
+A4formal（74typed/1nativeNoneonly）+B8+C8+Root1。Aguide/sourcecheck收尾仍writer，尚未中央Moon/
+接口/四target验收，Root无live工具。B仅ignored formal独审。下一A STOP后统一门禁。
+
+D52全trackedSTOP，firstcheck10449 terminal0：44tasks/7旧Refwarn/0error；newsource35003和旧D44
+source42560全部terminal0，original75payload完整保持。firstinfo&&fmt已启动，下一记终态/接口。
+Root已读完整最终A385gen/162guide、所有17hands/全部production，B独审仅ignored。无其他Rootlive。
+
+D52 info5/fmt11 terminal0；41mbti仅Scene3newmethods（get/setdrawstyle/path_values_checked）预期
+变更，Root已全文审、其余40逐字不变，存D52-interface-reviewed.diff。firstfull已启动，下一记录
+liveID/终态，全部tracked生产/fixturesSTOP，无其他Rootlive工具。下一full终态，有失败继续修复。
+
+D52 firstfull live50447，全tracked生产/fixturesSTOP。Root全文读B98line正式独审，无具体缺陷；
+来源Path实际body、74投影/单次setup输入桥、实际双向alias/oldgens和row64真实callback均核。
+A/B/C仅ignored下一D53 Option[String]gapcolor必要source/design，不freeze：已识别native先gap
+解析/逆patternGC/gapdraw再foreground解析，现Scene提前foreground解析不能简单透传。D52
+继续full终态，失败精修；Root无其他live工具，勿重D51门禁。
+
+
+## D52 行为验收通过（提交前最终门禁）
+
+- [x] full50447 terminal0：wasm/wasm-gc/native各22200/22200，JS22207/22207，0fail。
+- [x] new21registered=A4formal（74typed/1sourceonly）+B8+C8+Root1；75原记录全fields/hash/
+  host/count独立相同，JSON161fd2c18e59e12c96576113f2133ac2d67adf0051a94c0a1e6f811b217e6244。
+- [x] Root全文读所有production/17hands/A385gen/162guide/B98formal独审，无具体缺陷。
+- [x] 41mbti仅Scene3newmethods预期差异，其余40逐字同；6docs/guide已补能力验收与边界。
+- [x] final55524 terminal0：info4/fmt0/check20，7旧Refwarn/0error；41mbti finaldiff逐字cmp已审、diffcheck0，new/oldJSONhash保持；feature1740934（9files）和formal/docs已提交。
+
+Root无live工具，全部trackedSTOP。D53只ignored OptionStringgapcolor源准备/design，尚未freeze。
+下一final/commits→D53-before→读A最终actualrecords及B/C设计再freeze。整体goal未完成，无用户阻塞。
+
+D52完整验收并提交feature1740934（9files/861insertions/3deletions）和formal/docs（下一记hash）。
+full50447与final55524全terminal0，new/oldsourcecheck全0，original75/oldD44JSON保持；全部
+trackedSTOP、Root无live工具。下一checkpointcommit→D53-before→读A最终gapcolor原records/
+B/C必要设计后freeze；D53尚未实施，整体goal继续推进，勿重D52及更早门禁。
+
+D52 formal/docs c821ac9（12files/41695insertions/4deletions）已提交，与feature1740934同批完整
+验收。下一checkpointcommit。A D53新实际54records初稿SHAb87e5f99fc2da8a586b0b27926b6fbbae31b918216cca456835335db6e0924b7，
+finalnotes待收束；Root未读。C160line设计已STOP待Root读，B状态设计收束。重要待freeze点：
+空effectiveList/Tuple inverseIndexError文案不同，必须保最后scaling时的provenance，不能读liveRC。
+当前无live工具、D53无tracked实施，整体goal未完成，继续推进。
