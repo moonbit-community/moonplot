@@ -102,6 +102,12 @@ fn named_format_float_repr(value : Double) -> String {
 }
 
 ///|
+/// Represent a Double with the existing Python shortest-number profile.
+pub fn python_float_repr(value : Double) -> String {
+  named_format_float_repr(value)
+}
+
+///|
 /// Add the alternate decimal point before a possible scientific exponent.
 fn named_format_decimal_point(text : String) -> String {
   let index = text.find("e").unwrap_or(text.length())

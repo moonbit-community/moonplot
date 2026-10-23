@@ -45,24 +45,45 @@ fn line_color_hex_digit(character : Char) -> Int32? {
 }
 
 ///|
+// Native color cache history is deliberately not copied. Equal signed-zero
+// cache keys can retain an older alpha sign; this portable helper uses the
+// current override sign and keeps the raw Artist setter's separate no-op rule.
+fn line_color_override_alpha(
+  color : @colors.Rgba,
+  alpha : Double?,
+) -> @colors.Rgba {
+  match alpha {
+    None => color
+    Some(alpha) =>
+      try! @colors.rgba(color.red(), color.green(), color.blue(), alpha~)
+  }
+}
+
+///|
 // This is the source no-colorcycle path. A selected cycle entry must not be
 // interpreted as another cycle token. Error text belongs to this primitive,
 // whereas validation wraps these ValueErrors with _check_color_like's message.
 fn line_color_rgba_no_cycle(
   value : String,
+  alpha~ : Double? = None,
 ) -> @colors.Rgba raise @core.DataError {
+  if alpha is Some(value) && !(value >= 0.0 && value <= 1.0) {
+    raise @core.DataError::InvalidTicks(
+      message="ValueError: 'alpha' must be between 0 and 1, inclusive",
+    )
+  }
   let lower = line_color_name_lower(value)
   if lower == "none" {
     return try! @colors.rgba(0.0, 0.0, 0.0, alpha=0.0)
   }
   match line_color_named(value) {
-    Some(color) => return color
+    Some(color) => return line_color_override_alpha(color, alpha)
     None => ()
   }
   let characters = value.to_array()
   if characters.length() != 1 {
     match line_color_named(lower) {
-      Some(color) => return color
+      Some(color) => return line_color_override_alpha(color, alpha)
       None => ()
     }
   }
@@ -79,7 +100,7 @@ fn line_color_rgba_no_cycle(
       }
     }
     if all_hex {
-      let (red, green, blue, alpha) = match digits.length() {
+      let (red, green, blue, embedded_alpha) = match digits.length() {
         3 =>
           (
             digits[0].to_double() / 15.0,
@@ -114,7 +135,12 @@ fn line_color_rgba_no_cycle(
               @ticker.python_string_repr(value),
           )
       }
-      return try! @colors.rgba(red, green, blue, alpha~)
+      return try! @colors.rgba(
+        red,
+        green,
+        blue,
+        alpha=alpha.unwrap_or(embedded_alpha),
+      )
     }
   }
   let gray = @ticker.parse_float_text(value) catch {
@@ -132,7 +158,7 @@ fn line_color_rgba_no_cycle(
         ". Value must be within 0-1 range",
     )
   }
-  try! @colors.rgba(gray, gray, gray)
+  try! @colors.rgba(gray, gray, gray, alpha=alpha.unwrap_or(1.0))
 }
 
 ///|
@@ -159,9 +185,12 @@ fn line_color_validate(value : String) -> Unit raise @core.DataError {
 }
 
 ///|
-fn line_color_rgba(value : String) -> @colors.Rgba raise @core.DataError {
+fn line_color_rgba(
+  value : String,
+  alpha~ : Double? = None,
+) -> @colors.Rgba raise @core.DataError {
   if !line_color_is_cycle(value) {
-    return line_color_rgba_no_cycle(value)
+    return line_color_rgba_no_cycle(value, alpha~)
   }
   let cycle = @config.color_cycle()
   let digits = value.to_array()
@@ -180,5 +209,5 @@ fn line_color_rgba(value : String) -> @colors.Rgba raise @core.DataError {
   for offset in 1..<digits.length() {
     index = (index * 10L + (digits[offset].to_int() - 48).to_int64()) % modulus
   }
-  line_color_rgba_no_cycle(cycle[index.to_int()])
+  line_color_rgba_no_cycle(cycle[index.to_int()], alpha~)
 }

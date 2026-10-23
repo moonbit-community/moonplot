@@ -72,6 +72,12 @@ pub fn Style::marker(self : Style) -> String {
 }
 
 ///|
+/// Optional alpha used by Line strokes; other Artist consumers are unchanged.
+pub fn Style::line_alpha(self : Style) -> Double? {
+  self.line_alpha
+}
+
+///|
 /// Styling shared by line, scatter, and bar plots.
 pub struct Style {
   color : String
@@ -80,6 +86,7 @@ pub struct Style {
   fill : String
   font_size : Double
   marker : String
+  priv line_alpha : Double?
 }
 
 ///|
@@ -91,8 +98,9 @@ pub fn style(
   fill~ : String = "",
   font_size~ : Double = 12.0,
   marker~ : String = "o",
+  line_alpha~ : Double? = None,
 ) -> Style {
-  { color, width, radius, fill, font_size, marker, }
+  { color, width, radius, fill, font_size, marker, line_alpha, }
 }
 
 ///|

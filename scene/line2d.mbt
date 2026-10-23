@@ -117,6 +117,45 @@ pub fn Line2D::get_linewidth(self : Line2D) -> Double {
 }
 
 ///|
+pub fn Line2D::get_alpha(self : Line2D) -> Double? {
+  self.style.line_alpha()
+}
+
+///|
+/// Equal alpha values are a complete no-op, including the sign of stored zero.
+pub fn Line2D::set_alpha(
+  self : Line2D,
+  alpha : Double?,
+) -> Unit raise @core.DataError {
+  if alpha is Some(value) && !(value >= 0.0 && value <= 1.0) {
+    raise @core.DataError::InvalidTicks(
+      message="ValueError: alpha (" +
+        @ticker.python_float_repr(value) +
+        ") is outside 0-1 range",
+    )
+  }
+  let style = self.style
+  let same = match (style.line_alpha(), alpha) {
+    (None, None) => true
+    (Some(previous), Some(next)) => previous == next
+    _ => false
+  }
+  if same {
+    return
+  }
+  self.style = @core.style(
+    style.color(),
+    width=style.width(),
+    radius=style.radius(),
+    fill=style.fill(),
+    font_size=style.font_size(),
+    marker=style.marker(),
+    line_alpha=alpha,
+  )
+  self.stale = true
+}
+
+///|
 /// Return the original color spelling, without resolving a color-cycle token.
 pub fn Line2D::get_color(self : Line2D) -> String {
   self.style.color()
@@ -137,6 +176,7 @@ pub fn Line2D::set_color(
     fill=style.fill(),
     font_size=style.font_size(),
     marker=style.marker(),
+    line_alpha=style.line_alpha(),
   )
   self.source_color = true
   self.stale = true
@@ -157,6 +197,7 @@ pub fn Line2D::set_linewidth(self : Line2D, width : Double) -> Unit {
     fill=style.fill(),
     font_size=style.font_size(),
     marker=style.marker(),
+    line_alpha=style.line_alpha(),
   )
 }
 

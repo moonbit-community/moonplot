@@ -386,12 +386,13 @@ fn Figure::to_render_figure(
               let style = line.style
               let drawing_style = if line.source_color && !current.is_empty() {
                 @core.style(
-                  line_color_rgba(style.color()).to_css(),
+                  line_color_rgba(style.color(), alpha=style.line_alpha()).to_css(),
                   width=style.width(),
                   radius=style.radius(),
                   fill=style.fill(),
                   font_size=style.font_size(),
                   marker=style.marker(),
+                  line_alpha=None,
                 )
               } else {
                 style

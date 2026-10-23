@@ -16,7 +16,7 @@ pub fn point(Double, Double) -> Point
 
 pub fn series(Array[Double], Array[Double]) -> Series raise DataError
 
-pub fn style(String, width? : Double, radius? : Double, fill? : String, font_size? : Double, marker? : String) -> Style
+pub fn style(String, width? : Double, radius? : Double, fill? : String, font_size? : Double, marker? : String, line_alpha? : Double?) -> Style
 
 // Errors
 pub(all) suberror DataError {
@@ -119,10 +119,12 @@ pub struct Style {
   fill : String
   font_size : Double
   marker : String
+  // private fields
 }
 pub fn Style::color(Self) -> String
 pub fn Style::fill(Self) -> String
 pub fn Style::font_size(Self) -> Double
+pub fn Style::line_alpha(Self) -> Double?
 pub fn Style::marker(Self) -> String
 pub fn Style::radius(Self) -> Double
 pub fn Style::width(Self) -> Double

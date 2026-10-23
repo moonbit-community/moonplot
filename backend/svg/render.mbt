@@ -51,16 +51,21 @@ fn append_line_segment(
   plot_height : Double,
   points : Array[@core.Point],
   style : @core.Style,
+  line_alpha~ : Double? = None,
 ) -> Unit {
   if points.length() == 0 {
     return
   }
-  try! writer.empty_element("polyline", [
+  let attributes = [
     ("fill", "none"),
     ("stroke", style.color()),
     ("stroke-width", float_text(style.width())),
     ("points", points_text(scale, left, top, plot_width, plot_height, points)),
-  ])
+  ]
+  if line_alpha is Some(alpha) {
+    attributes.push(("stroke-opacity", float_text(alpha)))
+  }
+  try! writer.empty_element("polyline", attributes)
 }
 
 ///|
@@ -73,6 +78,7 @@ fn append_line(
   plot_height : Double,
   points : Array[@core.Point],
   style : @core.Style,
+  line_alpha~ : Double? = None,
 ) -> Unit {
   let mut segment : Array[@core.Point] = []
   for p in points {
@@ -80,14 +86,30 @@ fn append_line(
       segment.push(p)
     } else if segment.length() > 0 {
       append_line_segment(
-        writer, scale, left, top, plot_width, plot_height, segment, style,
+        writer,
+        scale,
+        left,
+        top,
+        plot_width,
+        plot_height,
+        segment,
+        style,
+        line_alpha~,
       )
       segment = []
     }
   }
   if segment.length() > 0 {
     append_line_segment(
-      writer, scale, left, top, plot_width, plot_height, segment, style,
+      writer,
+      scale,
+      left,
+      top,
+      plot_width,
+      plot_height,
+      segment,
+      style,
+      line_alpha~,
     )
   }
 }
@@ -3581,13 +3603,29 @@ fn render_panel(
         match panel.prepare_line(points) {
           Some((current, current_style, complete)) => {
             append_line(
-              writer, scale, left, top, plot_width, plot_height, current, current_style,
+              writer,
+              scale,
+              left,
+              top,
+              plot_width,
+              plot_height,
+              current,
+              current_style,
+              line_alpha=current_style.line_alpha(),
             )
             complete()
           }
           None =>
             append_line(
-              writer, scale, left, top, plot_width, plot_height, points, style,
+              writer,
+              scale,
+              left,
+              top,
+              plot_width,
+              plot_height,
+              points,
+              style,
+              line_alpha=style.line_alpha(),
             )
         }
       @render.Artist::Scatter(points, style) =>
