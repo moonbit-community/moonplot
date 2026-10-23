@@ -52,7 +52,7 @@ fn SecondaryAxis::synchronize_parent_scale(
 fn SecondaryAxis::autoscale_empty_data(
   self : SecondaryAxis,
 ) -> Unit raise @core.DataError {
-  let margin = if self.location is (Top | Bottom) {
+  let margin = if self.horizontal {
     @config.x_margin()
   } else {
     @config.y_margin()

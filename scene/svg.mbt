@@ -213,11 +213,11 @@ fn to_render_legend(entry : LegendEntry) -> @render.LegendEntry {
 
 ///|
 fn to_render_secondary_axis(axis : SecondaryAxis) -> @render.SecondaryAxis {
-  let location = match axis.location() {
-    SecondaryAxisLocation::Top => @render.SecondaryLocation::Top
-    SecondaryAxisLocation::Bottom => @render.SecondaryLocation::Bottom
-    SecondaryAxisLocation::Left => @render.SecondaryLocation::Left
-    SecondaryAxisLocation::Right => @render.SecondaryLocation::Right
+  let location = match axis.alignment() {
+    SecondaryAxisAlignment::Top => @render.SecondaryLocation::Top
+    SecondaryAxisAlignment::Bottom => @render.SecondaryLocation::Bottom
+    SecondaryAxisAlignment::Left => @render.SecondaryLocation::Left
+    SecondaryAxisAlignment::Right => @render.SecondaryLocation::Right
   }
   @render.secondary_axis(
     location,
@@ -251,6 +251,19 @@ fn to_render_secondary_axis(axis : SecondaryAxis) -> @render.SecondaryAxis {
     minor_ticks_provider=Some(() => axis.minor_tick_values_checked()),
     synchronize_view_provider=Some(() => axis.synchronize_formatter_frame()),
     prepare_draw_provider=Some(() => axis.prepare_draw()),
+    positioned_aspect_provider=Some((left, top, width, height) => {
+      axis.positioned_aspect(left, top, width, height)
+    }),
+    drawing_context_provider=Some(() => {
+      let (left, top, right, bottom) = axis.drawing_bounds()
+      let alignment = match axis.alignment() {
+        SecondaryAxisAlignment::Top => @render.SecondaryLocation::Top
+        SecondaryAxisAlignment::Bottom => @render.SecondaryLocation::Bottom
+        SecondaryAxisAlignment::Left => @render.SecondaryLocation::Left
+        SecondaryAxisAlignment::Right => @render.SecondaryLocation::Right
+      }
+      @render.SecondaryDrawingContext::new(left, top, right, bottom, alignment)
+    }),
     locator_provider=Some(() => axis.locator()),
     minor_locator_provider=Some(() => axis.minor_locator()),
     fixed_ticks_provider=Some(() => axis.ticks()),

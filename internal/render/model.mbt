@@ -450,6 +450,56 @@ pub(all) enum SecondaryLocation {
 }
 
 ///|
+/// Immutable screen edges and decoration side of an owned secondary child.
+pub struct SecondaryDrawingContext {
+  left : Double
+  top : Double
+  right : Double
+  bottom : Double
+  alignment : SecondaryLocation
+}
+
+///|
+pub fn SecondaryDrawingContext::new(
+  left : Double,
+  top : Double,
+  right : Double,
+  bottom : Double,
+  alignment : SecondaryLocation,
+) -> SecondaryDrawingContext {
+  { left, top, right, bottom, alignment, }
+}
+
+///|
+pub fn SecondaryDrawingContext::left(self : SecondaryDrawingContext) -> Double {
+  self.left
+}
+
+///|
+pub fn SecondaryDrawingContext::top(self : SecondaryDrawingContext) -> Double {
+  self.top
+}
+
+///|
+pub fn SecondaryDrawingContext::right(self : SecondaryDrawingContext) -> Double {
+  self.right
+}
+
+///|
+pub fn SecondaryDrawingContext::bottom(
+  self : SecondaryDrawingContext,
+) -> Double {
+  self.bottom
+}
+
+///|
+pub fn SecondaryDrawingContext::alignment(
+  self : SecondaryDrawingContext,
+) -> SecondaryLocation {
+  self.alignment
+}
+
+///|
 /// Immutable own-view geometry captured after a secondary's full tick batches.
 pub struct SecondaryPlacement {
   lower : Double
@@ -490,6 +540,8 @@ pub struct SecondaryAxis {
   formatter_view_provider : (() -> (Double, Double))?
   synchronize_view_provider : (() -> Unit raise @core.DataError)?
   prepare_draw_provider : (() -> Unit raise @core.DataError)?
+  positioned_aspect_provider : ((Double, Double, Double, Double) -> Unit raise @core.DataError)?
+  drawing_context_provider : (() -> SecondaryDrawingContext)?
   placement_provider : (() -> SecondaryPlacement)?
   locator_provider : (() -> @ticker.Locator?)?
   minor_locator_provider : (() -> @ticker.MinorLocator?)?
@@ -541,6 +593,8 @@ pub fn secondary_axis(
   minor_ticks_provider~ : (() -> Array[Double] raise @core.DataError)? = None,
   synchronize_view_provider~ : (() -> Unit raise @core.DataError)? = None,
   prepare_draw_provider~ : (() -> Unit raise @core.DataError)? = None,
+  positioned_aspect_provider~ : ((Double, Double, Double, Double) -> Unit raise @core.DataError)? = None,
+  drawing_context_provider~ : (() -> SecondaryDrawingContext)? = None,
   placement_provider~ : (() -> SecondaryPlacement)? = None,
   locator_provider~ : (() -> @ticker.Locator?)? = None,
   minor_locator_provider~ : (() -> @ticker.MinorLocator?)? = None,
@@ -552,6 +606,8 @@ pub fn secondary_axis(
     draw_order,
     synchronize_view_provider,
     prepare_draw_provider,
+    positioned_aspect_provider,
+    drawing_context_provider,
     placement_provider,
     locator_provider,
     minor_locator_provider,
@@ -613,6 +669,31 @@ pub fn SecondaryAxis::prepare_draw(
     }
     None => false
   }
+}
+
+///|
+/// Apply owned position and limits at the current parent frame rectangle.
+pub fn SecondaryAxis::positioned_aspect(
+  self : SecondaryAxis,
+  left : Double,
+  top : Double,
+  width : Double,
+  height : Double,
+) -> Bool raise @core.DataError {
+  match self.positioned_aspect_provider {
+    Some(provider) => {
+      provider(left, top, width, height)
+      true
+    }
+    None => false
+  }
+}
+
+///|
+pub fn SecondaryAxis::drawing_context(
+  self : SecondaryAxis,
+) -> SecondaryDrawingContext? {
+  self.drawing_context_provider.map(provider => provider())
 }
 
 ///|

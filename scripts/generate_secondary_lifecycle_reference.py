@@ -362,7 +362,7 @@ def assert_state(state):
       'secondary_source_numbers([child.numeric_axis.data_interval().lower(), child.numeric_axis.data_interval().upper()], '+moon(state['data'])+')',
       'secondary_source_double(child.numeric_axis.get_minpos(), '+moon(float(state['minpos']))+')',
       'secondary_source_double(child.get_tick_space(), '+moon(float(state['space']))+')',
-      'secondary_source_numbers([child.formatter_geometry.0, child.formatter_geometry.1], '+moon(state['geometry'])+')',
+      'secondary_source_numbers([child.formatter_geometry().0, child.formatter_geometry().1], '+moon(state['geometry'])+')',
       'assert_eq(child.numeric_axis.autoscale_on(), '+moon(state['auto'])+')',
       'assert_eq(child.numeric_axis.autoscale_stale(), '+moon(state['stale'])+')',
       'assert_eq(child.ticks_set, '+moon(state['ticks_set'])+')',

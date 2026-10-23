@@ -9,6 +9,7 @@ import {
   "mathplotlib/mathplotlib/ticker/scale",
   "mathplotlib/mathplotlib/ticker",
   "mathplotlib/mathplotlib/ticker/date",
+  "mathplotlib/mathplotlib/transforms",
   "mathplotlib/mathplotlib/backend/svg",
   "mathplotlib/mathplotlib/internal/render",
   "moonbitlang/core/math",

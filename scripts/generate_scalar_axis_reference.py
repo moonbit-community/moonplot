@@ -542,7 +542,7 @@ def emit(payload):
             val=.123456789 if v['mapping']=='identity'or stage=='complete constructor before sync'else 6.123456789
             body+='  assert_eq(f.format_data_short('+num(val)+'), '+quote(v['label'])+')\n'
             bounds=v['bbox'];origin=bounds[0 if name=='x'else 1];length=bounds[2 if name=='x'else 3]
-            body+='  let (origin, length) = secondary.formatter_geometry\n  assert_eq(origin, '+num(origin)+')\n  assert_eq(length, '+num(length)+')\n'
+            body+='  let (origin, length) = secondary.formatter_geometry()\n  assert_eq(origin, '+num(origin)+')\n  assert_eq(length, '+num(length)+')\n'
             add(label+' '+stage,body.replace('@scene.',''),white=True);continue
         else:raise AssertionError(label)
         add(label,body)

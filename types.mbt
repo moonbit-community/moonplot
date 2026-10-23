@@ -38,6 +38,7 @@ pub using @scene {
   type ViolinStats,
   type SecondaryAxis,
   type SecondaryAxisLocation,
+  type SecondaryAxisAlignment,
   type StreamplotSet,
   figure,
 }

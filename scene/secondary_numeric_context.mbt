@@ -23,7 +23,7 @@ pub fn SecondaryAxis::apply_aspect(
 ) -> Unit raise @core.DataError {
   let (lower, upper) = self.mapped_parent_view_interval()
   self.store_formatter_view(lower, upper)
-  self.formatter_geometry = self.formatter_original_geometry
+  self.active_bounds = self.original_bounds
 }
 
 ///|
@@ -33,12 +33,46 @@ fn SecondaryAxis::synchronize_formatter_frame(
 ) -> Unit raise @core.DataError {
   let (lower, upper) = self.mapped_parent_view_interval()
   self.store_formatter_view(lower, upper)
-  self.formatter_geometry = match self.parent_axis {
+  let (origin, length) = match self.parent_axis {
     Some(parent) =>
       parent
       .formatter_display_geometry()
-      .unwrap_or(self.formatter_original_geometry)
-    None => self.formatter_original_geometry
+      .unwrap_or_else(() => {
+        let original = self.original_bounds.transformed(self.figure_to())
+        if self.horizontal {
+          (original.x0(), original.width())
+        } else {
+          (original.y0(), original.height())
+        }
+      })
+    None => {
+      let original = self.original_bounds.transformed(self.figure_to())
+      if self.horizontal {
+        (original.x0(), original.width())
+      } else {
+        (original.y0(), original.height())
+      }
+    }
+  }
+  // Retain the D40 controlled one-dimensional geometry profile without a second
+  // authority. Real positioned rendering supplies the full parent frame.
+  let bounds = self.active_bounds
+  if self.horizontal {
+    let reciprocal = 1.0 / self.figure_bounds.width()
+    self.active_bounds = @transforms.bbox(
+      origin * reciprocal,
+      bounds.y0(),
+      (origin + length) * reciprocal,
+      bounds.y1(),
+    )
+  } else {
+    let reciprocal = 1.0 / self.figure_bounds.height()
+    self.active_bounds = @transforms.bbox(
+      bounds.x0(),
+      origin * reciprocal,
+      bounds.x1(),
+      (origin + length) * reciprocal,
+    )
   }
 }
 

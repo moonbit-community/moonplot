@@ -8,6 +8,7 @@ priv struct SecondaryTickBundle {
   // Some: coordinates already use the owned child's installed transform.
   // None: preserve the explicit ownerless primary-coordinate transport.
   placement : (Double, Double)?
+  drawing : @render.SecondaryDrawingContext?
 }
 
 ///|
@@ -157,7 +158,8 @@ fn secondary_axis_bundle(
     Some(formatter) => formatter.get_offset_checked()
     None => ""
   }
-  { major, major_labels, minor, minor_labels, offset, placement, }
+  let drawing = axis.drawing_context()
+  { major, major_labels, minor, minor_labels, offset, placement, drawing, }
 }
 
 ///|

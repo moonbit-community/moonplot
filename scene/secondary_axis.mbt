@@ -5,6 +5,16 @@ pub(all) enum SecondaryAxisLocation {
   Bottom
   Left
   Right
+  Position(Double)
+}
+
+///|
+/// Decoration side, independent of the requested secondary-axis location.
+pub(all) enum SecondaryAxisAlignment {
+  Top
+  Bottom
+  Left
+  Right
 }
 
 ///|
@@ -12,14 +22,17 @@ pub(all) enum SecondaryAxisLocation {
 pub struct SecondaryAxis {
   priv numeric_axis : @axis.Axis
   priv draw_order : Int32
-  priv mut formatter_geometry : (Double, Double)
-  priv mut formatter_original_geometry : (Double, Double)
+  priv horizontal : Bool
+  priv figure_bounds : @transforms.BBox
+  priv original_bounds : @transforms.BBox
+  priv mut active_bounds : @transforms.BBox
   priv mut parent_axis : @axis.Axis?
   priv mut parent_scale_name : String?
   priv mut ticks_set : Bool
   priv mut source_ticks_current : Bool
   priv mut legacy_sampling : Bool
-  location : SecondaryAxisLocation
+  priv mut location : SecondaryAxisLocation
+  priv mut alignment : SecondaryAxisAlignment
   priv mut forward : (Double) -> Double
   priv mut inverse : (Double) -> Double
   mut label : String?
@@ -30,20 +43,41 @@ fn secondary_axis(
   location : SecondaryAxisLocation,
   forward : (Double) -> Double,
   inverse : (Double) -> Double,
+  horizontal~ : Bool,
+  figure_bounds~ : @transforms.BBox,
   draw_order~ : Int32 = 0,
 ) -> SecondaryAxis {
-  let horizontal = location is (Top | Bottom)
+  let original_bounds = if horizontal {
+    @transforms.bbox_from_bounds(0.0, 1.0, 1.0, 0.0001)
+  } else {
+    @transforms.bbox_from_bounds(0.0, 1.0, 0.0001, 1.0)
+  }
+  let low = secondary_location_position(location) < 0.5
+  let alignment = if horizontal {
+    if low {
+      SecondaryAxisAlignment::Bottom
+    } else {
+      Top
+    }
+  } else if low {
+    SecondaryAxisAlignment::Left
+  } else {
+    SecondaryAxisAlignment::Right
+  }
   let result : SecondaryAxis = {
     numeric_axis: @axis.axis(horizontal~),
     draw_order,
-    formatter_geometry: (0.0, 1.0),
-    formatter_original_geometry: (0.0, 1.0),
+    horizontal,
+    figure_bounds,
+    original_bounds,
+    active_bounds: original_bounds,
     parent_axis: None,
     parent_scale_name: None,
     ticks_set: false,
     source_ticks_current: false,
     legacy_sampling: false,
     location,
+    alignment,
     forward,
     inverse,
     label: None,
@@ -54,7 +88,7 @@ fn secondary_axis(
   result.numeric_axis.bind_autoscale_minpos(() => [1.0 / 0.0])
   result.numeric_axis.bind_tick_geometry(
     () => {
-      let (origin, length) = result.formatter_geometry
+      let (origin, length) = result.formatter_geometry()
       // The source applies the inverse affine's already-rounded reciprocal.
       // Dividing each endpoint by 72 changes the y constructor's tick space.
       let inverse_dpi = 1.0 / 72.0
@@ -62,7 +96,7 @@ fn secondary_axis(
     },
     horizontal,
   )
-  result.numeric_axis.bind_formatter_geometry(() => result.formatter_geometry)
+  result.numeric_axis.bind_formatter_geometry(() => result.formatter_geometry())
   result
 }
 
@@ -205,7 +239,9 @@ pub fn Axes::secondary_xaxis(
   location~ : SecondaryAxisLocation = SecondaryAxisLocation::Top,
 ) -> SecondaryAxis raise @core.DataError {
   match location {
-    SecondaryAxisLocation::Top | SecondaryAxisLocation::Bottom => ()
+    SecondaryAxisLocation::Top
+    | SecondaryAxisLocation::Bottom
+    | SecondaryAxisLocation::Position(_) => ()
     SecondaryAxisLocation::Left | SecondaryAxisLocation::Right =>
       raise @core.DataError::InvalidTicks(
         message="secondary x axis location must be top or bottom",
@@ -215,12 +251,17 @@ pub fn Axes::secondary_xaxis(
     location,
     forward,
     inverse,
+    horizontal=true,
+    figure_bounds=@transforms.bbox(
+      0.0,
+      0.0,
+      self.figure.width.to_double(),
+      self.figure.height.to_double(),
+    ),
     draw_order=self.state.val.secondary_x.length() +
       self.state.val.secondary_y.length(),
   )
   result.parent_axis = Some(self.x_axis())
-  result.formatter_original_geometry = (0.0, self.figure.width.to_double())
-  result.formatter_geometry = result.formatter_original_geometry
   result.initialize_formatter_view()
   self.state.val.secondary_x.push(result)
   result
@@ -235,7 +276,9 @@ pub fn Axes::secondary_yaxis(
   location~ : SecondaryAxisLocation = SecondaryAxisLocation::Right,
 ) -> SecondaryAxis raise @core.DataError {
   match location {
-    SecondaryAxisLocation::Left | SecondaryAxisLocation::Right => ()
+    SecondaryAxisLocation::Left
+    | SecondaryAxisLocation::Right
+    | SecondaryAxisLocation::Position(_) => ()
     SecondaryAxisLocation::Top | SecondaryAxisLocation::Bottom =>
       raise @core.DataError::InvalidTicks(
         message="secondary y axis location must be left or right",
@@ -245,15 +288,17 @@ pub fn Axes::secondary_yaxis(
     location,
     forward,
     inverse,
+    horizontal=false,
+    figure_bounds=@transforms.bbox(
+      0.0,
+      0.0,
+      self.figure.width.to_double(),
+      self.figure.height.to_double(),
+    ),
     draw_order=self.state.val.secondary_x.length() +
       self.state.val.secondary_y.length(),
   )
   result.parent_axis = Some(self.y_axis())
-  result.formatter_original_geometry = (
-    self.figure.height.to_double(),
-    self.figure.height.to_double(),
-  )
-  result.formatter_geometry = result.formatter_original_geometry
   result.initialize_formatter_view()
   self.state.val.secondary_y.push(result)
   result

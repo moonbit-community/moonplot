@@ -715,10 +715,10 @@ pub fn PathCollection::points(Self) -> Array[@core.Point]
 pub fn PathCollection::styles(Self) -> Array[@core.Style]
 
 pub struct SecondaryAxis {
-  location : SecondaryAxisLocation
   mut label : String?
   // private fields
 }
+pub fn SecondaryAxis::alignment(Self) -> SecondaryAxisAlignment
 pub fn SecondaryAxis::apply_aspect(Self) -> Unit raise @core.DataError
 pub fn SecondaryAxis::clear_formatter(Self) -> Unit
 pub fn SecondaryAxis::clear_locator(Self) -> Unit
@@ -742,11 +742,14 @@ pub fn SecondaryAxis::minor_overlap_removal(Self) -> Bool
 pub fn SecondaryAxis::minor_tick_labels_checked(Self, Array[Double], view? : @core.Limits) -> Array[String] raise @core.DataError
 pub fn SecondaryAxis::minor_tick_values_checked(Self) -> Array[Double] raise @core.DataError
 pub fn SecondaryAxis::named_formatter(Self) -> @ticker.BaseFormatter?
+pub fn SecondaryAxis::position(Self) -> Double
 pub fn SecondaryAxis::prepare_draw(Self) -> Unit raise @core.DataError
 pub fn SecondaryAxis::reset_functions(Self) -> Unit raise @core.DataError
+pub fn SecondaryAxis::set_alignment(Self, SecondaryAxisAlignment) -> Unit raise @core.DataError
 pub fn SecondaryAxis::set_formatter(Self, @ticker.Formatter) -> Unit
 pub fn SecondaryAxis::set_functions(Self, (Double) -> Double, (Double) -> Double) -> Unit raise @core.DataError
 pub fn SecondaryAxis::set_label(Self, String) -> Unit
+pub fn SecondaryAxis::set_location(Self, SecondaryAxisLocation) -> Unit raise @core.DataError
 pub fn SecondaryAxis::set_locator(Self, @ticker.Locator) -> Unit raise @core.DataError
 pub fn SecondaryAxis::set_minor_locator(Self, @ticker.MinorLocator) -> Unit
 pub fn SecondaryAxis::set_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit
@@ -762,11 +765,19 @@ pub fn SecondaryAxis::tick_labels_checked(Self, Array[Double], view? : @core.Lim
 pub fn SecondaryAxis::tick_values_checked(Self) -> Array[Double] raise @core.DataError
 pub fn SecondaryAxis::ticks(Self) -> Array[Double]?
 
+pub(all) enum SecondaryAxisAlignment {
+  Top
+  Bottom
+  Left
+  Right
+}
+
 pub(all) enum SecondaryAxisLocation {
   Top
   Bottom
   Left
   Right
+  Position(Double)
 }
 
 pub struct Spine {

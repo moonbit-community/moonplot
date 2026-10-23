@@ -25,7 +25,7 @@ fn eng_axis_physical_case_86() -> Unit raise {
   secondary.set_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   secondary.set_named_formatter(f.as_base_formatter())
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 0.0)
   assert_eq(length, 1000.0)
 }
@@ -56,7 +56,7 @@ fn eng_axis_physical_case_87() -> Unit raise {
   secondary.set_named_formatter(f.as_base_formatter())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 0.0)
   assert_eq(length, 1000.0)
 }
@@ -88,7 +88,7 @@ fn eng_axis_physical_case_88() -> Unit raise {
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(0.123456789), "0.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 40.0)
   assert_eq(length, 100.0)
 }
@@ -120,7 +120,7 @@ fn eng_axis_physical_case_89() -> Unit raise {
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(0.123456789), "0.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 40.0)
   assert_eq(length, 100.0)
 }
@@ -153,7 +153,7 @@ fn eng_axis_physical_case_90() -> Unit raise {
   ignore(figure.to_svg_checked())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 0.0)
   assert_eq(length, 1000.0)
 }
@@ -183,7 +183,7 @@ fn eng_axis_physical_case_91() -> Unit raise {
   secondary.set_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   secondary.set_named_formatter(f.as_base_formatter())
   assert_eq(f.format_data_short(0.123456789), "0.1235")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 0.0)
   assert_eq(length, 1000.0)
 }
@@ -214,7 +214,7 @@ fn eng_axis_physical_case_92() -> Unit raise {
   secondary.set_named_formatter(f.as_base_formatter())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(6.123456789), "6.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 0.0)
   assert_eq(length, 1000.0)
 }
@@ -246,7 +246,7 @@ fn eng_axis_physical_case_93() -> Unit raise {
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(6.123456789), "6.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 40.0)
   assert_eq(length, 100.0)
 }
@@ -278,7 +278,7 @@ fn eng_axis_physical_case_94() -> Unit raise {
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(6.123456789), "6.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 40.0)
   assert_eq(length, 100.0)
 }
@@ -311,7 +311,7 @@ fn eng_axis_physical_case_95() -> Unit raise {
   ignore(figure.to_svg_checked())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(6.123456789), "6.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 0.0)
   assert_eq(length, 1000.0)
 }
@@ -341,7 +341,7 @@ fn eng_axis_physical_case_96() -> Unit raise {
   secondary.set_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   secondary.set_named_formatter(f.as_base_formatter())
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 800.0)
   assert_eq(length, 800.0)
 }
@@ -372,7 +372,7 @@ fn eng_axis_physical_case_97() -> Unit raise {
   secondary.set_named_formatter(f.as_base_formatter())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 800.0)
   assert_eq(length, 800.0)
 }
@@ -404,7 +404,7 @@ fn eng_axis_physical_case_98() -> Unit raise {
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(0.123456789), "0.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 60.0)
   assert_eq(length, 80.0)
 }
@@ -436,7 +436,7 @@ fn eng_axis_physical_case_99() -> Unit raise {
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(0.123456789), "0.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 60.0)
   assert_eq(length, 80.0)
 }
@@ -469,7 +469,7 @@ fn eng_axis_physical_case_100() -> Unit raise {
   ignore(figure.to_svg_checked())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 800.0)
   assert_eq(length, 800.0)
 }
@@ -499,7 +499,7 @@ fn eng_axis_physical_case_101() -> Unit raise {
   secondary.set_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   secondary.set_named_formatter(f.as_base_formatter())
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 800.0)
   assert_eq(length, 800.0)
 }
@@ -530,7 +530,7 @@ fn eng_axis_physical_case_102() -> Unit raise {
   secondary.set_named_formatter(f.as_base_formatter())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(6.123456789), "6.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 800.0)
   assert_eq(length, 800.0)
 }
@@ -562,7 +562,7 @@ fn eng_axis_physical_case_103() -> Unit raise {
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(6.123456789), "6.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 60.0)
   assert_eq(length, 80.0)
 }
@@ -594,7 +594,7 @@ fn eng_axis_physical_case_104() -> Unit raise {
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(6.123456789), "6.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 60.0)
   assert_eq(length, 80.0)
 }
@@ -627,7 +627,7 @@ fn eng_axis_physical_case_105() -> Unit raise {
   ignore(figure.to_svg_checked())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(6.123456789), "6.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 800.0)
   assert_eq(length, 800.0)
 }

@@ -120,6 +120,8 @@ pub using @scale {type Scale}
 
 pub using @scene {type SecondaryAxis}
 
+pub using @scene {type SecondaryAxisAlignment}
+
 pub using @scene {type SecondaryAxisLocation}
 
 pub using @core {type Series}

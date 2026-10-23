@@ -24,7 +24,7 @@ test "Scalar original axis 121 complete secondary physical geometry stages compl
   secondary.set_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   secondary.set_named_formatter(f.as_base_formatter())
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 0.0)
   assert_eq(length, 1000.0)
 }
@@ -54,7 +54,7 @@ test "Scalar original axis 122 complete secondary physical geometry stages direc
   secondary.set_named_formatter(f.as_base_formatter())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 0.0)
   assert_eq(length, 1000.0)
 }
@@ -85,7 +85,7 @@ test "Scalar original axis 123 complete secondary physical geometry stages origi
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(0.123456789), "0.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 40.0)
   assert_eq(length, 100.0)
 }
@@ -116,7 +116,7 @@ test "Scalar original axis 124 complete secondary physical geometry stages compl
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(0.123456789), "0.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 40.0)
   assert_eq(length, 100.0)
 }
@@ -148,7 +148,7 @@ test "Scalar original axis 125 complete secondary physical geometry stages direc
   ignore(figure.to_svg_checked())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 0.0)
   assert_eq(length, 1000.0)
 }
@@ -177,7 +177,7 @@ test "Scalar original axis 126 complete secondary physical geometry stages compl
   secondary.set_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   secondary.set_named_formatter(f.as_base_formatter())
   assert_eq(f.format_data_short(0.123456789), "0.1235")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 0.0)
   assert_eq(length, 1000.0)
 }
@@ -207,7 +207,7 @@ test "Scalar original axis 127 complete secondary physical geometry stages direc
   secondary.set_named_formatter(f.as_base_formatter())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(6.123456789), "6.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 0.0)
   assert_eq(length, 1000.0)
 }
@@ -238,7 +238,7 @@ test "Scalar original axis 128 complete secondary physical geometry stages origi
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(6.123456789), "6.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 40.0)
   assert_eq(length, 100.0)
 }
@@ -269,7 +269,7 @@ test "Scalar original axis 129 complete secondary physical geometry stages compl
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(6.123456789), "6.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 40.0)
   assert_eq(length, 100.0)
 }
@@ -301,7 +301,7 @@ test "Scalar original axis 130 complete secondary physical geometry stages direc
   ignore(figure.to_svg_checked())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(6.123456789), "6.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 0.0)
   assert_eq(length, 1000.0)
 }
@@ -330,7 +330,7 @@ test "Scalar original axis 131 complete secondary physical geometry stages compl
   secondary.set_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   secondary.set_named_formatter(f.as_base_formatter())
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 800.0)
   assert_eq(length, 800.0)
 }
@@ -360,7 +360,7 @@ test "Scalar original axis 132 complete secondary physical geometry stages direc
   secondary.set_named_formatter(f.as_base_formatter())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 800.0)
   assert_eq(length, 800.0)
 }
@@ -391,7 +391,7 @@ test "Scalar original axis 133 complete secondary physical geometry stages origi
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(0.123456789), "0.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 60.0)
   assert_eq(length, 80.0)
 }
@@ -422,7 +422,7 @@ test "Scalar original axis 134 complete secondary physical geometry stages compl
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(0.123456789), "0.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 60.0)
   assert_eq(length, 80.0)
 }
@@ -454,7 +454,7 @@ test "Scalar original axis 135 complete secondary physical geometry stages direc
   ignore(figure.to_svg_checked())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 800.0)
   assert_eq(length, 800.0)
 }
@@ -483,7 +483,7 @@ test "Scalar original axis 136 complete secondary physical geometry stages compl
   secondary.set_minor_locator(@ticker.NullLocator::new().as_minor_locator())
   secondary.set_named_formatter(f.as_base_formatter())
   assert_eq(f.format_data_short(0.123456789), "0.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 800.0)
   assert_eq(length, 800.0)
 }
@@ -513,7 +513,7 @@ test "Scalar original axis 137 complete secondary physical geometry stages direc
   secondary.set_named_formatter(f.as_base_formatter())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(6.123456789), "6.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 800.0)
   assert_eq(length, 800.0)
 }
@@ -544,7 +544,7 @@ test "Scalar original axis 138 complete secondary physical geometry stages origi
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(6.123456789), "6.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 60.0)
   assert_eq(length, 80.0)
 }
@@ -575,7 +575,7 @@ test "Scalar original axis 139 complete secondary physical geometry stages compl
   secondary.apply_aspect()
   ignore(figure.to_svg_checked())
   assert_eq(f.format_data_short(6.123456789), "6.12")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 60.0)
   assert_eq(length, 80.0)
 }
@@ -607,7 +607,7 @@ test "Scalar original axis 140 complete secondary physical geometry stages direc
   ignore(figure.to_svg_checked())
   secondary.apply_aspect()
   assert_eq(f.format_data_short(6.123456789), "6.123")
-  let (origin, length) = secondary.formatter_geometry
+  let (origin, length) = secondary.formatter_geometry()
   assert_eq(origin, 800.0)
   assert_eq(length, 800.0)
 }

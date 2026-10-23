@@ -1568,23 +1568,40 @@ fn append_secondary_x_axis(
   prepared~ : SecondaryTickBundle? = None,
 ) -> Unit raise @core.DataError {
   let scale = secondary_display_scale(scale, true)
-  let at_top = match axis.location() {
-    @render.SecondaryLocation::Top => true
-    _ => false
-  }
-  let axis_y = if at_top { top } else { top + plot_height }
-  try! writer.empty_element("line", [
-    ("x1", float_text(left)),
-    ("y1", float_text(axis_y)),
-    ("x2", float_text(left + plot_width)),
-    ("y2", float_text(axis_y)),
-    ("stroke", "#374151"),
-    ("stroke-width", "1"),
-  ])
   let bundle = match prepared {
     Some(bundle) => bundle
     None => secondary_axis_bundle(axis, primary_ticks, scale.xmin, scale.xmax)
   }
+  let (left, top, right, bottom, plot_width, alignment) = match bundle.drawing {
+    Some(context) =>
+      (
+        context.left(),
+        context.top(),
+        context.right(),
+        context.bottom(),
+        context.right() - context.left(),
+        context.alignment(),
+      )
+    None =>
+      (
+        left,
+        top,
+        left + plot_width,
+        top + plot_height,
+        plot_width,
+        axis.location(),
+      )
+  }
+  let at_top = alignment is @render.SecondaryLocation::Top
+  let axis_y = if at_top { top } else { bottom }
+  try! writer.empty_element("line", [
+    ("x1", float_text(left)),
+    ("y1", float_text(axis_y)),
+    ("x2", float_text(right)),
+    ("y2", float_text(axis_y)),
+    ("stroke", "#374151"),
+    ("stroke-width", "1"),
+  ])
   let ticks = bundle.major
   let labels = bundle.major_labels
   for index, (primary, value) in bundle.minor {
@@ -1659,7 +1676,7 @@ fn append_secondary_x_axis(
   if bundle.offset != "" {
     append_text(
       writer,
-      left + plot_width,
+      right,
       axis_y + (if at_top { -8.0 } else { 30.0 }),
       bundle.offset,
       "end",
@@ -1693,23 +1710,41 @@ fn append_secondary_y_axis(
   prepared~ : SecondaryTickBundle? = None,
 ) -> Unit raise @core.DataError {
   let scale = secondary_display_scale(scale, false)
-  let at_right = match axis.location() {
-    @render.SecondaryLocation::Right => true
-    _ => false
-  }
-  let axis_x = if at_right { left + plot_width } else { left }
-  try! writer.empty_element("line", [
-    ("x1", float_text(axis_x)),
-    ("y1", float_text(top)),
-    ("x2", float_text(axis_x)),
-    ("y2", float_text(top + plot_height)),
-    ("stroke", "#374151"),
-    ("stroke-width", "1"),
-  ])
   let bundle = match prepared {
     Some(bundle) => bundle
     None => secondary_axis_bundle(axis, primary_ticks, scale.ymin, scale.ymax)
   }
+  let (left, top, right, bottom, plot_height, alignment) = match
+    bundle.drawing {
+    Some(context) =>
+      (
+        context.left(),
+        context.top(),
+        context.right(),
+        context.bottom(),
+        context.bottom() - context.top(),
+        context.alignment(),
+      )
+    None =>
+      (
+        left,
+        top,
+        left + plot_width,
+        top + plot_height,
+        plot_height,
+        axis.location(),
+      )
+  }
+  let at_right = alignment is @render.SecondaryLocation::Right
+  let axis_x = if at_right { right } else { left }
+  try! writer.empty_element("line", [
+    ("x1", float_text(axis_x)),
+    ("y1", float_text(top)),
+    ("x2", float_text(axis_x)),
+    ("y2", float_text(bottom)),
+    ("stroke", "#374151"),
+    ("stroke-width", "1"),
+  ])
   let ticks = bundle.major
   let labels = bundle.major_labels
   for index, (primary, value) in bundle.minor {
@@ -3431,6 +3466,9 @@ fn render_panel(
   for (horizontal, index, axis, _) in secondary_order {
     let prepared = if axis.prepare_draw() {
       owned_child_prepared = true
+      // The original superclass draw evaluates its locator and calls the
+      // child's aspect after the old-context map and parent-name reset.
+      ignore(axis.positioned_aspect(left, top, plot_width, plot_height))
       let (lower, upper) = if horizontal {
         (scale.xmin, scale.xmax)
       } else {
@@ -3837,9 +3875,12 @@ pub fn render_with_positions_checked(
     panel.x_axis().set_tick_view(scales[index].xmin, scales[index].xmax)
     panel.y_axis().set_tick_view(scales[index].ymin, scales[index].ymax)
   }
-  for panel in figure.panels() {
+  for index, panel in figure.panels() {
+    let (left, top, width, height) = positions[index]
     for (_, _, axis, _) in ordered_secondary_axes(panel) {
-      ignore(axis.synchronize_view())
+      if !axis.positioned_aspect(left, top, width, height) {
+        ignore(axis.synchronize_view())
+      }
     }
   }
   try! writer.start_element("svg", [

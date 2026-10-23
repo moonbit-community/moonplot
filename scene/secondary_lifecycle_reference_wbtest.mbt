@@ -161,7 +161,7 @@ fn secondary_source_case_0() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -243,7 +243,7 @@ fn secondary_source_case_0() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -336,7 +336,7 @@ fn secondary_source_case_0() -> Unit raise {
       4616189618054758400UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4634204016564240384UL.reinterpret_as_double(),
         4638707616191610881UL.reinterpret_as_double(),
@@ -416,7 +416,7 @@ fn secondary_source_case_0() -> Unit raise {
     4616189618054758400UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [
       4634204016564240384UL.reinterpret_as_double(),
       4638707616191610881UL.reinterpret_as_double(),
@@ -533,7 +533,7 @@ fn secondary_source_case_1() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -622,7 +622,7 @@ fn secondary_source_case_1() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -710,7 +710,7 @@ fn secondary_source_case_1() -> Unit raise {
       4616189618054758400UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4634204016564240384UL.reinterpret_as_double(),
         4638707616191610881UL.reinterpret_as_double(),
@@ -789,7 +789,7 @@ fn secondary_source_case_1() -> Unit raise {
     4616189618054758400UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [
       4634204016564240384UL.reinterpret_as_double(),
       4638707616191610881UL.reinterpret_as_double(),
@@ -905,7 +905,7 @@ fn secondary_source_case_2() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -987,7 +987,7 @@ fn secondary_source_case_2() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -1080,7 +1080,7 @@ fn secondary_source_case_2() -> Unit raise {
       4616189618054758400UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4634204016564240384UL.reinterpret_as_double(),
         4638707616191610881UL.reinterpret_as_double(),
@@ -1160,7 +1160,7 @@ fn secondary_source_case_2() -> Unit raise {
     4616189618054758400UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [
       4634204016564240384UL.reinterpret_as_double(),
       4638707616191610881UL.reinterpret_as_double(),
@@ -1277,7 +1277,7 @@ fn secondary_source_case_3() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -1359,7 +1359,7 @@ fn secondary_source_case_3() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -1452,7 +1452,7 @@ fn secondary_source_case_3() -> Unit raise {
       4616189618054758400UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4634204016564240384UL.reinterpret_as_double(),
         4638707616191610881UL.reinterpret_as_double(),
@@ -1532,7 +1532,7 @@ fn secondary_source_case_3() -> Unit raise {
     4616189618054758400UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [
       4634204016564240384UL.reinterpret_as_double(),
       4638707616191610881UL.reinterpret_as_double(),
@@ -1649,7 +1649,7 @@ fn secondary_source_case_4() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -1731,7 +1731,7 @@ fn secondary_source_case_4() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -1823,7 +1823,7 @@ fn secondary_source_case_4() -> Unit raise {
       4616189618054758400UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4634204016564240384UL.reinterpret_as_double(),
         4638707616191610881UL.reinterpret_as_double(),
@@ -1903,7 +1903,7 @@ fn secondary_source_case_4() -> Unit raise {
     4616189618054758400UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [
       4634204016564240384UL.reinterpret_as_double(),
       4638707616191610881UL.reinterpret_as_double(),
@@ -2020,7 +2020,7 @@ fn secondary_source_case_5() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -2102,7 +2102,7 @@ fn secondary_source_case_5() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -2195,7 +2195,7 @@ fn secondary_source_case_5() -> Unit raise {
       4619567317775286272UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4631952216750555136UL.reinterpret_as_double(),
         4639270566145032192UL.reinterpret_as_double(),
@@ -2275,7 +2275,7 @@ fn secondary_source_case_5() -> Unit raise {
     4619567317775286272UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [
       4631952216750555136UL.reinterpret_as_double(),
       4639270566145032192UL.reinterpret_as_double(),
@@ -2392,7 +2392,7 @@ fn secondary_source_case_6() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -2481,7 +2481,7 @@ fn secondary_source_case_6() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -2569,7 +2569,7 @@ fn secondary_source_case_6() -> Unit raise {
       4619567317775286272UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4631952216750555136UL.reinterpret_as_double(),
         4639270566145032192UL.reinterpret_as_double(),
@@ -2648,7 +2648,7 @@ fn secondary_source_case_6() -> Unit raise {
     4619567317775286272UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [
       4631952216750555136UL.reinterpret_as_double(),
       4639270566145032192UL.reinterpret_as_double(),
@@ -2764,7 +2764,7 @@ fn secondary_source_case_7() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -2846,7 +2846,7 @@ fn secondary_source_case_7() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -2939,7 +2939,7 @@ fn secondary_source_case_7() -> Unit raise {
       4619567317775286272UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4631952216750555136UL.reinterpret_as_double(),
         4639270566145032192UL.reinterpret_as_double(),
@@ -3019,7 +3019,7 @@ fn secondary_source_case_7() -> Unit raise {
     4619567317775286272UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [
       4631952216750555136UL.reinterpret_as_double(),
       4639270566145032192UL.reinterpret_as_double(),
@@ -3136,7 +3136,7 @@ fn secondary_source_case_8() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -3218,7 +3218,7 @@ fn secondary_source_case_8() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -3311,7 +3311,7 @@ fn secondary_source_case_8() -> Unit raise {
       4619567317775286272UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4631952216750555136UL.reinterpret_as_double(),
         4639270566145032192UL.reinterpret_as_double(),
@@ -3391,7 +3391,7 @@ fn secondary_source_case_8() -> Unit raise {
     4619567317775286272UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [
       4631952216750555136UL.reinterpret_as_double(),
       4639270566145032192UL.reinterpret_as_double(),
@@ -3508,7 +3508,7 @@ fn secondary_source_case_9() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -3590,7 +3590,7 @@ fn secondary_source_case_9() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -3682,7 +3682,7 @@ fn secondary_source_case_9() -> Unit raise {
       4619567317775286272UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4631952216750555136UL.reinterpret_as_double(),
         4639270566145032192UL.reinterpret_as_double(),
@@ -3765,7 +3765,7 @@ fn secondary_source_case_9() -> Unit raise {
     4619567317775286272UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [
       4631952216750555136UL.reinterpret_as_double(),
       4639270566145032192UL.reinterpret_as_double(),
@@ -3892,7 +3892,7 @@ fn secondary_source_case_10() -> Unit raise {
     4621819117588971520UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [0UL.reinterpret_as_double(), 4644337115725824000UL.reinterpret_as_double()],
   )
   assert_eq(child.numeric_axis.autoscale_on(), false)
@@ -4019,7 +4019,7 @@ fn secondary_source_case_11() -> Unit raise {
     4621819117588971520UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [0UL.reinterpret_as_double(), 4644337115725824000UL.reinterpret_as_double()],
   )
   assert_eq(child.numeric_axis.autoscale_on(), true)
@@ -4134,7 +4134,7 @@ fn secondary_source_case_12() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -4221,7 +4221,7 @@ fn secondary_source_case_12() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -4386,7 +4386,7 @@ fn secondary_source_case_13() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -4471,7 +4471,7 @@ fn secondary_source_case_13() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -4636,7 +4636,7 @@ fn secondary_source_case_14() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -4721,7 +4721,7 @@ fn secondary_source_case_14() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -4882,7 +4882,7 @@ fn secondary_source_case_15() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -4967,7 +4967,7 @@ fn secondary_source_case_15() -> Unit raise {
       4621819117588971520UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         0UL.reinterpret_as_double(),
         4644337115725824000UL.reinterpret_as_double(),
@@ -5119,7 +5119,7 @@ fn secondary_source_case_16() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -5206,7 +5206,7 @@ fn secondary_source_case_16() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -5371,7 +5371,7 @@ fn secondary_source_case_17() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -5456,7 +5456,7 @@ fn secondary_source_case_17() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -5621,7 +5621,7 @@ fn secondary_source_case_18() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -5706,7 +5706,7 @@ fn secondary_source_case_18() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -5867,7 +5867,7 @@ fn secondary_source_case_19() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -5952,7 +5952,7 @@ fn secondary_source_case_19() -> Unit raise {
       4622382067542392832UL.reinterpret_as_double(),
     )
     secondary_source_numbers(
-      [child.formatter_geometry.0, child.formatter_geometry.1],
+      [child.formatter_geometry().0, child.formatter_geometry().1],
       [
         4642648265865560064UL.reinterpret_as_double(),
         4642648265865560064UL.reinterpret_as_double(),
@@ -6107,7 +6107,7 @@ fn secondary_source_case_20() -> Unit raise {
     4616189618054758400UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [0UL.reinterpret_as_double(), 4638707616191610880UL.reinterpret_as_double()],
   )
   assert_eq(child.numeric_axis.autoscale_on(), false)
@@ -6224,7 +6224,7 @@ fn secondary_source_case_21() -> Unit raise {
     4616189618054758400UL.reinterpret_as_double(),
   )
   secondary_source_numbers(
-    [child.formatter_geometry.0, child.formatter_geometry.1],
+    [child.formatter_geometry().0, child.formatter_geometry().1],
     [0UL.reinterpret_as_double(), 4638707616191610880UL.reinterpret_as_double()],
   )
   assert_eq(child.numeric_axis.autoscale_on(), false)
