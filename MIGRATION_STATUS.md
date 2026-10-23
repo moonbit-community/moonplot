@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D35已验收并提交，继续D36构造/clear默认生命周期。
+- 当前切片编号：D36已验收并提交，继续D37真实autoscale_view语义与范围链。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,13 +33,14 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D35已验收：首full53288同6旧fixture/契约失败，经源定位修复后五文件
-  补验29437四目标各61/61通过，累计nonJS21838/JS21845全覆盖。最终infofmtcheck同步0，
-  check24tasks/8oldRefwarn0error，105line接口finalcmp同，三newsource与两oldsource全0。
-  local基础978f271、参考精修acff948、feature85554c6已提交；无remote/push。
-  下一D36：Root已全文读B272line constructor/clear与C219line autoscale notes，冻结intrinsic
-  x/y构造、Axis原位clear与Scene清理顺序/分享target边界后分工；不重跑已过D35门禁。
-  当前没有需要用户回答阻塞，无live工具。独立review114line已全文读且无新实质缺陷。
+- 下一条具体动作：D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+  full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
+  定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
+  finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
+  A126line Scene独立审/B140line mixedmeta独立审均Root全文读无新具体缺陷。
+  下一D37真实autoscale_view：复用219line notes与现有ranges/data源，不重survey/不重跑D36。
+  需独立auto-enable/stale/tight/view/dataLim语义与共享checked范围链设计freeze后推进。
+  当前无live工具/无用户阻塞；用户授权多commit与并行agents继续有效。整体goal尚未完成。
   首全量32763四target同9个fixturefail，之后仅两fixture修正，补验25631各13/13全过；
   当前累计nonJS21823/JS21830全验证覆盖。final92913 infofmt0/check79tasks8旧warn0error，
   93行接口逐字cmp同；六newsource最新全0。原实际sourceoutputs不改，派生metadata修正已审。
@@ -4674,3 +4675,126 @@ Root Logit sourcecheck72377 terminal0，D34JSON byte同；nullgen/check0且只�
 
 当前无Root/agent live工具，所有writers停。Goal持续，无需用户回答。整体约50%(40–60%)
 宽估算不变；本次对象生命周期增量不据测试数量冒报新百分比。
+
+D35 checkpoint commit297078c已提交，工作树clean后D36-before保存其HEAD/tracked.tar/41mbti，勿覆盖。
+D36已启动：Axis层freeze真实x/y constructor defaults、sameholder clear保views/inversion/overlap、
+本地date/category清理及原稳定context；Root独占axis.mbt生产，B独占new完整Axis init/clear refs。
+C先Scene具体design（figure/shared_axes/subfigure/lifecycle），A先实际Axes.__clear/removedtarget
+sourceprobe与正式new refs准备；未freeze Scene target provenance前不写production，不跑Moon。
+D36尚未实现/验收，当前无Root live工具。D35所有gates/source均terminal0或明确首full2/补验0。
+
+D36 Root Axis主体已落（axis.mbt唯一production改）：axis新增optional horizontal~Bool，intrinsic
+方向先定，稳定provider绑好后复用已验收set_scale Linear安装4defaults。clear保持同holder、
+limits/auto_view/inversion与overlap，不再断shared/丢view；清typedconverterguard后同installer。
+pure签名保，try!只断言linear默认ctors+已清guard无可达error，不catch降级；尚未编译/验收。
+B newAxis formalgen/refs进行中；C Scene设计、A完整Axes clear/removedtarget sourcehost准备。
+A原sharex尾body已证removed target可重join原Grouper且不回Figure.active，需C具体registry
+设计承接，不能仅靠当前figure.axes遍历冒称等价。Scene API未freeze前不写production。
+Root已全文读B272/C219notes，当前无live Root工具，不跑centralMoon以免并发writer。
+
+D36 Root已按固定Axis.clear原body纠正2旧测试前提：view_test保inversion，date_autoformatter_test
+保overlapfalse；无snapshot/sourceexpected盲改，正式原source矩阵由B新增。未运行Moon。
+B正式newloader load(path)->(ns,AxisHarness)已稳定smoke0，完整原Axis.__init__/clear及overlap
+property；Root全文读loader，A可复用。A补证tail sharex复制geometry而不重装，removedtarget
+旧log可能使clearedaxis回log但peerlinear/sharedtickerlinear；已告C必须承接，不强制全部linear。
+当前Root修改axis.mbt与2oldtests，B新refs进行中，C design/A sourcehost，尚无central gate。
+
+D36 Scene已freeze并落C7files（figure/shared_axes/subfigure/lifecycle/axis_data+newaxes_clear/
+shared_members），Root全部全文审：真实strong typed成员组/creationtargetRef/Int64注册顺序，
+removed独立于Figure、tailjoin与复制geometry，late rc minlocFalse，checkedclear链与Figure/
+SubFigure perAxes去重，三creation入口归并2处intrinsicY。Weakref expiry/fullAutoOn/lazyview/
+Figure.clear删panel仍各自后续，不伪称完成。C停写，A正式Scene源newgen进行中。
+Root新增Axis.inherit_scale_from纯geometry、set_cleared_view_limits checkedLinear尾桥：
+finite→majorNS→actualscale.limit_range(ownminpos必读)→原方向sort→storetypedauto/explicit，
+privateNS helper被旧default_limits复用。无group传播，Scene按source序控制，不把callback异常
+当pure构造invariant。API已告A/C稳定。
+D36 B 4newfiles已交396cases/13groups、8sourceonlyclearFalse，gen/check0，JSON
+586a33968855d1f79bb8bb4332113c03830d0bf57ca02fe7c7764b3ca3c33200；正在追加可达mixed-meta案例
+（原396必须保持），loader稳定不改。B原16query probes明确元数据读取0、所有converter/units
+identity保留，原numeric slots决定queries；Root不接受只记mixedpeer边界而不修可达clear。
+Root已补Linear set_scale真正安装4objects，privateinstallflag仅绕过默认ctors的单位guard，
+numeric_tickers_active/units-for-ticks helpers使新numeric槽优先而保留metadata；checked/raw
+numeric/location/labels/offset与minor labels均接，旧date显式numeric定位桥保留；Date configure
+仅默认major让出至dateauto，explicitminorDateFormatter清相应named槽。尚未编译/源验收。
+C已再次派只读核builtin view provider：A formal清理场景绑stored-view sink隔离了SVG provider，
+内建group_limit可能把removed target100..200读取成active peer10..20。需真实回归/证据后
+处理semantic vs render view区分，不能直接跳过用户bind_view_interval poison。无Root live工具。
+
+D36 Root mixed-meta查询与内建view接线完成待验：metadata保留，Linear默认实际覆盖并读新named
+slots，日期默认启用让出默认numeric major、显式minorDate formatter清旧namedminor；公开unchecked
+label/offset/minor入口也读真实named对象，旧calendar显式numeric locator定位桥保留。
+B追加16正式原querycases/独立审进行中，原396保持，A原52正在append2 builtin无override案例。
+Root/C已定位真实Builtin bug并修：Scene render provider的group_limit首active10..20会盖removed
+source自身100..200。新增独立render_view_provider，公开bind_view_interval保useroverride；
+view_interval_checked仍layout→user→render→stored，四临时overlay检查改has_any_provider；新增
+lifecycle_view_interval_checked优先user→ownstored→缺时render→0..1，不读layout。
+C只改axis_data用bind_render_view_interval与clear tail用lifecycle getter后再次停，Root全文审
+7Scenefiles/handoff及2行修正。用户callback异常仍可达，不以current_view_limits绕过。
+A会正式source升/降两case同时检查x/y且不重绑storedprovider，防controlledfixture掩盖接线。
+D36-gate.sh已备，尚未运行Moon，全部writer停后启动。当前无Rootlive工具/无用户阻塞。
+
+D36 A最终54cases/2groups、60次完整clear入口（55success/5lateerrors）已gen/check0并停，
+原52逐项同，append builtin升/降2cases同时x/y，无provideroverride；JSON
+ eac89a28c9eff3d7c7bee1174a9169cb3f07556da924c1456bffc945f7508dc9。
+Root已全文读A完整source/collect/setup/observations及guide，B原396+mixedcollect/render均已读。
+C所有production已停，Root所有production暂停，B正在final gen/check/independent review。
+预计新增15registered、466cases（B412/13+A54/2），full预计nonJS21853/JS21860；以最终实际
+数量和结果为准，不预标通过。D36门禁未运行，Root无live工具。
+
+D36所有writers最终停后首central1029已terminal255：17errors=8个WB timezone assert_eq无Eq/Debug
+共16errors（已派B改Option匹配+底层physicalidentity，JSON需byte同）+C Array无first()一处
+（已派C length>0+[0]），另SharedAxesGroup missing_priv一处改priv。无Root生产类型错误。
+B最终正式412/13，原396/8source-only重构回原SHA精确一致；newJSON
+cbdaa338a9e30e2f8c688bb48c7bf884e8d5e4fde0cd9aee0eac0ae5920d9272。
+B140line独立mixedmeta review Root全文读，无新证实缺陷；A576line正式gen全文已审。
+Root A newsource --check已开始/结果当前tool输出；未Moon行为验收，待B/C精修停后再gate。
+
+D36 B/C编译精修均停写，Bgen/check0且412JSON byte同，C length+[0]/privGroup两点已修。
+第二central36667 terminal0：check56tasks/7oldRefwarnings0error，infofmt0，初86line接口全文读后
+Root将Figure两个新内部注册counter标priv，避免新公开状态；第三central18355 terminal0：
+check76tasks/7oldRefwarn0error、info6tasks0/fmt9tasks0。最终77line接口Root全文审并存reviewed，
+仅axis新增horizontaloptional与4lifecycle/provider API，Scene三clear_checked，旧pure方法保留。
+完整四目标suite82531 live，log D36-test-all.log；所有tracked生产/fixtures停写，不能并发改。
+当前正式cases466/15registered（B412/13+A54/2），预计nonJS21853/JS21860，尚未behavior验收。
+
+D36 Root最终newsource复验46918/1739均terminal0，JSON SHA保持。完整82531已再次poll确认live；
+read-only ps见moon进程42114及实际ticker moonrun，非仅文件锁推测。所有tracked写暂停。
+Root新总guide initial_clear_README.md已写scope+待完整验收，未改编译源或fixtures。
+A正额外独立readonly scene清理审（只ignored），不影响门禁。没有用户阻塞，失败继续修。
+
+D36 full82531前三target已结束同1oldtestfail，15newregistered全部过：nonJS21853/21852pass，
+JS21860/21859pass；native ticker实际进程仍live，不能改源码/fixtures。
+唯一失败named_numeric_locator_test固定minor旧期望只[1.5,.5]；新真实default NullFormatter使
+getter走原raw固定值协议。Root重新执行原完整Axis.get_minorticklocs+Linear/Fixed：三stage
+原结果[3,1.5,.5,-.5,nan,inf]、[3,1.5,.5,1,-.5,nan,inf]、[3,1.75,.5,1,-.5,nan,inf]，exit0；
+保存ignored D36-fixed-minor-original.json。将等fullterminal后只修这条旧test的getter/draw边界
+假设，逐项保raw finite/NaN/Inf及原借用突变/顺序断言，不改production，不重跑已过无关suite。
+A独立scene group/clear/provider reviewer初查无新具体缺陷，ignored报告收尾中。
+
+## D36 最终验收
+
+- [x] intrinsic x/y finishedconstructor defaults，Axis原位clear同holder/保view/方向/overlap。
+- [x] Axes真实self→peers→late minorrc→children→target/emit tail，checked晚失败保partial。
+- [x] 真实ordered成员/creationtarget/removed-rejoin不回Figure列表，末geometrycopy无额外安装；
+      Figure/SubFigure单权威checked清理每panel一次，保本项目panel/layout便利合同。
+- [x] converter元数据保留却由实际numeric ticker槽决定查询；checked/raw major/minor/labels/
+      offset路径均接，真实fullquery源16cases，无metadata访问。通用units更新仍后续。
+- [x] authoritative user-view与Scene render projection分开，生命周期读ownstored而不误取
+      shared首activeviewport，rawcallback错误仍优先；2builtin无override升/降实际回归。
+- [x] 15新增registered/466cases：B412/13 + A54/2（60完整源clear入口55success5lateerrors），
+      8internalclearFalse source-only；两newsource final46918/1739 terminal0。
+- [x] 首full82531 terminal2：nonJS21853/21852pass/1fail，JS21860/21859pass/1fail，四target同。
+      原sourceget_minorticklocs三stage重新执行证实raw位置/NaN/Inf应保留，旧测试把drawfilter
+      提前。只修该test并逐项保持完整raw数组/借用突变/顺序，production不改；相关文件24001
+      四目标各6/6补验0，首full其余项目未变，累计全部覆盖，不伪称首full exit0。
+- [x] 最终info4tasks0/fmt1task0/check24tasks7oldRefwarn0error，77line完整接口全文已审finalcmp同；
+      后accepted docs更新再次finalscript0。axis optional方向、4Axis lifecycle/view APIs、三
+      Scene clear_checked；注册counter保持private，没有意外public字段。
+- [x] A126line Scene独立审/B140line units-query独立审均Root全文读，无新具体残留缺陷。
+- [x] accepted README/COMPAT/PLAN/PROGRESS/DEPENDENCIES/NOTICE/总guide与两分guide；
+      feature ed34eb0已本地提交，32files；无remote/push。此checkpoint另commit。
+- [ ] D37完整autoscale_view状态/范围链与后续units/secondary/其他公开能力继续，不当整体完成。
+
+最终JSON SHA：Axis cbdaa338a9e30e2f8c688bb48c7bf884e8d5e4fde0cd9aee0eac0ae5920d9272；
+Scene eac89a28c9eff3d7c7bee1174a9169cb3f07556da924c1456bffc945f7508dc9。
+所有Root与agents工具terminal，无需轮询。整体约50%(40–60%)宽估算不按测试数调整。
