@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D37已完整验收并提交c7439eb；继续D38单位与Date/Category逐slot接线，先读文件尾具体source/design notes，不重跑D37。
+- 当前切片编号：D38已完整验收并提交ad6a895；继续D39 Line原始输入/类别unit重排，只读notes准备中未freeze。先读文件尾，不重跑D37/D38已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D37已验收并提交c7439eb；读A/B/C正在收尾的D38具体notes后freeze下一纵向切片，Root保central门禁/接口/commit。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：D38已验收并提交ad6a895；读D39 Line provenance/source/acceptance具体notes，冻结最小单位重排回算纵向切片。Root保central门禁/接口/commit。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -4938,3 +4938,108 @@ A已实跑23观察（原units registry/UnitData/DateConverters），B/C仍只读
 同registryconverter重复date忽略单独rc变化；首次Category default_units会set_units→axisinfo/
 callback后neednew再axisinfo，重复category只append mapping且不重装/不callback。正式API与
 实施分工尚未freeze，不能以当前23源观察冒称完成。目标持续、无用户阻塞。
+
+D37 feature c7439eb + docscheckpoint f4dd38b均已提交，工作树当时clean；不重跑已过门禁。
+D38-before 已保存f4dd38b HEAD/tracked.tar/41mbti，勿覆盖。Root已读现date_converter.mbt、
+CategoryAxis persistent encode及旧DateConverter原class generator前155行；其抽象units host
+旧scope不能假装真实registry。下一只读三notes后freeze具体生产，不能重全项目survey。
+B214line D38-units-integration-design.md已交，7原slot/callback policy实际观测（另A23原units）；
+C67观察含19完整typed autoscale，notes收尾；A23units registry/UnitData/DateConverters收尾。
+B待Root判断：set_categories重排legacyextension与rawstring provenance边界、旧atomic
+set_date_converter便捷接口与新sourcepartialroute区分、defaultlabel flag是否纳入；合理复用
+已授权，Root可按具体代码/来源自行决策，不向用户反复求许可。当前未freeze/未tracked生产，
+A/B/C只ignorednotes，Root无live工具，整体goal继续。
+
+D38已freeze并启动production：Root shared4slot角色/typed range kernel；B unitsstate/Scene；C
+逐slot queries/backend；A actualsource正式profile。Axis新增AxisUnitState，actualdate字段迁入
+共享tickerholder，CategoryUnits live映射独立于旧persistentCategoryAxis。普通emptyarray按list
+不选converter；RRuleDateTime明确awareness，旧DateTime plotDate为awareinstants。源append-only
+category与旧explicitreorderextension分开；旧atomicdate便利接口保持边界。当前writers都live，
+禁止central Moon门禁并发；Root无live工具。下一完成各ownedfiles后统一check定位，失败继续。
+
+D38 Root第一实现已落：AxisUnitState字段与本地defaultlabel；actualDate槽迁共享holder，4独立
+kind/flag；默认Date/Category仅eligiblemajor安装，explicitsetter仅自slot；Date/Category同D37
+候选/最终NS与继承.001viewpolicy，typedset_limits在setter真实NS扩边。新增Root4handtests覆盖
+混合formatter/locator、append保explicit、capturedtypedpolicy跨callback、label/minor保留。
+CategoryUnits由B实现独立live，时区unit_equal新typedconstantzone秒等值+ruleidentity。Root已审
+B初稿并修producer必须have_units门控/convert-only discovery（B正在落），C补Date共享lastowner
+与checkedconcreteerror透传，A正式source90cases实施。所有writers仍live，禁止central工具。
+下一等三者明确停写后mooncheckall→infofmt接口审→定点/完整四目标；任何fail需自主定位继续。
+
+D38 firstcentral66429 terminal255（Root Integerpattern括号引起3error已修）；second41904 terminal255
+为newfixture Bool结果未ignore与新Integers变体旧exhaustive，已精修，Agen/check0且原JSON
+8c756d269c309bcac93caef535c7f331584a2ba09eb3e53e1d8d14b910e5bf37逐字同。third83519
+terminal0：88tasks21warn0error（7旧Ref+新unusedtry/effect/deprecated已分类待精修）。
+Root独立newsource --check同步0=90cases/3groups（23units49stages+67range），未改原源期望。
+晚集成发现Category生成刻度为Pythonintlist，Root补FormatterLocations.Integers+完整整数batch
+与StrMethod/Pct/Scalar/Eng/Log/Logit origin通路，C已接backend并源验证{x:d}/{x!r}；C11hand
++B15hand+Root4slot/4integerhand+formal3groups当前未行为验收。B独审原13Integerlistprobes找到
+unusedhugeint转换/4300limit/Pct int-int三个可达缺口：Root已修前两，B获准只Pctfile+newtest，
+尚livewriter故禁central。C只读独立复核单位/槽内核，A所有tracked停。下一B停后info/fmt/check
+与完整四目标，失败继续；无用户阻塞，无Rootlive工具。
+
+D38第四门禁41231 terminal0：info16tasks7旧warnings0error/fmt45tasks0/check104tasks19warnings
+0error（剩余12均旧tests的unusedtry，后续对应源契约fail时精修）；324line接口Root已全文审，
+含旧date_locator字段收束为共享槽getter、合法setter去raise、新unit/tag/CategoryUnits与Integer
+formatter carrier。B13完整原formatter审发现的3缺口全修，Root4integer/B3Pct新tests已入门禁；
+Root额外修显式shared category configuration统一live map，新增1Scenehand。C103line单位/槽
+独立审、B93lineInteger审Root均全文读。全部A/B/Ctracked停写。
+第一完整四目标26686 live，log D38-test-all-first.log，预期new41registered（formal3groups90case
++38hand）而非按sourcecase当test数；不得并发改编译源/fixtures。当前子moonc99%CPU正常编译，
+不能把尚空log或耗时当停滞。下一等终态，逐实际fail按source诊断修；整体goal继续，无用户阻塞。
+
+D38首full26686 terminal255：wasm/wasm-gc21933/21917pass/16fail，JS21940/21924/16fail；native
+旧presetAuto.unwrap引SIGABRT未完成，不冒称四目标都跑完。源证据分类并修：Root预设count只
+显式numeric槽时仍保AutoDate便利快照；旧atomic Date converter/offset/rc配置通过新units桥让
+后续producer复用，且不得覆DefaultDate live marker/真正explicitconverter；source Date major/
+minor显式locator自带TZ保留（新增1hand）。新minorFixed.5与major重叠是真过滤，fixture关闭
+overlap；C修minorDateformatter+legacyFixed绕过Axis overlap flag实际缺陷。Root明确DateFormat
+便利入口保manualfixedlabels，真正DateFormatter setter只自己slot。C据10原source补证修旧
+formatter拒绝/implicitmajor/Categorymetadata/空无artist标签假设，原source输出不动，95line
+报告Root全文读。A 18customepoch旧fixture只改rc但已锁epoch，现复用integration/epoch_2000
+既有单注册test隔离，主WB72/3groups+isolated18，原90JSON8c756d...bf37全程byte同。
+Root旧Logit formatter轴gen去纯setter多余try!并regen/check0=147cases5groups，旧JSON无diff。
+fifthgate89165仅Rootfixture误用Figure.set_x_date编译1error，改axes().set_x_date后sixth66983
+terminal0：info/fmt/check24tasks7旧Refwarn0error；324line接口finalcmp与Root全文已审相同。
+第二完整44269 live，log D38-test-all-second.log；当前new42registered（formal3groups承载90
+原源cases，其中18复用已有isolated注册test；39hand），预期nonJS21934/JS21941，以终态为准。
+全部tracked生产/fixtures停写；Root两个final source同步0（new90与Integer13），JSONbyte同。
+下一等44269终态，若失败继续诊断；通过后finalinfofmtcheck/accepted docs/分批本地commit。
+不能把切片完成标整个goal完成；无用户阻塞。
+
+D38第二full44269 terminal2：wasm/wasm-gc/native各21934/21932pass/2fail，JS21941/21939/2fail；
+全部new42registered（90sourcecases+39hand，含18isolatedepoch）已过，全部Integer新/旧均过。
+两旧fail仅scene/date_test转DSTrecurrence与pyplot同facade，Root已定真实cause：不能用unit
+推断date_timezone_is_default来区分用户显式便利timezone覆盖。新增private timezone_override
+默认false（sourceunitinfo清false），仅set_date_timezone/offset或legacyfixedoffsetlocator置
+true；DateLocator构造仅受该explicit便利override影响，source推断unit不覆盖locator自带TZ。
+这样保手动DateLocator源码独立TZ与旧便利DST配置；原两assert/源数值均不动。
+第七门禁18883 terminal0：info/fmt/check79tasks7旧warnings0error；第六门禁66983亦0。当前
+定点68537 live（6files四目标：scene/date_test、pyplot/date_test、Axisunits、Dateconverter/
+calendarformat、Roottypedslots），log D38-focused-phase3.log。等结果后因生产timezoneflag
+改变仍需第三full四目标；不能只定点过就把secondfull2fail标全过。无其它live工具/生产writer。
+
+## D38 行为验收通过（提交前最终门禁）
+
+- [x] 第三完整40394 terminal0：wasm/wasm-gc/native各21934/21934，JS21941/21941，0fail。
+- [x] 新42registered=mainformal3groups+39hand；90源cases（23units49stages+67range），其中
+  18custom-epoch由已有isolatedepoch注册test承载。原JSON SHA8c756d...bf37全程逐字保持。
+- [x] 原源/fixture与真实生产分开诊断：修typed overlap、Date便利配置→units桥、presetauto
+  快照、explicit source-locator TZ与legacy convenience TZ override；旧旧expectation按原完整
+  source补证修。第二full的同2时区失败已在本次完整四目标重新覆盖。无放宽严格floatbits。
+- [x] Integerlist来源、huge-unused/4300decimal限制/精确Pct及错误顺序已实源独审并修，39hand
+  与旧Scalar/Eng/Log/Logit/Numeric全过。stable unit callbacks、dataLim/relim只请求事件方向。
+- [x] C103line Root/B独立审、B93line Integer独审、C95line旧fixture源诊断Root全文已读。
+- [x] Rootnew90 source--check和Integer13实际probe均0；旧Logit轴gen/check0，JSON无diff。
+- [x] README/COMPAT/PLAN/PROGRESS/DEPENDENCIES/NOTICE和新guide已更新本次accepted范围、
+  源证据及仍未支持的dynamic registry/stringgrammar/无原始Line数据重排边界。
+- [x] 最终9195 terminal0：info5tasks/fmt3tasks/check24tasks，7旧Refwarnings/0error；324line接口与Root已审逐字cmp，diffcheck0，feature ad6a895已本地提交（67files/15733insertions，主要JSON与fixtures）；checkpoint/plan/progress另commit。
+- [ ] D39 Line原始输入与CategoryUnits重排recache；A/B/C只读准备中，尚未freeze/生产写。
+
+40394与全部Root/source工具terminal，无live工具。下一最终门禁和提交，再读D39具体notes冻结
+下一小片；整体goal仍未完成，没有用户阻塞。
+
+D38 final9195已terminal0，feature ad6a895本地提交，无remote/push。40394完整四目标全过与所有
+source --check均terminal。D39目前B203line架构notes已交，A实际Line原源准备、C验收notes收尾；
+只有ignorednotes，不改tracked生产/不跑Moon/不提前freeze。下一先读三具体notes再冻结最小
+Line原始输入capture→recache→CategoryUnits替换重排纵向片，不能重跑D38。整体goal持续。
