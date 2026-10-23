@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D34已验收并提交c7e47bb；下一D35只读准备默认scale安装生命周期。
+- 当前切片编号：D35已验收并提交，继续D36构造/clear默认生命周期。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,14 +33,18 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D34 feature已提交c7e47bb，保存checkpoint后进入D35默认scale安装
-  locator/formatter生命周期的只读准备，核固定scale.py及现有scene/axis scale setter，
-  冻结范围后再分片，避免重启项目调查。当前无live工具。
+- 下一条具体动作：D35已验收：首full53288同6旧fixture/契约失败，经源定位修复后五文件
+  补验29437四目标各61/61通过，累计nonJS21838/JS21845全覆盖。最终infofmtcheck同步0，
+  check24tasks/8oldRefwarn0error，105line接口finalcmp同，三newsource与两oldsource全0。
+  local基础978f271、参考精修acff948、feature85554c6已提交；无remote/push。
+  下一D36：Root已全文读B272line constructor/clear与C219line autoscale notes，冻结intrinsic
+  x/y构造、Axis原位clear与Scene清理顺序/分享target边界后分工；不重跑已过D35门禁。
+  当前没有需要用户回答阻塞，无live工具。独立review114line已全文读且无新实质缺陷。
   首全量32763四target同9个fixturefail，之后仅两fixture修正，补验25631各13/13全过；
   当前累计nonJS21823/JS21830全验证覆盖。final92913 infofmt0/check79tasks8旧warn0error，
   93行接口逐字cmp同；六newsource最新全0。原实际sourceoutputs不改，派生metadata修正已审。
   D34-before已保存HEAD c7ce6b404750fb6babe98e2e2254ee508369869a的tracked.tar/41份mbti。
-  Root Base/batch/Scalar穷举适配、typed locations及真实shared set kernel已编译通过，待fixture修复验收。
+  Root Base/batch/Scalar穷举适配、typed locations及真实shared set kernel均已验收。
   D33 full25520、追加exacthalf过滤82978、final80311、四source均terminal0；无live工具。
   nonJS21700/JS21707全过；152newregistered承载4557validationcases，251行接口全文审且
   final逐字cmp同；finalcheck28tasks/8旧Refwarn/0error。所有原JSONexpected保持。
@@ -4559,3 +4563,114 @@ D34 feature已提交c7e47bb，49files（绝大多数行是完整JSON与生成WB�
 空行trailing whitespace，Root source20226复验0且actual Axis JSON不变，未触及生产/测试期望。
 4份全局文档独立checkpoint提交，之后工作树应clean。所有sessions terminal，goalactive。
 用户新AGENTS已明确允许coherent verified local commits，无需再次请求确认；无remote/push。
+
+## D35 继续工作检查点
+
+用户再次明确：测试失败应自主排查/修复/复验，不是停止理由；不要把阶段交付当作整体goal
+结束。Root get_goal实际读到blocked（与先前无阻塞的检查点矛盾）；现有工具无active/resume
+参数，用户已明确继续，Root按同一任务持续执行，不伪称接口状态已恢复或创建重复goal。
+D34已c7e47bb/3f6a9b3，工作树原clean。D35 A/B/C已派独立readonly：A固定scale六种默认安装/
+构造与rc；Baxis_set_scale/shared/secondary/isDefault四flags；C现实现改点与旧tests影响。
+全部只ignored notes，不改tracked/不跑centralMoon。Root只先实现独立config minorvisible：
+config/config.mbt新增x/yBooldefaultsfalse与snapshotcopy、新minor_ticks_visible.mbt和test。
+上游rcsetup1298/1321 validate_bool、matplotlibrc519/541均false；typedBool桥不承诺rawPython
+validator任意输入。D35-before HEAD3f6a9b3 tracked.tar/41mbti已保存（43628 terminal0）。
+Root targeted four-target config test已启动，session下记；全片scope/API尚未freeze/未实现默认安装。
+D35 Root minorvisible31042已terminal0，四目标各1/1；下一config infofmt/checkall在运行，ID下记。
+A/B/C仍readonly，不涉及tracked并发。用户继续指令已即时恢复工作，失败只进入修复链。
+D35 Rootconfig20424 terminal0：info/fmt/checkall通过（8旧Refwarn0error），config仅3newminorvisible
+API接口全文审。独立config feature已提交，hash下一段；其余D35默认安装尚未freeze/未实现。
+
+D35 scope/API已冻结，三notes A244lines312obs、B267lines53stages、C253lines29codefacts均Root全文读。
+Root config基础978f271已提交（四目标1/1，infofmt/checkall105tasks8旧warn0error，3newAPI已审）。
+D35主体：显式numeric Axis/Axes.set_scale五现有geometry映射真实4defaults、same-value重装、
+source顺序/成功才4flagsTrue与shared同holder/handles/末Grouperowner；constructor/clear/units/
+secondaryfunction完整default化D36后续，不宣称本片已完成；旧Scale纯sampler/formatterhelper保留。
+A独占new scene/axis/default_scale.mbt+AsinhSubsTuple immutable carrier与3Asinhproduction变体适配/
+new scale-default param refs。B独占new lifecycle sourcegen/json/Axis WB/guide。C独占Scene
+scale/shared_axes/axis_data/lifecycle与new shared refs。Root独占Axis8existingfiles+newdefault_tickers。
+Root已落AxisNumericTickers小holder，7numeric/legacy槽+4flags，125fieldrefs迁移8files，
+public share_numeric_tickers无rebind/不改geometry、is_default_locator/formatter(minor~)、
+locator_default_limits()checked。Axis.set_scale写geometry→Ainstaller→mark4true；移除对被替换的
+旧limits/fixedticks/linearlocator无关验证，date/category继续单独typedbridge。source没有同scaleguard。
+Root set_tick_count作为明确legacy采样请求仅清defaultmajor槽/标nondefault；不替换用户显式locator。
+clear_locator/formatter/minor保现明确fallback/disable语义并标nondefault，manualset对应flagfalse。
+全部主体尚未编译/验收，A/B/C tracked实现中，Root不跑centralMoon。当前无Root live工具。
+
+D35 A正式交付9files并停：新installer/immutable AsinhTuple/3Tuplebranches+gen/json/WB/guide；
+145sourceobs/112cases/4groups，24ordering诊断不伪动态用户hook，gen/check0；JSON
+ ebe87d674b43e89d538035b05a4e2a8fcbd74c1782a6bba048ec99847c61a719。
+B正式交付4newfiles并停：180cases/6groups（80slotmaskrepeat/50switch/25oldcontext/20holder/
+5legacy），12source-only诊断，gen/check0；JSON818b63540bfc1cbf0decb9c1f4b966851f89ba33038e33923ed014b83acd9fc1。
+Root全文读A/B完整生成逻辑及Aguide，新增default_tickers_wbtest一条实际兼容采样/customlocator
+行为回归，未编译/未验收。C仍owned shared参考收尾，Root无live工具，不能centralMoon。
+
+D35 C已全部停写6files，66cases/3groups/174source stages（36shared×4+10draw+20schedule），
+gen/check0，JSONc173da9de29d83677172c2ca15946798c07d3b46b3bb9408f3e8640e809fc0cc。
+Root已全文读三正式generator/guide及productiondiff；Root新A/B --check均terminal0。
+所有tracked writers停，A另仅ignored Root独立review。D35统一gate已启动，ID下一段；
+预计主体新增14registered/359validationcases，含此前config总新增15。尚未编译/行为验收。
+D35 central Root session35187 live，log D35-check-all/info/fmt；不得改tracked源码/fixtures。
+
+D35首gate35187 terminal0：check88tasks/710warnings0error（702new WB缺BigInt import+8oldRef），
+info7tasks0/fmt20tasks0；105line接口Root全文审，含config3newAPI、Axis4newAPI/5旧公开mut字段
+移入private共享holder（getter/setter保持）、AsinhTuple新增variant/type/defaultgetter。
+Root补scene/axis/moon.pkg wbtest BigInt import；误用test的23723 terminal0仍711warn已纠正，
+最终第三gate同步terminal0，check warnings结果见log（不把前两高warnings当最终）。
+三newsource Root final全0，C30210已terminal0；所有writers停，无live源工具。
+现准备四目标完整suite，预计nonJS21838/JS21845，不按generated私有函数算registered。
+D35完整suite Root session53288 live；最终静态check32tasks/8oldRefwarnings0error，105line接口reviewed已保存。
+
+D35首完整53288 terminal2：wasm/wasm-gc/native21838 total/21832pass/6fail，JS21845/
+21839pass/6fail，四target同。失败：2旧Scale label旧便利文本预期；D34Logit secondary source
+fixture先Null再scale，新默认major多画标签；2AutoMinor ownertrace原source只变受控scale.name
+保major，[20,24]上下文需Moon显式恢复；1removedsharedaxis legacyfixedlabels offscreen绘制。
+A已授权精修2AutoMinor fixture/gen保JSON；C原probe证实removed Ticker仍alias（source也如此），
+但真实Axis.draw raw100/view[5,15]应visible[]，故C修筛选并正式源回归。Root修其余fixtures。
+无Root live门禁；必须全部停后补验。A114line Root独立review全文已读无新实质缺陷。
+D36 B272line constructor/clear与C219line autoscale notes已完成（尚待Root全文读），均只ignored。
+
+D35六fail已按源逐项修复，全部tracked writers再次停：A恢复2AutoMinor fixture原受控majors，
+Root把2旧Scale label改实际SciNotation源标签，D34Logit helper把Null隔离移到scale安装之后；
+C确认offscreen筛选本来正确，实际旧ten断言假设Ticker删除后隔离与源冲突，改为真实alias并
+新增x/y formal detached cases，旧66sourcecases逐项同。C现68cases/182stages/3groups，JSON
+79a92607c8b413cbd995bda75621dcd2e2a16fe9e6d24f1625e905f04df6f9a9；总361validationcases/14registered。
+无production行为变更，因此只补验五相关fixture文件，不重复其余已过全suite。
+Root旧gen遇NumPy binary signing drift：新b11f1ef3534cc6bb0a9c8141206350b27cadf48632c34acfcfc97ca6e700363e，
+旧44无本地副本，不伪称恢复。官方PyPI macOS14 arm64 wheel SHA612a95a17655e213502f60cfb9bf9408efdc9eb1d5f50535cc6eb365d11b42b5已下载核验；
+core96ce8cda1e4f1a3107e5c945b68bcd970c3de09019fc19beda4cc0319609de09与新b11在3423488前仅6bytes
+不同，均loadcommand尺寸；code/data完全逐byte同，其余差异仅codesign区，currentOpenAI Oct22签名。
+Root严格保旧44并新增已核b11 exactpin，不接受任意hash；nullJSON仅numpy_binary_sha256一处真实
+runtime元数据变化，所有原观察深等；D34Logit actualJSON保持byte同。nullgen/check都0；Logitgen64658
+terminal0，check72377尚待poll。签名审计ignored D35-numpy-codesign-audit.json已落，无共享runtime改动。
+D35补静态93473 terminal0：check28tasks/8oldwarn0error，infofmt0，105line接口cmp同。
+五文件四目标补验29437 live，log D35-fixture-test-all.log；不能改源码/fixtures。尚未验收。
+
+D35五相关文件四目标补验29437 terminal0，各61/61全部通过；原full其余未变项目此前全过，
+故当前累计wasm/wasm-gc/native21838、JS21845全覆盖。原full53288仍记exit2，补验exit0。
+Root Logit sourcecheck72377 terminal0，D34JSON byte同；nullgen/check0且只有runtime hash元数据
+一处变动，原实际sourceobservations深等。全部生产/fixtures持续停写；accepted docs已更新，
+当前最终infofmtcheck/interfacecmp与三newsource复验待执行，无Root live session。
+
+## D35 最终验收
+
+- [x] 五typed几何显式四named对象安装，repeat/rc/4flags/AsinhimmutableTuple。
+- [x] 真实共享holder、原组顺序/finalowner/删除后alias、oldhandle/livecontext。
+- [x] 14新增registered/361validationcases：A112/4、B180/6、C68/3（182source stages）、Root1。
+      先行config测试另1；测试数不当API百分比。
+- [x] 首full53288 exit2：nonJS21838/21832pass/6fail、JS21845/21839pass/6fail。
+      6项经原source定位为旧fixtures/契约前提；无后续production行为改动，五文件补验29437
+      四目标各61/61全部过，其余首full已过项目未变，累计全部覆盖。
+- [x] 最终info4tasks0/fmt1task0/checkall24tasks8oldRefwarn0error，105line完整interface已审
+      finalcmp同；五旧public numeric字段移privateholder有明示，原getter/setter签名保持。
+- [x] 三newsource Root final全0（C11899 terminal0），旧nullgen/check0、Logit64658gen/
+      72377check0；nullJSON仅runtimehash元数据一处变化，实际观察全同，LogitJSON byte同。
+- [x] NumPy严格新增已核签名b11 exactpin；官方wheelcode/data逐byte同，未改共享runtime，
+      未伪称旧44可得；审计与可复现pin已进testdata/reference_runtime_README.md。
+- [x] feature85554c6、参考精修acff948与独立config978f271本地提交，accepted总guide/三分guide/
+      README/COMPAT/PLAN/PROGRESS/DEPENDENCIES/NOTICE更新；无remote/push。
+- [ ] 下一D36构造/clear仍未实现/未验收；Axis原位holder与view/overlap源差异、Scene clear
+      先self后peers/late minorrc=False flag/尾部sharedtargetlimits必须按notes冻结，不当D35完成。
+
+当前无Root/agent live工具，所有writers停。Goal持续，无需用户回答。整体约50%(40–60%)
+宽估算不变；本次对象生命周期增量不据测试数量冒报新百分比。
