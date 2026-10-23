@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D31准备（命名ScalarFormatter）；D30已验收并提交feature11112e9。
+- 当前切片编号：D32准备（命名EngFormatter）；D31已验收并提交feature38505e5。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,18 +33,22 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D30 feature11112e9已提交39files；accepted docs、doc-final infofmt0与
-  reviewed interface cmp同；本checkpoint记录最终验收与接续。D31候选命名ScalarFormatter
-  原3agent仅ignored notes：A参数/rc/copy、B完整原数学/格式、C真实axis/locs/offset集成；
-  notes D31-scalar-{params,numeric,axis}-notes.md。A/C遇容量错误后已同agent同model重派，
-  最后3agent均running；仍仅readonly，未冻结接口。下一读三notes全文后freeze，不先写
-  D31tracked，不重新survey settled架构。无liveMoon/source工具，D30全部sessions terminal。
+- 下一条具体动作：D31 feature38505e5已本地提交59files。最终93879 exit0，wasm/wasm-gc/
+  native各21486全过、JS21493全过；info/fmt/check130tasks8旧Refwarn0error，261行接口全文审
+  且cmp同，doc-final infofmt0/interfacecmp同，五新sourcechecks0。1685新增registered承载
+  5706验证案例；分组保全部原cases/断言/defer，Wasm init70789→46663locals。所有旧工具
+  terminal，不重跑已验收D31。D32候选EngFormatter原3agent仅ignored定向readonly notes：
+  A参数/继承虚派发→D32-eng-params-notes.md；B数值/格式/offset→D32-eng-numeric-notes.md；
+  C真实Axis/shared/secondary/draw→D32-eng-axis-notes.md，均在.moonagent/checkpoints/。
+  三agent已收到followup，未有D32 tracked实现；下一读必要原类/等待三notes全文后freeze。
+  不重survey settled架构，不先写D32生产；D31-before HEAD6e002e9完整保留，D32未建before。
+  本checkpoint随后本地commit。整体goal仍active约46%/80%，无remote/push，无用户阻塞。
 - D27无live工具；finalall77638与grid-source71661 exit0，95932旧失败exit2、73479 probe exit0、JS30690 exit0均terminal。
   81493 compileexit1/40418旧5failexit2/62175与29316 sourceexit0都terminal，不轮询。
   D26 final26297/JS82640/source20346/check99335全exit0；
   过早check65209经主动SIGINT exit130已terminal；所有writers停写，不轮询旧sessions。
 - Git本地基线1b61c4b（D01–D19）；D20 d385718、D21 2403fcb、D22 fee6885、
-  D23 179f365、D24 13ef0b1、D25 c2f6edf；D26 feature61f768f/checkpoint78b0b68、D27 feature524b673、D28 feature53ed70d、D29 feature0b4f8c5、D30 feature11112e9已提交。无remote、不push。
+  D23 179f365、D24 13ef0b1、D25 c2f6edf；D26 feature61f768f/checkpoint78b0b68、D27 feature524b673、D28 feature53ed70d、D29 feature0b4f8c5、D30 feature11112e9、D31 feature38505e5已提交。无remote、不push。
   用户已授权分批commit与独立并行subagents，覆盖历史不commit指令。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
   CPython v3.11.0 timedelta 源码在 .moonagent/upstream/cpython-v3.11.0/，仅行为
@@ -3972,3 +3976,136 @@ set_locs批次只需view，format_data_short真实X/Y轴还读display±1像素�
 
 D31 A重派已正常启动，完整ScalarFormatter/必要真实_val_or_rc依赖在核对，B/C亦只读进行；
 不再等待容量错误，无需用户介入。无D31 tracked实现、无liveMoon/source长会话。
+
+D31冻结实施：完整contract与A/B/C源notes已全文审。ScalarNumber保6scalar origins，rawlimits
+保4容器；set_locs先存原对象且分阶段late view读/partial state，empty保cache；offset全checked。
+NumPy round按multiply/rint/divide，Python round独立；fractional固定order支持。原Int64 collapse
+死循环和locale负repeat停滞仅按已证明条件Unsupported，源trace预算独立记录，不造源异常。
+Root新增config/scalar_formatter.mbt、numeric_locale.mbt及Rc字段；locale processglobal不随rc
+reset，3getter与借用grouping已通知C。A已新Scalar对象/checked Base/copy骨架落盘；B数值与
+C完整stdliblocale流程仍实现中。没有D31Moon gate或验收结果；唯一原3agents并行、禁止各自
+项目check/info/fmt/test/commit。Root下一完成扩展%引擎、namedbatch与轴物理/offset集成。
+
+D31实施进展：Root18个生产文件stdinparse0，已接Scalar direct/Array/view/data/short派发和
+checked batch准备、旧D29%薄wrapper保原NamedFormatValue3variants，新ScalarNumber6origins/
+scalar-or-single-tuple%引擎；独立native%882refs gen0（354success/528真实errors），未Moongate。
+新rc/locale getters与借用limits/grouping就绪。主轴binding像素geometry保origin/length/正逆
+变换，frame缓存bottom-up origin；secondary初始物理figurebounds/direct apply恢复与frame
+parentbbox分离。named所有类型NullLocator后offset仍checked读取，接到SVG；原便捷pure未改。
+C六actual np.linalg.inv与独立Fraction inverse系数双证据已补（native系数有差但6label一致），
+Root采用portable diagonal affine数学profile并保持From→To→pixel±1→inverse乘加步骤，不宣称
+Darwin LAPACKbitclone；已追加contract，guide待明确。所有Root新增仍未项目gate。
+A完整首交停写：7files，181观察/76gen+4hand=80tests/17sourceonly，新gen+check0，旧3params
+checks0，sharedloader严格append字节prefixTrue。A现只读复核Root%/config/batch，ignored
+D31-root-crossreview.md；不得tracked写。B五entry/4newkernelfiles落，正式numeric/mathrefs在写，
+Rootreview已请核实offset捕获旧locs-before-view与format尾len动态读取/非终止Unsupported分类。
+C完整stdliblocale3134refs首gen0（2333success/801真实error）+3trace预算非终止边界，正式
+141axis与6inverseprofile在收尾，并核实secondary inverse visibility与lateoffset读取顺序。
+无liveMoon/source长会话，项目门禁必须等B/C停写后由Root独占执行。整体goal仍active。
+
+D31 B最终已停写：8files（4prod+gen/JSON/genWB/handWB），1313gen+2hand=1315tests，
+2229actualsource observations，0actual/math差异且双值全保；120seededfractional与647phasepow、
+120NumPy-round、5BigIntlog、完整200001locs尾点、12single+hugeview objectdtype、2重入。
+原offset先捕获locs/format尾len动态读取已核实修，Int64 collapse单列Unsupported、BigInt
+证明位地址Resource分开；gen→check0/单parse0，无项目gate。60808 terminal0，无live。
+A Rootcrossreview138行已全文审，156追加native%证据，无格式/API缺陷，唯一newdeprecated
+Ref构造已修；A停写。C最后143源stage+6inverseprofiles预计149axis tests，3134locale+3
+boundaries在收尾；仍唯一agent trackedwriter，Root gate等其停写。Root新IR ownview provider
+保证secondary完整batches→view/tick inverse变换→lateoffset；minor转换随bundle预备，XML
+不再晚调用inverse。C2真实ownAxis.draw证据已确认offset最终from-inverse。Root882native%
+refs与2resource手测、1configlivegrouping/reset隔离测试已落；BigInt::from_string已校正。
+C正在修相同fixture API，不改原JSON。无liveMoon/source工具，下一C停后D31-gate.sh。
+
+D31 B停写后发现并已由其独占修正short临时list元素origin：Sequence在view前捕获Python
+Number，NdArray保NPscalar；后才np.asarray promotion，>=2分支不变。正式巨大view objectdtype
+原error类型float/np.float64分别保持；1313generatedexpected/JSONSHA不变，90663 check0/parse0。
+C143source stages+6mathinverse已gen0；Root全文locale审新发现最终Stringtuple stage需支持原
+regex未捕获但native有效的%a，例如%a%f应先消费字符串后missingargs，不应unsupported'a'。
+C已收到追加源case/实现复核请求，仍唯一agent trackedwriter；暂不开始项目门禁。
+
+D31所有tracked agent writers已停。C正式交付10files，3426tests=3270locale源query
+（2343success/927error）+3negative-repeat boundary+4resource/stage hand +149axis
+（143actualstage+6inverseprofiles→129Scene+20WB）。%a最终stage真实新增9raw组修正，原
+rows未弱化；中间raw/localize与最终remaining预算分离，巨分配不执行。两gen→check0，无live。
+总new5706=A80+B1315+C3426+Root885，预计nonJS25507/JS25514，最终以gate为准。
+唯一live项目gate64375执行D31-gate.sh：checkall→info→fmt→interface.diff，Root独占；
+日志D31-{check-all,info,fmt}-initial.log与D31-interface.diff。生产尚未验收/未commit；下一
+静态结果与完整接口审查，必要精确修复后再fullsuite。整体goal active，无用户阻塞。
+
+D31首static64375已terminalexit255，无live工具。9errors仅4处科学数字面量1e写法需
+1.0e、locale if表达式后直接.to_int解析及其3级联type、state offset_threshold未用mut；
+另1新unusedraise warning为纯strip_padding标raise。Root独占修为合法literal/独立split64
+转换/readonly capturedthreshold/纯helper不raise，语义与原JSONexpected不变；不回滚实现。
+未info/fmt/fulltest。所有agents仍停写，下一重跑central gate；8旧Ref warn基线尚等完整check。
+
+唯一live58178正在第二次central check/info/fmt/interface；初次64375 terminal不轮询。
+
+D31第二static58178 terminalexit255：生产check已全过，仅421条重复fixture错误都因
+numericgen直接改readonly offset_threshold。Root修fixture prelude为保存rc→设threshold4→
+构造capture→恢复rc，不新增生产setter或允许无用mut；删private state setup。gen0，JSONSHA
+逐字仍ec175ced...293c6c5，全部1313expected/count保持；第二失败log已保存D31-check-all-second。
+上一8旧Refwarn/无新warning已确认。下一第三central，未fulltest/未accepted。
+
+D31第三central16259 terminalexit0：checkall24tasks/8旧Refwarnings/0error，info0/fmt0。
+261行interface diff全文已审：仅新Scalar/rawtypes/config/locale/physicalbinding、Basechecked新法、
+Axis/Secondary checkedoffset加raise与IR可选ownview provider，旧pure Formatter/legacy helpers
+公共签名不变。所有writers停写。Root5source checks：params0、percent0；numeric65611/
+locale3066/axis58538尚live。唯一Moon fullsuite38228执行moon test --target all→
+D31-test-all-initial.log；预期25507nonJS/25514JS，尚未验收。下一收三source/tool terminal
+结果与fullsuite，若fail按实际源值修，不能改弱原JSONexpected。整体goal active。
+
+D31 fullsuite38228 terminalexit255：Wasm ticker.whitebox模块init函数70789个locals，
+运行器报local count too large，尚未进入行为用例；非实现断言失败。五新source root检查全0，
+三source65611/3066/58538均terminal0，无live。Root/C做仅测试组织修复：3270locale与882native%
+case改私有逐case函数（保原body/defer隔离与全部断言）→每32case注册1test；3locale边界/
+4手写和Root2resource保持。原JSON cases[]必须逐项深度相等，新registered_test_count单列，
+不能删case降覆盖；C临时独占localegen/WB/metadata/guide，Root独占native%gen/WB/metadata。
+Root882case已改28registeredtests并验证cases深度相等；下一C停写后重新static/infofmt/interface
+不变检查及完整四目标，重新以framework实际count报告，源case总5706不变。未accepted/commit。
+
+D31测试组织修复完成，C已停写。3270locale query→103groups+3边界+4hand=110registered，
+882native%→28groups+2Rootresource；所有逐case原body/defer与断言保持，两个JSON cases[]已
+逐项深度相等。Root另把C每case失败字符串改单个公共错误helper+运行时id，避免3270条新
+静态String再消耗initlocals。C全部259registered，Root31（28+2+1config），A80/B1315不变。
+预计新增1685registered→nonJS21486/JS21493；5706验证案例保持，不按注册组数声称覆盖减少。
+下一finalgate info/fmt/checkall→接口与已审261行逐字cmp→两变动source --check→fulltestall；
+此前所有sessions terminal，无live，旧行为expectations不改。
+
+唯一live finalgate11338：D31-final-gate.sh；所有agents已停写，旧gate与source sessions均terminal。
+
+D31 finalgate11338 terminalexit255，info/fmt/checkall130tasks8旧warn0error与interface261cmp
+同、locale/percent sourcefinal0。Wasm init组织问题已解，wasm/gc各21473/21486、JS21480/21493，
+同13fail；native在Scene invalid BigInt fixture SIGABRT，未完成全suite。12个Scene病例
+6/7/8,15/16/17,24/25/26,33/34/35构造Number1000000.0误编码成BigInt::from_string("1000000.0")；
+C仅独占axisgen/两Scene生成测试修，原JSONexpected不改。另唯一numeric case264原NumpyBool
+True在Dummy Floatview[0,0] short：port17digits vs原5digits，疑_g_sig_digits np.spacing输入
+origin丢失（NPbool ufunc浮点域），B仅独占必要numeric/mathprod核实修。其余全部测试已过。
+当前无liveMoon/source工具；A停写、B/C为这两精确修复writer，Root不改其文件。下一停写后
+统一finalgate，保持源期望与注册1685/验证5706不变，未accepted/commit，整体goal active。
+
+D31精确fail修复全部停写：C浮点ctor编码Number明确分支，12fixture修正，gen/check0且
+原axisJSON逐字cmp同。B实际原NumPy spacing probe证实Bool/NPBool选择float16 ufunc（True
+2^-10/False2^-24），新私有scalar_math_spacing保origin并在原delta0分支调用，非标签特判；
+sourcecheck0，numericJSONSHA仍ec175ced...293c6c5，无新测试/无expect变化。Root已保存上一
+失败test/check日志为D31-*-before-spacing-fix.log。下一finalgate重跑，接口仍应261行cmp同。
+
+唯一live最终复验93879运行D31-final-gate.sh；所有agents已停写，旧11338等sessions全部terminal。
+
+D31最终93879进展：wasm与wasm-gc各21486/21486全部过；JS/native仍待。261接口cmp同；
+仍唯一live门禁，所有agents停写；上一12fixture+1boolspacing fail已全部在两Wasm目标消失。
+
+D31最终93879 terminalexit0：wasm/wasm-gc/native各21486/21486、JS21493/21493全部通过。
+新增1685registered承载5706原细分案例；grouping前后cases逐项相等，Wasm init46663locals。
+infofmt0/check130tasks8旧Refwarn0error，接口261行全文审且cmp同；五新source root0，locale/
+percent重组final0，B/C spacing/ctor修后各自check0。12错误fixture原JSON逐字未变，唯一Bool
+spacing按真实float16 ufunc修，numericJSONSHA不变。所有tools terminal/agents停写。
+README/COMPAT/PLAN/guide/依赖/notice已accepted更新，整体估计仍约46%/80%不随testcount变；
+下一doc-final infofmt/interfacecmp/gitdiff检查，然后feature+checkpoint本地commits，无remote。
+
+D31已完成本地feature38505e5（59files），accepted docs和doc-final infofmt/interfacecmp
+全部0。新增1685registered=80A+1315B+259C+31Root，承载分组前5706细分案例；原source
+JSON cases逐项保持，full四目标93879全部通过，无live工具。D32 EngFormatter定向只读
+准备已派原3agents，分工/精确notes路径见head；未D32tracked/未冻结/无Moon gate。后续
+大型参考矩阵优先每32case组registeredtest，每case私有函数保独立defer与明确caseid，避免
+Wasm testdriver initlocals；源query/casecount与framework registeredcount必须分开记。
+整体目标未完成，不标Goalcomplete；用户多commit与多独立subagent授权持续有效。
