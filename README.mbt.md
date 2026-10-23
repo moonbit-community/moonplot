@@ -1892,7 +1892,7 @@ D39 已保留 Line 每个坐标的 Numeric、Category 或 Date 原始输入。�
 Line 保持原值。单位回调逐 Line 转换 x、y，两者成功后才更新该 Line，全部成功后重建
 dataLim 并仅请求事件方向；晚失败保留前面 Line 和单位映射已发生的修改。
 Scatter 和生成的 contour/streamplot 显示线继续使用已转换几何。公开 Artist 和 render
-模型仍为数值快照，未新增可变 Line2D 句柄或 lazy getter/setter。原源对照与边界见
+模型在 D39 阶段仍为数值快照；公开数据句柄由下述 D44 承接。原源对照与边界见
 [testdata/line_units_README.md](testdata/line_units_README.md)。
 
 D40 为每个次坐标轴保留独立的数值 Axis、默认 locator/formatter、四个默认标志和视图。
@@ -1942,3 +1942,28 @@ x 分量，另一方向仍沿父面板；仿射输出使用显示坐标。省略
 一次定位开始后，回调安装的新 locator 留给后续定位。具体参考和验证状态见
 [次轴位置仿射](testdata/secondary_transform_README.md)。这里使用不可变仿射值；原版可变
 Transform 别名、通用或非线性变换图仍有独立边界。
+
+D44 增加稳定的 `Line2D` 数据句柄及 `LineData::Numeric` / `Category` / `Date`。
+Axes、Figure 和 pyplot 的 `plot_line` 返回句柄，初次绘制沿用现有等长输入与单位设置合同。
+setter 复制输入并延迟转换，原始 getter 借用保存的数组；处理后 getter 返回可写的
+`TickValues`。每次成功重算安装新缓存，旧视图仍指向旧缓存；顺序读取 x、y 时可能取得
+两代视图。单坐标 getter 只检查自身的失效标志。
+
+```moonbit nocheck
+let fig = @mathplotlib.figure()
+let line = fig.plot_line(
+  @mathplotlib.LineData::Numeric([0.0, 1.0]),
+  @mathplotlib.LineData::Numeric([2.0, 3.0]),
+)
+line.set_ydata(@mathplotlib.LineData::Numeric([4.0, 6.0]))
+fig.axes().relim_checked()
+fig.axes().autoscale_view()
+let svg = fig.to_svg_checked()
+```
+
+数据修改、getter 与重算不会自动更新 dataLim 或请求范围更新，显式 `relim_checked`
+逐图元更新范围并保留晚失败前已经合并的部分。SVG 到实际 Line 绘制前才准备最新数据，
+正常完成该 Line 后清除其 stale；保留的 IR 使用原句柄。clear 会解除旧句柄的 Axes
+绑定，旧缓存和借用视图仍可使用。正式原源记录、错误与宿主边界见
+[Line 数据与缓存](testdata/line_data_README.md)。完整 Artist 属性、通用 Path、动态 Python
+容器与 GUI 回调协议仍有独立边界。

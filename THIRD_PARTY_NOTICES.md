@@ -543,3 +543,9 @@ v3.11.2 的完整 axes/_secondary_axes.py、transforms.py 与既有数值宿主�
 原源哈希、52 条记录及不可变仿射桥边界见
 [testdata/secondary_transform_README.md](testdata/secondary_transform_README.md)。
 没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。
+
+D44 的公开 Line 数据句柄、延迟缓存与原始/处理后视图协议继续依据同一固定
+Matplotlib v3.11.2 的 lines.py、artist.py、axes/_base.py 及既有单位原源以 MoonBit
+重写。25 组原源记录、6 条 source-only 记录与受控数值 Path 宿主边界见
+[testdata/line_data_README.md](testdata/line_data_README.md)。
+没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。

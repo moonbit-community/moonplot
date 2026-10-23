@@ -389,3 +389,13 @@ blend factory、locator 和 Bbox；52 条记录含 38 个 typed 场景与 14 条
 其原生类来源、可变别名与非有限几何边界见
 [testdata/secondary_transform_README.md](testdata/secondary_transform_README.md)。
 没有替换全局变换数学或引入新的运行时；既有 Matplotlib 与 NumPy 许可继续适用。
+
+## D44 公开 Line 数据与延迟缓存
+
+复用 D39 固定 `lines.py` / Artist 单位转换与 Axes relim 原源加载器、现有 TickValues
+步长视图、日期/类别转换和浮点文本解析器。实现为纯 MoonBit，没有新增分发依赖。
+独立参考保留 21 条数据观察与 4 组 owner=None 转换记录；15 条 typed 数据操作和
+4 组 detached profiles 组成 8 个连续场景，6 条动态参数/容器/GUI/copy 记录为 source-only。
+具体哈希、执行方法与受控 Path 宿主见
+[testdata/line_data_README.md](testdata/line_data_README.md)。
+没有分发 Python/NumPy；既有 Matplotlib 与 NumPy 许可继续适用。

@@ -1,0 +1,3794 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "__init__.py": "37abb78e74e9e0085a4e306a919606ffa8ff3c263def80ae2f4d938cfa79cd32",
+    "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+    "rcsetup.py": "a052eac4af21ce8cdb58ee49c3ab952af4c2ff5e18f36cc8b741793fa79b5f59",
+    "font_manager.py": "d0e464bd1aff8e1815d375aa8bfc6dd32869979b348d8ec3b82edd61b8288788",
+    "_fontconfig_pattern.py": "2dd0b57722c56d814672fa6be8afd8705a42f229875ce8098658b50dbf9e68a4",
+    "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+    "stdlib/contextlib.py": "8b7a477f978a8532852fd81e241c78182516bc4975d672d580a5848a76e11eb6",
+    "scale.py": "4800482469b280454eb6e7a48f866ae7b146b27d1395644ffc09df0e91c9d7c1",
+    "artist.py": "c55a81d86db60ab7b22fcd6e70401aa84558de5d1ba6e40a16c60f6f1f03be7a",
+    "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+    "lines.py": "e928511cec1f9ce19455008c1863d337b0dbd1c71ac2b8d40224c8d5c069e05c",
+    "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b",
+    "category.py": "52c67cadb003007f7a61fa630fe3750cb4dc4bf710c25b332084366516a25a6e",
+    "units.py": "ecefa595cf24dc6a5da2d52cdad59c1068285071d7f98ee8d11edffb526f7b79"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "counts": {
+    "all_profile_records": 25,
+    "data_records": 21,
+    "typed_data_records": 15,
+    "source_only_data_records": 6,
+    "detached_profiles": 4,
+    "typed_sequences": 8,
+    "registered_groups": 1
+  },
+  "source_only_data_ids": [
+    13,
+    14,
+    17,
+    18,
+    19,
+    20
+  ],
+  "d39_protocol_projection": {
+    "09_borrowed_original_mutation": "new data row04",
+    "10_forced_recache": "new data row05",
+    "11_lazy_set_x": "new data row00",
+    "12_processed_getter": "new data row03",
+    "13_scalar_y_rejection": "source-only; scalar is outside LineData"
+  },
+  "host_boundaries": {
+    "source": "Complete original Line data/getters/recache, Artist conversions and Axes relim under accepted short/default-style numeric Path storage host; original Artist stale/copy methods execute only in explicitly source-only rows.",
+    "typed": "Numeric/Category/Date LineData arrays, copied setter input, borrowed originals and per-generation Float64 TickValues. Public initial plot_line uses equal-length typed convenience, not the complete pyplot plot parser.",
+    "initial_state": "Source consumes initial Line stale and axis view requests explicitly. Whitebox fixture does the same without invoking a renderer/autoscale callback.",
+    "path": "No public Path object is introduced. Source row12 get_path error has the same either-invalid refresh stage as typed flat xy getter; cached source path values are retained, not falsely compared to a migrated Path API.",
+    "detached": "Original ownerNone fresh optional cache is projected to a controlled whitebox empty generation with invalid flags. Only refresh outcomes/raw data/invalid/stale are compared; no public unattached constructor or cache-absence identity claim.",
+    "errors": "Exact native errors retained; NumPy broadcast errors map unprefixed to InvalidTicks, detached float/date error messages use the existing NativeType prefix convention.",
+    "source_only": "Scalar rejected setter inputs, native ndarray original dtype, GUI stale callback targets and native Python copy.copy(Line) are outside this typed container/API profile.",
+    "numeric": "Finite/infinite bits are exact; NaN classification is asserted without payload promises. Native float-text bits, including NaN sign, remain in JSON and independently match Python float."
+  },
+  "data_observations": [
+    {
+      "id": 0,
+      "label": "set_xdata copies list, sets only x invalid and line stale, no range event",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          0.0,
+          1.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          4.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": null,
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 1,
+      "label": "caller list mutation cannot change copied original; original getter is direct",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          4.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          4.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": {
+        "original": [
+          4.0,
+          5.0
+        ],
+        "same_internal": true
+      },
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 2,
+      "label": "valid processed y getter does not service invalid x",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          4.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          4.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": [
+        10.0,
+        20.0
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 3,
+      "label": "invalid processed x getter recaches, leaves dataLim and request flags unchanged",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          4.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          4.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          4.0,
+          5.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            4.0,
+            10.0
+          ],
+          [
+            5.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            4.0,
+            10.0
+          ],
+          [
+            5.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": [
+        4.0,
+        5.0
+      ],
+      "events": [
+        [
+          "recache.begin",
+          "line",
+          false
+        ],
+        [
+          "convert.x",
+          "line"
+        ],
+        [
+          "recache.end",
+          "line"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 4,
+      "label": "borrowed original mutation with valid flags leaves converted cache stale",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          4.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          4.0,
+          5.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            4.0,
+            10.0
+          ],
+          [
+            5.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            4.0,
+            10.0
+          ],
+          [
+            5.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          42.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          4.0,
+          5.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            4.0,
+            10.0
+          ],
+          [
+            5.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            4.0,
+            10.0
+          ],
+          [
+            5.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": [
+        [
+          4.0,
+          10.0
+        ],
+        [
+          5.0,
+          20.0
+        ]
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 5,
+      "label": "forced recache consumes original mutation and rebinds fresh xy",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          42.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          4.0,
+          5.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            4.0,
+            10.0
+          ],
+          [
+            5.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            4.0,
+            10.0
+          ],
+          [
+            5.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          42.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          42.0,
+          5.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            42.0,
+            10.0
+          ],
+          [
+            5.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            42.0,
+            10.0
+          ],
+          [
+            5.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": {
+        "old_xy_unchanged": [
+          [
+            4.0,
+            10.0
+          ],
+          [
+            5.0,
+            20.0
+          ]
+        ],
+        "old_x_unchanged": [
+          4.0,
+          5.0
+        ],
+        "same_xy": false,
+        "same_x": false
+      },
+      "events": [
+        [
+          "recache.begin",
+          "line",
+          true
+        ],
+        [
+          "convert.x",
+          "line"
+        ],
+        [
+          "convert.y",
+          "line"
+        ],
+        [
+          "recache.end",
+          "line"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 6,
+      "label": "processed x view mutation changes xy and cached path without invalidation",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          42.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          42.0,
+          5.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            42.0,
+            10.0
+          ],
+          [
+            5.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            42.0,
+            10.0
+          ],
+          [
+            5.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          42.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          42.0,
+          70.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            42.0,
+            10.0
+          ],
+          [
+            70.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            42.0,
+            10.0
+          ],
+          [
+            70.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": [
+        [
+          42.0,
+          10.0
+        ],
+        [
+          70.0,
+          20.0
+        ]
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 7,
+      "label": "explicit relim reads cached path and does not request autoscale",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          42.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          42.0,
+          70.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            42.0,
+            10.0
+          ],
+          [
+            70.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            42.0,
+            10.0
+          ],
+          [
+            70.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          42.0,
+          5.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          42.0,
+          70.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            42.0,
+            10.0
+          ],
+          [
+            70.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            42.0,
+            10.0
+          ],
+          [
+            70.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            42.0,
+            10.0
+          ],
+          [
+            70.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          42.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": null,
+      "events": [
+        [
+          "relim.begin"
+        ],
+        [
+          "relim.end"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 8,
+      "label": "valid x processed getter ignores invalid y",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          0.0,
+          1.0
+        ],
+        "yorig": [
+          30.0,
+          40.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          true
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          0.0,
+          1.0
+        ],
+        "yorig": [
+          30.0,
+          40.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          true
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": [
+        0.0,
+        1.0
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 9,
+      "label": "get_data(orig=False) first returns valid x then y recache",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          0.0,
+          1.0
+        ],
+        "yorig": [
+          30.0,
+          40.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          true
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          0.0,
+          1.0
+        ],
+        "yorig": [
+          30.0,
+          40.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          30.0,
+          40.0
+        ],
+        "xy": [
+          [
+            0.0,
+            30.0
+          ],
+          [
+            1.0,
+            40.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            30.0
+          ],
+          [
+            1.0,
+            40.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": {
+        "returned": [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            30.0,
+            40.0
+          ]
+        ],
+        "first_x_aliases_new_xy": false,
+        "second_y_aliases_new_xy": true
+      },
+      "events": [
+        [
+          "recache.begin",
+          "line",
+          false
+        ],
+        [
+          "convert.y",
+          "line"
+        ],
+        [
+          "recache.end",
+          "line"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 10,
+      "label": "valid processed y can succeed while pending x shape is invalid",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          2.0,
+          3.0,
+          4.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          2.0,
+          3.0,
+          4.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": [
+        10.0,
+        20.0
+      ],
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 11,
+      "label": "invalid processed x throws at broadcast and retains all old converted buffers",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          2.0,
+          3.0,
+          4.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          2.0,
+          3.0,
+          4.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": null,
+      "events": [
+        [
+          "recache.begin",
+          "line",
+          false
+        ],
+        [
+          "convert.x",
+          "line"
+        ],
+        [
+          "recache.error",
+          "line",
+          "ValueError"
+        ]
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (3,) and arg 1 with shape (2,)."
+      }
+    },
+    {
+      "id": 12,
+      "label": "get_path retries same pending broadcast error without range change",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          2.0,
+          3.0,
+          4.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          2.0,
+          3.0,
+          4.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": null,
+      "events": [
+        [
+          "recache.begin",
+          "line",
+          false
+        ],
+        [
+          "convert.x",
+          "line"
+        ],
+        [
+          "recache.error",
+          "line",
+          "ValueError"
+        ]
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (3,) and arg 1 with shape (2,)."
+      }
+    },
+    {
+      "id": 13,
+      "label": "set_data accepts replacement x before scalar y rejection",
+      "profile": "dynamic scalar-y error with sourceordered typed prior x write",
+      "before": {
+        "xorig": [
+          0.0,
+          1.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          8.0,
+          9.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": null,
+      "events": [],
+      "error": {
+        "type": "RuntimeError",
+        "message": "y must be a sequence"
+      }
+    },
+    {
+      "id": 14,
+      "label": "scalar x rejection occurs before either setter writes",
+      "profile": "dynamic scalar-x rejection",
+      "before": {
+        "xorig": [
+          0.0,
+          1.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          0.0,
+          1.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": null,
+      "events": [],
+      "error": {
+        "type": "RuntimeError",
+        "message": "x must be a sequence"
+      }
+    },
+    {
+      "id": 15,
+      "label": "set_data accepts incompatible sequence lengths without eager conversion",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          0.0,
+          1.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          2.0,
+          3.0,
+          4.0
+        ],
+        "yorig": [
+          8.0,
+          9.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          true
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": null,
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 16,
+      "label": "get_xydata performs deferred broadcast error after both setters succeeded",
+      "profile": "typed scalar numeric/category/date candidate",
+      "before": {
+        "xorig": [
+          2.0,
+          3.0,
+          4.0
+        ],
+        "yorig": [
+          8.0,
+          9.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          true
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          2.0,
+          3.0,
+          4.0
+        ],
+        "yorig": [
+          8.0,
+          9.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          true
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": null,
+      "events": [
+        [
+          "recache.begin",
+          "line",
+          false
+        ],
+        [
+          "convert.x",
+          "line"
+        ],
+        [
+          "convert.y",
+          "line"
+        ],
+        [
+          "recache.error",
+          "line",
+          "ValueError"
+        ]
+      ],
+      "error": {
+        "type": "ValueError",
+        "message": "shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (3,) and arg 1 with shape (2,)."
+      }
+    },
+    {
+      "id": 17,
+      "label": "ndarray setter copies logical strided values and retains original dtype",
+      "profile": "ndarray original-container extension candidate",
+      "before": {
+        "xorig": [
+          0.0,
+          1.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          4,
+          2
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "ndarray",
+        "yorig_type": "list",
+        "xorig_dtype": "int64",
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": null,
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 18,
+      "label": "ndarray owner mutation is isolated; processed dtype becomes float64",
+      "profile": "ndarray original-container extension candidate",
+      "before": {
+        "xorig": [
+          4,
+          2
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "ndarray",
+        "yorig_type": "list",
+        "xorig_dtype": "int64",
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          4,
+          2
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "ndarray",
+        "yorig_type": "list",
+        "xorig_dtype": "int64",
+        "x": [
+          4.0,
+          2.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            4.0,
+            10.0
+          ],
+          [
+            2.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            4.0,
+            10.0
+          ],
+          [
+            2.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": {
+        "original": [
+          4,
+          2
+        ],
+        "original_shares_owner": false,
+        "processed": [
+          4.0,
+          2.0
+        ],
+        "processed_dtype": "float64"
+      },
+      "events": [
+        [
+          "recache.begin",
+          "line",
+          false
+        ],
+        [
+          "convert.x",
+          "line"
+        ],
+        [
+          "recache.end",
+          "line"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "id": 19,
+      "label": "original Artist stale setter calls target on each accepted coordinate setter",
+      "profile": "real Artist stale descriptor with recording callback target",
+      "before": {
+        "xorig": [
+          0.0,
+          1.0
+        ],
+        "yorig": [
+          10.0,
+          20.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          false,
+          false
+        ],
+        "line_stale": false,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          4.0,
+          5.0
+        ],
+        "yorig": [
+          30.0,
+          40.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          true
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": {
+        "callbacks": [
+          [
+            "stale line",
+            true
+          ],
+          [
+            "stale line",
+            true
+          ]
+        ]
+      },
+      "events": [],
+      "error": null
+    },
+    {
+      "id": 20,
+      "label": "copy.copy uses original Artist getstate: shared buffers, callback removed, independent rebind",
+      "profile": "native shallow copy protocol; not a chosen public Moon clone API",
+      "before": {
+        "xorig": [
+          4.0,
+          5.0
+        ],
+        "yorig": [
+          30.0,
+          40.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          true
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "after": {
+        "xorig": [
+          4.0,
+          5.0
+        ],
+        "yorig": [
+          30.0,
+          40.0
+        ],
+        "xorig_type": "list",
+        "yorig_type": "list",
+        "xorig_dtype": null,
+        "x": [
+          0.0,
+          1.0
+        ],
+        "y": [
+          10.0,
+          20.0
+        ],
+        "xy": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "path": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "invalid": [
+          true,
+          true
+        ],
+        "line_stale": true,
+        "view_stale": {
+          "x": false,
+          "y": false
+        },
+        "data": [
+          [
+            0.0,
+            10.0
+          ],
+          [
+            1.0,
+            20.0
+          ]
+        ],
+        "minpos": [
+          1.0,
+          10.0
+        ],
+        "x_xy_alias": true,
+        "y_xy_alias": true
+      },
+      "value": {
+        "same_xorig": true,
+        "same_yorig": true,
+        "same_xy": true,
+        "same_path": true,
+        "same_axes": true,
+        "copied_stale_callback_is_None": true,
+        "source_after_copy_rebind": {
+          "xorig": [
+            4.0,
+            5.0
+          ],
+          "yorig": [
+            30.0,
+            40.0
+          ],
+          "xorig_type": "list",
+          "yorig_type": "list",
+          "xorig_dtype": null,
+          "x": [
+            0.0,
+            1.0
+          ],
+          "y": [
+            10.0,
+            20.0
+          ],
+          "xy": [
+            [
+              0.0,
+              10.0
+            ],
+            [
+              1.0,
+              20.0
+            ]
+          ],
+          "path": [
+            [
+              0.0,
+              10.0
+            ],
+            [
+              1.0,
+              20.0
+            ]
+          ],
+          "invalid": [
+            true,
+            true
+          ],
+          "line_stale": true,
+          "view_stale": {
+            "x": false,
+            "y": false
+          },
+          "data": [
+            [
+              0.0,
+              10.0
+            ],
+            [
+              1.0,
+              20.0
+            ]
+          ],
+          "minpos": [
+            1.0,
+            10.0
+          ],
+          "x_xy_alias": true,
+          "y_xy_alias": true
+        },
+        "copy_after_rebind": {
+          "xorig": [
+            60.0,
+            70.0
+          ],
+          "yorig": [
+            30.0,
+            40.0
+          ],
+          "xorig_type": "list",
+          "yorig_type": "list",
+          "xorig_dtype": null,
+          "x": [
+            60.0,
+            70.0
+          ],
+          "y": [
+            30.0,
+            40.0
+          ],
+          "xy": [
+            [
+              60.0,
+              30.0
+            ],
+            [
+              70.0,
+              40.0
+            ]
+          ],
+          "path": [
+            [
+              60.0,
+              30.0
+            ],
+            [
+              70.0,
+              40.0
+            ]
+          ],
+          "invalid": [
+            false,
+            false
+          ],
+          "line_stale": true,
+          "view_stale": {
+            "x": false,
+            "y": false
+          },
+          "data": [
+            [
+              0.0,
+              10.0
+            ],
+            [
+              1.0,
+              20.0
+            ]
+          ],
+          "minpos": [
+            1.0,
+            10.0
+          ],
+          "x_xy_alias": true,
+          "y_xy_alias": true
+        }
+      },
+      "events": [
+        [
+          "recache.begin",
+          "stale line",
+          false
+        ],
+        [
+          "convert.x",
+          "stale line"
+        ],
+        [
+          "convert.y",
+          "stale line"
+        ],
+        [
+          "recache.end",
+          "stale line"
+        ]
+      ],
+      "error": null
+    }
+  ],
+  "detached_profiles": [
+    {
+      "profile": "ownerNone Numeric",
+      "original": [
+        2.0,
+        -3.5,
+        0.0
+      ],
+      "source": {
+        "before": {
+          "invalid": [
+            true,
+            true
+          ],
+          "has_xy": false,
+          "stale": true
+        },
+        "processed": [
+          [
+            2.0,
+            0.0
+          ],
+          [
+            -3.5,
+            1.0
+          ],
+          [
+            0.0,
+            2.0
+          ]
+        ],
+        "error": null,
+        "processed_x_bits": [
+          4611686018427387904,
+          13838435755002691584,
+          0
+        ],
+        "after": {
+          "invalid": [
+            false,
+            false
+          ],
+          "has_xy": true,
+          "stale": true
+        }
+      }
+    },
+    {
+      "profile": "ownerNone Category float-text accepted",
+      "texts": [
+        "1_0",
+        "١٢.٥",
+        " -3.5 ",
+        "+NaN",
+        "-NaN",
+        "INF",
+        "-Infinity",
+        "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"
+      ],
+      "source": {
+        "before": {
+          "invalid": [
+            true,
+            true
+          ],
+          "has_xy": false,
+          "stale": true
+        },
+        "processed": [
+          [
+            10.0,
+            0.0
+          ],
+          [
+            12.5,
+            1.0
+          ],
+          [
+            -3.5,
+            2.0
+          ],
+          [
+            "nan",
+            3.0
+          ],
+          [
+            "nan",
+            4.0
+          ],
+          [
+            "inf",
+            5.0
+          ],
+          [
+            "-inf",
+            6.0
+          ],
+          [
+            "inf",
+            7.0
+          ]
+        ],
+        "error": null,
+        "processed_x_bits": [
+          4621819117588971520,
+          4623226492472524800,
+          13838435755002691584,
+          9221120237041090560,
+          18444492273895866368,
+          9218868437227405312,
+          18442240474082181120,
+          9218868437227405312
+        ],
+        "after": {
+          "invalid": [
+            false,
+            false
+          ],
+          "has_xy": true,
+          "stale": true
+        }
+      },
+      "python_float": [
+        {
+          "value": 10.0,
+          "bits": 4621819117588971520
+        },
+        {
+          "value": 12.5,
+          "bits": 4623226492472524800
+        },
+        {
+          "value": -3.5,
+          "bits": 13838435755002691584
+        },
+        {
+          "value": "nan",
+          "bits": 9221120237041090560
+        },
+        {
+          "value": "nan",
+          "bits": 18444492273895866368
+        },
+        {
+          "value": "inf",
+          "bits": 9218868437227405312
+        },
+        {
+          "value": "-inf",
+          "bits": 18442240474082181120
+        },
+        {
+          "value": "inf",
+          "bits": 9218868437227405312
+        }
+      ],
+      "source_x_bits": [
+        4621819117588971520,
+        4623226492472524800,
+        13838435755002691584,
+        9221120237041090560,
+        18444492273895866368,
+        9218868437227405312,
+        18442240474082181120,
+        9218868437227405312
+      ],
+      "python_float_bits_match": true
+    },
+    {
+      "profile": "ownerNone Category float-text rejected",
+      "cases": [
+        {
+          "text": "1,2",
+          "source": {
+            "before": {
+              "invalid": [
+                true,
+                true
+              ],
+              "has_xy": false,
+              "stale": true
+            },
+            "processed": null,
+            "error": {
+              "type": "ValueError",
+              "message": "could not convert string to float: '1,2'"
+            },
+            "processed_x_bits": null,
+            "after": {
+              "invalid": [
+                true,
+                true
+              ],
+              "has_xy": false,
+              "stale": true
+            }
+          },
+          "python_float": {
+            "value": null,
+            "error": {
+              "type": "ValueError",
+              "message": "could not convert string to float: '1,2'"
+            }
+          }
+        },
+        {
+          "text": "1__0",
+          "source": {
+            "before": {
+              "invalid": [
+                true,
+                true
+              ],
+              "has_xy": false,
+              "stale": true
+            },
+            "processed": null,
+            "error": {
+              "type": "ValueError",
+              "message": "could not convert string to float: '1__0'"
+            },
+            "processed_x_bits": null,
+            "after": {
+              "invalid": [
+                true,
+                true
+              ],
+              "has_xy": false,
+              "stale": true
+            }
+          },
+          "python_float": {
+            "value": null,
+            "error": {
+              "type": "ValueError",
+              "message": "could not convert string to float: '1__0'"
+            }
+          }
+        },
+        {
+          "text": "\u001c1\u001f",
+          "source": {
+            "before": {
+              "invalid": [
+                true,
+                true
+              ],
+              "has_xy": false,
+              "stale": true
+            },
+            "processed": null,
+            "error": {
+              "type": "ValueError",
+              "message": "could not convert string to float: '\\x1c1\\x1f'"
+            },
+            "processed_x_bits": null,
+            "after": {
+              "invalid": [
+                true,
+                true
+              ],
+              "has_xy": false,
+              "stale": true
+            }
+          },
+          "python_float": {
+            "value": null,
+            "error": {
+              "type": "ValueError",
+              "message": "could not convert string to float: '\\x1c1\\x1f'"
+            }
+          }
+        },
+        {
+          "text": "​1",
+          "source": {
+            "before": {
+              "invalid": [
+                true,
+                true
+              ],
+              "has_xy": false,
+              "stale": true
+            },
+            "processed": null,
+            "error": {
+              "type": "ValueError",
+              "message": "could not convert string to float: '\\u200b1'"
+            },
+            "processed_x_bits": null,
+            "after": {
+              "invalid": [
+                true,
+                true
+              ],
+              "has_xy": false,
+              "stale": true
+            }
+          },
+          "python_float": {
+            "value": null,
+            "error": {
+              "type": "ValueError",
+              "message": "could not convert string to float: '\\u200b1'"
+            }
+          }
+        },
+        {
+          "text": "0x1p0",
+          "source": {
+            "before": {
+              "invalid": [
+                true,
+                true
+              ],
+              "has_xy": false,
+              "stale": true
+            },
+            "processed": null,
+            "error": {
+              "type": "ValueError",
+              "message": "could not convert string to float: '0x1p0'"
+            },
+            "processed_x_bits": null,
+            "after": {
+              "invalid": [
+                true,
+                true
+              ],
+              "has_xy": false,
+              "stale": true
+            }
+          },
+          "python_float": {
+            "value": null,
+            "error": {
+              "type": "ValueError",
+              "message": "could not convert string to float: '0x1p0'"
+            }
+          }
+        },
+        {
+          "text": "nan(1)",
+          "source": {
+            "before": {
+              "invalid": [
+                true,
+                true
+              ],
+              "has_xy": false,
+              "stale": true
+            },
+            "processed": null,
+            "error": {
+              "type": "ValueError",
+              "message": "could not convert string to float: 'nan(1)'"
+            },
+            "processed_x_bits": null,
+            "after": {
+              "invalid": [
+                true,
+                true
+              ],
+              "has_xy": false,
+              "stale": true
+            }
+          },
+          "python_float": {
+            "value": null,
+            "error": {
+              "type": "ValueError",
+              "message": "could not convert string to float: 'nan(1)'"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "profile": "ownerNone Date datetime original",
+      "original": [
+        "2024-01-01T00:00:00+00:00",
+        "2024-01-02T00:00:00"
+      ],
+      "source": {
+        "before": {
+          "invalid": [
+            true,
+            true
+          ],
+          "has_xy": false,
+          "stale": true
+        },
+        "processed": null,
+        "error": {
+          "type": "TypeError",
+          "message": "float() argument must be a string or a real number, not 'datetime.datetime'"
+        },
+        "processed_x_bits": null,
+        "after": {
+          "invalid": [
+            true,
+            true
+          ],
+          "has_xy": false,
+          "stale": true
+        }
+      }
+    }
+  ]
+}
