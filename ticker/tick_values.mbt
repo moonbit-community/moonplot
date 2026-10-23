@@ -229,6 +229,40 @@ pub fn TickValues::copy(self : TickValues) -> TickValues raise @core.DataError {
 }
 
 ///|
+/// Select a fresh contiguous array while preserving the source storage type.
+/// The boolean mask must have exactly this view's fixed shape.
+pub fn TickValues::select_mask(
+  self : TickValues,
+  mask : Array[Bool],
+) -> TickValues raise @core.DataError {
+  if mask.length() != self.length {
+    raise @core.DataError::InvalidTicks(
+      message="tick selection mask shape differs from its view",
+    )
+  }
+  match self.buffer {
+    Integer64(_) => {
+      let selected : Array[Int64] = []
+      for index in 0..<self.length {
+        if mask[index] {
+          selected.push(self.get_int64(index))
+        }
+      }
+      TickValues::from_int64_array(selected)
+    }
+    Float64(_) => {
+      let selected : Array[Double] = []
+      for index in 0..<self.length {
+        if mask[index] {
+          selected.push(self.get(index))
+        }
+      }
+      TickValues::from_array(selected)
+    }
+  }
+}
+
+///|
 fn TickValues::eager_prefix(
   self : TickValues,
 ) -> Array[Double] raise @core.DataError {

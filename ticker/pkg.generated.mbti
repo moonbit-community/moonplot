@@ -146,6 +146,7 @@ pub fn BaseFormatter::fix_minus(String) -> String
 pub fn BaseFormatter::fixed_formatter(Self) -> FixedFormatter?
 pub fn BaseFormatter::format_data(Self, Double) -> String raise @core.DataError
 pub fn BaseFormatter::format_data_short(Self, Double) -> String raise @core.DataError
+pub fn BaseFormatter::format_str_formatter(Self) -> FormatStrFormatter?
 pub fn BaseFormatter::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
 pub fn BaseFormatter::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
 pub fn BaseFormatter::func_formatter(Self) -> FuncFormatter?
@@ -156,6 +157,7 @@ pub fn BaseFormatter::null_formatter(Self) -> NullFormatter?
 pub fn BaseFormatter::set_axis(Self, FormatterAxisBinding?) -> Unit
 pub fn BaseFormatter::set_locs(Self, Array[Double]) -> Unit
 pub fn BaseFormatter::set_locs_view(Self, TickValues) -> Unit
+pub fn BaseFormatter::str_method_formatter(Self) -> StrMethodFormatter?
 
 pub struct FixedFormatter {
   // private fields
@@ -195,6 +197,27 @@ pub fn FixedLocator::set_params(Self, nbins? : Double) -> Unit
 pub fn FixedLocator::tick_values(Self, Double, Double) -> TickValues raise @core.DataError
 pub fn FixedLocator::values(Self) -> TickValues raise @core.DataError
 pub fn FixedLocator::view_limits(Self, Double, Double) -> (Double, Double)
+
+pub struct FormatStrFormatter {
+  // private fields
+}
+pub fn FormatStrFormatter::as_base_formatter(Self) -> BaseFormatter
+pub fn FormatStrFormatter::axis(Self) -> FormatterAxisBinding?
+pub fn FormatStrFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn FormatStrFormatter::copy(Self) -> Self
+pub fn FormatStrFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
+pub fn FormatStrFormatter::fmt(Self) -> String
+pub fn FormatStrFormatter::format_data(Self, Double) -> String raise @core.DataError
+pub fn FormatStrFormatter::format_data_short(Self, Double) -> String raise @core.DataError
+pub fn FormatStrFormatter::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
+pub fn FormatStrFormatter::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
+pub fn FormatStrFormatter::get_offset(Self) -> String
+pub fn FormatStrFormatter::locations(Self) -> FormatterLocations
+pub fn FormatStrFormatter::new(String) -> Self
+pub fn FormatStrFormatter::set_axis(Self, FormatterAxisBinding?) -> Unit
+pub fn FormatStrFormatter::set_fmt(Self, String) -> Unit
+pub fn FormatStrFormatter::set_locs(Self, Array[Double]) -> Unit
+pub fn FormatStrFormatter::set_locs_view(Self, TickValues) -> Unit
 
 pub(all) enum Formatter {
   Scalar(use_offset~ : Bool, use_math_text~ : Bool, power_min~ : Int, power_max~ : Int)
@@ -525,6 +548,27 @@ pub fn NullLocator::tick_values(Self, Double, Double) -> Array[Double]
 pub fn NullLocator::view_limits(Self, Double, Double) -> (Double, Double)
 pub fn NullLocator::warnings(Self) -> Array[String]
 
+pub struct StrMethodFormatter {
+  // private fields
+}
+pub fn StrMethodFormatter::as_base_formatter(Self) -> BaseFormatter
+pub fn StrMethodFormatter::axis(Self) -> FormatterAxisBinding?
+pub fn StrMethodFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn StrMethodFormatter::copy(Self) -> Self
+pub fn StrMethodFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
+pub fn StrMethodFormatter::fmt(Self) -> String
+pub fn StrMethodFormatter::format_data(Self, Double) -> String raise @core.DataError
+pub fn StrMethodFormatter::format_data_short(Self, Double) -> String raise @core.DataError
+pub fn StrMethodFormatter::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
+pub fn StrMethodFormatter::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
+pub fn StrMethodFormatter::get_offset(Self) -> String
+pub fn StrMethodFormatter::locations(Self) -> FormatterLocations
+pub fn StrMethodFormatter::new(String) -> Self
+pub fn StrMethodFormatter::set_axis(Self, FormatterAxisBinding?) -> Unit
+pub fn StrMethodFormatter::set_fmt(Self, String) -> Unit
+pub fn StrMethodFormatter::set_locs(Self, Array[Double]) -> Unit
+pub fn StrMethodFormatter::set_locs_view(Self, TickValues) -> Unit
+
 pub(all) enum SymLogSubs {
   Text(String)
   Number(Double)
@@ -561,6 +605,7 @@ pub fn TickValues::from_array(Array[Double]) -> Self
 pub fn TickValues::from_int64_array(Array[Int64]) -> Self
 pub fn TickValues::get(Self, Int) -> Double raise @core.DataError
 pub fn TickValues::length(Self) -> Int
+pub fn TickValues::select_mask(Self, Array[Bool]) -> Self raise @core.DataError
 pub fn TickValues::set(Self, Int, Double) -> Unit raise @core.DataError
 pub fn TickValues::to_array(Self) -> Array[Double] raise @core.DataError
 pub fn TickValues::view(Self, Int, Int, Int) -> Self raise @core.DataError

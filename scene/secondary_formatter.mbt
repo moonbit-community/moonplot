@@ -113,12 +113,6 @@ pub fn SecondaryAxis::formatter_tick_locations_checked(
       },
     )
   }
-  if minor && self.remove_minor_overlap {
-    // The original boolean-mask overlap selection owns a fresh numeric array.
-    return @ticker.FormatterLocations::NdArray(
-      @ticker.TickValues::from_array(self.minor_tick_values_checked()),
-    )
-  }
   let view = if minor {
     self.raw_formatter_minor_view_checked()
   } else if self.fixed_ticks is Some(values) {
@@ -130,6 +124,32 @@ pub fn SecondaryAxis::formatter_tick_locations_checked(
     @ticker.TickValues::from_array(locator.tick_values(lower, upper))
   } else {
     self.major_tick_view_checked()
+  }
+  if minor && self.remove_minor_overlap {
+    // A NumPy boolean selection owns a fresh array of the ORIGINAL dtype.
+    // Converting to Double before constructing that array loses Int64 bits and
+    // changes the scalar __format__/repr used by the named string classes.
+    let major = self.major_tick_view_checked().to_array()
+    let (lower, upper) = self.numeric_view_interval()
+    let tolerance = Double::abs(
+        self.numeric_transform(upper) - self.numeric_transform(lower),
+      ) *
+      1.0e-5
+    let transformed_major = major.map(value => self.numeric_transform(value))
+    let mask = view
+      .to_array()
+      .map(value => {
+        let transformed = self.numeric_transform(value)
+        !transformed_major.any(other => {
+          transformed == other ||
+          (
+            !other.is_nan() &&
+            !other.is_inf() &&
+            Double::abs(transformed - other) <= tolerance
+          )
+        })
+      })
+    return @ticker.FormatterLocations::NdArray(view.select_mask(mask))
   }
   @ticker.FormatterLocations::NdArray(view)
 }

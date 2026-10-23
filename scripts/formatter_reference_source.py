@@ -97,3 +97,28 @@ def load(ticker_path):
         raise ValueError("fixed formatter classes missing or reordered")
     exec(compile(ast.Module(body=nodes, type_ignores=[]), str(ticker_path), "exec"), namespace)
     return namespace
+
+
+STRING_SHA = "24aeae1f0526250f442022022bf98df9a823b1cb330543ee79e70e44907462e9"
+STRING_CLASSES = ("FormatStrFormatter", "_UnicodeMinusFormat", "StrMethodFormatter")
+
+
+def load_string_formatters(ticker_path):
+    """Explicit string-class branch; the accepted D28 load metadata is unchanged.
+
+    Executes complete original classes and their actual stdlib Formatter parent.
+    Scalar origins are supplied by callers as Python float/NumPy float64/int64;
+    no portable implementation or replacement format algorithm is involved.
+    """
+    import string
+
+    namespace = load(ticker_path)
+    _checked(Path(string.__file__), STRING_SHA)
+    namespace['string'] = string
+    namespace['source_hashes']['stdlib/string.py'] = STRING_SHA
+    tree = ast.parse(Path(ticker_path).read_bytes())
+    nodes = [node for node in tree.body if isinstance(node, ast.ClassDef) and node.name in STRING_CLASSES]
+    if tuple(node.name for node in nodes) != STRING_CLASSES:
+        raise ValueError("fixed string formatter classes missing or reordered")
+    exec(compile(ast.Module(body=nodes, type_ignores=[]), str(ticker_path), "exec"), namespace)
+    return namespace

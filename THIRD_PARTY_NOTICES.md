@@ -387,3 +387,16 @@ and borrowed state within the documented numeric/String typed domain. Independen
 references execute the complete original formatter classes and real API/deprecation
 helpers. Matplotlib's license and notice above apply. These helpers are source
 reference inputs, not a new Python/C runtime dependency.
+
+## Named string formatters
+
+FormatStrFormatter and StrMethodFormatter follow the pinned Matplotlib classes
+and their original call order. References execute the complete original classes,
+real API/deprecation helpers, CPython string.Formatter/native formatting and
+NumPy scalar operations. Matplotlib's license and notice above apply.
+Python Unicode15.0.0 printability ranges are generated from the fixed reference
+API, as with the existing date parser predicates. Existing Moon core shortest
+conversion and project BigInt rounding helpers are reused; no CPython C code,
+NumPy implementation or new Python/C runtime is redistributed. Explicit typed
+boundaries and reproduction are documented in
+[testdata/string_formatter_README.md](testdata/string_formatter_README.md).

@@ -235,3 +235,15 @@ Array 则保动态长度；独立 checked 管线贯通 primary/shared/secondary 
 Formatter enum 不改变接口或复制行为。unicode_minus 只在显式 fix_minus 调用时读取。
 参考脚本加载完整原类、真实 _api 与固定 deprecation.py，校验源码 SHA；没有运行时
 Python/NumPy/C 调用或新外部依赖。完整动态 Python、Text 缓存与默认重置单独后续迁移。
+
+## D29 命名字符串 Formatter
+
+FormatStrFormatter/StrMethodFormatter 复用 D28 Base 对象、借用位置、axis identity 与 checked
+Scene/IR/SVG 管线。旧便利 Formatter enum 不改。共享格式数值层复用既有 BigInt 精确
+binary64 ratio/ties-even helpers 与 Moon core Ryu 的 shortest digits，再按 Python 规则
+排版；没有新的浮点 FFI 或 Python 运行时。Int64 view 到整数文字无 Double 中转；新
+TickValues.select_mask 为主轴/secondary 次刻度提供保 dtype 的 fresh selection。
+原源生成使用固定 CPython3.12.14/NumPy2.3.5 和真实 string.Formatter；Unicode15.0 的
+printability 表由固定 Python API 全码点生成，用于 repr/KeyError，Invalidspec 的原字面
+消息独立保持。无新外部依赖，完整 source/typed/资源范围和重现见
+[testdata/string_formatter_README.md](testdata/string_formatter_README.md)。

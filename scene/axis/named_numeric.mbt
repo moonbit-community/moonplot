@@ -266,11 +266,29 @@ fn Axis::filter_numeric_minor_ticks(
   lower : Double,
   upper : Double,
 ) -> Array[Double] {
+  let mask = self.numeric_minor_selection_mask(ticks, major, lower, upper)
+  let selected : Array[Double] = []
+  for index, tick in ticks {
+    if mask[index] {
+      selected.push(tick)
+    }
+  }
+  selected
+}
+
+///|
+fn Axis::numeric_minor_selection_mask(
+  self : Axis,
+  ticks : Array[Double],
+  major : Array[Double],
+  lower : Double,
+  upper : Double,
+) -> Array[Bool] {
   let lo = self.minor_overlap_transform(lower)
   let hi = self.minor_overlap_transform(upper)
   let tolerance = Double::abs(hi - lo) * 1.0e-5
   let transformed_major = major.map(value => self.minor_overlap_transform(value))
-  ticks.filter(value => {
+  ticks.map(value => {
     let transformed = self.minor_overlap_transform(value)
     !transformed_major.any(other => {
       transformed == other ||

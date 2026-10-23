@@ -31,6 +31,14 @@ fn formatter_named_call(
         }
       }
     Func(state) => (state.callback)(value, position)
+    FormatStr(state) =>
+      format_percent_checked(state.fmt, NamedFormatValue::PythonFloat(value))
+    StrMethod(state) =>
+      format_method_checked(
+        state.fmt,
+        NamedFormatValue::PythonFloat(value),
+        position,
+      )
   }
 }
 
@@ -70,7 +78,28 @@ pub fn BaseFormatter::format_ticks_view(
   let length = values.length()
   let labels : Array[String] = []
   for index in 0..<length {
-    labels.push(formatter_named_call(self, values.get(index), Some(index)))
+    // Only the new string classes observe NumPy scalar type. The D28 Func
+    // callback deliberately retains its existing Double value contract.
+    let label = match self.kind {
+      FormatStr(state) => {
+        let value = if values.is_int64() {
+          NamedFormatValue::NumpyInt64(values.get_int64(index))
+        } else {
+          NamedFormatValue::NumpyFloat64(values.get(index))
+        }
+        format_percent_checked(state.fmt, value)
+      }
+      StrMethod(state) => {
+        let value = if values.is_int64() {
+          NamedFormatValue::NumpyInt64(values.get_int64(index))
+        } else {
+          NamedFormatValue::NumpyFloat64(values.get(index))
+        }
+        format_method_checked(state.fmt, value, Some(index))
+      }
+      _ => formatter_named_call(self, values.get(index), Some(index))
+    }
+    labels.push(label)
   }
   labels
 }

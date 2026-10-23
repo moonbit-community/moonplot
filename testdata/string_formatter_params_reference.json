@@ -1,0 +1,3221 @@
+{
+  "source_hashes": {
+    "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+    "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+    "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+    "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+    "stdlib/string.py": "24aeae1f0526250f442022022bf98df9a823b1cb330543ee79e70e44907462e9"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scope": "Complete original FormatStrFormatter/_UnicodeMinusFormat/StrMethodFormatter with real D28 Formatter/API/descriptor and pinned stdlib string. String fmt required with raw deferred validation; Double direct/list, true NumPy Float64/Int64 view origins; shallow fmt slots with borrowed locs and stable typed binding identity. Old pure factories unchanged. Raw dynamic fmt/bytes/operator/dtype objects and dynamic extra attributes are source-only, not passing typed parity.",
+  "observation_count": 215,
+  "generated_test_count": 61,
+  "cases": [
+    {
+      "label": "string formatter original constructor FormatStrFormatter 0",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": ""
+      },
+      "observations": {
+        "value": {
+          "fmt": "",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor FormatStrFormatter 1",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": "plain"
+      },
+      "observations": {
+        "value": {
+          "fmt": "plain",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor FormatStrFormatter 2",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": "-"
+      },
+      "observations": {
+        "value": {
+          "fmt": "-",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor FormatStrFormatter 3",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": "\ud834\udd1e caf\u00e9"
+      },
+      "observations": {
+        "value": {
+          "fmt": "\ud834\udd1e caf\u00e9",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor FormatStrFormatter 4",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": "%"
+      },
+      "observations": {
+        "value": {
+          "fmt": "%",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor FormatStrFormatter 5",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": "{"
+      },
+      "observations": {
+        "value": {
+          "fmt": "{",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor FormatStrFormatter 6",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": "%s"
+      },
+      "observations": {
+        "value": {
+          "fmt": "%s",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor FormatStrFormatter 7",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": "{x}/{pos}"
+      },
+      "observations": {
+        "value": {
+          "fmt": "{x}/{pos}",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor StrMethodFormatter 0",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": ""
+      },
+      "observations": {
+        "value": {
+          "fmt": "",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor StrMethodFormatter 1",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": "plain"
+      },
+      "observations": {
+        "value": {
+          "fmt": "plain",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor StrMethodFormatter 2",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": "-"
+      },
+      "observations": {
+        "value": {
+          "fmt": "-",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor StrMethodFormatter 3",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": "\ud834\udd1e caf\u00e9"
+      },
+      "observations": {
+        "value": {
+          "fmt": "\ud834\udd1e caf\u00e9",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor StrMethodFormatter 4",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": "%"
+      },
+      "observations": {
+        "value": {
+          "fmt": "%",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor StrMethodFormatter 5",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": "{"
+      },
+      "observations": {
+        "value": {
+          "fmt": "{",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor StrMethodFormatter 6",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": "%s"
+      },
+      "observations": {
+        "value": {
+          "fmt": "%s",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original constructor StrMethodFormatter 7",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": "{x}/{pos}"
+      },
+      "observations": {
+        "value": {
+          "fmt": "{x}/{pos}",
+          "attrs": [
+            "fmt"
+          ],
+          "offset": "",
+          "axis_none": true,
+          "default_locs": true
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "string formatter original raw slot copy FormatStrFormatter 0",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": "%s",
+        "replacement": ""
+      },
+      "observations": [
+        {
+          "value": {
+            "fmt": "",
+            "copy_fmt": "%s",
+            "same_locations": true,
+            "same_axis": true,
+            "offsets": [
+              "",
+              ""
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              1.0,
+              2.0
+            ],
+            [
+              1.0,
+              2.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "locations": [
+              9.0
+            ],
+            "copy_locations": [
+              1.0,
+              2.0
+            ],
+            "axis_none": true,
+            "copy_axis": true
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original raw slot copy FormatStrFormatter 1",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": "%s",
+        "replacement": "plain"
+      },
+      "observations": [
+        {
+          "value": {
+            "fmt": "plain",
+            "copy_fmt": "%s",
+            "same_locations": true,
+            "same_axis": true,
+            "offsets": [
+              "",
+              ""
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              1.0,
+              2.0
+            ],
+            [
+              1.0,
+              2.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "locations": [
+              9.0
+            ],
+            "copy_locations": [
+              1.0,
+              2.0
+            ],
+            "axis_none": true,
+            "copy_axis": true
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original raw slot copy FormatStrFormatter 2",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": "%s",
+        "replacement": "%"
+      },
+      "observations": [
+        {
+          "value": {
+            "fmt": "%",
+            "copy_fmt": "%s",
+            "same_locations": true,
+            "same_axis": true,
+            "offsets": [
+              "",
+              ""
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              1.0,
+              2.0
+            ],
+            [
+              1.0,
+              2.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "locations": [
+              9.0
+            ],
+            "copy_locations": [
+              1.0,
+              2.0
+            ],
+            "axis_none": true,
+            "copy_axis": true
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original raw slot copy FormatStrFormatter 3",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": "%s",
+        "replacement": "{"
+      },
+      "observations": [
+        {
+          "value": {
+            "fmt": "{",
+            "copy_fmt": "%s",
+            "same_locations": true,
+            "same_axis": true,
+            "offsets": [
+              "",
+              ""
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              1.0,
+              2.0
+            ],
+            [
+              1.0,
+              2.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "locations": [
+              9.0
+            ],
+            "copy_locations": [
+              1.0,
+              2.0
+            ],
+            "axis_none": true,
+            "copy_axis": true
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original raw slot copy FormatStrFormatter 4",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": "%s",
+        "replacement": "\ud834\udd1e %s"
+      },
+      "observations": [
+        {
+          "value": {
+            "fmt": "\ud834\udd1e %s",
+            "copy_fmt": "%s",
+            "same_locations": true,
+            "same_axis": true,
+            "offsets": [
+              "",
+              ""
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              1.0,
+              2.0
+            ],
+            [
+              1.0,
+              2.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "locations": [
+              9.0
+            ],
+            "copy_locations": [
+              1.0,
+              2.0
+            ],
+            "axis_none": true,
+            "copy_axis": true
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original raw slot copy FormatStrFormatter 5",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "fmt": "%s",
+        "replacement": "\ud834\udd1e {x}"
+      },
+      "observations": [
+        {
+          "value": {
+            "fmt": "\ud834\udd1e {x}",
+            "copy_fmt": "%s",
+            "same_locations": true,
+            "same_axis": true,
+            "offsets": [
+              "",
+              ""
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              1.0,
+              2.0
+            ],
+            [
+              1.0,
+              2.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "locations": [
+              9.0
+            ],
+            "copy_locations": [
+              1.0,
+              2.0
+            ],
+            "axis_none": true,
+            "copy_axis": true
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original raw slot copy StrMethodFormatter 0",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": "{x}",
+        "replacement": ""
+      },
+      "observations": [
+        {
+          "value": {
+            "fmt": "",
+            "copy_fmt": "{x}",
+            "same_locations": true,
+            "same_axis": true,
+            "offsets": [
+              "",
+              ""
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              1.0,
+              2.0
+            ],
+            [
+              1.0,
+              2.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "locations": [
+              9.0
+            ],
+            "copy_locations": [
+              1.0,
+              2.0
+            ],
+            "axis_none": true,
+            "copy_axis": true
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original raw slot copy StrMethodFormatter 1",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": "{x}",
+        "replacement": "plain"
+      },
+      "observations": [
+        {
+          "value": {
+            "fmt": "plain",
+            "copy_fmt": "{x}",
+            "same_locations": true,
+            "same_axis": true,
+            "offsets": [
+              "",
+              ""
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              1.0,
+              2.0
+            ],
+            [
+              1.0,
+              2.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "locations": [
+              9.0
+            ],
+            "copy_locations": [
+              1.0,
+              2.0
+            ],
+            "axis_none": true,
+            "copy_axis": true
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original raw slot copy StrMethodFormatter 2",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": "{x}",
+        "replacement": "%"
+      },
+      "observations": [
+        {
+          "value": {
+            "fmt": "%",
+            "copy_fmt": "{x}",
+            "same_locations": true,
+            "same_axis": true,
+            "offsets": [
+              "",
+              ""
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              1.0,
+              2.0
+            ],
+            [
+              1.0,
+              2.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "locations": [
+              9.0
+            ],
+            "copy_locations": [
+              1.0,
+              2.0
+            ],
+            "axis_none": true,
+            "copy_axis": true
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original raw slot copy StrMethodFormatter 3",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": "{x}",
+        "replacement": "{"
+      },
+      "observations": [
+        {
+          "value": {
+            "fmt": "{",
+            "copy_fmt": "{x}",
+            "same_locations": true,
+            "same_axis": true,
+            "offsets": [
+              "",
+              ""
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              1.0,
+              2.0
+            ],
+            [
+              1.0,
+              2.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "locations": [
+              9.0
+            ],
+            "copy_locations": [
+              1.0,
+              2.0
+            ],
+            "axis_none": true,
+            "copy_axis": true
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original raw slot copy StrMethodFormatter 4",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": "{x}",
+        "replacement": "\ud834\udd1e %s"
+      },
+      "observations": [
+        {
+          "value": {
+            "fmt": "\ud834\udd1e %s",
+            "copy_fmt": "{x}",
+            "same_locations": true,
+            "same_axis": true,
+            "offsets": [
+              "",
+              ""
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              1.0,
+              2.0
+            ],
+            [
+              1.0,
+              2.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "locations": [
+              9.0
+            ],
+            "copy_locations": [
+              1.0,
+              2.0
+            ],
+            "axis_none": true,
+            "copy_axis": true
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original raw slot copy StrMethodFormatter 5",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "fmt": "{x}",
+        "replacement": "\ud834\udd1e {x}"
+      },
+      "observations": [
+        {
+          "value": {
+            "fmt": "\ud834\udd1e {x}",
+            "copy_fmt": "{x}",
+            "same_locations": true,
+            "same_axis": true,
+            "offsets": [
+              "",
+              ""
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              1.0,
+              2.0
+            ],
+            [
+              1.0,
+              2.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "locations": [
+              9.0
+            ],
+            "copy_locations": [
+              1.0,
+              2.0
+            ],
+            "axis_none": true,
+            "copy_axis": true
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original common class default",
+      "specification": {},
+      "observations": [
+        {
+          "value": [
+            true,
+            true,
+            true
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              7.0
+            ],
+            [
+              7.0
+            ],
+            [
+              7.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            [
+              7.0
+            ],
+            [
+              9.0
+            ],
+            [
+              7.0
+            ]
+          ],
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy FormatStrFormatter float64 full",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "integer": false,
+        "values": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ],
+        "name": "full",
+        "chain": [
+          [
+            0,
+            1,
+            4
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.float64(-0.0)",
+            "np.float64(1.25)",
+            "np.float64(3.5)",
+            "np.float64(-7.0)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.float64(41.5)",
+            "np.float64(1.25)",
+            "np.float64(3.5)",
+            "np.float64(-7.0)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              41.5,
+              1.25,
+              3.5,
+              -7.0
+            ],
+            "values": [
+              41.5,
+              1.25,
+              3.5,
+              -7.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%r",
+            "shared": true,
+            "values": [
+              41.5,
+              1.25,
+              3.5,
+              -7.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy FormatStrFormatter float64 reverse",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "integer": false,
+        "values": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ],
+        "name": "reverse",
+        "chain": [
+          [
+            3,
+            -1,
+            4
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.float64(-7.0)",
+            "np.float64(3.5)",
+            "np.float64(1.25)",
+            "np.float64(-0.0)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.float64(41.5)",
+            "np.float64(3.5)",
+            "np.float64(1.25)",
+            "np.float64(-0.0)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              -0.0,
+              1.25,
+              3.5,
+              41.5
+            ],
+            "values": [
+              41.5,
+              3.5,
+              1.25,
+              -0.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%r",
+            "shared": true,
+            "values": [
+              41.5,
+              3.5,
+              1.25,
+              -0.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy FormatStrFormatter float64 nested",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "integer": false,
+        "values": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ],
+        "name": "nested",
+        "chain": [
+          [
+            1,
+            2,
+            2
+          ],
+          [
+            1,
+            -1,
+            2
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.float64(-7.0)",
+            "np.float64(1.25)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.float64(41.5)",
+            "np.float64(1.25)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              -0.0,
+              1.25,
+              3.5,
+              41.5
+            ],
+            "values": [
+              41.5,
+              1.25
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%r",
+            "shared": true,
+            "values": [
+              41.5,
+              1.25
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy FormatStrFormatter float64 zero",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "integer": false,
+        "values": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ],
+        "name": "zero",
+        "chain": [
+          [
+            2,
+            0,
+            3
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.float64(3.5)",
+            "np.float64(3.5)",
+            "np.float64(3.5)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.float64(41.5)",
+            "np.float64(41.5)",
+            "np.float64(41.5)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              -0.0,
+              1.25,
+              41.5,
+              -7.0
+            ],
+            "values": [
+              41.5,
+              41.5,
+              41.5
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%r",
+            "shared": true,
+            "values": [
+              41.5,
+              41.5,
+              41.5
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy FormatStrFormatter float64 empty",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "integer": false,
+        "values": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ],
+        "name": "empty",
+        "chain": [
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              -0.0,
+              1.25,
+              3.5,
+              -7.0
+            ],
+            "values": []
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%r",
+            "shared": true,
+            "values": []
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy FormatStrFormatter int64 full",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "integer": true,
+        "values": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ],
+        "name": "full",
+        "chain": [
+          [
+            0,
+            1,
+            4
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.int64(9007199254740993)",
+            "np.int64(-9223372036854775808)",
+            "np.int64(7)",
+            "np.int64(-1)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.int64(41)",
+            "np.int64(-9223372036854775808)",
+            "np.int64(7)",
+            "np.int64(-1)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              41,
+              -9223372036854775808,
+              7,
+              -1
+            ],
+            "values": [
+              41.0,
+              -9.223372036854776e+18,
+              7.0,
+              -1.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%r",
+            "shared": true,
+            "values": [
+              41.0,
+              -9.223372036854776e+18,
+              7.0,
+              -1.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy FormatStrFormatter int64 reverse",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "integer": true,
+        "values": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ],
+        "name": "reverse",
+        "chain": [
+          [
+            3,
+            -1,
+            4
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.int64(-1)",
+            "np.int64(7)",
+            "np.int64(-9223372036854775808)",
+            "np.int64(9007199254740993)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.int64(41)",
+            "np.int64(7)",
+            "np.int64(-9223372036854775808)",
+            "np.int64(9007199254740993)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              9007199254740993,
+              -9223372036854775808,
+              7,
+              41
+            ],
+            "values": [
+              41.0,
+              7.0,
+              -9.223372036854776e+18,
+              9007199254740992.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%r",
+            "shared": true,
+            "values": [
+              41.0,
+              7.0,
+              -9.223372036854776e+18,
+              9007199254740992.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy FormatStrFormatter int64 nested",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "integer": true,
+        "values": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ],
+        "name": "nested",
+        "chain": [
+          [
+            1,
+            2,
+            2
+          ],
+          [
+            1,
+            -1,
+            2
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.int64(-1)",
+            "np.int64(-9223372036854775808)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.int64(41)",
+            "np.int64(-9223372036854775808)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              9007199254740993,
+              -9223372036854775808,
+              7,
+              41
+            ],
+            "values": [
+              41.0,
+              -9.223372036854776e+18
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%r",
+            "shared": true,
+            "values": [
+              41.0,
+              -9.223372036854776e+18
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy FormatStrFormatter int64 zero",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "integer": true,
+        "values": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ],
+        "name": "zero",
+        "chain": [
+          [
+            2,
+            0,
+            3
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.int64(7)",
+            "np.int64(7)",
+            "np.int64(7)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.int64(41)",
+            "np.int64(41)",
+            "np.int64(41)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              9007199254740993,
+              -9223372036854775808,
+              41,
+              -1
+            ],
+            "values": [
+              41.0,
+              41.0,
+              41.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%r",
+            "shared": true,
+            "values": [
+              41.0,
+              41.0,
+              41.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy FormatStrFormatter int64 empty",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "integer": true,
+        "values": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ],
+        "name": "empty",
+        "chain": [
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              9007199254740993,
+              -9223372036854775808,
+              7,
+              -1
+            ],
+            "values": []
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%r",
+            "shared": true,
+            "values": []
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy StrMethodFormatter float64 full",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "integer": false,
+        "values": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ],
+        "name": "full",
+        "chain": [
+          [
+            0,
+            1,
+            4
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.float64(\u22120.0)",
+            "np.float64(1.25)",
+            "np.float64(3.5)",
+            "np.float64(\u22127.0)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.float64(41.5)",
+            "np.float64(1.25)",
+            "np.float64(3.5)",
+            "np.float64(\u22127.0)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              41.5,
+              1.25,
+              3.5,
+              -7.0
+            ],
+            "values": [
+              41.5,
+              1.25,
+              3.5,
+              -7.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{x!r}",
+            "shared": true,
+            "values": [
+              41.5,
+              1.25,
+              3.5,
+              -7.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy StrMethodFormatter float64 reverse",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "integer": false,
+        "values": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ],
+        "name": "reverse",
+        "chain": [
+          [
+            3,
+            -1,
+            4
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.float64(\u22127.0)",
+            "np.float64(3.5)",
+            "np.float64(1.25)",
+            "np.float64(\u22120.0)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.float64(41.5)",
+            "np.float64(3.5)",
+            "np.float64(1.25)",
+            "np.float64(\u22120.0)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              -0.0,
+              1.25,
+              3.5,
+              41.5
+            ],
+            "values": [
+              41.5,
+              3.5,
+              1.25,
+              -0.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{x!r}",
+            "shared": true,
+            "values": [
+              41.5,
+              3.5,
+              1.25,
+              -0.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy StrMethodFormatter float64 nested",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "integer": false,
+        "values": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ],
+        "name": "nested",
+        "chain": [
+          [
+            1,
+            2,
+            2
+          ],
+          [
+            1,
+            -1,
+            2
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.float64(\u22127.0)",
+            "np.float64(1.25)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.float64(41.5)",
+            "np.float64(1.25)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              -0.0,
+              1.25,
+              3.5,
+              41.5
+            ],
+            "values": [
+              41.5,
+              1.25
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{x!r}",
+            "shared": true,
+            "values": [
+              41.5,
+              1.25
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy StrMethodFormatter float64 zero",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "integer": false,
+        "values": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ],
+        "name": "zero",
+        "chain": [
+          [
+            2,
+            0,
+            3
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.float64(3.5)",
+            "np.float64(3.5)",
+            "np.float64(3.5)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.float64(41.5)",
+            "np.float64(41.5)",
+            "np.float64(41.5)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              -0.0,
+              1.25,
+              41.5,
+              -7.0
+            ],
+            "values": [
+              41.5,
+              41.5,
+              41.5
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{x!r}",
+            "shared": true,
+            "values": [
+              41.5,
+              41.5,
+              41.5
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy StrMethodFormatter float64 empty",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "integer": false,
+        "values": [
+          -0.0,
+          1.25,
+          3.5,
+          -7.0
+        ],
+        "name": "empty",
+        "chain": [
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              -0.0,
+              1.25,
+              3.5,
+              -7.0
+            ],
+            "values": []
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{x!r}",
+            "shared": true,
+            "values": []
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy StrMethodFormatter int64 full",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "integer": true,
+        "values": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ],
+        "name": "full",
+        "chain": [
+          [
+            0,
+            1,
+            4
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.int64(9007199254740993)",
+            "np.int64(\u22129223372036854775808)",
+            "np.int64(7)",
+            "np.int64(\u22121)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.int64(41)",
+            "np.int64(\u22129223372036854775808)",
+            "np.int64(7)",
+            "np.int64(\u22121)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              41,
+              -9223372036854775808,
+              7,
+              -1
+            ],
+            "values": [
+              41.0,
+              -9.223372036854776e+18,
+              7.0,
+              -1.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{x!r}",
+            "shared": true,
+            "values": [
+              41.0,
+              -9.223372036854776e+18,
+              7.0,
+              -1.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy StrMethodFormatter int64 reverse",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "integer": true,
+        "values": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ],
+        "name": "reverse",
+        "chain": [
+          [
+            3,
+            -1,
+            4
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.int64(\u22121)",
+            "np.int64(7)",
+            "np.int64(\u22129223372036854775808)",
+            "np.int64(9007199254740993)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.int64(41)",
+            "np.int64(7)",
+            "np.int64(\u22129223372036854775808)",
+            "np.int64(9007199254740993)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              9007199254740993,
+              -9223372036854775808,
+              7,
+              41
+            ],
+            "values": [
+              41.0,
+              7.0,
+              -9.223372036854776e+18,
+              9007199254740992.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{x!r}",
+            "shared": true,
+            "values": [
+              41.0,
+              7.0,
+              -9.223372036854776e+18,
+              9007199254740992.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy StrMethodFormatter int64 nested",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "integer": true,
+        "values": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ],
+        "name": "nested",
+        "chain": [
+          [
+            1,
+            2,
+            2
+          ],
+          [
+            1,
+            -1,
+            2
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.int64(\u22121)",
+            "np.int64(\u22129223372036854775808)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.int64(41)",
+            "np.int64(\u22129223372036854775808)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              9007199254740993,
+              -9223372036854775808,
+              7,
+              41
+            ],
+            "values": [
+              41.0,
+              -9.223372036854776e+18
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{x!r}",
+            "shared": true,
+            "values": [
+              41.0,
+              -9.223372036854776e+18
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy StrMethodFormatter int64 zero",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "integer": true,
+        "values": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ],
+        "name": "zero",
+        "chain": [
+          [
+            2,
+            0,
+            3
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [
+            "np.int64(7)",
+            "np.int64(7)",
+            "np.int64(7)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "np.int64(41)",
+            "np.int64(41)",
+            "np.int64(41)"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              9007199254740993,
+              -9223372036854775808,
+              41,
+              -1
+            ],
+            "values": [
+              41.0,
+              41.0,
+              41.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{x!r}",
+            "shared": true,
+            "values": [
+              41.0,
+              41.0,
+              41.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original view copy StrMethodFormatter int64 empty",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "integer": true,
+        "values": [
+          9007199254740993,
+          -9223372036854775808,
+          7,
+          -1
+        ],
+        "name": "empty",
+        "chain": [
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "observations": [
+        {
+          "value": [],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "shared": true,
+            "owner": [
+              9007199254740993,
+              -9223372036854775808,
+              7,
+              -1
+            ],
+            "values": []
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{x!r}",
+            "shared": true,
+            "values": []
+          },
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original deferred fmt error FormatStrFormatter 0",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "malformed": "%"
+      },
+      "observations": [
+        {
+          "value": null,
+          "source_error": "ValueError",
+          "message": "incomplete format",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%",
+            "locations": [
+              9.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": null,
+          "source_error": "ValueError",
+          "message": "incomplete format",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%",
+            "identity": true,
+            "locations": [
+              3.0,
+              4.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": "2.0",
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original deferred fmt error FormatStrFormatter 1",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "malformed": "%q"
+      },
+      "observations": [
+        {
+          "value": null,
+          "source_error": "ValueError",
+          "message": "unsupported format character 'q' (0x71) at index 1",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%q",
+            "locations": [
+              9.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": null,
+          "source_error": "ValueError",
+          "message": "unsupported format character 'q' (0x71) at index 1",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%q",
+            "identity": true,
+            "locations": [
+              3.0,
+              4.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": "2.0",
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original deferred fmt error FormatStrFormatter 2",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "malformed": "literal"
+      },
+      "observations": [
+        {
+          "value": null,
+          "source_error": "TypeError",
+          "message": "not all arguments converted during string formatting",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "literal",
+            "locations": [
+              9.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": null,
+          "source_error": "TypeError",
+          "message": "not all arguments converted during string formatting",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "literal",
+            "identity": true,
+            "locations": [
+              3.0,
+              4.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": "2.0",
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original deferred fmt error FormatStrFormatter 3",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "malformed": "%g %g"
+      },
+      "observations": [
+        {
+          "value": null,
+          "source_error": "TypeError",
+          "message": "not enough arguments for format string",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%g %g",
+            "locations": [
+              9.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": null,
+          "source_error": "TypeError",
+          "message": "not enough arguments for format string",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "%g %g",
+            "identity": true,
+            "locations": [
+              3.0,
+              4.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": "2.0",
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original deferred fmt error StrMethodFormatter 0",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "malformed": "{"
+      },
+      "observations": [
+        {
+          "value": null,
+          "source_error": "ValueError",
+          "message": "Single '{' encountered in format string",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{",
+            "locations": [
+              9.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": null,
+          "source_error": "ValueError",
+          "message": "Single '{' encountered in format string",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{",
+            "identity": true,
+            "locations": [
+              3.0,
+              4.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": "2.0",
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original deferred fmt error StrMethodFormatter 1",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "malformed": "{missing}"
+      },
+      "observations": [
+        {
+          "value": null,
+          "source_error": "KeyError",
+          "message": "'missing'",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{missing}",
+            "locations": [
+              9.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": null,
+          "source_error": "KeyError",
+          "message": "'missing'",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{missing}",
+            "identity": true,
+            "locations": [
+              3.0,
+              4.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": "2.0",
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original deferred fmt error StrMethodFormatter 2",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "malformed": "{x:!}"
+      },
+      "observations": [
+        {
+          "value": null,
+          "source_error": "ValueError",
+          "message": "Unknown format code '!' for object of type 'float'",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{x:!}",
+            "locations": [
+              9.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": null,
+          "source_error": "ValueError",
+          "message": "Unknown format code '!' for object of type 'float'",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{x:!}",
+            "identity": true,
+            "locations": [
+              3.0,
+              4.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": "2.0",
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original deferred fmt error StrMethodFormatter 3",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "malformed": "{pos:d}"
+      },
+      "observations": [
+        {
+          "value": null,
+          "source_error": "TypeError",
+          "message": "unsupported format string passed to NoneType.__format__",
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{pos:d}",
+            "locations": [
+              9.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": [
+            "0",
+            "1"
+          ],
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": {
+            "fmt": "{pos:d}",
+            "identity": true,
+            "locations": [
+              3.0,
+              4.0
+            ]
+          },
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": "2.0",
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original rc and data FormatStrFormatter False",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "unicode_minus": false
+      },
+      "observations": [
+        {
+          "value": "literal- -1.25",
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": "literal- -1.25",
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original rc and data FormatStrFormatter True",
+      "specification": {
+        "kind": "FormatStrFormatter",
+        "unicode_minus": true
+      },
+      "observations": [
+        {
+          "value": "literal- -1.25",
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": "literal- -1.25",
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original rc and data StrMethodFormatter False",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "unicode_minus": false
+      },
+      "observations": [
+        {
+          "value": "literal- -1.25/-2",
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": "literal- -1.25/None",
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "label": "string formatter original rc and data StrMethodFormatter True",
+      "specification": {
+        "kind": "StrMethodFormatter",
+        "unicode_minus": true
+      },
+      "observations": [
+        {
+          "value": "literal- \u22121.25/\u22122",
+          "source_error": null,
+          "warnings": []
+        },
+        {
+          "value": "literal- \u22121.25/None",
+          "source_error": null,
+          "warnings": []
+        }
+      ]
+    }
+  ],
+  "source_only": [
+    {
+      "reason": "raw fmt/result type outside String API; no eager source validation",
+      "kind": "FormatStrFormatter",
+      "raw_type": "NoneType",
+      "stored": {
+        "value": {
+          "identity": true,
+          "offset": "",
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "unsupported operand type(s) for %: 'NoneType' and 'float'",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "raw fmt/result type outside String API; no eager source validation",
+      "kind": "FormatStrFormatter",
+      "raw_type": "int",
+      "stored": {
+        "value": {
+          "identity": true,
+          "offset": "",
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": 0.0,
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "raw fmt/result type outside String API; no eager source validation",
+      "kind": "FormatStrFormatter",
+      "raw_type": "float",
+      "stored": {
+        "value": {
+          "identity": true,
+          "offset": "",
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": 1.0,
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "raw fmt/result type outside String API; no eager source validation",
+      "kind": "FormatStrFormatter",
+      "raw_type": "list",
+      "stored": {
+        "value": {
+          "identity": true,
+          "offset": "",
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "unsupported operand type(s) for %: 'list' and 'float'",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "raw fmt/result type outside String API; no eager source validation",
+      "kind": "FormatStrFormatter",
+      "raw_type": "bytes",
+      "stored": {
+        "value": {
+          "identity": true,
+          "offset": "",
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": {
+          "bytes_hex": "32"
+        },
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "raw fmt/result type outside String API; no eager source validation",
+      "kind": "FormatStrFormatter",
+      "raw_type": "ndarray",
+      "stored": {
+        "value": {
+          "identity": true,
+          "offset": "",
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": [
+          0.0,
+          1.0
+        ],
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "source dynamic attribute is unrelated to inherited empty offset",
+      "kind": "FormatStrFormatter",
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "no source offset setter",
+      "kind": "FormatStrFormatter",
+      "observation": {
+        "value": null,
+        "source_error": "AttributeError",
+        "message": "'FormatStrFormatter' object has no attribute 'set_offset_string'",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "raw fmt/result type outside String API; no eager source validation",
+      "kind": "StrMethodFormatter",
+      "raw_type": "NoneType",
+      "stored": {
+        "value": {
+          "identity": true,
+          "offset": "",
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "expected str, got NoneType",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "raw fmt/result type outside String API; no eager source validation",
+      "kind": "StrMethodFormatter",
+      "raw_type": "int",
+      "stored": {
+        "value": {
+          "identity": true,
+          "offset": "",
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "expected str, got int",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "raw fmt/result type outside String API; no eager source validation",
+      "kind": "StrMethodFormatter",
+      "raw_type": "float",
+      "stored": {
+        "value": {
+          "identity": true,
+          "offset": "",
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "expected str, got float",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "raw fmt/result type outside String API; no eager source validation",
+      "kind": "StrMethodFormatter",
+      "raw_type": "list",
+      "stored": {
+        "value": {
+          "identity": true,
+          "offset": "",
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "expected str, got list",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "raw fmt/result type outside String API; no eager source validation",
+      "kind": "StrMethodFormatter",
+      "raw_type": "bytes",
+      "stored": {
+        "value": {
+          "identity": true,
+          "offset": "",
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "expected str, got bytes",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "raw fmt/result type outside String API; no eager source validation",
+      "kind": "StrMethodFormatter",
+      "raw_type": "ndarray",
+      "stored": {
+        "value": {
+          "identity": true,
+          "offset": "",
+          "axis_none": true
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "expected str, got numpy.ndarray",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "source dynamic attribute is unrelated to inherited empty offset",
+      "kind": "StrMethodFormatter",
+      "observation": {
+        "value": "",
+        "source_error": null,
+        "warnings": []
+      }
+    },
+    {
+      "reason": "no source offset setter",
+      "kind": "StrMethodFormatter",
+      "observation": {
+        "value": null,
+        "source_error": "AttributeError",
+        "message": "'StrMethodFormatter' object has no attribute 'set_offset_string'",
+        "warnings": []
+      }
+    },
+    {
+      "reason": "custom fmt/operator and mutable raw objects outside String API",
+      "kind": "FormatStrFormatter",
+      "stored": {
+        "value": {
+          "shared": true,
+          "events": []
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": [
+          "mutated",
+          "mutated"
+        ],
+        "source_error": null,
+        "warnings": []
+      },
+      "events": [
+        [
+          "modulo",
+          2.0
+        ],
+        [
+          "modulo",
+          3.0
+        ]
+      ]
+    },
+    {
+      "reason": "custom fmt/operator and mutable raw objects outside String API",
+      "kind": "StrMethodFormatter",
+      "stored": {
+        "value": {
+          "shared": true,
+          "events": []
+        },
+        "source_error": null,
+        "warnings": []
+      },
+      "operation": {
+        "value": null,
+        "source_error": "TypeError",
+        "message": "expected str, got SourceFmt",
+        "warnings": []
+      },
+      "events": []
+    }
+  ]
+}

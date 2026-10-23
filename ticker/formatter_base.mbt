@@ -83,11 +83,18 @@ priv struct FuncFormatterState {
 }
 
 ///|
+priv struct StringFormatterState {
+  mut fmt : String
+}
+
+///|
 priv enum FormatterKind {
   Abstract
   Null
   Fixed(FixedFormatterState)
   Func(FuncFormatterState)
+  FormatStr(StringFormatterState)
+  StrMethod(StringFormatterState)
 }
 
 ///|
@@ -166,7 +173,7 @@ pub fn BaseFormatter::create_dummy_axis(
 ///|
 pub fn BaseFormatter::get_offset(self : BaseFormatter) -> String {
   match self.kind {
-    Abstract | Null => ""
+    Abstract | Null | FormatStr(_) | StrMethod(_) => ""
     Fixed(state) => state.offset
     Func(state) => state.offset
   }
@@ -181,6 +188,8 @@ pub fn BaseFormatter::copy(self : BaseFormatter) -> BaseFormatter {
       FormatterKind::Fixed({ seq: state.seq, offset: state.offset, })
     Func(state) =>
       FormatterKind::Func({ callback: state.callback, offset: state.offset, })
+    FormatStr(state) => FormatterKind::FormatStr({ fmt: state.fmt, })
+    StrMethod(state) => FormatterKind::StrMethod({ fmt: state.fmt, })
   }
   { kind, locations: self.locations, axis: self.axis, }
 }

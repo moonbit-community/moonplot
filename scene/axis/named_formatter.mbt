@@ -143,15 +143,13 @@ pub fn Axis::formatter_tick_locations_checked(
   if minor && self.remove_minor_overlap {
     let major = self.major_tick_view_checked().to_array()
     let (lower, upper) = self.view_interval_checked()
-    let filtered = self.filter_numeric_minor_ticks(
+    let mask = self.numeric_minor_selection_mask(
       view.to_array(),
       major,
       lower,
       upper,
     )
-    return @ticker.FormatterLocations::NdArray(
-      @ticker.TickValues::from_array(filtered),
-    )
+    return @ticker.FormatterLocations::NdArray(view.select_mask(mask))
   }
   @ticker.FormatterLocations::NdArray(view)
 }

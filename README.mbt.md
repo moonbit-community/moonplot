@@ -1344,6 +1344,21 @@ try! fig.set_x_named_formatter(formatter.as_base_formatter())
 默认格式器安装生命周期仍待后续。新增 352 项测试，四目标及三份原源参考检查全部通过；
 具体范围见 [基础 Formatter 说明](testdata/basic_formatter_README.md)。
 
+D29 已验收命名 `FormatStrFormatter` 与 `StrMethodFormatter`，同样安装到 named formatter
+槽。格式字符串可以通过 `set_fmt` 修改；无效格式在调用时抛出 checked 错误。
+
+```moonbit nocheck
+let formatter = @ticker.StrMethodFormatter::new("{x:.2f}")
+try! fig.set_x_named_formatter(formatter.as_base_formatter())
+formatter.set_fmt("{pos}: {x:+.3g}")
+```
+
+直接调用与 Double 数组采用 Python float 格式，数值 view 保留 Float64/Int64 来源；整数
+标签保留全部 64 位，`!r` 保留 NumPy 类型信息。主次刻度、共享轴和 secondary/SVG 复用
+既有 checked 管线，Unicode 负号按字段动态处理。新增 5161 项测试，四目标与六份原源
+参考检查全部通过；支持范围、C locale 和动态 Python 边界见
+[字符串 Formatter 说明](testdata/string_formatter_README.md)。
+
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`
 及常见宽度/精度标志，`log_formatter`、`null_formatter` 和 `func_formatter` 分别用于对数、
