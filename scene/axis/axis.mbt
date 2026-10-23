@@ -11,6 +11,7 @@ pub(all) enum TickPosition {
 ///|
 /// A coordinate axis with limits, tick formatting, and presentation settings.
 pub struct Axis {
+  priv mut function_scale : AxisFunctionScale?
   priv units_state : AxisUnitState
   priv formatter_axis_binding : @ticker.FormatterAxisBinding
   priv mut tickers : AxisNumericTickers
@@ -65,6 +66,7 @@ pub struct Axis {
 /// Construct an axis with fresh linear locator and formatter defaults.
 pub fn axis(horizontal~ : Bool = true) -> Axis {
   let result : Axis = {
+    function_scale: None,
     units_state: AxisUnitState::new(),
     formatter_axis_binding: @ticker.FormatterAxisBinding::new(),
     tickers: AxisNumericTickers::new(),
@@ -141,6 +143,10 @@ pub fn Axis::set_limits(
   let limits = @core.limits(lower, upper)
   if !limits.is_finite() {
     raise @core.DataError::NonFiniteLimit(axis="axis")
+  }
+  if self.function_scale is Some(_) {
+    ignore(self.set_bound_limits_checked(lower, upper, automatic=Some(false)))
+    return
   }
   if self.tickers.major_locator_kind != Numeric {
     ignore(self.set_bound_limits_checked(lower, upper, automatic=Some(false)))
@@ -239,6 +245,7 @@ pub fn Axis::set_scale(
     )
   }
   self.scale = value
+  self.function_scale = None
   self.install_scale_defaults()
   self.mark_scale_defaults()
 }
@@ -405,20 +412,26 @@ pub fn Axis::set_locator(
   self : Axis,
   locator : @ticker.Locator,
 ) -> Unit raise @core.DataError {
-  match (self.scale, locator) {
-    (@scale.Scale::Log, @ticker.Locator::Linear(..) | @ticker.Locator::MaxN(..)) =>
-      raise @core.DataError::InvalidTicks(
-        message="linear locator cannot be used with log scale",
-      )
-    (@scale.Scale::Log, @ticker.Locator::Fixed(values)) =>
-      for value in values {
-        if value <= 0.0 {
-          raise @core.DataError::InvalidTicks(
-            message="log scale locator values must be positive",
-          )
+  if self.function_scale is None {
+    match (self.scale, locator) {
+      (
+        @scale.Scale::Log,
+        @ticker.Locator::Linear(..)
+        | @ticker.Locator::MaxN(..),
+      ) =>
+        raise @core.DataError::InvalidTicks(
+          message="linear locator cannot be used with log scale",
+        )
+      (@scale.Scale::Log, @ticker.Locator::Fixed(values)) =>
+        for value in values {
+          if value <= 0.0 {
+            raise @core.DataError::InvalidTicks(
+              message="log scale locator values must be positive",
+            )
+          }
         }
-      }
-    _ => ()
+      _ => ()
+    }
   }
   self.tickers.major_locator_default = false
   self.tickers.major_locator_kind = Numeric
@@ -454,20 +467,22 @@ pub fn Axis::set_minor_locator(
   self : Axis,
   locator : @ticker.MinorLocator,
 ) -> Unit raise @core.DataError {
-  match (self.scale, locator) {
-    (@scale.Scale::Log, @ticker.MinorLocator::Auto(..)) =>
-      raise @core.DataError::InvalidTicks(
-        message="automatic minor locator cannot be used with log scale",
-      )
-    (@scale.Scale::Log, @ticker.MinorLocator::Fixed(values)) =>
-      for value in values {
-        if value <= 0.0 {
-          raise @core.DataError::InvalidTicks(
-            message="log scale minor locator values must be positive",
-          )
+  if self.function_scale is None {
+    match (self.scale, locator) {
+      (@scale.Scale::Log, @ticker.MinorLocator::Auto(..)) =>
+        raise @core.DataError::InvalidTicks(
+          message="automatic minor locator cannot be used with log scale",
+        )
+      (@scale.Scale::Log, @ticker.MinorLocator::Fixed(values)) =>
+        for value in values {
+          if value <= 0.0 {
+            raise @core.DataError::InvalidTicks(
+              message="log scale minor locator values must be positive",
+            )
+          }
         }
-      }
-    _ => ()
+      _ => ()
+    }
   }
   self.tickers.minor_locator_default = false
   self.tickers.minor_locator_kind = Numeric

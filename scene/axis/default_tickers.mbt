@@ -121,6 +121,7 @@ pub fn Axis::share_numeric_tickers(self : Axis, source : Axis) -> Unit {
 /// Inherit geometry without reinstalling tickers, as shared-axis linking does.
 pub fn Axis::inherit_scale_from(self : Axis, source : Axis) -> Unit {
   self.scale = source.scale
+  self.function_scale = source.function_scale
 }
 
 ///|

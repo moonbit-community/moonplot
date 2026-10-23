@@ -75,8 +75,12 @@ pub fn Axis::clear_named_formatter(Self) -> Unit
 pub fn Axis::clear_tick_layout(Self) -> Unit
 pub fn Axis::clear_tick_position(Self) -> Unit
 pub fn Axis::clear_ticks(Self) -> Unit
+pub fn Axis::configure_function_scale(Self, (Double) -> Double, (Double) -> Double, logarithmic? : Bool) -> Unit raise @core.DataError
 pub fn Axis::convert_category_units(Self, Array[String]) -> Array[Double] raise @core.DataError
 pub fn Axis::convert_date_units(Self, Array[@date.RRuleDateTime]) -> Array[Double] raise @core.DataError
+pub fn Axis::coordinate_inverse(Self) -> (Double) -> Double
+pub fn Axis::coordinate_scale_name(Self) -> String
+pub fn Axis::coordinate_transform(Self) -> (Double) -> Double
 pub fn Axis::current_view_limits(Self) -> @core.Limits?
 pub fn Axis::data_interval(Self) -> @core.Limits
 pub fn Axis::date_converter(Self) -> @date.DateConverter?
@@ -159,6 +163,7 @@ pub fn Axis::set_minor_named_formatter(Self, @ticker.BaseFormatter) -> Unit
 pub fn Axis::set_minor_overlap_removal(Self, Bool) -> Unit
 pub fn Axis::set_named_formatter(Self, @ticker.BaseFormatter) -> Unit
 pub fn Axis::set_scale(Self, @scale.Scale) -> Unit raise @core.DataError
+pub fn Axis::set_source_ticks(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn Axis::set_tick_count(Self, Int) -> Unit
 pub fn Axis::set_tick_label_size(Self, Double) -> Unit
 pub fn Axis::set_tick_labels(Self, Array[String]) -> Unit raise @core.DataError

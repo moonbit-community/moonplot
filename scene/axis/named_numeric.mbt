@@ -147,16 +147,15 @@ pub fn Axis::minor_tick_values_checked(
       return ticks
     }
     let major = self.major_tick_view_checked().to_array()
-    let (lower, upper) = self.view_interval_checked()
-    return self.filter_numeric_minor_ticks(ticks, major, lower, upper)
+    return self.filter_numeric_minor_ticks(ticks, major)
   }
   if self.tickers.minor_locator_kind == Numeric {
     if self.tickers.minor_locator is Some(@ticker.MinorLocator::Null(value)) {
       let ticks = value.call()
       if self.remove_minor_overlap {
         // Direct Axis getters still read majors/view; rendering skips Null earlier.
-        ignore(self.major_tick_view_checked())
-        ignore(self.view_interval_checked())
+        let major = self.major_tick_view_checked().to_array()
+        return self.filter_numeric_minor_ticks(ticks, major)
       }
       return ticks
     }
@@ -213,8 +212,7 @@ pub fn Axis::minor_tick_values_checked(
         return ticks
       }
       let major = self.major_tick_view_checked().to_array()
-      let (lower, upper) = self.view_interval_checked()
-      return self.filter_numeric_minor_ticks(ticks, major, lower, upper)
+      return self.filter_numeric_minor_ticks(ticks, major)
     }
     if self.tickers.minor_locator
       is Some(
@@ -255,13 +253,7 @@ fn Axis::bind_auto_minor_context(
 
 ///|
 fn Axis::numeric_scale_name(self : Axis) -> String {
-  match self.scale {
-    @scale.Linear => "linear"
-    @scale.Log => "log"
-    @scale.SymLog(..) => "symlog"
-    @scale.Asinh(..) => "asinh"
-    @scale.Logit(..) => "logit"
-  }
+  self.coordinate_scale_name()
 }
 
 ///|
@@ -364,10 +356,8 @@ fn Axis::filter_numeric_minor_ticks(
   self : Axis,
   ticks : Array[Double],
   major : Array[Double],
-  lower : Double,
-  upper : Double,
-) -> Array[Double] {
-  let mask = self.numeric_minor_selection_mask(ticks, major, lower, upper)
+) -> Array[Double] raise @core.DataError {
+  let mask = self.numeric_minor_selection_mask(ticks, major)
   let selected : Array[Double] = []
   for index, tick in ticks {
     if mask[index] {
@@ -382,15 +372,17 @@ fn Axis::numeric_minor_selection_mask(
   self : Axis,
   ticks : Array[Double],
   major : Array[Double],
-  lower : Double,
-  upper : Double,
-) -> Array[Bool] {
-  let lo = self.minor_overlap_transform(lower)
-  let hi = self.minor_overlap_transform(upper)
+) -> Array[Bool] raise @core.DataError {
+  // Axis.get_minorticklocs captures one transform after both locator queries.
+  // Function callbacks run on minors, then majors, before the late view read.
+  let transform = self.minor_overlap_transform()
+  let transformed_ticks = ticks.map(transform)
+  let transformed_major = major.map(transform)
+  let (lower, upper) = self.view_interval_checked()
+  let lo = transform(lower)
+  let hi = transform(upper)
   let tolerance = Double::abs(hi - lo) * 1.0e-5
-  let transformed_major = major.map(value => self.minor_overlap_transform(value))
-  ticks.map(value => {
-    let transformed = self.minor_overlap_transform(value)
+  transformed_ticks.map(transformed => {
     !transformed_major.any(other => {
       transformed == other ||
       (
@@ -416,10 +408,16 @@ pub fn Axis::tick_group_is_null(self : Axis, minor~ : Bool = false) -> Bool {
 
 ///|
 // Source LogTransform uses nonpositive="clip" for tick overlap coordinates.
-fn Axis::minor_overlap_transform(self : Axis, value : Double) -> Double {
-  if self.scale.is_log() && value <= 0.0 {
-    -1000.0
-  } else {
-    self.scale.transform(value)
+fn Axis::minor_overlap_transform(self : Axis) -> (Double) -> Double {
+  if self.function_scale is Some(_) {
+    return self.coordinate_transform()
+  }
+  let scale = self.scale
+  fn(value) {
+    if scale.is_log() && value <= 0.0 {
+      -1000.0
+    } else {
+      scale.transform(value)
+    }
   }
 }

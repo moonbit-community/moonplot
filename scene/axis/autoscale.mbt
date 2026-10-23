@@ -177,7 +177,9 @@ pub fn Axis::autoscale_bounds_checked(
   if !self.autoscale_enabled {
     return None
   }
-  let logarithmic_stickies = log_stickies.unwrap_or(self.scale.is_log())
+  let logarithmic_stickies = log_stickies.unwrap_or(
+    self.coordinate_scale_name() == "log",
+  )
   let mut lower = 1.0 / 0.0
   let mut upper = -1.0 / 0.0
   let mut finite = false
@@ -252,15 +254,22 @@ pub fn Axis::autoscale_bounds_checked(
   // Scale transforms are immutable values; acquiring their forward/inverse
   // pair has no callback. The range limiter still precedes their evaluation.
   let scale = self.scale
+  let function_scale = self.function_scale
+  let transform = self.coordinate_transform()
+  let inverse = self.coordinate_inverse()
   let (lower, upper) = scale.limit_range_for_scale(lower, upper, minpos)
   // LogScale's default LogTransform clips nonpositive inputs at -1000.
   // Raw finite minpos overrides can reach this branch after the scale limiter.
-  let transformed_lower = if scale.is_log() && lower <= 0.0 {
+  let transformed_lower = if function_scale is Some(_) {
+    transform(lower)
+  } else if scale.is_log() && lower <= 0.0 {
     -1000.0
   } else {
     scale.transform(lower)
   }
-  let transformed_upper = if scale.is_log() && upper <= 0.0 {
+  let transformed_upper = if function_scale is Some(_) {
+    transform(upper)
+  } else if scale.is_log() && upper <= 0.0 {
     -1000.0
   } else {
     scale.transform(upper)
@@ -269,12 +278,16 @@ pub fn Axis::autoscale_bounds_checked(
   let padding = if padding.is_nan() || padding.is_inf() { 0.0 } else { padding }
   // InvertedLogTransform uses exp(x * ln(base)), with a separately rounded
   // product. Replacing that chain with pow(base, x) changes source results.
-  let lower = if scale.is_log() {
+  let lower = if function_scale is Some(_) {
+    inverse(transformed_lower - padding)
+  } else if scale.is_log() {
     @math.exp((transformed_lower - padding) * @math.ln(10.0))
   } else {
     scale.inverse(transformed_lower - padding)
   }
-  let upper = if scale.is_log() {
+  let upper = if function_scale is Some(_) {
+    inverse(transformed_upper + padding)
+  } else if scale.is_log() {
     @math.exp((transformed_upper + padding) * @math.ln(10.0))
   } else {
     scale.inverse(transformed_upper + padding)
@@ -312,7 +325,8 @@ pub fn Axis::set_bound_limits_checked(
   if !@core.limits(lower, upper).is_finite() {
     raise @core.DataError::NonFiniteLimit(axis="axis")
   }
-  let (lower, upper) = if self.scale.is_log() && (lower <= 0.0 || upper <= 0.0) {
+  let (lower, upper) = if self.coordinate_scale_name() == "log" &&
+    (lower <= 0.0 || upper <= 0.0) {
     let (old_lower, old_upper) = self.lifecycle_view_interval_checked()
     (
       if lower <= 0.0 {

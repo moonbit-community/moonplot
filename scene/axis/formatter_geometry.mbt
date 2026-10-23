@@ -14,8 +14,8 @@ pub fn Axis::bind_formatter_geometry(
       upper,
       origin,
       length,
-      value => self.scale.transform(value),
-      value => self.scale.inverse(value),
+      self.coordinate_transform(),
+      self.coordinate_inverse(),
     )
   })
 }
