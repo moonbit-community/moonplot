@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D34只读准备（命名LogitFormatter）；D33已验收并提交f92729d/6dea404。
+- 当前切片编号：D34已验收并提交c7e47bb；下一D35只读准备默认scale安装生命周期。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,12 +33,14 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D34命名LogitFormatter三个独立readonly分片已派原agents：A参数/
-  对象与继承（D34-logitformatter-params-notes.md）；B数值/完整minor算法与数学profile
-  （D34-logitformatter-numeric-notes.md）；C实际Axis/shared/secondary/draw
-  （D34-logitformatter-axis-notes.md）。全部只写ignored notes，不改tracked/不跑Moon。
-  Root下一读三份完整notes及必要固定ticker.py1208–1403/helper，再冻结typed scope/API和
-  exclusive files，之后才实现。D34未snapshot/未实现/未验收，不预先声称context需求。
+- 下一条具体动作：D34 feature已提交c7e47bb，保存checkpoint后进入D35默认scale安装
+  locator/formatter生命周期的只读准备，核固定scale.py及现有scene/axis scale setter，
+  冻结范围后再分片，避免重启项目调查。当前无live工具。
+  首全量32763四target同9个fixturefail，之后仅两fixture修正，补验25631各13/13全过；
+  当前累计nonJS21823/JS21830全验证覆盖。final92913 infofmt0/check79tasks8旧warn0error，
+  93行接口逐字cmp同；六newsource最新全0。原实际sourceoutputs不改，派生metadata修正已审。
+  D34-before已保存HEAD c7ce6b404750fb6babe98e2e2254ee508369869a的tracked.tar/41份mbti。
+  Root Base/batch/Scalar穷举适配、typed locations及真实shared set kernel已编译通过，待fixture修复验收。
   D33 full25520、追加exacthalf过滤82978、final80311、四source均terminal0；无live工具。
   nonJS21700/JS21707全过；152newregistered承载4557validationcases，251行接口全文审且
   final逐字cmp同；finalcheck28tasks/8旧Refwarn/0error。所有原JSONexpected保持。
@@ -4345,7 +4347,8 @@ interfacecmp、accepted README/COMPAT/PLAN/总guide，分Root基础功能与家�
       README/COMPAT/PLAN/总guide与三独立guide/依赖/NOTICE均accepted。无live工具。
 - [x] 两个功能commit：f92729d基础8files/21070insertions，6dea404家族36files/
       514467insertions（绝大多数为完整源参考JSON/tests）；master本地，无remote/push。
-- [ ] D34三agent只读notes回齐，Root全文读必要原类/helper后冻结scope/API与分片。
+- [x] D34三agent只读notes回齐，Root全文读必要原类/helper后冻结scope/API与分片。
+- [ ] D34实现与正式参考完成后统一验收；当前未通过Moon编译/行为门禁。
 
 A/C independentreadonly review无新生产缺陷：680actualprepare/196completegeom snapshot/
 10492membership及数学interval/root终止证明。已修原全域jump2^14错误论证，使用有效小前缀；
@@ -4372,3 +4375,187 @@ D34 A299行339obs、C251行147obs notes已回，B数值notes仍整理；Root尚�
 tight/constrained求解器、font/mathtext；另显式补polar/geographic投影缺口。采用相同权重
 更保守成熟度的敏感性检查40.20–55.95，故对外整体报告约50%（40–60，至少±10点误差），
 不把原模型中点53.175或狭窄50–55当已测结论。MIGRATION_PROGRESS.md/PLAN已同步。
+
+D34实现检查点：Root已全文读A299行339sourceobs、B268行6022source阶段、C251行147sourceobs
+及168行独立进度review。公开raw LogValue五参数、四source setter；新增LogitKey与NumericArray
+保原numeric origin、Sequence键identity/ndarray每读fresh scalar；FormatterLocations新增Typed与
+get_value。浅copy共享可变labelled holder，prepare先copy snapshot再clear，禁止借用D33 cache。
+A独占named/input/loader/params，B独占numeric/math/prepare/arrays与numeric refs，C独占精确
+CPython3.12.14 powersort与actualAxis refs；Root独占Base/batch/2Scalar穷举/keys-set与总文档。
+Root新增builtin set正式源：103traces/6521steps→4groups+1个80000unique growth test；gen0，
+check未跑。源setobject SHA e633e7ae4e427ecead8879965910e27427d34ae0fc5b956142bc337f741a367c、
+listobject SHA 5f33dd1d97bfcc33e60495011fad7d9d02587a966999f28c159971f31aa91531；本地仅行为参考。
+C sort248builtin cases/8groups、3完整大数组全索引RLE断言gen/check0，原70734已terminal；
+C仍写Axis正式refs。B首轮4production files已落，正式refs仍写；A named/input已落仍写params。
+当前无Root live tool，无centralMoon启动；stdin moonfmt只是格式非语法/类型验收。目标active。
+
+D34 Root builtin set补3个精确hashgate overflow traces：总106traces/6536steps仍4groups+1growth，
+gen/check0；BigInt.to_uint64已从当前core API确认。LICENSE-CPYTHON已从固定3.12.14官方取回，
+13936bytes SHA3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf；67512已0。
+Root总guide/setguide/DEPENDENCIES/NOTICE已pending；A交付7files停tracked，最终1222obs/
+637cases20groups15sourceonly，gen/check0/loader旧byteprefix同，无live。A获派仅readonly审set。
+B/C仍写各自formal refs，不可启动central Moon。D34-gate.sh已备，尚未运行。
+
+D34 Root source复验：params1222obs/637cases/20groups已0；sort248cases/8groups78919已0；
+set106traces/6536steps/4groups+1growth已0。Root README新增pending示例，总guide仍pending；
+MIGRATION_PROGRESS只更新D34为实现中，不计入已完成。无Root live工具。A仅readonly setreview。
+
+D34 Root审B新generator发现旧通用moon serializer误转literal\\frac，B仅新gen的字符串转用
+accepted逐char serializer，原数值路径保留；C字符串自有quote不受影响。B首轮2386numeric/
+75groups+26primitive/1group、9568source/9566mathobs，2个large-source阶段真实200001全量；
+另发现UInt64 JSON snapshot旧num降Double metadata，Root已要求纠正为exact Integer projection
+并保dtype，列出仅snapshot paths变化，原label/error/选集expected保持。尚未停写/未central。
+A readonly核CPythonset未见生产反例，已明确nativeNPNaN与portablehash0×hugeQ原生差异。
+Root新增其正反向正式源cases后set最终109traces/6548steps→4groups+1growth，gen/check0，
+原106旧case同观测/新增steps明确。完整license与guide已落，Root无live工具。
+
+D34 C原9files已交付停写：sort248cases/8groups、Axis147cases/5groups（128success10Overflow9Value，
+70fullDraw+两个200001完整batch），两gen/check0且147原调查JSON深等；无live。
+A独立numeric审找到真实Objects np.sort反例：含巨大整数使dtype Object时NaN非恒尾，原
+[2^64,.2,nan,.2001]→0.2、[.2,nan,.2001,2^64]→ValueError、[nan,.2,.2001,2^64]→Overflow。
+现O(n)NaNlast secondminimum只适用普通浮点结果，不能用于Object；已要求修且不sourceonly。
+新增分工冻结：C独占新formatter_logit_object_sort.mbt与独立NumPy object-sort参考，API
+logit_object_sort(ArrayScalar)->ArrayScalar raiseCore，按固定2.3.5 genericquicksort/heapsort/
+OBJECT_compare；B仅Objects分支调helper且新增完整类原sourcecases；A只读核源码/反例并审数学。
+Root已官方web读NumPy quicksort/heapsort，补NumPy license/notice与总guide。尚未centralMoon，
+D34继续实现未accept，原sourceexpected不弱化。
+
+D34 Root已全文读固定NumPy npy_quicksort/heapsort/OBJECT_compare/PyArray_Sort fallback关键体，
+C新object helper亦全文读，cmp-beforebounds/depthouter-only/pop/heapInt64child与原源一致，
+尚无Moon验收。B Objects分支已接logit_object_sort后取second，原numeric O(n)路径保留。
+B serializer-only整JSON bed50a...4eeb2不变；随后UInt metadata修正JSON e91f0a...ac7a9，
+仅cases2067..2111的source/mathematical.snapshot.values[0]共90路径由Double记录改exactInteger。
+列表/tmp/d34-uint-snapshot-paths.json；所有label/error/成员集及其余期望逐项同，后续新增
+Object源cases会另给最终SHA。LICENSE-NUMPY官方固定1543bytes SHA1be1df33863f97a7bc1c4d67980bd6c69c9a6fef0a5ee76e6ad6cb91e56e8491。
+Root旧loader prefix19872bytes逐字同；paramsSHA4586f18b4c9bfa905e91c618d7879b25bd4f07a7ff2a334c7fe23a7302bd0316，
+AxisSHAeabae21ba977be245434a42466641993b9c8d76613e46a1dd7be9612f1fc6933。
+当前Root无live工具，B/C仍新owned写，不能centralMoon。
+
+D34 B最终10files已停tracked：2389numeric/75groups+26primitive/1group+2hand=2417cases/
+78registered，9574source/9572math；完整gen15960/check96092均terminal0，原2386cases只90个
+授权UInt snapshot metadata路径变化、26primitive原样，追加3Object反例，不弱化旧labels/errors。
+最终numeric JSON SHA33ee17ed0d86678f5e6965fe2cf924a5f2d63776eb015430b14921ac903256dc。
+Bguide Decimal180/320改evaluated matching bits，非全域certificate。A142行numeric只读report
+Root全文读，仅Object缺陷已明确修复承接，未见另一个未解决具体反例；A已全部停。
+Root Axis source复验67845 terminal0。C新objecthelper+formalrefs仍写，Root已提醒其packed
+WB解析用真实@string.parse_uint64与Iter.to_array（非不存在的UInt64.parse），等C最终停写。
+Root无live工具，central门禁还未启动。下一C正式交付→D34-gate.sh，不再扩大scope。
+
+D34 C新object生成58635 terminal0：220cases/7groups；最终packed bits decoder已改为真实
+@string.parse_uint64(StringView) raise，直接遍历split Iter并push Array。C立即readonly check/
+guide收尾，尚未明确停tracked。原9files仍停。Root将复验B最终numeric source，预计全片
+123registered/3779validationcases（另外set6548steps），仍不能当Moon通过或API百分比。
+
+D34所有tracked writer已明确停写（A/B/C及Root暂停生产改动），C新增5files最终220cases/
+7groups（110quick110heap；213success7原Overflow），6origins逐bit/error，125001/200001/
+131073完整数组，JSON大buffer无损BEUInt64 base64保全部原位形。gen58635/check71775都0，
+无C live。原C9files不动。Root numeric source复验84915 terminal0，现六源已有五Root0+object C0。
+统一D34-gate.sh已启动，结果/Root session ID下一条记录；未验收，预计123新registered/
+3779validationcases，full目标预计nonJS21823/JS21830。不得同时启动第二Moon或改写sources。
+D34首central session29145 live，输出日志D34-check-all.log/info.log/fmt.log；Root尚未读接口。
+
+D34首central29145 terminal255：2errors（A minor无setter故mut unused；B fixed-format参数
+String"f"应Char'f'），加A downcast保留字3warnings与C单行packed bits>65535列2warnings。
+A/B/C已精确派owned修：A去unusedmut/变量改名、BChar、C按1024完整UInt64文本项分块join。
+三JSON原source期望必须逐字不变，C需gen/check。注意日志含巨单行，后续只截每行最多500字符，
+不可直接tail原log导致MB输出。info/fmt尚未运行，未读接口，未行为验收。Rootobject source
+10897已terminal0；现六新源Root全0（后C生成器改需补check），无Rootlive session。
+
+D34 static精修进度：B仅Char'f'已停，numeric JSON33ee...56dc未变；A去minor mut/测试变量
+family_view后gen/check0且paramsJSON4586...0316逐字同，已停。C新objectfixture仅按1024完整
+tokens分块.join，JSON原期望不动，重新gen13466尚live；之后check停写。未再启动Moon。
+
+D34 C精修完成停写：gen13466/check58412 terminal0，packed256blocks最长20487列，保全量。
+object JSON abc8fcce62412bb4fec42607a674dfdfb797c2f5af81ff1d49c65cdb9b62ca83逐字未变。
+全部writers停，第二central D34-gate.sh启动，session ID见下一段；尚未Moon行为验收。
+
+D34第二central99754 terminal255：原A/B/C精修已消问题；新增Typed变体让三个旧穷举需适配，
+backend/svg/numeric_axis_bundle两helper+basic_formatter_batch_wbtest旧view断言。Root已补Typed
+Double几何materialize（Axis providers仍仅Seq/NdArray）和旧测试拒Typed分支，原期望不改。
+第三central启动，ID下记；无其它writers/live，尚未info/fmt或行为验收。
+
+D34第三central80611 terminal255：143同类错误均为新Scene Axis黑盒测试调用TickValues私有
+is_int64，另4unusedaxis warnings，生产类型已过。Root新增公开readonly
+FormatterLocations.dtype()->String?（SequenceNone/NdArray int64或float64/Typed实际dtype），
+让empty snapshot dtype亦可公开检验；不为tests导出TickValues私有方法。C只改Axisgen/WB
+使用公开dtype并保isNdArray/原emptydtype断言、消4unusedaxis，JSON原期望必须同。
+等C停后第四central，尚未info/fmt/接口或行为验收；不能把累计编译尝试算为passed。
+
+D34 C Axis精修gen2413/check28193均0并停写：143个dtype用公开locations().dtype()+isNdArray，
+含emptyint64；4ignoreaxis消warning，JSON SHAeaba...6933逐字同。第四central启动，session下记。
+
+D34第四central26643 terminal0：checkall84tasks/8旧Refwarn/0error；info5tasks0/fmt25tasks0。
+完整93行接口Root已全文审并存D34-interface-reviewed.diff：仅ticker新增LogitFormatter/
+LogitKey/NumericArray、Base downcast、FormatterLocations Typed/dtype/get_value，旧签名不变。
+所有writers停，完整moon test --target all已启动，输出D34-test-all.log，ID下一段记录；
+尚未behavior验收/未新commit。六source各已有Root0或最新ownedcheck0，原JSONexpected保持。
+D34完整suite Root session32763 live；不得改生产源码/fixtures，允许readonly新source复验。
+
+D34首次完整32763 terminal2：wasm/wasm-gc/native各21823 total/21814pass/9fail，JS21830/
+21821pass/9fail，四target相同。8tuple组皆RLE尾singleton误多1（真实sourceorder无错），
+1setgroup3物理identity失败。其余D34包括numeric/params/Axis/objectsort/largegrowth全部过。
+Root实际Python probe唯一alias(50,22) np.bool_(False) singleton；setgen新增真实key_aliases
+metadata并复用同MoonKey，gen/check0；移除该新字段后与旧JSON整体深等True，全部source步骤/
+errors/retainedkeys不改，newJSONSHAa后记。C已修WB RLE并全case展开恒等及随机5000校验，
+Root进一步要求纠正34条已知错误的派生JSON expected_runs，仅实际builtin sourceorder原样。
+等待C停后仅两相关fixture文件四目标补验，不重跑已通过无关suite；无生产变更/接口不变。
+六source final各0：params/set quick0，numeric59991/axis47154/sort36459/object49542均terminal0；
+后Root setgen已复验0，C新sort需最终check。无Rootlive tools。AGENTS新用户版本已明确commit授权。
+
+D34 fixture修复已齐：Root set仅加key_aliases[[50,22]]，去新字段后旧JSON完全深等，newSHA
+0a7a1260fe0e7791a48505c01f7e693187c4505c45da3bf8bb1c3933d6344972；WB复用实际NPBool singleton。
+C tuple gen78768/check84135都0停写；仅34个/cases/id/expected_runs派生路径纠正，全部实际
+pessimistic_bits/sum_bits/expected_order/sourceextra/metadata逐项同，newSHA
+15a0fb0f99170abe2dc5107e365e362aa5a893f8458243b8d390f9bf13a3dc0c。全部248编码展开恒等。
+仅两相关fixture文件四目标补验已启动D34-protocol-fixture-test-all.log，预计各13tests，ID下记。
+无生产/原sourceexpected变化，不重跑已过无关suite。下一补验terminal→final infofmt/check/
+interfacecmp→accepted docs/feature+checkpoint本地commits；goalactive。
+D34两fixture补验session25631 live；Root新tuple source final复验启动，ID后记。不得改源码/fixtures。
+
+D34两fixture四目标补验25631 terminal0，各13/13全部通过；原完整suite其余未变项目均已过，
+故当前累计wasm/wasm-gc/native21823、JS21830全部验证覆盖，未重复已过无关suite。
+Root tuple finalsource61356 terminal0，六源最新均0；实际sourceexpected未修改，只有明确的派生
+RLE/alias元数据及fixtures修正。最终info→fmt→checkall→93行接口逐字cmp脚本已启动，ID下记。
+生产持续停写，下一final0→accepted README/COMPAT/PLAN/PROGRESS/六独立guides→feature+checkpoint
+本地commits。D34验收不代表整体goal完成；下一候选default scale安装生命周期。
+
+## D34 已验收交付
+
+- [x] 命名LogitFormatter/raw五参数四setter/活Base视图、独立slots浅copy共享可变set；
+      prepare先复制dtype快照再clear/update，失败分阶段保留实际状态，fresh默认list不同emptyndarray。
+- [x] LogitKey显式identity与六origin，Sequence同key/NdArray每读新NPscalar；readonly Bool/
+      UInt64/Object NumericArray与FormatterLocations Typed/dtype/get_value，UInt64桥精确投影。
+- [x] 完整CPython3.12.14 tuple powersort/真实numeric set probe、NumPy2.3.5 object introsort/
+      heapsort，NaN部分序/identity/hashgate；完整arrays无100000cap。native NaN地址hash与portable0
+      引起真实conversion-error差异明示，未冒称nativeclone。CPython/NumPy许可证与来源保留。
+- [x] prepare/call/data/short原阶段、NumPy lnratio/rint/isclose、Int64wrap/Bool与UInt64向量、
+      exactPythonintpow先乘再读len、原完整secondrank与precision；无新数学 primitive/runtime。
+      独立审发现Object NaN排序缺陷已修并补三个完整class原source反例。
+- [x] actualAxis fullraw/overlap/visibility/Null/shared/removal/secondary/lateoffset，未新增provider。
+- [x] 123注册测试/3779validationcases：A637/20；B2417/78（2389numeric+26primitive+2hand）；
+      Axis147/5；CPtuple248/8；set109traces+1growth/5（另6548steps）；NPobject220/7。
+- [x] 首full32763四目标相同9个fixturefails后，仅修RLE尾singleton与NPBool alias构造；
+      两文件补验25631四目标各13/13全过，生产及其余已过项目未动。累计wasm/wasm-gc/native
+      各21823、JS21830全覆盖，不能伪称原full命令exit0（原exit2/补验exit0）。
+- [x] 六source最终全0；Root tuple61356 final0，setaliasgen/check0；其它Root finalsource
+      params0/numeric59991/Axis47154/object49542均0，sort36459此前0后补61356。
+- [x] final92913 terminal0：info10tasks0/fmt6tasks0/checkall79tasks8旧Refwarn0error，93行
+      完整接口已审且final逐字cmp同；旧public签名不变，只新增Ticker类型/getters/downcast。
+- [x] accepted README/COMPAT/PLAN/PROGRESS/总guide/六分guide/DEPENDENCIES/NOTICE/license。
+- [x] feature c7e47bb已本地提交（49files，绝大多数新增行是完整原源JSON/生成tests）；
+      此checkpoint随文档commit保存，后续git log可取hash。无remote/push。
+- [ ] 下一D35只读冻结默认scale安装生命周期，尚未派/尚未实现，不预先计入进度。
+
+最终JSON SHA：params4586f18b4c9bfa905e91c618d7879b25bd4f07a7ff2a334c7fe23a7302bd0316；
+numeric33ee17ed0d86678f5e6965fe2cf924a5f2d63776eb015430b14921ac903256dc；
+Axis eabae21ba977be245434a42466641993b9c8d76613e46a1dd7be9612f1fc6933；
+tuple15a0fb0f99170abe2dc5107e365e362aa5a893f8458243b8d390f9bf13a3dc0c；
+set0a7a1260fe0e7791a48505c01f7e693187c4505c45da3bf8bb1c3933d6344972；
+objectabc8fcce62412bb4fec42607a674dfdfb797c2f5af81ff1d49c65cdb9b62ca83。
+所有Root/agent tools均terminal，无需轮询。Goal仍active，整体约50%(40–60%)宽估算；
+具体命名numeric类已12/12Locator、13/13Formatter，不等于整库/整个ticker完成。
+
+D34 feature已提交c7e47bb，49files（绝大多数行是完整JSON与生成WB）；最后仅清Axisgen三条
+空行trailing whitespace，Root source20226复验0且actual Axis JSON不变，未触及生产/测试期望。
+4份全局文档独立checkpoint提交，之后工作树应clean。所有sessions terminal，goalactive。
+用户新AGENTS已明确允许coherent verified local commits，无需再次请求确认；无remote/push。
