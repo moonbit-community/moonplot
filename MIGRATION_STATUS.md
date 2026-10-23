@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D29准备（命名字符串Formatter）；D28已验收并提交feature53ed70d。
+- 当前切片编号：D30准备（命名PercentFormatter）；D29已验收并提交feature0b4f8c5。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -27,17 +27,22 @@
   12347/12347，JS12354/12354。B随后仅删8条空samples恒真比较，JSON/其余断言原样；
   final1325 infofmt0、checkall24tasks/8旧warnings/0error、192generated×四目标全过。
   三source root复验0（B final0）；接口全文审且finaldiff逐字未变，旧Formatter pure签名不变。
-- 下一条具体动作：D28 checkpointf70da14已提交且随后Gitclean。D29已派三agents只读notes：
-  A D29-string-formatter-params-notes.md；B D29-formatstr-engine-notes.md；
-  C D29-strmethod-engine-notes.md（均ignored checkpoints）。root定向读原2class/helper与旧
-  printf/string/numeric共享边界，等notes交齐全文读再freeze。无tracked实现/无liveMoon工具。
-  不重做survey；完整默认scale/formatter安装、tight与域外clip renderer仍未完成。
+- D29最终验收：new5161=A63+B2881+C1990+rootnumeric162+mask1+axis64；final38939 exit0，
+  wasm/wasm-gc/native各17508/17508、JS17515/17515；infofmt0/checkall83tasks8旧warn0error，
+  六新source final0。完整接口仅2newnamed/wrapperdowncast/select_mask，旧pure接口不变。
+- 下一条具体动作：D29 feature0b4f8c5已本地提交43files；最终38939全suite exit0，六source0，
+  interface/infofmt/check全验收。D30候选命名PercentFormatter已派三agents大块readonly：
+  A D30-percent-params-notes.md（对象/参数/copy/Base复用）；B D30-percent-numeric-notes.md
+  （完整原__call__/format_pct数学与dtype）；C D30-percent-axis-notes.md（axis/dummyview/
+  shared/secondary与最小provider需求）。均ignored checkpoints，仅原完整AST/真实依赖。
+  下一等三notes交齐全文读后freeze；root只读必要原类与旧percent/AxisBinding，不重survey。
+  无tracked D30实现/无liveMoon或source工具，三agents只读进行中。当前本checkpoint待commit。
 - D27无live工具；finalall77638与grid-source71661 exit0，95932旧失败exit2、73479 probe exit0、JS30690 exit0均terminal。
   81493 compileexit1/40418旧5failexit2/62175与29316 sourceexit0都terminal，不轮询。
   D26 final26297/JS82640/source20346/check99335全exit0；
   过早check65209经主动SIGINT exit130已terminal；所有writers停写，不轮询旧sessions。
 - Git本地基线1b61c4b（D01–D19）；D20 d385718、D21 2403fcb、D22 fee6885、
-  D23 179f365、D24 13ef0b1、D25 c2f6edf；D26 feature61f768f/checkpoint78b0b68、D27 feature524b673、D28 feature53ed70d已提交。无remote、不push。
+  D23 179f365、D24 13ef0b1、D25 c2f6edf；D26 feature61f768f/checkpoint78b0b68、D27 feature524b673、D28 feature53ed70d、D29 feature0b4f8c5已提交。无remote、不push。
   用户已授权分批commit与独立并行subagents，覆盖历史不commit指令。
 - 固定上游 Matplotlib 源码/测试在 .moonagent/upstream/matplotlib-v3.11.2/；
   CPython v3.11.0 timedelta 源码在 .moonagent/upstream/cpython-v3.11.0/，仅行为
@@ -3751,3 +3756,113 @@ D29 root定向初读完成：原FormatStr.call只fmt%x，StrMethod.call每次新
 C已独立证实{x:d}在Double域原ValueError而旧helper接受，默认{x}原shortest含1.0的.0，
 旧g6不同；正完成更多真实AST probes。Root仅读旧engine接口/共享decimal helpers清单，
 A/B/C notes仍运行，无tracked生产、无liveMoon/source session；等最终三notes全文读后freeze。
+
+D29 readonly阶段已完成：A67、B2299完整原ASTpercent、C470原StrMethod/Helper/真实stdlib
+观察，三notes全文读；独立scope/ownership见D29-contract.md。新增privateNamedFormatValue
+PythonFloat/NumpyFloat64/NumpyInt64，newnamed view保dtype和exactInt64，D28Func转换不改。
+Root105656finite Pythonrepr vsNode重排shortestdigits零差异；coreRyu为ECMAScript算法，
+共享numeric复用旧exactlowerhelpers不继承precision100clamp，emptytypeprecision cutoff
+与g不同；fixedPython追加实证。新named真实errors映射Core.InvalidTicks含源classprefix；
+非scalar fmt/dynamicreflection/locale变更/unpairedsurrogate是独立typed边界，不假称source
+error parity，Source-valid width/precision不旧100/1000cap，StringInt32addressability独立。
+A已落Base2kind/新wrappers/显式load_string_formatters，保持旧loader hashes不变；root
+formatter_named_numeric/batch初稿单parse0。B/C正式engine在写，A正式paramsrefs在写。
+没有Mooncheck/info/fullfmt/test/interface/commit，不提前gate；下一root加共享numeric源refs与
+axis/SVG完整AST验收，等writers停后统一gates。整体goal仍active，无需用户澄清。
+
+D29实现中期：A已停写7files，61generated+2hand=63，215observations/18source-only，
+newgen/check0且oldD28paramscheck0、旧loader6class/4hash不变；B首交5files2874generated+
+4hand，2874source=2563success/303errors，8surrogate边界另列、3巨型allocationomissions不
+执行不冒sourceerror。B正式gen/check0后经A只读review找到NumPy无consumed的plain/empty/%%
+实际应成功，以及正plus/space须在巨大integerpadding前计入地址长度；B获独占修这两处并
+加无巨型分配Resource测试，JSON旧expected不改。A继续只读percent独立review，B修完再
+继续只读numericreview。C3method生产主体960行parse0，formalgen首轮完成文件但仍自审/写
+guide，不gate。Root新numeric source4767断言/162groupedtests（含4Int64maskgroups），
+axis32success+16error完整originalbatches→64tests，rootmaskhand1；两新gen --check0。
+Root发现次刻度重叠筛选从Int64降Double，已加TickValues.select_mask保dtype/freshcopy，
+primarymask共享谓词，secondarynamed用rawviewmask且majorfullview；publicSVG原源Int64:d
+和np !r cases覆盖。Rootnumeric取消places+1080保守cap，改nearInt32真实outputlength预检；
+nonalternate超1075有效位后的零可按binary64精确十进制终止性质省略计算，scientific阈值仍
+按原precision，不假改valid格式。当前所有Moon项目gates尚未运行，source新checks均exit0。
+下一：等C最终停写与A/B只读复核，root统一check/infofmt/interfaces/sourcechecks/testall。
+
+D29 C首交已停写8files：3method production/1generator/JSON/1922generated+4hand/guide，
+1911parity=1491success+420realerrors，4fullbatch/view含125001Int64、7typedboundaries独立，
+1allocationomission。gen/check0；guide pending集成。A独立percentreview153行已全文读，
+实际93focused+19987finite%-s probes；B已修NumPy no-consumedliteral、integerpositiveSign
+与priorliteral remainingpreflight，2874原cases/expected structurehash不变，2881=generated+
+7hand；metadata补2合法巨宽skip→5omissions，gen/check0。B再次停写，仅readonlynumeric
+review。C获独占同类remaining资源预检修补：rootcommonfloatdigits新增可选available~:Int64
+(defaultMAX)，precision>=1075时exact十进制expo可先算真实outputlen再分配；所有短结果也
+按actualbudget检查。C传outerwriter当前UTF16剩余容量到field/padding/float、groupingzero
+二分后先算groupedsize，保证源错误先于Resource。C此修补完成前不Moongates。
+Root原source numeric/axis --check均再次0，无liveMoon/source工具。下一C再次停写后统一gate。
+
+D29首次统一checkall已terminal exit255，log D29-check-all-initial.log，非live：299errors实际
+两根因=rootnumeric generator tuple循环误作index/value（298重复类型错误，已改tuplepattern
+并重gen0），C MethodFormatValue::Scalar与legacyFormatter::Scalar歧义1处（C独占修）；
+root重复largeprecision测试名也已加bits区分；C另修4新增deprecatedcalls，NoneValue未用为
+歧义连带推断。没有开始fullsuite/infofmt。A只读methodreview原源发现hexGrouping a-f漏扫、
+decimal token前缀overflow被allNd预检遮蔽、explicitNUL在float与int/string差异、unknown
+nonASCII/control typecode消息escape；C获独占同次修正/补sourcecases，旧1911expected不改。
+Root实证Core Char.is_printable并非固定Python15（unassigned/version字符quote会不同），新增
+私有formatter_unicode_printable.mbt及独立generator/JSON，实际fixedPython1114112codepoints
+分类为712nonprintable ranges，供Cquote调用；不复用近似predicate冒称source字符串parity。
+B readonlynumericreview114行已全文读，217新实际原AST观察、反向Int64alltrue/empty freshdtype
+证据，无额外具体缺陷。C最后预算修补已新增2WB→1928首交后再次源review修正，当前唯一
+trackedwriter C；root本次numeric/Unicode sourcefiles完成，无liveMoon/source工具。
+下一C停写后统一checkall→infofmt/interface review→sourcechecks→四目标fullsuite。
+
+D29 C source/Unicode/hex/token/NUL修复再次停写，新增56原源queries，旧1911records逐字不变；
+现1967parity=1496success+471errors，4batch+7boundary→1978generated+6hand=1984。root已
+全文读C独立integrationreview96行，无新缺陷且4原ASTInt64 aliasprobes通过。第二checkall
+70561 terminalexit255：生产0error，3942重复errors全是Cgen错误假定config.snapshot/restore
+不存在（各1971）；C已fixture-only改现有unicode_minus getter/setter+defer，JSON字节不变。
+另A9处method保留字warnings已只改Moon变量method_formatter，JSON SHA前后完全相同。
+六新source root并行复验均0（D29-{params,percent,method,numeric,axis,unicode}-source-check.log）；
+C/A最后fixture变量更正也各自gen/check0。全部trackedwriters再次停写，A仅收尾readonly。
+唯一liveMoongate18090：checkall第三轮→info→fmt→interface diff，root负责；之前全部sessions
+已terminal，不再轮询70561。无fullsuite结果，不提前accepted/commit。下一static0后审完整
+D29-interface.diff，运行四目标testall。预计新增5155=63A+2881B+1984C+162rootnumeric+1mask+
+64axis（Float数字4767assertions是group内容，不另作testcount）；nonJS17502/JS17509待实际。
+
+D29第三统一gate18090 terminalexit0：checkall24tasks/8旧Refwarnings/0error，info0/fmt0。
+Root完整审接口diff：仅2new namedclasses18methods各、Base2downcasts、TickValues.select_mask，
+无其他公开包改变、旧Formatter enum/purehelper签名逐字保留。Allwriterstopped；new5155=
+A63+B2881+C1984+rootnumeric162+mask1+axis64已逐文件count确认，预期17502/17509。
+唯一live13440运行moon test --target all，log D29-test-all-initial.log；root负责，不轮询
+旧18090/70561等terminal。下一观察fullsuite失败则只修真实差异/保expected，成功则最终
+source --checks/guide与全docs accepted更新、本地feature+checkpoint commits。整体goal active。
+
+D29 fullsuite13440 terminalexit2：四目标均仅3个完全相同fail，root新增U0378/U1C89/U1FAE9
+invalidspec源actualexpected是literal char，而port method_quote造转义。Root确认之前ascii
+(str(exc))误读，实际membership证明源msg含字面codepoint、不含反斜杠u；另原KeyError反之
+确实repr转义。因此保fixedPythonprintable供method_quote(KeyError/转换)，只将spec_error
+改rawsinglequote拼接。C独占定向修并加6sourceerrorcases（3unicodeunknownkey+3含quote
+invalidspec across float/int/string），旧1967expected/原3fail不改；其余全suite17502/17509
+中全部通过。A method独立review178行已全文读，88probes+68Ndblock全表验证无遗漏；所有
+readonlyagents停写。当前无liveMoongates，唯一trackedwriter C此修补，root负责最终gate。
+
+D29最后C私有spec_error已按rawsinglequotes修复，KeyError仍真repr；新增6原源errorcases，
+旧1967parityrecords与boundaries/batches逐字未改。C现1973parity=1496success+477errors，
+4batch+7boundary→1984generated+6hand=1990；新总5161，预期nonJS17508/JS17515。
+最终gate38939仍live：info0/fmt0/checkall83tasks8旧warnings0error、接口finaldiff cmp逐字相同；
+正在fulltestall(D29-test-all-final.log)。六新source root final再次各exit0，日志D29-{params,
+percent,method,numeric,axis,unicode}-source-final.log；git diff --check0。所有tracked生产/
+referencewriters停，下一fullsuite0才docs accepted与本地feature/checkpoint commits。
+
+D29最终gate38939 terminalexit0：wasm/wasm-gc/native各17508全部过、JS17515全部过；
+new5161。6sourcefinal各0，infofmt0/checkall83tasks8旧Refwarnings0error；接口final与docfinal
+逐字cmp同。修正原Invalidspec rawquote，KeyError保真repr并新cases验收；原1967expected
+全部保持。首full13440每目标3失败仅这消息已修，所有旧sessions终止无live。Rootdocs与guide
+accepted已更新，numeric/Ryu/exactInt64/typed动态Python/固定C locale与Unicode15边界明确；
+工程估计继续约46%/80%，不机械按5161测试推升。下一本地featurecommit排除checkpoint、
+再checkpointcommit；整体goal active，D30候选命名PercentFormatter只做定向notes准备。
+
+D29 feature0b4f8c5已提交43files，工作树仅本checkpoint；最终验收与docs全部完成，没有
+运行时外部依赖。Goal仍active约46%/80%，无remote/push；不因D29完成标full迁移complete。
+D30 PercentFormatter定向readonly notes已派回原3agents：A对象参数、B数学/dtype、C真实
+view/dummy/shared/secondary/provider；精确notes名见head。先保持D28/D29已有public/legacy
+合同，不能拿旧purepercent或伪axis作原源oracle。Root下一只读必要原类/旧helper/AxisBinding，
+待三notes全文读后freeze；无D30 tracked生产、无liveMoongates/source会话。接着checkpoint
+本地commit，保持恢复入口清晰。D29全部旧session已terminal，不再轮询。
