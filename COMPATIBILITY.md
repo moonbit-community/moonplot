@@ -207,6 +207,16 @@ D50 Line 可选 alpha 已验收：18 个新增注册测试（3 个正式组、15
 零符号与缓存/SVG profile 边界见
 [testdata/line_alpha_README.md](testdata/line_alpha_README.md)。
 
+D51 Line String linestyle 与虚线配置已验收：24 个新增注册测试（5 个正式组、19 个
+定向/公开回归），76 条原源记录中 69 条 typed、7 条原生容器行为为 source-only。
+三组原记录的完整字段、来源哈希和宿主元数据保持。完整四目标 wasm/wasm-gc/native
+各 22179 项、JS 22186 项全过。getter 返回 canonical，合法重复 setter 仍置 stale；
+模板仅在线型 setter 捕获，同值线宽仍按当前缩放开关刷新旧模板。None 仍更新数据，
+颜色先于 GC 虚线验证，验证先于有限段筛选；SVG 输出已存储的虚线间距和偏移。
+4 份预期接口变化已审，其余 37 份逐字不变。原生 tuple/list、marker、cap/join、
+通用 Artist 与原生 SVG 格式仍有边界，见
+[testdata/line_style_README.md](testdata/line_style_README.md)。
+
 ## 完成标准
 
 条目只有在以下条件都满足时才从“计划”或“原型”移为“已实现”：

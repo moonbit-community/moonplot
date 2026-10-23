@@ -458,3 +458,13 @@ solid/no-marker Line.draw 的实际观察；来源、计数与边界见
 来源、mandatory hash、None/Double 域和 portable cache 边界见
 [testdata/line_alpha_README.md](testdata/line_alpha_README.md)。
 项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。
+
+## D51 Line 线型与虚线模板
+
+复用不可变 Style、稳定 Line、现有 late-provider 与 SVG writer。四项 typed 配置
+复制模板和快照，Line 保存必要的未缩放历史，effective stroke 以不可变载荷传递。
+私有固定十一项建议 matcher 与 Float64 补偿求和改写自固定 CPython 3.12.14 源码；
+没有加入运行时依赖，许可与哈希列于 THIRD_PARTY_NOTICES.md。独立参考执行原始
+setter、RcParams validator、完整 no-marker draw、GC 校验及真实 difflib/builtin sum，
+76 条原源记录中的七条原生容器行为保留为 source-only。来源、重现和各投影边界见
+[testdata/line_style_README.md](testdata/line_style_README.md)。

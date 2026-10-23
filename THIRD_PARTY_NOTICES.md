@@ -591,3 +591,20 @@ Matplotlib v3.11.2 的 artist.py、lines.py 与 colors.py 以 MoonBit 重写。�
 及受控 callback/renderer/cache 边界见
 [testdata/line_alpha_README.md](testdata/line_alpha_README.md)。
 没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。
+
+D51 的 String linestyle、捕获虚线模板、线宽重算和晚期 GC 校验依据同一固定
+Matplotlib v3.11.2 的 lines.py、cbook.py、rcsetup.py、backend_bases.py 与
+backends/backend_svg.py 以 MoonBit 重写。独立参考保留完整原源结果，来源与宿主
+边界见 [testdata/line_style_README.md](testdata/line_style_README.md)。
+
+私有线型拼写建议和浮点求和分别改写自 CPython v3.12.14 的
+[`Lib/difflib.py`](https://github.com/python/cpython/blob/v3.12.14/Lib/difflib.py)
+与 [`Python/bltinmodule.c`](https://github.com/python/cpython/blob/v3.12.14/Python/bltinmodule.c)。
+固定 SHA256 分别为
+`3eb2d371b4a171b063921de6bbf115108bc39de8bf72866315868ce2599213b7`
+和 `368b677db85bd846fc85271d6e7170ee8e529230bd1ea352d16ccef0a75787e0`。
+Copyright (c) 2001-2023 Python Software Foundation; All Rights Reserved.
+完整许可保留于 [LICENSE-CPYTHON](LICENSE-CPYTHON)。改动将通用 Python matcher 缩为
+固定十一种线型、无 junk 的 Unicode 匹配，使用 MoonBit 数组与匹配块计数；浮点
+求和仅移植 Double 序列的初值、Neumaier 补偿及有限补偿终合，不含动态对象、引用
+计数或 C 内存管理。没有新增分发运行时。

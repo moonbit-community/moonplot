@@ -2028,8 +2028,8 @@ let svg = fig.to_svg_checked()
 保留的 IR 到达实际 Line 绘制阶段时一起读取当前点和样式，已写出的前一条 Line 不受
 后续回调追溯修改。`Axes::artists()` 返回当前不可变样式快照，并保留原几何查询的延迟
 转换边界；以前返回的样式快照保持原值。现有 SVG 数字格式继续使用便利 profile，原版
-零宽省略 stroke、宽度 1 省略属性和固定六位格式仍是独立原源证据。dash、marker 样式
-与通用 Artist 样式系统尚未迁移，详见 [Line 线宽](testdata/line_width_README.md)。
+零宽省略 stroke、宽度 1 省略属性和固定六位格式仍是独立原源证据。marker 样式与通用
+Artist 样式系统仍有缺项；虚线后续由 D51 接通，详见 [Line 线宽](testdata/line_width_README.md)。
 
 
 D49 增加 `Line2D::get_color()` 和会报告错误的 `set_color(String)`。setter 先按原版
@@ -2067,3 +2067,24 @@ line.set_alpha(None)
 `Style::line_alpha()` 与工厂参数只用于 Line stroke，其他图元继续保持原合同。
 alpha0 仍执行数据和颜色准备；隐藏/空 Line 的阶段保持各自规则。原源记录、私有颜色
 缓存的符号边界和渲染 profile 见 [Line 透明度](testdata/line_alpha_README.md)。
+
+D51 增加 `Line2D::get_linestyle()` 和 `set_linestyle(String)`。支持 `solid`、`dashed`、
+`dashdot`、`dotted` 及其短拼写，getter 返回 `-`、`--`、`-.`、`:`；`none`、`None`、
+空字符串和单个空格统一返回 `None`。合法重复设置仍标记 stale，非法拼写先报错并
+保留旧状态。`None` 跳过线条及颜色准备，仍会更新数据并报告数据错误。
+
+```moonbit nocheck
+line.set_linestyle("dashed")
+line.set_linewidth(3.0)
+let canonical = line.get_linestyle() // "--"
+let svg = fig.to_svg_checked()
+```
+
+`config` 的 `lines_dashed_pattern`、`lines_dashdot_pattern`、`lines_dotted_pattern`
+及对应 setter 管理复制的模板，`lines_scale_dashes` 管理是否按线宽缩放。线型 setter
+捕获当前模板；后续修改模板不会改变已安装的线。线宽 setter 每次从已捕获模板重算，
+包括同值线宽，并读取当前缩放开关。SVG 使用已算好的 dasharray/offset，不再次缩放。
+`Style::line_stroke()` 返回不可变的当前载荷，序列查询返回副本；低层 `line_stroke`
+工厂供静态 Line 外观传输，不重建 Line2D 的 setter 历史。其他图元不消费此字段。
+负数和全零虚线序列在实际绘制的 GC 阶段校验；完整原源、数值与 SVG 边界见
+[Line 线型](testdata/line_style_README.md)。
