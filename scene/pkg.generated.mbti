@@ -207,8 +207,8 @@ pub fn Axes::plot_masked(Self, @core.MaskedArray, @core.MaskedArray, color? : St
 pub fn Axes::quiver(Self, Array[Double], Array[Double], Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::quiverkey(Self, Double, Double, Double, String, color? : String) -> Unit raise @core.DataError
 pub fn Axes::rect(Self) -> @gridspec.Rect?
-pub fn Axes::relim(Self) -> Unit
-pub fn Axes::relim_checked(Self) -> Unit raise @core.DataError
+pub fn Axes::relim(Self, visible_only? : Bool) -> Unit
+pub fn Axes::relim_checked(Self, visible_only? : Bool) -> Unit raise @core.DataError
 pub fn Axes::remove(Self) -> Unit raise @core.DataError
 pub fn Axes::request_autoscale_view(Self, axis? : String, tight? : Bool) -> Unit raise @core.DataError
 pub fn Axes::reset_position(Self) -> Unit raise @core.DataError
