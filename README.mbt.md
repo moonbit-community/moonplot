@@ -2030,3 +2030,22 @@ let svg = fig.to_svg_checked()
 转换边界；以前返回的样式快照保持原值。现有 SVG 数字格式继续使用便利 profile，原版
 零宽省略 stroke、宽度 1 省略属性和固定六位格式仍是独立原源证据。dash、marker 样式
 与通用 Artist 样式系统尚未迁移，详见 [Line 线宽](testdata/line_width_README.md)。
+
+
+D49 增加 `Line2D::get_color()` 和会报告错误的 `set_color(String)`。setter 先按原版
+String 规则验证，再保存原字符串；重复设置同一合法颜色也会标记 stale。支持完整固定
+名称表、短颜色名、四种十六进制形式、Python 灰度字符串、`none` 和 `C…`。失败保留
+旧样式与 stale，不转换待处理数据，不消耗 Axes 自动颜色。
+
+```moonbit nocheck
+line.set_color("tab:blue")
+let raw = line.get_color() // "tab:blue"
+let svg = fig.to_svg_checked()
+```
+
+`get_color()` 和 `Axes::artists()` 保留原拼写，绘制时才派生 CSS。`C…` 在非空可见 Line
+绘制时读取当前全局颜色配置，独立于 Axes 的自动颜色游标；超出固定 Python 整数位数
+限制的 token 此时才报错。隐藏跳过数据和颜色准备，空 Line 正常完成且不解析颜色，
+非空的全非有限数据仍会解析。原有绘图入口保留 CSS 便利合同，因此旧入口允许的
+`transparent` 与显式 setter 的原版验证不同。SVG 沿用现有 RGBA-to-CSS profile；完整
+原源记录、名称表与宿主边界见 [Line 字符串颜色](testdata/line_color_README.md)。

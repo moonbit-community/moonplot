@@ -436,3 +436,14 @@ blend factory、locator 和 Bbox；52 条记录含 38 个 typed 场景与 14 条
 为 source-only。来源哈希、NaN 与 SVG 数字格式边界见
 [testdata/line_width_README.md](testdata/line_width_README.md)。
 项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。
+
+
+## D49 Line 字符串颜色
+
+复用稳定 Line/Style、D48 late-provider、既有 Python 浮点文本和字符串表示，以及
+core.colors 的 RGBA/CSS 输出。完整命名表从固定 v3.11.2 的 `_color_data.py` 和原始
+colors.py 合并/别名语句及 `to_rgba` 生成；两个官方文件均强制 SHA256 校验。
+没有新增分发依赖。参考脚本另保留原 getter/setter、独立 RGBA primitive 与完整
+solid/no-marker Line.draw 的实际观察；来源、计数与边界见
+[testdata/line_color_README.md](testdata/line_color_README.md)。
+项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。

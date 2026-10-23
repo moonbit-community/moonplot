@@ -575,3 +575,11 @@ D48 的 Line 线宽、比较与赋值顺序依据固定 Matplotlib v3.11.2 的 l
 哈希、完整方法与受控宿主边界见
 [testdata/line_width_README.md](testdata/line_width_README.md)。
 没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。
+
+
+D49 的 Line String color 验证与晚解析依据固定 Matplotlib v3.11.2 的 lines.py、
+colors.py 和 `_color_data.py` 以 MoonBit 重写。固定命名表及其原始别名/优先顺序
+用于生成私有 MoonBit 精确查表；参考脚本执行完整相关方法和完整 solid/no-marker
+Line.draw 控制体。固定哈希、来源、观察记录与源宿主边界见
+[testdata/line_color_README.md](testdata/line_color_README.md)。
+没有新增分发依赖；既有 Matplotlib 与 NumPy 许可声明继续适用。
