@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D38已完整验收并提交ad6a895；继续D39 Line原始输入/类别unit重排，只读notes准备中未freeze。先读文件尾，不重跑D37/D38已过门禁。
+- 当前切片编号：D39已完整验收并feature d179515本地提交；下一D40 secondary默认/独立storedview生命周期，目前只读notes收束中未freeze。先读文件尾，不重跑D37–D39已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D38已验收并提交ad6a895；读D39 Line provenance/source/acceptance具体notes，冻结最小单位重排回算纵向切片。Root保central门禁/接口/commit。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：D39 feature d179515已验收提交；完成checkpoint commit，保存D40-before，再读A source notes后freeze最小secondary纵向片。Root保central门禁/接口/commit。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -5043,3 +5043,84 @@ D38 final9195已terminal0，feature ad6a895本地提交，无remote/push。40394
 source --check均terminal。D39目前B203line架构notes已交，A实际Line原源准备、C验收notes收尾；
 只有ignorednotes，不改tracked生产/不跑Moon/不提前freeze。下一先读三具体notes再冻结最小
 Line原始输入capture→recache→CategoryUnits替换重排纵向片，不能重跑D38。整体goal持续。
+
+D38 feature ad6a895 + docscheckpoint 4eb61dc均已提交，当时工作树clean；不重跑已过门禁。
+D39-before 已保存4eb61dc HEAD/tracked.tar/41mbti，勿覆盖。Root已全文读B203line
+D39-line-provenance-design.md；A真实完整Line方法15观察已跑通，C验收notes收尾。仍未freeze。
+scope准备：只真实plot/line入口保各coord Numeric/Category/Date originals sidecar，public
+Artist::Line/renderIR不改；Streamplot/Contour生成displayLine不注册（保D37浅alias当前几何）。
+unitcallback all registered Lines按artist顺序x→y转换，一Line xy成功后更新pointbuffer；之后
+relim→只request事件轴。source readonly15确认晚失败保前Line/新unit与converter discovery，
+不预验证全组、不自动update_units。当前只有ignorednotes，无生产writer/无Rootlive工具。
+下一读A/C完成notes后freeze具体helper/接线/测试分工，再推进；整体goal未完成。
+
+D39已freeze并开始production：Root新scene/line_units.mbt保私有Numeric/Category/Date逐coord
+originals与exactpointbuffer，单Line x→y→broadcast全成功才写回；allLines成功后callback
+relim/request事件方向。只true plot/line producers注册，生成displayLine/Collections不反推；
+显式set_categories仍旧extension。B负责figure/category/units/axis_data/contour/Axisunits接线；
+A负责actualsource正式15records（lazy publichandle未迁移部分明确source-only）；C负责独立
+Scene/backend回归及复核。内部WB可controlledoriginals测试错误/1Dsingletonbroadcast，不新增
+publicLinehandles。所有writers live，禁centralMoon门禁。Root下一完成kernel手测、等停写后
+统一check→诊断→infofmt接口→四目标测试；无用户阻塞，整体goal继续。
+
+D39 Root kernel已落并补4hand（forcedrecache不relim/request、singleton/emptybroadcast、
+晚shapeerror保双coord转换副作用、physicalprune）；B6productionfiles与C2newtestfiles均停写，
+C13hand=Scene11/backend2。B75line producer/date-copy独审Root已全文读，无新具体bug；
+step/masked/stairs只保当前expandedNumeric，不冒称sourceStepPatch协议。A正式generator/JSON/
+WBfixture尚livewriter，C只读审Root/B，B转D40secondary窄范围只读准备。Root无live工具，
+下一A停写后centralcheck；当前不能把代码已落/格式化当行为验收。
+
+D39所有tracked生产/fixture writers已停。A正式4files已交，24真实sourceobservations /
+19controlledtypedcases /5source-onlylazyAPI /1registeredgroup，原15观察字段逐字同；新JSON
+SHAb55b8a16cd844a1dea8833fc3469214175969e63b9c10f3a99a927a019b65b70，旧D38JSON不改。
+C86line独审Root全文已读，无新productionbug；contour几何fixture已精修后停写。Root开始
+firstcentralcheck3455（D39-check-first.log）与独立source--check36324
+（D39-source-root-check.log），均live；预期新增18registered=1formal+17hand，不按24观察
+误当新增tests。B/C仅D40secondary只读notes，无tracked writer。下一读终态，失败自主修复；
+通过后info&&fmt/接口审/四目标full。整体goal持续，无用户阻塞。
+
+D39 firstcheck3455 terminal255：3compileerrors（Root LineOriginal两mut字段仅WB使用触
+unused_mut-as-error；C backend line_units_panel漏raiseDataError）。Root移除x/y mut，kernel
+fixtures用controlledattach+已有Array变更表达pendingraw，不加假生产setter；补helper raises。
+独立Rootsource36324 terminal0，24records/19typed/5source-only/1group，JSONb55b8a...65b70
+不变。当前second40660 live，依次info&&fmt&&checkall，log
+D39-info-fmt-check-second.log；全部trackedwriters停，B/C仅D40readonly。下一读second结果，
+通过后审41mbti与D39-before差异、完整四目标行为；不能把compile修完当tests通过。
+
+D39 second40660 terminal0：info9tasks/fmt11tasks/check58tasks，7旧Refwarnings/0error。
+41份mbti逐字对D39-before比较全同，D39-interface-reviewed.diff为0行，公开API不变。
+完整四目标first12510 live，log D39-test-all-first.log；新增18registered=1formalgroup
+承载19typedcases（全部24原observations另含5source-only）+17hand。全部trackedwriters停，
+无生产/fixture并发改动。Root下一等full终态，失败具体定位修；期间只读D40两份notes，
+不冻结下一片/不提前写accepted，不重跑D38。D40 B21原installer/C28控制流观察各独立范围。
+
+D39 full12510仍live，已完成wasm21952/21952、wasm-gc21952/21952、JS21959/21959，0fail；
+native待终态。Root独立逐字段比较原15准备records与正式JSON，全部旧fields相同；D38
+JSON8c756d...bf37再确认字节同。D40 B212line integrationdesign（23actualinstaller）与
+C174line acceptance（28controlflow）均Root全文读，无tracked写；A只读source准备仍进行。
+下一等12510 native/exit终态，通过后更新accepted docs/finalinfofmtcheck与commit；不能在
+native未完成时声称四目标已过。不重复已过checks，Root当前仅full12510live。
+
+## D39 行为验收通过（提交前最终门禁）
+
+- [x] firstfull12510 terminal0：wasm/wasm-gc/native各21952/21952，JS21959/21959，0fail。
+- [x] 新18registered=1formalgroup承载19controlled源案例+17hand；全部24源观察含5source-only
+  lazyLineAPI。Root独立比较原15观察全部旧fields未改，D38JSON逐字同。新JSONb55b8a...65b70。
+- [x] 单Line x→y转换/broadcast后commit；早Line/newunits/converter sideeffects保留，
+  allLines后relim/request仅event方向；输入copy/physicalbuffer/clear/detach/contourprune、
+  generatedStreamplotalias和数值IR/SVG已四目标覆盖。
+- [x] B75line producer/datecopy窄审与C86line Root/B独审Root全文读，无新具体生产缺陷。
+- [x] Rootsource36324 terminal0，24observations/19typed/5source-only/1group；41mbti初审
+  对D39-before逐字同，公开API不变。初始3staticerrors均精修后full全过，无放宽源期望。
+- [x] README/COMPAT/PLAN/PROGRESS/DEPENDENCIES/NOTICE及新guide已更新accepted与边界。
+- [x] finalinfo4tasks/fmt1task/check24tasks terminal0，7旧Refwarnings/0error；41mbti final逐字同，diffcheck0；feature d179515本地提交（18files/14363insertions，主要JSON/generatedfixtures），本checkpoint另commit。
+- [ ] D40 secondary默认/ownstoredview/parentnamecache；B212line/C174line notes Root已读，
+  A readonlysource准备中；尚未freeze/production写。整体goal未完成，没有用户阻塞。
+
+12510与其余Root工具均terminal，无live工具。下一final门禁和提交，不重跑full。
+
+D39 feature d179515已提交，无remote/push。最终门禁terminal0（info4/fmt1/check24，7旧
+warnings/0error），41mbti finalcmp全同；Root清理新Python脚本5个空行尾空格后finalsource
+2294 terminal0、JSON和WBhash均原样。12510完整四目标全过，不重跑；全部工具terminal。
+下一checkpointcommit后保存D40-before，等A D40source具体notes后freeze；B212line/C174line
+已读，23actualinstaller与28controlflow范围分开，尚无D40tracked生产。整体goal继续。
