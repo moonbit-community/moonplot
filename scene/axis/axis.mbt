@@ -120,6 +120,11 @@ pub fn axis() -> Axis {
       @ticker.TickValues::from_array([lower, upper]),
     )
   })
+  result.formatter_axis_binding.bind_transform_linthresh(() => {
+    result.scale
+    .symlog_linthresh()
+    .map(value => @ticker.ScalarNumber::Number(value))
+  })
   result
 }
 

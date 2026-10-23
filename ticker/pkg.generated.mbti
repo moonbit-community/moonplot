@@ -154,6 +154,10 @@ pub fn BaseFormatter::func_formatter(Self) -> FuncFormatter?
 pub fn BaseFormatter::get_offset(Self) -> String
 pub fn BaseFormatter::get_offset_checked(Self) -> String raise @core.DataError
 pub fn BaseFormatter::locations(Self) -> FormatterLocations
+pub fn BaseFormatter::log_formatter(Self) -> LogFormatter?
+pub fn BaseFormatter::log_formatter_exponent(Self) -> LogFormatterExponent?
+pub fn BaseFormatter::log_formatter_mathtext(Self) -> LogFormatterMathtext?
+pub fn BaseFormatter::log_formatter_sci_notation(Self) -> LogFormatterSciNotation?
 pub fn BaseFormatter::new() -> Self
 pub fn BaseFormatter::null_formatter(Self) -> NullFormatter?
 pub fn BaseFormatter::percent_formatter(Self) -> PercentFormatter?
@@ -314,8 +318,10 @@ pub struct FormatterAxisBinding {
   // private fields
 }
 pub fn FormatterAxisBinding::bind_short_format_delta(Self, (Double) -> Double raise @core.DataError) -> Unit
+pub fn FormatterAxisBinding::bind_transform_linthresh(Self, () -> ScalarNumber? raise @core.DataError) -> Unit
 pub fn FormatterAxisBinding::bind_view_interval(Self, () -> FormatterViewInterval raise @core.DataError) -> Unit
 pub fn FormatterAxisBinding::clear_short_format_delta(Self) -> Unit
+pub fn FormatterAxisBinding::clear_transform_linthresh(Self) -> Unit
 pub fn FormatterAxisBinding::dummy_minpos(Self) -> Double?
 pub fn FormatterAxisBinding::equal(Self, Self) -> Bool
 pub fn FormatterAxisBinding::is_dummy(Self) -> Bool
@@ -324,6 +330,7 @@ pub fn FormatterAxisBinding::not_equal(Self, Self) -> Bool
 pub fn FormatterAxisBinding::set_view_interval(Self, FormatterViewInterval) -> Unit
 pub fn FormatterAxisBinding::short_format_delta(Self, Double) -> Double? raise @core.DataError
 pub fn FormatterAxisBinding::to_repr(Self) -> @debug.Repr
+pub fn FormatterAxisBinding::transform_linthresh(Self) -> ScalarNumber? raise @core.DataError
 pub fn FormatterAxisBinding::view_interval(Self) -> FormatterViewInterval raise @core.DataError
 pub impl Eq for FormatterAxisBinding
 pub impl @debug.Debug for FormatterAxisBinding
@@ -442,6 +449,138 @@ pub fn Locator::tick_values(Self, Double, Double) -> Array[Double]
 pub fn Locator::tick_values_for_axis(Self, Double, Double) -> Array[Double] raise @core.DataError
 pub fn Locator::tick_view_for_axis(Self, Double, Double) -> TickValues raise @core.DataError
 
+pub struct LogFormatter {
+  // private fields
+}
+pub fn LogFormatter::as_base_formatter(Self) -> BaseFormatter
+pub fn LogFormatter::axis(Self) -> FormatterAxisBinding?
+pub fn LogFormatter::base(Self) -> Double
+pub fn LogFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn LogFormatter::call_value(Self, ScalarNumber, pos? : Int) -> String raise @core.DataError
+pub fn LogFormatter::copy(Self) -> Self
+pub fn LogFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
+pub fn LogFormatter::format_data(Self, Double) -> String raise @core.DataError
+pub fn LogFormatter::format_data_short(Self, Double) -> String raise @core.DataError
+pub fn LogFormatter::format_data_short_value(Self, ScalarNumber) -> String raise @core.DataError
+pub fn LogFormatter::format_data_value(Self, ScalarNumber) -> String raise @core.DataError
+pub fn LogFormatter::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
+pub fn LogFormatter::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
+pub fn LogFormatter::get_offset(Self) -> String
+pub fn LogFormatter::label_only_base(Self) -> LogValue
+pub fn LogFormatter::linthresh(Self) -> LogValue
+pub fn LogFormatter::locations(Self) -> FormatterLocations
+pub fn LogFormatter::minor_thresholds(Self) -> LogMinorThresholds?
+pub fn LogFormatter::new(base? : LogValue, label_only_base? : LogValue, minor_thresholds? : LogMinorThresholds?, linthresh? : LogValue) -> Self raise @core.DataError
+pub fn LogFormatter::set_axis(Self, FormatterAxisBinding?) -> Unit
+pub fn LogFormatter::set_base(Self, LogValue) -> Unit raise @core.DataError
+pub fn LogFormatter::set_label_minor(Self, LogValue) -> Unit
+pub fn LogFormatter::set_label_only_base(Self, LogValue) -> Unit
+pub fn LogFormatter::set_linthresh(Self, LogValue) -> Unit
+pub fn LogFormatter::set_locs(Self, locations? : Array[Double]) -> Unit raise @core.DataError
+pub fn LogFormatter::set_locs_view(Self, TickValues) -> Unit raise @core.DataError
+pub fn LogFormatter::set_minor_thresholds(Self, LogMinorThresholds?) -> Unit
+pub fn LogFormatter::sublabels(Self) -> Array[Double]? raise @core.DataError
+
+pub struct LogFormatterExponent {
+  // private fields
+}
+pub fn LogFormatterExponent::as_base_formatter(Self) -> BaseFormatter
+pub fn LogFormatterExponent::as_log_formatter(Self) -> LogFormatter
+pub fn LogFormatterExponent::axis(Self) -> FormatterAxisBinding?
+pub fn LogFormatterExponent::base(Self) -> Double
+pub fn LogFormatterExponent::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn LogFormatterExponent::call_value(Self, ScalarNumber, pos? : Int) -> String raise @core.DataError
+pub fn LogFormatterExponent::copy(Self) -> Self
+pub fn LogFormatterExponent::create_dummy_axis(Self, minpos? : Double) -> Unit
+pub fn LogFormatterExponent::format_data(Self, Double) -> String raise @core.DataError
+pub fn LogFormatterExponent::format_data_short(Self, Double) -> String raise @core.DataError
+pub fn LogFormatterExponent::format_data_short_value(Self, ScalarNumber) -> String raise @core.DataError
+pub fn LogFormatterExponent::format_data_value(Self, ScalarNumber) -> String raise @core.DataError
+pub fn LogFormatterExponent::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
+pub fn LogFormatterExponent::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
+pub fn LogFormatterExponent::get_offset(Self) -> String
+pub fn LogFormatterExponent::label_only_base(Self) -> LogValue
+pub fn LogFormatterExponent::linthresh(Self) -> LogValue
+pub fn LogFormatterExponent::locations(Self) -> FormatterLocations
+pub fn LogFormatterExponent::minor_thresholds(Self) -> LogMinorThresholds?
+pub fn LogFormatterExponent::new(base? : LogValue, label_only_base? : LogValue, minor_thresholds? : LogMinorThresholds?, linthresh? : LogValue) -> Self raise @core.DataError
+pub fn LogFormatterExponent::set_axis(Self, FormatterAxisBinding?) -> Unit
+pub fn LogFormatterExponent::set_base(Self, LogValue) -> Unit raise @core.DataError
+pub fn LogFormatterExponent::set_label_minor(Self, LogValue) -> Unit
+pub fn LogFormatterExponent::set_label_only_base(Self, LogValue) -> Unit
+pub fn LogFormatterExponent::set_linthresh(Self, LogValue) -> Unit
+pub fn LogFormatterExponent::set_locs(Self, locations? : Array[Double]) -> Unit raise @core.DataError
+pub fn LogFormatterExponent::set_locs_view(Self, TickValues) -> Unit raise @core.DataError
+pub fn LogFormatterExponent::set_minor_thresholds(Self, LogMinorThresholds?) -> Unit
+pub fn LogFormatterExponent::sublabels(Self) -> Array[Double]? raise @core.DataError
+
+pub struct LogFormatterMathtext {
+  // private fields
+}
+pub fn LogFormatterMathtext::as_base_formatter(Self) -> BaseFormatter
+pub fn LogFormatterMathtext::as_log_formatter(Self) -> LogFormatter
+pub fn LogFormatterMathtext::axis(Self) -> FormatterAxisBinding?
+pub fn LogFormatterMathtext::base(Self) -> Double
+pub fn LogFormatterMathtext::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn LogFormatterMathtext::call_value(Self, ScalarNumber, pos? : Int) -> String raise @core.DataError
+pub fn LogFormatterMathtext::copy(Self) -> Self
+pub fn LogFormatterMathtext::create_dummy_axis(Self, minpos? : Double) -> Unit
+pub fn LogFormatterMathtext::format_data(Self, Double) -> String raise @core.DataError
+pub fn LogFormatterMathtext::format_data_short(Self, Double) -> String raise @core.DataError
+pub fn LogFormatterMathtext::format_data_short_value(Self, ScalarNumber) -> String raise @core.DataError
+pub fn LogFormatterMathtext::format_data_value(Self, ScalarNumber) -> String raise @core.DataError
+pub fn LogFormatterMathtext::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
+pub fn LogFormatterMathtext::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
+pub fn LogFormatterMathtext::get_offset(Self) -> String
+pub fn LogFormatterMathtext::label_only_base(Self) -> LogValue
+pub fn LogFormatterMathtext::linthresh(Self) -> LogValue
+pub fn LogFormatterMathtext::locations(Self) -> FormatterLocations
+pub fn LogFormatterMathtext::minor_thresholds(Self) -> LogMinorThresholds?
+pub fn LogFormatterMathtext::new(base? : LogValue, label_only_base? : LogValue, minor_thresholds? : LogMinorThresholds?, linthresh? : LogValue) -> Self raise @core.DataError
+pub fn LogFormatterMathtext::set_axis(Self, FormatterAxisBinding?) -> Unit
+pub fn LogFormatterMathtext::set_base(Self, LogValue) -> Unit raise @core.DataError
+pub fn LogFormatterMathtext::set_label_minor(Self, LogValue) -> Unit
+pub fn LogFormatterMathtext::set_label_only_base(Self, LogValue) -> Unit
+pub fn LogFormatterMathtext::set_linthresh(Self, LogValue) -> Unit
+pub fn LogFormatterMathtext::set_locs(Self, locations? : Array[Double]) -> Unit raise @core.DataError
+pub fn LogFormatterMathtext::set_locs_view(Self, TickValues) -> Unit raise @core.DataError
+pub fn LogFormatterMathtext::set_minor_thresholds(Self, LogMinorThresholds?) -> Unit
+pub fn LogFormatterMathtext::sublabels(Self) -> Array[Double]? raise @core.DataError
+
+pub struct LogFormatterSciNotation {
+  // private fields
+}
+pub fn LogFormatterSciNotation::as_base_formatter(Self) -> BaseFormatter
+pub fn LogFormatterSciNotation::as_log_formatter(Self) -> LogFormatter
+pub fn LogFormatterSciNotation::as_mathtext_formatter(Self) -> LogFormatterMathtext
+pub fn LogFormatterSciNotation::axis(Self) -> FormatterAxisBinding?
+pub fn LogFormatterSciNotation::base(Self) -> Double
+pub fn LogFormatterSciNotation::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn LogFormatterSciNotation::call_value(Self, ScalarNumber, pos? : Int) -> String raise @core.DataError
+pub fn LogFormatterSciNotation::copy(Self) -> Self
+pub fn LogFormatterSciNotation::create_dummy_axis(Self, minpos? : Double) -> Unit
+pub fn LogFormatterSciNotation::format_data(Self, Double) -> String raise @core.DataError
+pub fn LogFormatterSciNotation::format_data_short(Self, Double) -> String raise @core.DataError
+pub fn LogFormatterSciNotation::format_data_short_value(Self, ScalarNumber) -> String raise @core.DataError
+pub fn LogFormatterSciNotation::format_data_value(Self, ScalarNumber) -> String raise @core.DataError
+pub fn LogFormatterSciNotation::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
+pub fn LogFormatterSciNotation::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
+pub fn LogFormatterSciNotation::get_offset(Self) -> String
+pub fn LogFormatterSciNotation::label_only_base(Self) -> LogValue
+pub fn LogFormatterSciNotation::linthresh(Self) -> LogValue
+pub fn LogFormatterSciNotation::locations(Self) -> FormatterLocations
+pub fn LogFormatterSciNotation::minor_thresholds(Self) -> LogMinorThresholds?
+pub fn LogFormatterSciNotation::new(base? : LogValue, label_only_base? : LogValue, minor_thresholds? : LogMinorThresholds?, linthresh? : LogValue) -> Self raise @core.DataError
+pub fn LogFormatterSciNotation::set_axis(Self, FormatterAxisBinding?) -> Unit
+pub fn LogFormatterSciNotation::set_base(Self, LogValue) -> Unit raise @core.DataError
+pub fn LogFormatterSciNotation::set_label_minor(Self, LogValue) -> Unit
+pub fn LogFormatterSciNotation::set_label_only_base(Self, LogValue) -> Unit
+pub fn LogFormatterSciNotation::set_linthresh(Self, LogValue) -> Unit
+pub fn LogFormatterSciNotation::set_locs(Self, locations? : Array[Double]) -> Unit raise @core.DataError
+pub fn LogFormatterSciNotation::set_locs_view(Self, TickValues) -> Unit raise @core.DataError
+pub fn LogFormatterSciNotation::set_minor_thresholds(Self, LogMinorThresholds?) -> Unit
+pub fn LogFormatterSciNotation::sublabels(Self) -> Array[Double]? raise @core.DataError
+
 pub struct LogLocator {
   // private fields
 }
@@ -468,6 +607,15 @@ pub fn LogLocator::view_interval_provider(Self) -> (() -> (Double, Double) raise
 pub fn LogLocator::view_limits(Self, Double, Double) -> (Double, Double) raise @core.DataError
 pub fn LogLocator::warnings(Self) -> Array[String]
 
+pub(all) enum LogMinorThresholds {
+  Tuple(LogThresholdTuple)
+  Sequence(Array[LogValue])
+  NdArray(TickValues)
+  Raw(LogValue)
+}
+pub fn LogMinorThresholds::to_repr(Self) -> @debug.Repr
+pub impl @debug.Debug for LogMinorThresholds
+
 pub(all) enum LogNumTicks {
   Text(String)
   Number(Double)
@@ -484,6 +632,19 @@ pub(all) enum LogSubs {
 pub fn LogSubs::to_repr(Self) -> @debug.Repr
 pub impl @debug.Debug for LogSubs
 
+pub struct LogThresholdTuple {
+  // private fields
+}
+pub fn LogThresholdTuple::equal(Self, Self) -> Bool
+pub fn LogThresholdTuple::get(Self, Int) -> LogValue raise @core.DataError
+pub fn LogThresholdTuple::length(Self) -> Int
+pub fn LogThresholdTuple::new(Array[LogValue]) -> Self
+pub fn LogThresholdTuple::not_equal(Self, Self) -> Bool
+pub fn LogThresholdTuple::to_repr(Self) -> @debug.Repr
+pub fn LogThresholdTuple::values(Self) -> Array[LogValue]
+pub impl Eq for LogThresholdTuple
+pub impl @debug.Debug for LogThresholdTuple
+
 pub(all) enum LogTickSpace {
   Integer(@bigint.BigInt)
   Number(Double)
@@ -492,6 +653,15 @@ pub fn LogTickSpace::equal(Self, Self) -> Bool
 pub fn LogTickSpace::from_integer(Double) -> Self raise @core.DataError
 pub fn LogTickSpace::not_equal(Self, Self) -> Bool
 pub fn LogTickSpace::to_repr(Self) -> @debug.Repr
+
+pub(all) enum LogValue {
+  Numeric(ScalarNumber)
+  Text(String)
+  NoneValue
+} derive(Eq, @debug.Debug)
+pub fn LogValue::equal(Self, Self) -> Bool
+pub fn LogValue::not_equal(Self, Self) -> Bool
+pub fn LogValue::to_repr(Self) -> @debug.Repr
 
 pub struct LogitLocator {
   // private fields

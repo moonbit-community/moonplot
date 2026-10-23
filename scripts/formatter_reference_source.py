@@ -308,3 +308,54 @@ def load_eng_formatter(ticker_path):
         raise ValueError('fixed EngFormatter class missing')
     exec(compile(ast.Module(body=nodes, type_ignores=[]), str(ticker_path), 'exec'), namespace)
     return namespace
+
+
+def load_log_formatters(ticker_path):
+    """Execute all four original LogFormatter classes and their real helpers.
+
+    The accepted basic/string/percent/Scalar/Eng branches remain byte-stable.
+    Controlled Axis/transform providers are supplied separately by each caller.
+    """
+    import contextlib
+
+    ticker_path = Path(ticker_path)
+    namespace = load_scalar_formatter(ticker_path)
+    cbook = namespace['cbook']
+    cbook.contextlib = contextlib
+    cbook_nodes = [node for node in ast.parse(ticker_path.with_name('cbook.py').read_bytes()).body
+                   if isinstance(node, ast.FunctionDef) and node.name in ('strip_math', '_setattr_cm')]
+    if len(cbook_nodes) != 2:
+        raise ValueError('fixed LogFormatter cbook helpers missing')
+    exec(compile(ast.Module(body=cbook_nodes, type_ignores=[]),
+                 str(ticker_path.with_name('cbook.py')), 'exec'), cbook.__dict__)
+    transforms_source = _checked(ticker_path.with_name('transforms.py'),
+                                 '109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8')
+    transforms = types.ModuleType('matplotlib.transforms')
+    transforms.np = np
+    transform_nodes = [node for node in ast.parse(transforms_source).body
+                       if isinstance(node, ast.FunctionDef) and node.name == '_nonsingular']
+    if len(transform_nodes) != 1:
+        raise ValueError('fixed LogFormatter nonsingular helper missing')
+    exec(compile(ast.Module(body=transform_nodes, type_ignores=[]),
+                 str(ticker_path.with_name('transforms.py')), 'exec'), transforms.__dict__)
+    namespace['mtransforms'] = transforms
+    namespace['mpl'].transforms = transforms
+    rc = namespace['mpl'].rcParams
+    rc.validate['_internal.classic_mode'] = rc.validate['axes.formatter.useoffset']
+    rc.validate['axes.formatter.min_exponent'] = rc.validate['axes.formatter.offset_threshold']
+    rc['_internal.classic_mode'] = False
+    rc['axes.formatter.min_exponent'] = 0
+    classes = ('LogFormatter', 'LogFormatterExponent', 'LogFormatterMathtext', 'LogFormatterSciNotation')
+    nodes = [node for node in ast.parse(ticker_path.read_bytes()).body
+             if (isinstance(node, ast.ClassDef) and node.name in classes)
+             or (isinstance(node, ast.FunctionDef) and node.name == '_is_close_to_int')]
+    if len(nodes) != 5:
+        raise ValueError('fixed LogFormatter classes/helpers missing')
+    exec(compile(ast.Module(body=nodes, type_ignores=[]), str(ticker_path), 'exec'), namespace)
+    namespace['source_hashes']['transforms.py'] = hashlib.sha256(transforms_source).hexdigest()
+    namespace['source_hashes']['stdlib/contextlib.py'] = hashlib.sha256(Path(contextlib.__file__).read_bytes()).hexdigest()
+    namespace['log_host_profile'] = dict(
+        rc='actual RcParams; original Bool/int validators for classic_mode/min_exponent',
+        dependencies='complete cbook strip_math and context-managed setattr; original transforms._nonsingular',
+        axis='controlled provider fixtures supplied by each reference; no renderer emulation')
+    return namespace

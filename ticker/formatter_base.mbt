@@ -60,6 +60,7 @@ pub struct FormatterAxisBinding {
   priv mut view_provider : (() -> FormatterViewInterval raise @core.DataError)?
   priv mut stored_view : FormatterViewInterval?
   priv mut short_delta_provider : ((Double) -> Double raise @core.DataError)?
+  priv mut transform_linthresh_provider : (() -> ScalarNumber? raise @core.DataError)?
 }
 
 ///|
@@ -85,6 +86,7 @@ pub fn FormatterAxisBinding::new() -> FormatterAxisBinding {
     view_provider: None,
     stored_view: None,
     short_delta_provider: None,
+    transform_linthresh_provider: None,
   }
 }
 
@@ -193,6 +195,7 @@ priv enum FormatterKind {
   Percent(PercentFormatterState)
   Scalar(ScalarFormatterState)
   Eng(EngFormatterState)
+  Log(LogFormatterState)
 }
 
 ///|
@@ -241,6 +244,10 @@ pub fn BaseFormatter::set_locs_checked(
   self : BaseFormatter,
   locations : Array[Double],
 ) -> Unit raise @core.DataError {
+  if self.kind is Log(state) {
+    log_named_prepare(self, state)
+    return
+  }
   self.locations = FormatterLocations::Sequence(locations)
   match self.kind {
     Scalar(state) => scalar_named_prepare(self, state)
@@ -263,6 +270,10 @@ pub fn BaseFormatter::set_locs_view_checked(
   self : BaseFormatter,
   locations : TickValues,
 ) -> Unit raise @core.DataError {
+  if self.kind is Log(state) {
+    log_named_prepare(self, state)
+    return
+  }
   self.locations = FormatterLocations::NdArray(locations)
   match self.kind {
     Scalar(state) => scalar_named_prepare(self, state)
@@ -295,6 +306,7 @@ pub fn BaseFormatter::create_dummy_axis(
       minpos: Some(minpos),
       view_provider: None,
       short_delta_provider: None,
+      transform_linthresh_provider: None,
       stored_view: Some(
         FormatterViewInterval::Integers([
           @bigint.BigInt::from_int(0),
@@ -316,7 +328,7 @@ pub fn BaseFormatter::get_offset_checked(
   self : BaseFormatter,
 ) -> String raise @core.DataError {
   match self.kind {
-    Abstract | Null | FormatStr(_) | StrMethod(_) | Percent(_) => ""
+    Abstract | Null | FormatStr(_) | StrMethod(_) | Percent(_) | Log(_) => ""
     Fixed(state) => state.offset
     Func(state) => state.offset
     Scalar(state) => scalar_named_offset(self, state)
@@ -350,6 +362,15 @@ pub fn BaseFormatter::copy(self : BaseFormatter) -> BaseFormatter {
         places: state.places,
         sep: state.sep,
         prefixes: state.prefixes,
+      })
+    Log(state) =>
+      FormatterKind::Log({
+        style: state.style,
+        base: state.base,
+        label_only_base: state.label_only_base,
+        minor_thresholds: state.minor_thresholds,
+        linthresh: state.linthresh,
+        sublabels: state.sublabels,
       })
   }
   { kind, locations: self.locations, axis: self.axis, }

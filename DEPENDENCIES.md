@@ -282,3 +282,14 @@ NaN 的可移植身份哈希为零，原宿主地址派生的哈希碰撞行为�
 数学 profile。CPython v3.12.14 dictobject.c 是行为依据，未分发 Python/NumPy 运行时或
 新增外部依赖。具体来源、数值差异和复现见
 [testdata/eng_formatter_README.md](testdata/eng_formatter_README.md)。
+
+## D33 命名 LogFormatter 家族
+
+四个命名 LogFormatter 对象复用 Base、六类 ScalarNumber、精确十进制格式、现有 Unicode
+数字/printability 表与 BigInt 定向区间。新增一般正底数分数幂先处理精确有理根，再自适应
+细化 ln/exp 区间；生成的完整 arange/geomspace 子标签集合使用内部逻辑表示和完整唯一值
+快照。Text 底数复用 Moon core decimal parser，补原生 infinity、NaN 符号与完整错误 repr。
+Axis 仅新增当前实际 transform 的 optional linthresh provider，无 Python 反射服务。
+原源参考执行完整四类、真实 Formatter/RcParams/cbook/transform/Axis/Secondary/draw 与独立
+Decimal 数学 profile；native libm/NumPy warning 差异保留双值。没有新增运行时依赖，
+边界和复现见[testdata/log_formatter_README.md](testdata/log_formatter_README.md)。

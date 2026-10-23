@@ -1407,6 +1407,21 @@ formatter.as_scalar_formatter().set_use_locale(Some(false))
 检查通过。数值与 NaN 身份哈希的可移植 profile、类型和宿主边界见
 [EngFormatter 说明](testdata/eng_formatter_README.md)。
 
+D33 已验收命名 `LogFormatter`、`LogFormatterExponent`、`LogFormatterMathtext` 和
+`LogFormatterSciNotation`，保留可变原始参数、live 父类视图和独立浅复制。
+
+```moonbit nocheck
+let formatter = try! @ticker.LogFormatterSciNotation::new()
+try! fig.set_x_named_formatter(formatter.as_base_formatter())
+formatter.set_label_minor(@ticker.LogValue::Numeric(@ticker.ScalarNumber::Boolean(true)))
+```
+
+`set_locs` 忽略传入位置，空批次也按当前轴范围刷新子标签；真实主次轴、共享轴和
+secondary 使用各自实际 transform 的 linthresh。新增 152 个注册测试承载 4557 个验证
+案例；wasm、wasm-gc、native 各 21700 项，JS 21707 项全部通过，四份新原源检查通过。
+完整逻辑集合、文本底数、可移植数学及宿主边界见
+[LogFormatter 家族说明](testdata/log_formatter_README.md)。
+
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`
 及常见宽度/精度标志，`log_formatter`、`null_formatter` 和 `func_formatter` 分别用于对数、

@@ -442,3 +442,16 @@ primitives, with actual native results retained separately. Native NaN address
 hashes, font/locale discovery and GUI/Text/TeX rendering remain stated host
 boundaries. Scope and reproduction are documented in
 [testdata/eng_formatter_README.md](testdata/eng_formatter_README.md).
+
+## Named logarithmic formatter family
+
+LogFormatter, LogFormatterExponent, LogFormatterMathtext and
+LogFormatterSciNotation follow the complete pinned Matplotlib v3.11.2 classes
+and original Formatter/cbook/transform protocol. Matplotlib's license and notice
+above apply. Independent references execute complete original class and Axis
+bodies, with fixed CPython/NumPy native observations retained separately from
+the portable mathematical profile. Fractional powers, generated logical sets
+and decimal text conversion reuse project BigInt/Unicode and Moon core
+primitives. No CPython/NumPy implementation or runtime, GUI/font catalog or TeX
+runtime is distributed by this change. Source and reproduction are documented
+in [testdata/log_formatter_README.md](testdata/log_formatter_README.md).

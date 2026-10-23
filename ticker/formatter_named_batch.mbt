@@ -43,6 +43,8 @@ fn formatter_named_call(
       scalar_named_call(formatter, state, ScalarNumber::Number(value), position)
     Eng(state) =>
       eng_named_call(formatter, state, ScalarNumber::Number(value), position)
+    Log(state) =>
+      log_named_call(formatter, state, ScalarNumber::Number(value), position)
     Percent(state) =>
       percent_formatter_call(
         formatter,
@@ -122,6 +124,14 @@ pub fn BaseFormatter::format_ticks_view(
           ScalarNumber::NumpyFloat64(values.get(index))
         }
         eng_named_call(self, state, value, Some(index))
+      }
+      Log(state) => {
+        let value = if values.is_int64() {
+          ScalarNumber::NumpyInt64(values.get_int64(index))
+        } else {
+          ScalarNumber::NumpyFloat64(values.get(index))
+        }
+        log_named_call(self, state, value, Some(index))
       }
       Percent(state) => {
         let value = if values.is_int64() {
@@ -209,6 +219,7 @@ pub fn BaseFormatter::format_data(
     Scalar(state) =>
       scalar_named_format_data(state, ScalarNumber::Number(value))
     Eng(state) => eng_named_format_data(state, ScalarNumber::Number(value))
+    Log(state) => log_named_data(self, state, ScalarNumber::Number(value))
     _ => formatter_named_call(self, value, None)
   }
 }
@@ -223,6 +234,7 @@ pub fn BaseFormatter::format_data_short(
       scalar_named_short(self, state, ScalarNumber::Number(value))
     Eng(state) =>
       scalar_named_short(self, state.scalar, ScalarNumber::Number(value))
+    Log(_) => log_named_short(ScalarNumber::Number(value))
     _ => self.format_data(value)
   }
 }
