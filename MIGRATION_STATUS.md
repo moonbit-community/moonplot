@@ -1,6 +1,6 @@
 # 迁移工作状态与待办
 
-更新时间：2026-10-23（Asia/Shanghai）
+更新时间：2026-10-24（Asia/Shanghai）
 
 这份文件是跨上下文压缩的工作接力清单。开始新的工作回合时，先读本文件，直接执行
 下一条未完成项；只有需要范围或历史依据时才查阅 `MIGRATION_PLAN.md` 和
@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D36已验收并提交，继续D37真实autoscale_view语义与范围链。
+- 当前切片编号：D37已完整验收并提交c7439eb；继续D38单位与Date/Category逐slot接线，先读文件尾具体source/design notes，不重跑D37。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：D37已验收并提交c7439eb；读A/B/C正在收尾的D38具体notes后freeze下一纵向切片，Root保central门禁/接口/commit。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -4798,3 +4798,143 @@ A独立scene group/clear/provider reviewer初查无新具体缺陷，ignored报�
 最终JSON SHA：Axis cbdaa338a9e30e2f8c688bb48c7bf884e8d5e4fde0cd9aee0eac0ae5920d9272；
 Scene eac89a28c9eff3d7c7bee1174a9169cb3f07556da924c1456bffc945f7508dc9。
 所有Root与agents工具terminal，无需轮询。整体约50%(40–60%)宽估算不按测试数调整。
+
+## D37 正在实现（2026-10-24）
+
+- [x] 复用 D36 的219行 autoscale notes；D37-before 保存59dcb86的HEAD/tracked.tar/41接口。
+- [x] 分工/API已冻结：Root独占Axis真实stored_view、auto_enable、stale、shared候选kernel、
+  local set_bound最终化；B独占Scene缓存dataLim/relim、tight、sticky policy、request/unstale、
+  scale eagerforce/peer接线；C独占SVG同kernel复用、rawdata/minpos/sticky提取；A独占完整原
+  autoscale/_request/_unstale/setbound等新source oracle。三个现有独立agents均已继续。
+- [ ] Root Axis实现已写入但尚未编译；新增autoscale.mbt，axis/view/default_tickers/context
+  接入独立状态与render低优先minpos；所有旧manual setters的strictlog便捷合同保留。
+- 源细节已确认：autoscale(enable=None)请求双方向，axis参数不筛；Bbox mutated是当前端点
+  相对初始(0,1)比较，回原值恢复false。autoscale_view不enable、不清margin，空mutated直返。
+  kernel只产生候选，最终getbound/view方向→local _set_lim→clear组stale→peer再次finalize，
+  不合并跨越可失败的source stage。所有5scale都要读shared与ownminpos。
+- 当前不跑Moon，等待tracked writers停；无Root live工具，无用户阻塞。验收后本地提交。
+
+D37 Root已落Axis independent enable/pending/storedview及公共query/bind/resolve API，candidate
+kernel使用finite raw endpoints（strict比较保first代表）、空mutated earlyreturn、actualmajorNS、
+ordered sharedminpos、仅Log过滤sticky、源relative tolerance、actualscale clamp、transformed
+margin与非finite padding0、stickyclamp、可选actualmajor.view_limits。候选尚不写view；独立
+set_bound_limits_checked做finite→log必要旧endpoint→majorNS→ownminpos→scale clamp→排向/store，
+保auto；Scene负责前置view读取和组stale/peer次序。Log默认clip<=0→-1000单独按源补入kernel，
+不改变legacyScale.transform。render minpos是低优先fallback，用户/Scene provider及其异常优先。
+Root新增6条Axis黑盒边界（空mutated、独立auto、候选/写回分段、tiny sticky、lateerror/provider优先）。
+当前全部尚未Moon验收；B Scene、C backend、A newsource仍在写，Root不跑centralMoon。
+
+D37 Root/C/B初实现已相互只读审，新增修正：candidate读原DataBox minpos与namedLog NS/
+最终ownAxis.get_minpos是不同stage，现新增bind_autoscale_minpos（B真实cachedgroup）与
+bind_render_autoscale_minpos（C rawIRgroup）分开，不能用ownprovider提前触发。C10条handtest
+已停写；pureIR pending也改OR全组stale。Root新pyplot autoscale optionalenable/tight与真实
+view转发及2条黑盒，Axis6条。set_bound local新增automatic~Bool?=None，仅成功finalize/store
+后改开关并同步legacy Option分类；set_autoscale_on只同步分类，真实stored/pending不变。
+B清理image_extent两个fit helper的try!，现在raiseCore贯穿既有raising image入口，用户callback
+不会被当构造invariant。Scene兼容get_xlim/ylim新真实Some(view)，保legacy x_limits/y_limits。
+冻结D37完整范围为installed numeric profile（5scale/11named与legacy数值）；未激活numeric的
+日期/类别保持旧typed范围，collection添加前eager unstale callback、任意Artist协议/provenance
+stickies仍后续，不把本片当全目标完成。A fulloriginal refs继续，B Scene测试收尾，无Rootlive。
+
+D37独立审C123行已交并Root将读：两真实缺口已修（setscale覆用户provider、image attach早于
+extent）。C10hand停；B14hand又加去getter/locatorsetter/remove多余bind收尾，以保用户上下文。
+A完整source首稿collect56cases/2groups（48Scene+8cache），5预期lateerrors，仍在render/gen。
+Root D35旧sharedscale generator只改4条衍生None假设→空mutated provisional仍保旧view，原JSON
+SHA逐字不变；源regenerate3303 terminal0，68cases/182stages/3groups。未改任何原源expected。
+Root candidate捕获NS时locator，后rawdata callback换slot也用原对象view_limits，末localfinal
+则重新取当前locator；新增第7条Axis hand。deferredraw minpos支持本次Grouper snapshot，显式
+raw override优先。当前gate脚本D37-gate.sh已备，尚未运行；无Rootlive。
+
+D37首central36215 terminal0：check88tasks9warnings0errors、info/fmt0；236line接口Root已全文读。
+两neweffect警告Root已改arrow，7旧Ref警告保；移除未使用newpublic locator_view_limits wrapper，
+kernel private dispatch保留，下一接口预期235line左右需重新生成审。A首正式56cases/2groups
+已gen/check0，JSON73206af928bf03ce7df3d1b3a7ed513ce117b8d19218487a811540dae0e0911b。
+Root读全430line gen及guide，发现removed/rejoin sticky[200,200]在fixture走validated imshow会
+被既有distinctextent typed校验拒；已派A仅改WB sticky host直接播种Image Artist，不改原JSON/
+生产图像校验。当前A此精修live无Root工具，B16hand/C10hand/Root7Axis+2pyplot均停写。
+C123line独立审Root已全文读，缺陷均已修；原DataBoxminpos/defaultprovider文字以最新deferred
+snapshot实现为准。下一A停后重新gate，再四目标完整suite；失败照常排查修复继续。
+
+D37第二central24395 terminal0：check68tasks7旧Refwarnings0error，info5tasks0/fmt7tasks0；最终
+228line接口Root全文审并存D37-interface-reviewed.diff（删unusedpublic，其他预期API无变）。
+全部tracked writers已停。完整四目标suite45799 live，log D37-test-all.log，不能并发改编译源/
+fixtures；本次预期新增37registered（A2/B16/C10/RootAxis7+pyplot2），以实际终态计数为准。
+A stickyhost精修gen/check0，原JSON73206a...0911b逐字同；原source值不改。Root全读新正式gen/
+guide与C123line独立审。A/C现仅readonly数学stage/Rootkernel复核，不改tracked、不跑Moon。
+
+D37首full45799已terminal2：wasm/wasm-gc/native各21890/21872pass/18fail，JS21897/21879/18fail。
+35新hand全部过，两newsourcegroups失败（其中group1是fixture host tickspace未投影，源5而
+Moon真实Figure约10；A已固定typed geometry并加case标签，gen/check0，原JSON保持）。
+group0 Log差原inverse是exp(x*ln10)，legacyScale.inverse是pow；Root仅新kernel按源exp链修，
+不改原expected或泛放宽。A21primitive inputs用Decimal180/320一致且原np全部同bits，SymLog
+顺序现已正确。C另实际AST确认late_tight须在NS/rawminpos后读，bothsticky须在x callbacks前
+按当时Log过滤；Root已加optional late tight_provider/log_stickies参数，B接源snapshot并加反例。
+需重新interface。B已实际完整source证实4旧Scene失败均request/cache假设，将加显式request
+或真实viewport断言；C正在source核backend旧失败（rc每render、rawminpos分stage、sharedmanual
+等），不得盲改JSON。当前B/C获准各自精修，Root不跑Moon，无Rootlive；失败自主排查继续。
+
+D37 phase2：A geometry5spaces+case标签gen/check0并停（56/2与JSON同）；Root kernel仅新numeric
+range的Log inverse改exp(x*ln10)，新增stdlibmath import、late tight_provider、captured Logsticky
+policy。B已接双sticky预过滤/live tight，新增2source反例hand共18，并完成4旧Scenefixture源纠正，
+Root已全文读其review/probe说明和diff。Root新数学API需重新info/check；C旧backend失败仍诊断/
+精修中，不能central并发。README/COMPAT/PLAN/PROGRESS/DEPENDENCIES/NOTICE已标实施/待验收，
+尚未记完成，源码expected JSON全部保留。当前无Rootlive工具，无用户阻塞；下一等C停后gate，
+先定点source+相关失败文件四目标，再根据production改变跑全量。
+
+D37第三gate59247 terminal255：A新geometry播种把set_tick_layout positionalBool误写label，208
+重复compileerrors，全同一fixtureAPI；A核mbti后改位置参数并gen/check0，原JSON字节同。
+第四gate同步terminal0：check20tasks7旧warnings0error/infofmt0；228line接口仅candidate新增
+late tight_provider/log_stickies两个optional参数，Root已审并更新reviewed，其余逐字同。
+C已完成12旧backend失败源分类（107line报告Root全文读）：3repeatframe加显式request、2IR
+sharedsetter补完成后的双轴view投影、4Log/Logit原rawDataBox与Axis查询分开；2Logit原profile
+补raw provider上下文，所有numeric expected/JSON d7e535...9f1b与scale/Scene生成物byte同；1旧
+aspect-error断言源先解析pending再raise，保异常/position断言，改已存view断言。
+A/B/C所有tracked已停。定点四目标89801 live，log D37-focused-phase2.log；涵盖全部new39
+registered（A2/B18/C10/Root7+2）及全部旧失败文件、sharedscale/adjustable/compat。无并发改源。
+待该轮结果：真实productionLog/math顺序已变，相关通过后仍需全量四目标复验；不可仅凭补测
+把首full18fail标全过。源expected保留，不用tolerance掩严格float差异。README等文档待验收。
+
+D37 phase2定点89801 terminal2：四目标各237total/236pass/1fail；全部A56sourcecases与所有new39
+registered已过，唯一旧Multiple inverted-resume暴露Root standalone lifecycle getter在request清
+legacyauto_view后错误回0..1。Root已改无provider fallback读真实stored，并在现有Axis test加两
+getter方向断言，旧expected不改。gate7064 terminal0：check36tasks7旧warnings0error/infofmt0，
+228line接口finalcmp与reviewed同。当前第二次完整四目标31592 live，log D37-test-all-final.log。
+源码/fixtures全部暂停，独立source --check两个93124(新autoscale)、71891(sharedscale) live；
+logit首次Root命令漏必填ticker path仅usage exit2，下一条补准确参数重跑（不是源失败）。
+第二full已覆盖Root真实生产fallback修，必须等待终态。无用户阻塞，失败继续排查。
+
+D37三个Root独立 --check现全terminal0：autoscale93124=56/2/SHA73206a...0911b；sharedscale71891
+=68cases/182stages/3groups；logit补准确path同步0=114registered旧profile，JSON d7e535...9f1b。
+只31592第二full仍live，其余工具不轮询。定点237各236pass的唯一问题Root已source真实stored修。
+A/B/C继续D38只读准备（单位update_units/_update_axisinfo/set_units与Date/Category接线/取消
+legacy范围分支所需条件），各自仅ignorednotes，不改tracked、不跑Moon、不提前freeze；
+D37通过验收与提交仍是下一required任务，不能把D38准备当完成或停下整体goal。
+
+D37第二full31592当前wasm已21892/21892全过；其余target尚在跑，不能预标全部通过。
+原首full log保留18fail/target事实，phase2定点237/236的旧方向缺陷已在本次wasm全覆盖。
+无新源码写，pending只完整suite终态/最终infofmtcheck与accepted docs/本地commit，然后D38。
+
+## D37 行为验收通过（提交前最终门禁）
+
+- [x] 第二完整31592 terminal0：wasm/wasm-gc/native各21892/21892，JS21899/21899，0fail。
+- [x] 新39registered = A56原源cases/2groups + B18 + C10 + RootAxis7/pyplot2；共93验证场景。
+  A finitebits/state/orderedcallbacks严格保持；源JSON73206af9...e0911b全程不改。
+- [x] Root三个changedsource --check全0，旧sharedscale/Logit源JSON与非backend生成物均byte同。
+- [x] 全部可达真实缺陷已修：stored/autoon/stale分离；rawDataBox/AxisShared/own分stage；
+  Log默认clip与exp(x*ln10)源表达式；late tight与bothsticky早过滤；capturedlocator与deferred
+  sharedsnapshot；stableuserproviders；image cache→checkedextent→attach错误partial；emptyrelim
+  保旧minpos；standalone请求后方向读真实stored。无盲改原source输出/放宽严格参考值。
+- [x] C161line独立核/107line旧backend源诊断/B旧Scene源诊断Root均已全文读。
+- [x] README/COMPAT/PLAN/PROGRESS/DEPENDENCIES/NOTICE与新guide已更新accepted范围及边界。
+- [x] 最终info4tasks0/fmt1task0/check24tasks7旧warnings0error，228line reviewed接口逐字cmp；完整diff已审，feature c7439eb本地提交（53files/17627insertions，主要是JSON与generatedfixtures）。
+- [ ] D38单位update_units/_update_axisinfo/set_units与Date/Category逐slot实际对象接线；A/B/C
+  当前只读notes准备中，未freeze/未tracked写。D37提交后读其具体notes，不重项目survey。
+
+31592与所有source工具terminal；当前无Rootlive工具，整体goal继续，无用户阻塞。
+
+D37 feature c7439eb已提交，无remote/push；本次checkpoint/plan/progress另commit。31592及所有
+Root/source工具均terminal，无需轮询。下一D38先读即将交付的三份ignoredunits/typednotes，
+A已实跑23观察（原units registry/UnitData/DateConverters），B/C仍只读设计，不tracked写。
+同registryconverter重复date忽略单独rc变化；首次Category default_units会set_units→axisinfo/
+callback后neednew再axisinfo，重复category只append mapping且不重装/不callback。正式API与
+实施分工尚未freeze，不能以当前23源观察冒称完成。目标持续、无用户阻塞。

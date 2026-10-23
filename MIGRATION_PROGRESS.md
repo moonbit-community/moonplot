@@ -47,7 +47,7 @@ D33 完整验收结果为 wasm/wasm-gc/native 各 21700/21700，JS 21707/21707�
 | 数据/数组、颜色、变换与路径 | 15 | 45%–65% | `core`/`core/colors`/`transforms` 有公开接口与测试；完整 ArrayLike/广播、非仿射/失效传播等未齐 |
 | Figure/Axes/Artist、布局、图例、表格、颜色条 | 17 | 50%–70% | 多轴/网格/共享/位置/aspect 与 SVG 已接入；Artist 为专用模型，完整可变对象层级、约束布局等未齐 |
 | 二维图表、图像、等值线、三角网格与统计 | 18 | 65%–80% | COMPATIBILITY 中多组图表已有模型与 SVG 输出；不少条目仍是原型，参数和对象行为未全面深度验收 |
-| scale/ticker/dates/category/units | 12 | 80%–90% | D01–D34 大量原源切片已验收；通用 units、scale 默认安装等仍缺 |
+| scale/ticker/dates/category/units | 12 | 80%–90% | D01–D37 原源切片已验收，含数值 scale 默认安装/clear/autoscale；通用 units、日期/类别生命周期和 secondary 等仍缺 |
 | SVG 与渲染 IR | 8 | 70%–85% | 唯一完整可用的当前绘图输出链，支持路径/图像/文字等；完整后端协议和高级文本测量未齐 |
 | pyplot、配置与 style | 7 | 40%–60% | 门面/当前 Figure 与 Axes/部分 rc 已接入；完整状态函数、主题与 rcParams 未齐，不按转发函数数量累计完成度 |
 | Text、mathtext 与字体系统 | 8 | 10%–25% | 有基本文字/标注和数学标签字符串；完整数学排版、FreeType 与字体发现/测量未实现 |
@@ -93,3 +93,11 @@ D36 已接通方向感知构造与真实 Axis/Axes clear 默认生命周期、�
 15 个新注册测试承载 466 场景；四目标首次同1旧getter可见性假设失败，原source确认后
 单文件各6/6补验通过，累计nonJS21853/JS21860全覆盖。完整autoscale、通用units更新、
 secondary等缺项仍在，约50%（40–60%）宽估算不据测试数上调。
+
+
+D37 已验收 numeric autoscale_view 的独立状态、真实共享缓存范围链及 relim，
+让 Scene 即时调用与 SVG lazy 解析复用同一个 checked kernel。新增39个注册测试，包含
+56个完整原源案例和37个定向测试；原参考JSON保持不变，四目标全量nonJS21892/JS21899通过。
+首轮18个失败经源诊断修正，随后定点复验发现的独立IR方向回退也已修复并纳入第二次完整
+四目标运行。单位回调、日期/类别接线和任意Artist协议仍有明确缺口；宽估算约50%（40–60%）
+保留，本批具体能力增量以上述验收和代码提交为依据。
