@@ -379,6 +379,9 @@ fn Figure::to_render_figure(
         line_provider=Some(points => {
           for line in lines {
             if physical_equal(points, line.points) {
+              if !line.get_visible() {
+                return Some(([], () => ()))
+              }
               let current = line.points_snapshot_checked()
               return Some((current, () => line.mark_drawn()))
             }

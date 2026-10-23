@@ -17,6 +17,7 @@ pub struct Line2D {
   priv mut invalid_y : Bool
   priv mut owner : Axes?
   priv mut removal_parent : Axes?
+  priv mut visible : Bool
   priv mut stale : Bool
 }
 
@@ -92,6 +93,20 @@ pub fn Line2D::set_data(self : Line2D, x : LineData, y : LineData) -> Unit {
 ///|
 pub fn Line2D::stale(self : Line2D) -> Bool {
   self.stale
+}
+
+///|
+pub fn Line2D::get_visible(self : Line2D) -> Bool {
+  self.visible
+}
+
+///|
+/// Change drawing visibility without invalidating data or requesting new limits.
+pub fn Line2D::set_visible(self : Line2D, visible : Bool) -> Unit {
+  if self.visible != visible {
+    self.visible = visible
+    self.stale = true
+  }
 }
 
 ///|

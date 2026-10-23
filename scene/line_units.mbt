@@ -74,6 +74,7 @@ fn Axes::attach_line_handle(
     invalid_y: false,
     owner: Some(self),
     removal_parent: Some(self),
+    visible: true,
     stale: true,
   }
   let resolved_color = self.resolve_color(color)
