@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D42 secondary numeric location/alignment已完整四目标验收并分批提交48d1c3c/b8ee64a；checkpoint后准备D43位置Affine参数。先读文件尾，勿重跑D37–D42已过门禁。
+- 当前切片编号：D43位置Affine参数已完整验收并分批提交167f980/d5dbc19；checkpoint后准备D44公开Line数据句柄。先读文件尾，勿重跑D37–D43已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D42 full3809四目标全过，finalstatic info4/fmt1/check24与source74829均terminal0，接口final逐字同；feature48d1c3c与reference/docs b8ee64a已提交。提交本checkpoint→保存D43-before→读C187line/A34actualrecords最终notes→freeze窄Affine参数与installed locator快照，不重D42门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：D43 full55347四目标全过，final74642 info4/fmt1/check24及source86618均terminal0，接口final逐字同。提交本checkpoint→保存D44-before→全文读A187line/21actual与C最终Line handle设计，再只查必要存储/late-line-draw接点后freeze；不重D43门禁。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -5520,3 +5520,103 @@ A34条actualTransform最终notes后一次freeze；当前只有ignored只读资�
 Affine-only桥拟复用现Affine2D且不宣称mutable/nativeWrapper/Generic图；原nonsep失败后
 metadata新/oldlocator旧、defaultNoneclear、lazy mutabletransform证据必须明示，不误推广
 D42eager候选为任意liveTransform协议。无用户阻塞，继续整体goal，不重D42测试。
+
+D43-before已保存6ba1407221a416628c806896907b915c2c10d729的HEAD/tracked.tar/41mbti，勿覆盖。
+Root已全文读C187line设计、A34rawsource records关键state/trace与原set_location，已决定候选
+窄Affine2D? directnativeAffine桥，immutablevalue不声称mutable/Generic/Wrapper/liveGraph。
+原source both-offdiag separability验证即便unusedrow也检查；负/零scale接受且无inverse。
+invalidnonsep在rawmetadata后失败，installedlocator仅成功rebind；默认None/省略都清旧transform。
+Root拟BScene/private snapshot+6publiccreators（含pyplot）、C新Scene/pyplot渲染hands、A新正式
+Affine source包；A最终notes收束后一次freeze，当前未tracked实施，无Rootlive工具。
+
+## D43 已冻结，三路独占实施中
+
+Root基于C187完整设计、原set_location及A34actualrecord必要state/trace已充分冻结，不再
+为重复文档扩写等待。所有3agents收到最终freeze并开始tracked写，尚未D43中央编译/行为。
+
+公共6creators（Axes/Figure/pyplot各x/y）及set_location加transform~:Affine2D?=None；
+明确对应native直接Affine2DBase的immutablevalue桥。省略Noneclear旧T。setter顺序：方向
+校验→rawlocation assign→wholeAffine.is_separable（both-offdiag==0，unusedrow也查）→成功
+rebind private location_locator {position,transform}。nonsep失败保新rawmetadata/旧locator，
+错误InvalidTicks带原ValueError: Both *x_transform* and *y_transform* must be 2D affine
+transforms。negative/zero/noinverse允许、不finiteguard。Ctor在functions/default初始化前
+安装/validateT，失败不attach。hook入口capture installedsnapshot，不从rawmetadata重建；
+callback替换T只影响下次，任意native旧T原地mutablealias/sourceGeneric/Wrapper/livetransData
+仍source-only边界。默认保D42frame，Some用已有blended选行→figureFrom.then(blend)存normalized
+再独立figureTo，不改globalBBox或inverse。无backend新provider。
+
+- B独占Scene secondary_axis/secondary_position、pyplotstate/moon.pkg（仅import时）、
+  NEWscene/secondary_transform_wbtest；请B尽早向A同步snapshot字段。
+- C独占NEWscene/secondary_transform_render_wbtest与NEWpyplot/secondary_transform_test。
+- A独占NEWgenerator_secondary_transform/JSON/guide/SceneformalWB；原34records保全，另
+  nonfinite与failedsetter后aspect新增profile，primitive诊断不冒APIparity。
+- Root独占checkpoint/docs、独审与后续central gates/interfaces/commits，无live工具。
+
+下一全文审各handoff→全部STOP→check/infofmt/接口/四目标；若失败继续原source诊断精修。
+不能并发centralMoon或写agents ownedfiles；D42接受结果保持，不重跑。
+
+D43 freeze后Root全文读A178line最终notes，无新合同冲突；原34JSON SHA632242...40eb7。
+更正早期猜测：native baseTransform()在location generic blend+positionedaspect成功，属于本
+Affine-only桥外source-only，不能误当D41functions域失败。nativecandidate lazy可见旧T原地
+mutation，immutabletyped仅支持replacement-only捕获，不宣称可变图。A notes中requestedT
+prose不要求rawTransform mirror，Root已明告B：只存rawlocation+成功installedsnapshotT。
+所有A/B/C仍writer，无Rootlive；下一首版handoff窄审，不中央Moon。
+
+D43 B4prod首版已落（secondary_axis/position+pyplotstate/pkg），仍writer写hands；Root已全文
+审diff，API6creator+set_location转发、wrongloc先验/raw先写/nonsep后验/成功snapshotrebind、
+入口oldsnapshot blend均吻合freeze，暂无具体缺陷。Root要求position()doc从parent-normalized
+改requestednumerical以覆盖Some affine；ctorparentlog+invalidT时functions不可执行/不可attach
+及wrongloc+invalidT priorraw不改应有定向hand。Aformal/CScene+pyplot新hands仍writer。
+当前D43无central编译/行为验收，无Rootlive工具；下一各STOP后统一门禁。
+
+D43全部tracked writers STOP，Root已读B4prod+299line7hands、C330lineScene5+148linepyplot2、
+A328linegen投影/141lineguide。formal52records=原34完整不变+18新增（2failedsetter后aspect、
+12selecteddiag/translation非finite、4NaNoffdiag失败后aspect），38typed/14source-only/2groups；
+追加18补classes/flags字段，最终JSON 7de21b...888e5e。Root旧34独立exactequal通过（更新前SHA
+b6db...仅新增fields后变新SHA，旧34未改）。new16registered=2formal+B7+C7。
+firstcheck26945 terminal0：48tasks/7旧warn/0error；Rootsource78812 terminal0。infofmt已启动，
+log D43-info-fmt-first.log；下一审41mbti预期Scene/pyplot仅optionalAffine签名变化，再四目标full。
+尚未D43行为验收，无生产/fixturewriter；只Rootcentral门禁。B可下一只ignored独审formal。
+
+D43 info6tasks/fmt8tasks terminal0，Root全文审41mbti仅Scene/pyplot两files optionalAffine
+参数+所需import（6creators+set_location），其余39逐字同，无IR/backend接口变化。完整
+reviewed diff存D43-interface-reviewed.diff，diffcheck0；最终JSON原34 records Root独立
+exactequal再次通过，SHA7de21b...888e5e。四目标firstfull已启动（D43-test-all-first.log），
+下一记录liveID、读具体终态；若失败继续按originalsource精修，不改旧expected。全体tracked
+writer停；new16registered=2formal(38typed)+B7+C7，当前行为未验收。
+D43 firstfull live session55347；全部tracked保持STOP，不并发中央Moon，不写生产/fixtures。
+
+D43 full55347仍live：wasm/wasm-gc各22038/22038、0fail，JS/native尚待终态。Root全文读
+B78line正式独审，无新具体缺陷，typed38唯一调用与14source-only边界/新增18classes flags
+均复核。README/DEPENDENCIES/NOTICE已补实现/source边界，不先称四目标通过。A/C仅ignored
+D44 Line data handle候选source/设计（复用D39，Unit便利plot兼容），未freeze/未实施；
+所有tracked生产/fixtures停，Root无其他live工具，下一读55347结果，失败继续诊断精修。
+
+## D43 行为验收通过（提交前最终门禁）
+
+- [x] full55347 terminal0：wasm/wasm-gc/native各22038/22038，JS22045/22045，0fail。
+- [x] new16registered=2formal（38typed）+B7Scenehands+C7Scene/pyplothands；52actualsource
+  records中14source-only，Root旧34完整records独立exactequal通过，最终JSON7de21b...888e5e。
+- [x] Root全文审所有生产/newhands/A141lineguide、B78line独立formal复核，无具体缺陷；
+  41mbti中预期Scene/pyplot两份optionalAffine签名与import已审，其余39逐字不变。
+- [x] README/COMPAT/PLAN/PROGRESS/DEPENDENCIES/NOTICE/guide已补能力、验收与边界。
+- [x] final74642 terminal0：info4/fmt1/check24，7旧warn/0error；source86618 terminal0，
+  JSON7de21b...888e5e原样；41mbti finaldiff逐字同已审，diffcheck0。
+- [x] 分批本地提交167f980（生产/14hands/接口9files）与d5dbc19（formal/source/guide/
+  6docs，10files）；本checkpoint另commit。整体goal未完成，无remote/push。
+
+D44仅ignored只读，A187line+21actual已STOP（e4cfb8...e5986）；C具体TickValues interleaved
+cachegeneration设计收尾，Root尚未全文读最终notes/未freeze。源actualcache pair跨generation、
+原getterborrow不invalid、setter/processedgetter不relim/request等须保；别用ArrayPoint原地
+更新冒native旧view。整体goal继续，无用户阻塞；D43全部trackedwriters STOP。
+
+D43完整验收并提交167f980+d5dbc19。full55347四目标0fail，nonJS22038/JS22045；final74642
+info4/fmt1/check24与source86618全terminal0，7旧warn0error，接口final逐字同，旧JSON保持。
+Root无live工具/全部trackedwriters STOP。下一checkpointcommit→D44-before→读A187line/
+21actual与C最终设计（尚未Root全文读），再必要窄审/freeze。D44仍只有ignored只读资料。
+Root已提示C用现TickValues interleaved Float64每代freshbuffer+stride2 x/y views，旧views
+保旧代，Point[]仅派生rendercache；get_data(processed)可能oldx/newy混代，不可入口统一recache。
+source setter/processedgetter不relim/request，lateLine draw之前不能在IR导出eager抛错；C拟
+局部line_points_provider桥，实际必要性/签名待审。stablehandle不能仅Axes+artist_index以免
+clear后复用索引误写新Line，detach边界尚缺actualproof。保旧Unitplot便利API，复用D39
+原始typedinputs与单位kernel，勿重survey或提前声称fullmutableArtist。
