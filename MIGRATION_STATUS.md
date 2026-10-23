@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- 当前切片编号：D40已完整验收并分批本地提交ffe5ec9/d950312；D41 public set_functions仅只读准备，checkpoint提交后保存D41-before并freeze。先读文件尾，不重跑D37–D40已过门禁。
+- 当前切片编号：D41 public set_functions/identity reset已完整四目标验收并通过最终静态/source门禁；feature e2be84b已提交，checkpoint提交后准备D42 location/alignment。先读文件尾，不重跑D37–D41已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
   raw Python请求与实际Float64 arange shape分离，decimal按恒定pows分段，NaN保数量尾置。
@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D40 feature ffe5ec9（Axis10files）+d950312（Scene/IR/backend/source/docs39files）已提交，只有本checkpoint待commit；随后保存D41-before，读A最终40obs source notes，结合已读B191/C140line设计freeze D41 pair setter+identity reset。Root保central门禁/接口/commit。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
+- 下一条具体动作：D41 full8825 terminal0，nonJS22001/JS22008全过；final17646 info4/fmt2/check24/source0，21line接口逐字同，feature已提交；本checkpoint提交后保存D42-before，读A43source/C189line+12obs位置/完整draw notes，再freeze。Root保central门禁/接口/commit。下列D36/D37历史门禁勿重跑。D36已验收，feature ed34eb0（32files，主要新增行是完整JSON/fixtures）。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -5325,3 +5325,87 @@ postinstall其实成功（sourceLogview_limits回退[1,10]，非猜测失败）�
 partial是CURRENT Log query x/y pair/None4cases。A40actualobs=26typed+14source-only
 terminal0，最终notes收尾。下一checkpointcommit→D41-before snapshot→读A最终source/
 修正后的B19line→freeze并授权独占实现。当前无用户阻塞，goal继续，不重D40门禁。
+
+D41-before已保存b243999bd4182e8c0fa2dc9e3e2af01f8fc56563 HEAD/tracked.tar/41mbti，勿
+覆盖。Root已全文读A173/B191/C140notes与原setter/_set_scale，freeze typed pair
+set_functions(forward,inverse)+reset_functions()；源码40obs=26typed/14source-only，16
+operationerrors（10invalid、4currentLog、2lateraspect）。NaNpostinstall成功[1,10]保留。
+Root首版2prod已写：secondary_axis forward/inverse改privmut并保getters；NEW
+secondary_functions.mbt先assignboth再复用synchronize_parent_scale，reset identity；不
+invalidatenamecache/不先mapparent/不eager执行。单stdinfmt0，未central编译/行为未验收。
+A独占NEW formalgen/JSON/guide/SceneWB；B NEWsecondary_functions_wbtest；C NEW
+secondary_functions_render_wbtest（Scene实际IR/SVG callback时序），无新backendprovider。
+当前三agents都writer，禁止centralMoon/info/fmt/test/commit；Rootprod停，无Rootlive工具。
+下一全体STOP后central静态→独审接口→完整四目标，失败继续按实际Source排查。
+
+D41 Root最小2prod获B只读独审，无新具体缺陷；B6Scenehands首版已落但仍自审/格式，Aformal
+与Crenderhands都writer。未运行D41central编译/行为，不将Root实现当验收。get_goal只读仍
+返回历史blocked（updatedAt1792744279）；用户已反复明确继续且当前无实际阻塞，继续执行
+已授权迁移，不据旧工具状态停止/重复标blocked/创建重复goal。Root无live工具。
+
+D41 B已STOP，Root全文读NEWsecondary_functions_wbtest296lines/6hand与handoff；覆盖old
+getter/same-name4slotsflagsviewctx、sampling/emptylatch、CURRENTInt64双向alias、CURRENT
+Logfailure新pair旧state、NaNnamechange成功再lateraspect、same-nameNaN无eager执行。
+A正式预计27scenario funcs/1group（26typed+6nonlinear sequential；最终counts待交付），
+保40旧recordfields；Crender4hands收尾。A/C仍writer，禁止centralMoon。Root无live工具。
+
+D41全体trackedwriter已STOP。Root全文读C190line/4renderhands（4处sqrt freefn已精修
+value.sqrt method）与145line formalguide，B6hand已审。A4newfiles gen→--check0：46obs
+=40参数（26typed/14source-only）+6nonlinear，27private scenarios/1registeredgroup；
+新11registered=A1+B6+C4，尚未Moon行为验收。Root独立比较40参数records全部exact equal，
+C6所有旧fields subset exact，仅加实际endpointtransform；JSON SHA
+b00f07536f7b7192eccf8006d09520c82bbf83d3c167db880328d75a24a0e6d1，D40原样。
+Rootfirstcentral30972与independentsource--check启动，logs D41-check-first.log/
+D41-source-root-check.log，等具体终态后精修或infofmt/interface/full；所有writers停。
+
+D41 firstcheck30972 terminal255：2编译error均formalold_fixed.call不存在（Fixed对象需
+as_locator().call），另C StringView.to_string新增弃用warning。Root精修generator投影
+为as_locator().call并重生成WB/--check12259 terminal0，JSON原SHA b00f075...0e6d1不变；
+C改to_owned消新warning。独立Rootsource--check terminal0，46obs/27scenario/1group。
+second info→fmt→check已启动，log D41-info-fmt-check-second.log；所有writers停，等结果
+后审41mbti对D41-before差异并完整四目标。当前行为未验收，失败继续精修。
+
+D41 second(info/fmt/check) terminal255：info5tasks/fmt5tasks成功，check仍2samefixture
+errors；Root首修误以为Locator wrapper有call，查正式mbti/locator_fixed.mbt后确认对应
+源__call__的是FixedLocator.values()。已改generator为values().to_array()，重gen/check
+59025 terminal0、JSON原样；thirdcheck live，log D41-check-third.log。无production改动，
+新C warning已消（to_owned）。下一third终态、审接口后full，不能把sourcecheck当Moonpass。
+
+D41 thirdcheck terminal0，Root全文审41mbti对D41-before仅21line变化：Scene移除forward/
+inverse两个公开readonlyfield（getter保留，私有mutable存储），增加set_functions/reset。
+其他40interfaces逐字同，无backendprovider/API变化。完整四目标first8825 live，log
+D41-test-all-first.log，新11registered=1formalgroup（27scenario/46sourceobs）+B6+C4；
+全体trackedwriter停，无并发生产/fixtures写。下一读full终态，失败继续诊断精修。
+
+D41 firstfull8825 live，所有trackedwriters停。B只读独审Aformalgen/fixture映射，A/C仅
+ignored只读准备D42 secondary location/alignment+numeric位置（不含Transform参数，未
+freeze/未实施）。Root发现新Python10空行尾space，等8825终态后清并source--check；这
+仅hygiene不改source输出/期望。下一读8825实际结果，失败继续诊断，不以时间推断进度。
+
+D41 full8825仍live：wasm/wasm-gc各22001/22001、JS22008/22008，0fail，native待终态；
+不能先称四目标全过。Root全文读B83line formal独审，无新投影/oracle缺陷，typed/source-only
+边界已审。A/C仍只ignored D42notes，B全部STOP；新Python10blank尾space待终态清。
+
+## D41 行为验收通过（提交前最终门禁）
+
+- [x] full8825 terminal0：wasm/wasm-gc/native各22001/22001，JS22008/22008，0fail。
+- [x] 新11registered=1formalgroup（27scenario，46obs含14source-only）+6lifecyclehands
+  +4renderhands；Root独立40原records exact与C6oldfields subset exact，正式JSON
+  b00f075...0e6d1保持，D40 f08b4d...76c5c保持。
+- [x] Root全文审A145lineguide、B296linehands/C190linehands与B83line独立formal审；
+  21line接口已审（2newmethods、2readonlyfields收私有mutable/getters保留），无新backendAPI。
+- [x] 首轮2Fixedcall编译错误经Rootvalues().to_array精修，newdeprecatedhelper改to_owned；
+  生成物/--check0且原JSON不改，full0后Root清Python10blank尾space，accepted docs已更新。
+- [x] final17646 terminal0：info4tasks/fmt2tasks/check24tasks，7旧Refwarn/0error，source
+  final --check0/JSON原样；41mbti final21line逐字同已审基线，diffcheck0。
+- [x] feature e2be84b已本地提交（15files/7690insertions/6deletions），包含2prod/interface、3testfiles、sourcegen/JSON/guide与6docs；
+  本checkpoint另commit。整体goal未完成，无remote/push。
+
+A/C只ignored D42 preparation（source43records/11operrors；actualBase.draw x/y2records
+证第二apply_aspect），没有tracked写/没有D42freeze。下一先完成D41final与commit，勿重full。
+
+D41 feature e2be84b与最终门禁已完成，所有Root工具terminal无live。full8825四目标0fail，final
+17646 info4/fmt2/check24/source0，21line interface final逐字同，JSON b00f075...0e6d1不变。
+C D42只读189line/12actualobs已STOP，A43locationrecords/11operationerrors notes收尾；
+Root尚未读最终D42notes/未freeze。下一checkpointcommit→D42-before→读必要notes决定
+稳定orientation/rawposition/alignment与完整superdraw第二sync最小接线，不重D41门禁。
