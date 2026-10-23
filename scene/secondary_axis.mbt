@@ -11,6 +11,7 @@ pub(all) enum SecondaryAxisLocation {
 /// A coordinate axis whose values are derived from a primary axis.
 pub struct SecondaryAxis {
   priv formatter_axis_binding : @ticker.FormatterAxisBinding
+  priv mut formatter_view : (Double, Double)
   priv mut named_formatter : @ticker.BaseFormatter?
   priv mut minor_named_formatter : @ticker.BaseFormatter?
   priv formatter_messages : Array[String]
@@ -39,8 +40,9 @@ fn secondary_axis(
   forward : (Double) -> Double,
   inverse : (Double) -> Double,
 ) -> SecondaryAxis {
-  {
+  let result : SecondaryAxis = {
     formatter_axis_binding: @ticker.FormatterAxisBinding::new(),
+    formatter_view: (0.0, 1.0),
     named_formatter: None,
     minor_named_formatter: None,
     formatter_messages: [],
@@ -57,6 +59,13 @@ fn secondary_axis(
     locator: None,
     formatter: None,
   }
+  result.formatter_axis_binding.bind_view_interval(() => {
+    let (lower, upper) = result.formatter_view
+    @ticker.FormatterViewInterval::NdArray(
+      @ticker.TickValues::from_array([lower, upper]),
+    )
+  })
+  result
 }
 
 ///|
@@ -208,6 +217,7 @@ pub fn Axes::secondary_xaxis(
   }
   let result = secondary_axis(location, forward, inverse)
   result.parent_axis = Some(self.x_axis())
+  result.initialize_formatter_view()
   self.state.val.secondary_x.push(result)
   result
 }
@@ -229,6 +239,7 @@ pub fn Axes::secondary_yaxis(
   }
   let result = secondary_axis(location, forward, inverse)
   result.parent_axis = Some(self.y_axis())
+  result.initialize_formatter_view()
   self.state.val.secondary_y.push(result)
   result
 }

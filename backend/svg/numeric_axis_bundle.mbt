@@ -13,6 +13,7 @@ fn numeric_axis_bundle(
   axis : @axis.Axis,
   view : @core.Limits,
 ) -> AxisTickBundle raise @core.DataError {
+  let initial_interval = axis.current_view_limits()
   let major_null = axis.tick_group_is_null()
   let (major, major_labels) = if major_null {
     ([], [])
@@ -30,6 +31,20 @@ fn numeric_axis_bundle(
     (materialize_formatter_locations(locations), labels)
   }
   let minor_null = axis.tick_group_is_null(minor=true)
+  // Major callbacks may have explicitly changed the live view.
+  let view = match (initial_interval, axis.current_view_limits()) {
+    (Some(before), Some(after)) =>
+      if before.lower().reinterpret_as_uint64() !=
+        after.lower().reinterpret_as_uint64() ||
+        before.upper().reinterpret_as_uint64() !=
+        after.upper().reinterpret_as_uint64() {
+        after
+      } else {
+        view
+      }
+    (None, Some(after)) => after
+    _ => view
+  }
   let (minor, minor_labels) = if minor_null {
     ([], [])
   } else {

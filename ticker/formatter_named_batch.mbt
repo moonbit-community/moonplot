@@ -39,6 +39,12 @@ fn formatter_named_call(
         NamedFormatValue::PythonFloat(value),
         position,
       )
+    Percent(state) =>
+      percent_formatter_call(
+        formatter,
+        state,
+        NamedFormatValue::PythonFloat(value),
+      )
   }
 }
 
@@ -78,8 +84,8 @@ pub fn BaseFormatter::format_ticks_view(
   let length = values.length()
   let labels : Array[String] = []
   for index in 0..<length {
-    // Only the new string classes observe NumPy scalar type. The D28 Func
-    // callback deliberately retains its existing Double value contract.
+    // Named string and percentage classes observe the NumPy scalar type.
+    // The D28 Func callback retains its existing Double value contract.
     let label = match self.kind {
       FormatStr(state) => {
         let value = if values.is_int64() {
@@ -97,11 +103,81 @@ pub fn BaseFormatter::format_ticks_view(
         }
         format_method_checked(state.fmt, value, Some(index))
       }
+      Percent(state) => {
+        let value = if values.is_int64() {
+          NamedFormatValue::NumpyInt64(values.get_int64(index))
+        } else {
+          NamedFormatValue::NumpyFloat64(values.get(index))
+        }
+        percent_formatter_call(self, state, value)
+      }
       _ => formatter_named_call(self, values.get(index), Some(index))
     }
     labels.push(label)
   }
   labels
+}
+
+///|
+fn percent_formatter_call(
+  formatter : BaseFormatter,
+  state : PercentFormatterState,
+  value : NamedFormatValue,
+) -> String raise @core.DataError {
+  let view = match formatter.axis {
+    None =>
+      return named_format_error(
+        "AttributeError", "'NoneType' object has no attribute 'get_view_interval'",
+      )
+    Some(axis) => axis.view_interval()
+  }
+  let length = view.length()
+  if length < 2 {
+    return named_format_error(
+      "ValueError",
+      "not enough values to unpack (expected 2, got " + length.to_string() + ")",
+    )
+  }
+  if length > 2 {
+    return named_format_error(
+      "ValueError", "too many values to unpack (expected 2)",
+    )
+  }
+  let range = match view {
+    Sequence(values) =>
+      PercentDisplayRange::Scalar(
+        NamedFormatValue::PythonFloat(Double::abs(values[1] - values[0])),
+      )
+    Integers(values) => {
+      let difference = values[1] - values[0]
+      PercentDisplayRange::PythonInteger(
+        if difference < @bigint.BigInt::from_int(0) {
+          difference.neg()
+        } else {
+          difference
+        },
+      )
+    }
+    NdArray(values) =>
+      if values.is_int64() {
+        let difference = values.get_int64(1).reinterpret_as_uint64() -
+          values.get_int64(0).reinterpret_as_uint64()
+        let signed = difference.reinterpret_as_int64()
+        let magnitude = if signed < 0L {
+          (0UL - difference).reinterpret_as_int64()
+        } else {
+          signed
+        }
+        PercentDisplayRange::Scalar(NamedFormatValue::NumpyInt64(magnitude))
+      } else {
+        PercentDisplayRange::Scalar(
+          NamedFormatValue::NumpyFloat64(
+            Double::abs(values.get(1) - values.get(0)),
+          ),
+        )
+      }
+  }
+  BaseFormatter::fix_minus(percent_format_pct_with_range(state, value, range))
 }
 
 ///|

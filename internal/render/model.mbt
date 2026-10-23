@@ -452,6 +452,7 @@ pub(all) enum SecondaryLocation {
 ///|
 /// Immutable secondary axis data consumed by a backend.
 pub struct SecondaryAxis {
+  synchronize_view_provider : (() -> Unit raise @core.DataError)?
   formatter_provider : ((Bool) -> @ticker.BaseFormatter?)?
   legacy_formatter_provider : (() -> @ticker.Formatter?)?
   null_group_provider : ((Bool) -> Bool)?
@@ -497,8 +498,10 @@ pub fn secondary_axis(
   tick_label_size~ : Double = 10.0,
   minor_locator~ : @ticker.MinorLocator? = None,
   minor_ticks_provider~ : (() -> Array[Double] raise @core.DataError)? = None,
+  synchronize_view_provider~ : (() -> Unit raise @core.DataError)? = None,
 ) -> SecondaryAxis {
   {
+    synchronize_view_provider,
     named_formatter,
     minor_named_formatter,
     formatter_provider,
@@ -526,6 +529,20 @@ pub fn secondary_axis(
       Some(value) => Some(value.copy())
       None => None
     },
+  }
+}
+
+///|
+/// Refresh an owned secondary view. Return whether a live owner supplied it.
+pub fn SecondaryAxis::synchronize_view(
+  self : SecondaryAxis,
+) -> Bool raise @core.DataError {
+  match self.synchronize_view_provider {
+    Some(provider) => {
+      provider()
+      true
+    }
+    None => false
   }
 }
 

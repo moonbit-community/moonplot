@@ -247,3 +247,13 @@ TickValues.select_mask 为主轴/secondary 次刻度提供保 dtype 的 fresh se
 printability 表由固定 Python API 全码点生成，用于 repr/KeyError，Invalidspec 的原字面
 消息独立保持。无新外部依赖，完整 source/typed/资源范围和重现见
 [testdata/string_formatter_README.md](testdata/string_formatter_README.md)。
+
+## D30 命名 PercentFormatter
+
+PercentFormatter 复用 Base 对象、BigInt 精确 binary64 比例/十进制格式和 D26 可移植
+log10。独立的 FormatterViewInterval 保留 Python 整数、浮点和 NumPy Float64/Int64
+范围的类型；虚拟轴、真实轴与 secondary 的 live provider 复用稳定绑定。text.usetex
+只提供符号动态转义设置，没有新增 TeX 运行时。原源参考使用固定 CPython/NumPy，
+执行完整 PercentFormatter、真实 Axis/Bbox 与 secondary/frame 方法；NumPy 运行时警告
+单独记录。没有新运行时依赖，范围和复现见
+[testdata/percent_formatter_README.md](testdata/percent_formatter_README.md)。

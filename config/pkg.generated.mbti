@@ -54,6 +54,8 @@ pub fn set_grid(Bool, String, Double) -> Unit raise @core.DataError
 
 pub fn set_minor_tick_divisions(MinorTickDivisions, horizontal? : Bool) -> Unit raise @core.DataError
 
+pub fn set_text_usetex(Bool) -> Unit
+
 pub fn set_timezone(String) -> Unit
 
 pub fn set_unicode_minus(Bool) -> Unit
@@ -61,6 +63,8 @@ pub fn set_unicode_minus(Bool) -> Unit
 pub fn set_x_margin(Double) -> Unit raise @core.DataError
 
 pub fn set_y_margin(Double) -> Unit raise @core.DataError
+
+pub fn text_usetex() -> Bool
 
 pub fn timezone() -> String
 
@@ -104,6 +108,7 @@ pub fn RcParams::grid_color(Self) -> String
 pub fn RcParams::grid_linewidth(Self) -> Double
 pub fn RcParams::grid_visible(Self) -> Bool
 pub fn RcParams::minor_tick_divisions(Self, horizontal? : Bool) -> MinorTickDivisions
+pub fn RcParams::text_usetex(Self) -> Bool
 pub fn RcParams::timezone(Self) -> String
 pub fn RcParams::unicode_minus(Self) -> Bool
 pub fn RcParams::x_margin(Self) -> Double

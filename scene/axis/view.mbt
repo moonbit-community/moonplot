@@ -125,6 +125,9 @@ pub fn Axis::set_view_limits(
       self.auto_view = Some(view)
     }
     self.inverted = view.lower() > view.upper()
+    if self.tick_layout_view is Some(_) {
+      self.tick_layout_view = Some((view.lower(), view.upper()))
+    }
     return
   }
   if !self.scale.is_valid(lower) || !self.scale.is_valid(upper) {
@@ -138,6 +141,9 @@ pub fn Axis::set_view_limits(
     self.auto_view = Some(view)
   }
   self.inverted = lower > upper
+  if self.tick_layout_view is Some(_) {
+    self.tick_layout_view = Some((lower, upper))
+  }
 }
 
 ///|

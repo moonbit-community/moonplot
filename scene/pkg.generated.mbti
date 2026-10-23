@@ -694,6 +694,7 @@ pub struct SecondaryAxis {
   mut formatter : @ticker.Formatter?
   // private fields
 }
+pub fn SecondaryAxis::apply_aspect(Self) -> Unit raise @core.DataError
 pub fn SecondaryAxis::clear_formatter(Self) -> Unit
 pub fn SecondaryAxis::clear_locator(Self) -> Unit
 pub fn SecondaryAxis::clear_minor_locator(Self) -> Unit

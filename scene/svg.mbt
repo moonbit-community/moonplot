@@ -248,6 +248,7 @@ fn to_render_secondary_axis(axis : SecondaryAxis) -> @render.SecondaryAxis {
     tick_label_size=axis.tick_label_size(),
     minor_locator=axis.minor_locator(),
     minor_ticks_provider=Some(() => axis.minor_tick_values_checked()),
+    synchronize_view_provider=Some(() => axis.apply_aspect()),
   )
 }
 

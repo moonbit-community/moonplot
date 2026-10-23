@@ -1359,6 +1359,22 @@ formatter.set_fmt("{pos}: {x:+.3g}")
 参考检查全部通过；支持范围、C locale 和动态 Python 边界见
 [字符串 Formatter 说明](testdata/string_formatter_README.md)。
 
+D30 已验收命名 `PercentFormatter`，保留可变原始参数、浅复制、每值读取当前轴范围与
+动态符号转义。自动精度及显式精度转换、Python/NumPy 标量、虚拟轴整数范围、共享轴
+绑定和副轴同步顺序均通过原源对照。
+
+```moonbit nocheck
+let formatter = try! @ticker.PercentFormatter::new(
+  xmax=@ticker.PercentXMax::Number(1.0),
+)
+try! fig.set_x_named_formatter(formatter.as_base_formatter())
+formatter.set_decimals(@ticker.PercentDecimals::Number(2.0))
+```
+
+新增 2293 项测试；wasm、wasm-gc、native 各 19801 项，JS 19808 项全部通过，三份新
+原源检查通过。支持范围、精度文本和副轴时序见
+[百分比 Formatter 说明](testdata/percent_formatter_README.md)。
+
 数值轴也可以设置基础 formatter。`scalar_formatter` 支持 power limit 和 additive offset，
 `fixed_formatter` 按位置提供标签，`format_str_formatter` 支持 `%g`、`%f`、`%e`、`%d`、`%%`
 及常见宽度/精度标志，`log_formatter`、`null_formatter` 和 `func_formatter` 分别用于对数、

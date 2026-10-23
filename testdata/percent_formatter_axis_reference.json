@@ -1,0 +1,2727 @@
+{
+  "metadata": {
+    "source_hashes": {
+      "ticker.py": "49d4586a18a4488387411b168d8064bb60e1f59d478e139965e2f7cef509e2ad",
+      "axis.py": "f7bff99d2cffae77e75eea0fb942a2dd0d0fc28c702eccb540691bca736432b0",
+      "transforms.py": "109bd2c25aa8395cd25c11a94a3ac78a6f0c6da3db04500f486cc3967a6be0e8",
+      "figure.py": "b440ab0a5be03cb39b13529a2fec497d2d96deb083e3e56d6220593e3ec567da",
+      "cbook.py": "e7ffc8b1d5c3892ab28bb2dcce71924df6192d0674023c8d891f99994b863643",
+      "axes/_secondary_axes.py": "b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93",
+      "axes/_base.py": "ceff4d2fa9bd99eb1451a27812bef343902384dd592a9b8482f31b2eac55f36b",
+      "_api/__init__.py": "7e262cedd8ce1a1660c2e2caa63adeb078c29e36bd541b8e6f773cfed4c3c782",
+      "_api/deprecation.py": "364d069a9bcdf2b10f2f641220717baaa4e5c9b8e25fbe150cd9895f2f8542d2",
+      "matplotlibrc": "8b76e138ce9dc944a843dc6aa1ef9ee0e88638358b10baf227cd248d271b5f5a",
+      "artist.py": "c55a81d86db60ab7b22fcd6e70401aa84558de5d1ba6e40a16c60f6f1f03be7a"
+    },
+    "percent_class_hash": "ce16ea47e597ba4e9107b3c068fdfe2740660a3455338b7739319b60a0e0eb2a",
+    "getset_factory_hash": "31554d0bc514ae1a9efa1b07117048d68c3c6d3880066ed2ee91492981c922f7",
+    "runtime": {
+      "python": "3.12.14",
+      "numpy": "2.3.5"
+    },
+    "scope": "Complete original PercentFormatter, real _api/deprecation, generated Bbox interval getters, Axis binding/update_ticks/set_lim, Grouper/Figure removal, complete SecondaryAxis, original Figure layout and Axes draw sorting; GUI/Text/units/constructor storage sinks are explicit. Fixed default data/.05 margin log-constructor profile, not full implicit scale/default lifecycle.",
+    "counts": {
+      "observations": 117,
+      "generated_tests": 117
+    }
+  },
+  "observations": [
+    {
+      "label": "unbound call reads axis first",
+      "value": null,
+      "error": "AttributeError",
+      "message": "'NoneType' object has no attribute 'get_view_interval'",
+      "view_events": [],
+      "decimals": null
+    },
+    {
+      "label": "unbound direct format_pct bypasses axis",
+      "value": "-1.00%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": null
+    },
+    {
+      "label": "unbound empty batch never reads axis",
+      "value": [],
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": null
+    },
+    {
+      "label": "unbound nonempty batch fails after set_locs",
+      "value": null,
+      "error": "AttributeError",
+      "message": "'NoneType' object has no attribute 'get_view_interval'",
+      "view_events": [],
+      "decimals": null
+    },
+    {
+      "label": "dummy default exact view and label",
+      "value": {
+        "view": [
+          0,
+          1
+        ],
+        "label": "−1.00%",
+        "minpos": {
+          "type": "float",
+          "repr": "-1.0",
+          "hex": "-0x1.0000000000000p+0"
+        }
+      },
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": null
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": "−1%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": null,
+      "view": [
+        {
+          "type": "float",
+          "repr": "0.0",
+          "hex": "0x0.0p+0"
+        },
+        {
+          "type": "float",
+          "repr": "100.0",
+          "hex": "0x1.9000000000000p+6"
+        }
+      ]
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": "−1.0%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": null,
+      "view": [
+        {
+          "type": "float",
+          "repr": "0.0",
+          "hex": "0x0.0p+0"
+        },
+        {
+          "type": "float",
+          "repr": "10.0",
+          "hex": "0x1.4000000000000p+3"
+        }
+      ]
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": "−1.00%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": null,
+      "view": [
+        {
+          "type": "float",
+          "repr": "0.0",
+          "hex": "0x0.0p+0"
+        },
+        {
+          "type": "float",
+          "repr": "1.0",
+          "hex": "0x1.0000000000000p+0"
+        }
+      ]
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": "−1%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": null,
+      "view": [
+        {
+          "type": "float",
+          "repr": "100.0",
+          "hex": "0x1.9000000000000p+6"
+        },
+        {
+          "type": "float",
+          "repr": "0.0",
+          "hex": "0x0.0p+0"
+        }
+      ]
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": "−1%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": null,
+      "view": [
+        {
+          "type": "float",
+          "repr": "2.0",
+          "hex": "0x1.0000000000000p+1"
+        },
+        {
+          "type": "float",
+          "repr": "2.0",
+          "hex": "0x1.0000000000000p+1"
+        }
+      ]
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": null,
+      "error": "ValueError",
+      "message": "cannot convert float NaN to integer",
+      "view_events": [],
+      "decimals": null,
+      "view": [
+        {
+          "type": "float",
+          "repr": "nan",
+          "hex": "nan"
+        },
+        {
+          "type": "float",
+          "repr": "1.0",
+          "hex": "0x1.0000000000000p+0"
+        }
+      ]
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": null,
+      "error": "OverflowError",
+      "message": "cannot convert float infinity to integer",
+      "view_events": [],
+      "decimals": null,
+      "view": [
+        {
+          "type": "float",
+          "repr": "-inf",
+          "hex": "-inf"
+        },
+        {
+          "type": "float",
+          "repr": "inf",
+          "hex": "inf"
+        }
+      ]
+    },
+    {
+      "label": "dummy create is no-op while bound",
+      "value": {
+        "same": true,
+        "minpos": {
+          "type": "float",
+          "repr": "-1.0",
+          "hex": "-0x1.0000000000000p+0"
+        }
+      },
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": null
+    },
+    {
+      "label": "copy retains old dummy and new dummy resets view",
+      "value": {
+        "old_view": [
+          {
+            "type": "float",
+            "repr": "-inf",
+            "hex": "-inf"
+          },
+          {
+            "type": "float",
+            "repr": "inf",
+            "hex": "inf"
+          }
+        ],
+        "new_view": [
+          0,
+          1
+        ],
+        "same": false
+      },
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": null
+    },
+    {
+      "label": "unbound call reads axis first",
+      "value": null,
+      "error": "AttributeError",
+      "message": "'NoneType' object has no attribute 'get_view_interval'",
+      "view_events": [],
+      "decimals": 2
+    },
+    {
+      "label": "unbound direct format_pct bypasses axis",
+      "value": "-1.00%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2
+    },
+    {
+      "label": "unbound empty batch never reads axis",
+      "value": [],
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2
+    },
+    {
+      "label": "unbound nonempty batch fails after set_locs",
+      "value": null,
+      "error": "AttributeError",
+      "message": "'NoneType' object has no attribute 'get_view_interval'",
+      "view_events": [],
+      "decimals": 2
+    },
+    {
+      "label": "dummy default exact view and label",
+      "value": {
+        "view": [
+          0,
+          1
+        ],
+        "label": "−1.00%",
+        "minpos": {
+          "type": "float",
+          "repr": "-1.0",
+          "hex": "-0x1.0000000000000p+0"
+        }
+      },
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": "−1.00%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2,
+      "view": [
+        {
+          "type": "float",
+          "repr": "0.0",
+          "hex": "0x0.0p+0"
+        },
+        {
+          "type": "float",
+          "repr": "100.0",
+          "hex": "0x1.9000000000000p+6"
+        }
+      ]
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": "−1.00%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2,
+      "view": [
+        {
+          "type": "float",
+          "repr": "0.0",
+          "hex": "0x0.0p+0"
+        },
+        {
+          "type": "float",
+          "repr": "10.0",
+          "hex": "0x1.4000000000000p+3"
+        }
+      ]
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": "−1.00%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2,
+      "view": [
+        {
+          "type": "float",
+          "repr": "0.0",
+          "hex": "0x0.0p+0"
+        },
+        {
+          "type": "float",
+          "repr": "1.0",
+          "hex": "0x1.0000000000000p+0"
+        }
+      ]
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": "−1.00%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2,
+      "view": [
+        {
+          "type": "float",
+          "repr": "100.0",
+          "hex": "0x1.9000000000000p+6"
+        },
+        {
+          "type": "float",
+          "repr": "0.0",
+          "hex": "0x0.0p+0"
+        }
+      ]
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": "−1.00%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2,
+      "view": [
+        {
+          "type": "float",
+          "repr": "2.0",
+          "hex": "0x1.0000000000000p+1"
+        },
+        {
+          "type": "float",
+          "repr": "2.0",
+          "hex": "0x1.0000000000000p+1"
+        }
+      ]
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": "−1.00%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2,
+      "view": [
+        {
+          "type": "float",
+          "repr": "nan",
+          "hex": "nan"
+        },
+        {
+          "type": "float",
+          "repr": "1.0",
+          "hex": "0x1.0000000000000p+0"
+        }
+      ]
+    },
+    {
+      "label": "dummy mutable range query",
+      "value": "−1.00%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2,
+      "view": [
+        {
+          "type": "float",
+          "repr": "-inf",
+          "hex": "-inf"
+        },
+        {
+          "type": "float",
+          "repr": "inf",
+          "hex": "inf"
+        }
+      ]
+    },
+    {
+      "label": "dummy create is no-op while bound",
+      "value": {
+        "same": true,
+        "minpos": {
+          "type": "float",
+          "repr": "-1.0",
+          "hex": "-0x1.0000000000000p+0"
+        }
+      },
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2
+    },
+    {
+      "label": "copy retains old dummy and new dummy resets view",
+      "value": {
+        "old_view": [
+          {
+            "type": "float",
+            "repr": "-inf",
+            "hex": "-inf"
+          },
+          {
+            "type": "float",
+            "repr": "inf",
+            "hex": "inf"
+          }
+        ],
+        "new_view": [
+          0,
+          1
+        ],
+        "same": false
+      },
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2
+    },
+    {
+      "label": "batch reads changing view once per value",
+      "value": [
+        "1%",
+        "1.0%",
+        "1.00%"
+      ],
+      "error": null,
+      "message": null,
+      "view_events": [
+        "provider.view.1",
+        "provider.view.2",
+        "provider.view.3"
+      ]
+    },
+    {
+      "label": "batch original locs retained",
+      "value": {
+        "locs": [
+          {
+            "type": "float",
+            "repr": "1.0",
+            "hex": "0x1.0000000000000p+0"
+          },
+          {
+            "type": "float",
+            "repr": "1.0",
+            "hex": "0x1.0000000000000p+0"
+          },
+          {
+            "type": "float",
+            "repr": "1.0",
+            "hex": "0x1.0000000000000p+0"
+          }
+        ],
+        "calls": 3
+      },
+      "error": null,
+      "message": null,
+      "view_events": []
+    },
+    {
+      "label": "all inherited calls use view",
+      "value": "−1.00%",
+      "error": null,
+      "message": null,
+      "view_events": [
+        "provider.view.1"
+      ],
+      "method": "__call__"
+    },
+    {
+      "label": "all inherited calls use view",
+      "value": "−1.00%",
+      "error": null,
+      "message": null,
+      "view_events": [
+        "provider.view.1"
+      ],
+      "method": "format_data"
+    },
+    {
+      "label": "all inherited calls use view",
+      "value": "−1.00%",
+      "error": null,
+      "message": null,
+      "view_events": [
+        "provider.view.1"
+      ],
+      "method": "format_data_short"
+    },
+    {
+      "label": "view failure precedes x zero division",
+      "value": null,
+      "error": "ValueError",
+      "message": "poison view",
+      "view_events": [
+        "provider.view.1"
+      ],
+      "decimals": null
+    },
+    {
+      "label": "view failure precedes x zero division",
+      "value": null,
+      "error": "ValueError",
+      "message": "poison view",
+      "view_events": [
+        "provider.view.1"
+      ],
+      "decimals": 2
+    },
+    {
+      "label": "view callback parameter mutation is visible same call",
+      "value": "1%",
+      "error": null,
+      "message": null,
+      "view_events": [
+        "provider.view.1"
+      ]
+    },
+    {
+      "label": "view callback changes rc before same-call fix_minus",
+      "value": [
+        "-1.00%",
+        "−1.00%",
+        "-1.00%"
+      ],
+      "error": null,
+      "message": null,
+      "view_events": [
+        "provider.view.1",
+        "provider.view.2",
+        "provider.view.3"
+      ]
+    },
+    {
+      "label": "actual generated Axis getter reads Bbox Float64",
+      "value": {
+        "view": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(0.0)",
+              "hex": "0x0.0p+0"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(4.0)",
+              "hex": "0x1.0000000000000p+2"
+            }
+          ]
+        },
+        "label": "1.00%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "real-x.view.x",
+        "real-x.view.x"
+      ],
+      "name": "x"
+    },
+    {
+      "label": "actual primary view change observed immediately",
+      "value": "1%",
+      "error": null,
+      "message": null,
+      "view_events": [
+        "real-x.view.x"
+      ],
+      "name": "x"
+    },
+    {
+      "label": "secondary uses own stored converted range",
+      "value": {
+        "parent": [
+          {
+            "type": "float64",
+            "repr": "np.float64(0.0)",
+            "hex": "0x0.0p+0"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(4.0)",
+            "hex": "0x1.0000000000000p+2"
+          }
+        ],
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(13.0)",
+              "hex": "0x1.a000000000000p+3"
+            }
+          ]
+        },
+        "label": "1.0%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "secondary-x.view.x",
+        "secondary-x.view.x"
+      ],
+      "name": "x"
+    },
+    {
+      "label": "secondary parent changed before _set_lims keeps own range",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(13.0)",
+              "hex": "0x1.a000000000000p+3"
+            }
+          ]
+        },
+        "label": "1.0%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "secondary-x.view.x",
+        "secondary-x.view.x"
+      ],
+      "name": "x"
+    },
+    {
+      "label": "secondary original _set_lims refreshes own range",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(5.08)",
+              "hex": "0x1.451eb851eb852p+2"
+            }
+          ]
+        },
+        "label": "1.000%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "secondary-x.view.x",
+        "secondary-x.view.x"
+      ],
+      "name": "x"
+    },
+    {
+      "label": "actual generated Axis getter reads Bbox Float64",
+      "value": {
+        "view": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(0.0)",
+              "hex": "0x0.0p+0"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(4.0)",
+              "hex": "0x1.0000000000000p+2"
+            }
+          ]
+        },
+        "label": "1.00%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "real-y.view.y",
+        "real-y.view.y"
+      ],
+      "name": "y"
+    },
+    {
+      "label": "actual primary view change observed immediately",
+      "value": "1%",
+      "error": null,
+      "message": null,
+      "view_events": [
+        "real-y.view.y"
+      ],
+      "name": "y"
+    },
+    {
+      "label": "secondary uses own stored converted range",
+      "value": {
+        "parent": [
+          {
+            "type": "float64",
+            "repr": "np.float64(0.0)",
+            "hex": "0x0.0p+0"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(4.0)",
+            "hex": "0x1.0000000000000p+2"
+          }
+        ],
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(13.0)",
+              "hex": "0x1.a000000000000p+3"
+            }
+          ]
+        },
+        "label": "1.0%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "secondary-y.view.y",
+        "secondary-y.view.y"
+      ],
+      "name": "y"
+    },
+    {
+      "label": "secondary parent changed before _set_lims keeps own range",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(13.0)",
+              "hex": "0x1.a000000000000p+3"
+            }
+          ]
+        },
+        "label": "1.0%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "secondary-y.view.y",
+        "secondary-y.view.y"
+      ],
+      "name": "y"
+    },
+    {
+      "label": "secondary original _set_lims refreshes own range",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(5.08)",
+              "hex": "0x1.451eb851eb852p+2"
+            }
+          ]
+        },
+        "label": "1.000%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "secondary-y.view.y",
+        "secondary-y.view.y"
+      ],
+      "name": "y"
+    },
+    {
+      "label": "shared last formatter setter owns both live reads",
+      "value": {
+        "installed": [
+          "1%",
+          "1%"
+        ],
+        "oldcopy": [
+          "1.00%",
+          "1.00%"
+        ],
+        "owners": [
+          "second",
+          "second"
+        ]
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "second.view.x",
+        "second.view.x",
+        "first.view.x",
+        "first.view.x"
+      ],
+      "name": "x"
+    },
+    {
+      "label": "original shared deletion rebinds both installed",
+      "value": null,
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "name": "x"
+    },
+    {
+      "label": "shared deletion live rebind vs external copies",
+      "value": {
+        "installed": [
+          "1.00%",
+          "1.00%"
+        ],
+        "external": [
+          "1%",
+          "1%"
+        ],
+        "owners": [
+          "first",
+          "first"
+        ]
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "first.view.x",
+        "first.view.x",
+        "second.view.x",
+        "second.view.x"
+      ],
+      "name": "x"
+    },
+    {
+      "label": "shared last formatter setter owns both live reads",
+      "value": {
+        "installed": [
+          "1%",
+          "1%"
+        ],
+        "oldcopy": [
+          "1.00%",
+          "1.00%"
+        ],
+        "owners": [
+          "second",
+          "second"
+        ]
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "second.view.y",
+        "second.view.y",
+        "first.view.y",
+        "first.view.y"
+      ],
+      "name": "y"
+    },
+    {
+      "label": "original shared deletion rebinds both installed",
+      "value": null,
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "name": "y"
+    },
+    {
+      "label": "shared deletion live rebind vs external copies",
+      "value": {
+        "installed": [
+          "1.00%",
+          "1.00%"
+        ],
+        "external": [
+          "1%",
+          "1%"
+        ],
+        "owners": [
+          "first",
+          "first"
+        ]
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "first.view.y",
+        "first.view.y",
+        "second.view.y",
+        "second.view.y"
+      ],
+      "name": "y"
+    },
+    {
+      "label": "view scalar origin controls second conversion",
+      "value": null,
+      "error": "ZeroDivisionError",
+      "message": "float division by zero",
+      "view_events": [],
+      "decimals": null,
+      "profile": "dummy-default"
+    },
+    {
+      "label": "view scalar origin controls second conversion",
+      "value": null,
+      "error": "ZeroDivisionError",
+      "message": "float division by zero",
+      "view_events": [],
+      "decimals": null,
+      "profile": "dummy-PythonFloat"
+    },
+    {
+      "label": "view scalar origin controls second conversion",
+      "value": null,
+      "error": "OverflowError",
+      "message": "cannot convert float infinity to integer",
+      "view_events": [],
+      "decimals": null,
+      "profile": "dummy-NumPyFloat"
+    },
+    {
+      "label": "view scalar origin controls second conversion",
+      "value": null,
+      "error": "OverflowError",
+      "message": "cannot convert float infinity to integer",
+      "view_events": [
+        "actual-zero.view.x"
+      ],
+      "decimals": null,
+      "profile": "actual-axis"
+    },
+    {
+      "label": "view scalar origin controls second conversion",
+      "value": "inf%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2,
+      "profile": "dummy-default"
+    },
+    {
+      "label": "view scalar origin controls second conversion",
+      "value": "inf%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2,
+      "profile": "dummy-PythonFloat"
+    },
+    {
+      "label": "view scalar origin controls second conversion",
+      "value": "inf%",
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "decimals": 2,
+      "profile": "dummy-NumPyFloat"
+    },
+    {
+      "label": "view scalar origin controls second conversion",
+      "value": "inf%",
+      "error": null,
+      "message": null,
+      "view_events": [
+        "actual-zero.view.x"
+      ],
+      "decimals": 2,
+      "profile": "actual-axis"
+    },
+    {
+      "label": "NdArray Int64 view subtraction and abs retain wrap",
+      "value": {
+        "label": "1.00%",
+        "range": {
+          "type": "int64",
+          "value": "1"
+        }
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "provider.view.1"
+      ],
+      "xmax": 100.0,
+      "bounds": [
+        "-9223372036854775808",
+        "9223372036854775807"
+      ]
+    },
+    {
+      "label": "NdArray Int64 view subtraction and abs retain wrap",
+      "value": {
+        "label": "1%",
+        "range": {
+          "type": "int64",
+          "value": "-9223372036854775808"
+        }
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "provider.view.1"
+      ],
+      "xmax": 100.0,
+      "bounds": [
+        "-9223372036854775808",
+        "0"
+      ]
+    },
+    {
+      "label": "NdArray Int64 view subtraction and abs retain wrap",
+      "value": {
+        "label": "1.00%",
+        "range": {
+          "type": "int64",
+          "value": "1"
+        }
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "provider.view.1"
+      ],
+      "xmax": 100.0,
+      "bounds": [
+        "9223372036854775807",
+        "-9223372036854775808"
+      ]
+    },
+    {
+      "label": "NdArray Int64 view subtraction and abs retain wrap",
+      "value": null,
+      "error": "OverflowError",
+      "message": "cannot convert float infinity to integer",
+      "view_events": [
+        "provider.view.1"
+      ],
+      "xmax": 0.0,
+      "bounds": [
+        "-9223372036854775808",
+        "9223372036854775807"
+      ]
+    },
+    {
+      "label": "NdArray Int64 view subtraction and abs retain wrap",
+      "value": {
+        "label": "inf%",
+        "range": {
+          "type": "int64",
+          "value": "-9223372036854775808"
+        }
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "provider.view.1"
+      ],
+      "xmax": 0.0,
+      "bounds": [
+        "-9223372036854775808",
+        "0"
+      ]
+    },
+    {
+      "label": "NdArray Int64 view subtraction and abs retain wrap",
+      "value": null,
+      "error": "OverflowError",
+      "message": "cannot convert float infinity to integer",
+      "view_events": [
+        "provider.view.1"
+      ],
+      "xmax": 0.0,
+      "bounds": [
+        "9223372036854775807",
+        "-9223372036854775808"
+      ]
+    },
+    {
+      "label": "complete Secondary constructor before first sync",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(0.0)",
+              "hex": "0x0.0p+0"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(1.0)",
+              "hex": "0x1.0000000000000p+0"
+            }
+          ]
+        },
+        "label": "1.00%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "constructor-secondary.view.x",
+        "constructor-secondary.view.x"
+      ],
+      "name": "x"
+    },
+    {
+      "label": "complete original apply_aspect syncs before delegate",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(13.0)",
+              "hex": "0x1.a000000000000p+3"
+            }
+          ]
+        },
+        "label": "1.0%",
+        "events": [
+          "super.apply_aspect"
+        ]
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "constructor-secondary.view.x",
+        "constructor-secondary.view.x"
+      ],
+      "name": "x"
+    },
+    {
+      "label": "complete Secondary remains stale after parent change",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(13.0)",
+              "hex": "0x1.a000000000000p+3"
+            }
+          ]
+        },
+        "label": "1.0%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "constructor-secondary.view.x",
+        "constructor-secondary.view.x"
+      ],
+      "name": "x"
+    },
+    {
+      "label": "complete original draw syncs before super formats",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(5.08)",
+              "hex": "0x1.451eb851eb852p+2"
+            }
+          ]
+        },
+        "label": "1.000%",
+        "delegate_label": "1.000%",
+        "events": [
+          "super.apply_aspect",
+          "super.draw"
+        ]
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "constructor-secondary.view.x",
+        "constructor-secondary.view.x"
+      ],
+      "name": "x"
+    },
+    {
+      "label": "complete Secondary constructor before first sync",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(0.0)",
+              "hex": "0x0.0p+0"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(1.0)",
+              "hex": "0x1.0000000000000p+0"
+            }
+          ]
+        },
+        "label": "1.00%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "constructor-secondary.view.y",
+        "constructor-secondary.view.y"
+      ],
+      "name": "y"
+    },
+    {
+      "label": "complete original apply_aspect syncs before delegate",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(13.0)",
+              "hex": "0x1.a000000000000p+3"
+            }
+          ]
+        },
+        "label": "1.0%",
+        "events": [
+          "super.apply_aspect"
+        ]
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "constructor-secondary.view.y",
+        "constructor-secondary.view.y"
+      ],
+      "name": "y"
+    },
+    {
+      "label": "complete Secondary remains stale after parent change",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(13.0)",
+              "hex": "0x1.a000000000000p+3"
+            }
+          ]
+        },
+        "label": "1.0%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "constructor-secondary.view.y",
+        "constructor-secondary.view.y"
+      ],
+      "name": "y"
+    },
+    {
+      "label": "complete original draw syncs before super formats",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(5.08)",
+              "hex": "0x1.451eb851eb852p+2"
+            }
+          ]
+        },
+        "label": "1.000%",
+        "delegate_label": "1.000%",
+        "events": [
+          "super.apply_aspect",
+          "super.draw"
+        ]
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "constructor-secondary.view.y",
+        "constructor-secondary.view.y"
+      ],
+      "name": "y"
+    },
+    {
+      "label": "complete original Figure layout and Axes draw ordered callbacks",
+      "value": {
+        "name": "x",
+        "before_layout": "1.00%",
+        "after_layout": "1.0%",
+        "parent_callbacks": [
+          {
+            "pos": 0,
+            "primary": "1.0000%",
+            "secondary": "1.0%",
+            "secondary_own": {
+              "dtype": "float64",
+              "values": [
+                {
+                  "type": "float64",
+                  "repr": "np.float64(5.0)",
+                  "hex": "0x1.4000000000000p+2"
+                },
+                {
+                  "type": "float64",
+                  "repr": "np.float64(13.0)",
+                  "hex": "0x1.a000000000000p+3"
+                }
+              ]
+            }
+          },
+          {
+            "pos": 1,
+            "primary": "1.0000%",
+            "secondary": "1.0%",
+            "secondary_own": {
+              "dtype": "float64",
+              "values": [
+                {
+                  "type": "float64",
+                  "repr": "np.float64(5.0)",
+                  "hex": "0x1.4000000000000p+2"
+                },
+                {
+                  "type": "float64",
+                  "repr": "np.float64(13.0)",
+                  "hex": "0x1.a000000000000p+3"
+                }
+              ]
+            }
+          },
+          {
+            "pos": 2,
+            "primary": "1.0000%",
+            "secondary": "1.0%",
+            "secondary_own": {
+              "dtype": "float64",
+              "values": [
+                {
+                  "type": "float64",
+                  "repr": "np.float64(5.0)",
+                  "hex": "0x1.4000000000000p+2"
+                },
+                {
+                  "type": "float64",
+                  "repr": "np.float64(13.0)",
+                  "hex": "0x1.a000000000000p+3"
+                }
+              ]
+            }
+          }
+        ],
+        "default_secondary_draw_label": "1.0%",
+        "after_parent_draw": "1.0%",
+        "after_explicit_child_draw": "1.000%",
+        "trace": [
+          [
+            "parent.apply_aspect",
+            null
+          ],
+          [
+            "parent.apply_aspect",
+            null
+          ],
+          [
+            "artist_order",
+            [
+              [
+                "secondary",
+                0
+              ],
+              [
+                "primary-x",
+                1.5
+              ],
+              [
+                "primary-y",
+                1.5
+              ]
+            ]
+          ],
+          [
+            "parent.callback",
+            {
+              "pos": 0,
+              "primary": "1.0000%",
+              "secondary": "1.0%",
+              "secondary_own": {
+                "dtype": "float64",
+                "values": [
+                  {
+                    "type": "float64",
+                    "repr": "np.float64(5.0)",
+                    "hex": "0x1.4000000000000p+2"
+                  },
+                  {
+                    "type": "float64",
+                    "repr": "np.float64(13.0)",
+                    "hex": "0x1.a000000000000p+3"
+                  }
+                ]
+              }
+            }
+          ],
+          [
+            "parent.callback",
+            {
+              "pos": 1,
+              "primary": "1.0000%",
+              "secondary": "1.0%",
+              "secondary_own": {
+                "dtype": "float64",
+                "values": [
+                  {
+                    "type": "float64",
+                    "repr": "np.float64(5.0)",
+                    "hex": "0x1.4000000000000p+2"
+                  },
+                  {
+                    "type": "float64",
+                    "repr": "np.float64(13.0)",
+                    "hex": "0x1.a000000000000p+3"
+                  }
+                ]
+              }
+            }
+          ],
+          [
+            "parent.callback",
+            {
+              "pos": 2,
+              "primary": "1.0000%",
+              "secondary": "1.0%",
+              "secondary_own": {
+                "dtype": "float64",
+                "values": [
+                  {
+                    "type": "float64",
+                    "repr": "np.float64(5.0)",
+                    "hex": "0x1.4000000000000p+2"
+                  },
+                  {
+                    "type": "float64",
+                    "repr": "np.float64(13.0)",
+                    "hex": "0x1.a000000000000p+3"
+                  }
+                ]
+              }
+            }
+          ],
+          [
+            "primary-x.draw",
+            [
+              [
+                0.0,
+                "0"
+              ]
+            ]
+          ],
+          [
+            "primary-y.draw",
+            []
+          ]
+        ]
+      },
+      "error": null,
+      "message": null,
+      "view_events": []
+    },
+    {
+      "label": "complete original Figure layout and Axes draw ordered callbacks",
+      "value": {
+        "name": "y",
+        "before_layout": "1.00%",
+        "after_layout": "1.0%",
+        "parent_callbacks": [
+          {
+            "pos": 0,
+            "primary": "1.0000%",
+            "secondary": "1.0%",
+            "secondary_own": {
+              "dtype": "float64",
+              "values": [
+                {
+                  "type": "float64",
+                  "repr": "np.float64(5.0)",
+                  "hex": "0x1.4000000000000p+2"
+                },
+                {
+                  "type": "float64",
+                  "repr": "np.float64(13.0)",
+                  "hex": "0x1.a000000000000p+3"
+                }
+              ]
+            }
+          },
+          {
+            "pos": 1,
+            "primary": "1.0000%",
+            "secondary": "1.0%",
+            "secondary_own": {
+              "dtype": "float64",
+              "values": [
+                {
+                  "type": "float64",
+                  "repr": "np.float64(5.0)",
+                  "hex": "0x1.4000000000000p+2"
+                },
+                {
+                  "type": "float64",
+                  "repr": "np.float64(13.0)",
+                  "hex": "0x1.a000000000000p+3"
+                }
+              ]
+            }
+          },
+          {
+            "pos": 2,
+            "primary": "1.0000%",
+            "secondary": "1.0%",
+            "secondary_own": {
+              "dtype": "float64",
+              "values": [
+                {
+                  "type": "float64",
+                  "repr": "np.float64(5.0)",
+                  "hex": "0x1.4000000000000p+2"
+                },
+                {
+                  "type": "float64",
+                  "repr": "np.float64(13.0)",
+                  "hex": "0x1.a000000000000p+3"
+                }
+              ]
+            }
+          }
+        ],
+        "default_secondary_draw_label": "1.0%",
+        "after_parent_draw": "1.0%",
+        "after_explicit_child_draw": "1.000%",
+        "trace": [
+          [
+            "parent.apply_aspect",
+            null
+          ],
+          [
+            "parent.apply_aspect",
+            null
+          ],
+          [
+            "artist_order",
+            [
+              [
+                "secondary",
+                0
+              ],
+              [
+                "primary-x",
+                1.5
+              ],
+              [
+                "primary-y",
+                1.5
+              ]
+            ]
+          ],
+          [
+            "primary-x.draw",
+            []
+          ],
+          [
+            "parent.callback",
+            {
+              "pos": 0,
+              "primary": "1.0000%",
+              "secondary": "1.0%",
+              "secondary_own": {
+                "dtype": "float64",
+                "values": [
+                  {
+                    "type": "float64",
+                    "repr": "np.float64(5.0)",
+                    "hex": "0x1.4000000000000p+2"
+                  },
+                  {
+                    "type": "float64",
+                    "repr": "np.float64(13.0)",
+                    "hex": "0x1.a000000000000p+3"
+                  }
+                ]
+              }
+            }
+          ],
+          [
+            "parent.callback",
+            {
+              "pos": 1,
+              "primary": "1.0000%",
+              "secondary": "1.0%",
+              "secondary_own": {
+                "dtype": "float64",
+                "values": [
+                  {
+                    "type": "float64",
+                    "repr": "np.float64(5.0)",
+                    "hex": "0x1.4000000000000p+2"
+                  },
+                  {
+                    "type": "float64",
+                    "repr": "np.float64(13.0)",
+                    "hex": "0x1.a000000000000p+3"
+                  }
+                ]
+              }
+            }
+          ],
+          [
+            "parent.callback",
+            {
+              "pos": 2,
+              "primary": "1.0000%",
+              "secondary": "1.0%",
+              "secondary_own": {
+                "dtype": "float64",
+                "values": [
+                  {
+                    "type": "float64",
+                    "repr": "np.float64(5.0)",
+                    "hex": "0x1.4000000000000p+2"
+                  },
+                  {
+                    "type": "float64",
+                    "repr": "np.float64(13.0)",
+                    "hex": "0x1.a000000000000p+3"
+                  }
+                ]
+              }
+            }
+          ],
+          [
+            "primary-y.draw",
+            [
+              [
+                0.0,
+                "0"
+              ]
+            ]
+          ]
+        ]
+      },
+      "error": null,
+      "message": null,
+      "view_events": []
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "name": "x",
+      "mode": "equal5",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(4.75)",
+            "hex": "0x1.3000000000000p+2"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(5.25)",
+            "hex": "0x1.5000000000000p+2"
+          }
+        ]
+      }
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "name": "x",
+      "mode": "equal0",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(-0.05)",
+            "hex": "-0x1.999999999999ap-5"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(0.05)",
+            "hex": "0x1.999999999999ap-5"
+          }
+        ]
+      }
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "name": "x",
+      "mode": "tiny",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(-0.05)",
+            "hex": "-0x1.999999999999ap-5"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(0.05)",
+            "hex": "0x1.999999999999ap-5"
+          }
+        ]
+      }
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "name": "x",
+      "mode": "maxfinite",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(1.7078084781191998e+308)",
+            "hex": "0x1.e666666666665p+1023"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(inf)",
+            "hex": "inf"
+          }
+        ]
+      }
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": "ValueError",
+      "message": "Axis limits cannot be NaN or Inf",
+      "view_events": [],
+      "name": "x",
+      "mode": "nan",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(0.0)",
+            "hex": "0x0.0p+0"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(1.0)",
+            "hex": "0x1.0000000000000p+0"
+          }
+        ]
+      }
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": "ValueError",
+      "message": "Axis limits cannot be NaN or Inf",
+      "view_events": [],
+      "name": "x",
+      "mode": "inf",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(0.0)",
+            "hex": "0x0.0p+0"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(1.0)",
+            "hex": "0x1.0000000000000p+0"
+          }
+        ]
+      }
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": "ValueError",
+      "message": "Axis limits cannot be NaN or Inf",
+      "view_events": [],
+      "name": "x",
+      "mode": "overflow",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(0.0)",
+            "hex": "0x0.0p+0"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(1.0)",
+            "hex": "0x1.0000000000000p+0"
+          }
+        ]
+      }
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "name": "y",
+      "mode": "equal5",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(4.75)",
+            "hex": "0x1.3000000000000p+2"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(5.25)",
+            "hex": "0x1.5000000000000p+2"
+          }
+        ]
+      }
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "name": "y",
+      "mode": "equal0",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(-0.05)",
+            "hex": "-0x1.999999999999ap-5"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(0.05)",
+            "hex": "0x1.999999999999ap-5"
+          }
+        ]
+      }
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "name": "y",
+      "mode": "tiny",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(-0.05)",
+            "hex": "-0x1.999999999999ap-5"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(0.05)",
+            "hex": "0x1.999999999999ap-5"
+          }
+        ]
+      }
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": null,
+      "message": null,
+      "view_events": [],
+      "name": "y",
+      "mode": "maxfinite",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(1.7078084781191998e+308)",
+            "hex": "0x1.e666666666665p+1023"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(inf)",
+            "hex": "inf"
+          }
+        ]
+      }
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": "ValueError",
+      "message": "Axis limits cannot be NaN or Inf",
+      "view_events": [],
+      "name": "y",
+      "mode": "nan",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(0.0)",
+            "hex": "0x0.0p+0"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(1.0)",
+            "hex": "0x1.0000000000000p+0"
+          }
+        ]
+      }
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": "ValueError",
+      "message": "Axis limits cannot be NaN or Inf",
+      "view_events": [],
+      "name": "y",
+      "mode": "inf",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(0.0)",
+            "hex": "0x0.0p+0"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(1.0)",
+            "hex": "0x1.0000000000000p+0"
+          }
+        ]
+      }
+    },
+    {
+      "label": "secondary sync uses original _set_lim validation",
+      "value": null,
+      "error": "ValueError",
+      "message": "Axis limits cannot be NaN or Inf",
+      "view_events": [],
+      "name": "y",
+      "mode": "overflow",
+      "own_after": {
+        "dtype": "float64",
+        "values": [
+          {
+            "type": "float64",
+            "repr": "np.float64(0.0)",
+            "hex": "0x0.0p+0"
+          },
+          {
+            "type": "float64",
+            "repr": "np.float64(1.0)",
+            "hex": "0x1.0000000000000p+0"
+          }
+        ]
+      }
+    },
+    {
+      "label": "log-parent complete constructor autoscale default",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(0.8912509381337456)",
+              "hex": "0x1.c8520affa0a4bp-1"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(11.220184543019636)",
+              "hex": "0x1.670bc0746b545p+3"
+            }
+          ]
+        },
+        "label": "1.0%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "log-constructor-secondary.view.x",
+        "log-constructor-secondary.view.x"
+      ],
+      "name": "x",
+      "mapping": "identity"
+    },
+    {
+      "label": "log-parent original apply_aspect clamps functionlog limits",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(1.0)",
+              "hex": "0x1.0000000000000p+0"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(100.0)",
+              "hex": "0x1.9000000000000p+6"
+            }
+          ]
+        },
+        "label": "1%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "log-constructor-secondary.view.x",
+        "log-constructor-secondary.view.x"
+      ],
+      "name": "x",
+      "mapping": "identity"
+    },
+    {
+      "label": "log-parent complete constructor autoscale default",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(5.234401174884448e+50)",
+              "hex": "0x1.6626faa6518dap+168"
+            }
+          ]
+        },
+        "label": "1%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "log-constructor-secondary.view.x",
+        "log-constructor-secondary.view.x"
+      ],
+      "name": "x",
+      "mapping": "affine"
+    },
+    {
+      "label": "log-parent original apply_aspect clamps functionlog limits",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(7.0)",
+              "hex": "0x1.c000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(205.0)",
+              "hex": "0x1.9a00000000000p+7"
+            }
+          ]
+        },
+        "label": "1%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "log-constructor-secondary.view.x",
+        "log-constructor-secondary.view.x"
+      ],
+      "name": "x",
+      "mapping": "affine"
+    },
+    {
+      "label": "log-parent complete constructor autoscale default",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(0.8912509381337456)",
+              "hex": "0x1.c8520affa0a4bp-1"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(11.220184543019636)",
+              "hex": "0x1.670bc0746b545p+3"
+            }
+          ]
+        },
+        "label": "1.0%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "log-constructor-secondary.view.y",
+        "log-constructor-secondary.view.y"
+      ],
+      "name": "y",
+      "mapping": "identity"
+    },
+    {
+      "label": "log-parent original apply_aspect clamps functionlog limits",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(1.0)",
+              "hex": "0x1.0000000000000p+0"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(100.0)",
+              "hex": "0x1.9000000000000p+6"
+            }
+          ]
+        },
+        "label": "1%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "log-constructor-secondary.view.y",
+        "log-constructor-secondary.view.y"
+      ],
+      "name": "y",
+      "mapping": "identity"
+    },
+    {
+      "label": "log-parent complete constructor autoscale default",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(5.0)",
+              "hex": "0x1.4000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(5.234401174884448e+50)",
+              "hex": "0x1.6626faa6518dap+168"
+            }
+          ]
+        },
+        "label": "1%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "log-constructor-secondary.view.y",
+        "log-constructor-secondary.view.y"
+      ],
+      "name": "y",
+      "mapping": "affine"
+    },
+    {
+      "label": "log-parent original apply_aspect clamps functionlog limits",
+      "value": {
+        "own": {
+          "dtype": "float64",
+          "values": [
+            {
+              "type": "float64",
+              "repr": "np.float64(7.0)",
+              "hex": "0x1.c000000000000p+2"
+            },
+            {
+              "type": "float64",
+              "repr": "np.float64(205.0)",
+              "hex": "0x1.9a00000000000p+7"
+            }
+          ]
+        },
+        "label": "1%"
+      },
+      "error": null,
+      "message": null,
+      "view_events": [
+        "log-constructor-secondary.view.y",
+        "log-constructor-secondary.view.y"
+      ],
+      "name": "y",
+      "mapping": "affine"
+    },
+    {
+      "label": "original update_ticks Percent full batches precede visibility",
+      "name": "x",
+      "failure": null,
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 0.0,
+            "label": "0.00%"
+          },
+          {
+            "level": "major",
+            "value": 2.0,
+            "label": "2.00%"
+          },
+          {
+            "level": "minor",
+            "value": 1.0,
+            "label": "1.00%"
+          },
+          {
+            "level": "minor",
+            "value": 3.0,
+            "label": "3.00%"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              2.0,
+              5.0
+            ]
+          },
+          {
+            "level": "minor",
+            "values": [
+              -2.0,
+              1.0,
+              3.0,
+              6.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "original update_ticks Percent full batches precede visibility",
+      "name": "x",
+      "failure": "major",
+      "result": {
+        "values": null,
+        "error": "ValueError",
+        "message": "poison major range",
+        "events": [],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              2.0,
+              5.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "original update_ticks Percent full batches precede visibility",
+      "name": "x",
+      "failure": "minor",
+      "result": {
+        "values": null,
+        "error": "ValueError",
+        "message": "poison minor range",
+        "events": [],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              2.0,
+              5.0
+            ]
+          },
+          {
+            "level": "minor",
+            "values": [
+              -2.0,
+              1.0,
+              3.0,
+              6.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "original update_ticks Percent full batches precede visibility",
+      "name": "y",
+      "failure": null,
+      "result": {
+        "values": [
+          {
+            "level": "major",
+            "value": 0.0,
+            "label": "0.00%"
+          },
+          {
+            "level": "major",
+            "value": 2.0,
+            "label": "2.00%"
+          },
+          {
+            "level": "minor",
+            "value": 1.0,
+            "label": "1.00%"
+          },
+          {
+            "level": "minor",
+            "value": 3.0,
+            "label": "3.00%"
+          }
+        ],
+        "error": null,
+        "message": null,
+        "events": [],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              2.0,
+              5.0
+            ]
+          },
+          {
+            "level": "minor",
+            "values": [
+              -2.0,
+              1.0,
+              3.0,
+              6.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "original update_ticks Percent full batches precede visibility",
+      "name": "y",
+      "failure": "major",
+      "result": {
+        "values": null,
+        "error": "ValueError",
+        "message": "poison major range",
+        "events": [],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              2.0,
+              5.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "original update_ticks Percent full batches precede visibility",
+      "name": "y",
+      "failure": "minor",
+      "result": {
+        "values": null,
+        "error": "ValueError",
+        "message": "poison minor range",
+        "events": [],
+        "warnings": [],
+        "set_locs": [
+          {
+            "level": "major",
+            "values": [
+              -1.0,
+              0.0,
+              2.0,
+              5.0
+            ]
+          },
+          {
+            "level": "minor",
+            "values": [
+              -2.0,
+              1.0,
+              3.0,
+              6.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "raw integer zero xmax preserves dummy range origin",
+      "value": null,
+      "error": "ZeroDivisionError",
+      "message": "division by zero",
+      "view_events": [],
+      "raw": "Integer",
+      "profile": "dummy-default"
+    },
+    {
+      "label": "raw integer zero xmax preserves dummy range origin",
+      "value": null,
+      "error": "ZeroDivisionError",
+      "message": "float division by zero",
+      "view_events": [],
+      "raw": "Integer",
+      "profile": "PythonFloat"
+    },
+    {
+      "label": "raw integer zero xmax preserves dummy range origin",
+      "value": null,
+      "error": "OverflowError",
+      "message": "cannot convert float infinity to integer",
+      "view_events": [],
+      "raw": "Integer",
+      "profile": "NumPyFloat"
+    },
+    {
+      "label": "raw integer zero xmax preserves dummy range origin",
+      "value": null,
+      "error": "OverflowError",
+      "message": "cannot convert float infinity to integer",
+      "view_events": [],
+      "raw": "Integer",
+      "profile": "NumPyInt64"
+    },
+    {
+      "label": "raw integer zero xmax preserves dummy range origin",
+      "value": null,
+      "error": "ZeroDivisionError",
+      "message": "division by zero",
+      "view_events": [],
+      "raw": "Boolean",
+      "profile": "dummy-default"
+    },
+    {
+      "label": "raw integer zero xmax preserves dummy range origin",
+      "value": null,
+      "error": "ZeroDivisionError",
+      "message": "float division by zero",
+      "view_events": [],
+      "raw": "Boolean",
+      "profile": "PythonFloat"
+    },
+    {
+      "label": "raw integer zero xmax preserves dummy range origin",
+      "value": null,
+      "error": "OverflowError",
+      "message": "cannot convert float infinity to integer",
+      "view_events": [],
+      "raw": "Boolean",
+      "profile": "NumPyFloat"
+    },
+    {
+      "label": "raw integer zero xmax preserves dummy range origin",
+      "value": null,
+      "error": "OverflowError",
+      "message": "cannot convert float infinity to integer",
+      "view_events": [],
+      "raw": "Boolean",
+      "profile": "NumPyInt64"
+    },
+    {
+      "label": "later provider error preserves full batch locations",
+      "value": null,
+      "error": "ValueError",
+      "message": "second view fails",
+      "view_events": [
+        "provider.view.1",
+        "provider.view.2"
+      ],
+      "calls": 2,
+      "locations": [
+        {
+          "type": "float",
+          "repr": "1.0",
+          "hex": "0x1.0000000000000p+0"
+        },
+        {
+          "type": "float",
+          "repr": "2.0",
+          "hex": "0x1.0000000000000p+1"
+        },
+        {
+          "type": "float",
+          "repr": "3.0",
+          "hex": "0x1.8000000000000p+1"
+        }
+      ]
+    },
+    {
+      "label": "view unpack precedes percent conversion",
+      "value": null,
+      "error": "ValueError",
+      "message": "not enough values to unpack (expected 2, got 0)",
+      "view_events": [
+        "provider.view.1"
+      ],
+      "view": []
+    },
+    {
+      "label": "view unpack precedes percent conversion",
+      "value": null,
+      "error": "ValueError",
+      "message": "not enough values to unpack (expected 2, got 1)",
+      "view_events": [
+        "provider.view.1"
+      ],
+      "view": [
+        {
+          "type": "float",
+          "repr": "1.0",
+          "hex": "0x1.0000000000000p+0"
+        }
+      ]
+    },
+    {
+      "label": "view unpack precedes percent conversion",
+      "value": null,
+      "error": "ValueError",
+      "message": "too many values to unpack (expected 2)",
+      "view_events": [
+        "provider.view.1"
+      ],
+      "view": [
+        {
+          "type": "float",
+          "repr": "0.0",
+          "hex": "0x0.0p+0"
+        },
+        {
+          "type": "float",
+          "repr": "1.0",
+          "hex": "0x1.0000000000000p+0"
+        },
+        {
+          "type": "float",
+          "repr": "2.0",
+          "hex": "0x1.0000000000000p+1"
+        }
+      ]
+    }
+  ]
+}

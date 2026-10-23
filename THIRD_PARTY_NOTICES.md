@@ -400,3 +400,13 @@ conversion and project BigInt rounding helpers are reused; no CPython C code,
 NumPy implementation or new Python/C runtime is redistributed. Explicit typed
 boundaries and reproduction are documented in
 [testdata/string_formatter_README.md](testdata/string_formatter_README.md).
+
+## Named percentage formatter
+
+PercentFormatter follows the pinned Matplotlib class and inherited object
+protocol. Its references execute complete original formatter, axis, secondary
+and frame methods with the real API/deprecation helpers. Matplotlib's license
+and notice above apply. Existing project BigInt rounding, Unicode predicates
+and portable logarithm helpers are reused; no new Python, NumPy or TeX runtime
+is distributed. Typed domains and reproduction are documented in
+[testdata/percent_formatter_README.md](testdata/percent_formatter_README.md).

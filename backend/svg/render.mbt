@@ -1558,6 +1558,7 @@ fn append_secondary_x_axis(
   plot_height : Double,
   primary_ticks : Array[Double],
   axis : @render.SecondaryAxis,
+  prepared~ : SecondaryTickBundle? = None,
 ) -> Unit raise @core.DataError {
   let scale = secondary_display_scale(scale, true)
   let at_top = match axis.location() {
@@ -1573,12 +1574,10 @@ fn append_secondary_x_axis(
     ("stroke", "#374151"),
     ("stroke-width", "1"),
   ])
-  let bundle = secondary_axis_bundle(
-    axis,
-    primary_ticks,
-    scale.xmin,
-    scale.xmax,
-  )
+  let bundle = match prepared {
+    Some(bundle) => bundle
+    None => secondary_axis_bundle(axis, primary_ticks, scale.xmin, scale.xmax)
+  }
   let ticks = bundle.major
   let labels = bundle.major_labels
   for index, value in bundle.minor {
@@ -1671,6 +1670,7 @@ fn append_secondary_y_axis(
   plot_height : Double,
   primary_ticks : Array[Double],
   axis : @render.SecondaryAxis,
+  prepared~ : SecondaryTickBundle? = None,
 ) -> Unit raise @core.DataError {
   let scale = secondary_display_scale(scale, false)
   let at_right = match axis.location() {
@@ -1686,12 +1686,10 @@ fn append_secondary_y_axis(
     ("stroke", "#374151"),
     ("stroke-width", "1"),
   ])
-  let bundle = secondary_axis_bundle(
-    axis,
-    primary_ticks,
-    scale.ymin,
-    scale.ymax,
-  )
+  let bundle = match prepared {
+    Some(bundle) => bundle
+    None => secondary_axis_bundle(axis, primary_ticks, scale.ymin, scale.ymax)
+  }
   let ticks = bundle.major
   let labels = bundle.major_labels
   for index, value in bundle.minor {
@@ -3373,14 +3371,66 @@ fn render_panel(
   position : (Double, Double, Double, Double),
 ) -> Unit raise @core.DataError {
   let (left, top, plot_width, plot_height) = position
+  // Earlier panels can change the limits of a shared axis in this frame.
+  let (xmin, xmax) = panel.x_axis().view_interval_checked()
+  let (ymin, ymax) = panel.y_axis().view_interval_checked()
+  let scale : Scale = {
+    xmin,
+    xmax,
+    ymin,
+    ymax,
+    x_axis_scale: scale.x_axis_scale,
+    y_axis_scale: scale.y_axis_scale,
+  }
+  // The default child-axes zorder precedes the primary Axis artists. Evaluate
+  // live secondary batches now; their XML can still follow the plot artists.
+  let secondary_scale = scale
+  let secondary_x_bundles = panel
+    .secondary_x()
+    .map(axis => {
+      let owned_view = axis.synchronize_view()
+      if owned_view &&
+        (
+          axis.named_formatter() is Some(_) ||
+          axis.minor_named_formatter() is Some(_)
+        ) {
+        Some(secondary_axis_bundle(axis, [], scale.xmin, scale.xmax))
+      } else {
+        None
+      }
+    })
+  let secondary_y_bundles = panel
+    .secondary_y()
+    .map(axis => {
+      let owned_view = axis.synchronize_view()
+      if owned_view &&
+        (
+          axis.named_formatter() is Some(_) ||
+          axis.minor_named_formatter() is Some(_)
+        ) {
+        Some(secondary_axis_bundle(axis, [], scale.ymin, scale.ymax))
+      } else {
+        None
+      }
+    })
   let x_bundle = numeric_axis_bundle(
     panel.x_axis(),
     @core.limits(scale.xmin, scale.xmax),
   )
+  let (xmin, xmax) = panel.x_axis().view_interval_checked()
   let y_bundle = numeric_axis_bundle(
     panel.y_axis(),
     @core.limits(scale.ymin, scale.ymax),
   )
+  let (ymin, ymax) = panel.y_axis().view_interval_checked()
+  let scale : Scale = {
+    xmin,
+    xmax,
+    ymin,
+    ymax,
+    x_axis_scale: scale.x_axis_scale,
+    y_axis_scale: scale.y_axis_scale,
+  }
   let x_ticks = x_bundle.major
   let y_ticks = y_bundle.major
   let x_minor_ticks = x_bundle.minor
@@ -3604,14 +3654,30 @@ fn render_panel(
     }
   }
   if panel.frame_visible() {
-    for axis in panel.secondary_x() {
+    for index, axis in panel.secondary_x() {
       append_secondary_x_axis(
-        writer, scale, left, top, plot_width, plot_height, x_ticks, axis,
+        writer,
+        secondary_scale,
+        left,
+        top,
+        plot_width,
+        plot_height,
+        x_ticks,
+        axis,
+        prepared=secondary_x_bundles[index],
       )
     }
-    for axis in panel.secondary_y() {
+    for index, axis in panel.secondary_y() {
       append_secondary_y_axis(
-        writer, scale, left, top, plot_width, plot_height, y_ticks, axis,
+        writer,
+        secondary_scale,
+        left,
+        top,
+        plot_width,
+        plot_height,
+        y_ticks,
+        axis,
+        prepared=secondary_y_bundles[index],
       )
     }
   }
@@ -3711,6 +3777,14 @@ pub fn render_with_positions_checked(
     panel.y_axis().set_tick_layout(position.3, false, active=true)
     panel.x_axis().set_tick_view(scales[index].xmin, scales[index].xmax)
     panel.y_axis().set_tick_view(scales[index].ymin, scales[index].ymax)
+  }
+  for panel in figure.panels() {
+    for axis in panel.secondary_x() {
+      ignore(axis.synchronize_view())
+    }
+    for axis in panel.secondary_y() {
+      ignore(axis.synchronize_view())
+    }
   }
   try! writer.start_element("svg", [
     ("xmlns", "http://www.w3.org/2000/svg"),

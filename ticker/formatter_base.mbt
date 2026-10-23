@@ -37,10 +37,34 @@ pub fn FormatterLocations::get(
 }
 
 ///|
+/// Scalar domains returned by a live axis view, separate from tick locations.
+pub(all) enum FormatterViewInterval {
+  Sequence(Array[Double])
+  Integers(Array[@bigint.BigInt])
+  NdArray(TickValues)
+}
+
+///|
+pub fn FormatterViewInterval::length(self : FormatterViewInterval) -> Int32 {
+  match self {
+    Sequence(values) => values.length()
+    Integers(values) => values.length()
+    NdArray(values) => values.length()
+  }
+}
+
+///|
 /// Stable typed axis identity; dummy metadata does not expose a dynamic Axis.
 pub struct FormatterAxisBinding {
   priv minpos : Double?
-} derive(Debug)
+  priv mut view_provider : (() -> FormatterViewInterval raise @core.DataError)?
+  priv mut stored_view : FormatterViewInterval?
+}
+
+///|
+pub impl @debug.Debug for FormatterAxisBinding with fn to_repr(self) {
+  @debug.Repr::Repr(("FormatterAxisBinding", self.minpos))
+}
 
 ///|
 pub extend FormatterAxisBinding with @debug.Debug::{to_repr}
@@ -55,7 +79,44 @@ pub extend FormatterAxisBinding with Eq::{equal, not_equal}
 
 ///|
 pub fn FormatterAxisBinding::new() -> FormatterAxisBinding {
-  { minpos: None, }
+  { minpos: None, view_provider: None, stored_view: None, }
+}
+
+///|
+/// Read the current interval once on each formatter call.
+pub fn FormatterAxisBinding::view_interval(
+  self : FormatterAxisBinding,
+) -> FormatterViewInterval raise @core.DataError {
+  match self.view_provider {
+    Some(provider) => provider()
+    None =>
+      match self.stored_view {
+        Some(view) => view
+        None =>
+          raise @core.DataError::InvalidTicks(
+            message="AttributeError: axis binding has no get_view_interval provider",
+          )
+      }
+  }
+}
+
+///|
+/// Bind a live view source to this stable axis identity.
+pub fn FormatterAxisBinding::bind_view_interval(
+  self : FormatterAxisBinding,
+  provider : () -> FormatterViewInterval raise @core.DataError,
+) -> Unit {
+  self.view_provider = Some(provider)
+}
+
+///|
+/// Retain the supplied interval object, replacing a callback if present.
+pub fn FormatterAxisBinding::set_view_interval(
+  self : FormatterAxisBinding,
+  view : FormatterViewInterval,
+) -> Unit {
+  self.view_provider = None
+  self.stored_view = Some(view)
 }
 
 ///|
@@ -95,6 +156,7 @@ priv enum FormatterKind {
   Func(FuncFormatterState)
   FormatStr(StringFormatterState)
   StrMethod(StringFormatterState)
+  Percent(PercentFormatterState)
 }
 
 ///|
@@ -166,14 +228,23 @@ pub fn BaseFormatter::create_dummy_axis(
   minpos~ : Double = 0.0,
 ) -> Unit {
   if self.axis is None {
-    self.axis = Some({ minpos: Some(minpos), })
+    self.axis = Some({
+      minpos: Some(minpos),
+      view_provider: None,
+      stored_view: Some(
+        FormatterViewInterval::Integers([
+          @bigint.BigInt::from_int(0),
+          @bigint.BigInt::from_int(1),
+        ]),
+      ),
+    })
   }
 }
 
 ///|
 pub fn BaseFormatter::get_offset(self : BaseFormatter) -> String {
   match self.kind {
-    Abstract | Null | FormatStr(_) | StrMethod(_) => ""
+    Abstract | Null | FormatStr(_) | StrMethod(_) | Percent(_) => ""
     Fixed(state) => state.offset
     Func(state) => state.offset
   }
@@ -190,6 +261,13 @@ pub fn BaseFormatter::copy(self : BaseFormatter) -> BaseFormatter {
       FormatterKind::Func({ callback: state.callback, offset: state.offset, })
     FormatStr(state) => FormatterKind::FormatStr({ fmt: state.fmt, })
     StrMethod(state) => FormatterKind::StrMethod({ fmt: state.fmt, })
+    Percent(state) =>
+      FormatterKind::Percent({
+        xmax: state.xmax,
+        decimals: state.decimals,
+        symbol: state.symbol,
+        is_latex: state.is_latex,
+      })
   }
   { kind, locations: self.locations, axis: self.axis, }
 }

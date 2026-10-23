@@ -122,3 +122,26 @@ def load_string_formatters(ticker_path):
         raise ValueError("fixed string formatter classes missing or reordered")
     exec(compile(ast.Module(body=nodes, type_ignores=[]), str(ticker_path), "exec"), namespace)
     return namespace
+
+
+def load_percent_formatter(ticker_path):
+    """Explicit percentage-class branch; prior loader metadata is unchanged.
+
+    Constructor coercion, symbol property, arithmetic and native formatting all
+    execute the complete original class. The fixture supplies only checked rc
+    defaults and caller-owned axis/context objects.
+    """
+    namespace = load(ticker_path)
+    ticker_path = Path(ticker_path)
+    rc_source = _checked(ticker_path.parent / "mpl-data/matplotlibrc", RC_SHA)
+    default = re.search(rb"^#text\.usetex:\s*(\w+)", rc_source, re.M)
+    if default is None or default[1] not in (b"True", b"False"):
+        raise ValueError("fixed TeX text default missing")
+    namespace['mpl'].rcParams['text.usetex'] = default[1] == b'True'
+    tree = ast.parse(ticker_path.read_bytes())
+    nodes = [node for node in tree.body
+             if isinstance(node, ast.ClassDef) and node.name == 'PercentFormatter']
+    if len(nodes) != 1:
+        raise ValueError("fixed percentage formatter class missing")
+    exec(compile(ast.Module(body=nodes, type_ignores=[]), str(ticker_path), "exec"), namespace)
+    return namespace

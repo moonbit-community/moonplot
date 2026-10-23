@@ -62,7 +62,7 @@ pub struct Axis {
 ///|
 /// Construct an automatic axis.
 pub fn axis() -> Axis {
-  {
+  let result : Axis = {
     formatter_axis_binding: @ticker.FormatterAxisBinding::new(),
     named_formatter: None,
     minor_named_formatter: None,
@@ -110,6 +110,13 @@ pub fn axis() -> Axis {
     minor_grid_color: @config.grid_color(),
     minor_grid_width: @config.grid_linewidth() / 2.0,
   }
+  result.formatter_axis_binding.bind_view_interval(() => {
+    let (lower, upper) = result.view_interval_checked()
+    @ticker.FormatterViewInterval::NdArray(
+      @ticker.TickValues::from_array([lower, upper]),
+    )
+  })
+  result
 }
 
 ///|
@@ -128,6 +135,9 @@ pub fn Axis::set_limits(
     self.limits = Some(resolved)
     self.auto_view = None
     self.inverted = resolved.lower() > resolved.upper()
+    if self.tick_layout_view is Some(_) {
+      self.tick_layout_view = Some((resolved.lower(), resolved.upper()))
+    }
     return
   }
   if self.scale.is_log() && (lower <= 0.0 || upper <= 0.0) {
@@ -138,6 +148,9 @@ pub fn Axis::set_limits(
   self.limits = Some(limits)
   self.auto_view = None
   self.inverted = lower > upper
+  if self.tick_layout_view is Some(_) {
+    self.tick_layout_view = Some((lower, upper))
+  }
 }
 
 ///|
