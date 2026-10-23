@@ -468,3 +468,13 @@ solid/no-marker Line.draw 的实际观察；来源、计数与边界见
 setter、RcParams validator、完整 no-marker draw、GC 校验及真实 difflib/builtin sum，
 76 条原源记录中的七条原生容器行为保留为 source-only。来源、重现和各投影边界见
 [testdata/line_style_README.md](testdata/line_style_README.md)。
+
+## D52 Line 阶梯路径
+
+复用 D44 的 Float64 步长视图、稳定 Line、现有单位回算和 SVG/relim 桥，无新增运行时。
+路径展开依据固定 Matplotlib v3.11.2 的 cbook 三个完整 step 函数；独立参考执行完整
+所选 Line 方法和真实 Path 构造/属性方法，并对官方 path.py 下载强制 SHA256 校验。
+默认路径的共享和阶梯路径的独立代均来自实际原源观察，未用简化 PathStorage 替代。
+75 条原源记录保留完整字段，String 域投影 74 条，原生 None 一条为 source-only。
+来源、数值/布局/警告边界和复现见
+[testdata/line_drawstyle_README.md](testdata/line_drawstyle_README.md)。

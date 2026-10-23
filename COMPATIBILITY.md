@@ -217,6 +217,15 @@ D51 Line String linestyle 与虚线配置已验收：24 个新增注册测试（
 通用 Artist 与原生 SVG 格式仍有边界，见
 [testdata/line_style_README.md](testdata/line_style_README.md)。
 
+D52 Line String drawstyle 与独立路径缓存已验收：21 个新增注册测试（4 个正式组、
+17 个定向/公开回归），75 条原源记录完整保留，其中 74 条 typed、1 条原生 None
+输入为 source-only。完整四目标 wasm/wasm-gc/native 各 22200 项、JS 22207 项全过。
+五种 String、同值不变、改变只置 x 失效、default 共享 xy、steps 独立缓存及旧代别名
+均已验证。处理后数据保持原点数，绘制和 relim 使用同一条展开路径；类别重排的
+midpoint 范围按真实路径计算。仅 Scene 新增三个方法，其余 40 份接口逐字不变。
+原生 Path 元数据/布局、NumPy 警告、通用 Path 与大线条裁剪优化等边界见
+[testdata/line_drawstyle_README.md](testdata/line_drawstyle_README.md)。
+
 ## 完成标准
 
 条目只有在以下条件都满足时才从“计划”或“原型”移为“已实现”：

@@ -608,3 +608,11 @@ Copyright (c) 2001-2023 Python Software Foundation; All Rights Reserved.
 固定十一种线型、无 junk 的 Unicode 匹配，使用 MoonBit 数组与匹配块计数；浮点
 求和仅移植 Double 序列的初值、Neumaier 补偿及有限补偿终合，不含动态对象、引用
 计数或 C 内存管理。没有新增分发运行时。
+
+D52 的 Line drawstyle、延迟路径缓存和三种阶梯顶点展开依据固定 Matplotlib v3.11.2
+的 lines.py、cbook.py、path.py 与既有 Axis/Axes 单位/范围行为以 MoonBit 重写。
+独立参考执行原始所选完整方法，path.py 官方源码 SHA256 为
+`5c726cf2765c7c4549de79d3327adabd5613dba0dd4e9bf208fafb48799ee12f`。
+默认/阶梯 Path 实际别名、物理 ndarray 元数据和原源警告完整保留，具体边界见
+[testdata/line_drawstyle_README.md](testdata/line_drawstyle_README.md)。
+既有 Matplotlib 与 NumPy 许可继续适用；没有新增分发运行时或编译扩展。

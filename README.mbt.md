@@ -2088,3 +2088,21 @@ let svg = fig.to_svg_checked()
 工厂供静态 Line 外观传输，不重建 Line2D 的 setter 历史。其他图元不消费此字段。
 负数和全零虚线序列在实际绘制的 GC 阶段校验；完整原源、数值与 SVG 边界见
 [Line 线型](testdata/line_style_README.md)。
+
+D52 增加 `Line2D::get_drawstyle()`、`set_drawstyle(String)` 和
+`path_values_checked()`。支持 `default`、`steps-pre`、`steps-mid`、`steps-post`
+及 `steps`；`steps` 采用 pre 的几何，getter 仍保留 `steps`。相同字符串不改变状态，
+不同字符串标记 x 待重算及 stale，数据转换与路径展开延迟到后续查询或绘制。
+
+```moonbit nocheck
+line.set_drawstyle("steps-mid")
+let samples = line.xy_values_checked() // 原点数，交错 x/y
+let vertices = line.path_values_checked() // 展开的绘图路径，交错 x/y
+let svg = fig.to_svg_checked()
+```
+
+路径查询借用当前 Float64 缓存。默认路径与处理后 xy 共享存储，阶梯路径保留独立的
+展开结果；修改借用的 xy 不会自动刷新已缓存的阶梯路径。显式强制 recache 会按原始
+输入建立新缓存代，旧借用视图保持旧代。绘制和 relim 使用同一条缓存路径，数据查询
+保持未展开的点数。该接口是数值路径顶点桥，不等于通用 Path/codes/marker 系统；
+完整来源、别名和数值边界见 [Line 阶梯路径](testdata/line_drawstyle_README.md)。

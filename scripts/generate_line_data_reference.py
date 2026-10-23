@@ -198,7 +198,9 @@ fn line_data_source_aliases(first : @ticker.TickValues, second : @ticker.TickVal
 // Python's uninitialized optional cache is projected to an inaccessible empty
 // generation; public refresh outcome, flags and original data are compared.
 fn line_data_source_detached(x : LineData, y : LineData) -> Line2D {
-  { points: [], x: x.copy(), y: y.copy(), cache: line2d_cache_from_flat([]),
+  let cache = line2d_cache_from_flat([])
+  { points: [], x: x.copy(), y: y.copy(), cache,
+    drawstyle: "default", path_values: cache.flat,
     invalid_x: true, invalid_y: true, owner: None, removal_parent: None,
     style: @core.style("#1f77b4"), source_color: false,
     unscaled_dash_pattern: {offset: 0.0, dashes: None}, visible: true, stale: true }

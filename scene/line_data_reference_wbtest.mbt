@@ -45,11 +45,14 @@ fn line_data_source_aliases(
 // Python's uninitialized optional cache is projected to an inaccessible empty
 // generation; public refresh outcome, flags and original data are compared.
 fn line_data_source_detached(x : LineData, y : LineData) -> Line2D {
+  let cache = line2d_cache_from_flat([])
   {
     points: [],
     x: x.copy(),
     y: y.copy(),
-    cache: line2d_cache_from_flat([]),
+    cache,
+    drawstyle: "default",
+    path_values: cache.flat,
     invalid_x: true,
     invalid_y: true,
     owner: None,
