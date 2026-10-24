@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D54已freeze并行实施typed tuple快照set_dashes；A正式54records/BLine核心+C新渲染hands，Root公共BB/docs/gates；全部STOP后审handoffs/原54payload独比→check/newsource/infofmt/41mbti/4target。D54-before ad054db/41mbti已存。D53已完整验收提交db224a8/6112217/ad054db，勿重门禁。当前无Rootlive，整体目标未完成继续推进。
+- 下一条具体动作：用户明确要求重新调查整体百分比，当前优先可复算重新盘点。A上游公开API/rc分母、B当前Moon映射分子、C独立行为成熟度，Root审算法/敏感性并给新数值；不得继续照抄50/40–60/55–70或仅unknown/能力清单。调查基线HEAD f742c79（D54已全验收0319b92/f742c79）；完整固定源在.moonagent/audits/2026-10-24/matplotlib-d3ca9172e392048ec242b90e8423e88d1a3000b2。D55必要80records准备保留未freeze，调查后继续迁移。无Rootlive工具。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -6618,3 +6618,9 @@ Root无live工具，alltrackedSTOP。D55只ignored actual80records/源notes165/�
 用户要求重新调查整体百分比：此前约50%/40–60%及55–70%估算现全部撤回，不得继续照抄。当前优先完成可复算的上游范围/当前映射/独立复核后重估，不以unknown或仅能力清单替代用户要求。D54已完整验收待提交，D55未freeze；后续迁移保留但先做本次真实重估。
 
 D54 feature0319b92（6files/741insertions/13deletions）已本地提交，full46818/final71414/source44047全terminal0；formal/docs下一提交。本轮优先用户明确要求的整体百分比重新调查，D55必要准备保留未freeze，无Rootlive/用户阻塞。
+
+## 2026-10-24 用户要求百分比重新调查（当前优先）
+
+此前50%/40–60%/静态55–70%的整体估算已向用户明确撤回。用户进一步明确要求实际重新调查并给百分比，不接受仅未知或换成能力清单。现在按完整固定source建立可复算统计范围、当前API/rc映射与独立行为核验，结果/计分/误差需写MIGRATION_PROGRESS并报告。不得默认新百分比接近旧50，测试数/代码行数/时间不直接作为完成率。
+
+完整上游按fixed commit下载到 .moonagent/audits/2026-10-24/matplotlib-d3ca9172e392048ec242b90e8423e88d1a3000b2，tarSHA cf6686989f244a633bad4cf8972070abd651662a02aa30ca47507c8680e858c6，294 Pythonfiles；source20516 terminal0。A独占new audit_upstream_api.py/upstream_api_inventory.json，B独占new audit_port_api.py/port_api_mapping.json，C仅ignored独立maturityreview；Root整合/复核/文档。功能生产全STOP，D55未freeze。D54全验收full46818/final71414/source44047，commit0319b92/f742c79；无Rootlive，无待用户阻塞。
