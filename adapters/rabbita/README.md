@@ -1,32 +1,41 @@
 # MoonPlot for Rabbita
 
-Use a MoonPlot figure as an interactive SVG component in a [Rabbita](https://github.com/moonbit-community/rabbita) application.
-The adapter returns real `Html` / SVG DOM nodes through public Rabbita APIs.
-The first version supports point hover, click selection, application-controlled legend buttons and reactive data updates.
+Version **0.2.0 (M2)**. Interactive MoonPlot SVG components built with public
+[Rabbita](https://github.com/moonbit-community/rabbita) APIs. The adapter returns
+real SVG DOM inside composable `Html`; the application owns its state.
 
-![Two interactive MoonPlot charts](../../assets/rabbita-interactive.png)
+![Two interactive charts](https://raw.githubusercontent.com/moonbit-community/moonplot/v0.2.0/assets/rabbita-interactive.png)
 
-## Run the example
+## Install the source release
 
-From this repository's root:
+Download and unzip **moonplot-v0.2.0-source.zip** from the
+[v0.2.0 release](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0).
+From its `moonplot-v0.2.0` directory:
 
 ```sh
-cd adapters/rabbita
-moon build cmd/demo --target js
+moon run example/cmd/static --target native > chart.svg
+moon build example/cmd/app --target js
 python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-Open [the local example](http://127.0.0.1:8765). Hover or click a data point, toggle a legend button,
-update the data, or unmount and mount both charts. Stop the server with Ctrl+C.
-The example requires the MoonBit toolchain; Python serves the files only.
+Open [the independent example](http://127.0.0.1:8765/example/).
+Hover or click points, toggle the series, and update data. Stop the server with Ctrl+C.
+A MoonBit toolchain is required; native execution also requires a C compiler.
+Python serves the browser example only.
 
-This is a separate local module, `moonbit-community/moonplot-rabbita`.
-It has not been published to Mooncakes. Its `moon.work` links the current core library from `../..`.
-Running ordinary core commands from the repository root does not add Rabbita to the core module.
+The source bundle has explicit workspace members `core`, `rabbita`, `example`.
+Its example declares normal versioned dependencies on `mathplotlib/mathplotlib@0.2.0`
+and `moonbit-community/moonplot-rabbita@0.2.0`; the workspace resolves the two
+unpacked modules. Copy these modules into your own workspace and list them as
+members. The individual library ZIPs contain no repository `moon.work`.
+
+**Neither module is published on Mooncakes.** The current publisher lacks both
+namespace permissions (server returned 403 User mismatch). A registry-only
+`moon add` installation is therefore not available. Module names are preserved.
 
 ## Component API
 
-Import the packages used by your view in `moon.pkg`:
+Import these packages in your application's `moon.pkg`:
 
 ```moonbit nocheck
 import {
@@ -38,7 +47,7 @@ import {
 }
 ```
 
-Create a checked drawing snapshot, then compose the result into your Rabbita view:
+Create a drawing snapshot and compose it into the Rabbita view:
 
 ```moonbit nocheck
 let drawing = figure.to_drawing()
@@ -52,79 +61,86 @@ let chart = @plot_dom.view(
 )
 ```
 
-Your application's update function handles:
-
-- `Hover(HitPoint?)`: update hover state; `None` clears it.
-- `Click(HitPoint?)`: select a sample; clicking empty space produces `None`.
-- `ToggleSeries(String)`: update visibility for your own legend key, then prepare the new figure.
-
+Handle `Hover(HitPoint?)`, `Click(HitPoint?)` and `ToggleSeries(String)` in your
+update function. Prepare a new figure when visibility or data changes.
 Create `create_pure_state` / `Val.view` **inside** the builder passed to `rabbita.new`.
-The [complete example](cmd/demo/main.mbt) shows the model, update and view together.
-Refresh or clear selected/hovered snapshots when the data changes, as the example does.
-Use a distinct `id` for each chart. Legend keys belong to your application.
+The [complete repository demo](https://github.com/moonbit-community/moonplot/blob/v0.2.0/adapters/rabbita/cmd/demo/main.mbt)
+and the release bundle's independent example show model/update/view together.
+Refresh or clear hover/selection when replacing the displayed data.
 
-Load the [component stylesheet](moonplot.css) in your application shell for the
-compact legend buttons and floating hover inspector:
+Load the included stylesheet through your application's asset pipeline:
 
 ```html
 <link rel="stylesheet" href="/path/to/moonplot.css">
 ```
 
-Copy or serve this file from your application's assets. Its rules are scoped to
-`.moonplot`; `demo.css` only styles this example page. Override
-`--moonplot-text`, `--moonplot-muted`, `--moonplot-border`, and `--moonplot-accent`
-on the component to match your theme. The inspector stays in the viewport's
-upper-right corner and does not resize the chart on hover.
+[moonplot.css](moonplot.css) scopes rules to `.moonplot`. Override `--moonplot-text`,
+`--moonplot-muted`, `--moonplot-border` and `--moonplot-accent` on the component.
+The floating inspector does not resize the chart on hover.
 
-`HitPoint` contains panel, artist and original point indices, numeric data coordinates, and intrinsic SVG coordinates.
-Indices identify the displayed frame's ordering; they are not persistent identifiers across artist or data reordering.
-Line step vertices, missing samples and extra paint passes do not renumber the original data points.
-The point anchors cover Line, Scatter and PathCollection data; they are nearest-sample targets, not pixel-shape tests.
+## Multi-chart resources and errors
 
-`Figure::to_drawing()` raises existing checked data/layout errors. `view` raises `AdapterError` for malformed
-or unsupported SVG. Unknown tags or attributes are reported rather than silently discarded.
+Use a distinct, nonempty `id` per chart. M2 scopes every source SVG ID and its local
+`url(...)`, `href` and `xlink:href` references to that chart, including inline CSS,
+quoted/escaped URLs, UTF-8 fragment escapes, gradient chains and root references.
+The public root remains `id + "-svg"`. Names are deterministic across redraws;
+the original Drawing/SVG, geometry and hit coordinates are unchanged.
+
+Duplicate/empty source IDs, missing local targets, ambiguous fragment spellings
+and conflicting href/xlink:href values raise `AdapterError::InvalidSvg`.
+External/data URLs and ordinary color literals are preserved. Unknown tags or
+attributes raise an explicit adapter error. Rabbita 0.16.7 has no public SVG ARIA
+setters, so SVG `aria-labelledby` / `aria-describedby` remain unsupported; HTML
+legend buttons retain their accessibility attributes.
 
 ## Layout and scope
 
-The SVG uses responsive width and `xMidYMid meet`. Hits use client coordinates and the actual SVG viewport,
-including letterbox offsets; the default hit radius is 10 CSS pixels and can be set with `hit_radius~`.
-Wrapper padding/borders and scrolling are supported. Borders, padding or arbitrary CSS transforms applied
-**directly to the SVG root**, other aspect-ratio policies, touch gestures and zoom/pan are not covered.
+`HitPoint` contains panel, artist and original sample indices, numeric data values
+and intrinsic SVG coordinates. Picking covers Line, Scatter and PathCollection
+numeric point anchors. These are nearest-sample targets, not shape or segment tests;
+indices belong to the current frame, not persistent identities across reordering.
 
-The current route renders once using MoonPlot's existing layout, captures point locations in that draw,
-and converts its SVG events to public Rabbita nodes. It performs no `innerHTML` insertion or private VDOM access.
-Each `view` call parses the drawing, and nearest-point queries scan its samples; dense-chart performance remains future work.
-SVGs with conflicting custom gradient/clip IDs in multiple charts are not yet scoped automatically.
+The SVG uses responsive width and `xMidYMid meet`. Picking uses client coordinates,
+the actual SVG viewport and letterbox offsets; `hit_radius~` defaults to 10 CSS px.
+Scrolling and wrapper padding/borders are supported. Borders/padding or arbitrary
+CSS transforms directly on the SVG root, other aspect policies, touch gestures,
+zoom/pan and point keyboard navigation are outside M2.
 
-The adapter pins Rabbita `0.16.7`. This local workspace resolves `moonbitlang/x@0.5.1`;
-the core module keeps its existing `0.4.46` declaration and normal dependency resolution.
-Only JS browser interaction is claimed by this adapter.
+Every `view` parses its snapshot and scans points for picking. Dense-data performance
+and caching remain future work. Only JS browser interaction is claimed. Core SVG
+usage does not require Rabbita. This adapter pins Rabbita 0.16.7 and XML 0.5.0.
 
-## Verification
+## Develop and verify
+
+From a full repository checkout (not a production library ZIP):
 
 ```sh
+cd adapters/rabbita
 moon check --target js
 moon test . --target js
-moon build cmd/demo --target js
+moon build cmd/demo cmd/resources --target js
+python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-The adapter has 7 focused tests. The core's relevant four-target regression command and current results are
-recorded in [the DOM integration notes](../../docs/RABBITA_DOM.md).
+Open [the demo](http://127.0.0.1:8765/) or
+[the resource isolation case](http://127.0.0.1:8765/resources.html).
+This checkout's local workspace links the core from `../..`.
 
-The browser runner serves the built example on an ephemeral loopback port, uses actual mouse events,
-and closes its server and browser in `finally`:
+From the repository root, with Playwright and Google Chrome installed:
 
 ```sh
-# From the repository root; a normal Playwright installation also works.
-npm install --prefix .moonagent/browser-tools --no-save playwright@1.62.1
-PLAYWRIGHT_MODULE="$PWD/.moonagent/browser-tools/node_modules/playwright" \
-  node adapters/rabbita/browser_test.cjs
+PLAYWRIGHT_MODULE=/path/to/node_modules/playwright node adapters/rabbita/browser_test.cjs
+PLAYWRIGHT_MODULE=/path/to/node_modules/playwright node adapters/rabbita/resource_browser_test.cjs
+PLAYWRIGHT_MODULE=/path/to/node_modules/playwright python3 tools/build_release.py
 ```
 
-The default browser channel is installed Google Chrome. Set `BROWSER_CHANNEL=bundled` to use Playwright's
-installed Chromium instead. Browser binaries may need separate installation in a fresh environment.
-`MOONPLOT_BROWSER_OUTPUT` overrides the output directory for screenshots and the JSON report.
-The current acceptance run used Chrome 155 and passed 11 interaction/layout checks with no page errors,
-including keyboard legend toggles, stable hover layout and a 375px phone viewport.
+`BROWSER_CHANNEL=bundled` selects Playwright's installed Chromium instead.
+Runners use ephemeral loopback servers and close their browser/server in `finally`.
+M2 validation: adapter **14/14**, original browser **11 checks**, resource browser
+**7 groups**, plus a real browser consumer built outside the repository from the
+actual release ZIPs. See the
+[M2 acceptance record](https://github.com/moonbit-community/moonplot/blob/v0.2.0/docs/MILESTONE_M2.md).
 
-Licensed under the repository's [Apache 2.0 license](../../LICENSE).
+Licensed under [Apache 2.0](LICENSE). See the core package's third-party notices for
+its bundled algorithms/data and the repository's
+[notices](https://github.com/moonbit-community/moonplot/blob/v0.2.0/docs/THIRD_PARTY_NOTICES.md).

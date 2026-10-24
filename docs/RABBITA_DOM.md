@@ -1,6 +1,7 @@
-# Rabbita 可交互 DOM：G2.1 实现与验收
+# Rabbita 可交互 DOM：G2.1 与 M2
 
 状态：**首个切片已实现，并于 2026-10-24 通过真实浏览器验收。**
+M2 v0.2.0 补齐资源隔离与独立源码版本包；接入与本轮验收见 [M2 记录](MILESTONE_M2.md)。
 用户所说的 Rabbit-TEA 在上游项目中已更名为 [Rabbita](https://github.com/moonbit-community/rabbita)。
 本片提供折线/散点的交互组件与双图应用；缩放、平移等后续能力仍属于 G2。
 
@@ -64,14 +65,15 @@ XML 读取后调用公开节点构造器，没有 `innerHTML` 或 Rabbita 私有
 - 每图使用不同的 `id`。图例 key 由应用定义；hover/selection 为应用状态。
   `create_pure_state` / `Val.view` 必须在 `rabbita.new` 的组件 builder 内创建。
 - 直接加在 SVG 根上的 border/padding、任意 CSS transform、其他 preserveAspectRatio、触摸手势、
-  缩放/平移和键盘导航均未覆盖。不同图内冲突的自定义 gradient/clip ID 尚未自动加作用域。
+  缩放/平移和键盘导航均未覆盖。M2 已为各图 ID 和本地 url/href 引用加稳定作用域。
+  SVG ARIA 属性仍不受公开 Rabbita API 支持，不能据内部 IDREF 转换宣称可渲染。
 - XML 解码支持更多 SVG 图元，不等于其他所有图表都已具备交互。
 
 ## 依赖与平台边界
 
 `adapters/rabbita` 是独立 JS module `moonbit-community/moonplot-rabbita`，尚未发布到 Mooncakes。
 局部 `moon.work` 链接仓库核心，不要求根模块引入 Rabbita。
-核心 `moon.mod` 保持原样，公开 Scene/Drawing 接口没有 UI 类型。
+核心运行依赖保持原样，公开 Scene/Drawing 接口没有 UI 类型。
 
 adapter 固定 Rabbita `0.16.7` 和现有 XML `0.5.0`；
 workspace 解析 x `0.5.1`、async `0.22.4`、moonback `0.8.5`，均按安装元数据核查 Apache-2.0。
@@ -118,5 +120,5 @@ moon test drawing backend/svg scene/drawing_wbtest.mbt \
 UI整理后的当前11项结果与截图在 `.moonagent/checkpoints/G2-ui-acceptance/`。
 这些忽略目录不随仓库分发，公开命令可复现。没有把历史两万余项全套测试称为本轮结果。
 
-G2.1 已闭合首个交互场景。后续可按用户需求补键盘/触摸、缩放平移、更多图表命中、
-多图资源 ID 作用域与大数据性能，逐个场景验收。
+G2.1 已闭合首个交互场景，M2 已补齐多图资源作用域与独立消费版本包。
+后续可按用户需求补键盘/触摸、缩放平移、更多图表命中与大数据性能，逐个场景验收。

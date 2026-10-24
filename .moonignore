@@ -1,0 +1,25 @@
+# Production module archive; development tests and oracles remain in Git.
+.DS_Store
+_build/
+target/
+target
+.mooncakes/
+.moonagent/
+.lody/
+__pycache__/
+*.pyc
+AGENTS.md
+adapters/
+tests/
+scripts/
+tools/
+docs/archive/
+**/*_test.mbt
+**/*_wbtest.mbt
+# ticker's pre-build inputs are required even in installed modules.
+testdata/*
+!testdata/packed/
+testdata/packed/*
+!testdata/packed/logit_object_sort.base64
+!testdata/packed/logit_sort.base64
+!testdata/packed/README.md

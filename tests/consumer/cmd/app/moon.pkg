@@ -1,0 +1,11 @@
+import {
+  "mathplotlib/mathplotlib" @plot,
+  "mathplotlib/mathplotlib/drawing",
+  "moonbit-community/moonplot-rabbita" @plot_dom,
+  "moonbit-community/rabbita",
+  "moonbit-community/rabbita/html",
+}
+
+pkgtype(kind: "executable")
+
+supported_targets = "js"

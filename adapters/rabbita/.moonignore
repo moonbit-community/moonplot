@@ -1,0 +1,17 @@
+# A library package must not depend on the repository's workspace or tooling.
+.DS_Store
+_build/
+target/
+target
+.mooncakes/
+.moonagent/
+__pycache__/
+*.pyc
+moon.work
+**/*_test.mbt
+**/*_wbtest.mbt
+cmd/
+*_test.cjs
+index.html
+resources.html
+demo.css

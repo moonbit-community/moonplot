@@ -6,9 +6,26 @@
 
 - 实用 MoonBit 画图库，能力与场景对齐，不要求完整 Matplotlib API 复刻，不恢复旧 D55 清单。
 - M1 基础二维 SVG、G2.1 首批 Rabbita DOM、后续 UI 整理均已验收与交付。
-- 当前用户要求：参考 pdf-viewer 整理根目录散乱文件、拆解超大单文件。保持原公开API与绘图行为。
+- 代码组织请求已完成。当前用户要求“直接做M2”：补资源隔离与可接入版本交付；保持原公开API与绘图行为。
 - 用户授权合理复用、独立 subagents、小步本地commit与正常push至 moonbit-community/moonplot。
 - 不用历史API指数或未经调查的估算表示整体完成率。
+
+## 当前 M2：交互绘图可用版（用户已要求直接实施）
+
+- 已冻结范围：真实DOM、hover/click、图例/数据更新、基础多图/响应式/挂载、UI示例；已有G2.1/UI实现保留。
+- [x] SVG资源按chart id隔离：定义、url本地片段、href/xlink链与根别名，静态Drawing/SVG与公开API不变。
+  ARIA内部IDREF可归一化，但Rabbita0.16.7无公开SVG setter，DOM仍明确不支持，不宣称实现。
+- [x] JS adapter14/14，Chrome155资源七组通过；旧版8重复ID/红蓝误绘真实复现，修复后同页像素证明。
+  双图渐变/clip、href链/root别名、独立事件、重绘/改序/三次重挂载通过。
+- [x] 0.2.0实际ZIP演练包在仓库外独立消费；静态四目标SVG解析/3hits/相同Drawing断言，真实Chrome5项通过。
+  包含LICENSE/样式/README；核心包约1.4MB（原18.8MB），adapter约20KB，无测试/缓存/隐式workspace。
+- [ ] 固定M2版本、安装说明、打包内容核对、正式版本发布及远端核查。
+- 现有Mooncakes凭据账号Lampese；两个原命名空间dryrun经服务端确认403 User mismatch。
+  不改名，GitHub v0.2.0源码版本包为本轮交付渠道；Mooncakes明确未上架。
+- A/C资源实现与浏览器已STOP交回；B现拥有tests/consumer及tools/verify_release_consumer.cjs。
+  Root拥有manifest/打包tools/文档/中央验收/发布；当前版本均已改0.2.0，包内测试/参考数据排除，packed prebuild输入保留。
+- 发布前完成实现/验收/可审查归档；若registry权限不匹配，诊断后保留明确实际状态，不能冒称发布成功。
+- 本片证据 .moonagent/checkpoints/M2/；基线7cde6cfb0d96ee87591e05c6b66f34aa83aaa477。
 
 ## 代码组织：实现完成
 
@@ -42,14 +59,22 @@
 
 ## 精确下一动作与提交
 
-代码组织实现、完整验收、维护说明与远端核查均已完成，无未处理失败。
-当前交付提交：
-2ae2c3c（根门面与消费/隔离测试）、d6672c0（同包职责拆分）、
-e20ac8c（完整颜色资源）、07b050d（巨型参考测试数据化）。
-维护/架构提交0bc6fa3；已核远端交付HEAD为0bc6fa327e0dc6c06229baddb500a65d337ecf49。
-本轮请求无剩余必做项。以后继续新功能或进一步数据化历史参考时，沿用源图谱与结构检查。
-所有三个agents STOP，Root接管，没有未处理测试失败。
-后续功能按用户需求选择；不要因为整理完成自动恢复全API迁移或扩大M1范围。
+M2资源修复已提交720a0c7；正在完成发布源提交、正式附件构建和GitHub v0.2.0发布。
+所有实现与实际ZIP演练已通过；--allow-dirty演练manifest不作为最终交付附件。
+最后根/adapter info/fmt、结构/diff检查已过，既有公开mbti无变化；94份Markdown/434本地链接0broken。
+main/preview/gallery native已过，后两份与原资产逐字节相同。
+下一动作：提交版本包工具与文档，clean状态正式运行build_release.py；
+得到source_commit/sha256且dirty_rehearsal=false，正常push master，用该源提交建v0.2.0 release，下载核对附件，
+最后更新本检查点的发布URL/远端hash/验收结果并独立提交push。
+不要恢复全API迁移；Mooncakes权限403已排查，不重复无效publish、不改名绕过。
+
+中央root info/fmt/check all99053、adapter info/fmt/check/test14/build49830均terminal0。
+核心定向四目标23800各370/370，主Chrome42821通过11项，资源中央62563通过7组，0页面错误。
+核心精简publish dryrun53390：解包check通过13warnings/0error，随后服务端403（和真实源码check7既有warning区分）。
+第一次演练31320发现root .moonignore影响嵌套adapter归档为空；已修为外部显式workspace打adapter，强验包内容。
+第二次演练83229 terminal0：真实ZIP/外部消费者四目标/Chrome5项通过，证据release/rehearsal.log与consumer-browser/。
+无M2残留运行会话；有意保留的旧预览服务见下。三个agents均STOP交回。
+代码组织先前实现与全套验收均完成，交付起点7cde6cf；不混报旧的22264/22271为当前测试结果。
 
 ## 文件、证据与会话
 

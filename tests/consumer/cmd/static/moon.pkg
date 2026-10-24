@@ -1,0 +1,5 @@
+import {
+  "mathplotlib/mathplotlib" @plot,
+}
+
+pkgtype(kind: "executable")

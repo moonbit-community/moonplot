@@ -28,7 +28,7 @@ an SVG rendering pipeline.
   draw styles, dashes, and gap colors through `Line2D` handles.
 - **SVG output:** render a figure to a string without a Python runtime.
 - **Rabbita components:** an optional JS adapter provides real SVG DOM nodes,
-  point hover and selection, legend buttons, and reactive data updates.
+  point hover and selection, legend buttons, reactive data updates, and scoped SVG resources.
 
 Support varies by chart and option. See the
 [usage guide](docs/USAGE.md) for examples and the
@@ -36,6 +36,26 @@ Support varies by chart and option. See the
 [API behavior notes](docs/COMPATIBILITY.md) for detailed boundaries.
 
 ## Getting Started
+
+**M2 v0.2.0** provides the interactive component and verified source packages.
+Download `moonplot-v0.2.0-source.zip` from the
+[v0.2.0 release](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0),
+unzip it, and enter its `moonplot-v0.2.0` directory:
+
+```sh
+moon run example/cmd/static --target native > chart.svg
+moon build example/cmd/app --target js
+python3 -m http.server 8765 --bind 127.0.0.1
+```
+
+Open [the independent interactive example](http://127.0.0.1:8765/example/).
+The bundle explicitly links its `core`, `rabbita` and `example` modules in `moon.work`.
+Both library ZIPs are also available with checksums and a source commit manifest.
+**Neither module is published on Mooncakes**: namespace permissions are unavailable
+for the current publisher. Use the source workspace; registry-only `moon add`
+installation is not claimed. See [M2 acceptance and integration](docs/MILESTONE_M2.md).
+
+### Run the repository examples
 
 Install the [MoonBit toolchain](https://www.moonbitlang.com/download/).
 The native example also requires a working C compiler.
@@ -132,7 +152,7 @@ ranges and ticks. Set a legend corner with
 ### Interactive Rabbita components
 
 `Figure::to_drawing()` prepares the SVG and data-point hit locations together.
-The optional [`moonplot-rabbita` adapter](adapters/rabbita/README.md) turns that
+The optional [`moonplot-rabbita` adapter](https://github.com/moonbit-community/moonplot/blob/v0.2.0/adapters/rabbita/README.md) turns that
 snapshot into composable Rabbita `Html` using public SVG node constructors.
 The application owns hover, selection, visibility, and data state.
 
@@ -145,7 +165,7 @@ python3 -m http.server 8765 --bind 127.0.0.1
 Open [the local example](http://127.0.0.1:8765) to interact with two independent
 charts. The adapter is a separate JS module linked by a local `moon.work`;
 it has not been published to Mooncakes. Core SVG usage keeps its existing
-dependencies. See the [component guide](adapters/rabbita/README.md) for the API
+dependencies. See the [component guide](https://github.com/moonbit-community/moonplot/blob/v0.2.0/adapters/rabbita/README.md) for the API
 and [DOM acceptance notes](docs/RABBITA_DOM.md) for tested behavior and limits.
 
 ![Interactive MoonPlot charts in Rabbita](assets/rabbita-interactive.png)
@@ -166,7 +186,8 @@ and [DOM acceptance notes](docs/RABBITA_DOM.md) for tested behavior and limits.
 
 - [Documentation index](docs/README.md)
 - [Detailed usage and API examples](docs/USAGE.md)
-- [Current capabilities and M1 acceptance](docs/CAPABILITIES.md)
+- [Current capabilities and milestone acceptance](docs/CAPABILITIES.md)
+- [M2 interactive plotting and source-release integration](docs/MILESTONE_M2.md)
 - [Four capability goals](docs/MIGRATION_PLAN.md)
 - [Rabbita interactive DOM and acceptance](docs/RABBITA_DOM.md)
 - [Dependencies and integration notes](docs/DEPENDENCIES.md)
@@ -175,8 +196,8 @@ and [DOM acceptance notes](docs/RABBITA_DOM.md) for tested behavior and limits.
 The root package provides the common plotting facade. Implementation packages
 include `scene` for figure and artist state, `ticker` for axes and date handling,
 `transforms` for geometry, and `backend/svg` for rendering.
-The facade is kept in [`api.mbt`](api.mbt), consumer tests in [`tests/api`](tests/api),
-and isolated configuration tests in [`tests/integration`](tests/integration).
+The facade is kept in [`api.mbt`](api.mbt), consumer tests in [`tests/api`](https://github.com/moonbit-community/moonplot/tree/v0.2.0/tests/api),
+and isolated configuration tests in [`tests/integration`](https://github.com/moonbit-community/moonplot/tree/v0.2.0/tests/integration).
 See the [source organization guide](docs/ARCHITECTURE.md) for package boundaries,
 generated resources, and reference fixtures.
 

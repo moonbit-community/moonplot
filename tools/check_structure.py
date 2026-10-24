@@ -9,7 +9,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 ROOT_FILES = {
-    ".gitattributes", ".gitignore", "AGENTS.md", "LICENSE", "README.md",
+    ".gitattributes", ".gitignore", ".moonignore", "AGENTS.md", "LICENSE", "README.md",
     "README.mbt.md", "api.mbt", "moon.mod", "moon.pkg", "pkg.generated.mbti",
 }
 MAX_MAINTAINED_LINES = 2000
