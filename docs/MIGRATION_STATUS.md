@@ -1,6 +1,6 @@
 # MoonPlot 当前执行检查点
 
-更新时间：2026-10-24（Asia/Shanghai）。恢复会话先读本页，按精确下一动作继续。
+更新时间：2026-10-25（Asia/Shanghai）。恢复会话先读本页，按精确下一动作继续。
 
 ## 范围与用户决定
 
@@ -9,6 +9,33 @@
 - 代码组织请求已完成。当前用户要求“直接做M2”：补资源隔离与可接入版本交付；保持原公开API与绘图行为。
 - 用户授权合理复用、独立 subagents、小步本地commit与正常push至 moonbit-community/moonplot。
 - 不用历史API指数或未经调查的估算表示整体完成率。
+
+## 当前切片：常用图表命中与提示（2026-10-25）
+
+- 用户截图要求：柱/横柱整个矩形可悬停，折线按x吸附实际样本；提示系列、分类、值，直方图区间/频数，饼图分类/值/占比；调用方可自定义格式/外观。
+- [x] Drawing immutable HitInfo/HitTarget/区域与HitMode已落地；保留HitPoint与Interaction；Nearest兼容，XNearest显式开启。
+- [x] 同次绘制收集Line/Scatter/Bar/BarH/Histogram/Pie真实几何与metadata；原始点索引/label/category_y/edges/fracs完整。
+  B新8组语义+原8组回归四目标各16/16，A只读审查通过；源码提交9996e22。
+- [x] Rabbita hit_mode/tooltip回调/visible/class与默认丰富提示已落地，当前17个JS单测通过（原14+新3）。
+- [x] C最终真实Chrome156.0.8078.47六图13组通过0pageerror，截图桌面/mobile已由Root目视。
+  原主图11项/资源7组也中央跑过；新图真实截图assets/tooltips.png。
+- [ ] 定向与完整四目标回归、接口/格式/结构/文档、版本包独立消费；小步commit/push，发布新功能版本。
+- 责任：A(/m2_svg_scoping)只drawing；B(/m2_package_audit)scene/backend/svg/internal-render与对应tests；C(/m2_resource_browser)新增tooltips示例/页面/runner；Root适配层/文档/交付。
+- 现有0.2.1已发布且registry验收完成，旧片全部历史；不重启旧API迁移。
+- 基线342713d814dc905a9ba273fcbd9b761d53d50ad2，证据.moonagent/checkpoints/tooltips-2026-10-25/。
+- 精确下一动作：收取全套Native最终结果与最后只读复审；其余接口/示例/文档已核，提交发布源后clean打0.3.0正式包、正常push并发布，registry实际消费验收。
+- A最终drawing四目标19/19，XNearest统一按dx最小/dy tie，nearby Scatter仍优先；反例回归通过。
+- B与A已STOP source；C最终13组已terminal0并交回6文件，证据typed-tooltips/browser/。
+- Root首次外部ZIP65275静态四目标通过，新增第二图使旧CSS选择器strict失败；已修特定chart selector+滚动。
+  演练93621 terminal0：四目标新hist/pie断言+真实Chrome6项（含bar自定义metadata）全部通过。
+- Root适配层17/17，新callback收到真实metadata、隐藏不求值/不派事件、旧point-only兼容、stale拒绝均通过。
+- Root final-demo-build2771 terminal0；中央info/fmt/check-all通过，full alltest84850已完成wasm/wasm-gc各22283、JS22307全部通过，正在Native（没有失败）。
+  info-js95686及main/preview/gallery71378均terminal0，后两者SVG字节相同；主browser42441/资源27922均terminal0。
+- 当前Moon info的target只inspect而不改变Wasm canonical；新增tools/update_interfaces.py保留JS-only compiler mbti并fmt，已过。
+  mbti审查只新增Drawing类型/可选参数、Rabbita view可选参数与内部RenderMetadata；既有HitPoint/Interaction与SceneAPI不变。
+- 用户交互/UI/六图示例已提交257e619；dryrun77435服务端202明确No changes made，CLI仍误报exit255（既有状态码处理差异）。
+- 旧预览服务已不在；新有意保留服务session8304/PID74453，显式服务仓库根：
+  http://127.0.0.1:8765/rabbita/tooltips.html ，HTML+JS已绕过环境proxy核HTTP200；open_in_codex返回queued。
 
 ## 当前发布片：用户授权Lampese/并合并单模块（0.2.1）
 

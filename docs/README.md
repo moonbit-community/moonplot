@@ -4,6 +4,8 @@ Start with the [project README](../README.md) to render a chart.
 
 ## Using the library
 
+- [Hover values, regions, line x snapping and custom tooltips](TOOLTIPS.md)
+
 - [Install the unified module and migrate package paths](PUBLISHING.md)
 - [Current capabilities and M1 acceptance](CAPABILITIES.md)
 - [First usable milestone and reproducible examples](MILESTONE_M1.md)

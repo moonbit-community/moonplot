@@ -20,7 +20,7 @@ from build_release import ROOT, module_version, run
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--expected-archive", type=Path, required=True)
-    parser.add_argument("--output", type=Path, default=ROOT / ".moonagent/checkpoints/Mooncakes-0.2.1/registry-consumer")
+    parser.add_argument("--output", type=Path, default=ROOT / ".moonagent/checkpoints/registry-consumer")
     args = parser.parse_args()
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=True)
@@ -47,7 +47,7 @@ def main():
         static = root / "static"
         shutil.copytree(example / "cmd/static", static / "cmd/static")
         (static / "moon.mod").write_text(
-            'name = "moonplot-registry/static"\nversion = "0.2.1"\n'
+            f'name = "moonplot-registry/static"\nversion = "{version}"\n'
         )
         run(["moon", "update"], static, output / "static-update.log")
         run(["moon", "add", f"{module}@{version}"], static, output / "static-add.log")
@@ -99,7 +99,7 @@ def main():
             "browser_application_declares_framework": "moonbit-community/rabbita@0.16.7",
             "installed_archive_files_equal": len(files),
             "static_targets": ["wasm", "wasm-gc", "js", "native"],
-            "browser": "5 real-browser consumer checks passed",
+            "browser": "6 real-browser consumer checks passed",
             "installed_source_location": str(dependency.resolve()),
         }
         (output / "report.json").write_text(json.dumps(report, indent=2) + "\n")

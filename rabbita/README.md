@@ -5,7 +5,7 @@ Interactive MoonPlot SVG components built with public
 real SVG DOM inside composable `Html`; your application owns its state.
 
 The component is the **`Lampese/mathplotlib/rabbita` package** in the unified
-`Lampese/mathplotlib@0.2.1` module. See [installation and release status](../docs/PUBLISHING.md)
+`Lampese/mathplotlib@0.3.0` module. See [installation and release status](../docs/PUBLISHING.md)
 for the current publication result. There is no separate adapter module to install.
 
 ![Two interactive charts](https://raw.githubusercontent.com/moonbit-community/moonplot/master/assets/rabbita-interactive.png)
@@ -15,7 +15,7 @@ for the current publication result. There is no separate adapter module to insta
 From your application's module directory:
 
 ```sh
-moon add Lampese/mathplotlib@0.2.1
+moon add Lampese/mathplotlib@0.3.0
 ```
 
 Import the packages used by your application's view in `moon.pkg`:
@@ -37,6 +37,18 @@ Keep the explicit `@plot_dom` alias so it does not conflict with Rabbita's own
 Installing this one module resolves its declared Rabbita dependencies too.
 Core plotting, Scene and Drawing do not import UI types; the browser component
 and its executables declare `supported_targets = "js"`.
+
+## Hover values and regions (0.3.0)
+
+Line/scatter targets now carry semantic metadata. Bar and horizontal-bar rectangles,
+histogram bins and pie sectors also support hover and click selection.
+Set `hit_mode=@drawing.HitMode::XNearest` to select actual line samples by horizontal
+position inside their panel. The default `Nearest` retains existing point-radius behavior.
+Pass `tooltip=info => ...` for custom Rabbita content; `tooltip_visible=false` hides the
+floating content while preserving events, and `tooltip_class` adds your styling hook.
+`HitInfo` supplies series, category, value, histogram interval and pie fraction.
+See the [complete tooltip guide](../docs/TOOLTIPS.md) and the
+[six-chart example](https://github.com/moonbit-community/moonplot/blob/v0.3.0/rabbita/cmd/tooltips/main.mbt).
 
 ## Component API
 
@@ -110,8 +122,8 @@ legend buttons retain their accessibility attributes.
 ## Layout and scope
 
 `HitPoint` contains panel, artist and original sample indices, numeric data values
-and intrinsic SVG coordinates. Picking covers Line, Scatter and PathCollection
-numeric point anchors. These are nearest-sample targets, not shape or segment tests;
+and intrinsic SVG coordinates. Picking covers Line, Scatter and PathCollection point anchors, Bar/BarH/Histogram
+rectangles and Pie sectors. Lines can also snap by X; segment interpolation is not provided;
 indices belong to the current frame, not persistent identities across reordering.
 
 The SVG uses responsive width and `xMidYMid meet`. Picking uses client coordinates,

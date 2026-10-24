@@ -28,7 +28,8 @@ an SVG rendering pipeline.
   draw styles, dashes, and gap colors through `Line2D` handles.
 - **SVG output:** render a figure to a string without a Python runtime.
 - **Rabbita components:** an optional JS adapter provides real SVG DOM nodes,
-  point hover and selection, legend buttons, reactive data updates, and scoped SVG resources.
+  point and region hover, line x snapping, selection, legend buttons, reactive data
+  updates, scoped SVG resources, and customizable semantic tooltips.
 
 Support varies by chart and option. See the
 [usage guide](docs/USAGE.md) for examples and the
@@ -37,11 +38,11 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.2.1`**. See [installation and migration instructions](docs/PUBLISHING.md).
+MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.3.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.2.1
+moon add Lampese/mathplotlib@0.3.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add
@@ -165,11 +166,25 @@ for a complete view and the [DOM notes](docs/RABBITA_DOM.md) for tested behavior
 
 ![Interactive MoonPlot charts in Rabbita](assets/rabbita-interactive.png)
 
+### Hover values and formatting
+
+The [tooltip guide](docs/TOOLTIPS.md) covers full-bar hit regions, line samples selected
+by horizontal position, histogram bins and pie slices, and application-defined units,
+dates, labels and styling. Run the six-chart example:
+
+```sh
+moon build rabbita/cmd/tooltips --target js
+```
+
+With the repository served as above, open
+[the tooltip examples](http://127.0.0.1:8765/rabbita/tooltips.html).
+Use `hit_mode=XNearest` to opt into line x snapping; existing calls keep nearest-point picking.
+
 ### Current scope
 
 - SVG is the static output backend; Rabbita DOM is an optional browser component.
   Standalone PNG/PDF export and a desktop GUI backend are not available.
-- Interactive picking currently covers line/scatter data-point anchors.
+- Interactive picking covers line/scatter anchors, bar rectangles, histogram bins and pie sectors.
   Touch gestures, zoom/pan, and keyboard navigation remain future work.
 - 3D plotting, animation, and full mathtext/TeX and font layout are not available.
 - The library is not a drop-in Matplotlib implementation. Python's dynamic
@@ -205,7 +220,7 @@ From the repository root:
 python3 tools/check_structure.py
 moon check --target all
 moon test --target all
-moon info
+python3 tools/update_interfaces.py
 moon fmt
 ```
 

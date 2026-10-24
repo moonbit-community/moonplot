@@ -101,7 +101,7 @@ The rabbita subpackage supports only JS. Static core packages support all four
 targets; installing the module also resolves its Rabbita dependencies. Native, wasm, wasm-gc and JS static consumers are tested.
 The browser app is tested with Google Chrome and public Rabbita APIs.
 
-See https://github.com/moonbit-community/moonplot/blob/v{version}/docs/MILESTONE_M2.md
+See https://github.com/moonbit-community/moonplot/blob/v{version}/docs/TOOLTIPS.md
 for acceptance, supported interactions and limits. Apache-2.0; additional notices
 are in library/docs/THIRD_PARTY_NOTICES.md and library/docs/licenses/.
 """
@@ -109,7 +109,7 @@ are in library/docs/THIRD_PARTY_NOTICES.md and library/docs/licenses/.
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=ROOT / ".moonagent/checkpoints/Mooncakes-0.2.1/release")
+    parser.add_argument("--output", type=Path, default=ROOT / ".moonagent/checkpoints/release")
     parser.add_argument("--allow-dirty", action="store_true", help="Development rehearsal only; never upload these artifacts")
     args = parser.parse_args()
     output = args.output.resolve()

@@ -59,3 +59,10 @@ Rabbita 组件位于同 module 的 JS-only 子包；模块安装统一解析依�
 - [详细使用指南](USAGE.md)与[接口行为参考](COMPATIBILITY.md)。
 - [原完整 API 迁移计划](archive/migration-plan-api-history.md)与[历史执行记录](archive/migration-status-through-2026-10-24.md)：保留历史，不作为现行任务清单。
 - [历史 API 对比](MIGRATION_PROGRESS.md)：原口径与数据仍可查，不代表当前画图库整体完成率。
+
+## 0.3.0：常用图表的值提示
+
+在同一次绘制中捕获柱形/横柱/直方图的矩形、饼图扇区及其语义数据；
+折线增加按屏幕横轴选择真实样本的模式。Rabbita 组件提供默认提示和自定义内容/样式入口，
+应用拥有日期、单位与本地化格式。范围、示例和实际验收见 [提示指南](TOOLTIPS.md)。
+不为接入这些能力重写 SVG 坐标或恢复全 Matplotlib API 迁移。

@@ -55,7 +55,7 @@ async function main() {
     assert(await page.evaluate(() => [...document.querySelectorAll('svg, svg *')]
       .every(node => node.namespaceURI === 'http://www.w3.org/2000/svg')));
     assert.equal(await page.locator('#release-chart-svg polyline').count(), 1);
-    assert.equal(await page.locator('.moonplot').evaluate(node =>
+    assert.equal(await page.locator('#release-chart').evaluate(node =>
       getComputedStyle(node).getPropertyValue('--moonplot-text').trim()), '#263443');
     checks.push('Independent public consumer renders real SVG DOM and bundled component CSS');
 
@@ -103,7 +103,21 @@ async function main() {
     await state({ selected: true, point: 0, x: 1, y: 3, clicks: 2 });
     checks.push('Data updates redraw geometry and select current values');
 
+    await page.locator('#release-bars-svg').scrollIntoViewIfNeeded();
+    const bar = await page.locator('#release-bars-svg rect[x][y]').first().evaluate(rect => {
+      const x = Number(rect.getAttribute('x')) + Number(rect.getAttribute('width')) * 0.3;
+      const y = Number(rect.getAttribute('y')) + Number(rect.getAttribute('height')) * 0.8;
+      const p = new DOMPoint(x, y).matrixTransform(rect.ownerSVGElement.getScreenCTM());
+      return { x: p.x, y: p.y };
+    });
+    await page.mouse.move(bar.x, bar.y);
+    await page.waitForSelector('[data-testid="consumer-custom-tooltip"]');
+    assert.equal(await page.locator('[data-testid="consumer-custom-tooltip"]').textContent(),
+      'Orders · North: 5 items');
+    checks.push('Installed bar geometry triggers a custom semantic tooltip inside the whole rectangle');
+
     await page.setViewportSize({ width: 375, height: 812 });
+    await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);
     await page.mouse.move(mobile.x, mobile.y);
     await page.mouse.click(mobile.x, mobile.y);

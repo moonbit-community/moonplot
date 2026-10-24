@@ -18,7 +18,7 @@ plotting library in one engine package.
 | [`api.mbt`](../api.mbt) | Public type/function re-exports and `plot_svg` convenience function |
 | [`core/`](../core) | Points, bounds, typed errors, styles, masked data, and color values |
 | [`scene/`](../scene) | Figures, Axes, artists, layout state, and checked drawing preparation |
-| [`drawing/`](../drawing) | Immutable SVG snapshots and platform-independent point hit testing |
+| [`drawing/`](../drawing) | Immutable SVG snapshots, semantic metadata, point/rectangle/sector hit testing |
 | [`backend/svg/`](../backend/svg) | SVG layout, geometry, and serialization |
 | [`ticker/`](../ticker) | Numeric/date locators, formatters, categories, and scales |
 | [`transforms/`](../transforms) | Affine transforms, bounds, paths, and geometry |
@@ -140,3 +140,11 @@ UI screenshot is also byte-identical. The production JS bundle was checked to
 exclude test fixture names, format magic, and encoded payload prefixes.
 Detailed local evidence is in `.moonagent/checkpoints/repository-organization/`;
 these ignored logs are not required to reproduce the public commands above.
+
+### JS-only generated interfaces
+
+The module's canonical backend is Wasm. On the current toolchain, `moon info --target js`
+reports backend differences without replacing JS-only canonical interface files.
+Run `python3 tools/update_interfaces.py` to run `moon info --target all`, retain the exact
+compiler-generated JS interfaces for `rabbita/` and its executables, and run `moon fmt`.
+Review generated diffs as usual; do not manually edit `.mbti` signatures.
