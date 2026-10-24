@@ -51,12 +51,15 @@
 - [x] 首轮check/build通过，Chrome11项通过，0页面错误；桌面/375px已看实际截图。
 - [x] 最终info/fmt、checkJS/build通过，adapter7/7，Chrome11/11且0页面错误；桌面/375px截图已视觉复核。
 - [x] 根核心及公开mbti均未变化；assets展示图和组件CSS接入说明已同步。
-- [x] 界面与浏览器验收代码已独立commit；展示图与说明随文档提交交付。
-- [ ] 正常push并核远端，结束本次UI整理。
+- [x] 样式/交互验收0966ace、截图/文档f138e60分批commit并正常push。
+- [x] 交付HEAD与origin/master一致；adapter/style/截图四个远端blob与size逐项匹配。
+- [x] 本次UI整理已完成，无未处理验证失败；本检查点随后独立提交同步。
 
 ## 精确下一动作
 
-当前UI已完成实现与验收，下一分批提交并正常push、核远端。G2.1原有实现与验收保留。
+当前UI整理已完成实现、验收与交付，无待办修复。UI交付提交为0966ace、f138e60，
+远端已核一致；7项adapter与11项真实浏览器检查通过，API不变。
+G2.1原有实现与验收保留，未来功能片仍按用户需求推进。
 G2.1实现、验收、文档、提交和远端文件核查均已完成，无未处理失败。
 本片交付为05e9c20、1d4de2a、f1aac73；完整交付HEAD为
 f1aac7335d7e146e5d03bf1c8e77061aaec0909d，远端已核相同。
@@ -67,6 +70,7 @@ f1aac7335d7e146e5d03bf1c8e77061aaec0909d，远端已核相同。
 ## 证据、会话与运行方式
 
 - UI首浏览器75004、最终3504、最终Moon流程88111均terminal0；新旧浏览器HTTP/Chrome均已finally关闭。
+- UI push60409与远端核查5145均terminal0，结果ui-remote.json；89份Markdown/375本地链接通过。
 - UI日志在G2-2026-10-24/ui-*.log；当前report/demo/mobile截图在G2-ui-acceptance/。
 - 本轮基线：cbc7358aea2e5b005a1bb48bf088ed46e4f00e54；master跟踪origin/master，远端SSH。
 - SSH push43148 terminal0；GitHub API八文件40301 terminal0，结果github-delivery.json。
