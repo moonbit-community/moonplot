@@ -226,6 +226,15 @@ midpoint 范围按真实路径计算。仅 Scene 新增三个方法，其余 40 
 原生 Path 元数据/布局、NumPy 警告、通用 Path 与大线条裁剪优化等边界见
 [testdata/line_drawstyle_README.md](testdata/line_drawstyle_README.md)。
 
+D53 Line 可选 String gapcolor 与两笔描边已验收：19 个新增注册测试（3 个正式组、
+16 个定向/公开回归），54 条原源记录完整保留，52 条 typed、两条原生可变 RGB 为
+source-only。四目标 wasm/wasm-gc/native 各 22219 项、JS 22226 项全过。间隙颜色、
+逆虚线、GC/实际写入、前景颜色与完成回调严格按顺序执行；前景失败保留写入前缀，
+不清 stale。空逆序列的 list/tuple 错误保留最后缩放历史，不能从当前 rc 推断。
+4 份预期接口变化已审，其余 37 份逐字不变。低层静态 Style 间隙字段仅传输元数据；
+原生颜色对象、marker、cap/join 与像素重叠仍有边界，见
+[testdata/line_gapcolor_README.md](testdata/line_gapcolor_README.md)。
+
 ## 完成标准
 
 条目只有在以下条件都满足时才从“计划”或“原型”移为“已实现”：

@@ -2106,3 +2106,20 @@ let svg = fig.to_svg_checked()
 输入建立新缓存代，旧借用视图保持旧代。绘制和 relim 使用同一条缓存路径，数据查询
 保持未展开的点数。该接口是数值路径顶点桥，不等于通用 Path/codes/marker 系统；
 完整来源、别名和数值边界见 [Line 阶梯路径](testdata/line_drawstyle_README.md)。
+
+D53 增加 `Line2D::get_gapcolor()`、`set_gapcolor(String?)` 与 `is_dashed()`。
+间隙颜色保留原始字符串；`None` 清除，`Some("none")` 是透明颜色。每次合法设置都会
+标记 stale，包括重复设置，非法颜色保留全部旧状态。`is_dashed()` 只查询当前线型。
+
+```moonbit nocheck
+line.set_linestyle("dashed")
+line.set_gapcolor(Some("tab:orange"))
+line.set_color("tab:blue")
+let svg = fig.to_svg_checked()
+```
+
+可见、非空、正线宽的虚线先绘制反向虚线及间隙色，再解析并绘制前景色。两笔共用
+缓存路径，透明度覆盖内嵌 alpha；透明间隙仍执行校验和绘制。后续前景错误保留先前
+写入且不清除 stale。原始颜色与 `C0` 等 token 延迟到各自绘制阶段解析。
+`Style::line_gapcolor()` 和工厂参数传输原始元数据；低层静态 Style 不自动展开两笔。
+完整来源、错误顺序和渲染边界见 [Line 间隙色](testdata/line_gapcolor_README.md)。

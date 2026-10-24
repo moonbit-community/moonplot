@@ -616,3 +616,11 @@ D52 的 Line drawstyle、延迟路径缓存和三种阶梯顶点展开依据固�
 默认/阶梯 Path 实际别名、物理 ndarray 元数据和原源警告完整保留，具体边界见
 [testdata/line_drawstyle_README.md](testdata/line_drawstyle_README.md)。
 既有 Matplotlib 与 NumPy 许可继续适用；没有新增分发运行时或编译扩展。
+
+D53 的 Line gapcolor、is_dashed、逆虚线与两笔描边顺序依据固定 Matplotlib v3.11.2
+的 lines.py、colors.py 和 backend_bases.py 以 MoonBit 重写。独立参考执行完整相关
+方法并保留 54 条实际原源观察，完整原 payload SHA256 为
+`b87e5f99fc2da8a586b0b27926b6fbbae31b918216cca456835335db6e0924b7`。
+来源、方法哈希和宿主边界见
+[testdata/line_gapcolor_README.md](testdata/line_gapcolor_README.md)。
+既有 Matplotlib 与 NumPy 许可继续适用，没有新增分发运行时。

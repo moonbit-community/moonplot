@@ -478,3 +478,12 @@ setter、RcParams validator、完整 no-marker draw、GC 校验及真实 difflib
 75 条原源记录保留完整字段，String 域投影 74 条，原生 None 一条为 source-only。
 来源、数值/布局/警告边界和复现见
 [testdata/line_drawstyle_README.md](testdata/line_drawstyle_README.md)。
+
+## D53 Line 间隙色
+
+复用不可变 Style、既有颜色转换、缓存路径与 SVG writer；一个命名 LineDrawingContext
+承载按顺序执行的间隙与前景绘制，没有新增分发依赖。私有逆虚线 helper 依据固定
+Matplotlib v3.11.2 原方法重写。独立参考执行完整 gapcolor setter、is_dashed、逆虚线
+及 no-marker Line.draw，保留全部 54 条原观察；52 条 typed、两条原生可变 RGB 为
+source-only。完整 payload 有强制哈希，来源、重现与实际绘制阶段见
+[testdata/line_gapcolor_README.md](testdata/line_gapcolor_README.md)。
