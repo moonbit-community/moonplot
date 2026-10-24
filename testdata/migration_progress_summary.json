@@ -1,0 +1,368 @@
+{
+  "date": "2026-10-24",
+  "metric": "Equal-weight canonical public API/configuration migration-equivalent index",
+  "input_files": [
+    {
+      "path": "testdata/upstream_api_inventory.json",
+      "sha256": "ef5d0e670c7cd847ffb1fd65f152608f83c1b2b9b81a6e5a8508977cfaaabc78"
+    },
+    {
+      "path": "testdata/port_api_mapping.json",
+      "sha256": "0b277d99198b43b3c0ace06861b420803878c4ff4e6b37dce51ddf667c532ead"
+    }
+  ],
+  "upstream_commit": "d3ca9172e392048ec242b90e8423e88d1a3000b2",
+  "port_baseline": "f742c79e36a1b749e863e53668b69532b39321d5",
+  "primary_runtime_api_plus_public_rc": {
+    "denominator": 4809,
+    "positive_units": 560,
+    "full_contract_units": 5,
+    "score_histogram": {
+      "0.0": 4249,
+      "0.25": 27,
+      "0.5": 282,
+      "0.75": 246,
+      "1.0": 5
+    },
+    "equivalents_lower": 337.25,
+    "equivalents_upper": 340.75,
+    "percent_lower": 7.012892493241838,
+    "percent_upper": 7.085672697026409,
+    "positive_attachment_percent": 11.644832605531295
+  },
+  "runtime_api_only": {
+    "denominator": 4471,
+    "positive_units": 526,
+    "full_contract_units": 5,
+    "score_histogram": {
+      "0.0": 3945,
+      "0.25": 27,
+      "0.5": 276,
+      "0.75": 218,
+      "1.0": 5
+    },
+    "equivalents_lower": 313.25,
+    "equivalents_upper": 316.75,
+    "percent_lower": 7.006262581078059,
+    "percent_upper": 7.0845448445537915,
+    "positive_attachment_percent": 11.764705882352942
+  },
+  "public_rc_only": {
+    "denominator": 338,
+    "positive_units": 34,
+    "full_contract_units": 0,
+    "score_histogram": {
+      "0.0": 304,
+      "0.5": 6,
+      "0.75": 28
+    },
+    "equivalents_lower": 24.0,
+    "equivalents_upper": 24.0,
+    "percent_lower": 7.100591715976331,
+    "percent_upper": 7.100591715976331,
+    "positive_attachment_percent": 10.059171597633137
+  },
+  "groups": {
+    "data_color_transform_path": {
+      "label": "基础 data / color / transform / path",
+      "denominator": 518,
+      "positive_units": 122,
+      "full_contract_units": 0,
+      "score_histogram": {
+        "0.0": 396,
+        "0.25": 6,
+        "0.5": 116
+      },
+      "equivalents_lower": 59.5,
+      "equivalents_upper": 60.25,
+      "percent_lower": 11.486486486486486,
+      "percent_upper": 11.63127413127413,
+      "positive_attachment_percent": 23.55212355212355
+    },
+    "objects_axes_layout": {
+      "label": "对象、axes、figure、layout",
+      "denominator": 797,
+      "positive_units": 131,
+      "full_contract_units": 0,
+      "score_histogram": {
+        "0.0": 666,
+        "0.25": 10,
+        "0.5": 81,
+        "0.75": 40
+      },
+      "equivalents_lower": 73.0,
+      "equivalents_upper": 75.75,
+      "percent_lower": 9.159347553324968,
+      "percent_upper": 9.50439146800502,
+      "positive_attachment_percent": 16.4366373902133
+    },
+    "plots_2d": {
+      "label": "2D plots 与绘图 Artist",
+      "denominator": 729,
+      "positive_units": 81,
+      "full_contract_units": 4,
+      "score_histogram": {
+        "0.0": 648,
+        "0.25": 2,
+        "0.5": 58,
+        "0.75": 17,
+        "1.0": 4
+      },
+      "equivalents_lower": 46.25,
+      "equivalents_upper": 46.25,
+      "percent_lower": 6.344307270233196,
+      "percent_upper": 6.344307270233196,
+      "positive_attachment_percent": 11.11111111111111
+    },
+    "ticker_dates_units": {
+      "label": "ticker / dates / units / scale",
+      "denominator": 280,
+      "positive_units": 180,
+      "full_contract_units": 1,
+      "score_histogram": {
+        "0.0": 100,
+        "0.25": 5,
+        "0.5": 13,
+        "0.75": 161,
+        "1.0": 1
+      },
+      "equivalents_lower": 129.5,
+      "equivalents_upper": 129.5,
+      "percent_lower": 46.25,
+      "percent_upper": 46.25,
+      "positive_attachment_percent": 64.28571428571429
+    },
+    "svg_ir": {
+      "label": "SVG renderer（上游没有本项目独立 IR 的等价分母）",
+      "denominator": 29,
+      "positive_units": 1,
+      "full_contract_units": 0,
+      "score_histogram": {
+        "0.0": 28,
+        "0.25": 1
+      },
+      "equivalents_lower": 0.25,
+      "equivalents_upper": 0.25,
+      "percent_lower": 0.8620689655172413,
+      "percent_upper": 0.8620689655172413,
+      "positive_attachment_percent": 3.4482758620689653
+    },
+    "pyplot_config_style": {
+      "label": "pyplot / config / style",
+      "denominator": 523,
+      "positive_units": 45,
+      "full_contract_units": 0,
+      "score_histogram": {
+        "0.0": 478,
+        "0.25": 3,
+        "0.5": 14,
+        "0.75": 28
+      },
+      "equivalents_lower": 28.75,
+      "equivalents_upper": 28.75,
+      "percent_lower": 5.497131931166348,
+      "percent_upper": 5.497131931166348,
+      "positive_attachment_percent": 8.604206500956023
+    },
+    "text_font_math": {
+      "label": "text / font / mathtext / TeX",
+      "denominator": 312,
+      "positive_units": 0,
+      "full_contract_units": 0,
+      "score_histogram": {
+        "0.0": 312
+      },
+      "equivalents_lower": 0.0,
+      "equivalents_upper": 0.0,
+      "percent_lower": 0.0,
+      "percent_upper": 0.0,
+      "positive_attachment_percent": 0.0
+    },
+    "other_backends_interaction": {
+      "label": "其他 backends / animation / widgets / interaction",
+      "denominator": 1022,
+      "positive_units": 0,
+      "full_contract_units": 0,
+      "score_histogram": {
+        "0.0": 1022
+      },
+      "equivalents_lower": 0.0,
+      "equivalents_upper": 0.0,
+      "percent_lower": 0.0,
+      "percent_upper": 0.0,
+      "positive_attachment_percent": 0.0
+    },
+    "projections_toolkits": {
+      "label": "projections / toolkits / 3D",
+      "denominator": 599,
+      "positive_units": 0,
+      "full_contract_units": 0,
+      "score_histogram": {
+        "0.0": 599
+      },
+      "equivalents_lower": 0.0,
+      "equivalents_upper": 0.0,
+      "percent_lower": 0.0,
+      "percent_upper": 0.0,
+      "positive_attachment_percent": 0.0
+    }
+  },
+  "scope_sensitivity": {
+    "only_stub_or_documentation_witness_plus_public_rc": {
+      "denominator": 4790,
+      "positive_units": 558,
+      "full_contract_units": 5,
+      "score_histogram": {
+        "0.0": 4232,
+        "0.25": 27,
+        "0.5": 281,
+        "0.75": 245,
+        "1.0": 5
+      },
+      "equivalents_lower": 336.0,
+      "equivalents_upper": 339.5,
+      "percent_lower": 7.014613778705637,
+      "percent_upper": 7.087682672233821,
+      "positive_attachment_percent": 11.649269311064717
+    },
+    "include_development_api_plus_public_rc": {
+      "denominator": 4955,
+      "positive_units": 560,
+      "full_contract_units": 5,
+      "score_histogram": {
+        "0.0": 4395,
+        "0.25": 27,
+        "0.5": 282,
+        "0.75": 246,
+        "1.0": 5
+      },
+      "equivalents_lower": 337.25,
+      "equivalents_upper": 340.75,
+      "percent_lower": 6.806256306760847,
+      "percent_upper": 6.8768920282542885,
+      "positive_attachment_percent": 11.301715438950556
+    },
+    "static_2d_svg_public_api_plus_rc_including_text_font": {
+      "denominator": 3188,
+      "positive_units": 560,
+      "full_contract_units": 5,
+      "score_histogram": {
+        "0.0": 2628,
+        "0.25": 27,
+        "0.5": 282,
+        "0.75": 246,
+        "1.0": 5
+      },
+      "equivalents_lower": 337.25,
+      "equivalents_upper": 340.75,
+      "percent_lower": 10.578732747804265,
+      "percent_upper": 10.688519447929737,
+      "positive_attachment_percent": 17.565872020075282
+    },
+    "additional_runtime_attribute_units": 821,
+    "attributes_zero_credit_denominator_sensitivity_percent": 5.9902309058614565,
+    "attribute_note": "Fields are separately inventoried, not individually graded. This variant adds them without extra credit; it is a denominator sensitivity, not a verified estimate of field support."
+  },
+  "grading_sensitivity": {
+    "ambiguous_unit_ids": [
+      "api:matplotlib.artist.Artist.get_alpha",
+      "api:matplotlib.artist.Artist.get_figure",
+      "api:matplotlib.artist.Artist.get_visible",
+      "api:matplotlib.artist.Artist.remove",
+      "api:matplotlib.artist.Artist.set_alpha",
+      "api:matplotlib.artist.Artist.set_visible",
+      "api:matplotlib.artist.Artist.stale",
+      "api:matplotlib.axis.Axis.convert_units",
+      "api:matplotlib.axis.Axis.get_units",
+      "api:matplotlib.axis.Axis.set_units",
+      "api:matplotlib.axis.Axis.update_units",
+      "api:matplotlib.transforms.BlendedGenericTransform",
+      "api:matplotlib.transforms.CompositeGenericTransform",
+      "api:matplotlib.transforms.Transform"
+    ],
+    "all_partial_items_one_quarter_lower_percent": 4.127677271782075,
+    "note": "One-grade-down sensitivity tests grading policy. It is not a statistical confidence interval or a change to the published rubric."
+  },
+  "history_presence_only": {
+    "ref": "6dea404e808a96bb741810af1fdfae8df639ef8f",
+    "comparison_contract": "Interface presence only, using identical canonical mapping rules/inventory. No current source-acceptance grade is assigned retrospectively; internal-kernel, error-order and wiring improvements without new public APIs are invisible to this delta.",
+    "runtime_api": {
+      "historical": 474,
+      "current": 526
+    },
+    "public_rc": {
+      "historical": 28,
+      "current": 34
+    },
+    "primary_scope": {
+      "denominator": 4809,
+      "historical_positive_units": 502,
+      "current_positive_units": 560,
+      "historical_presence_percent": 10.438760657101268,
+      "current_presence_percent": 11.644832605531295,
+      "presence_percentage_point_change": 1.206071948430027,
+      "added_ids": [
+        "api:matplotlib.artist.Artist.get_alpha",
+        "api:matplotlib.artist.Artist.get_visible",
+        "api:matplotlib.artist.Artist.set_alpha",
+        "api:matplotlib.artist.Artist.set_visible",
+        "api:matplotlib.artist.Artist.stale",
+        "api:matplotlib.axes.Axes.get_autoscale_on",
+        "api:matplotlib.axes.Axes.relim",
+        "api:matplotlib.axes.Axes.set_autoscale_on",
+        "api:matplotlib.axes.Axes.update_datalim",
+        "api:matplotlib.axes.Axes.use_sticky_edges",
+        "api:matplotlib.axes._secondary_axes.SecondaryAxis.draw",
+        "api:matplotlib.axes._secondary_axes.SecondaryAxis.set_alignment",
+        "api:matplotlib.axes._secondary_axes.SecondaryAxis.set_functions",
+        "api:matplotlib.axes._secondary_axes.SecondaryAxis.set_location",
+        "api:matplotlib.axis.Axis.convert_units",
+        "api:matplotlib.axis.Axis.get_scale",
+        "api:matplotlib.axis.Axis.get_units",
+        "api:matplotlib.axis.Axis.have_units",
+        "api:matplotlib.axis.Axis.set_units",
+        "api:matplotlib.axis.Axis.update_units",
+        "api:matplotlib.category.UnitData",
+        "api:matplotlib.category.UnitData.update",
+        "api:matplotlib.lines.Line2D",
+        "api:matplotlib.lines.Line2D.get_color",
+        "api:matplotlib.lines.Line2D.get_data",
+        "api:matplotlib.lines.Line2D.get_drawstyle",
+        "api:matplotlib.lines.Line2D.get_gapcolor",
+        "api:matplotlib.lines.Line2D.get_linestyle",
+        "api:matplotlib.lines.Line2D.get_linewidth",
+        "api:matplotlib.lines.Line2D.get_path",
+        "api:matplotlib.lines.Line2D.get_xdata",
+        "api:matplotlib.lines.Line2D.get_xydata",
+        "api:matplotlib.lines.Line2D.get_ydata",
+        "api:matplotlib.lines.Line2D.is_dashed",
+        "api:matplotlib.lines.Line2D.recache",
+        "api:matplotlib.lines.Line2D.set_color",
+        "api:matplotlib.lines.Line2D.set_dashes",
+        "api:matplotlib.lines.Line2D.set_data",
+        "api:matplotlib.lines.Line2D.set_drawstyle",
+        "api:matplotlib.lines.Line2D.set_gapcolor",
+        "api:matplotlib.lines.Line2D.set_linestyle",
+        "api:matplotlib.lines.Line2D.set_linewidth",
+        "api:matplotlib.lines.Line2D.set_xdata",
+        "api:matplotlib.lines.Line2D.set_ydata",
+        "api:matplotlib.ticker.LogitFormatter",
+        "api:matplotlib.ticker.LogitFormatter.__call__",
+        "api:matplotlib.ticker.LogitFormatter.format_data_short",
+        "api:matplotlib.ticker.LogitFormatter.set_locs",
+        "api:matplotlib.ticker.LogitFormatter.set_minor_number",
+        "api:matplotlib.ticker.LogitFormatter.set_minor_threshold",
+        "api:matplotlib.ticker.LogitFormatter.set_one_half",
+        "api:matplotlib.ticker.LogitFormatter.use_overline",
+        "rc:lines.dashdot_pattern",
+        "rc:lines.dashed_pattern",
+        "rc:lines.dotted_pattern",
+        "rc:lines.scale_dashes",
+        "rc:xtick.minor.visible",
+        "rc:ytick.minor.visible"
+      ],
+      "removed_ids": []
+    }
+  },
+  "interpretation": "Breadth and disclosed readiness under this API rubric; not engineering-hours completion, pixel fidelity, all valid Python executions, test coverage, or Moon source-line coverage."
+}
