@@ -7,3 +7,5 @@ target
 .lody/
 __pycache__/
 *.pyc
+# Test-only loaders emitted by Moon's fixture embed step.
+ticker/*_fixture.generated_wbtest.mbt
