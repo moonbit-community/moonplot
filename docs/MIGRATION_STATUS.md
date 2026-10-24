@@ -21,11 +21,11 @@
   原主图11项/资源7组也中央跑过；新图真实截图assets/tooltips.png。
 - [x] 完整四目标回归、接口/格式/结构/文档与外部消费者演练通过；前三步提交已push。
 - [x] 最后复审发现SVG图例覆盖区仍触发数据；已修同次绘制采集真实图例矩形，按panel排除，四目标定向与真实Chrome回归通过。
-- [ ] 图例修复提交后重新clean构建正式0.3.0包、实际发布与registry独立消费、GitHub附件回验。
+- [x] 图例修复提交后重新clean构建正式0.3.0包、实际发布与registry独立消费、GitHub附件回验全部完成。
 - 责任：A(/m2_svg_scoping)只drawing；B(/m2_package_audit)scene/backend/svg/internal-render与对应tests；C(/m2_resource_browser)新增tooltips示例/页面/runner；Root适配层/文档/交付。
 - 现有0.2.1已发布且registry验收完成，旧片全部历史；不重启旧API迁移。
 - 基线342713d814dc905a9ba273fcbd9b761d53d50ad2，证据.moonagent/checkpoints/tooltips-2026-10-25/。
-- 精确下一动作：提交图例修复并push，重新clean打0.3.0正式包（旧53e23ed正式包作废，尚未发布）；actual moon publish后验证registry独立安装与GitHub附件。
+- 精确下一动作：本切片实现与发布验收已完成，无剩余必做项；后续按用户新需求继续。旧53e23ed包从未发布，正式源为2fb8bcf。
 - A最终drawing四目标19/19，XNearest统一按dx最小/dy tie，nearby Scatter仍优先；反例回归通过。
 - B与A已STOP source；C最终13组已terminal0并交回6文件，证据typed-tooltips/browser/。
 - Root首次外部ZIP65275静态四目标通过，新增第二图使旧CSS选择器strict失败；已修特定chart selector+滚动。
@@ -44,6 +44,15 @@
   54218最初fixture未真正恢复legend而失败，已改clear_legend启用自动图例后通过；未掩盖生产失败。
   assets/tooltips.png已更新并目视。中央interfaces/fmt与check-all94255、structure/diff均过。
 - A图例handoff已STOP无live会话；其余agents均STOP。日志与handoff仍在本片证据目录。
+- 图例修复源2fb8bcfc54a6a071dec0a83e9ba1d054db823c4c已push。最终interfaces/fmt与adapter17/17通过；
+  clean正式builder69942 terminal0：四目标静态+Chrome6项通过，dirty_rehearsal=false。
+  唯一正式模块ZIP1,519,916bytes/493files，sha256 cb737aa10e4948ae5e238493550fd0cdccdddc02d0d5bb28f1485d2f31833792。
+- moon publish4697 terminal0/Server200；公开0.3.0/build_status=success/has_package=true/yanked=false。
+  registry独立安装55986 terminal0：无workspace覆盖、493文件逐一等于正式ZIP、静态四目标+Chrome6全部通过。
+- GitHub v0.3.0发布53550 terminal0，四附件下载94879 terminal0并逐字节/远端摘要核对通过；tag指向2fb8bcf。
+  https://github.com/moonbit-community/moonplot/releases/tag/v0.3.0 ，https://mooncakes.io/docs/Lampese/mathplotlib 。
+  最终source bundle1,537,913bytes/506files；完整manifest/checksums/report及日志均在本片证据目录。
+- 无未解决实现/测试/发布失败；临时浏览器与打包HTTP服务均finally关闭，仅保留下方有意预览8304。
 - 旧预览服务已不在；新有意保留服务session8304/PID74453，显式服务仓库根：
   http://127.0.0.1:8765/rabbita/tooltips.html ，HTML+JS已绕过环境proxy核HTTP200；open_in_codex返回queued。
 
