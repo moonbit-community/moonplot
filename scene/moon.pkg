@@ -13,6 +13,7 @@ import {
   "mathplotlib/mathplotlib/transforms",
   "mathplotlib/mathplotlib/backend/svg",
   "mathplotlib/mathplotlib/internal/render",
+  "mathplotlib/mathplotlib/internal/color_names",
   "moonbitlang/core/math",
   "moonbitlang/core/ref",
 }
