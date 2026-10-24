@@ -198,6 +198,20 @@ pub fn Line2D::set_gapcolor(
 }
 
 ///|
+// Normalize the source initial integer-zero offset with its float sum. Keep
+// this shared by rc String capture and the immutable tuple-input projection.
+fn line_style_zero_offset(values : Array[Double]) -> Double {
+  let total = line_style_float_sum(values)
+  if total.is_nan() {
+    0.0 / 0.0
+  } else if total < 0.0 {
+    -0.0
+  } else {
+    0.0
+  }
+}
+
+///|
 fn line_style_capture(canonical : String) -> LineDashPattern {
   let dashes = match canonical {
     "--" => Some(@config.lines_dashed_pattern())
@@ -205,19 +219,7 @@ fn line_style_capture(canonical : String) -> LineDashPattern {
     ":" => Some(@config.lines_dotted_pattern())
     _ => None
   }
-  let offset = match dashes {
-    None => 0.0
-    Some(values) => {
-      let total = line_style_float_sum(values)
-      if total.is_nan() {
-        0.0 / 0.0
-      } else if total < 0.0 {
-        -0.0
-      } else {
-        0.0
-      }
-    }
-  }
+  let offset = dashes.map(line_style_zero_offset).unwrap_or(0.0)
   { offset, dashes, }
 }
 
@@ -293,6 +295,36 @@ pub fn Line2D::set_linestyle(
       self.style.width(),
       scale_dashes,
     ),
+  )
+  self.stale = true
+}
+
+///|
+/// Snapshot numeric dashes as an immutable tuple-input profile. Validation of
+/// unusual numeric patterns remains draw-late, as for captured rc patterns.
+pub fn Line2D::set_dashes(self : Line2D, seq : Array[Double]) -> Unit {
+  let snapshot = seq.copy()
+  if snapshot.is_empty() {
+    // This literal is always valid; retain the full solid scaling route.
+    try! self.set_linestyle("-")
+    return
+  }
+  let previous = self.style.line_stroke()
+  self.replace_line_stroke(
+    @core.line_stroke(
+      "--",
+      offset=previous.dash_offset(),
+      dashes=previous.dash_sequence(),
+    ),
+  )
+  self.unscaled_dash_pattern = {
+    offset: line_style_zero_offset(snapshot),
+    dashes: Some(snapshot),
+  }
+  let scale_dashes = @config.lines_scale_dashes()
+  self.scaled_dashes_as_list = scale_dashes
+  self.replace_line_stroke(
+    self.unscaled_dash_pattern.scaled("--", self.style.width(), scale_dashes),
   )
   self.stale = true
 }

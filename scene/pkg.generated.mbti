@@ -730,6 +730,7 @@ pub fn Line2D::recache_checked(Self, always? : Bool) -> Unit raise @core.DataErr
 pub fn Line2D::remove(Self) -> Unit raise @core.DataError
 pub fn Line2D::set_alpha(Self, Double?) -> Unit raise @core.DataError
 pub fn Line2D::set_color(Self, String) -> Unit raise @core.DataError
+pub fn Line2D::set_dashes(Self, Array[Double]) -> Unit
 pub fn Line2D::set_data(Self, LineData, LineData) -> Unit
 pub fn Line2D::set_drawstyle(Self, String) -> Unit raise @core.DataError
 pub fn Line2D::set_gapcolor(Self, String?) -> Unit raise @core.DataError
