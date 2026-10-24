@@ -1,0 +1,48 @@
+///|
+priv struct ArtistHitData {
+  artist : Artist
+  mut series : String
+  mut histogram_edges : Array[Double]?
+}
+
+///|
+fn same_hit_artist(first : Artist, second : Artist) -> Bool {
+  match (first, second) {
+    (Line(a, _), Line(b, _))
+    | (Scatter(a, _), Scatter(b, _))
+    | (Bar(a, _), Bar(b, _))
+    | (BarH(a, _), BarH(b, _)) => physical_equal(a, b)
+    (PathCollection(a), PathCollection(b)) => physical_equal(a, b)
+    (Pie(a, _, _, _), Pie(b, _, _, _)) => physical_equal(a, b)
+    _ => false
+  }
+}
+
+///|
+fn AxesData::hit_metadata(
+  self : AxesData,
+  artist : Artist,
+) -> @render.HitMetadata {
+  for record in self.artist_hits {
+    if same_hit_artist(record.artist, artist) {
+      return @render.hit_metadata(record.series, edges=record.histogram_edges)
+    }
+  }
+  @render.hit_metadata("")
+}
+
+///|
+fn Axes::record_hit_series(self : Axes, series : String) -> Unit {
+  let records = self.state.val.artist_hits
+  if records.length() > 0 {
+    records[records.length() - 1].series = series
+  }
+}
+
+///|
+fn Axes::record_histogram_edges(self : Axes, edges : Array[Double]) -> Unit {
+  let records = self.state.val.artist_hits
+  if records.length() > 0 {
+    records[records.length() - 1].histogram_edges = Some(edges.copy())
+  }
+}

@@ -39,12 +39,13 @@ pub fn hit_point(
 }
 
 ///|
-/// A prepared SVG snapshot with point targets and no UI-framework types.
+/// A prepared SVG snapshot with immutable semantic hit targets and no UI types.
 pub struct Drawing {
   priv width : Int32
   priv height : Int32
   priv svg : String
   priv points : Array[HitPoint]
+  priv targets : Array[HitTarget]
 }
 
 ///|
@@ -54,8 +55,9 @@ pub fn drawing(
   height : Int32,
   svg : String,
   points : Array[HitPoint],
+  targets~ : Array[HitTarget] = [],
 ) -> Drawing {
-  { width, height, svg, points: points.copy(), }
+  { width, height, svg, points: points.copy(), targets: targets.copy(), }
 }
 
 ///|
@@ -77,4 +79,21 @@ pub fn Drawing::svg(self : Drawing) -> String {
 /// Return a copy; mutating it cannot change this drawing's hit targets.
 pub fn Drawing::points(self : Drawing) -> Array[HitPoint] {
   self.points.copy()
+}
+
+///|
+/// Return an independent array; target values contain no mutable collections.
+pub fn Drawing::targets(self : Drawing) -> Array[HitTarget] {
+  self.targets.copy()
+}
+
+///|
+/// Look up metadata by exact point equality within this prepared frame.
+pub fn Drawing::hit_info(self : Drawing, point : HitPoint) -> HitInfo? {
+  for target in self.targets {
+    if target.info.point == point {
+      return Some(target.info)
+    }
+  }
+  None
 }

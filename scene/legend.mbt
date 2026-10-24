@@ -96,6 +96,7 @@ fn Axes::add_auto_legend(
   color : String,
   kind : LegendKind,
 ) -> Unit {
+  self.record_hit_series(label)
   if label == "" || has_legend_label(self.state.val.auto_legend, label) {
     return
   }

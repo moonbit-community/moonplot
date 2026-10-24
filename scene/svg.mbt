@@ -357,6 +357,11 @@ fn Figure::to_render_figure(
     // A later clear/new attachment must not redirect an old IR completion.
     let lines = state.line_originals.copy()
     let artists = Array(capacity=state.artists.length())
+    let hit_metadata = if capture_points {
+      state.artists.map(artist => state.hit_metadata(artist))
+    } else {
+      []
+    }
     for artist in state.artists {
       artists.push(to_render_artist(artist))
     }
@@ -403,6 +408,7 @@ fn Figure::to_render_figure(
         secondary_x,
         secondary_y,
         legend_position=state.legend_position,
+        hit_metadata~,
         show_x_tick_labels=state.show_x_tick_labels,
         show_y_tick_labels=state.show_y_tick_labels,
         frame_visible=state.frame_visible,

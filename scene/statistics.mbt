@@ -110,6 +110,7 @@ pub fn Axes::hist(
   }
   let start = self.state.val.artists.length()
   self.bar(points, color~, label~)
+  self.record_histogram_edges(edges)
   let artists = Array(capacity=self.state.val.artists.length() - start)
   for index in start..<self.state.val.artists.length() {
     artists.push(copy_artist(self.state.val.artists[index]))

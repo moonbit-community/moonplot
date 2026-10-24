@@ -24,7 +24,15 @@ pub using @core {
 
 ///|
 /// Prepared output and data-point locations for interactive adapters.
-pub using @drawing {type Drawing, type HitPoint}
+pub using @drawing {
+  type Drawing,
+  type HitPoint,
+  type HitInfo,
+  type HitKind,
+  type HitMode,
+  type HitShape,
+  type HitTarget,
+}
 
 ///|
 /// Typed RGB and RGBA values used by colored image inputs.

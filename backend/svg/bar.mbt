@@ -1,4 +1,167 @@
 ///|
+priv struct RenderedBar {
+  source_index : Int32
+  point : @core.Point
+  left : Double
+  top : Double
+  width : Double
+  height : Double
+}
+
+///|
+// Painting and hit geometry share the same scale, NaN filtering, baseline and
+// spacing. Keep original source indices even when nonfinite bars are skipped.
+fn bar_rectangles(
+  scale : Scale,
+  left : Double,
+  top : Double,
+  plot_width : Double,
+  plot_height : Double,
+  points : Array[@core.Point],
+  horizontal : Bool,
+) -> Array[RenderedBar] {
+  let visible = bar_geometry_points(points)
+  let source_indices = []
+  for index, point in points {
+    if point.is_finite() {
+      source_indices.push(index)
+    }
+  }
+  let axis_scale = if horizontal {
+    scale.x_axis_scale
+  } else {
+    scale.y_axis_scale
+  }
+  let minimum = if horizontal { scale.xmin } else { scale.ymin }
+  let maximum = if horizontal { scale.xmax } else { scale.ymax }
+  let baseline_value = if axis_scale.is_log() {
+    minimum
+  } else {
+    clamp_to_limits(0.0, minimum, maximum)
+  }
+  let baseline = if horizontal {
+    map_x(scale, left, plot_width, baseline_value)
+  } else {
+    map_y(scale, top, plot_height, baseline_value)
+  }
+  let result = []
+  for i in 0..<visible.length() {
+    let p = visible[i]
+    if !valid_point(scale, p) {
+      continue
+    }
+    let half = bar_data_half_span(visible, i, horizontal)
+    let (first, last) = if horizontal {
+      (
+        map_y(
+          scale,
+          top,
+          plot_height,
+          bar_valid_edge(
+            p.y() - half,
+            p.y(),
+            scale.ymin,
+            scale.ymax,
+            scale.y_axis_scale,
+          ),
+        ),
+        map_y(
+          scale,
+          top,
+          plot_height,
+          bar_valid_edge(
+            p.y() + half,
+            p.y(),
+            scale.ymin,
+            scale.ymax,
+            scale.y_axis_scale,
+          ),
+        ),
+      )
+    } else {
+      (
+        map_x(
+          scale,
+          left,
+          plot_width,
+          bar_valid_edge(
+            p.x() - half,
+            p.x(),
+            scale.xmin,
+            scale.xmax,
+            scale.x_axis_scale,
+          ),
+        ),
+        map_x(
+          scale,
+          left,
+          plot_width,
+          bar_valid_edge(
+            p.x() + half,
+            p.x(),
+            scale.xmin,
+            scale.xmax,
+            scale.x_axis_scale,
+          ),
+        ),
+      )
+    }
+    let thickness = Double::max(Double::abs(last - first), 1.0)
+    let value = if horizontal {
+      map_x(scale, left, plot_width, p.x())
+    } else {
+      map_y(scale, top, plot_height, p.y())
+    }
+    let (x, y, width, height) = if horizontal {
+      (
+        Double::min(value, baseline),
+        (first + last - thickness) / 2.0,
+        Double::abs(value - baseline),
+        thickness,
+      )
+    } else {
+      (
+        (first + last - thickness) / 2.0,
+        Double::min(value, baseline),
+        thickness,
+        Double::abs(value - baseline),
+      )
+    }
+    result.push({
+      source_index: source_indices[i],
+      point: p,
+      left: x,
+      top: y,
+      width,
+      height,
+    })
+  }
+  result
+}
+
+///|
+fn append_bar_rectangles(
+  writer : @xml.Writer,
+  rectangles : Array[RenderedBar],
+  style : @core.Style,
+  on_bar : ((RenderedBar) -> Unit)?,
+) -> Unit {
+  let fill = if style.fill() == "" { style.color() } else { style.fill() }
+  for rectangle in rectangles {
+    try! writer.empty_element("rect", [
+      ("x", float_text(rectangle.left)),
+      ("y", float_text(rectangle.top)),
+      ("width", float_text(rectangle.width)),
+      ("height", float_text(rectangle.height)),
+      ("fill", fill),
+    ])
+    if on_bar is Some(collect) {
+      collect(rectangle)
+    }
+  }
+}
+
+///|
 fn append_bars(
   writer : @xml.Writer,
   scale : Scale,
@@ -8,57 +171,14 @@ fn append_bars(
   plot_height : Double,
   points : Array[@core.Point],
   style : @core.Style,
+  on_bar~ : ((RenderedBar) -> Unit)? = None,
 ) -> Unit {
-  let visible = bar_geometry_points(points)
-  let baseline_value = if scale.y_axis_scale.is_log() {
-    scale.ymin
-  } else {
-    clamp_to_limits(0.0, scale.ymin, scale.ymax)
-  }
-  let baseline = map_y(scale, top, plot_height, baseline_value)
-  for i in 0..<visible.length() {
-    let p = visible[i]
-    if !valid_point(scale, p) {
-      continue
-    }
-    let half = bar_data_half_span(visible, i, false)
-    let first = map_x(
-      scale,
-      left,
-      plot_width,
-      bar_valid_edge(
-        p.x() - half,
-        p.x(),
-        scale.xmin,
-        scale.xmax,
-        scale.x_axis_scale,
-      ),
-    )
-    let last = map_x(
-      scale,
-      left,
-      plot_width,
-      bar_valid_edge(
-        p.x() + half,
-        p.x(),
-        scale.xmin,
-        scale.xmax,
-        scale.x_axis_scale,
-      ),
-    )
-    let width = Double::max(Double::abs(last - first), 1.0)
-    let y = map_y(scale, top, plot_height, p.y())
-    let rect_y = Double::min(y, baseline)
-    let rect_height = Double::abs(y - baseline)
-    let fill = if style.fill() == "" { style.color() } else { style.fill() }
-    try! writer.empty_element("rect", [
-      ("x", float_text((first + last - width) / 2.0)),
-      ("y", float_text(rect_y)),
-      ("width", float_text(width)),
-      ("height", float_text(rect_height)),
-      ("fill", fill),
-    ])
-  }
+  append_bar_rectangles(
+    writer,
+    bar_rectangles(scale, left, top, plot_width, plot_height, points, false),
+    style,
+    on_bar,
+  )
 }
 
 ///|
@@ -71,55 +191,12 @@ fn append_barh(
   plot_height : Double,
   points : Array[@core.Point],
   style : @core.Style,
+  on_bar~ : ((RenderedBar) -> Unit)? = None,
 ) -> Unit {
-  let visible = bar_geometry_points(points)
-  let baseline_value = if scale.x_axis_scale.is_log() {
-    scale.xmin
-  } else {
-    clamp_to_limits(0.0, scale.xmin, scale.xmax)
-  }
-  let baseline = map_x(scale, left, plot_width, baseline_value)
-  for i in 0..<visible.length() {
-    let p = visible[i]
-    if !valid_point(scale, p) {
-      continue
-    }
-    let x = map_x(scale, left, plot_width, p.x())
-    let half = bar_data_half_span(visible, i, true)
-    let first = map_y(
-      scale,
-      top,
-      plot_height,
-      bar_valid_edge(
-        p.y() - half,
-        p.y(),
-        scale.ymin,
-        scale.ymax,
-        scale.y_axis_scale,
-      ),
-    )
-    let last = map_y(
-      scale,
-      top,
-      plot_height,
-      bar_valid_edge(
-        p.y() + half,
-        p.y(),
-        scale.ymin,
-        scale.ymax,
-        scale.y_axis_scale,
-      ),
-    )
-    let height = Double::max(Double::abs(last - first), 1.0)
-    let rect_x = Double::min(x, baseline)
-    let rect_width = Double::abs(x - baseline)
-    let fill = if style.fill() == "" { style.color() } else { style.fill() }
-    try! writer.empty_element("rect", [
-      ("x", float_text(rect_x)),
-      ("y", float_text((first + last - height) / 2.0)),
-      ("width", float_text(rect_width)),
-      ("height", float_text(height)),
-      ("fill", fill),
-    ])
-  }
+  append_bar_rectangles(
+    writer,
+    bar_rectangles(scale, left, top, plot_width, plot_height, points, true),
+    style,
+    on_bar,
+  )
 }

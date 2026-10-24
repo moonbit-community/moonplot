@@ -3,6 +3,7 @@
 struct AxesData {
   artists : Array[Artist]
   line_originals : Array[Line2D]
+  artist_hits : Array[ArtistHitData]
   x_axis : @axis.Axis
   y_axis : @axis.Axis
   mut title : String?
@@ -71,6 +72,7 @@ fn AxesData::clear_presentation(self : AxesData) -> Unit {
     line.clear_attachment()
   }
   self.artists.clear()
+  self.artist_hits.clear()
   self.line_originals.clear()
   self.title = None
   self.explicit_bounds = None
@@ -120,6 +122,7 @@ fn Figure::default_axes_data(self : Figure) -> @ref.Ref[AxesData] {
 ///|
 fn Axes::push_artist(self : Axes, artist : Artist) -> Unit {
   self.state.val.artists.push(artist)
+  self.state.val.artist_hits.push({ artist, series: "", histogram_edges: None, })
   self.update_artist_data_limits(artist)
   match artist {
     Artist::Text(_, _, _, _) | Artist::Annotation(_) | Artist::Table(_) => ()
@@ -172,6 +175,7 @@ fn new_axes_state(
   @ref.new({
     artists: [],
     line_originals: [],
+    artist_hits: [],
     x_axis: @axis.axis(),
     y_axis: @axis.axis(horizontal=false),
     title: None,

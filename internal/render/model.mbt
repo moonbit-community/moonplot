@@ -899,6 +899,7 @@ pub fn Spine::bounds(self : Spine) -> (Double, Double)? {
 pub struct Panel {
   rect : @gridspec.Rect?
   artists : Array[Artist]
+  hit_metadata : Array[HitMetadata]
   line_provider : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)?
   title : String?
   legend : Array[LegendEntry]
@@ -997,10 +998,12 @@ pub fn panel_with_sharing(
   box_aspect? : Double,
   line_provider~ : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)? = None,
   legend_position~ : LegendPosition = UpperRight,
+  hit_metadata~ : Array[HitMetadata] = [],
 ) -> Panel {
   {
     rect,
     artists,
+    hit_metadata: hit_metadata.copy(),
     line_provider,
     title,
     legend,

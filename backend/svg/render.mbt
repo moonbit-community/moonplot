@@ -47,7 +47,7 @@ pub fn render_with_positions_checked(
 ///|
 fn render_with_hits_checked(
   figure : @render.Figure,
-  hit_points : Array[@drawing.HitPoint]?,
+  capture : DrawingCapture?,
 ) -> (String, Array[(Double, Double, Double, Double)]) raise @core.DataError {
   begin_tick_layout(figure)
   defer end_tick_layout(figure)
@@ -98,7 +98,7 @@ fn render_with_hits_checked(
       scales[index],
       index,
       positions[index],
-      hit_points~,
+      capture~,
     )
   }
   for index, bar in figure.colorbars() {

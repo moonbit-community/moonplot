@@ -6,7 +6,7 @@ fn render_panel(
   scale : Scale,
   panel_index : Int32,
   position : (Double, Double, Double, Double),
-  hit_points~ : Array[@drawing.HitPoint]? = None,
+  capture~ : DrawingCapture? = None,
 ) -> Unit raise @core.DataError {
   let (left, top, plot_width, plot_height) = position
   // Earlier panels can change the limits of a shared axis in this frame.
@@ -146,6 +146,7 @@ fn render_panel(
     )
   }
   for artist_index, artist in panel.artists() {
+    let metadata = panel.hit_metadata(artist_index)
     match artist {
       @render.Artist::Line(points, style) =>
         match panel.prepare_line(points) {
@@ -153,7 +154,7 @@ fn render_panel(
             append_line_context(
               writer, scale, left, top, plot_width, plot_height, context,
             )
-            if hit_points is Some(hits) &&
+            if capture is Some(hits) &&
               context.first_style().width() > 0.0 &&
               context.first_style().line_stroke().linestyle() != "None" {
               let points = match context.hit_points() {
@@ -161,7 +162,15 @@ fn render_panel(
                 None => context.points()
               }
               collect_drawing_points(
-                hits, panel_index, artist_index, points, scale, position,
+                hits,
+                panel_index,
+                artist_index,
+                points,
+                scale,
+                position,
+                panel,
+                metadata,
+                @drawing.HitKind::Line,
               )
             }
           }
@@ -169,11 +178,19 @@ fn render_panel(
             append_line_artist(
               writer, scale, left, top, plot_width, plot_height, points, style,
             )
-            if hit_points is Some(hits) &&
+            if capture is Some(hits) &&
               style.width() > 0.0 &&
               style.line_stroke().linestyle() != "None" {
               collect_drawing_points(
-                hits, panel_index, artist_index, points, scale, position,
+                hits,
+                panel_index,
+                artist_index,
+                points,
+                scale,
+                position,
+                panel,
+                metadata,
+                @drawing.HitKind::Line,
               )
             }
           }
@@ -182,17 +199,7 @@ fn render_panel(
         append_scatter(
           writer, scale, left, top, plot_width, plot_height, points, style,
         )
-        if hit_points is Some(hits) {
-          collect_drawing_points(
-            hits, panel_index, artist_index, points, scale, position,
-          )
-        }
-      }
-      @render.Artist::PathCollection(points, styles) => {
-        append_path_collection(
-          writer, scale, left, top, plot_width, plot_height, points, styles,
-        )
-        if hit_points is Some(hits) {
+        if capture is Some(hits) {
           collect_drawing_points(
             hits,
             panel_index,
@@ -200,17 +207,68 @@ fn render_panel(
             points,
             scale,
             position,
+            panel,
+            metadata,
+            @drawing.HitKind::Scatter,
+          )
+        }
+      }
+      @render.Artist::PathCollection(points, styles) => {
+        append_path_collection(
+          writer, scale, left, top, plot_width, plot_height, points, styles,
+        )
+        if capture is Some(hits) {
+          collect_drawing_points(
+            hits,
+            panel_index,
+            artist_index,
+            points,
+            scale,
+            position,
+            panel,
+            metadata,
+            @drawing.HitKind::Scatter,
             count=Int32::min(points.length(), styles.length()),
           )
         }
       }
       @render.Artist::Bar(points, style) =>
         append_bars(
-          writer, scale, left, top, plot_width, plot_height, points, style,
+          writer,
+          scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          points,
+          style,
+          on_bar=capture.map(hits => {
+            rectangle => {
+              collect_drawing_bar(
+                hits, panel_index, artist_index, rectangle, panel, metadata, position,
+                false,
+              )
+            }
+          }),
         )
       @render.Artist::BarH(points, style) =>
         append_barh(
-          writer, scale, left, top, plot_width, plot_height, points, style,
+          writer,
+          scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          points,
+          style,
+          on_bar=capture.map(hits => {
+            rectangle => {
+              collect_drawing_bar(
+                hits, panel_index, artist_index, rectangle, panel, metadata, position,
+                true,
+              )
+            }
+          }),
         )
       @render.Artist::FillBetween(upper, lower, style) =>
         append_fill_between(
@@ -325,7 +383,35 @@ fn render_panel(
         append_table(writer, left, top, plot_width, plot_height, table)
       @render.Artist::Pie(values, labels, colors, start_angle) =>
         append_pie(
-          writer, left, top, plot_width, plot_height, values, labels, colors, start_angle,
+          writer,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          values,
+          labels,
+          colors,
+          start_angle,
+          on_slice=capture.map(hits => {
+            (index, cx, cy, radius, start, sweep, fraction) => {
+              collect_drawing_pie(
+                hits,
+                panel_index,
+                artist_index,
+                index,
+                values[index],
+                labels,
+                metadata.series(),
+                cx,
+                cy,
+                radius,
+                start,
+                sweep,
+                fraction,
+                position,
+              )
+            }
+          }),
         )
       @render.Artist::BoxPlot(stats, horizontal, style) =>
         append_boxplot(

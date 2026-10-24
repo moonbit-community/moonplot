@@ -44,6 +44,7 @@ fn append_pie(
   labels : Array[String],
   colors : Array[String],
   start_angle : Double,
+  on_slice~ : ((Int32, Double, Double, Double, Double, Double, Double) -> Unit)? = None,
 ) -> Unit {
   if values.length() == 0 {
     return
@@ -95,6 +96,21 @@ fn append_pie(
         label_angle,
       )
       append_text(writer, label_x, label_y, labels[index], "middle", 11)
+    }
+    if on_slice is Some(collect) {
+      collect(
+        index,
+        center_x,
+        center_y,
+        radius,
+        angle,
+        if sweep >= 359.999 {
+          360.0
+        } else {
+          sweep
+        },
+        value / total,
+      )
     }
     angle = end_angle
   }

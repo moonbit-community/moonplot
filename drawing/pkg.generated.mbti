@@ -6,9 +6,13 @@ import {
 }
 
 // Values
-pub fn drawing(Int, Int, String, Array[HitPoint]) -> Drawing
+pub fn drawing(Int, Int, String, Array[HitPoint], targets? : Array[HitTarget]) -> Drawing
+
+pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?) -> HitInfo
 
 pub fn hit_point(Int, Int, Int, Double, Double, Double, Double) -> HitPoint
+
+pub fn hit_target(HitInfo, HitShape, (Double, Double, Double, Double)) -> HitTarget
 
 // Errors
 
@@ -17,12 +21,47 @@ pub struct Drawing {
   // private fields
 }
 pub fn Drawing::height(Self) -> Int
-pub fn Drawing::hit_test(Self, Double, Double, radius? : Double) -> HitPoint?
-pub fn Drawing::hit_test_client(Self, Double, Double, Double, Double, Double, Double, radius? : Double) -> HitPoint?
+pub fn Drawing::hit_info(Self, HitPoint) -> HitInfo?
+pub fn Drawing::hit_test(Self, Double, Double, radius? : Double, mode? : HitMode) -> HitPoint?
+pub fn Drawing::hit_test_client(Self, Double, Double, Double, Double, Double, Double, radius? : Double, mode? : HitMode) -> HitPoint?
 pub fn Drawing::points(Self) -> Array[HitPoint]
 pub fn Drawing::svg(Self) -> String
+pub fn Drawing::targets(Self) -> Array[HitTarget]
 pub fn Drawing::viewport_point(Self, Double, Double, Double, Double, Double, Double) -> (Double, Double)?
 pub fn Drawing::width(Self) -> Int
+
+pub struct HitInfo {
+  point : HitPoint
+  kind : HitKind
+  series : String
+  category : String?
+  value : Double
+  interval : (Double, Double)?
+  fraction : Double?
+} derive(Eq, @debug.Debug)
+pub fn HitInfo::equal(Self, Self) -> Bool
+pub fn HitInfo::not_equal(Self, Self) -> Bool
+pub fn HitInfo::to_repr(Self) -> @debug.Repr
+
+pub(all) enum HitKind {
+  Line
+  Scatter
+  Bar
+  BarH
+  Histogram
+  Pie
+} derive(Eq, @debug.Debug)
+pub fn HitKind::equal(Self, Self) -> Bool
+pub fn HitKind::not_equal(Self, Self) -> Bool
+pub fn HitKind::to_repr(Self) -> @debug.Repr
+
+pub(all) enum HitMode {
+  Nearest
+  XNearest
+} derive(Eq, @debug.Debug)
+pub fn HitMode::equal(Self, Self) -> Bool
+pub fn HitMode::not_equal(Self, Self) -> Bool
+pub fn HitMode::to_repr(Self) -> @debug.Repr
 
 pub struct HitPoint {
   panel_index : Int
@@ -36,6 +75,24 @@ pub struct HitPoint {
 pub fn HitPoint::equal(Self, Self) -> Bool
 pub fn HitPoint::not_equal(Self, Self) -> Bool
 pub fn HitPoint::to_repr(Self) -> @debug.Repr
+
+pub(all) enum HitShape {
+  Point
+  Rectangle(Double, Double, Double, Double)
+  Sector(Double, Double, Double, Double, Double)
+} derive(Eq, @debug.Debug)
+pub fn HitShape::equal(Self, Self) -> Bool
+pub fn HitShape::not_equal(Self, Self) -> Bool
+pub fn HitShape::to_repr(Self) -> @debug.Repr
+
+pub struct HitTarget {
+  info : HitInfo
+  shape : HitShape
+  bounds : (Double, Double, Double, Double)
+} derive(Eq, @debug.Debug)
+pub fn HitTarget::equal(Self, Self) -> Bool
+pub fn HitTarget::not_equal(Self, Self) -> Bool
+pub fn HitTarget::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

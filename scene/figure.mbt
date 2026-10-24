@@ -39,6 +39,7 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
   let default_axes = @ref.new({
     artists: [],
     line_originals: [],
+    artist_hits: [],
     x_axis: @axis.axis(),
     y_axis: @axis.axis(horizontal=false),
     title: None,

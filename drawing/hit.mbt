@@ -57,15 +57,18 @@ fn Drawing::nearest(
 }
 
 ///|
-/// Find the nearest finite point in intrinsic drawing units.
-/// Equal-distance ties keep the original point-array order.
+/// Hit-test intrinsic drawing coordinates. Areas win in reverse paint order;
+/// point anchors use radius and stable distance ties. XNearest prioritizes
+/// nearby non-line points, then selects line samples by screen X inside the panel.
+/// Legacy drawings without semantic targets retain nearest-point behavior.
 pub fn Drawing::hit_test(
   self : Drawing,
   x : Double,
   y : Double,
   radius~ : Double = 10.0,
+  mode~ : HitMode = Nearest,
 ) -> HitPoint? {
-  self.nearest(x, y, radius, 1.0)
+  self.target_hit(x, y, radius, 1.0, mode)
 }
 
 ///|
@@ -146,9 +149,10 @@ pub fn Drawing::hit_test_client(
   width : Double,
   height : Double,
   radius~ : Double = 10.0,
+  mode~ : HitMode = Nearest,
 ) -> HitPoint? {
   match self.viewport_mapping(client_x, client_y, left, top, width, height) {
-    Some((x, y, scale)) => self.nearest(x, y, radius, scale)
+    Some((x, y, scale)) => self.target_hit(x, y, radius, scale, mode)
     None => None
   }
 }

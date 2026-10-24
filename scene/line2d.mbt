@@ -462,7 +462,10 @@ pub fn Line2D::remove(self : Line2D) -> Unit raise @core.DataError {
       message="ValueError: list.remove(x): x not in list",
     )
   }
-  ignore(artists.remove(index))
+  let removed = artists.remove(index)
+  parent.state.val.artist_hits.retain(record => {
+    !same_hit_artist(record.artist, removed)
+  })
   parent.state.val.line_originals.retain(line => !physical_equal(line, self))
   self.detach()
 }

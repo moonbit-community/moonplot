@@ -103,7 +103,17 @@ pub using @gridspec {type GridSpec}
 
 pub using @scene {type Histogram}
 
+pub using @drawing {type HitInfo}
+
+pub using @drawing {type HitKind}
+
+pub using @drawing {type HitMode}
+
 pub using @drawing {type HitPoint}
+
+pub using @drawing {type HitShape}
+
+pub using @drawing {type HitTarget}
 
 pub using @gridspec {type LayoutError}
 
