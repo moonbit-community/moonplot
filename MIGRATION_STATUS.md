@@ -8,6 +8,7 @@
 
 ## 检查点：从这里继续
 
+- 最新主状态：D54已验收并提交0319b92/f742c79；用户要求的百分比重新调查已完成，整库公开API等价值指数约7%（337.25–340.75/4809），已有接入560项/11.64%，D33→D54净增58项。详见MIGRATION_PROGRESS.md和testdata/migration_progress_summary.json；此前46/50/80及静态区间均已撤回，本文件以下旧历史数字不得复用。D55仅准备，尚未freeze。
 - 当前切片编号：D48 linewidth/liveStyle已验收并提交bdc57b1/c635b17，D49 String color已验收并提交9510dad/027f9b3，D50alpha已验收并提交372ec54/b8c2044，D51linestyle已验收并提交b06ed77/3134baa，D52drawstyle已验收并提交1740934/c821ac9，D53gapcolor已验收并提交db224a8/6112217，D47已验收提交94cfe00/b607073/f904d5e，D46已验收提交f12f161/ca6c47e/5a11683；D45已完整验收提交8c6c534/65cba7d/ce6326c，D44已完整验收并提交9257f05/5b183df/62bf560；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
   secondary/contour/SVG、完整linspace/outer排序去重后fallback与cap、最小Asinh geometry。
@@ -33,7 +34,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：用户明确要求重新调查整体百分比，当前优先可复算重新盘点。A上游公开API/rc分母、B当前Moon映射分子、C独立行为成熟度，Root审算法/敏感性并给新数值；不得继续照抄50/40–60/55–70或仅unknown/能力清单。调查基线HEAD f742c79（D54已全验收0319b92/f742c79）；完整固定源在.moonagent/audits/2026-10-24/matplotlib-d3ca9172e392048ec242b90e8423e88d1a3000b2。D55必要80records准备保留未freeze，调查后继续迁移。无Rootlive工具。
+- 下一条具体动作：本次重新调查已验收，工具/数据已提交ef4cd9c，最终报告/状态随本次docs commit；新约7%及D33→D54净增58项已核定。恢复D55：保存D55-before，读A最终165line源notes/80records补充部分和B124line设计，确认4组cap/join属性的Core typed enum/Config捕获/Scene String API/Line-only SVG设计后freeze并行实施。D54已全验收0319b92/f742c79，勿重跑门禁；D55尚未freeze，无Rootlive工具/用户阻塞，整体迁移目标仍未完成。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -51,7 +52,7 @@
   final逐字cmp同；finalcheck28tasks/8旧Refwarn/0error。所有原JSONexpected保持。
   Root基础feature f92729d（8files）+Log家族feature6dea404（36files）已本地提交；
   无remote/push。D33-before HEAD5f9cfcd archive/全部mbti保留，不重跑D32/D33已过门禁。
-  整体goal仍active；旧46%/80%已撤回。D33后重估全目标约50%（40–60%区间）、严格静态2D/SVG约55–70%；依据见MIGRATION_PROGRESS.md，不按tests换算。
+  整体goal仍active；旧46%/80%与D33后50%/二维区间全部撤回；当前重新调查见MIGRATION_PROGRESS.md，不按tests换算。
 - D27无live工具；finalall77638与grid-source71661 exit0，95932旧失败exit2、73479 probe exit0、JS30690 exit0均terminal。
   81493 compileexit1/40418旧5failexit2/62175与29316 sourceexit0都terminal，不轮询。
   D26 final26297/JS82640/source20346/check99335全exit0；
@@ -6624,3 +6625,15 @@ D54 feature0319b92（6files/741insertions/13deletions）已本地提交，full46
 此前50%/40–60%/静态55–70%的整体估算已向用户明确撤回。用户进一步明确要求实际重新调查并给百分比，不接受仅未知或换成能力清单。现在按完整固定source建立可复算统计范围、当前API/rc映射与独立行为核验，结果/计分/误差需写MIGRATION_PROGRESS并报告。不得默认新百分比接近旧50，测试数/代码行数/时间不直接作为完成率。
 
 完整上游按fixed commit下载到 .moonagent/audits/2026-10-24/matplotlib-d3ca9172e392048ec242b90e8423e88d1a3000b2，tarSHA cf6686989f244a633bad4cf8972070abd651662a02aa30ca47507c8680e858c6，294 Pythonfiles；source20516 terminal0。A独占new audit_upstream_api.py/upstream_api_inventory.json，B独占new audit_port_api.py/port_api_mapping.json，C仅ignored独立maturityreview；Root整合/复核/文档。功能生产全STOP，D55未freeze。D54全验收full46818/final71414/source44047，commit0319b92/f742c79；无Rootlive，无待用户阻塞。
+
+百分比重新调查进展：Root已完整审A首439lineinventory及B首710+line映射主体、C219line独审。已核完整源lines/ticker逐字吻合accepted pins及git_archival tag。找到attrs851仅833unique，A已修去重/enum/property补全；A已修annotations-only public reachability，正固化输入manifest1dcac300...3332，runtime4473左右未最终。B首表3025Moondecl/约488nonzero canonical，初数不得发布；已修apply_delta错数学对应、then需reverse、AxisStringvsText返回、Figure.text/clear/savefig、Artist Line-only owner广度与SVG坏ref，colormap registry正在核真实API。评分新增.75档已在出数前明确，预先方法commit48dcf16；主结果必须标『公开API等价值迁移指数』，非工时/全Python语义，不能因结果低调权挽旧50。B将以6dea404作D33历史presence-only同口径对照，不反套新验收grade；Root待全部STOP/sourcecheck/finaljoin独算/抽样/敏感性后发布新数值。当前无Rootlive；功能迁移D55仍未freeze。
+
+## 2026-10-24 百分比重新调查完成（已验收）
+
+- [x] A最终557line上游脚本/完整清单STOP；固定完整源input摘要1dcac300...3332，runtime4471、开发辅助146、公开rc338/内部1、独立字段runtime821。Root最终--check terminal0，上游JSON SHA ef5d0e670c7cd847ffb1fd65f152608f83c1b2b9b81a6e5a8508977cfaaabc78。
+- [x] B最终映射STOP，41mbti/3025Moon声明/342production文件manifest；Root独核全部源码/接口逐字同已验收f742c79。Root最终gen→--check terminal0；只将source-root元数据变为相对路径，完整JSON去两metadata键后逐值等同B最终原件。最终映射JSON SHA 0b277d99198b43b3c0ace06861b420803878c4ff4e6b37dce51ddf667c532ead，脚本SHA726c4c76862bc4343788b539baaa515a8dc3af03090d896f932414721cb0808b。
+- [x] C333line独立审计STOP；独核去重/每项scope/group、source/guide SHA、14歧义、四类语义误配、最后Figure.axes→Artist.axes误配已删、D33真实git接口与raw setdiff，以及最终SHA仅metadata变化。记录.moonagent/audits/2026-10-24/audit-maturity-review.md。
+- [x] Root独立summary gen→--check和三脚本py_compile全部terminal0；手算分档5×1+246×.75+282×.5+27×.25=337.25，4471+338=4809；上下界337.25–340.75对应7.01289249–7.08567270%，对外约7%。560positive/11.6448%，不能当完成率；D33 474API+28rc→526API+34rc，即502→560/+58/-0，presence-only不反套当前grade。Summary SHA feb0725224a061a5ea893df5e2c116b5de6b2585265cc941f98caa77834561cd。
+- [x] MIGRATION_PROGRESS重写148line，含分母/逐档/九组/历史增量/范围评分敏感性/复现与局限；PLAN/COMPATIBILITY入口及预先方法已同步。旧工程估算全部撤回，不以新口径变化冒充功能增减。源码、接口、原测试与源参考没有改动，本次不重跑已接受Moon门禁。
+
+工具/数据/方法已提交ef4cd9c（7files/410991insertions/4deletions），最终报告/入口/状态随本次docs commit。所有审计writers STOP，无Rootlive/用户阻塞；按顶部动作恢复D55必要证据阅读/设计freeze，当前D55尚无tracked实现，整体目标未完成。B最终说明在.moonagent/audits/2026-10-24/audit-port-notes.md；Root报告构建辅助在同目录write-progress-report.py，均ignored，不是生产依赖。
