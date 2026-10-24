@@ -11,7 +11,7 @@ import {
 // Values
 pub fn legend_item(String, String, String, Bool) -> LegendItem
 
-pub fn view(@drawing.Drawing, id~ : String, on_event~ : (Interaction) -> @cmd.Cmd, hovered? : @drawing.HitPoint, selected? : @drawing.HitPoint, legend? : Array[LegendItem], hit_radius? : Double) -> @html.Html raise AdapterError
+pub fn view(@drawing.Drawing, id~ : String, on_event~ : (Interaction) -> @cmd.Cmd, hovered? : @drawing.HitPoint, selected? : @drawing.HitPoint, legend? : Array[LegendItem], hit_radius? : Double, hit_mode? : @drawing.HitMode, tooltip? : (@drawing.HitInfo) -> @html.Html, tooltip_visible? : Bool, tooltip_class? : String) -> @html.Html raise AdapterError
 
 // Errors
 pub(all) suberror AdapterError {

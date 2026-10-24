@@ -1,0 +1,14 @@
+.chart-heading { min-height: 82px; }
+.chart-card .moonplot { padding-bottom: 12px; }
+.chart-footer { min-height: 48px; }
+.custom-reading { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.custom-reading b { color: #244d55; font-size: 17px; font-weight: 600; }
+.custom-label { font-size: 11px; color: #536578; }
+.custom-note { font-size: 10px; color: #7a8793; }
+.custom-tooltip { --moonplot-tooltip-background: #fbfdfd; }
+#tooltips-unmounted { min-height: 360px; display: grid; place-content: center; color: #697784; }
+#tooltip-error { padding: 20px; background: #fff0ef; color: #9b3c3c; }
+@media (max-width: 480px) {
+  .chart-heading { min-height: 78px; }
+  .custom-reading b { font-size: 15px; }
+}

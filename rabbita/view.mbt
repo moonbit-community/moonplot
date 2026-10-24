@@ -80,6 +80,7 @@ fn event_hit(
   drawing : @drawing.Drawing,
   event : @dom.MouseEvent,
   radius : Double,
+  mode : @drawing.HitMode,
 ) -> @drawing.HitPoint? {
   let container = match event.current_target().to_option() {
     Some(target) => target.to_element()
@@ -100,6 +101,7 @@ fn event_hit(
         rect.get_width(),
         rect.get_height(),
         radius~,
+        mode~,
       )
     }
     None => None
@@ -109,6 +111,9 @@ fn event_hit(
 ///|
 /// Build real SVG nodes and HTML event handlers using public Rabbita APIs.
 /// The application supplies a new drawing when its data or visibility changes.
+/// Use XNearest to select actual line samples by horizontal position in a panel.
+/// tooltip replaces the floating content; tooltip_class and CSS variables style it.
+/// Turning tooltip_visible off keeps all interaction messages enabled.
 pub fn view(
   drawing : @drawing.Drawing,
   id~ : String,
@@ -117,9 +122,17 @@ pub fn view(
   selected? : @drawing.HitPoint,
   legend~ : Array[LegendItem] = [],
   hit_radius~ : Double = 10.0,
+  hit_mode~ : @drawing.HitMode = Nearest,
+  tooltip? : (@drawing.HitInfo) -> @rabbita.Html,
+  tooltip_visible~ : Bool = true,
+  tooltip_class~ : String = "",
 ) -> @rabbita.Html raise AdapterError {
   let parsed = parse_svg(drawing.svg())
   validate_drawing(drawing, parsed)
+  let hovered = hovered.filter(point => tooltip_info(drawing, point) is Some(_))
+  let selected = selected.filter(point => {
+    tooltip_info(drawing, point) is Some(_)
+  })
   let chart = drawing_svg(
     scope_svg_resources(parsed, id),
     id,
@@ -127,25 +140,10 @@ pub fn view(
     selected,
   )
   let viewport = [chart]
-  if hovered is Some(point) {
-    viewport.push(
-      @html.div(
-        class="moonplot-tooltip",
-        attrs=@html.Attrs::build()
-          .role("tooltip")
-          .data_set("testid", id + "-tooltip"),
-        [
-          @html.span(class="moonplot-coordinate", [
-            @html.span(class="moonplot-coordinate-label", "x"),
-            @html.b("\{point.data_x}"),
-          ]),
-          @html.span(class="moonplot-coordinate", [
-            @html.span(class="moonplot-coordinate-label", "y"),
-            @html.b("\{point.data_y}"),
-          ]),
-        ],
-      ),
-    )
+  if tooltip_visible &&
+    hovered is Some(point) &&
+    tooltip_info(drawing, point) is Some(info) {
+    viewport.push(tooltip_node(info, id, tooltip_class, tooltip))
   }
   let children = [
     @html.div(
@@ -153,11 +151,11 @@ pub fn view(
       attrs=@html.Attrs::build()
         .data_set("testid", id + "-viewport")
         .on_mousemove(event => {
-          on_event(Hover(event_hit(drawing, event, hit_radius)))
+          on_event(Hover(event_hit(drawing, event, hit_radius, hit_mode)))
         })
         .on_mouseleave(_ => on_event(Hover(None)))
         .on_click(event => {
-          on_event(Click(event_hit(drawing, event, hit_radius)))
+          on_event(Click(event_hit(drawing, event, hit_radius, hit_mode)))
         }),
       viewport,
     ),
