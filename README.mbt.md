@@ -37,63 +37,55 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-**M2 v0.2.0** provides the interactive component and verified source packages.
-Download `moonplot-v0.2.0-source.zip` from the
-[v0.2.0 release](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0),
-unzip it, and enter its `moonplot-v0.2.0` directory:
+MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.2.1`**. See [installation and migration instructions](docs/PUBLISHING.md).
+From your application's module directory, add it with:
 
 ```sh
-moon run example/cmd/static --target native > chart.svg
-moon build example/cmd/app --target js
-python3 -m http.server 8765 --bind 127.0.0.1
+moon add Lampese/mathplotlib@0.2.1
 ```
 
-Open [the independent interactive example](http://127.0.0.1:8765/example/).
-The bundle explicitly links its `core`, `rabbita` and `example` modules in `moon.work`.
-Both library ZIPs are also available with checksums and a source commit manifest.
-**Neither module is published on Mooncakes**: namespace permissions are unavailable
-for the current publisher. Use the source workspace; registry-only `moon add`
-installation is not claimed. See [M2 acceptance and integration](docs/MILESTONE_M2.md).
+Import `Lampese/mathplotlib` for static plotting, and add
+`Lampese/mathplotlib/rabbita` when composing browser components. Both packages
+come from the same installation. The package alias `@mathplotlib` and plotting
+method names stay the same. Installing this module resolves its declared
+Rabbita dependencies too; the core plotting packages do not import UI types.
 
 ### Run the repository examples
 
 Install the [MoonBit toolchain](https://www.moonbitlang.com/download/).
 The native example also requires a working C compiler.
 
-Clone the repository, install its declared dependencies, and render the preview:
-
 ```sh
 git clone https://github.com/moonbit-community/moonplot.git
 cd moonplot
-moon install
 moon run cmd/preview --target native > chart.svg
+moon build rabbita/cmd/demo --target js
+python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-Open `chart.svg` in a browser or an SVG viewer. The command writes the chart
-to standard output; the shell redirects it to the file.
-
-If your local package index needs refreshing, run `moon update` before
-`moon install`. Some recent toolchains warn that `moon install` is deprecated;
-it remains an explicit dependency setup command for the current checkout.
-See the [Moon CLI documentation](https://docs.moonbitlang.com/en/latest/toolchain/moon/commands.html)
-for your toolchain's dependency workflow.
+Open `chart.svg` in a browser or SVG viewer. Open
+[the interactive example](http://127.0.0.1:8765/rabbita/) for hover, selection,
+legend toggles and data updates. Serve the repository root so the example can
+load its built JavaScript; stop the server with Ctrl+C.
+Moon resolves the declared dependencies when building. Run `moon update` if
+your local registry index needs refreshing.
 
 The checked-in PNG above is a preview of the SVG output. MoonPlot does not
 currently provide standalone PNG export.
 
 ## Library Usage
 
-The repository and project are named **MoonPlot**. The current MoonBit module
-ID is still **`mathplotlib/mathplotlib`**, so imports retain that name.
-The repository rename does not introduce a `moonbit-community/moonplot`
-Mooncakes module.
+The project is named **MoonPlot** and its module ID is **`Lampese/mathplotlib`**.
+When migrating from the earlier source release, replace the old
+`mathplotlib/mathplotlib` prefix with `Lampese/mathplotlib`. Existing
+`@mathplotlib` calls remain valid; see the [path migration notes](docs/PUBLISHING.md).
 
 A package using the library imports the root plotting API in `moon.pkg`:
 
 ```moonbit nocheck
 ///|
 import {
-  "mathplotlib/mathplotlib",
+  "Lampese/mathplotlib",
 }
 ```
 
@@ -152,21 +144,24 @@ ranges and ticks. Set a legend corner with
 ### Interactive Rabbita components
 
 `Figure::to_drawing()` prepares the SVG and data-point hit locations together.
-The optional [`moonplot-rabbita` adapter](https://github.com/moonbit-community/moonplot/blob/v0.2.0/adapters/rabbita/README.md) turns that
-snapshot into composable Rabbita `Html` using public SVG node constructors.
-The application owns hover, selection, visibility, and data state.
+The [`rabbita` package](rabbita/README.md) turns that snapshot into composable
+Rabbita `Html` using public SVG node constructors. Add it to your application's
+`moon.pkg` with an explicit alias:
 
-```sh
-cd adapters/rabbita
-moon build cmd/demo --target js
-python3 -m http.server 8765 --bind 127.0.0.1
+```moonbit nocheck
+///|
+import {
+  "Lampese/mathplotlib",
+  "Lampese/mathplotlib/rabbita" @plot_dom,
+  "moonbit-community/rabbita",
+}
 ```
 
-Open [the local example](http://127.0.0.1:8765) to interact with two independent
-charts. The adapter is a separate JS module linked by a local `moon.work`;
-it has not been published to Mooncakes. Core SVG usage keeps its existing
-dependencies. See the [component guide](https://github.com/moonbit-community/moonplot/blob/v0.2.0/adapters/rabbita/README.md) for the API
-and [DOM acceptance notes](docs/RABBITA_DOM.md) for tested behavior and limits.
+The application owns hover, selection, visibility and data state. The browser
+package declares `supported_targets = "js"`; the core facade, Scene, Drawing
+and static renderer keep their platform-independent interfaces. No separate
+adapter module or local workspace is needed. See the [component guide](rabbita/README.md)
+for a complete view and the [DOM notes](docs/RABBITA_DOM.md) for tested behavior.
 
 ![Interactive MoonPlot charts in Rabbita](assets/rabbita-interactive.png)
 
@@ -187,7 +182,8 @@ and [DOM acceptance notes](docs/RABBITA_DOM.md) for tested behavior and limits.
 - [Documentation index](docs/README.md)
 - [Detailed usage and API examples](docs/USAGE.md)
 - [Current capabilities and milestone acceptance](docs/CAPABILITIES.md)
-- [M2 interactive plotting and source-release integration](docs/MILESTONE_M2.md)
+- [Installation, module paths and release status](docs/PUBLISHING.md)
+- [M2 interactive plotting and source-release history](docs/MILESTONE_M2.md)
 - [Four capability goals](docs/MIGRATION_PLAN.md)
 - [Rabbita interactive DOM and acceptance](docs/RABBITA_DOM.md)
 - [Dependencies and integration notes](docs/DEPENDENCIES.md)
@@ -196,8 +192,8 @@ and [DOM acceptance notes](docs/RABBITA_DOM.md) for tested behavior and limits.
 The root package provides the common plotting facade. Implementation packages
 include `scene` for figure and artist state, `ticker` for axes and date handling,
 `transforms` for geometry, and `backend/svg` for rendering.
-The facade is kept in [`api.mbt`](api.mbt), consumer tests in [`tests/api`](https://github.com/moonbit-community/moonplot/tree/v0.2.0/tests/api),
-and isolated configuration tests in [`tests/integration`](https://github.com/moonbit-community/moonplot/tree/v0.2.0/tests/integration).
+The facade is kept in [`api.mbt`](api.mbt), consumer tests in [`tests/api`](https://github.com/moonbit-community/moonplot/tree/master/tests/api),
+and isolated configuration tests in [`tests/integration`](https://github.com/moonbit-community/moonplot/tree/master/tests/integration).
 See the [source organization guide](docs/ARCHITECTURE.md) for package boundaries,
 generated resources, and reference fixtures.
 

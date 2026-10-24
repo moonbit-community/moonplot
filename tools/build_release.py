@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package both modules, verify an external consumer, and assemble a source release."""
+"""Package the unified module, verify an external consumer, and assemble a source release."""
 
 import argparse
 import hashlib
@@ -70,9 +70,13 @@ def inspect_archive(path, required, core):
 def bundle_readme(version):
     return f"""# MoonPlot {version}
 
-This source release contains the two actual MoonBit module packages plus a new
-consumer application. Neither module is published on Mooncakes: the authenticated
-publisher cannot publish the existing namespaces. Module names are preserved.
+This source release contains the actual Lampese/mathplotlib module package and a
+consumer application. Static plotting and the JS-only rabbita subpackage are
+published together. For registry installation use:
+
+```sh
+moon add Lampese/mathplotlib@{version}
+```
 
 Install the MoonBit toolchain and a C compiler for native execution. From this
 directory (not an existing project), run:
@@ -87,25 +91,25 @@ Open http://127.0.0.1:8765/example/ . Hover or click points, toggle the series,
 and update the data. Stop the server with Ctrl+C. No Python runtime is used by
 the plotting library; Python only serves the browser example.
 
-The explicit root moon.work links core/, rabbita/, and example/. The individual
-library packages have no hidden monorepo workspace. Copy these directories into
-your own workspace and list the modules explicitly to integrate the source release;
+The explicit root moon.work links library/ and example/. The
+library package has no hidden monorepo workspace. Copy the library directory into
+your own workspace and list the module explicitly to integrate the source release;
 example/moon.mod and example/cmd/app/moon.pkg show the versioned dependencies
-and imports. Load rabbita/moonplot.css from your application's asset pipeline.
+and imports. Load library/rabbita/moonplot.css from your application's asset pipeline.
 
-Only the optional Rabbita adapter requires JS and Rabbita; static core usage keeps
-its existing dependencies. Native, wasm, wasm-gc and JS static consumers are tested.
+The rabbita subpackage supports only JS. Static core packages support all four
+targets; installing the module also resolves its Rabbita dependencies. Native, wasm, wasm-gc and JS static consumers are tested.
 The browser app is tested with Google Chrome and public Rabbita APIs.
 
 See https://github.com/moonbit-community/moonplot/blob/v{version}/docs/MILESTONE_M2.md
 for acceptance, supported interactions and limits. Apache-2.0; additional notices
-are in core/docs/THIRD_PARTY_NOTICES.md and core/docs/licenses/.
+are in library/docs/THIRD_PARTY_NOTICES.md and library/docs/licenses/.
 """
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=ROOT / ".moonagent/checkpoints/M2/release")
+    parser.add_argument("--output", type=Path, default=ROOT / ".moonagent/checkpoints/Mooncakes-0.2.1/release")
     parser.add_argument("--allow-dirty", action="store_true", help="Development rehearsal only; never upload these artifacts")
     args = parser.parse_args()
     output = args.output.resolve()
@@ -118,55 +122,34 @@ def main():
     if dirty and not args.allow_dirty:
         raise RuntimeError("Commit the release sources first (or rehearse with --allow-dirty)")
     version = module_version(ROOT / "moon.mod")
-    if module_version(ROOT / "adapters/rabbita/moon.mod") != version:
-        raise RuntimeError("Core and adapter versions must agree")
-    if f'"mathplotlib/mathplotlib@{version}"' not in (ROOT / "adapters/rabbita/moon.mod").read_text():
-        raise RuntimeError("Adapter dependency must match the packaged core version")
+    module_name = re.search(r'^name = "([^"]+)"', (ROOT / "moon.mod").read_text(), re.M)[1]
+    if module_name != "Lampese/mathplotlib":
+        raise RuntimeError("Unexpected publication module name")
     artifacts = output / "artifacts"
     artifacts.mkdir(exist_ok=True)
-    packages = []
-    definitions = [
-        (ROOT, "core", f"mathplotlib-mathplotlib-{version}.zip", [
-            "moon.mod", "README.mbt.md", "LICENSE", "api.mbt", "ticker/moon.pkg",
-            "testdata/packed/logit_object_sort.base64", "testdata/packed/logit_sort.base64",
-            "docs/THIRD_PARTY_NOTICES.md", "docs/licenses/LICENSE-MATPLOTLIB",
-        ]),
-        (ROOT / "adapters/rabbita", "rabbita", f"moonbit-community-moonplot-rabbita-{version}.zip", [
-            "moon.mod", "README.md", "LICENSE", "moonplot.css", "view.mbt", "svg_resources.mbt",
-        ]),
-    ]
-    for module, label, filename, required in definitions:
-        target = output / (label + "-build")
-        print(f"Packaging {label} {version}", flush=True)
-        if label == "core":
-            run(["moon", "package", "--target-dir", str(target)], module, output / f"{label}-package.log")
-        else:
-            # Moon's ignore walker also sees ancestor .moonignore files. The
-            # core archive deliberately excludes adapters/, so package this
-            # separate module outside that tree, with the actual core ZIP.
-            with tempfile.TemporaryDirectory(prefix="moonplot-adapter-package-") as stage:
-                stage = Path(stage)
-                with zipfile.ZipFile(artifacts / definitions[0][2]) as archive:
-                    archive.extractall(stage / "core")
-                shutil.copytree(module, stage / "rabbita", ignore=shutil.ignore_patterns(
-                    "_build", "target", ".mooncakes", ".moonagent", "moon.work", "__pycache__", "*.pyc",
-                ))
-                (stage / "moon.work").write_text('members = [ "core", "rabbita" ]\n')
-                run(["moon", "package", "--target-dir", str(target)], stage / "rabbita", output / f"{label}-package.log")
-        destination = artifacts / filename
-        shutil.copyfile(target / "publish" / filename, destination)
-        packages.append(inspect_archive(destination, required, core=label == "core"))
+    filename = module_name.replace("/", "-") + f"-{version}.zip"
+    target = output / "module-build"
+    print(f"Packaging {module_name} {version}", flush=True)
+    run(["moon", "package", "--target-dir", str(target)], ROOT, output / "module-package.log")
+    destination = artifacts / filename
+    shutil.copyfile(target / "publish" / filename, destination)
+    packages = [inspect_archive(destination, [
+        "moon.mod", "README.mbt.md", "LICENSE", "api.mbt", "ticker/moon.pkg",
+        "testdata/packed/logit_object_sort.base64", "testdata/packed/logit_sort.base64",
+        "docs/THIRD_PARTY_NOTICES.md", "docs/licenses/LICENSE-MATPLOTLIB",
+        "rabbita/moon.pkg", "rabbita/README.md", "rabbita/moonplot.css",
+        "rabbita/view.mbt", "rabbita/svg_resources.mbt",
+    ], core=True)]
 
     with tempfile.TemporaryDirectory(prefix=f"moonplot-v{version}-consumer-") as temporary:
         workspace = Path(temporary) / f"moonplot-v{version}"
         workspace.mkdir()
-        for _, label, filename, _ in definitions:
-            with zipfile.ZipFile(artifacts / filename) as archive:
-                archive.extractall(workspace / label)
+        with zipfile.ZipFile(destination) as archive:
+            archive.extractall(workspace / "library")
         shutil.copytree(ROOT / "tests/consumer", workspace / "example", ignore=shutil.ignore_patterns(
             "_build", ".mooncakes", "__pycache__", "moon.work", "*.pyc",
         ))
-        (workspace / "moon.work").write_text('members = [ "core", "rabbita", "example" ]\n')
+        (workspace / "moon.work").write_text('members = [ "library", "example" ]\n')
         (workspace / "README.md").write_text(bundle_readme(version))
         shutil.copyfile(ROOT / "LICENSE", workspace / "LICENSE")
         # Freeze source inventory before compilation creates caches or fixtures.
@@ -192,7 +175,7 @@ def main():
         "version": version,
         "source_commit": source_commit,
         "dirty_rehearsal": dirty,
-        "delivery": "GitHub source release; Mooncakes not published (namespace mismatch)",
+        "delivery": "Single-module source distribution for Lampese/mathplotlib",
         "verification": {"static_targets": ["wasm", "wasm-gc", "js", "native"], "dom": "real browser external consumer"},
         "artifacts": packages,
     }

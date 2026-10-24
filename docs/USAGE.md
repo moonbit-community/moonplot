@@ -2,16 +2,19 @@
 
 This document preserves detailed API examples and source compatibility notes.
 Start with the [project README](../README.md) for the current plotting workflow.
+Current module: `Lampese/mathplotlib@0.2.1`; install and publication status are in
+[the integration guide](PUBLISHING.md). The default plotting alias remains `@mathplotlib`.
 
 ## Drawing 快照与 Rabbita 组件
 
 `let drawing = figure.to_drawing()` 在现有 checked 渲染中一起准备 SVG、画布尺寸和数据点命中坐标。
 `drawing.svg()` 是对应静态输出，`drawing.points()` 返回独立数组；修改图表后重新准备快照。
-根包导出 `Drawing` / `HitPoint`，快照与纯命中计算包为 `mathplotlib/mathplotlib/drawing`，不依赖 DOM。
+根包导出 `Drawing` / `HitPoint`，快照与纯命中计算包为 `Lampese/mathplotlib/drawing`，不依赖 DOM。
 
-独立 JS module 的 `@plot_dom.view(drawing, id=..., on_event=...)` 返回 Rabbita `Html`，
+同一 module 的 JS 子包 `Lampese/mathplotlib/rabbita`（别名 `@plot_dom`）提供
+`@plot_dom.view(drawing, id=..., on_event=...)`，返回 Rabbita `Html`，
 应用处理 `Hover`、`Click`、`ToggleSeries` 并管理状态。当前索引属于该帧，不是跨数据重排的持久 ID。
-完整可运行示例、导入与限制见 [adapter 指南](../adapters/rabbita/README.md)，
+完整可运行示例、导入与限制见 [adapter 指南](../rabbita/README.md)，
 验证范围见 [DOM 验收](RABBITA_DOM.md)。
 
 ## 图例位置与单方向网格
@@ -31,10 +34,10 @@ let svg = fig.to_svg_checked()
 实际多图示例见 [`cmd/gallery`](../cmd/gallery/main.mbt)，验收范围见 [M1](MILESTONE_M1.md)。
 
 
-# mathplotlib
+# MoonPlot
 
-`mathplotlib` is a staged MoonBit migration of Matplotlib v3.11.2. The current
-vertical slice keeps numeric data in `core`, figure and artist state in
+MoonPlot is a MoonBit plotting library inspired by Matplotlib v3.11.2. It keeps
+numeric data in `core`, figure and artist state in
 `scene`, and SVG encoding in `backend/svg`. The SVG backend uses the pinned
 `Milky2018/xml@0.5.0` dependency; XML types do not cross into the public
 plotting API.
@@ -479,7 +482,7 @@ epoch 接受 UTC ISO 年、年月或完整日期，完整日期可带 `T`/空格
 保留历史秒级 offset、时区缩写与 POSIX footer 未来规则；自动日期刻度、显式 locator、
 `RRule` 和 scene/pyplot/SVG 共用这些规则。`%z` 在需要时输出秒（例如 `+000921`），
 `%Z` 输出数据中的缩写（例如 `PMT`）。需要按名称查找时，可显式导入
-`mathplotlib/mathplotlib/ticker/date/tzdb`：
+`Lampese/mathplotlib/ticker/date/tzdb`：
 
 ```mbt nocheck
 ///|

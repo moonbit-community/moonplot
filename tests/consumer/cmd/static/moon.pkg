@@ -1,5 +1,5 @@
 import {
-  "mathplotlib/mathplotlib" @plot,
+  "Lampese/mathplotlib" @plot,
 }
 
 pkgtype(kind: "executable")

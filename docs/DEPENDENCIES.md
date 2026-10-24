@@ -3,20 +3,25 @@
 本项目以实用绘图能力对齐为目标，现行范围见 [路线图](MIGRATION_PLAN.md)。依赖只在对应层确实需要时接入，核心数据模型和场景模型不暴露第三方类型。
 
 候选表记录历史核查结果，版本和可用性须在实际接入前重新验证。
-Rabbita 交互 DOM 已通过独立 JS module 接入；核心运行依赖未改变。
-实现与复现见 [DOM 验收](RABBITA_DOM.md)和 [adapter 使用说明](../adapters/rabbita/README.md)。
+当前采用统一 module `Lampese/mathplotlib@0.2.1`，Rabbita 是同一模块中的 JS 子包。
+安装与发布状态见 [发布说明](PUBLISHING.md)，实现与复现见 [DOM 验收](RABBITA_DOM.md)和
+[组件使用说明](../rabbita/README.md)。
 
-## G2.1 / M2 可选 Rabbita module
+## 统一模块中的 Rabbita 子包
 
-`adapters/rabbita` 固定 `moonbit-community/rabbita@0.16.7`，复用 `Milky2018/xml@0.5.0`
-将同次渲染的 SVG 转为公开节点树；模块仅支持 JS，通过局部 `moon.work` 链接仓库核心。
-M2 v0.2.0 保留模块名，另交付 GitHub 源码版本包及仓库外消费验收，见 [M2](MILESTONE_M2.md)。
-Mooncakes 权限预检返回 namespace mismatch，尚未上架。adapter 的公开接口可以使用 Rabbita 类型，核心/Scene/Drawing 不引用它们。
+`rabbita/` 对应 `Lampese/mathplotlib/rabbita`，通过 `supported_targets = "js"` 限定浏览器包。
+它固定 `moonbit-community/rabbita@0.16.7`，复用 `Milky2018/xml@0.5.0` 将同次渲染的 SVG
+转为公开节点树。核心 facade、Scene、Drawing 与 SVG renderer 不 import Rabbita；
+组件公开接口可以使用 Rabbita 类型，核心模型中没有 UI 类型。
 
-局部 workspace 实际解析 `moonbitlang/x@0.5.1`、`moonbitlang/async@0.22.4`、
+Mooncakes 在 module 层解析依赖，安装统一模块也会获取 Rabbita 及其传递依赖。
+统一依赖图解析 `moonbitlang/x@0.5.1`、`moonbitlang/async@0.22.4`、
 `moonbit-community/moonback@0.8.5`；安装包元数据均已核查为 Apache-2.0。
-正常从根目录构建仍使用原 `x@0.4.46` 声明与独立依赖缓存，无需为 DOM 升级核心依赖。
-核心四目标定向回归、adapter JS 测试及真实浏览器交互已通过，具体范围见 DOM 验收记录。
+根 manifest 保留 `x@0.4.46` 的最低版本声明，Rabbita 的需求通过最小版本选择将它提升到 `0.5.1`。
+不再声称静态使用有独立 module 缓存或无需解析 UI 依赖；静态编译按包导入关系进行，不引入 JS 组件。
+
+[M2 v0.2.0](MILESTONE_M2.md) 的两个源码模块包与权限预检属于历史交付。
+0.2.1 按用户要求合并为 `Lampese/` 前缀的一个 module，当前发布状态以 [发布说明](PUBLISHING.md) 为准。
 
 ## 已核查候选
 

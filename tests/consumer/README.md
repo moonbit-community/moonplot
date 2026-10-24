@@ -1,13 +1,12 @@
 # Independent release consumer
 
 This application is copied into `example/` in the MoonPlot source bundle. It
-imports only public APIs from the two versioned modules. Its `moon.mod` has no
+imports only public APIs from the versioned module and its JS subpackage. Its `moon.mod` has no
 path dependency, and this directory deliberately has no `moon.work`.
 
-The bundle provides an explicit workspace with exactly `core`, `rabbita`, and
-`example` as members. The first two directories come from the actual module
-archives. This local workspace makes the source bundle usable before Mooncakes
-publication, while keeping the module names and imports unchanged.
+The bundle provides an explicit workspace with exactly `library` and `example` as members. The library directory comes from the
+actual `Lampese/mathplotlib` module archive. The same consumer is also tested
+without a workspace by installing the module from Mooncakes.
 
 Run these commands **from the unpacked bundle root**:
 
@@ -18,7 +17,7 @@ python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
 Open [the interactive example](http://127.0.0.1:8765/example/). The app's HTML
-loads the component stylesheet from `rabbita/moonplot.css` and its own small
+loads the component stylesheet from `library/rabbita/moonplot.css` and its own small
 page stylesheet. It supports sample hover, click selection, a trend legend
 toggle, and data updates. The Rabbita state is created inside the root builder;
 the application clears stale selection when the dataset changes.

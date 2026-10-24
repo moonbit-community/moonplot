@@ -13,7 +13,7 @@ async function main() {
     path.join(process.cwd(), '.moonagent/checkpoints/M2/release-consumer'));
   await fs.access(path.join(root,
     '_build/js/debug/build/moonplot-release/consumer/cmd/app/app.js'));
-  await fs.access(path.join(root, 'rabbita/moonplot.css'));
+  await fs.access(path.join(root, 'library/rabbita/moonplot.css'));
   await fs.mkdir(output, { recursive: true });
   const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
   const server = http.createServer(async (req, res) => {

@@ -1,7 +1,8 @@
 # Rabbita 可交互 DOM：G2.1 与 M2
 
 状态：**首个切片已实现，并于 2026-10-24 通过真实浏览器验收。**
-M2 v0.2.0 补齐资源隔离与独立源码版本包；接入与本轮验收见 [M2 记录](MILESTONE_M2.md)。
+M2 v0.2.0 补齐资源隔离与独立源码版本包，历史验收见 [M2 记录](MILESTONE_M2.md)。
+当前组件位于统一模块 `Lampese/mathplotlib@0.2.1` 的 `rabbita` 子包，安装与发布状态见 [接入说明](PUBLISHING.md)。
 用户所说的 Rabbit-TEA 在上游项目中已更名为 [Rabbita](https://github.com/moonbit-community/rabbita)。
 本片提供折线/散点的交互组件与双图应用；缩放、平移等后续能力仍属于 G2。
 
@@ -10,15 +11,14 @@ M2 v0.2.0 补齐资源隔离与独立源码版本包；接入与本轮验收见 
 从仓库根目录运行：
 
 ```sh
-cd adapters/rabbita
-moon build cmd/demo --target js
+moon build rabbita/cmd/demo --target js
 python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-打开 [本地示例](http://127.0.0.1:8765)。悬停查看数值、点击选中点、点击图例切换系列，
+打开 [本地示例](http://127.0.0.1:8765/rabbita/)。悬停查看数值、点击选中点、点击图例切换系列，
 并可更新数据、移除和重新挂载两个图表。停止服务用 Ctrl+C。
-[完整接入指南](../adapters/rabbita/README.md)包含包导入、消息与状态处理；
-[示例源码](../adapters/rabbita/cmd/demo/main.mbt)展示 model/update/view 的完整组合。
+[完整接入指南](../rabbita/README.md)包含包导入、消息与状态处理；
+[示例源码](../rabbita/cmd/demo/main.mbt)展示 model/update/view 的完整组合。
 
 ![真实浏览器中的双图应用](../assets/rabbita-interactive.png)
 
@@ -28,7 +28,7 @@ python3 -m http.server 8765 --bind 127.0.0.1
 
 1. 用原有 Figure/Axes API 准备图表，调用 `Figure::to_drawing()`。
 2. 现有 SVG 渲染在同次绘制中收集最终坐标下的数据点锚点，返回平台无关的 `Drawing`。
-3. 独立 adapter 用 XML 事件读取快照，通过公开 `svg.node` / `svg.text` 构造有 namespace 的真实 SVG 节点。
+3. 同模块的 Rabbita 子包用 XML 事件读取快照，通过公开 `svg.node` / `svg.text` 构造有 namespace 的真实 SVG 节点。
 4. `view(drawing, id~, on_event~, hovered?, selected?, legend~, hit_radius~)` 返回 Rabbita `Html`；
    hover/click/legend 消息交给应用更新状态，再准备视图。
 
@@ -71,14 +71,15 @@ XML 读取后调用公开节点构造器，没有 `innerHTML` 或 Rabbita 私有
 
 ## 依赖与平台边界
 
-`adapters/rabbita` 是独立 JS module `moonbit-community/moonplot-rabbita`，尚未发布到 Mooncakes。
-局部 `moon.work` 链接仓库核心，不要求根模块引入 Rabbita。
-核心运行依赖保持原样，公开 Scene/Drawing 接口没有 UI 类型。
+`rabbita/` 现在是统一模块中的 `Lampese/mathplotlib/rabbita` 包，建议显式别名 `@plot_dom`。
+子包及 browser executable 通过 `supported_targets = "js"` 限定平台；
+核心 facade、Scene、Drawing 与 SVG renderer 不 import UI，公开模型中没有 UI 类型。
 
-adapter 固定 Rabbita `0.16.7` 和现有 XML `0.5.0`；
-workspace 解析 x `0.5.1`、async `0.22.4`、moonback `0.8.5`，均按安装元数据核查 Apache-2.0。
-根目录普通构建继续使用原有 x `0.4.46` 声明与依赖缓存。
-只有 JS 浏览器交互被本片验收；native/Wasm 的核心测试不作为浏览器交互证据。
+统一模块安装会解析全部声明依赖，包含 Rabbita `0.16.7` 和 XML `0.5.0`；
+传递解析得到 x `0.5.1`、async `0.22.4`、moonback `0.8.5`，均按安装元数据核查 Apache-2.0。
+不再使用单独 adapter module 或局部 `moon.work`，也不再声称静态安装不会获取 UI 依赖。
+核心编译仍由实际包导入关系决定；native/Wasm 的核心测试不作为浏览器交互证据。
+发布与独立消费者的当前状态见 [接入说明](PUBLISHING.md)。
 
 固定查阅源码 commit 为 `c6bbd1b3b649d5f6ea6b21e6c42f8003ec41c367`：
 [模块元数据](https://github.com/moonbit-community/rabbita/blob/c6bbd1b3b649d5f6ea6b21e6c42f8003ec41c367/rabbita/moon.mod)、
@@ -116,7 +117,7 @@ moon test drawing backend/svg scene/drawing_wbtest.mbt \
   tests/api/readme_examples_test.mbt tests/api/usability_test.mbt tests/api/drawing_export_test.mbt --target all
 ```
 
-浏览器命令与 Playwright 安装步骤见 [adapter 验证说明](../adapters/rabbita/README.md#verification)。
+浏览器命令与 Playwright 安装步骤见 [adapter 验证说明](../rabbita/README.md#develop-and-verify)。
 本地详细日志保存在 `.moonagent/checkpoints/G2-2026-10-24/`；
 最初浏览器 report.json、demo.png、mobile.png 在 `.moonagent/checkpoints/G2-browser-acceptance/`；
 UI整理后的当前11项结果与截图在 `.moonagent/checkpoints/G2-ui-acceptance/`。

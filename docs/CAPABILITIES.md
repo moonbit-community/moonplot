@@ -8,7 +8,9 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 验收日期：2026-10-24；相关回归四目标各 353/353，详见 [M1 记录](MILESTONE_M1.md)。
 **G2.1 交互 DOM 首片也已验收**：可选 Rabbita JS 组件、折线/散点交互与双图示例，详见[DOM 记录](RABBITA_DOM.md)。
 
-**M2 v0.2.0** 补齐多图 SVG 资源隔离和独立接入版本包，详见 [M2 记录](MILESTONE_M2.md)。
+**M2 v0.2.0** 补齐多图 SVG 资源隔离和独立接入版本包，详见 [M2 历史记录](MILESTONE_M2.md)。
+当前分发改为 **`Lampese/mathplotlib@0.2.1`** 单一 module，静态根包与 Rabbita 子包一起安装；
+发布状态和安装方式见 [接入说明](PUBLISHING.md)。
 
 ## 如何理解状态
 
@@ -31,10 +33,10 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 | 图形组合 | 多面板、共享轴、嵌套网格、次坐标轴 | 支持标题、轴标签、网格、图例、表格与标注 |
 | 可变折线 | `Line2D` 数据、可见性、颜色、透明度、线宽、线型等 | 支持缓存更新、移除和保留渲染输入的相关生命周期 |
 | 输出 | 自包含 SVG 字符串 | 可保存为文件，用浏览器或 SVG 工具查看 |
-| 浏览器组件 | `Figure::to_drawing()` 与独立 Rabbita adapter | 真实 SVG DOM；点悬停/点击、应用控制的图例与数据更新；仅 JS 浏览器 |
+| 浏览器组件 | `Figure::to_drawing()` 与 `rabbita` JS 子包 | 真实 SVG DOM；点悬停/点击、应用控制的图例与数据更新；仅 JS 浏览器 |
 
 常用入口可从根包使用，较细的功能分布在 `scene`、`ticker`、`transforms` 等包。
-当前模块导入名仍为 `mathplotlib/mathplotlib`，展示名为 MoonPlot。
+当前模块导入名为 `Lampese/mathplotlib`，展示名为 MoonPlot；浏览器组件导入 `Lampese/mathplotlib/rabbita`。
 具体调用方式见 [使用指南](USAGE.md) 和 [项目首页](../README.md)。
 
 ## 可运行示例与验证依据
@@ -45,7 +47,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 - [`assets/gallery.svg`](../assets/gallery.svg)及[展示预览](../assets/gallery.png)：该 Gallery 的实际输出。
 - [`assets/two-series.svg`](../assets/two-series.svg)：该预览的实际 SVG 输出。
 - [`assets/two-series.png`](../assets/two-series.png)：SVG 的展示预览，不是独立 PNG 后端。
-- [`adapters/rabbita`](../adapters/rabbita/README.md)：可运行双图交互应用；真实浏览器11项交互/布局检查通过。
+- [`rabbita`](../rabbita/README.md)：可运行双图交互应用；真实浏览器11项交互/布局检查通过。
 
 历史测试包含数值与日期格式化、单位转换、共享轴、自动范围、折线生命周期和 SVG
 结构等检查；部分专项使用固定上游源生成参考结果。
@@ -104,7 +106,8 @@ G2.1 已实现并通过真实浏览器验收，使用 Rabbita `0.16.7` 的公开
 
 命中针对数据点，不是任意图形轮廓或线段。索引属于当前帧；数据重排后应用需要刷新选择状态。
 当前支持滚动、响应式宽度、外层 padding/border 和 `xMidYMid meet` letterbox；
-未覆盖触摸、缩放/平移、键盘导航及所有图表的交互。M2 已隔离图内 ID/url/href 资源；模块尚未发布到 Mooncakes，通过 GitHub 版本包的显式 workspace 接入。
+未覆盖触摸、缩放/平移、键盘导航及所有图表的交互。M2 已隔离图内 ID/url/href 资源。当前统一模块的安装方式与发布状态见 [接入说明](PUBLISHING.md)；
+同一模块会解析 Rabbita 依赖，但核心静态包不 import UI，组件子包仅支持 JS。
 
 后续大目标与推进顺序由项目路线图维护；本页记录能力与里程碑验收边界。
 当前仍以运行结果和用户可见效果为准，不用接口数量替代可用性结论。

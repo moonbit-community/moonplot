@@ -1,8 +1,9 @@
 # Source organization
 
 The root package is a small public facade in [`api.mbt`](../api.mbt).
-Applications still import `mathplotlib/mathplotlib`; the package paths and
-public methods remain unchanged by the repository cleanup.
+Applications import `Lampese/mathplotlib`; the plotting methods and default
+`@mathplotlib` alias remain unchanged. The 0.2.1 distribution combines static
+plotting and the browser component in one module; see [installation and path migration](PUBLISHING.md).
 
 This follows the [pdf-viewer package organization](https://github.com/moonbit-community/pdf-viewer/blob/master/docs/architecture.md):
 a small root facade, consumer tests in `tests/api`, generated resources with
@@ -23,7 +24,7 @@ plotting library in one engine package.
 | [`transforms/`](../transforms) | Affine transforms, bounds, paths, and geometry |
 | [`pyplot/`](../pyplot) | Stateful convenience facade over Scene |
 | [`internal/`](../internal) | Shared render IR, host bridges, PNG helpers, generated color resources |
-| [`adapters/rabbita/`](../adapters/rabbita/README.md) | Separate optional JS module for interactive DOM |
+| [`rabbita/`](../rabbita/README.md) | JS-only interactive DOM package in the same module |
 | [`cmd/`](../cmd) | Runnable static plotting examples |
 | [`tests/api/`](../tests/api) | Consumer tests importing only the public root facade |
 | [`tests/integration/`](../tests/integration) | Independent packages isolating process-global epoch/configuration tests |
@@ -31,6 +32,13 @@ plotting library in one engine package.
 | [`tools/`](../tools) | Repository maintenance checks |
 | [`testdata/`](../testdata) | Independent oracle data, provenance, regeneration notes, and packed test fixtures |
 | [`assets/`](../assets) | Checked-in sample output and actual UI screenshots |
+
+`rabbita/moon.pkg` and its browser executables declare `supported_targets = "js"`.
+The core facade, Scene, Drawing and static renderer do not import UI packages.
+Dependency declarations belong to the module, so installing it also resolves
+Rabbita and its transitive dependencies; package-level compilation preserves
+the static backend boundary. There is no nested adapter module or adapter
+`moon.work` in the current layout.
 
 Blackbox and whitebox tests for an implementation package stay beside it when
 they exercise that package's contracts or private helpers. Moving whitebox
@@ -69,8 +77,9 @@ The largest Logit sort references use small data-driven test harnesses and
 losslessly packed fixtures under `testdata/packed`. They retain every original
 case, scalar origin, input bit, expected output bit, and complete permutation.
 Fixtures are derived from the checked-in independent oracle JSON, not from the
-sorting implementation. Moon's embed step emits ignored, test-only loaders;
-production bundles do not include those test resources.
+sorting implementation. Moon's embed step emits ignored, test-only loaders.
+Production executables do not link these resources; source distribution keeps
+the packed inputs required by the package's pre-build hooks.
 See the [packed fixture guide](../testdata/packed/README.md) for the format and
 saved-oracle verification commands.
 

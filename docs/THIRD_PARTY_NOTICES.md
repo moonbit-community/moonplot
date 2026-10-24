@@ -24,16 +24,17 @@ It reuses the package's TZif v2/v3 loader and POSIX future-rule evaluator.
 The dependency source is unmodified; its public types remain private to this
 adapter. The module declares `moonbitlang/x` 0.4.46, also Apache-2.0.
 
-## Optional Rabbita frontend
+## Rabbita frontend package
 
-The separate JS module in [adapters/rabbita](../adapters/rabbita/README.md)
-depends on `moonbit-community/rabbita` 0.16.7 and the existing
-`Milky2018/xml` 0.5.0 package through their public APIs. Its local workspace
+The JS-only [rabbita package](../rabbita/README.md) is part of the same
+`Lampese/mathplotlib` module. It uses `moonbit-community/rabbita` 0.16.7 and
+`Milky2018/xml` 0.5.0 through their public APIs. The unified dependency graph
 also resolves `moonbitlang/async` 0.22.4, `moonbit-community/moonback` 0.8.5
 and `moonbitlang/x` 0.5.1. Their installed package metadata declares
 Apache-2.0; the license text is the same as [LICENSE](../LICENSE).
 Dependency source is unmodified and not vendored into this repository.
-The ordinary core module retains its existing dependency declarations.
+Module installation resolves these dependencies; core plotting packages do
+not import the browser component or expose UI types.
 
 ## IANA Time Zone Database test data
 

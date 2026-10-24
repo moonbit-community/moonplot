@@ -4,11 +4,12 @@ Start with the [project README](../README.md) to render a chart.
 
 ## Using the library
 
+- [Install the unified module and migrate package paths](PUBLISHING.md)
 - [Current capabilities and M1 acceptance](CAPABILITIES.md)
 - [First usable milestone and reproducible examples](MILESTONE_M1.md)
-- [M2 interactive plotting, source release and independent integration](MILESTONE_M2.md)
+- [M2 interactive plotting and v0.2.0 release history](MILESTONE_M2.md)
 - [Detailed usage and API examples](USAGE.md)
-- [Run and integrate the optional Rabbita component](../adapters/rabbita/README.md)
+- [Run and integrate the optional Rabbita component](../rabbita/README.md)
 - [Detailed API behavior reference](COMPATIBILITY.md)
 - [Dependencies and integration notes](DEPENDENCIES.md)
 

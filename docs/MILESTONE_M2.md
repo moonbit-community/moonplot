@@ -1,5 +1,18 @@
 # M2：可接入的浏览器交互绘图
 
+## 当前入口：0.2.1 统一模块
+
+用户在 v0.2.0 交付后明确要求使用 `Lampese/` 前缀发布，并将核心与组件合并。
+当前方案为 **`Lampese/mathplotlib@0.2.1`**：根包用于静态出图，
+`Lampese/mathplotlib/rabbita` 为同 module 的 JS 子包，别名建议 `@plot_dom`。
+安装命令、迁移路径及当前发布验收见 [发布说明](PUBLISHING.md)，组件使用见
+[当前指南](../rabbita/README.md)。这里不把 v0.2.0 的验证数字当作 0.2.1 发布结果。
+
+**以下保留 GitHub v0.2.0 的历史分发方式、路径、命令和验收结果。**
+在当前分支接入请使用上方指南；已发布的 v0.2.0 tag 与附件不改写。
+
+## v0.2.0 交付记录
+
 版本：**0.2.0**。M2 在 M1 的静态 SVG 与已完成的 G2.1 交互上补齐多图资源隔离、
 独立消费验收与版本包。保留现有模块名；不要求完整 Matplotlib API。
 发布入口：[GitHub v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0)。
