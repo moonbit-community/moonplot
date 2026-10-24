@@ -88,6 +88,8 @@ workspace 解析 x `0.5.1`、async `0.22.4`、moonback `0.8.5`，均按安装元
 
 ## 已运行的验收
 
+下表保留 G2.1 的首次验收结果；M2 本轮的 adapter 14/14、资源隔离与独立发布包验收见 [M2 记录](MILESTONE_M2.md)。
+
 | 检查 | 实际结果 |
 | --- | --- |
 | 根 `moon check --target all` | 通过，7 条既有 Ref 警告、0 error |

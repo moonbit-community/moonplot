@@ -19,12 +19,12 @@
   双图渐变/clip、href链/root别名、独立事件、重绘/改序/三次重挂载通过。
 - [x] 0.2.0实际ZIP演练包在仓库外独立消费；静态四目标SVG解析/3hits/相同Drawing断言，真实Chrome5项通过。
   包含LICENSE/样式/README；核心包约1.4MB（原18.8MB），adapter约20KB，无测试/缓存/隐式workspace。
-- [ ] 固定M2版本、安装说明、打包内容核对、正式版本发布及远端核查。
+- [x] M2 v0.2.0正式GitHub版本已发布，五份附件回下载逐字节核对通过；安装与验收说明完成。
 - 现有Mooncakes凭据账号Lampese；两个原命名空间dryrun经服务端确认403 User mismatch。
   不改名，GitHub v0.2.0源码版本包为本轮交付渠道；Mooncakes明确未上架。
 - A/C资源实现与浏览器已STOP交回；B现拥有tests/consumer及tools/verify_release_consumer.cjs。
   Root拥有manifest/打包tools/文档/中央验收/发布；当前版本均已改0.2.0，包内测试/参考数据排除，packed prebuild输入保留。
-- 发布前完成实现/验收/可审查归档；若registry权限不匹配，诊断后保留明确实际状态，不能冒称发布成功。
+- 已完成实现/验收/源码提交/正式包/发布/远端核查。registry权限403单独明确记录，未冒称Mooncakes发布。
 - 本片证据 .moonagent/checkpoints/M2/；基线7cde6cfb0d96ee87591e05c6b66f34aa83aaa477。
 
 ## 代码组织：实现完成
@@ -59,22 +59,26 @@
 
 ## 精确下一动作与提交
 
-M2资源修复已提交720a0c7；正在完成发布源提交、正式附件构建和GitHub v0.2.0发布。
-所有实现与实际ZIP演练已通过；--allow-dirty演练manifest不作为最终交付附件。
-最后根/adapter info/fmt、结构/diff检查已过，既有公开mbti无变化；94份Markdown/434本地链接0broken。
-main/preview/gallery native已过，后两份与原资产逐字节相同。
-下一动作：提交版本包工具与文档，clean状态正式运行build_release.py；
-得到source_commit/sha256且dirty_rehearsal=false，正常push master，用该源提交建v0.2.0 release，下载核对附件，
-最后更新本检查点的发布URL/远端hash/验收结果并独立提交push。
-不要恢复全API迁移；Mooncakes权限403已排查，不重复无效publish、不改名绕过。
+**M2本轮已完成，无剩余必做项。** 后续按用户需求选择新场景，不恢复全API迁移。
+GitHub正式发布：https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0 。
+版本tag指向源提交3af1723f6fdbda83b5083ef4c46030b19db7f7ec；资源修复720a0c7。
+master已正常push；本页为随后补充的交付验收记录，不移动已发布tag或替换附件。
+Mooncakes未发布（命名空间403已确证）；这不是待排查失败，不改名绕过、不重复无效publish。
 
 中央root info/fmt/check all99053、adapter info/fmt/check/test14/build49830均terminal0。
 核心定向四目标23800各370/370，主Chrome42821通过11项，资源中央62563通过7组，0页面错误。
-核心精简publish dryrun53390：解包check通过13warnings/0error，随后服务端403（和真实源码check7既有warning区分）。
-第一次演练31320发现root .moonignore影响嵌套adapter归档为空；已修为外部显式workspace打adapter，强验包内容。
-第二次演练83229 terminal0：真实ZIP/外部消费者四目标/Chrome5项通过，证据release/rehearsal.log与consumer-browser/。
-无M2残留运行会话；有意保留的旧预览服务见下。三个agents均STOP交回。
-代码组织先前实现与全套验收均完成，交付起点7cde6cf；不混报旧的22264/22271为当前测试结果。
+最后根/adapter info/fmt、结构/diff检查通过，既有公开mbti无变化；94份Markdown/434本地链接0broken。
+main/preview/gallery native通过，后两份SVG与原资产逐字节相同。
+核心精简publish dryrun53390：解包check通过13warnings/0error，随后服务端403；真实源码check为7既有warning。
+第一次演练31320查出root .moonignore影响嵌套adapter归档为空；已修外部显式workspace打包并强验内容。
+演练83229、clean正式构建82262均terminal0：实际ZIP/仓库外四目标SVG/Chrome5项通过。
+最终manifest的dirty_rehearsal=false，源码提交与关键Git blobs匹配，bundle两个模块的所有文件与原ZIP逐一相同。
+最终核心包1,374,007 bytes/474files（原18,782,929）；adapter19,834 bytes/12files；source bundle1,407,764 bytes/499files。
+五份附件含SHA256SUMS及release-manifest.json，GitHub返回摘要与本地一致，下载后全部字节相同。
+发布20364、下载30277、API/ref/摘要77387均terminal0，证据remote-release.json及release-final/download-check.json。
+无M2残留运行会话，三个agents均STOP交回；只保留此前用户预览服务。
+详细验收说明MILESTONE_M2.md；最终包/日志/截图在.moonagent/checkpoints/M2/release-final/。
+历史代码整理全套验收属于旧片，不混报旧的22264/22271为当前测试结果。
 
 ## 文件、证据与会话
 
@@ -95,4 +99,4 @@ main/preview/gallery native已过，后两份与原资产逐字节相同。
   本轮起点70c592514fa1545d68dc350927f621915aaacf87。
 - 既有M1见MILESTONE_M1.md，DOM与UI见RABBITA_DOM.md；旧长执行历史在archive/，不重启调查。
 
-[源图谱](ARCHITECTURE.md) · [路线图](MIGRATION_PLAN.md) · [能力](CAPABILITIES.md) · [M1](MILESTONE_M1.md) · [DOM](RABBITA_DOM.md)
+[源图谱](ARCHITECTURE.md) · [路线图](MIGRATION_PLAN.md) · [能力](CAPABILITIES.md) · [M1](MILESTONE_M1.md) · [M2](MILESTONE_M2.md) · [DOM](RABBITA_DOM.md)
