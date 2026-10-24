@@ -42,8 +42,21 @@
 - [x] 最终文档f1aac73已正常push；远端SHA与本地交付HEAD一致，GitHub八个文件blob/size均匹配。
 - [x] 工作区交付文件已提交；本页最终交接随后作为独立检查点提交并正常同步。
 
+## 当前 UI 整理切片
+
+- 用户反馈交互示例UI细节难看，本轮优先整理界面，暂停建议中的SVG资源ID切片。
+- [x] 统一品牌/标题/工具栏/图表卡片，移除重复SVG图例与可见调试计数、索引。
+- [x] adapter新增独立moonplot.css，图例为轻量色点按钮；悬停浮层不再改变卡片高度。
+- [x] 选中摘要改为实际周次/数值；示例通过既有API柔化网格/轴线，无核心renderer改动。
+- [x] 首轮check/build通过，Chrome11项通过，0页面错误；桌面/375px已看实际截图。
+- [x] 最终info/fmt、checkJS/build通过，adapter7/7，Chrome11/11且0页面错误；桌面/375px截图已视觉复核。
+- [x] 根核心及公开mbti均未变化；assets展示图和组件CSS接入说明已同步。
+- [x] 界面与浏览器验收代码已独立commit；展示图与说明随文档提交交付。
+- [ ] 正常push并核远端，结束本次UI整理。
+
 ## 精确下一动作
 
+当前UI已完成实现与验收，下一分批提交并正常push、核远端。G2.1原有实现与验收保留。
 G2.1实现、验收、文档、提交和远端文件核查均已完成，无未处理失败。
 本片交付为05e9c20、1d4de2a、f1aac73；完整交付HEAD为
 f1aac7335d7e146e5d03bf1c8e77061aaec0909d，远端已核相同。
@@ -53,6 +66,8 @@ f1aac7335d7e146e5d03bf1c8e77061aaec0909d，远端已核相同。
 
 ## 证据、会话与运行方式
 
+- UI首浏览器75004、最终3504、最终Moon流程88111均terminal0；新旧浏览器HTTP/Chrome均已finally关闭。
+- UI日志在G2-2026-10-24/ui-*.log；当前report/demo/mobile截图在G2-ui-acceptance/。
 - 本轮基线：cbc7358aea2e5b005a1bb48bf088ed46e4f00e54；master跟踪origin/master，远端SSH。
 - SSH push43148 terminal0；GitHub API八文件40301 terminal0，结果github-delivery.json。
 - 核心中央77401 terminal0；adapter最终19989 terminal0；最终全流程26231 terminal0；

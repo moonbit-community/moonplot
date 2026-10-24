@@ -43,7 +43,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 - [`assets/gallery.svg`](../assets/gallery.svg)及[展示预览](../assets/gallery.png)：该 Gallery 的实际输出。
 - [`assets/two-series.svg`](../assets/two-series.svg)：该预览的实际 SVG 输出。
 - [`assets/two-series.png`](../assets/two-series.png)：SVG 的展示预览，不是独立 PNG 后端。
-- [`adapters/rabbita`](../adapters/rabbita/README.md)：可运行双图交互应用；真实浏览器九项交互/布局检查通过。
+- [`adapters/rabbita`](../adapters/rabbita/README.md)：可运行双图交互应用；真实浏览器11项交互/布局检查通过。
 
 历史测试包含数值与日期格式化、单位转换、共享轴、自动范围、折线生命周期和 SVG
 结构等检查；部分专项使用固定上游源生成参考结果。
@@ -97,7 +97,7 @@ Gallery SVG 解析、数据计数、面板边界与 2400×840 展示预览已检
 
 G2.1 已实现并通过真实浏览器验收，使用 Rabbita `0.16.7` 的公开 SVG/HTML API。
 折线、散点、PathCollection 的数值数据点可作为命中锚点；应用接收 hover/click/legend 消息并更新状态。
-相关核心回归四目标各 370/370，adapter JS 7/7，Chrome 九项交互与布局检查通过、页面错误为零。
+相关核心回归四目标各 370/370，adapter JS 7/7，Chrome 11项交互与布局检查通过、页面错误为零。
 原有静态 SVG 示例保持逐字一致。命令与证据见[实现与验收](RABBITA_DOM.md)。
 
 命中针对数据点，不是任意图形轮廓或线段。索引属于当前帧；数据重排后应用需要刷新选择状态。

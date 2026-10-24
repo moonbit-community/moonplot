@@ -63,6 +63,19 @@ The [complete example](cmd/demo/main.mbt) shows the model, update and view toget
 Refresh or clear selected/hovered snapshots when the data changes, as the example does.
 Use a distinct `id` for each chart. Legend keys belong to your application.
 
+Load the [component stylesheet](moonplot.css) in your application shell for the
+compact legend buttons and floating hover inspector:
+
+```html
+<link rel="stylesheet" href="/path/to/moonplot.css">
+```
+
+Copy or serve this file from your application's assets. Its rules are scoped to
+`.moonplot`; `demo.css` only styles this example page. Override
+`--moonplot-text`, `--moonplot-muted`, `--moonplot-border`, and `--moonplot-accent`
+on the component to match your theme. The inspector stays in the viewport's
+upper-right corner and does not resize the chart on hover.
+
 `HitPoint` contains panel, artist and original point indices, numeric data coordinates, and intrinsic SVG coordinates.
 Indices identify the displayed frame's ordering; they are not persistent identifiers across artist or data reordering.
 Line step vertices, missing samples and extra paint passes do not renumber the original data points.
@@ -111,6 +124,7 @@ PLAYWRIGHT_MODULE="$PWD/.moonagent/browser-tools/node_modules/playwright" \
 The default browser channel is installed Google Chrome. Set `BROWSER_CHANNEL=bundled` to use Playwright's
 installed Chromium instead. Browser binaries may need separate installation in a fresh environment.
 `MOONPLOT_BROWSER_OUTPUT` overrides the output directory for screenshots and the JSON report.
-The actual acceptance run used Chrome 155 and passed nine interaction/layout checks with no page errors.
+The current acceptance run used Chrome 155 and passed 11 interaction/layout checks with no page errors,
+including keyboard legend toggles, stable hover layout and a 375px phone viewport.
 
 Licensed under the repository's [Apache 2.0 license](../../LICENSE).

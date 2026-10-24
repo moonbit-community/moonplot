@@ -94,11 +94,12 @@ workspace 解析 x `0.5.1`、async `0.22.4`、moonback `0.8.5`，均按安装元
 | adapter JS | check 通过，**7/7** 测试；示例 build 通过，只有既有依赖警告 |
 | 最终接口与格式 | 根和 adapter 的 info/fmt 通过，新增/变更 mbti 已审，UI 依赖隔离 |
 | 原有静态示例 | main/preview/gallery native 全部 exit 0；preview 与 gallery 的已保存 SVG 均逐字相同 |
-| 真实 Chrome 155 | 下列 **9 项**通过，页面错误 **0**；桌面与窄视口截图已视觉检查 |
+| 真实 Chrome 155 | 下列 **11 项**通过，页面错误 **0**；桌面与窄视口截图已视觉检查 |
 
 浏览器检查覆盖真实 SVG namespace/小数几何、悬停与点击更新状态、双图隔离、图例与命中同步、
 数据更新后的新数值、三次移除/挂载不重复发事件、滚动及外层 padding/border、
-letterbox 空白区拒绝和响应式 CSS 命中半径。运行使用真实鼠标事件，结束时关闭其临时 HTTP 服务和浏览器。
+letterbox 空白区拒绝和响应式 CSS 命中半径；UI整理后额外检查悬停不移动图例/卡片、375px无横向溢出，
+图例同时覆盖键盘和鼠标操作。运行使用真实鼠标事件，结束时关闭其临时 HTTP 服务和浏览器。
 
 核心定向命令（仓库根目录）：
 
@@ -113,7 +114,8 @@ moon test drawing backend/svg scene/drawing_wbtest.mbt \
 
 浏览器命令与 Playwright 安装步骤见 [adapter 验证说明](../adapters/rabbita/README.md#verification)。
 本地详细日志保存在 `.moonagent/checkpoints/G2-2026-10-24/`；
-浏览器 report.json、demo.png、mobile.png 在 `.moonagent/checkpoints/G2-browser-acceptance/`。
+最初浏览器 report.json、demo.png、mobile.png 在 `.moonagent/checkpoints/G2-browser-acceptance/`；
+UI整理后的当前11项结果与截图在 `.moonagent/checkpoints/G2-ui-acceptance/`。
 这些忽略目录不随仓库分发，公开命令可复现。没有把历史两万余项全套测试称为本轮结果。
 
 G2.1 已闭合首个交互场景。后续可按用户需求补键盘/触摸、缩放平移、更多图表命中、
