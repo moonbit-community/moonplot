@@ -2,6 +2,7 @@ import {
   "mathplotlib/mathplotlib/config",
   "mathplotlib/mathplotlib/core",
   "mathplotlib/mathplotlib/core/colors",
+  "mathplotlib/mathplotlib/drawing",
   "mathplotlib/mathplotlib/scene/axis",
   "mathplotlib/mathplotlib/scene/boxplot",
   "mathplotlib/mathplotlib/scene/colorbar",

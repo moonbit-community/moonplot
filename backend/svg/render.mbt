@@ -3572,6 +3572,7 @@ fn render_panel(
   scale : Scale,
   panel_index : Int32,
   position : (Double, Double, Double, Double),
+  hit_points~ : Array[@drawing.HitPoint]? = None,
 ) -> Unit raise @core.DataError {
   let (left, top, plot_width, plot_height) = position
   // Earlier panels can change the limits of a shared axis in this frame.
@@ -3714,23 +3715,61 @@ fn render_panel(
     match artist {
       @render.Artist::Line(points, style) =>
         match panel.prepare_line(points) {
-          Some(context) =>
+          Some(context) => {
             append_line_context(
               writer, scale, left, top, plot_width, plot_height, context,
             )
-          None =>
+            if hit_points is Some(hits) &&
+              context.first_style().width() > 0.0 &&
+              context.first_style().line_stroke().linestyle() != "None" {
+              let points = match context.hit_points() {
+                Some(points) => points
+                None => context.points()
+              }
+              collect_drawing_points(
+                hits, panel_index, artist_index, points, scale, position,
+              )
+            }
+          }
+          None => {
             append_line_artist(
               writer, scale, left, top, plot_width, plot_height, points, style,
             )
+            if hit_points is Some(hits) &&
+              style.width() > 0.0 &&
+              style.line_stroke().linestyle() != "None" {
+              collect_drawing_points(
+                hits, panel_index, artist_index, points, scale, position,
+              )
+            }
+          }
         }
-      @render.Artist::Scatter(points, style) =>
+      @render.Artist::Scatter(points, style) => {
         append_scatter(
           writer, scale, left, top, plot_width, plot_height, points, style,
         )
-      @render.Artist::PathCollection(points, styles) =>
+        if hit_points is Some(hits) {
+          collect_drawing_points(
+            hits, panel_index, artist_index, points, scale, position,
+          )
+        }
+      }
+      @render.Artist::PathCollection(points, styles) => {
         append_path_collection(
           writer, scale, left, top, plot_width, plot_height, points, styles,
         )
+        if hit_points is Some(hits) {
+          collect_drawing_points(
+            hits,
+            panel_index,
+            artist_index,
+            points,
+            scale,
+            position,
+            count=Int32::min(points.length(), styles.length()),
+          )
+        }
+      }
       @render.Artist::Bar(points, style) =>
         append_bars(
           writer, scale, left, top, plot_width, plot_height, points, style,
@@ -4003,6 +4042,14 @@ pub fn render_with_positions(
 pub fn render_with_positions_checked(
   figure : @render.Figure,
 ) -> (String, Array[(Double, Double, Double, Double)]) raise @core.DataError {
+  render_with_hits_checked(figure, None)
+}
+
+///|
+fn render_with_hits_checked(
+  figure : @render.Figure,
+  hit_points : Array[@drawing.HitPoint]?,
+) -> (String, Array[(Double, Double, Double, Double)]) raise @core.DataError {
   begin_tick_layout(figure)
   defer end_tick_layout(figure)
   let writer = @xml.Writer::new()
@@ -4045,7 +4092,15 @@ pub fn render_with_positions_checked(
     ("fill", "white"),
   ])
   for index, panel in figure.panels() {
-    render_panel(writer, figure, panel, scales[index], index, positions[index])
+    render_panel(
+      writer,
+      figure,
+      panel,
+      scales[index],
+      index,
+      positions[index],
+      hit_points~,
+    )
   }
   for index, bar in figure.colorbars() {
     append_colorbar(writer, figure, bar, index)

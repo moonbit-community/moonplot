@@ -1,0 +1,42 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mathplotlib/mathplotlib/drawing"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn drawing(Int, Int, String, Array[HitPoint]) -> Drawing
+
+pub fn hit_point(Int, Int, Int, Double, Double, Double, Double) -> HitPoint
+
+// Errors
+
+// Types and methods
+pub struct Drawing {
+  // private fields
+}
+pub fn Drawing::height(Self) -> Int
+pub fn Drawing::hit_test(Self, Double, Double, radius? : Double) -> HitPoint?
+pub fn Drawing::hit_test_client(Self, Double, Double, Double, Double, Double, Double, radius? : Double) -> HitPoint?
+pub fn Drawing::points(Self) -> Array[HitPoint]
+pub fn Drawing::svg(Self) -> String
+pub fn Drawing::viewport_point(Self, Double, Double, Double, Double, Double, Double) -> (Double, Double)?
+pub fn Drawing::width(Self) -> Int
+
+pub struct HitPoint {
+  panel_index : Int
+  artist_index : Int
+  point_index : Int
+  data_x : Double
+  data_y : Double
+  screen_x : Double
+  screen_y : Double
+} derive(Eq, @debug.Debug)
+pub fn HitPoint::equal(Self, Self) -> Bool
+pub fn HitPoint::not_equal(Self, Self) -> Bool
+pub fn HitPoint::to_repr(Self) -> @debug.Repr
+
+// Type aliases
+
+// Traits

@@ -1,5 +1,6 @@
 import {
   "mathplotlib/mathplotlib/core",
+  "mathplotlib/mathplotlib/drawing",
   "mathplotlib/mathplotlib/core/colors",
   "mathplotlib/mathplotlib/scene/axis",
   "mathplotlib/mathplotlib/scene/gridspec",

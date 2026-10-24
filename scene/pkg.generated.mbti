@@ -4,6 +4,7 @@ package "mathplotlib/mathplotlib/scene"
 import {
   "mathplotlib/mathplotlib/core",
   "mathplotlib/mathplotlib/core/colors",
+  "mathplotlib/mathplotlib/drawing",
   "mathplotlib/mathplotlib/scene/axis",
   "mathplotlib/mathplotlib/scene/boxplot",
   "mathplotlib/mathplotlib/scene/colorbar",
@@ -619,6 +620,7 @@ pub fn Figure::suptitle(Self, String) -> Unit
 pub fn Figure::table(Self, cell_text? : Array[Array[String]], cell_colours? : Array[Array[String]], cell_loc? : String, col_widths? : Array[Double], row_labels? : Array[String], row_colours? : Array[String], row_loc? : String, col_labels? : Array[String], col_colours? : Array[String], col_loc? : String, loc? : String, bbox? : Array[Double], edges? : String) -> Table raise @core.DataError
 pub fn Figure::text(Self, Double, Double, String, color? : String) -> Unit raise @core.DataError
 pub fn Figure::title(Self) -> String?
+pub fn Figure::to_drawing(Self) -> @drawing.Drawing raise @core.DataError
 pub fn Figure::to_svg(Self) -> String
 pub fn Figure::to_svg_checked(Self) -> String raise @core.DataError
 pub fn Figure::tricontour(Self, Array[Double], Array[Double], Array[Array[Int]], Array[Double], levels? : Array[Double], nlevels? : Int, color? : String, linewidth? : Double, label? : String, mask? : Array[Bool], locator? : @ticker.Locator, colors? : Array[String], linewidths? : Array[Double]) -> ContourSet raise @core.DataError

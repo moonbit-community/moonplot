@@ -23,6 +23,10 @@ pub using @core {
 }
 
 ///|
+/// Prepared output and data-point locations for interactive adapters.
+pub using @drawing {type Drawing, type HitPoint}
+
+///|
 /// Typed RGB and RGBA values used by colored image inputs.
 pub using @colors {type Rgb, type Rgba, rgb, rgba}
 

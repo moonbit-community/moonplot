@@ -6,6 +6,7 @@ pub struct LineDrawingContext {
   priv first_style : @core.Style
   priv foreground : (() -> @core.Style raise @core.DataError)?
   priv on_complete : () -> Unit
+  priv hit_points : Array[@core.Point]?
 }
 
 ///|
@@ -14,8 +15,23 @@ pub fn line_drawing_context(
   first_style : @core.Style,
   on_complete : () -> Unit,
   foreground~ : (() -> @core.Style raise @core.DataError)? = None,
+  hit_points~ : Array[@core.Point]? = None,
 ) -> LineDrawingContext {
-  { points: points.copy(), first_style, foreground, on_complete, }
+  {
+    points: points.copy(),
+    first_style,
+    foreground,
+    on_complete,
+    hit_points: hit_points.map(points => points.copy()),
+  }
+}
+
+///|
+/// Captured unexpanded data points, when supplied by an owning Scene.
+pub fn LineDrawingContext::hit_points(
+  self : LineDrawingContext,
+) -> Array[@core.Point]? {
+  self.hit_points.map(points => points.copy())
 }
 
 ///|

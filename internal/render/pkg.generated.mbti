@@ -20,7 +20,7 @@ pub fn figure_with_subfigures(Int, Int, Int, Array[Panel], Array[@colorbar.Color
 
 pub fn legend_entry(String, String, LegendKind) -> LegendEntry
 
-pub fn line_drawing_context(Array[@core.Point], @core.Style, () -> Unit, foreground? : (() -> @core.Style raise @core.DataError)?) -> LineDrawingContext
+pub fn line_drawing_context(Array[@core.Point], @core.Style, () -> Unit, foreground? : (() -> @core.Style raise @core.DataError)?, hit_points? : Array[@core.Point]?) -> LineDrawingContext
 
 pub fn panel(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.Bounds?, @axis.Axis, @axis.Axis, Bool, Array[SecondaryAxis], Array[SecondaryAxis], aspect? : Double, anchor? : (Double, Double), adjustable? : String, box_aspect? : Double, line_provider? : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)?, legend_position? : @core.LegendPosition) -> Panel
 
@@ -165,6 +165,7 @@ pub struct LineDrawingContext {
 }
 pub fn LineDrawingContext::complete(Self) -> Unit
 pub fn LineDrawingContext::first_style(Self) -> @core.Style
+pub fn LineDrawingContext::hit_points(Self) -> Array[@core.Point]?
 pub fn LineDrawingContext::points(Self) -> Array[@core.Point]
 pub fn LineDrawingContext::resolve_foreground_style(Self) -> @core.Style? raise @core.DataError
 

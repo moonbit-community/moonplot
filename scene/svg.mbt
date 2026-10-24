@@ -344,6 +344,7 @@ fn to_render_spine(spine : Spine) -> @render.Spine {
 fn Figure::to_render_figure(
   self : Figure,
   extra? : @ref.Ref[AxesData],
+  capture_points~ : Bool = false,
 ) -> @render.Figure {
   let states = self.axes.copy()
   if extra is Some(state) {
@@ -431,6 +432,20 @@ fn Figure::to_render_figure(
                   }),
                 )
               }
+              let hit_points = if capture_points && style.width() > 0.0 {
+                let points = Array(capacity=line.cache.xs.length())
+                for index in 0..<line.cache.xs.length() {
+                  points.push(
+                    @core.point(
+                      line.cache.xs.get(index),
+                      line.cache.ys.get(index),
+                    ),
+                  )
+                }
+                Some(points)
+              } else {
+                None
+              }
               if style.width() > 0.0 &&
                 (
                   stroke.linestyle() == "--" ||
@@ -467,6 +482,7 @@ fn Figure::to_render_figure(
                     foreground=Some(() => {
                       line_drawing_foreground_style(style, source_color)
                     }),
+                    hit_points~,
                   ),
                 )
               }
@@ -475,6 +491,7 @@ fn Figure::to_render_figure(
                   current,
                   line_drawing_foreground_style(style, source_color),
                   () => line.mark_drawn(),
+                  hit_points~,
                 ),
               )
             }
@@ -549,4 +566,23 @@ pub fn Figure::to_svg_checked(self : Figure) -> String raise @core.DataError {
     )
   }
   document
+}
+
+///|
+/// Render once and capture in-panel Line/scatter datum anchors for interaction.
+/// Point indices refer to the unfiltered source order, before Line step expansion.
+/// Anchors do not describe marker pixel coverage; hit tolerance is caller-chosen.
+pub fn Figure::to_drawing(
+  self : Figure,
+) -> @drawing.Drawing raise @core.DataError {
+  self.apply_position_aspects()
+  let (drawing, positions) = @svg.render_drawing_with_positions_checked(
+    self.to_render_figure(capture_points=true),
+  )
+  for index, (left, top, width, height) in positions {
+    self.axes[index].val.active_position = Some(
+      @gridspec.rect(left, top, width, height),
+    )
+  }
+  drawing
 }

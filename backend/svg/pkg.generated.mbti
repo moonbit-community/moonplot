@@ -3,6 +3,7 @@ package "mathplotlib/mathplotlib/backend/svg"
 
 import {
   "mathplotlib/mathplotlib/core",
+  "mathplotlib/mathplotlib/drawing",
   "mathplotlib/mathplotlib/internal/render",
 }
 
@@ -18,6 +19,8 @@ pub fn panel_position(@render.Figure, Int) -> (Double, Double, Double, Double)?
 pub fn panel_view(@render.Figure, Int) -> ((Double, Double, Double, Double), @core.Limits, @core.Limits)? raise @core.DataError
 
 pub fn render(@render.Figure) -> String
+
+pub fn render_drawing_with_positions_checked(@render.Figure) -> (@drawing.Drawing, Array[(Double, Double, Double, Double)]) raise @core.DataError
 
 pub fn render_with_positions(@render.Figure) -> (String, Array[(Double, Double, Double, Double)])
 

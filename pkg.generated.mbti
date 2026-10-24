@@ -4,6 +4,7 @@ package "mathplotlib/mathplotlib"
 import {
   "mathplotlib/mathplotlib/core",
   "mathplotlib/mathplotlib/core/colors",
+  "mathplotlib/mathplotlib/drawing",
   "mathplotlib/mathplotlib/scene",
   "mathplotlib/mathplotlib/scene/axis",
   "mathplotlib/mathplotlib/scene/gridspec",
@@ -92,6 +93,8 @@ pub using @scene {type ContourSet}
 
 pub using @core {type DataError}
 
+pub using @drawing {type Drawing}
+
 pub using @scene {type Figure}
 
 pub using @ticker {type Formatter}
@@ -99,6 +102,8 @@ pub using @ticker {type Formatter}
 pub using @gridspec {type GridSpec}
 
 pub using @scene {type Histogram}
+
+pub using @drawing {type HitPoint}
 
 pub using @gridspec {type LayoutError}
 
