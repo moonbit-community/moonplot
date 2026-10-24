@@ -1,0 +1,7 @@
+# Keep generated numerical evidence separate in GitHub language/diff views.
+*_reference_test.mbt linguist-generated=true
+*_reference_wbtest.mbt linguist-generated=true
+testdata/*.json linguist-generated=true
+testdata/packed/*.base64 linguist-generated=true
+internal/color_names/generated_*.mbt linguist-generated=true
+ticker/date/tzdb/data.mbt linguist-generated=true

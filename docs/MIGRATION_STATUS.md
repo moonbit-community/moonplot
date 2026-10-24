@@ -1,91 +1,69 @@
 # MoonPlot 当前执行检查点
 
-更新时间：2026-10-24（Asia/Shanghai）。恢复会话先读本页，再执行下一条未完成动作。
+更新时间：2026-10-24（Asia/Shanghai）。恢复会话先读本页，按精确下一动作继续。
 
-## 当前范围与用户决定
+## 范围与用户决定
 
-- 实用 MoonBit 画图库，以能力和完整场景对齐，不要求完整 Matplotlib API 复刻。
-- M1 基础二维 SVG 可用版已验收；本轮 G2.1 首批 Rabbita（原 Rabbit-TEA）交互 DOM 也已验收。
-- 用户允许合理复用、独立 subagents、本地分批 commit 和正常 push 至 moonbit-community/moonplot。
-- 不恢复旧 D55 / 全 API 清单迁移；不以历史 API 指数或未经调查的估算表示整体百分比。
+- 实用 MoonBit 画图库，能力与场景对齐，不要求完整 Matplotlib API 复刻，不恢复旧 D55 清单。
+- M1 基础二维 SVG、G2.1 首批 Rabbita DOM、后续 UI 整理均已验收与交付。
+- 当前用户要求：参考 pdf-viewer 整理根目录散乱文件、拆解超大单文件。保持原公开API与绘图行为。
+- 用户授权合理复用、独立 subagents、小步本地commit与正常push至 moonbit-community/moonplot。
+- 不用历史API指数或未经调查的估算表示整体完成率。
 
-## M1 保留验收
+## 代码组织：实现完成
 
-- [x] 默认 both 下的单轴 grid、Bar/BarH 宽度范围错误已修，四角图例与 Gallery 完成。
-- [x] 相关四目标各353/353；check/info/fmt与真实SVG/PNG视觉检查通过，原preview逐字一致。
-- [x] 文档和实现已提交并同步：f4c0548、36e6710、bfdb503；随后检查点cbc7358同步。
-- [x] 历史实现、命令和边界见 MILESTONE_M1.md；不因新DOM功能重算M1。
+- [x] 根types/plot合并api.mbt；12份消费测试移tests/api，只有注释的空白wbtest删除。
+- [x] 18个隔离配置测试包integration移tests/integration；生成器目的路径、当前文档命令同步。
+- [x] SVG render4158→136行、pyplot state2353→157行、Scene figure1588→534行，按职责同包拆分。
+- [x] 332个完整代码块逐字保留（只忽略块间空白分隔），没有为拆文件增加公开helper。
+- [x] 6559行颜色match变6行委托，1163个完整名字/别名及通道bits移internal/color_names。
+- [x] 两份最大Logit测试23,473,639 bytes变4,172 bytes测试体+约5KB共享reader。
+  220+248个原cases、原15组、完整大数组结果与scalar origins/bits不变；约1.99MB派生fixture独立存放。
+- [x] 原独立oracle JSON未改，生成器支持--from-fixture --check；prebuild只生成ignored白盒载入文件。
+- [x] 结构规则/检查脚本、架构说明与fixture格式/复现说明已补齐。
+  根受Git管理文件23→10；手写生产最大1440行，含测试的手写文件最大1930行。
+- [x] 其余大文件主要是旧生成参考代码，已清晰标识、保留原覆盖；未冒称全部源文件都已数据化。
 
-## 当前切片 G2.1：实现完成
+## 代码组织：验收完成
 
-- [x] A：独立 drawing 包，复制的Drawing/HitPoint快照、纯命中、viewport/letterbox/CSS半径。
-- [x] B：同次现有SVG绘制收集Line/Scatter/PathCollection原始点锚；Figure::to_drawing checked导出。
-- [x] 保留原始索引，steps/gap不重复；隐藏/None/零线宽Line无命中；静态路径不产生sidecar。
-- [x] C：独立JS adapter，XML事件转公开Rabbita SVG节点，严格标签/属性/视口验证。
-- [x] HTML视口同步currentTarget/自身SVG bbox，typed Hover/Click/ToggleSeries消息、tooltip与选中圈。
-- [x] Root：根facade导出、双图reactive应用、响应式HTML、可复现浏览器验收脚本与实际截图。
-- [x] 首浏览器失败已定位修复：Rabbita状态与Val.view移入new的组件builder，事件才能更新视图。
-- [x] Root全文审实现及生成接口，A另作只读集成审查；所有agents STOP，Root接管交付。
+- [x] 中央moon info / moon fmt / check --target all通过，7条既有Ref警告、0 error。
+- [x] 完整moon test --target all：wasm/wasm-gc/native各22264/22264，JS22271/22271。
+- [x] 源码中22172个具名测试的名称及重复数量逐项一致，区别于runtime总数。
+- [x] 根消费18/18和隔离配置18/18，分别四目标通过；公开facade与所有既有公开mbti不变。
+  新内部资源/空测试包接口及移动隔离测试包的package名称属于预期变化。
+- [x] 颜色39/39各四目标、1163个完整bits断言、颜色生成器完整--check通过。
+- [x] Logit15/15各四目标；两份生成器派生check通过，全部fixture值逐项回读等于原oracle。
+- [x] main/preview/gallery native全部exit0；preview/gallery与已保存SVG逐字节相同。
+- [x] adapter info/fmt/check/test7/7/build通过；生产JS不含测试fixture变量/magic/payload。
+- [x] Chrome155真实11项交互/布局全过、0页面错误；最终UI截图与已保存图逐字节一致。
+- [x] 结构检查通过；91份Markdown/403个本地链接通过、README symlink保留、diffcheck通过。
+- [ ] 提交最后维护规则/架构说明与本检查点，正常push并核远端。
 
-## G2.1：验证完成
+## 精确下一动作与提交
 
-- [x] 根check --target all通过，7条既有Ref警告/0 error；四目标相关回归各370/370（新增17）。
-- [x] adapter checkJS通过、7/7测试、demo build通过；局部workspace x0.5.1下核心JS同组370/370。
-- [x] 根与adapter最终info/fmt通过；4份既有mbti增量及3份新接口已审，核心无UI类型。
-- [x] main/preview/gallery native均exit0；preview及gallery SVG与已保存资源逐字相同。
-- [x] Chrome155实际9项：真实SVGnamespace/小数、hover/click、双图隔离、legend、data更新、
-  三次remount、scroll+wrapper padding/border、letterbox、响应式CSS半径；0 pageerror。
-- [x] 桌面1280×900及窄屏截图已视觉检查；正式展示图在assets/rabbita-interactive.png。
-- [x] 核心moon.mod逐字未改；Rabbita仅独立module，局部moon.work链接核心，未发布Mooncakes。
-- [x] README、能力/路线、运行/依赖/许可/验收文档已同步；89份Markdown/374本地链接最终检查通过，README symlink保留。
-- [x] 核心已提交05e9c20，adapter/双图示例/浏览器脚本已提交1d4de2a。
-- [x] 最终文档f1aac73已正常push；远端SHA与本地交付HEAD一致，GitHub八个文件blob/size均匹配。
-- [x] 工作区交付文件已提交；本页最终交接随后作为独立检查点提交并正常同步。
+当前四个实现提交均已验证，尚需整体正常push及远端核查：
+2ae2c3c（根门面与消费/隔离测试）、d6672c0（同包职责拆分）、
+e20ac8c（完整颜色资源）、07b050d（巨型参考测试数据化）。
+下一先提交维护/架构文档，再正常SSH push，核HEAD/远端SHA与关键文件blob，更新此处交接。
+所有三个agents STOP，Root接管，没有未处理测试失败。
+后续功能按用户需求选择；不要因为整理完成自动恢复全API迁移或扩大M1范围。
 
-## 当前 UI 整理切片
+## 文件、证据与会话
 
-- 用户反馈交互示例UI细节难看，本轮优先整理界面，暂停建议中的SVG资源ID切片。
-- [x] 统一品牌/标题/工具栏/图表卡片，移除重复SVG图例与可见调试计数、索引。
-- [x] adapter新增独立moonplot.css，图例为轻量色点按钮；悬停浮层不再改变卡片高度。
-- [x] 选中摘要改为实际周次/数值；示例通过既有API柔化网格/轴线，无核心renderer改动。
-- [x] 首轮check/build通过，Chrome11项通过，0页面错误；桌面/375px已看实际截图。
-- [x] 最终info/fmt、checkJS/build通过，adapter7/7，Chrome11/11且0页面错误；桌面/375px截图已视觉复核。
-- [x] 根核心及公开mbti均未变化；assets展示图和组件CSS接入说明已同步。
-- [x] 样式/交互验收0966ace、截图/文档f138e60分批commit并正常push。
-- [x] 交付HEAD与origin/master一致；adapter/style/截图四个远端blob与size逐项匹配。
-- [x] 本次UI整理已完成，无未处理验证失败；本检查点随后独立提交同步。
+- 新源图谱docs/ARCHITECTURE.md；检查tools/check_structure.py；fixture说明testdata/packed/README.md。
+- 详尽原始/新文件映射、大小、332块证明、测试名证明、oracle哈希与命令日志：
+  .moonagent/checkpoints/repository-organization/。
+- Root中央89377、真实输出/DOM27167、生成器派生94011均terminal0。
+  布局60557初因旧@core测试导入失败，修正相同公开DataError别名后9049 terminal0；
+  消费/隔离测试14304/3577各terminal0。
+- A渲染54434、C颜色87344/57811、B参考96001均terminal0，无agent残留会话。
+  三份handoff位于同证据目录，Root已全文审查。
+- B原handoff曾误报尚未落盘的额外header/首尾覆盖断言，已只读核实并纠正记录；
+  当前实现实际检查magic/count/id、逐byte与单记录bounds、完整vector/record消费；原固定数据由Python逐值核。
+- **有意保留的预览服务session58626、Python PID38768**：http://127.0.0.1:8765 。
+  停止可kill 38768；测试自己的临时HTTP/Chrome均finally关闭。
+- master跟踪origin/master，SSH远端git@github.com:moonbit-community/moonplot.git。
+  本轮起点70c592514fa1545d68dc350927f621915aaacf87。
+- 既有M1见MILESTONE_M1.md，DOM与UI见RABBITA_DOM.md；旧长执行历史在archive/，不重启调查。
 
-## 精确下一动作
-
-当前UI整理已完成实现、验收与交付，无待办修复。UI交付提交为0966ace、f138e60，
-远端已核一致；7项adapter与11项真实浏览器检查通过，API不变。
-G2.1原有实现与验收保留，未来功能片仍按用户需求推进。
-G2.1实现、验收、文档、提交和远端文件核查均已完成，无未处理失败。
-本片交付为05e9c20、1d4de2a、f1aac73；完整交付HEAD为
-f1aac7335d7e146e5d03bf1c8e77061aaec0909d，远端已核相同。
-后续继续实现时，建议下一小片为多图自定义SVG资源ID隔离：先构造两个同名渐变/clip定义，
-再局部改写id与引用，验收独立显示。其余按实际需求增加键盘/触摸或缩放平移。
-不要自动恢复旧全API迁移。当前命中为当前帧的数据点锚点，不是持久ID或任意形状轮廓。
-
-## 证据、会话与运行方式
-
-- UI首浏览器75004、最终3504、最终Moon流程88111均terminal0；新旧浏览器HTTP/Chrome均已finally关闭。
-- UI push60409与远端核查5145均terminal0，结果ui-remote.json；89份Markdown/375本地链接通过。
-- UI日志在G2-2026-10-24/ui-*.log；当前report/demo/mobile截图在G2-ui-acceptance/。
-- 本轮基线：cbc7358aea2e5b005a1bb48bf088ed46e4f00e54；master跟踪origin/master，远端SSH。
-- SSH push43148 terminal0；GitHub API八文件40301 terminal0，结果github-delivery.json。
-- 核心中央77401 terminal0；adapter最终19989 terminal0；最终全流程26231 terminal0；
-  局部workspace JS81917 terminal0；npm查询28299 terminal0，Playwright1.62.1可用。
-- 浏览器首82725 terminal1（builder生命周期），修复后87506及最终26231均terminal0；
-  测试HTTP/Chrome均finally关闭，无残留测试服务。
-- **有意保留的预览服务：session58626**，http://127.0.0.1:8765 ，根路径和实际JS均HTTP200。
-  对应Python PID38768，停止可执行 `kill 38768`；App浏览器打开请求已queued。
-- workspace实际JS：adapters/rabbita/_build/js/debug/build/moonbit-community/moonplot-rabbita/cmd/demo/demo.js。
-- 日志：.moonagent/checkpoints/G2-2026-10-24/；浏览器report.json/demo.png/mobile.png：
-  .moonagent/checkpoints/G2-browser-acceptance/；只读复核G2-browser-env/integration-review.md。
-- 实现交接：G2-render-handoff.md、G2-rabbita-adapter-C-handoff.md，均在.moonagent/checkpoints/。
-- 旧全套nonJS22233/JS22240为历史结果；本轮370定向回归不冒称重跑旧全套。
-- Rabbita固定研究commit c6bbd1b3b649d5f6ea6b21e6c42f8003ec41c367、包0.16.7；
-  依赖与限制详见RABBITA_DOM.md和adapter README，不重启已完成的源码调查。
-
-[路线图](MIGRATION_PLAN.md) · [能力](CAPABILITIES.md) · [DOM验收](RABBITA_DOM.md) · [M1](MILESTONE_M1.md) · [历史](archive/migration-status-through-2026-10-24.md)
+[源图谱](ARCHITECTURE.md) · [路线图](MIGRATION_PLAN.md) · [能力](CAPABILITIES.md) · [M1](MILESTONE_M1.md) · [DOM](RABBITA_DOM.md)

@@ -175,12 +175,17 @@ and [DOM acceptance notes](docs/RABBITA_DOM.md) for tested behavior and limits.
 The root package provides the common plotting facade. Implementation packages
 include `scene` for figure and artist state, `ticker` for axes and date handling,
 `transforms` for geometry, and `backend/svg` for rendering.
+The facade is kept in [`api.mbt`](api.mbt), consumer tests in [`tests/api`](tests/api),
+and isolated configuration tests in [`tests/integration`](tests/integration).
+See the [source organization guide](docs/ARCHITECTURE.md) for package boundaries,
+generated resources, and reference fixtures.
 
 ## Development
 
 From the repository root:
 
 ```sh
+python3 tools/check_structure.py
 moon check --target all
 moon test --target all
 moon info

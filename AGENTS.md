@@ -34,6 +34,16 @@ You can browse and install extra skills here:
 - In the toplevel directory, there is a `moon.mod` file listing module
   metadata.
 
+- Keep the root package as a facade in `api.mbt`. Consumer tests belong in
+  `tests/api`; process-global configuration tests use separate packages under
+  `tests/integration`. Implementation and whitebox tests remain in their owning
+  package. See `docs/ARCHITECTURE.md` for the source map.
+
+- Split maintained MoonBit files by responsibility before they exceed 2,000
+  lines. Move complete `///|` blocks without exposing private helpers merely to
+  cross a file boundary. Generated resources and reference fixtures keep their
+  provenance and regeneration commands. Run `python3 tools/check_structure.py`.
+
 ## Coding convention
 
 - MoonBit code is organized in block style, each block is separated by `///|`,
