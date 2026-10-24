@@ -1,4 +1,8 @@
 ///|
+/// Legend placement is a public value shared with render backends.
+pub using @core {type LegendPosition}
+
+///|
 /// The visual sample used by one legend entry.
 pub(all) enum LegendKind {
   Line
@@ -50,6 +54,21 @@ pub fn Axes::set_legend(self : Axes, entries : Array[LegendEntry]) -> Unit {
 /// Alias for `set_legend` matching the pyplot vocabulary.
 pub fn Axes::legend(self : Axes, entries : Array[LegendEntry]) -> Unit {
   self.set_legend(entries)
+}
+
+///|
+/// Anchor this axes' automatic or explicit legend to a panel corner.
+pub fn Axes::set_legend_position(
+  self : Axes,
+  position : LegendPosition,
+) -> Unit {
+  self.state.val.legend_position = position
+}
+
+///|
+/// Return this axes' legend anchor, initially UpperRight.
+pub fn Axes::legend_position(self : Axes) -> LegendPosition {
+  self.state.val.legend_position
 }
 
 ///|
@@ -115,4 +134,19 @@ pub fn Figure::set_legend(self : Figure, entries : Array[LegendEntry]) -> Unit {
 /// Set legend entries on the default axes.
 pub fn Figure::legend(self : Figure, entries : Array[LegendEntry]) -> Unit {
   self.set_legend(entries)
+}
+
+///|
+/// Set the legend anchor on the default axes.
+pub fn Figure::set_legend_position(
+  self : Figure,
+  position : LegendPosition,
+) -> Unit {
+  self.axes().set_legend_position(position)
+}
+
+///|
+/// Return the legend anchor on the default axes.
+pub fn Figure::legend_position(self : Figure) -> LegendPosition {
+  self.axes().legend_position()
 }

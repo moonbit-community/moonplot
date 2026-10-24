@@ -102,6 +102,8 @@ pub using @scene {type Histogram}
 
 pub using @gridspec {type LayoutError}
 
+pub using @core {type LegendPosition}
+
 pub using @core {type Limits}
 
 pub using @scene {type Line2D}

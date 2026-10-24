@@ -401,6 +401,7 @@ fn Figure::to_render_figure(
         false,
         secondary_x,
         secondary_y,
+        legend_position=state.legend_position,
         show_x_tick_labels=state.show_x_tick_labels,
         show_y_tick_labels=state.show_y_tick_labels,
         frame_visible=state.frame_visible,

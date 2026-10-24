@@ -178,6 +178,7 @@ pub fn Axes::imshow_with_norm_and_colormap(Self, Array[Array[Double]], @colors.C
 pub fn Axes::is_attached(Self) -> Bool
 pub fn Axes::legend(Self, Array[LegendEntry]) -> Unit
 pub fn Axes::legend_entries(Self) -> Array[LegendEntry]
+pub fn Axes::legend_position(Self) -> @core.LegendPosition
 pub fn Axes::line(Self, Array[@core.Point], color? : String, label? : String) -> Unit
 pub fn Axes::loglog(Self, Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::margins(Self) -> (Double, Double)
@@ -235,6 +236,7 @@ pub fn Axes::set_bounds(Self, @core.Bounds) -> Unit raise @core.DataError
 pub fn Axes::set_box_aspect(Self, aspect? : Double) -> Unit raise @core.DataError
 pub fn Axes::set_color_cycle(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Axes::set_legend(Self, Array[LegendEntry]) -> Unit
+pub fn Axes::set_legend_position(Self, @core.LegendPosition) -> Unit
 pub fn Axes::set_margins(Self, Double, Double) -> Unit raise @core.DataError
 pub fn Axes::set_position(Self, Double, Double, Double, Double, which? : String) -> Unit raise @core.DataError
 pub fn Axes::set_prop_cycle(Self, Array[String]) -> Unit raise @core.DataError
@@ -491,6 +493,7 @@ pub fn Figure::imshow_with_norm(Self, Array[Array[Double]], @colors.ColorNorm, c
 pub fn Figure::imshow_with_norm_and_colormap(Self, Array[Array[Double]], @colors.ColorNorm, @colors.ColorMap, origin? : String, extent? : Array[Double], aspect? : String, alpha? : Double, interpolation? : String) -> Unit raise @core.DataError
 pub fn Figure::legend(Self, Array[LegendEntry]) -> Unit
 pub fn Figure::legend_entries(Self) -> Array[LegendEntry]
+pub fn Figure::legend_position(Self) -> @core.LegendPosition
 pub fn Figure::line(Self, Array[@core.Point], color? : String, label? : String) -> Unit
 pub fn Figure::loglog(Self, Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::margin(Self) -> Int
@@ -541,6 +544,7 @@ pub fn Figure::set_bounds(Self, @core.Bounds) -> Unit raise @core.DataError
 pub fn Figure::set_box_aspect(Self, aspect? : Double) -> Unit raise @core.DataError
 pub fn Figure::set_color_cycle(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Figure::set_legend(Self, Array[LegendEntry]) -> Unit
+pub fn Figure::set_legend_position(Self, @core.LegendPosition) -> Unit
 pub fn Figure::set_margins(Self, Double, Double) -> Unit raise @core.DataError
 pub fn Figure::set_prop_cycle(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Figure::set_title(Self, String) -> Unit
@@ -980,5 +984,6 @@ pub fn ViolinStats::quantiles(Self) -> Array[Double]
 pub fn ViolinStats::vals(Self) -> Array[Double]
 
 // Type aliases
+pub using @core {type LegendPosition}
 
 // Traits

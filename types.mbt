@@ -34,6 +34,7 @@ pub using @scene {
   type Figure,
   type Line2D,
   type LineData,
+  type LegendPosition,
   type SubFigure,
   type Histogram,
   type ContourSet,

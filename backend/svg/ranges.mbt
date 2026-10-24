@@ -55,16 +55,34 @@ fn include_artist(scale : Scale, artist : @render.Artist) -> Scale {
       points.fold(init=scale, (current, p) => include_point(current, p))
     @render.Artist::PathCollection(points, _) =>
       points.fold(init=scale, (current, p) => include_point(current, p))
-    @render.Artist::Bar(points, _) =>
-      points.fold(init=scale, (current, p) => {
-        let next = include_point(current, p)
-        include_point(next, @core.point(p.x(), 0.0))
-      })
-    @render.Artist::BarH(points, _) =>
-      points.fold(init=scale, (current, p) => {
-        let next = include_point(current, p)
-        include_point(next, @core.point(0.0, p.y()))
-      })
+    @render.Artist::Bar(points, _) => {
+      let points = bar_geometry_points(points)
+      let mut result = scale
+      for index, p in points {
+        result = include_point(result, p)
+        result = include_point(result, @core.point(p.x(), 0.0))
+        let half = bar_data_half_span(points, index, false)
+        for edge in [p.x() - half, p.x() + half] {
+          result = include_point(result, @core.point(edge, p.y()))
+          result = include_point(result, @core.point(edge, 0.0))
+        }
+      }
+      result
+    }
+    @render.Artist::BarH(points, _) => {
+      let points = bar_geometry_points(points)
+      let mut result = scale
+      for index, p in points {
+        result = include_point(result, p)
+        result = include_point(result, @core.point(0.0, p.y()))
+        let half = bar_data_half_span(points, index, true)
+        for edge in [p.y() - half, p.y() + half] {
+          result = include_point(result, @core.point(p.x(), edge))
+          result = include_point(result, @core.point(0.0, edge))
+        }
+      }
+      result
+    }
     @render.Artist::FillBetween(upper, lower, _) => {
       let upper_scale = upper.fold(init=scale, (current, p) => {
         include_point(current, p)

@@ -410,6 +410,10 @@ pub(all) enum LegendKind {
 }
 
 ///|
+/// Public presentation values are shared with all render backends.
+pub using @core {type LegendPosition}
+
+///|
 pub struct LegendEntry {
   label : String
   color : String
@@ -898,6 +902,7 @@ pub struct Panel {
   line_provider : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)?
   title : String?
   legend : Array[LegendEntry]
+  legend_position : LegendPosition
   explicit_bounds : @core.Bounds?
   x_axis : @axis.Axis
   y_axis : @axis.Axis
@@ -938,6 +943,7 @@ pub fn panel(
   adjustable~ : String = "box",
   box_aspect? : Double,
   line_provider~ : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)? = None,
+  legend_position~ : LegendPosition = UpperRight,
 ) -> Panel {
   panel_with_sharing(
     rect,
@@ -957,6 +963,7 @@ pub fn panel(
     adjustable~,
     box_aspect?,
     line_provider~,
+    legend_position~,
   )
 }
 
@@ -989,6 +996,7 @@ pub fn panel_with_sharing(
   adjustable~ : String = "box",
   box_aspect? : Double,
   line_provider~ : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)? = None,
+  legend_position~ : LegendPosition = UpperRight,
 ) -> Panel {
   {
     rect,
@@ -996,6 +1004,7 @@ pub fn panel_with_sharing(
     line_provider,
     title,
     legend,
+    legend_position,
     explicit_bounds,
     x_axis,
     y_axis,
@@ -1175,6 +1184,11 @@ pub fn Panel::title(self : Panel) -> String? {
 ///|
 pub fn Panel::legend(self : Panel) -> Array[LegendEntry] {
   self.legend
+}
+
+///|
+pub fn Panel::legend_position(self : Panel) -> LegendPosition {
+  self.legend_position
 }
 
 ///|

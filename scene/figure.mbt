@@ -200,6 +200,7 @@ struct AxesData {
   mut legend : Array[LegendEntry]
   auto_legend : Array[LegendEntry]
   mut explicit_legend : Bool
+  mut legend_position : LegendPosition
   containers : Array[Container]
   rect : @gridspec.Rect?
   mut position_override : @gridspec.Rect?
@@ -267,6 +268,7 @@ fn AxesData::clear_presentation(self : AxesData) -> Unit {
   self.auto_legend.clear()
   self.containers.clear()
   self.explicit_legend = false
+  self.legend_position = UpperRight
   self.show_x_tick_labels = true
   self.show_y_tick_labels = true
   self.frame_visible = true
@@ -337,6 +339,7 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
     legend: [],
     auto_legend: [],
     explicit_legend: false,
+    legend_position: UpperRight,
     containers: [],
     rect: None,
     position_override: None,
@@ -857,6 +860,7 @@ fn new_axes_state(
     legend: [],
     auto_legend: [],
     explicit_legend: false,
+    legend_position: UpperRight,
     containers: [],
     rect,
     position_override: None,
@@ -1088,7 +1092,8 @@ pub fn Axes::set_y_tick_position(
 /// Configure major or minor grid lines for this axes panel.
 ///
 /// `which` accepts `"both"`, `"x"`, `"y"`, `"major"`, or `"minor"`.
-/// For `major`/`minor`, `axis` selects `"both"`, `"x"`, or `"y"`.
+/// `axis` selects `"both"`, `"x"`, or `"y"` with the default or major/minor mode.
+/// The legacy `which="x"`/`"y"` selectors require the default `axis="both"`.
 /// Shared axes propagate the corresponding setting to their linked panels.
 pub fn Axes::grid(
   self : Axes,
@@ -1112,9 +1117,9 @@ pub fn Axes::grid(
       message="grid axis must be 'both', 'x', or 'y'",
     )
   }
-  if which != "major" && which != "minor" && axis != "both" {
+  if (which == "x" || which == "y") && axis != "both" {
     raise @core.DataError::InvalidTicks(
-      message="grid axis is only valid with 'major' or 'minor' which",
+      message="grid axis is only valid with 'both', 'major', or 'minor' which",
     )
   }
   if which == "major" || which == "minor" {
@@ -1143,12 +1148,12 @@ pub fn Axes::grid(
     }
     return
   }
-  if which == "both" || which == "x" || which == "major" {
+  if (which == "both" && axis != "y") || which == "x" {
     for state in self.x_group_states() {
       state.val.x_axis.set_grid(visible, color, linewidth)
     }
   }
-  if which == "both" || which == "y" || which == "major" {
+  if (which == "both" && axis != "x") || which == "y" {
     for state in self.y_group_states() {
       state.val.y_axis.set_grid(visible, color, linewidth)
     }
