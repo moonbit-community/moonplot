@@ -4,22 +4,25 @@ Start with the [project README](../README.md) to render a chart.
 
 ## Using the library
 
+- [Current capabilities and M1 acceptance](CAPABILITIES.md)
+- [First usable milestone and reproducible examples](MILESTONE_M1.md)
 - [Detailed usage and API examples](USAGE.md)
-- [Capabilities and limitations](COMPATIBILITY.md)
+- [Detailed API behavior reference](COMPATIBILITY.md)
 - [Dependencies and integration notes](DEPENDENCIES.md)
 
-## Implementation references
+## Direction and implementation
 
+- [Four capability goals and milestone scope](MIGRATION_PLAN.md)
+- [Rabbita interactive DOM design](RABBITA_DOM.md)
+- [Current execution checkpoint](MIGRATION_STATUS.md)
 - [Upstream survey](UPSTREAM_SURVEY.md)
 - [Streamplot behavior notes](STREAMPLOT_PARITY.md)
-- [Third-party notices](THIRD_PARTY_NOTICES.md)
-- [Third-party license texts](licenses/)
+- [Third-party notices](THIRD_PARTY_NOTICES.md) and [license texts](licenses/)
 
-## Project records
+## Historical records
 
-- [Scope and planning notes](MIGRATION_PLAN.md)
+- [Archived API migration plan](archive/migration-plan-api-history.md)
+- [Archived execution and verification history](archive/migration-status-through-2026-10-24.md)
 - [Historical API comparison and its limits](MIGRATION_PROGRESS.md)
-- [Execution checkpoint and verification history](MIGRATION_STATUS.md)
 
-The project records include historical compatibility work. The API comparison
-index is not a measure of overall plotting-library completion.
+Historical API counts are not a measure of overall plotting-library completion.

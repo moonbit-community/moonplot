@@ -6,7 +6,8 @@ This is a [MoonBit](https://docs.moonbitlang.com) project.
 
 - At session start and after context compaction, read `docs/MIGRATION_STATUS.md`
   first. It is the execution checkpoint; `docs/MIGRATION_PLAN.md` describes scope
-  and `docs/COMPATIBILITY.md` describes capability status.
+  and `docs/CAPABILITIES.md` describes current capabilities and acceptance.
+  `docs/COMPATIBILITY.md` remains the detailed historical API reference.
 - Resume the first unfinished task in the active slice. Read only the source
   and upstream sections needed for that task; do not restart the project survey
   or reconsider decisions already recorded as settled.

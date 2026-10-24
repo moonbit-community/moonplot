@@ -1,5 +1,8 @@
 # Matplotlib v3.11.2 兼容性清单
 
+当前产品能力与验收范围见 [CAPABILITIES.md](CAPABILITIES.md)，四个大目标见 [现行路线图](MIGRATION_PLAN.md)。
+本文件保留细粒度 API 行为参考；其中“计划”不自动加入当前交付范围。
+
 这份清单记录 MoonBit 端的真实状态。只有有对应实现和测试的条目才能标记为“已实现”；计划中的条目不能当作已支持能力。
 
 当前目标是实用、逐步迭代的 MoonBit 画图库。本文件保留 Matplotlib 接口对照和技术边界，未对齐的原生接口不自动成为产品交付前提。历史公开 API 等权指数约7%，仅作接口研究参考，不能表示画图库整体完成率；详见[MIGRATION_PROGRESS.md](MIGRATION_PROGRESS.md)。

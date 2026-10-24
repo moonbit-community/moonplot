@@ -3,6 +3,23 @@
 This document preserves detailed API examples and source compatibility notes.
 Start with the [project README](../README.md) for the current plotting workflow.
 
+## 图例位置与单方向网格
+
+```moonbit nocheck
+let fig = @mathplotlib.figure()
+fig.plot([0.0, 1.0], [1.0, 2.0], label="Series A")
+fig.set_legend_position(@mathplotlib.LegendPosition::LowerLeft)
+fig.grid(axis="y")
+let svg = fig.to_svg_checked()
+```
+
+四角为 `UpperRight`（默认）、`UpperLeft`、`LowerRight`、`LowerLeft`；
+每个 `Axes` 均有同名 getter/setter。完整 `clear()` 恢复默认位置，
+`clear_legend()` 沿用恢复自动条目的行为并保留位置。
+`grid(axis="x"/"y")` 可在默认模式下选择方向；显式 `which="major"/"minor"` 仍可用。
+实际多图示例见 [`cmd/gallery`](../cmd/gallery/main.mbt)，验收范围见 [M1](MILESTONE_M1.md)。
+
+
 # mathplotlib
 
 `mathplotlib` is a staged MoonBit migration of Matplotlib v3.11.2. The current
