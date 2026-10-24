@@ -17,8 +17,10 @@
 - [x] 所有namespace/路径/工具/consumer已同步；51份mbti归一化等价、907份mbt逐字节不变，A只读审查通过。
 - [x] 全套四目标test：wasm/wasm-gc/native各22264/22264，JS22285/22285（含14适配器），全部通过。
   all check/API等价、Chrome11+7、实际ZIP独立四目标静态+Chrome5均通过。
-- [ ] 实际生产包检查/dryrun通过后发布Mooncakes；仓库外无moon.work的全新项目从registry安装、构建及浏览器验证。
-- [ ] 文档/提交/push与v0.2.1发布记录。已发布GitHub v0.2.0保留原源码/附件/tag不修改。
+- [x] 实际发布CLI9540 terminal0/Server200 OK，registry公开0.2.1/build_status=success/has_package=true/yanked=false。
+  真实registry消费者55373 terminal0；486文件与正式ZIP逐一相同，无moon.work或仓库覆盖，静态四目标与Chrome5项通过。
+- [x] 文档/提交/版本发布完成；GitHub v0.2.1四附件回下载字节一致，tag与正式源e5393b9一致。
+  已发布GitHub v0.2.0保留原源码/附件/tag不修改。
 - 当前账号whoami=Lampese，新两个命名空间初查404；最终只发布一个模块，不发布独立moonplot-rabbita。
 - Root拥有源/metadata/工具/consumer/registry发布；B仅当前文档（除本页）；C仅四份HTML/browser runner；A只读API等价审查。
 - 本片证据.moonagent/checkpoints/Mooncakes-0.2.1/；基线4d4e38c9a2dfc81fd0fe6033760048a02f7617de。
@@ -29,7 +31,19 @@
 - 生产单包演练86310 terminal0：486files/~1.4MB ZIP在外部显式workspace四目标静态+真实浏览器5项通过。
 - dryrun40924：服务端202 Accepted明确Dry run completed successfully/No changes made；CLI错误处理把202当非200而exit255。
   这是已确认的CLI状态码处理差异，未实际发布、不是403权限失败。保留完整日志，不伪报dryrun exit0。
-- 新tools/verify_registry.py待实际发布后执行：全新无moon.work项目运行moon add，逐文件比较registry安装源和最终ZIP，四目标+浏览器。
+- 正式源提交e5393b9cffacb84105e947adb8c8e81776af083b（合并0d07990），已push；正式builder51394 terminal0，dirty_rehearsal=false。
+- 单一Lampese-mathplotlib-0.2.1.zip：1,399,546 bytes/486files；source bundle1,416,348 bytes/499files。
+- publish9540 terminal0/Server200，公开模块API与docs页面均HTTP200，独立Lampese/moonplot-rabbita仍404（没有发布第二模块）。
+- 首个registry验收67785查出“应用直接使用Rabbita API必须自行声明框架”的要求；文档/验证工具已补齐，不改库实现。
+- 最终registry验收55373 terminal0：新static工程只moon add MoonPlot，全四目标SVG通过；新browser工程声明Rabbita框架并add MoonPlot，Chrome5项通过。
+  486个安装源文件逐一等于正式ZIP，报告registry-consumer/report.json+installed-source-check.json+browser/。
+- GitHub v0.2.1发布45103、下载64720、API/tag/摘要38718均terminal0；四附件与本地正式包字节一致。
+  tag仍为正式源e5393b9；其后只修验收工具和接入文档，不重打或覆盖已发布0.2.1。
+- Mooncakes：https://mooncakes.io/docs/Lampese/mathplotlib 。GitHub：https://github.com/moonbit-community/moonplot/releases/tag/v0.2.1 。
+- 当前namespace发布片已完成，无未处理失败/必做项。验证工具与框架声明补充随交付记录提交，正常push后核远端即可。
+  所有agents已STOP，测试临时浏览器/服务关闭；仅保留下方用户预览。旧nested module缓存已清理，仅用根构建与依赖缓存。
+- 原38768预览服务已停止（旧目录已迁移）；新有意保留服务session70004、PID77494，根目录serve，URL http://127.0.0.1:8765/rabbita/。
+  HTML与JS HTTP200；open_in_codex返回queued，不宣称已导航显示。
 - 合并源码已提交0d07990；最后info-all/fmt/完整性已过。下一动作提交发布工具与文档，clean正式打包并push；
   实际moon publish后查API和真实安装验证。
   若publish CLI报非200，先读服务端状态并查registry确认是否实际成功，勿盲目重复不可覆盖版本。
@@ -88,7 +102,7 @@
 GitHub正式发布：https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0 。
 版本tag指向源提交3af1723f6fdbda83b5083ef4c46030b19db7f7ec；资源修复720a0c7。
 master已正常push；本页为随后补充的交付验收记录，不移动已发布tag或替换附件。
-Mooncakes未发布（命名空间403已确证）；这不是待排查失败，不改名绕过、不重复无效publish。
+旧0.2.0当时因命名空间403未发布Mooncakes；本轮用户已授权Lampese/并在上方0.2.1完成实际发布。
 
 中央root info/fmt/check all99053、adapter info/fmt/check/test14/build49830均terminal0。
 核心定向四目标23800各370/370，主Chrome42821通过11项，资源中央62563通过7组，0页面错误。
@@ -118,8 +132,8 @@ main/preview/gallery native通过，后两份SVG与原资产逐字节相同。
   三份handoff位于同证据目录，Root已全文审查。
 - B原handoff曾误报尚未落盘的额外header/首尾覆盖断言，已只读核实并纠正记录；
   当前实现实际检查magic/count/id、逐byte与单记录bounds、完整vector/record消费；原固定数据由Python逐值核。
-- **有意保留的预览服务session58626、Python PID38768**：http://127.0.0.1:8765 。
-  停止可kill 38768；测试自己的临时HTTP/Chrome均finally关闭。
+- 旧预览服务session58626/PID38768已在0.2.1合并时停止；当前预览session70004/PID77494：
+  http://127.0.0.1:8765/rabbita/ ，停止可kill 77494；测试自己的临时HTTP/Chrome均finally关闭。
 - master跟踪origin/master，SSH远端git@github.com:moonbit-community/moonplot.git。
   本轮起点70c592514fa1545d68dc350927f621915aaacf87。
 - 既有M1见MILESTONE_M1.md，DOM与UI见RABBITA_DOM.md；旧长执行历史在archive/，不重启调查。

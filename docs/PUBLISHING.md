@@ -44,7 +44,14 @@ Python 不属于绘图库运行时依赖。
 
 ## 同一模块中的浏览器组件
 
-浏览器应用在 `moon.pkg` 中导入：
+浏览器应用会直接调用 Rabbita 框架 API。若应用尚未声明 Rabbita 框架，先运行：
+
+```sh
+moon add moonbit-community/rabbita@0.16.7
+```
+
+这声明的是应用直接调用的框架 API；MoonPlot 自身仍只发布一个模块。
+Moon 不允许应用仅凭传递依赖直接导入框架。随后在 `moon.pkg` 中导入：
 
 ```moonbit nocheck
 import {
@@ -129,4 +136,25 @@ Mooncakes 安装路线只依赖 registry，不需要这个 workspace。
 - dry-run 的解包 check 通过，服务端返回 `202 Accepted` 并明确说明 `No changes were made`。
   当前 CLI 将该非 200 状态误报为失败，日志退出码为 255；不把此预检记录为实际发布。
 
-以上是本地与源码包验收；registry 实际发布与无 workspace 安装结果另由执行检查点记录。
+### 实际发布与 registry 验收
+
+`Lampese/mathplotlib@0.2.1` 已于 2026-10-24 实际发布，服务器返回 **200 OK**。
+公开 manifest 返回版本 0.2.1、构建成功、包可用且未撤回。
+
+全新的仓库外项目在没有 `moon.work` 的情况下执行 `moon add`，安装到的 **486 个文件**
+与正式生产 ZIP 逐一相同。纯静态应用只声明 MoonPlot，四目标 SVG 通过；
+独立浏览器应用声明其直接使用的 Rabbita 框架，JS 构建和 Chrome 155 的 **5 项**交互/响应式检查通过，页面错误为 0。
+
+正式包源码提交为 `e5393b9cffacb84105e947adb8c8e81776af083b`。
+registry 验证工具随后补齐了应用框架声明的检查；绘图与交互源码没有后续修改。
+本地证据保存在忽略目录 `.moonagent/checkpoints/Mooncakes-0.2.1/`。
+复现 registry 消费时，下载对应版本的模块 ZIP 作为 `--expected-archive`，并从当前仓库运行：
+
+```sh
+PLAYWRIGHT_MODULE=/path/to/node_modules/playwright \
+  python3 tools/verify_registry.py --expected-archive /path/to/Lampese-mathplotlib-0.2.1.zip
+```
+
+工具需要 Playwright 和已安装的 Google Chrome（或 `BROWSER_CHANNEL=bundled`）。
+它分别建立纯静态和浏览器消费者，真实安装 registry 包，核对源文件并运行应用；
+不会用本地库 workspace 替代 registry。测试临时 HTTP 与浏览器均会关闭。

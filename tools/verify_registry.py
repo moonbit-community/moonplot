@@ -40,8 +40,17 @@ def main():
         # Actually exercise the documented moon add, rather than relying on
         # a fixture's already-declared dependency or any workspace override.
         module_file = example / "moon.mod"
-        module_file.write_text(module_file.read_text().replace(f'  "{module}@{version}",\n', "").replace('  "moonbit-community/rabbita@0.16.7",\n', ""))
+        module_file.write_text(module_file.read_text().replace(f'  "{module}@{version}",\n', ""))
         assert not any((parent / "moon.work").exists() for parent in [example, *example.parents])
+        # A pure static app declares only MoonPlot. The interactive example
+        # separately declares the Rabbita APIs that its own source imports.
+        static = root / "static"
+        shutil.copytree(example / "cmd/static", static / "cmd/static")
+        (static / "moon.mod").write_text(
+            'name = "moonplot-registry/static"\nversion = "0.2.1"\n'
+        )
+        run(["moon", "update"], static, output / "static-update.log")
+        run(["moon", "add", f"{module}@{version}"], static, output / "static-add.log")
         run(["moon", "update"], example, output / "update.log")
         run(["moon", "add", f"{module}@{version}"], example, output / "add.log")
         run(["moon", "install"], example, output / "install.log")
@@ -67,7 +76,7 @@ def main():
             print(f"Registry static consumer: {target}", flush=True)
             with (output / f"static-{target}.log").open("w") as log:
                 result = subprocess.run(["moon", "run", "cmd/static", "--target", target],
-                                        cwd=example, stdout=subprocess.PIPE, stderr=log)
+                                        cwd=static, stdout=subprocess.PIPE, stderr=log)
             if result.returncode:
                 raise RuntimeError(f"Static registry consumer failed: {target}")
             assert ET.fromstring(result.stdout).tag == "{http://www.w3.org/2000/svg}svg"
@@ -86,6 +95,8 @@ def main():
         report = {
             "module": module, "version": version,
             "no_workspace_override": True,
+            "static_application_imports_only": module,
+            "browser_application_declares_framework": "moonbit-community/rabbita@0.16.7",
             "installed_archive_files_equal": len(files),
             "static_targets": ["wasm", "wasm-gc", "js", "native"],
             "browser": "5 real-browser consumer checks passed",

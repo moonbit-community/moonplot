@@ -40,6 +40,11 @@ and its executables declare `supported_targets = "js"`.
 
 ## Component API
 
+Your application must also declare `moonbit-community/rabbita@0.16.7` when importing
+Rabbita APIs directly: `moon add moonbit-community/rabbita@0.16.7`. MoonPlot itself
+is one module; this is your application’s framework dependency.
+
+
 Create a drawing snapshot and compose it into the Rabbita view:
 
 ```moonbit nocheck
