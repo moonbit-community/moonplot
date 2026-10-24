@@ -1,0 +1,170 @@
+///|
+fn svg_content(content : SvgContent) -> @svg.Svg raise AdapterError {
+  match content {
+    Text(value) => @svg.text(value)
+    Element(name, attributes, children) => {
+      let attrs = @svg.Attrs::build()
+      for (key, value) in attributes {
+        svg_attribute(attrs, name, key, value)
+      }
+      @svg.node(name, attrs, children.map(svg_content))
+    }
+  }
+}
+
+///|
+fn highlight(
+  point : @drawing.HitPoint,
+  selected : Bool,
+  id : String,
+) -> @svg.Svg {
+  let kind = if selected { "selected" } else { "hover" }
+  @svg.node(
+    "circle",
+    @svg.Attrs::build()
+    .cx(point.screen_x.to_string())
+    .cy(point.screen_y.to_string())
+    .r(if selected { "7" } else { "5" })
+    .fill("none")
+    .stroke(if selected { "#7c3aed" } else { "#0f172a" })
+    .stroke_width("2")
+    .vector_effect("non-scaling-stroke")
+    .pointer_events("none")
+    .data_set("moonplot-" + kind, point.point_index.to_string())
+    .data_set("testid", id + "-" + kind),
+    [],
+  )
+}
+
+///|
+fn drawing_svg(
+  content : SvgContent,
+  id : String,
+  hovered : @drawing.HitPoint?,
+  selected : @drawing.HitPoint?,
+) -> @html.Html raise AdapterError {
+  let (attributes, children) = match content {
+    Element("svg", attributes, children) => (attributes, children)
+    _ => raise InvalidSvg("The root element must be svg")
+  }
+  let attrs = @svg.Attrs::build()
+  for (key, value) in attributes {
+    if key == "xmlns" {
+      if value != "http://www.w3.org/2000/svg" {
+        raise InvalidSvg("Unsupported SVG namespace: " + value)
+      }
+    } else {
+      svg_attribute(attrs, "svg", key, value)
+    }
+  }
+  ignore(
+    attrs
+    .id(id + "-svg")
+    .data_set("moonplot-root", id)
+    .style("width", "100%")
+    .style("height", "auto")
+    .style("display", "block"),
+  )
+  let nodes = children.map(svg_content)
+  if hovered is Some(point) {
+    nodes.push(highlight(point, false, id))
+  }
+  if selected is Some(point) {
+    nodes.push(highlight(point, true, id))
+  }
+  @svg.svg(xmlns="http://www.w3.org/2000/svg", attrs~, nodes)
+}
+
+///|
+fn event_hit(
+  drawing : @drawing.Drawing,
+  event : @dom.MouseEvent,
+  radius : Double,
+) -> @drawing.HitPoint? {
+  let container = match event.current_target().to_option() {
+    Some(target) => target.to_element()
+    None => None
+  }
+  let svg_root = match container {
+    Some(element) => element.query_selector("svg[data-moonplot-root]")
+    None => None
+  }
+  match svg_root {
+    Some(root) => {
+      let rect = root.get_bounding_client_rect()
+      drawing.hit_test_client(
+        event.get_client_x(),
+        event.get_client_y(),
+        rect.get_left(),
+        rect.get_top(),
+        rect.get_width(),
+        rect.get_height(),
+        radius~,
+      )
+    }
+    None => None
+  }
+}
+
+///|
+/// Build real SVG nodes and HTML event handlers using public Rabbita APIs.
+/// The application supplies a new drawing when its data or visibility changes.
+pub fn view(
+  drawing : @drawing.Drawing,
+  id~ : String,
+  on_event~ : (Interaction) -> @rabbita.Cmd,
+  hovered? : @drawing.HitPoint,
+  selected? : @drawing.HitPoint,
+  legend~ : Array[LegendItem] = [],
+  hit_radius~ : Double = 10.0,
+) -> @rabbita.Html raise AdapterError {
+  let parsed = parse_svg(drawing.svg())
+  validate_drawing(drawing, parsed)
+  let chart = drawing_svg(parsed, id, hovered, selected)
+  let children = [
+    @html.div(
+      attrs=@html.Attrs::build()
+        .data_set("testid", id + "-viewport")
+        .on_mousemove(event => {
+          on_event(Hover(event_hit(drawing, event, hit_radius)))
+        })
+        .on_mouseleave(_ => on_event(Hover(None)))
+        .on_click(event => {
+          on_event(Click(event_hit(drawing, event, hit_radius)))
+        }),
+      [chart],
+    ),
+  ]
+  if hovered is Some(point) {
+    children.push(
+      @html.div(
+        attrs=@html.Attrs::build()
+          .role("tooltip")
+          .data_set("testid", id + "-tooltip"),
+        "x: \{point.data_x}, y: \{point.data_y}",
+      ),
+    )
+  }
+  if legend.length() > 0 {
+    children.push(
+      @html.div(
+        attrs=@html.Attrs::build()
+          .role("group")
+          .data_set("testid", id + "-legend"),
+        legend.map(item => {
+          @html.button(
+            type_="button",
+            attrs=@html.Attrs::build()
+              .data_set("moonplot-series", item.key)
+              .aria_pressed(item.visible.to_string())
+              .on_click(_ => on_event(ToggleSeries(item.key)))
+              .style("border-left", "0.8em solid " + item.color)
+              .style("opacity", if item.visible { "1" } else { "0.55" }),
+            item.label,
+          )
+        }),
+      ),
+    )
+  }
+  @html.div(id~, attrs=@html.Attrs::build().data_set("testid", id), children)
+}

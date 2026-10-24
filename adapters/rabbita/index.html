@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoonPlot × Rabbita</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #172033; background: #f4f7fb; font: 15px/1.5 system-ui, sans-serif; }
+    main { max-width: 1240px; margin: 0 auto; padding: 32px 24px; }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    .intro { margin: 0 0 24px; color: #475569; }
+    .controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 24px; }
+    button { cursor: pointer; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 7px; background: white; color: inherit; font: inherit; }
+    button:focus-visible { outline: 3px solid #60a5fa; outline-offset: 2px; }
+    .charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .chart-card { padding: 16px; border: 1px solid #dce3ee; border-radius: 12px; background: white; min-width: 0; }
+    .chart-card svg { max-width: 100%; height: auto; display: block; }
+    #a-selection, #b-selection, #a-clicks, #b-clicks { color: #475569; font-size: 13px; margin-top: 8px; }
+    #plot-error { padding: 20px; color: #b91c1c; background: #fee2e2; }
+    footer { margin-top: 24px; color: #64748b; }
+    @media (max-width: 800px) { .charts { grid-template-columns: 1fr; } main { padding: 20px 12px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>MoonPlot × Rabbita</h1>
+    <p class="intro">Hover over a data point, click to select it, or toggle a series using its legend button. Each chart has independent state.</p>
+    <div id="app"></div>
+    <footer>Rendered by MoonPlot. Interactive SVG DOM and state updates by Rabbita.</footer>
+  </main>
+  <script type="module" src="./_build/js/debug/build/moonbit-community/moonplot-rabbita/cmd/demo/demo.js"></script>
+</body>
+</html>
