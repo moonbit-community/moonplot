@@ -18,7 +18,7 @@ pub fn point(Double, Double) -> Point
 
 pub fn series(Array[Double], Array[Double]) -> Series raise DataError
 
-pub fn style(String, width? : Double, radius? : Double, fill? : String, font_size? : Double, marker? : String, line_alpha? : Double?, line_stroke? : LineStroke) -> Style
+pub fn style(String, width? : Double, radius? : Double, fill? : String, font_size? : Double, marker? : String, line_alpha? : Double?, line_stroke? : LineStroke, line_gapcolor? : String?) -> Style
 
 // Errors
 pub(all) suberror DataError {
@@ -134,6 +134,7 @@ pub fn Style::color(Self) -> String
 pub fn Style::fill(Self) -> String
 pub fn Style::font_size(Self) -> Double
 pub fn Style::line_alpha(Self) -> Double?
+pub fn Style::line_gapcolor(Self) -> String?
 pub fn Style::line_stroke(Self) -> LineStroke
 pub fn Style::marker(Self) -> String
 pub fn Style::radius(Self) -> Double

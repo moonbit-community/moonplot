@@ -1,4 +1,39 @@
 ///|
+fn line_drawing_colored_style(
+  style : @core.Style,
+  color : String,
+  stroke : @core.LineStroke,
+) -> @core.Style {
+  @core.style(
+    color,
+    width=style.width(),
+    radius=style.radius(),
+    fill=style.fill(),
+    font_size=style.font_size(),
+    marker=style.marker(),
+    line_alpha=None,
+    line_stroke=stroke,
+    line_gapcolor=style.line_gapcolor(),
+  )
+}
+
+///|
+fn line_drawing_foreground_style(
+  style : @core.Style,
+  source_color : Bool,
+) -> @core.Style raise @core.DataError {
+  if source_color {
+    line_drawing_colored_style(
+      style,
+      line_color_rgba(style.color(), alpha=style.line_alpha()).to_css(),
+      style.line_stroke(),
+    )
+  } else {
+    style
+  }
+}
+
+///|
 fn to_render_artist(artist : Artist) -> @render.Artist {
   match artist {
     Artist::Line(points, style) => @render.Artist::Line(points, style)
@@ -380,27 +415,67 @@ fn Figure::to_render_figure(
           for line in lines {
             if physical_equal(points, line.points) {
               if !line.get_visible() {
-                return Some(([], line.style, () => ()))
+                return Some(
+                  @render.line_drawing_context([], line.style, () => ()),
+                )
               }
               let current = line.points_snapshot_checked()
               let style = line.style
-              let drawing_style = if line.source_color &&
-                !current.is_empty() &&
-                style.line_stroke().linestyle() != "None" {
-                @core.style(
-                  line_color_rgba(style.color(), alpha=style.line_alpha()).to_css(),
-                  width=style.width(),
-                  radius=style.radius(),
-                  fill=style.fill(),
-                  font_size=style.font_size(),
-                  marker=style.marker(),
-                  line_alpha=None,
-                  line_stroke=style.line_stroke(),
+              let stroke = style.line_stroke()
+              let source_color = line.source_color
+              if current.is_empty() || stroke.linestyle() == "None" {
+                return Some(
+                  @render.line_drawing_context(current, style, () => {
+                    line.mark_drawn()
+                  }),
                 )
-              } else {
-                style
               }
-              return Some((current, drawing_style, () => line.mark_drawn()))
+              if style.width() > 0.0 &&
+                (
+                  stroke.linestyle() == "--" ||
+                  stroke.linestyle() == "-." ||
+                  stroke.linestyle() == ":"
+                ) &&
+                style.line_gapcolor() is Some(gapcolor) {
+                // Resolve gap color before inverse's possible empty-list error.
+                let gap = line_color_rgba(gapcolor, alpha=style.line_alpha()).to_css()
+                guard stroke.dash_sequence() is Some(dashes) else {
+                  raise @core.DataError::InvalidTicks(
+                    message="TypeError: 'NoneType' object is not subscriptable",
+                  )
+                }
+                let (offset, inverse) = line_gapcolor_inverse(
+                  stroke.dash_offset(),
+                  dashes,
+                  scaled_as_list=line.scaled_dashes_as_list,
+                )
+                let first_style = line_drawing_colored_style(
+                  style,
+                  gap,
+                  @core.line_stroke(
+                    stroke.linestyle(),
+                    offset~,
+                    dashes=Some(inverse),
+                  ),
+                )
+                return Some(
+                  @render.line_drawing_context(
+                    current,
+                    first_style,
+                    () => line.mark_drawn(),
+                    foreground=Some(() => {
+                      line_drawing_foreground_style(style, source_color)
+                    }),
+                  ),
+                )
+              }
+              return Some(
+                @render.line_drawing_context(
+                  current,
+                  line_drawing_foreground_style(style, source_color),
+                  () => line.mark_drawn(),
+                ),
+              )
             }
           }
           None

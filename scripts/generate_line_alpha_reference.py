@@ -250,7 +250,7 @@ def render(payload):
    'assert_eq([line.invalid_x, line.invalid_y], '+moon(before['invalid'])+')',
    'line_alpha_source_numbers(line.cache.flat.to_array(), '+numbers(flatten(before['xy']))+')',
    'let panel = fig.to_render_figure().panels()[0]']
-  operation='guard panel.prepare_line(line.points) is Some((_, _, complete)) else { fail("expected registered Line provider") }; complete()'
+  operation='guard panel.prepare_line(line.points) is Some(context) else { fail("expected registered Line provider") }; context.complete()'
   lines+=[error_operation(operation,row['error'])if row['error']else operation,
    'line_alpha_source_option(line.get_alpha(), '+optional(after['alpha'])+')',
    'assert_eq(line.stale(), '+moon(after['stale'])+')',

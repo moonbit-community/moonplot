@@ -84,6 +84,12 @@ pub fn Style::line_stroke(self : Style) -> LineStroke {
 }
 
 ///|
+/// Optional raw gap color for native Line handles; other Artists are unchanged.
+pub fn Style::line_gapcolor(self : Style) -> String? {
+  self.line_gapcolor
+}
+
+///|
 /// Styling shared by line, scatter, and bar plots.
 pub struct Style {
   color : String
@@ -94,6 +100,7 @@ pub struct Style {
   marker : String
   priv line_alpha : Double?
   priv line_stroke : LineStroke
+  priv line_gapcolor : String?
 }
 
 ///|
@@ -107,8 +114,19 @@ pub fn style(
   marker~ : String = "o",
   line_alpha~ : Double? = None,
   line_stroke~ : LineStroke = default_line_stroke(),
+  line_gapcolor~ : String? = None,
 ) -> Style {
-  { color, width, radius, fill, font_size, marker, line_alpha, line_stroke, }
+  {
+    color,
+    width,
+    radius,
+    fill,
+    font_size,
+    marker,
+    line_alpha,
+    line_stroke,
+    line_gapcolor,
+  }
 }
 
 ///|

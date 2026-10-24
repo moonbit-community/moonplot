@@ -20,6 +20,18 @@ fn line2d_ir_fixture(
     x.set_locator(@ticker.FixedLocator::new([0.5]).as_locator())
     x.set_named_formatter(formatter)
   }
+  // Preserve these older single-stroke fixture inputs while the production
+  // panel has one authoritative context provider for both paint stages.
+  let drawing_provider : ((Array[@core.Point]) -> @render.LineDrawingContext? raise @core.DataError)? = line_provider.map(provider => {
+      points => {
+        match provider(points) {
+          Some((current, style, complete)) =>
+            Some(@render.line_drawing_context(current, style, complete))
+          None => None
+        }
+      }
+    },
+  )
   @render.figure(
     400,
     200,
@@ -36,7 +48,7 @@ fn line2d_ir_fixture(
         false,
         [],
         [],
-        line_provider~,
+        line_provider=drawing_provider,
       ),
     ],
     [],

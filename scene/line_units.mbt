@@ -75,6 +75,7 @@ fn Axes::attach_line_handle(
     points: attached,
     style,
     unscaled_dash_pattern: { offset: 0.0, dashes: None, },
+    scaled_dashes_as_list: true,
     source_color: false,
     x,
     y,

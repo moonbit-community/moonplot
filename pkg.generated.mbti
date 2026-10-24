@@ -71,7 +71,7 @@ pub fn series(Array[Double], Array[Double]) -> @core.Series raise @core.DataErro
 
 pub fn str_method_formatter(String) -> @ticker.Formatter
 
-pub fn style(String, width? : Double, radius? : Double, fill? : String, font_size? : Double, marker? : String, line_alpha? : Double?, line_stroke? : @core.LineStroke) -> @core.Style
+pub fn style(String, width? : Double, radius? : Double, fill? : String, font_size? : Double, marker? : String, line_alpha? : Double?, line_stroke? : @core.LineStroke, line_gapcolor? : String?) -> @core.Style
 
 // Errors
 

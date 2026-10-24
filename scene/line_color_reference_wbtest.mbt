@@ -3009,10 +3009,10 @@ fn line_color_source_draw_0() -> Unit raise {
   )
   assert_eq(line.stale(), true)
   let panel = fig.to_render_figure().panels()[0]
-  guard panel.prepare_line(line.points) is Some((_, _, complete)) else {
+  guard panel.prepare_line(line.points) is Some(context) else {
     fail("expected registered Line provider")
   }
-  complete()
+  context.complete()
   assert_eq(line.stale(), false)
   assert_eq(
     line.get_color(),
@@ -3048,10 +3048,10 @@ fn line_color_source_draw_1() -> Unit raise {
   let panel = fig.to_render_figure().panels()[0]
   assert_true(
     try {
-      guard panel.prepare_line(line.points) is Some((_, _, complete)) else {
+      guard panel.prepare_line(line.points) is Some(context) else {
         fail("expected registered Line provider")
       }
-      complete()
+      context.complete()
       false
     } catch {
       @core.DataError::InvalidTicks(message~) =>
@@ -3094,10 +3094,10 @@ fn line_color_source_draw_2() -> Unit raise {
   let panel = fig.to_render_figure().panels()[0]
   assert_true(
     try {
-      guard panel.prepare_line(line.points) is Some((_, _, complete)) else {
+      guard panel.prepare_line(line.points) is Some(context) else {
         fail("expected registered Line provider")
       }
-      complete()
+      context.complete()
       false
     } catch {
       @core.DataError::InvalidTicks(message~) =>

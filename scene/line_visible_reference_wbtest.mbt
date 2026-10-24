@@ -27,10 +27,10 @@ fn line_visible_source_complete(
   panel : @render.Panel,
   line : Line2D,
 ) -> Unit raise {
-  guard panel.prepare_line(line.points) is Some((_, _, complete)) else {
+  guard panel.prepare_line(line.points) is Some(context) else {
     fail("expected the registered Line's late provider")
   }
-  complete()
+  context.complete()
 }
 
 ///|

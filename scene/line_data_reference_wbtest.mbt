@@ -60,6 +60,7 @@ fn line_data_source_detached(x : LineData, y : LineData) -> Line2D {
     style: @core.style("#1f77b4"),
     source_color: false,
     unscaled_dash_pattern: { offset: 0.0, dashes: None, },
+    scaled_dashes_as_list: true,
     visible: true,
     stale: true,
   }

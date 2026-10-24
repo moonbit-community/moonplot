@@ -20,6 +20,8 @@ pub struct Line2D {
   priv points : Array[@core.Point]
   priv mut style : @core.Style
   priv mut unscaled_dash_pattern : LineDashPattern
+  // Only source container provenance; effective appearance stays in Style.
+  priv mut scaled_dashes_as_list : Bool
   priv mut source_color : Bool
   priv mut x : LineData
   priv mut y : LineData
@@ -158,6 +160,44 @@ pub fn Line2D::get_linestyle(self : Line2D) -> String {
 }
 
 ///|
+pub fn Line2D::is_dashed(self : Line2D) -> Bool {
+  match self.get_linestyle() {
+    "--" | "-." | ":" => true
+    _ => false
+  }
+}
+
+///|
+pub fn Line2D::get_gapcolor(self : Line2D) -> String? {
+  self.style.line_gapcolor()
+}
+
+///|
+/// Validate first, then retain the raw optional spelling and always mark stale.
+pub fn Line2D::set_gapcolor(
+  self : Line2D,
+  gapcolor : String?,
+) -> Unit raise @core.DataError {
+  if gapcolor is Some(value) {
+    // The original checker uses color=gapcolor, including its error text.
+    line_color_validate(value)
+  }
+  let style = self.style
+  self.style = @core.style(
+    style.color(),
+    width=style.width(),
+    radius=style.radius(),
+    fill=style.fill(),
+    font_size=style.font_size(),
+    marker=style.marker(),
+    line_alpha=style.line_alpha(),
+    line_stroke=style.line_stroke(),
+    line_gapcolor=gapcolor,
+  )
+  self.stale = true
+}
+
+///|
 fn line_style_capture(canonical : String) -> LineDashPattern {
   let dashes = match canonical {
     "--" => Some(@config.lines_dashed_pattern())
@@ -186,8 +226,9 @@ fn LineDashPattern::scaled(
   self : LineDashPattern,
   canonical : String,
   width : Double,
+  scale_dashes : Bool,
 ) -> @core.LineStroke {
-  if @config.lines_scale_dashes() {
+  if scale_dashes {
     @core.line_stroke(
       canonical,
       offset=self.offset * width,
@@ -213,6 +254,7 @@ fn Line2D::replace_line_stroke(
     marker=style.marker(),
     line_alpha=style.line_alpha(),
     line_stroke=stroke,
+    line_gapcolor=style.line_gapcolor(),
   )
 }
 
@@ -243,8 +285,14 @@ pub fn Line2D::set_linestyle(
     ),
   )
   self.unscaled_dash_pattern = line_style_capture(canonical)
+  let scale_dashes = @config.lines_scale_dashes()
+  self.scaled_dashes_as_list = scale_dashes
   self.replace_line_stroke(
-    self.unscaled_dash_pattern.scaled(canonical, self.style.width()),
+    self.unscaled_dash_pattern.scaled(
+      canonical,
+      self.style.width(),
+      scale_dashes,
+    ),
   )
   self.stale = true
 }
@@ -285,6 +333,7 @@ pub fn Line2D::set_alpha(
     marker=style.marker(),
     line_alpha=alpha,
     line_stroke=style.line_stroke(),
+    line_gapcolor=style.line_gapcolor(),
   )
   self.stale = true
 }
@@ -312,6 +361,7 @@ pub fn Line2D::set_color(
     marker=style.marker(),
     line_alpha=style.line_alpha(),
     line_stroke=style.line_stroke(),
+    line_gapcolor=style.line_gapcolor(),
   )
   self.source_color = true
   self.stale = true
@@ -334,9 +384,12 @@ pub fn Line2D::set_linewidth(self : Line2D, width : Double) -> Unit {
     marker=style.marker(),
     line_alpha=style.line_alpha(),
     line_stroke=style.line_stroke(),
+    line_gapcolor=style.line_gapcolor(),
   )
+  let scale_dashes = @config.lines_scale_dashes()
+  self.scaled_dashes_as_list = scale_dashes
   self.replace_line_stroke(
-    self.unscaled_dash_pattern.scaled(self.get_linestyle(), width),
+    self.unscaled_dash_pattern.scaled(self.get_linestyle(), width, scale_dashes),
   )
 }
 

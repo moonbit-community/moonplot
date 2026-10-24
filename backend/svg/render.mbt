@@ -191,6 +191,35 @@ fn append_line_artist(
 }
 
 ///|
+fn append_line_context(
+  writer : @xml.Writer,
+  scale : Scale,
+  left : Double,
+  top : Double,
+  plot_width : Double,
+  plot_height : Double,
+  context : @render.LineDrawingContext,
+) -> Unit raise @core.DataError {
+  let current = context.points()
+  append_line_artist(
+    writer,
+    scale,
+    left,
+    top,
+    plot_width,
+    plot_height,
+    current,
+    context.first_style(),
+  )
+  if context.resolve_foreground_style() is Some(foreground) {
+    append_line_artist(
+      writer, scale, left, top, plot_width, plot_height, current, foreground,
+    )
+  }
+  context.complete()
+}
+
+///|
 fn marker_polygon_points(values : Array[Double]) -> String {
   let result = StringBuilder()
   let count = values.length() / 2
@@ -3677,12 +3706,10 @@ fn render_panel(
     match artist {
       @render.Artist::Line(points, style) =>
         match panel.prepare_line(points) {
-          Some((current, current_style, complete)) => {
-            append_line_artist(
-              writer, scale, left, top, plot_width, plot_height, current, current_style,
+          Some(context) =>
+            append_line_context(
+              writer, scale, left, top, plot_width, plot_height, context,
             )
-            complete()
-          }
           None =>
             append_line_artist(
               writer, scale, left, top, plot_width, plot_height, points, style,

@@ -312,7 +312,7 @@ def render(payload):
    'line.set_color('+moon(before['raw_color'])+')',
    'assert_eq(line.stale(), '+moon(before['stale'])+')',
    'let panel = fig.to_render_figure().panels()[0]']
-  operation='guard panel.prepare_line(line.points) is Some((_, _, complete)) else { fail("expected registered Line provider") }; complete()'
+  operation='guard panel.prepare_line(line.points) is Some(context) else { fail("expected registered Line provider") }; context.complete()'
   if row['error']:lines+=[error_operation(operation,row['error'])]
   else:lines+=[operation]
   lines+=['assert_eq(line.stale(), '+moon(after['stale'])+')',

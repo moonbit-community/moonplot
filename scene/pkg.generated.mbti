@@ -718,11 +718,13 @@ pub fn Line2D::get_alpha(Self) -> Double?
 pub fn Line2D::get_color(Self) -> String
 pub fn Line2D::get_data(Self) -> (LineData, LineData)
 pub fn Line2D::get_drawstyle(Self) -> String
+pub fn Line2D::get_gapcolor(Self) -> String?
 pub fn Line2D::get_linestyle(Self) -> String
 pub fn Line2D::get_linewidth(Self) -> Double
 pub fn Line2D::get_visible(Self) -> Bool
 pub fn Line2D::get_xdata(Self) -> LineData
 pub fn Line2D::get_ydata(Self) -> LineData
+pub fn Line2D::is_dashed(Self) -> Bool
 pub fn Line2D::path_values_checked(Self) -> @ticker.TickValues raise @core.DataError
 pub fn Line2D::recache_checked(Self, always? : Bool) -> Unit raise @core.DataError
 pub fn Line2D::remove(Self) -> Unit raise @core.DataError
@@ -730,6 +732,7 @@ pub fn Line2D::set_alpha(Self, Double?) -> Unit raise @core.DataError
 pub fn Line2D::set_color(Self, String) -> Unit raise @core.DataError
 pub fn Line2D::set_data(Self, LineData, LineData) -> Unit
 pub fn Line2D::set_drawstyle(Self, String) -> Unit raise @core.DataError
+pub fn Line2D::set_gapcolor(Self, String?) -> Unit raise @core.DataError
 pub fn Line2D::set_linestyle(Self, String) -> Unit raise @core.DataError
 pub fn Line2D::set_linewidth(Self, Double) -> Unit
 pub fn Line2D::set_visible(Self, Bool) -> Unit
