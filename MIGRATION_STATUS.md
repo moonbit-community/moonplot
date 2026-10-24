@@ -8,7 +8,7 @@
 
 ## 检查点：从这里继续
 
-- **当前请求**：用户已要求用现有画图库实际画一张图，并明确授权push到`https://github.com/moonbit-community/moonplot.git`，先cleanup README参考`moonbit-community/pdf-viewer`。随后的误发回放问题已由用户撤回，不影响此任务。双曲线示例已实际生成；当前收尾README/校验/提交/推送，不恢复D55或完整兼容迁移。
+- **当前请求已完成**：用户要求的实际图示、README cleanup及push到`https://github.com/moonbit-community/moonplot.git`均已完成。示例提交bbdb248，README/文档提交2989aa9已正常push至origin/master，远端SHA/默认分支/README全文/预览图片均已核对。当前实用画图库范围保持，不自动恢复D55或完整兼容迁移。
 - **最新用户决定（覆盖下面旧主线）**：用户明确目标只是实用画图库，允许简单功能起步、逐步迭代，不要求完整复刻Matplotlib。随后明确“不要先迭代，先告诉我我们能做什么”。当前只说明已有能力与限制，停止功能、图廊、全面兼容及百分比调查；不要自行恢复D55。7%仅旧完整公开API合同的等权指数，不是当前画图库整体完成率，旧50%也无可靠整体分母。
 - 本回合在用户叫停前启动过未提交三图gallery试跑，native session28191已terminal134，stdout是DataError.InvalidTicks，具体触发尚未定位，不能称新画廊验收通过。全部新gallery/example文件已仅删除本回合自建内容，原样证据保存在.moonagent/checkpoints/practical-library-probe-2026-10-24/，生产代码/接口未改，当前无live工具。按用户要求先说明能力，不继续诊断此试跑或功能迭代。
 - 最新主状态：D54已验收并提交0319b92/f742c79；用户要求的百分比重新调查已完成，整库公开API等价值指数约7%（337.25–340.75/4809），已有接入560项/11.64%，D33→D54净增58项。详见MIGRATION_PROGRESS.md和testdata/migration_progress_summary.json；此前46/50/80及静态区间均已撤回，本文件以下旧历史数字不得复用。D55仅准备，尚未freeze。
@@ -37,7 +37,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：完成README整理/当前文档范围更正/最终检查后commit并push origin master，验证远端SHA与README/图片。origin当前SSH同一目标`git@github.com:moonbit-community/moonplot.git`，HTTPS智能Git超时，SSH已认证Lampese且ls-remote0/空仓库，gh显示ADMIN。图示例提交bbdb248，README由C已STOP，B发布检查STOP；不要自行恢复D55或全量兼容调查。当前无需要用户回答的阻塞项。
+- 下一条具体动作：本次图示/README/发布已完成，向用户给出仓库与实际图示；后续按用户提出的具体画图需求处理，不自动恢复D55或全量兼容调查。origin使用`git@github.com:moonbit-community/moonplot.git`，master已跟踪origin/master；HTTPS智能Git超时，既有SSH认证成功。当前无live工具/用户阻塞。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -6650,3 +6650,5 @@ D54 feature0319b92（6files/741insertions/13deletions）已本地提交，full46
 - [x] final45789 terminal0：moon info5/fmt5/check-all31，7旧Ref warnings/0errors，tracked mbti无变化；所有Markdown本地links/fences及README symlink检查0，原测试保留比对0，图片逐字同已验证生成物，diffcheck0。
 - [x] B只读发布检查：当前文件与完整2012历史blobs高置信凭据模式未命中、无误跟踪cache/无>100MiB blob，最大42,910,600bytes为正式reference；许可/第三方声明齐备。C只写README且STOP；当前全部writers STOP，无live Moon。
 - 远端起始isEmpty=true，gh显示ADMIN。HTTPS smartGit多次超时，既有SSH密钥认证Lampese成功；origin改同仓库SSH，ls-remote96975 terminal0/空结果。下一docs commit→正常push master（不force）→核远端SHA/defaultbranch/README与图片。仍不恢复D55/全面兼容迁移。
+
+发布完成：README/文档/元数据提交2989aa9，push95239 terminal0/newmaster/upstream已设。远端git核验75351 terminal0，refs/heads/master与本地2989aa9c43507960219b9432f35b3774b8578066相同；GitHub API核验54749 terminal0/defaultmaster/isEmptyfalse，README逐字同本地160line，PNG已在远端（58435bytes）。此完成记录随后作为checkpoint提交并正常push；无生产API变化、无live工具，不继续D55或兼容调查。
