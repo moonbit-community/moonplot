@@ -30,7 +30,8 @@ an SVG rendering pipeline.
 
 Support varies by chart and option. See the
 [usage guide](docs/USAGE.md) for examples and the
-[capability notes](docs/COMPATIBILITY.md) for detailed boundaries.
+[current capabilities](docs/CAPABILITIES.md) and
+[API behavior notes](docs/COMPATIBILITY.md) for detailed boundaries.
 
 ## Getting Started
 
@@ -107,8 +108,24 @@ For mutable line data and appearance, `plot_line` returns a `Line2D` handle.
 The complete two-series example is in [`cmd/preview`](cmd/preview/main.mbt).
 
 The checked rendering APIs propagate data, tick, and layout errors so callers
-can handle them. Some plot combinations still have known tick/layout errors;
-the available options and more complex combinations are evolving.
+can handle them. The [first usable milestone](docs/MILESTONE_M1.md) records
+the workflows checked for basic SVG output; more complex combinations continue
+to evolve.
+
+### Gallery and legend placement
+
+```sh
+moon run cmd/gallery --target native > gallery.svg
+```
+
+This example combines line, scatter, and categorical bar charts with automatic
+ranges and ticks. Set a legend corner with
+`axes.set_legend_position(@mathplotlib.LegendPosition::UpperLeft)`.
+`UpperRight` (the default), `LowerLeft`, and `LowerRight` are also available.
+
+![Everyday charts rendered by MoonPlot](assets/gallery.png)
+
+[View the SVG](assets/gallery.svg) · [Example source](cmd/gallery/main.mbt)
 
 ### Current scope
 
@@ -124,7 +141,9 @@ the available options and more complex combinations are evolving.
 
 - [Documentation index](docs/README.md)
 - [Detailed usage and API examples](docs/USAGE.md)
-- [Capabilities and current limitations](docs/COMPATIBILITY.md)
+- [Current capabilities and M1 acceptance](docs/CAPABILITIES.md)
+- [Four capability goals](docs/MIGRATION_PLAN.md)
+- [Rabbita interactive DOM design — planned](docs/RABBITA_DOM.md)
 - [Dependencies and integration notes](docs/DEPENDENCIES.md)
 - [Third-party licenses and attribution](docs/THIRD_PARTY_NOTICES.md)
 
