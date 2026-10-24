@@ -3,7 +3,19 @@
 本项目以实用绘图能力对齐为目标，现行范围见 [路线图](MIGRATION_PLAN.md)。依赖只在对应层确实需要时接入，核心数据模型和场景模型不暴露第三方类型。
 
 候选表记录历史核查结果，版本和可用性须在实际接入前重新验证。
-Rabbita 交互 DOM 是新增独立目标，尚未添加依赖；固定接口研究和版本冲突见 [接入设计](RABBITA_DOM.md)。
+Rabbita 交互 DOM 已通过独立 JS module 接入；核心 `moon.mod` 未改变。
+实现与复现见 [DOM 验收](RABBITA_DOM.md)和 [adapter 使用说明](../adapters/rabbita/README.md)。
+
+## G2.1 可选 Rabbita module
+
+`adapters/rabbita` 固定 `moonbit-community/rabbita@0.16.7`，复用 `Milky2018/xml@0.5.0`
+将同次渲染的 SVG 转为公开节点树；模块仅支持 JS，通过局部 `moon.work` 链接仓库核心。
+尚未发布到 Mooncakes。adapter 的公开接口可以使用 Rabbita 类型，核心/Scene/Drawing 不引用它们。
+
+局部 workspace 实际解析 `moonbitlang/x@0.5.1`、`moonbitlang/async@0.22.4`、
+`moonbit-community/moonback@0.8.5`；安装包元数据均已核查为 Apache-2.0。
+正常从根目录构建仍使用原 `x@0.4.46` 声明与独立依赖缓存，无需为 DOM 升级核心依赖。
+核心四目标定向回归、adapter JS 测试及真实浏览器交互已通过，具体范围见 DOM 验收记录。
 
 ## 已核查候选
 

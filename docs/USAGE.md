@@ -3,6 +3,17 @@
 This document preserves detailed API examples and source compatibility notes.
 Start with the [project README](../README.md) for the current plotting workflow.
 
+## Drawing 快照与 Rabbita 组件
+
+`let drawing = figure.to_drawing()` 在现有 checked 渲染中一起准备 SVG、画布尺寸和数据点命中坐标。
+`drawing.svg()` 是对应静态输出，`drawing.points()` 返回独立数组；修改图表后重新准备快照。
+根包导出 `Drawing` / `HitPoint`，快照与纯命中计算包为 `mathplotlib/mathplotlib/drawing`，不依赖 DOM。
+
+独立 JS module 的 `@plot_dom.view(drawing, id=..., on_event=...)` 返回 Rabbita `Html`，
+应用处理 `Hover`、`Click`、`ToggleSeries` 并管理状态。当前索引属于该帧，不是跨数据重排的持久 ID。
+完整可运行示例、导入与限制见 [adapter 指南](../adapters/rabbita/README.md)，
+验证范围见 [DOM 验收](RABBITA_DOM.md)。
+
 ## 图例位置与单方向网格
 
 ```moonbit nocheck

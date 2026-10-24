@@ -27,6 +27,8 @@ an SVG rendering pipeline.
 - **Editable lines:** data updates, visibility, color, alpha, line width,
   draw styles, dashes, and gap colors through `Line2D` handles.
 - **SVG output:** render a figure to a string without a Python runtime.
+- **Rabbita components:** an optional JS adapter provides real SVG DOM nodes,
+  point hover and selection, legend buttons, and reactive data updates.
 
 Support varies by chart and option. See the
 [usage guide](docs/USAGE.md) for examples and the
@@ -127,10 +129,33 @@ ranges and ticks. Set a legend corner with
 
 [View the SVG](assets/gallery.svg) · [Example source](cmd/gallery/main.mbt)
 
+### Interactive Rabbita components
+
+`Figure::to_drawing()` prepares the SVG and data-point hit locations together.
+The optional [`moonplot-rabbita` adapter](adapters/rabbita/README.md) turns that
+snapshot into composable Rabbita `Html` using public SVG node constructors.
+The application owns hover, selection, visibility, and data state.
+
+```sh
+cd adapters/rabbita
+moon build cmd/demo --target js
+python3 -m http.server 8765 --bind 127.0.0.1
+```
+
+Open [the local example](http://127.0.0.1:8765) to interact with two independent
+charts. The adapter is a separate JS module linked by a local `moon.work`;
+it has not been published to Mooncakes. Core SVG usage keeps its existing
+dependencies. See the [component guide](adapters/rabbita/README.md) for the API
+and [DOM acceptance notes](docs/RABBITA_DOM.md) for tested behavior and limits.
+
+![Interactive MoonPlot charts in Rabbita](assets/rabbita-interactive.png)
+
 ### Current scope
 
-- SVG is the supported output backend. There is no standalone PNG/PDF backend
-  or interactive GUI renderer.
+- SVG is the static output backend; Rabbita DOM is an optional browser component.
+  Standalone PNG/PDF export and a desktop GUI backend are not available.
+- Interactive picking currently covers line/scatter data-point anchors.
+  Touch gestures, zoom/pan, and keyboard navigation remain future work.
 - 3D plotting, animation, and full mathtext/TeX and font layout are not available.
 - The library is not a drop-in Matplotlib implementation. Python's dynamic
   argument forms and every chart parameter are not reproduced.
@@ -143,7 +168,7 @@ ranges and ticks. Set a legend corner with
 - [Detailed usage and API examples](docs/USAGE.md)
 - [Current capabilities and M1 acceptance](docs/CAPABILITIES.md)
 - [Four capability goals](docs/MIGRATION_PLAN.md)
-- [Rabbita interactive DOM design — planned](docs/RABBITA_DOM.md)
+- [Rabbita interactive DOM and acceptance](docs/RABBITA_DOM.md)
 - [Dependencies and integration notes](docs/DEPENDENCIES.md)
 - [Third-party licenses and attribution](docs/THIRD_PARTY_NOTICES.md)
 

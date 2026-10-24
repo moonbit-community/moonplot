@@ -1,4 +1,4 @@
-# MoonPlot 现有能力与 M1 验收范围
+# MoonPlot 现有能力与验收范围
 
 MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完善。
 当前工作复用已有的数据、图表、坐标轴和 SVG 实现，以完整使用场景判断效果。
@@ -6,6 +6,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 
 **当前状态：M1 基础二维 SVG 可用版已验收，可作为首次可用里程碑。**
 验收日期：2026-10-24；相关回归四目标各 353/353，详见 [M1 记录](MILESTONE_M1.md)。
+**G2.1 交互 DOM 首片也已验收**：可选 Rabbita JS 组件、折线/散点交互与双图示例，详见[DOM 记录](RABBITA_DOM.md)。
 
 ## 如何理解状态
 
@@ -28,6 +29,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 | 图形组合 | 多面板、共享轴、嵌套网格、次坐标轴 | 支持标题、轴标签、网格、图例、表格与标注 |
 | 可变折线 | `Line2D` 数据、可见性、颜色、透明度、线宽、线型等 | 支持缓存更新、移除和保留渲染输入的相关生命周期 |
 | 输出 | 自包含 SVG 字符串 | 可保存为文件，用浏览器或 SVG 工具查看 |
+| 浏览器组件 | `Figure::to_drawing()` 与独立 Rabbita adapter | 真实 SVG DOM；点悬停/点击、应用控制的图例与数据更新；仅 JS 浏览器 |
 
 常用入口可从根包使用，较细的功能分布在 `scene`、`ticker`、`transforms` 等包。
 当前模块导入名仍为 `mathplotlib/mathplotlib`，展示名为 MoonPlot。
@@ -41,6 +43,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 - [`assets/gallery.svg`](../assets/gallery.svg)及[展示预览](../assets/gallery.png)：该 Gallery 的实际输出。
 - [`assets/two-series.svg`](../assets/two-series.svg)：该预览的实际 SVG 输出。
 - [`assets/two-series.png`](../assets/two-series.png)：SVG 的展示预览，不是独立 PNG 后端。
+- [`adapters/rabbita`](../adapters/rabbita/README.md)：可运行双图交互应用；真实浏览器九项交互/布局检查通过。
 
 历史测试包含数值与日期格式化、单位转换、共享轴、自动范围、折线生命周期和 SVG
 结构等检查；部分专项使用固定上游源生成参考结果。
@@ -80,7 +83,7 @@ Gallery SVG 解析、数据计数、面板边界与 2400×840 展示预览已检
 
 ## 当前明确限制
 
-- 当前输出后端是 SVG；没有独立 PNG、PDF 或交互式 GUI 渲染后端。
+- 静态输出为 SVG，可选 Rabbita 组件提供浏览器 DOM；没有独立 PNG、PDF 或桌面 GUI 后端。
 - 浏览器可以显示 SVG，图像功能也可在 SVG 中嵌入位图；这不等于独立位图导出。
 - 3D、动画、完整 mathtext/TeX、字体发现及精确文本排版尚未提供。
 - 图表入口采用明确的 MoonBit 类型和有限参数集，复杂组合仍存在待处理问题。
@@ -92,10 +95,14 @@ Gallery SVG 解析、数据计数、面板边界与 2400×840 展示预览已检
 
 ## 独立目标：Rabbita 交互 DOM
 
-基于 Rabbita 输出可交互 DOM 是独立目标，**当前尚未实现**。
-固定查阅版本为 Rabbita `0.16.7`；[接入设计](RABBITA_DOM.md)已记录公开接口方案和待验证约束，最小接入试验尚未运行。
-预期复用现有图表数据与几何，让应用能够处理真实交互并更新显示。
-这不是 M1 的前置条件，也不因静态 SVG 已能显示就视为交互目标完成。
+G2.1 已实现并通过真实浏览器验收，使用 Rabbita `0.16.7` 的公开 SVG/HTML API。
+折线、散点、PathCollection 的数值数据点可作为命中锚点；应用接收 hover/click/legend 消息并更新状态。
+相关核心回归四目标各 370/370，adapter JS 7/7，Chrome 九项交互与布局检查通过、页面错误为零。
+原有静态 SVG 示例保持逐字一致。命令与证据见[实现与验收](RABBITA_DOM.md)。
+
+命中针对数据点，不是任意图形轮廓或线段。索引属于当前帧；数据重排后应用需要刷新选择状态。
+当前支持滚动、响应式宽度、外层 padding/border 和 `xMidYMid meet` letterbox；
+未覆盖触摸、缩放/平移、键盘导航及所有图表的交互。模块尚未发布到 Mooncakes，当前通过本地 workspace 接入。
 
 后续大目标与推进顺序由项目路线图维护；本页只记录能力与 M1 验收边界。
 当前仍以运行结果和用户可见效果为准，不用接口数量替代可用性结论。

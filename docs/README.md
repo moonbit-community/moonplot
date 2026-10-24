@@ -7,13 +7,14 @@ Start with the [project README](../README.md) to render a chart.
 - [Current capabilities and M1 acceptance](CAPABILITIES.md)
 - [First usable milestone and reproducible examples](MILESTONE_M1.md)
 - [Detailed usage and API examples](USAGE.md)
+- [Run and integrate the optional Rabbita component](../adapters/rabbita/README.md)
 - [Detailed API behavior reference](COMPATIBILITY.md)
 - [Dependencies and integration notes](DEPENDENCIES.md)
 
 ## Direction and implementation
 
 - [Four capability goals and milestone scope](MIGRATION_PLAN.md)
-- [Rabbita interactive DOM design](RABBITA_DOM.md)
+- [Rabbita interactive DOM implementation and acceptance](RABBITA_DOM.md)
 - [Current execution checkpoint](MIGRATION_STATUS.md)
 - [Upstream survey](UPSTREAM_SURVEY.md)
 - [Streamplot behavior notes](STREAMPLOT_PARITY.md)
