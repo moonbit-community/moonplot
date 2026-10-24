@@ -8,6 +8,9 @@
 
 ## 检查点：从这里继续
 
+- **当前请求**：用户已要求用现有画图库实际画一张图，并明确授权push到`https://github.com/moonbit-community/moonplot.git`，先cleanup README参考`moonbit-community/pdf-viewer`。随后的误发回放问题已由用户撤回，不影响此任务。双曲线示例已实际生成；当前收尾README/校验/提交/推送，不恢复D55或完整兼容迁移。
+- **最新用户决定（覆盖下面旧主线）**：用户明确目标只是实用画图库，允许简单功能起步、逐步迭代，不要求完整复刻Matplotlib。随后明确“不要先迭代，先告诉我我们能做什么”。当前只说明已有能力与限制，停止功能、图廊、全面兼容及百分比调查；不要自行恢复D55。7%仅旧完整公开API合同的等权指数，不是当前画图库整体完成率，旧50%也无可靠整体分母。
+- 本回合在用户叫停前启动过未提交三图gallery试跑，native session28191已terminal134，stdout是DataError.InvalidTicks，具体触发尚未定位，不能称新画廊验收通过。全部新gallery/example文件已仅删除本回合自建内容，原样证据保存在.moonagent/checkpoints/practical-library-probe-2026-10-24/，生产代码/接口未改，当前无live工具。按用户要求先说明能力，不继续诊断此试跑或功能迭代。
 - 最新主状态：D54已验收并提交0319b92/f742c79；用户要求的百分比重新调查已完成，整库公开API等价值指数约7%（337.25–340.75/4809），已有接入560项/11.64%，D33→D54净增58项。详见MIGRATION_PROGRESS.md和testdata/migration_progress_summary.json；此前46/50/80及静态区间均已撤回，本文件以下旧历史数字不得复用。D55仅准备，尚未freeze。
 - 当前切片编号：D48 linewidth/liveStyle已验收并提交bdc57b1/c635b17，D49 String color已验收并提交9510dad/027f9b3，D50alpha已验收并提交372ec54/b8c2044，D51linestyle已验收并提交b06ed77/3134baa，D52drawstyle已验收并提交1740934/c821ac9，D53gapcolor已验收并提交db224a8/6112217，D47已验收提交94cfe00/b607073/f904d5e，D46已验收提交f12f161/ca6c47e/5a11683；D45已完整验收提交8c6c534/65cba7d/ce6326c，D44已完整验收并提交9257f05/5b183df/62bf560；D43已完整验收并提交167f980/d5dbc19/61f36fb。先读文件尾，勿重跑D37–D43已过门禁。
 - 历史D26：命名AsinhLocator raw参数/Sequence与NdArray不同truth/onlyview主次/shared/
@@ -34,7 +37,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：本次重新调查已验收，工具/数据已提交ef4cd9c，最终报告/状态随本次docs commit；新约7%及D33→D54净增58项已核定。恢复D55：保存D55-before，读A最终165line源notes/80records补充部分和B124line设计，确认4组cap/join属性的Core typed enum/Config捕获/Scene String API/Line-only SVG设计后freeze并行实施。D54已全验收0319b92/f742c79，勿重跑门禁；D55尚未freeze，无Rootlive工具/用户阻塞，整体迁移目标仍未完成。
+- 下一条具体动作：完成README整理/当前文档范围更正/最终检查后commit并push origin master，验证远端SHA与README/图片。origin当前SSH同一目标`git@github.com:moonbit-community/moonplot.git`，HTTPS智能Git超时，SSH已认证Lampese且ls-remote0/空仓库，gh显示ADMIN。图示例提交bbdb248，README由C已STOP，B发布检查STOP；不要自行恢复D55或全量兼容调查。当前无需要用户回答的阻塞项。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -71,7 +74,7 @@
 
 ## 当前目标
 
-- [ ] 持续把 Matplotlib v3.11.2 的公开能力迁移到 MoonBit；本目标仍在进行中。
+- [ ] 实用 MoonBit 画图库，允许先交付简单功能并逐步迭代；Matplotlib 是参考来源，完整公开API复刻不再是当前交付前提。当前用户先要已有能力说明，尚未要求恢复迭代。
 - 下一纵向切片候选：命名基础Formatter（Null/Fixed/Func及基类生命周期）；命名LogitLocator、最小Logit几何、命名AsinhLocator/最小Asinh几何、命名SymmetricalLogLocator、命名LogLocator、命名AutoMinorLocator/NullLocator、命名MaxNLocator/AutoLocator、命名LinearLocator/IndexLocator/FixedLocator、通用数值MultipleLocator、命名MicrosecondLocator与fractional interval、跨级clock mask checked查询错误、命名日历/时间locator家族、命名YearLocator与自动年分支、公开rrulewrapper/自动locator recurrence接线、typed日历相对运算relativedelta、默认timezone rc 与日期时区解析、datestr2num / dateutil 默认日期解析、可移植 C locale 日期格式指令、DateConverter/ConciseDateConverter 与 date.converter、完整AutoDateLocator、AutoDateFormatter/ConciseDateFormatter/日期epoch/时长/数值序列、recurrence 缓存/迭代器、
   TZif/IANA、Axes 位置/选择/移除、numeric aspect、anchor、adjustable 与 box_aspect 已验收。
 - 已确认的用户决定：支持合理复用；保留 `Figure::to_svg` → `internal/render` →
@@ -6637,3 +6640,13 @@ D54 feature0319b92（6files/741insertions/13deletions）已本地提交，full46
 - [x] MIGRATION_PROGRESS重写148line，含分母/逐档/九组/历史增量/范围评分敏感性/复现与局限；PLAN/COMPATIBILITY入口及预先方法已同步。旧工程估算全部撤回，不以新口径变化冒充功能增减。源码、接口、原测试与源参考没有改动，本次不重跑已接受Moon门禁。
 
 工具/数据/方法已提交ef4cd9c（7files/410991insertions/4deletions），最终报告/入口/状态随本次docs commit。所有审计writers STOP，无Rootlive/用户阻塞；按顶部动作恢复D55必要证据阅读/设计freeze，当前D55尚无tracked实现，整体目标未完成。B最终说明在.moonagent/audits/2026-10-24/audit-port-notes.md；Root报告构建辅助在同目录write-progress-report.py，均ignored，不是生产依赖。
+
+## 2026-10-24 实用画图库范围、实际图示与 GitHub 发布
+
+- 用户明确只需可用画图库，允许简单功能逐步迭代；完整Matplotlib复刻不再是当前前提。用户先叫停迭代要求已有能力说明，再明确要求实际画图，随后授权push到moonbit-community/moonplot并cleanup README参考pdf-viewer。误发回放问题已明确撤回。
+- [x] NEW cmd/preview双曲线/24markers/网格/图例，示例数据和显式ticks。native实际运行0，XML解析和标记/标题验证0；SVG→rsvg-convert仅做PNG预览，1760×920实图已视觉审，短y标签不裁切/图例不遮数据。实际SVG/PNG在assets/two-series.*，源码/图片提交bbdb248。旧cmd/main也native0且产生合法SVG。未改生产绘图库。
+- [x] README2142line清理至160line，参考pdf-viewer的功能/开始/使用/文档/开发/许可结构，包含实际预览、clone和运行命令，明确现moduleID仍mathplotlib/mathplotlib。2147line详细说明保存docs/USAGE.md并修链接；唯一原mbtcheck逐字语义保留为readme_examples_test.mbt，native44991 terminal0/1of1。新README不含迁移百分比。
+- [x] 当前产品范围与历史接口指数的区别已更正PLAN/COMPATIBILITY/PROGRESS入口，7%不作为画图库工程完成率；保留原接口数据而不为了改口调数。moon.mod仓库/description/keywords已补，未rename module/import。
+- [x] final45789 terminal0：moon info5/fmt5/check-all31，7旧Ref warnings/0errors，tracked mbti无变化；所有Markdown本地links/fences及README symlink检查0，原测试保留比对0，图片逐字同已验证生成物，diffcheck0。
+- [x] B只读发布检查：当前文件与完整2012历史blobs高置信凭据模式未命中、无误跟踪cache/无>100MiB blob，最大42,910,600bytes为正式reference；许可/第三方声明齐备。C只写README且STOP；当前全部writers STOP，无live Moon。
+- 远端起始isEmpty=true，gh显示ADMIN。HTTPS smartGit多次超时，既有SSH密钥认证Lampese成功；origin改同仓库SSH，ls-remote96975 terminal0/空结果。下一docs commit→正常push master（不force）→核远端SHA/defaultbranch/README与图片。仍不恢复D55/全面兼容迁移。

@@ -15,15 +15,15 @@ version = "0.1.0"
 
 readme = "README.mbt.md"
 
-repository = ""
+repository = "https://github.com/moonbit-community/moonplot"
 
 license = "Apache-2.0"
 
-keywords = [ ]
+keywords = [ "plotting", "charts", "svg" ]
 
 preferred_target = "wasm"
 
-description = ""
+description = "A MoonBit plotting library with SVG output."
 
 import {
   "Milky2018/xml@0.5.0",

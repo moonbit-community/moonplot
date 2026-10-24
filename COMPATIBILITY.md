@@ -2,7 +2,7 @@
 
 这份清单记录 MoonBit 端的真实状态。只有有对应实现和测试的条目才能标记为“已实现”；计划中的条目不能当作已支持能力。
 
-2026-10-24 重新调查：当前整库公开 API 等价值迁移指数约 **7%**，按4471个runtime API与338个公开配置项逐项折算；已有对应接入560项（11.64%，含原型）。详细分母、实现深度、历史增量与敏感性见[MIGRATION_PROGRESS.md](MIGRATION_PROGRESS.md)，不把本清单条目数或测试数量当作完成率。
+当前目标是实用、逐步迭代的 MoonBit 画图库。本文件保留 Matplotlib 接口对照和技术边界，未对齐的原生接口不自动成为产品交付前提。历史公开 API 等权指数约7%，仅作接口研究参考，不能表示画图库整体完成率；详见[MIGRATION_PROGRESS.md](MIGRATION_PROGRESS.md)。
 
 MoonBit 工具链映射：Matplotlib 的 `extend` 参数/属性在 MoonBit 端统一称为
 `extend_mode`，用于 `boundary_norm`、`contourf`、`tricontourf` 及返回对象；
