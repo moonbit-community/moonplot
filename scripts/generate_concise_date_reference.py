@@ -169,7 +169,7 @@ def generate(path):
         extra += "  let values = " + moon(values) + "\n  let formatter = @date.concise_date_formatter()\n"
         extra += "  assert_eq(formatter.format_ticks(values), " + moon(labels) + ")\n"
         extra += "  assert_eq(formatter.get_offset(), " + moon(offset) + ")\n}\n"
-        epoch_outputs[ROOT / "integration" / ("epoch_" + name) / "concise_reference_test.mbt"] = subprocess.run(["moonfmt", "-"], input=extra, text=True, stdout=subprocess.PIPE, check=True).stdout
+        epoch_outputs[ROOT / "tests/integration" / ("epoch_" + name) / "concise_reference_test.mbt"] = subprocess.run(["moonfmt", "-"], input=extra, text=True, stdout=subprocess.PIPE, check=True).stdout
     metadata = {"matplotlib_commit": "d3ca9172e392048ec242b90e8423e88d1a3000b2", "dates_py_sha256": SHA256,
                 "python": sys.version.split()[0], "numpy": np.__version__, "dateutil": dateutil.__version__,
                 "tzif_sha256": {name: hashlib.sha256((ROOT / "testdata/tzif" / (name + ".tzif")).read_bytes()).hexdigest() for name in ["new_york", "paris"]},

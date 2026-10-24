@@ -10,7 +10,7 @@ Python 3.12.14, NumPy 2.3.5 and dateutil 2.9.0.post0 on Darwin, `LC_TIME=C`.
 ```sh
 python3 scripts/generate_date_format_reference.py /path/to/pinned/dates.py
 python3 scripts/generate_date_format_reference.py /path/to/pinned/dates.py --check
-moon test --target all ticker/date scene/axis scene pyplot integration/epoch_2400 integration/epoch_fraction
+moon test --target all ticker/date scene/axis scene pyplot tests/integration/epoch_2400 tests/integration/epoch_fraction
 ```
 
 There are 90 named reference tests: 87 explicit date/time boundaries,

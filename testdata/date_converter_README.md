@@ -13,7 +13,7 @@ Reference runtime: Python 3.12.14, NumPy 2.3.5, dateutil 2.9.0.post0,
 ```sh
 python3 scripts/generate_date_converter_reference.py /path/to/pinned/dates.py
 python3 scripts/generate_date_converter_reference.py /path/to/pinned/dates.py --check
-moon test --target all ticker/date config scene/axis scene pyplot integration/epoch_2400 integration/epoch_fraction
+moon test --target all ticker/date config scene/axis scene pyplot tests/integration/epoch_2400 tests/integration/epoch_fraction
 ```
 
 The 40 axisinfo cases combine both converter classes, both requested

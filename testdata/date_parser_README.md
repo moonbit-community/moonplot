@@ -20,7 +20,7 @@ python3 scripts/generate_parser_foundation_reference.py /path/to/dateutil/parser
 python3 scripts/generate_parser_fields_reference.py /path/to/dateutil/parser/_parser.py --check
 python3 scripts/generate_parser_build_reference.py /path/to/dateutil/parser/_parser.py --check
 python3 scripts/generate_string_parser_reference.py /path/to/matplotlib/dates.py /path/to/dateutil/parser/_parser.py /path/to/iana-2026e-zoneinfo --check
-moon test --target all ticker/date ticker/date/tzdb scene pyplot integration/epoch_2400 integration/epoch_fraction integration/string_parser_batch_error integration/string_parser_default_error
+moon test --target all ticker/date ticker/date/tzdb scene pyplot tests/integration/epoch_2400 tests/integration/epoch_fraction tests/integration/string_parser_batch_error tests/integration/string_parser_default_error
 ```
 
 The last generator's zoneinfo directory must contain the exact production

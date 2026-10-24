@@ -432,7 +432,7 @@ def render_epoch(payload):
 
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('ticker',nargs='?',type=Path,default=P);ap.add_argument('--check',action='store_true');args=ap.parse_args();load_units_source(args.ticker)
- payload=collect();code=render(payload);outputs={ROOT/'testdata/units_lifecycle_reference.json':json.dumps(actual.json_safe(payload),ensure_ascii=False,indent=2,allow_nan=False)+'\n',ROOT/'scene/axis/units_lifecycle_reference_wbtest.mbt':code,ROOT/'integration/epoch_2000/units_lifecycle_reference_test.mbt':render_epoch(payload)}
+ payload=collect();code=render(payload);outputs={ROOT/'testdata/units_lifecycle_reference.json':json.dumps(actual.json_safe(payload),ensure_ascii=False,indent=2,allow_nan=False)+'\n',ROOT/'scene/axis/units_lifecycle_reference_wbtest.mbt':code,ROOT/'tests/integration/epoch_2000/units_lifecycle_reference_test.mbt':render_epoch(payload)}
  for path,content in outputs.items():
   if args.check:
    if not path.exists()or path.read_text()!=content:raise SystemExit('generated units reference differs: '+str(path))

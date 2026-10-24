@@ -130,7 +130,7 @@ def generate(path):
         extra+='  let context = @date.DateParserContext::utc(clock=fn() { '+str(NOW)+'L })\n  let locator = @date.YearLocator::new(base=5, tz="UTC", context~)\n'
         extra+='  assert_eq(locator.tick_values(@date.RRuleDateTime::naive(@date.datetime('+str(year)+', 1, 1, microsecond=123456)), @date.RRuleDateTime::naive(@date.datetime('+str(year+12)+', 1, 10))), '+moon(direct)+')\n'
         extra+='  let auto = @date.AutoDateLocator::new(tz="UTC", context~)\n  let values = auto.tick_values('+moon(bounds[0])+', '+moon(bounds[1])+')\n  assert_eq(values, '+moon(automatic)+')\n  assert_eq(auto.frequency(), @date.Year)\n  assert_eq(auto.as_locator().tick_values('+moon(bounds[1])+', '+moon(bounds[0])+'), values.rev())\n}\n'
-        epoch_outputs[ROOT/'integration'/('epoch_'+name)/'year_locator_reference_test.mbt']=formatted(extra)
+        epoch_outputs[ROOT/'tests/integration'/('epoch_'+name)/'year_locator_reference_test.mbt']=formatted(extra)
         epoch_rows.append(dict(epoch=epoch,bounds=bounds,direct=direct,automatic=automatic))
     payload=dict(dates_source_sha256=DATES_SHA,rrule_source_sha256=RULE_SHA,tz_source_sha256=TZ_SHA,tz_common_source_sha256=COMMON_SHA,python=sys.version.split()[0],dateutil=dateutil.__version__,cpython_datetime_sha256=CPYTHON_SHA,host_timezone='UTC0',now_milliseconds=NOW,cases=rows,epoch_cases=epoch_rows)
     return payload,formatted(code),epoch_outputs

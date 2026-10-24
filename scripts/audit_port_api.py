@@ -431,7 +431,7 @@ def map_declaration(entry, source):
     p, symbol, kind = entry['package'], entry['symbol'], entry['kind']
     if kind == 'reexport':
         return attach(entry, reason='Reexport of another Moon package; never a new upstream unit.', role='reexport')
-    if p.startswith(('integration/', 'internal/', 'cmd/')):
+    if p.startswith(('tests/', 'internal/', 'cmd/')):
         return attach(entry, reason='Internal transport/runtime or isolated integration harness, not an additional public Matplotlib API.', role='excluded internal')
     if symbol.split('::')[-1] in {'equal', 'not_equal', 'to_repr', 'compare', 'op_lt', 'op_le', 'op_gt', 'op_ge'}:
         return attach(entry, reason='Moon derived trait implementation, not a Matplotlib public API.', role='language adapter')

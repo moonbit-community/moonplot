@@ -128,7 +128,7 @@ def generate(path):
             extra += '  assert_eq(' + mode + '.major_formatter().offset_label(ticks), ' + moon(offset) + ')\n'
             epochs.append(dict(epoch=epoch, name=mode, ticks=ticks, labels=labels, offset=offset))
         extra += '}\n'
-        outputs[ROOT / 'integration' / ('epoch_' + name) / 'converter_reference_test.mbt'] = formatted(extra)
+        outputs[ROOT / 'tests/integration' / ('epoch_' + name) / 'converter_reference_test.mbt'] = formatted(extra)
     manifest = dict(matplotlib_commit='d3ca9172e392048ec242b90e8423e88d1a3000b2', dates_py_sha256=base.base.SHA256,
                     ticker_py_sha256=base.TICKER_SHA, matplotlibrc_sha256=RC_SHA, python=sys.version.split()[0],
                     numpy=np.__version__, dateutil=dateutil.__version__, locale='C', named_case_count=len(rows)+len(switches),

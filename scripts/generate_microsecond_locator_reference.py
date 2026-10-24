@@ -162,7 +162,7 @@ def generate(path):
             extra+='  {\n    let auto = @date.AutoDateLocator::new(tz="UTC")\n    assert_eq(auto.tick_values('+moon(bounds[0])+', '+moon(bounds[1])+'), '+moon(ticks)+')\n  }\n'
             epoch_rows.append(dict(epoch=epoch,microsecond=micro,auto_bounds=bounds,auto_ticks=ticks))
         extra+='}\n'
-        extras[ROOT/'integration'/('epoch_'+name)/'microsecond_locator_reference_test.mbt']=formatted(extra)
+        extras[ROOT/'tests/integration'/('epoch_'+name)/'microsecond_locator_reference_test.mbt']=formatted(extra)
     payload=dict(ticker_source_sha256=TICKER_SHA,divmod_cases=divmod_rows,epoch_cases=epoch_rows,dates_source_sha256=DATES_SHA,rrule_source_sha256=RULE_SHA,tz_source_sha256=TZ_SHA,tz_common_source_sha256=COMMON_SHA,floatobject_sha256=FLOAT_SHA,python=sys.version.split()[0],numpy=np.__version__,dateutil=dateutil.__version__,epoch='1970-01-01T00:00:00',cases=rows)
     return clean(payload),formatted(code),extras
 

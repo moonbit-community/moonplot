@@ -109,7 +109,7 @@ moon test drawing backend/svg scene/drawing_wbtest.mbt \
   scene/statistics_test.mbt scene/image_test.mbt scene/date_test.mbt \
   scene/autoscale_state_wbtest.mbt scene/grid_axis_regression_test.mbt \
   scene/legend_position_test.mbt scene/legend_position_wbtest.mbt \
-  readme_examples_test.mbt usability_test.mbt drawing_export_test.mbt --target all
+  tests/api/readme_examples_test.mbt tests/api/usability_test.mbt tests/api/drawing_export_test.mbt --target all
 ```
 
 浏览器命令与 Playwright 安装步骤见 [adapter 验证说明](../adapters/rabbita/README.md#verification)。

@@ -205,7 +205,7 @@ def generate(path):
             extra+='  assert_eq('+variable+'.as_locator().tick_values('+moon(bounds[1])+', '+moon(bounds[0])+'), '+moon(numeric[::-1])+')\n'
             epoch_rows.append(dict(epoch=epoch,kind=kind,bounds=bounds,direct=direct,numeric=numeric))
         extra+='}\n'
-        epoch_outputs[ROOT/'integration'/('epoch_'+name)/'named_locator_reference_test.mbt']=formatted(extra)
+        epoch_outputs[ROOT/'tests/integration'/('epoch_'+name)/'named_locator_reference_test.mbt']=formatted(extra)
     payload=dict(dates_source_sha256=DATES_SHA,rrule_source_sha256=RULE_SHA,tz_source_sha256=TZ_SHA,tz_common_source_sha256=COMMON_SHA,python=sys.version.split()[0],dateutil=dateutil.__version__,host_timezone='UTC0',now_milliseconds=NOW,cases=rows,epoch_cases=epoch_rows)
     return payload,formatted(code),epoch_outputs
 

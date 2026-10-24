@@ -210,7 +210,7 @@ def generate(path):
             extra += '  assert_eq(formatter.format_ticks(values), ' + moon(labels) + ')\n'
             epoch_rows.append({'epoch': epoch, 'numbers': numbers, 'ticks': ticks, 'frequency': FREQUENCIES[locator._freq], 'labels': labels})
         extra += '}\n'
-        epoch_outputs[ROOT / 'integration' / ('epoch_' + name) / 'automatic_reference_test.mbt'] = formatted(extra)
+        epoch_outputs[ROOT / 'tests/integration' / ('epoch_' + name) / 'automatic_reference_test.mbt'] = formatted(extra)
     metadata = {'matplotlib_commit': 'd3ca9172e392048ec242b90e8423e88d1a3000b2', 'dates_py_sha256': base.SHA256,
                 'ticker_py_sha256': TICKER_SHA, 'matplotlibrc_sha256': RC_SHA,
                 'python': sys.version.split()[0], 'numpy': np.__version__,

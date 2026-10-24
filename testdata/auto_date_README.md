@@ -13,7 +13,7 @@ Python 3.12.14, NumPy 2.3.5, dateutil 2.9.0.post0, `LC_TIME=C`.
 ```sh
 python3 scripts/generate_auto_date_reference.py /path/to/pinned/dates.py
 python3 scripts/generate_auto_date_reference.py /path/to/pinned/dates.py --check
-moon test --target all ticker/date scene/axis integration/epoch_2400 integration/epoch_fraction
+moon test --target all ticker/date scene/axis tests/integration/epoch_2400 tests/integration/epoch_fraction
 ```
 
 The 64 scale cases cover seven units, weekly and custom units, exact/adjacent

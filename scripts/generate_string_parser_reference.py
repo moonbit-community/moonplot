@@ -141,7 +141,7 @@ def generate(dates_source,parser_source,zone_dir):
                 extra+='  assert_eq('+function+'('+moon(value)+', parser~), '+moon(expected)+')\n'
                 epoch_rows.append(dict(epoch=epoch,value=value,result=expected))
             extra+='}\n'
-            epoch_outputs[ROOT/'integration'/('epoch_'+name)/'string_parser_reference_test.mbt']=formatted(extra)
+            epoch_outputs[ROOT/'tests/integration'/('epoch_'+name)/'string_parser_reference_test.mbt']=formatted(extra)
     finally:
         dateutil.parser.parse=original_parse
         if previous is None:os.environ.pop('TZ',None)

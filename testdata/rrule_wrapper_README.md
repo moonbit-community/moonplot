@@ -55,7 +55,7 @@ MoonBit 运行时不依赖 Python。
   注入，保留 datetime isinstance；host TZ=UTC0，结束后恢复环境。
 - `rrule_locator_reference.json`、`ticker/date/rrule_locator_reference_test.mbt`：
   **103 named、111 states**，同时检查 direct/numeric、调用前后 wrapper 状态、copy 的动态
-  interval/unit/nonsingular。另为 integration/epoch_fraction 与 epoch_2400 生成 helper。
+  interval/unit/nonsingular。另为 tests/integration/epoch_fraction 与 epoch_2400 生成 helper。
 - 独立 epoch 包、无 Node JS 测试、raw replacement/copy 回归、shared inverted SVG 与
   minor locator 测试补充真实接线；checked API 示例纳入 moon test。
 

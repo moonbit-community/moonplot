@@ -16,7 +16,7 @@ runtime: Python 3.12.14, NumPy 2.3.5, dateutil 2.9.0.post0, `LC_TIME=C`.
 ```sh
 python3 scripts/generate_auto_locator_reference.py /path/to/pinned/dates.py
 python3 scripts/generate_auto_locator_reference.py /path/to/pinned/dates.py --check
-moon test --target all ticker/date config scene/axis scene pyplot backend/svg integration/epoch_2400 integration/epoch_fraction
+moon test --target all ticker/date config scene/axis scene pyplot backend/svg tests/integration/epoch_2400 tests/integration/epoch_fraction
 ```
 
 The 94 numeric-range cases cover the original eight spans with alignment on

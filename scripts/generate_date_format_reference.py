@@ -117,7 +117,7 @@ def generate(path):
         labels = [formatter(value, index) for index, value in enumerate(numbers)]
         extra = '// Generated from pinned DateFormatter.\n\n///|\nfn verify_format_epoch_reference(formatter : @date.DateFormatter) -> Unit raise {\n'
         extra += '  assert_eq(formatter.format_values(' + moon(numbers) + '), ' + moon(labels) + ')\n}\n'
-        epoch_outputs[ROOT / 'integration' / ('epoch_' + name) / 'format_reference_test.mbt'] = formatted(extra)
+        epoch_outputs[ROOT / 'tests/integration' / ('epoch_' + name) / 'format_reference_test.mbt'] = formatted(extra)
         epoch_rows.append(dict(epoch=epoch, format=epoch_format, values=numbers, labels=labels))
     manifest = dict(matplotlib_commit='d3ca9172e392048ec242b90e8423e88d1a3000b2', dates_py_sha256=base.base.SHA256,
                     inspected_cpython_version='3.11.0', inspected_datetime_c_sha256=CPYTHON_SHA,

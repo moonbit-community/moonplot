@@ -13,7 +13,7 @@ The generator needs these packages; checked-in MoonBit assertions do not.
 ```sh
 python3 scripts/generate_date_epoch_reference.py /path/to/pinned/dates.py
 python3 scripts/generate_date_epoch_reference.py /path/to/pinned/dates.py --check
-moon test --target all integration/epoch_*
+moon test --target all tests/integration/epoch_*
 ```
 
 Seven independent packages select 2000, 2400, legacy `0000-12-31`, an hourly

@@ -125,7 +125,7 @@ def generate(path):
         extra+='  let wrapper = @date.RRuleWrapper::new(@date.Hourly, dtstart=@date.RRuleDateTime::naive(@date.datetime('+str(year)+', 1, 1)))\n  let locator = @date.RRuleLocator::new(wrapper, tz="UTC")\n'
         extra+='  assert_eq(locator.tick_values(@date.RRuleDateTime::naive(@date.datetime('+str(year)+', 1, 1)), @date.RRuleDateTime::naive(@date.datetime('+str(year)+', 1, 1, hour=2))), '+moon(direct)+')\n'
         extra+='  assert_eq(locator.as_locator().tick_values(0.0, 2.0 / 24.0), '+moon(numeric)+')\n}\n'
-        epoch_outputs[ROOT/'integration'/('epoch_'+name)/'rrule_locator_reference_test.mbt']=formatted(extra)
+        epoch_outputs[ROOT/'tests/integration'/('epoch_'+name)/'rrule_locator_reference_test.mbt']=formatted(extra)
         epoch_rows.append(dict(epoch=epoch,direct=direct,numeric=numeric))
     payload=dict(dates_source_sha256=DATES_SHA,rrule_source_sha256=RULE_SHA,tz_source_sha256=TZ_SHA,relative_source_sha256=REL_SHA,tz_common_source_sha256=COMMON_SHA,python=sys.version.split()[0],dateutil=dateutil.__version__,epoch='1970-01-01T00:00:00',timezone_reference='original dateutil.tzfile first 32-bit block; registered fixtures, not full IANA engine',cases=rows,epoch_cases=epoch_rows)
     return payload,formatted(code),epoch_outputs

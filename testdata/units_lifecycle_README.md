@@ -5,7 +5,7 @@ the Moon port or an installed Matplotlib package. It emits 90 cases: 23 units
 scenarios with 49 observable stages, plus 67 locator/range cases (36 Date,
 12 Category and 19 complete autoscale chains). Three new main-package groups
 carry 72 cases (at most 32 each). The other 18 custom-epoch cases run through
-the existing isolated integration/epoch_2000 registered test, via the generated
+the existing isolated tests/integration/epoch_2000 registered test, via the generated
 verify_units_lifecycle_epoch_reference helper after that driver selects2000.
 Every case failure retains its original number and label. Numeric date epoch is
 locked at first conversion/get_epoch; changing config.date_epoch later changes

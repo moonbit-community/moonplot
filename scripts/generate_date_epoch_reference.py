@@ -142,7 +142,7 @@ def generate(path):
             code += "  assert_eq(values, " + moon(row["values"]) + ")\n"
         code += "}\n"
         formatted = subprocess.run(["moonfmt", "-"], input=code, text=True, check=True, stdout=subprocess.PIPE).stdout
-        outputs[ROOT / "integration" / ("epoch_" + name) / "reference_test.mbt"] = formatted
+        outputs[ROOT / "tests/integration" / ("epoch_" + name) / "reference_test.mbt"] = formatted
         metadata["epochs"][epoch] = {"forward_inverse_cases": len(rows), "inverse_probes": probes, "ranges": ranges}
     outputs[ROOT / "testdata/date_epoch_reference.json"] = json.dumps(metadata, indent=2) + "\n"
     return outputs

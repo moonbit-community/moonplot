@@ -15,7 +15,7 @@ inputs/options/results, and checksums for the IANA 2026e TZif fixtures.
 ```sh
 python3 scripts/generate_concise_date_reference.py /path/to/pinned/dates.py
 python3 scripts/generate_concise_date_reference.py /path/to/pinned/dates.py --check
-moon test --target all ticker/date integration/epoch_2400 integration/epoch_fraction
+moon test --target all ticker/date tests/integration/epoch_2400 tests/integration/epoch_fraction
 ```
 
 The 104 main cases cover all six levels, fractional seconds and shared trailing
