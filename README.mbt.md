@@ -2123,3 +2123,20 @@ let svg = fig.to_svg_checked()
 写入且不清除 stale。原始颜色与 `C0` 等 token 延迟到各自绘制阶段解析。
 `Style::line_gapcolor()` 和工厂参数传输原始元数据；低层静态 Style 不自动展开两笔。
 完整来源、错误顺序和渲染边界见 [Line 间隙色](testdata/line_gapcolor_README.md)。
+
+D54 增加 `Line2D::set_dashes(Array[Double])`，把调用时的数值序列保存为快照，对应
+原接口的不可变 tuple 输入。空序列恢复实线，非空序列安装自定义虚线并返回 `--`；
+每次调用都会标记 stale。修改传入数组不会改变已安装的线或其后续线宽重算。
+
+```moonbit nocheck
+line.set_dashes([5.0, 2.0, 1.0, 2.0])
+line.set_gapcolor(Some("tab:orange"))
+let svg = fig.to_svg_checked()
+line.set_dashes([]) // 恢复实线
+```
+
+自定义序列使用当前线宽和缩放开关，不读取全局虚线模板；后续线宽 setter 重算已
+捕获的序列，String 线型 setter 则重新捕获全局模板。奇数长度、NaN、Inf、负数和
+全零输入不在 setter 提前拒绝，绘制沿用已有 GC 校验。原生可变 list 的借用语义
+及 `(None, None)` 不在此数值快照接口内。来源与完整边界见
+[Line 自定义虚线](testdata/line_dashes_README.md)。

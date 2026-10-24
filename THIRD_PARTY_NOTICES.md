@@ -624,3 +624,11 @@ D53 的 Line gapcolor、is_dashed、逆虚线与两笔描边顺序依据固定 M
 来源、方法哈希和宿主边界见
 [testdata/line_gapcolor_README.md](testdata/line_gapcolor_README.md)。
 既有 Matplotlib 与 NumPy 许可继续适用，没有新增分发运行时。
+
+D54 的 Line set_dashes 数值快照输入、空序列实线分支与自定义虚线捕获依据固定
+Matplotlib v3.11.2 lines.py 的完整原始方法及既有 helper 以 MoonBit 重写。
+set_dashes 方法体 SHA256 为
+`f2772184b7ba726d20e195e36ecee68a06cb039815f8882bcb7886e80e53f64b`。
+54 条完整实际原源记录和不可变 tuple/原生可变 list 的映射边界见
+[testdata/line_dashes_README.md](testdata/line_dashes_README.md)。
+既有 Matplotlib、NumPy 与 CPython 许可继续适用，没有新增分发运行时。

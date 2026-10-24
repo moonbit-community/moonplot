@@ -487,3 +487,11 @@ Matplotlib v3.11.2 原方法重写。独立参考执行完整 gapcolor setter、
 及 no-marker Line.draw，保留全部 54 条原观察；52 条 typed、两条原生可变 RGB 为
 source-only。完整 payload 有强制哈希，来源、重现与实际绘制阶段见
 [testdata/line_gapcolor_README.md](testdata/line_gapcolor_README.md)。
+
+## D54 Line 自定义虚线序列
+
+复用现有 captured pattern、CPython 浮点补偿求和、不可变 Style 和两笔描边链，
+没有新增运行时依赖。数值数组在调用时快照，明确映射固定原源不可变 tuple 输入；
+原生 list 的引用/变动和 None-pair 作为完整 source-only 记录保留。独立参考执行
+完整 set_dashes 委托链及 no-marker draw，54 条原观察中的 44 条属于该 typed 域。
+来源、哈希与复现见 [testdata/line_dashes_README.md](testdata/line_dashes_README.md)。

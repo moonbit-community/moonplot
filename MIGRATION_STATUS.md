@@ -33,7 +33,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：D53已全验收提交db224a8/6112217，勿重门禁。先checkpointcommit并保存D54-before/41mbti，读A153line finalnotes（actual54完整数值/probe已读，原SHAfcfcd416...42c2）后freeze D54 set_dashes tuple快照，B126/C91设计已读；无Rootlive，alltrackedSTOP。整体目标未完成，继续推进。
+- 下一条具体动作：D54已freeze并行实施typed tuple快照set_dashes；A正式54records/BLine核心+C新渲染hands，Root公共BB/docs/gates；全部STOP后审handoffs/原54payload独比→check/newsource/infofmt/41mbti/4target。D54-before ad054db/41mbti已存。D53已完整验收提交db224a8/6112217/ad054db，勿重门禁。当前无Rootlive，整体目标未完成继续推进。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -6576,3 +6576,45 @@ Root无live工具、alltrackedSTOP。D54仅ignored actual54records/设计（B126
 D53 feature db224a8（26files/1257insertions/73deletions）已本地提交，完整验收full61523/final10458全0；formal/docs提交下一步。A D54最终153line源notes/54actualrecords已STOP待Root读，SHAfcfcd4164e1b55027d1ff4c07376609f9c0ebe8ad1c0e1c4870575bae9fc42c2。Root无live、alltrackedSTOP。下一formal/docs→checkpointcommit→D54-before→读Afinalnotes并freeze继续，整体目标未完成。
 
 D53 formal/docs 6112217（11files/18050insertions/4deletions）已提交，与featuredb224a8同批完整验收。full61523/final10458/new+四oldsource33513全terminal0；原54与四旧JSON保持，41mbti预期4变/37同。下一checkpointcommit/D54-before/读A153finalnotes后freeze。无Rootlive、alltrackedSTOP，无用户阻塞。
+
+## D54 已冻结，数值 set_dashes 与不可变 tuple 快照
+
+D54-before ad054db HEAD/tracked.tar/41mbti已保存勿覆盖。Root已全文读A153line notes/实际probe、54records必要数值/状态/stages/bits，独核setter除appearance/rc/stale全部保持、draw仅stale可能变化；原JSON SHAfcfcd4164e1b55027d1ff4c07376609f9c0ebe8ad1c0e1c4870575bae9fc42c2。54=30typed tuple setters/history+14draw+8native listalias/2Nonepair source-only。B126/C91设计全文已读，完整原set_dashes/_get_dash_pattern/scaling及set_linestyle必要原body已读。
+
+pubLine set_dashes(Array[Double])->Unit pure，调用时复制明确映射原不可变Python float tuple，不承诺native mutablelistalias/Nonepair/任意containers。空序列委托现known-valid solid'-'路线（可try!固定literal），包括同值stillstale及NaNwidth下offset正常scaling。非空snapshot→canonical--先写→suppliedunscaled按现zerooffsetsum normalize→read configBool一次/存provenance并scaled当前width→stale；不读rcpattern。抽现zerooffsetcapture私有helper共用，不复制算法/不用naivesum。无even/finite/positive/nonzero guard，晚GC继续draw。
+
+复用现LineDashPattern/Style唯一effectiveStroke/Boolhistory，无新fields/Core/IR/SceneSVG/backend改动。保持全appearance/rawgap/alpha/sourceColor、data/path/flags/axis/requests/owner；samewidth按liveScale重算旧snapshot不重sum、不读新rcpattern，StringLS再捕rc模板。oldStyle/借用view/currentCtx保持旧代。native list8+Nonepair2完整sourceonly保，不伪造typed错误或借用承诺。
+
+A独占newformalgen/JSON/guide/SceneWB（实际54完整payload强制hash；2registered组30+14即可，无需扩矩阵）；B独占scene/line2d.mbt+newkernelhands；C仅新Scene/pyplot等必要渲染hands；Root仅公共BB/docs/gates/interfaces/commits。所有writer先STOP后中央Moon。D53full61523/final10458/source33513已验收并db224a8/6112217/ad054db，勿重旧门禁。当前无Rootlive，无用户阻塞，继续实施。
+
+D54 Root newpublicBB line_dashes_test.mbt 1registered已写/stdinFmt0：pure函数类型静态约束、callerArray mutation快照/实际双笔SVG、pendingbadshape未消费、[]solid保appearance/oldStyle、NaNwidth空序列仍正常offsetscale。Root own暂STOP；A/B/C trackedwriters，未中央Moon/接口/行为验收，当前无Rootlive工具。
+
+D54 Root全文审B首productiondiff：sharedline_style_zero_offset保原CPython补偿sum/NaN/negativezero语义，Stringcapture机械提取；set_dashes snapshot→emptyknownsolid/fullscale或非空canonical→unscaled→一次Bool→effective→stale，旧appearance经replace全保，无具体缺陷。Root README/DEPENDENCIES/NOTICE补实现与tuple快照边界，不声称中央验收。A/B/C仍writers，无Rootlive/中央Moon/接口/行为验收。
+
+D54 C trackedSTOP，Root全文读37linehandoff/253Scene4hands+45pyplot1hand，actualSVG customodd/inverse/steps/snapshot/widthRC/[]solid/lateGC/retainedIR-remove-clear与purepublic回归，无具体缺陷。C仅新2files，无production/IR/oldJSON改。B核心hands/Aformal仍writer；Root ownSTOP，无live工具/中央Moon/接口/行为验收。下一全STOP审B/A后check/newsource/infofmt/41mbti/4target。
+
+D54 B/C trackedSTOP。Root全文读B61handoff/337line6hands及最终production，无具体缺陷；C37handoff/253Scene4+45pyplot1hands已审。A当前234line gen全文已读，正式original完整54payload独立dict==preparation，formalJSONdf20084c3fc588cef7a36d64f1d3a463322e8ded1ce474be0f35311adb89e776，44typed/10only，2groups。new14registered=A2+B6+C5+Root1。Aguide/check仍writer，B仅ignored formal独审。Root无live/中央Moon/接口/行为验收；下一A STOP后统一门禁。
+
+D54全trackedSTOP。firstcheck31877 terminal0：44tasks/7旧Refwarn/0error；newsource44047 terminal0，原54完整payload保持，formalJSONdf20084c3fc588cef7a36d64f1d3a463322e8ded1ce474be0f35311adb89e776。Root已全文读最终A234gen/159guide/B61handoff/337hands/C37handoff/253+45hands和全部production/公共BB，无具体缺陷。firstinfofmt已执行，下一记终态/41mbti审查并full4targets；无其他Rootlive，B仅ignored正式独审，A/C仅ignored D55capsjoin家族准备。
+
+D54 firstinfo5/fmt7 terminal0；41mbti仅Scene新增pure set_dashes(Array[Double])->Unit，全文已审，存D54-interface-reviewed.diff，其余40逐字同。firstfull四target已启动，下一记liveID/终态，失败继续排查修复；alltrackedSTOP，无其他Rootlive。
+
+D54 firstfull live46818，日志/tmp/mathplotlib-D54-test-all.log；alltrackedSTOP，当前无已报行为失败。B仅ignored正式独审；A/C仅ignored D55 caps/join四属性家族必要准备，尚不freeze。无其他Rootlive。
+
+D54 full46818仍live，无已报行为失败。Root全文读B100line正式独审，无具体缺陷；44typed/10only、原tuple重用/held旧值、14实际backend+post-onlyRGBA/inputonly桥均核。A/C仅ignored D55必要源/119line设计，Root已读C119及原8methods/ctor/draw。候选nativeCore四defaults/Lineattach捕4RC/Line-only显式cap+join，不全局CSS，不加legacycapsflag；A真enum/error证据后才freeze。无其他Rootlive。
+
+D54 full46818 live：wasm/wasm-gc各22233/22233、JS22240/22240已全过，native待终态。D55 Root已全文读首159line probe、完整新_enums.py及原8methods/ctor/draw，A补正常None-style case/finalnotes中。候选sharedrepr依赖须避免Core/Config→Ticker循环；拟Core小sealedCap/Join值+pureexact识别、Style四typed属性+typedConfig捕获，SceneString setter用既有Tickerrepr报exactError，待A/B最终证据后freeze。D55仍仅ignored，无tracked改动。
+
+## D54 行为验收通过（提交前最终门禁）
+
+- [x] full46818 terminal0：wasm/wasm-gc/native各22233/22233，JS22240/22240，0fail。
+- [x] new14registered=A2formal（44typed/10sourceonly）+B6+C5+Root1；54original完整payload独立相同，formalJSONdf20084c3fc588cef7a36d64f1d3a463322e8ded1ce474be0f35311adb89e776。
+- [x] Root全文审production/12hands/A234gen/159guide/B100formal独审，无具体缺陷；source44047 terminal0。
+- [x] 41mbti仅Scene新增pure setter一份预期差异已审，其余40逐字同；6docs/guide已补验收与边界。
+- [x] final71414 terminal0：info4/fmt0/check24，7旧Refwarn/0error；41mbtifinaldiff逐字cmp已审，diffcheck0；下一verifiedlocalcommits。
+
+Root无live工具，alltrackedSTOP。D55只ignored actual80records/源notes165/设计，原JSONd2b0861fa39efadd06a09078b943b578b250f5f02acbb7a48df1b17c301e0d04，Root尚待读最终notes/补充records，B简明设计收束。下一final→commits→D55-before→读最终证据后freeze继续。整体goal未完成，无用户阻塞。
+
+用户要求重新调查整体百分比：此前约50%/40–60%及55–70%估算现全部撤回，不得继续照抄。当前优先完成可复算的上游范围/当前映射/独立复核后重估，不以unknown或仅能力清单替代用户要求。D54已完整验收待提交，D55未freeze；后续迁移保留但先做本次真实重估。
+
+D54 feature0319b92（6files/741insertions/13deletions）已本地提交，full46818/final71414/source44047全terminal0；formal/docs下一提交。本轮优先用户明确要求的整体百分比重新调查，D55必要准备保留未freeze，无Rootlive/用户阻塞。

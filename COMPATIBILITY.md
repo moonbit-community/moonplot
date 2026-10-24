@@ -235,6 +235,14 @@ source-only。四目标 wasm/wasm-gc/native 各 22219 项、JS 22226 项全过�
 原生颜色对象、marker、cap/join 与像素重叠仍有边界，见
 [testdata/line_gapcolor_README.md](testdata/line_gapcolor_README.md)。
 
+D54 Line 数值 set_dashes 已验收：14 个新增注册测试（2 个正式组、12 个定向/公开
+回归），54 条原记录全字段保留，44 条 typed、8 条原生 list 引用历史及两条 None-pair
+为 source-only。四目标 wasm/wasm-gc/native 各 22233 项、JS 22240 项全过。调用时
+快照映射原不可变 tuple，空序列恢复实线；非空序列不读取 rc 模板，后续线宽按当前
+缩放开关重算旧快照。奇数长度和异常数值保留原来的晚 GC 校验。仅 Scene 新增一个
+pure 方法，其余 40 份接口逐字不变。映射与借用边界见
+[testdata/line_dashes_README.md](testdata/line_dashes_README.md)。
+
 ## 完成标准
 
 条目只有在以下条件都满足时才从“计划”或“原型”移为“已实现”：
