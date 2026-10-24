@@ -41,5 +41,5 @@ and shared axes, XML encoding, DST folds, inverted views and pyplot. The complet
 remain independently scoped. General SVG TeX typesetting and
 full locale/strftime support remain in their respective migration areas.
 
-The Matplotlib license is retained in `LICENSE-MATPLOTLIB`, with attribution
-in `THIRD_PARTY_NOTICES.md`. Python is required only for regeneration.
+The Matplotlib license is retained in `docs/licenses/LICENSE-MATPLOTLIB`, with attribution
+in `docs/THIRD_PARTY_NOTICES.md`. Python is required only for regeneration.

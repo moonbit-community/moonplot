@@ -30,7 +30,7 @@ an SVG rendering pipeline.
 
 Support varies by chart and option. See the
 [usage guide](docs/USAGE.md) for examples and the
-[capability notes](COMPATIBILITY.md) for detailed boundaries.
+[capability notes](docs/COMPATIBILITY.md) for detailed boundaries.
 
 ## Getting Started
 
@@ -102,7 +102,7 @@ fn main raise {
 ```
 
 Use the object API for individual figures and axes, or the
-[`pyplot` package](pyplot/) for a stateful facade.
+[`pyplot` package](pyplot) for a stateful facade.
 For mutable line data and appearance, `plot_line` returns a `Line2D` handle.
 The complete two-series example is in [`cmd/preview`](cmd/preview/main.mbt).
 
@@ -122,10 +122,11 @@ the available options and more complex combinations are evolving.
 
 ## Documentation
 
+- [Documentation index](docs/README.md)
 - [Detailed usage and API examples](docs/USAGE.md)
-- [Capabilities and current limitations](COMPATIBILITY.md)
-- [Dependencies and integration notes](DEPENDENCIES.md)
-- [Third-party licenses and attribution](THIRD_PARTY_NOTICES.md)
+- [Capabilities and current limitations](docs/COMPATIBILITY.md)
+- [Dependencies and integration notes](docs/DEPENDENCIES.md)
+- [Third-party licenses and attribution](docs/THIRD_PARTY_NOTICES.md)
 
 The root package provides the common plotting facade. Implementation packages
 include `scene` for figure and artist state, `ticker` for axes and date handling,
@@ -143,7 +144,7 @@ moon fmt
 ```
 
 Tests include unit tests, public API examples, SVG checks, and source-reference
-fixtures. Guides under [`testdata/`](testdata/) describe their supported domains
+fixtures. Guides under [`testdata/`](testdata) describe their supported domains
 and reproduction steps. Python is used by some fixture generators, not by the
 plotting runtime.
 
@@ -155,6 +156,6 @@ Keep examples and capability notes aligned with the behavior that is tested.
 Licensed under the [Apache License 2.0](LICENSE).
 
 Some algorithms and behavior are adapted from the pinned Matplotlib v3.11.2
-source and retain its [license](LICENSE-MATPLOTLIB).
+source and retain its [license](docs/licenses/LICENSE-MATPLOTLIB).
 Other dependencies and bundled data retain their own licenses; see
-[Third-Party Notices](THIRD_PARTY_NOTICES.md).
+[Third-Party Notices](docs/THIRD_PARTY_NOTICES.md).

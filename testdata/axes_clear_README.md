@@ -123,5 +123,5 @@ Run generation and its exact comparison sequentially with the fixed runtime:
 ```
 
 The source run and `--check` pass. Moon compilation, interfaces and all-target
-acceptance are recorded centrally in `MIGRATION_STATUS.md`; source generation
+acceptance are recorded centrally in `docs/MIGRATION_STATUS.md`; source generation
 and stdin formatting alone are not a claim of those gates passing.

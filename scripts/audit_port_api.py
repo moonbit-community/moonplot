@@ -405,7 +405,7 @@ def scoped_class(package, owner):
         return 'partial prototype', [guide('line_data')], 'Stable typed Line handle and accepted selected methods; most Artist/marker/GUI constructor properties remain absent.'
     if package == 'scene' and owner == 'SecondaryAxis':
         return 'verified scoped', [guide('secondary_lifecycle'), guide('secondary_transform')], 'Accepted secondary numeric lifecycle and immutable Affine location profile; no general Transform/GUI protocol.'
-    return 'partial prototype', [{'path': 'COMPATIBILITY.md'}], 'Concrete implementation exists, but class-wide parameters/object model or semantic parity remains partial.'
+    return 'partial prototype', [{'path': 'docs/COMPATIBILITY.md'}], 'Concrete implementation exists, but class-wide parameters/object model or semantic parity remains partial.'
 
 
 def resolve_method(entry, source, target_class, name, status, refs, reason, role='direct'):
@@ -552,7 +552,7 @@ def map_declaration(entry, source):
             n = {'close_all': 'close'}.get(n, n)
             target = 'matplotlib.pyplot.' + n
             return attach(entry, target, 'partial prototype', 'Stateful facade exists with typed/static-SVG host limits; source pyplot side effects and host behavior are not fully migrated.', refs=[{'path': 'pyplot/state.mbt'}], role='stateful pyplot')
-        return resolve_method(entry, source, 'matplotlib.axes.Axes', n, 'partial prototype', [{'path': 'pyplot/state.mbt'}, {'path': 'COMPATIBILITY.md'}], 'Forwarded current-Axes typed subset; not another independent implementation.', 'pyplot forwarding')
+        return resolve_method(entry, source, 'matplotlib.axes.Axes', n, 'partial prototype', [{'path': 'pyplot/state.mbt'}, {'path': 'docs/COMPATIBILITY.md'}], 'Forwarded current-Axes typed subset; not another independent implementation.', 'pyplot forwarding')
     if not owner:
         return map_function(entry, source)
     # No name-only class match: values like Histogram, NumericArray, Scale,
@@ -577,7 +577,7 @@ def map_function(entry, source):
         module = {'ticker': 'ticker', 'ticker/date': 'dates', 'core/colors': 'colors', 'ticker/scale': 'scale'}[p]
         # Legacy pure formatter/locator convenience helpers have deliberately
         # retained older behavior; named class acceptance does not upgrade them.
-        return attach(entry, 'matplotlib.' + module + '.' + c, 'thin payload or convenience', 'Legacy/typed factory is a bounded convenience; does not add credit to an already mapped named class.', refs=[{'path': 'COMPATIBILITY.md'}], role='constructor convenience')
+        return attach(entry, 'matplotlib.' + module + '.' + c, 'thin payload or convenience', 'Legacy/typed factory is a bounded convenience; does not add credit to an already mapped named class.', refs=[{'path': 'docs/COMPATIBILITY.md'}], role='constructor convenience')
     if p == 'ticker/date':
         names = {'date2num', 'num2date', 'num2timedelta', 'drange', 'datestr2num', 'get_epoch', 'set_epoch'}
         n = {'num2timedeltas': 'num2timedelta', 'datestrs2num': 'datestr2num'}.get(n, n)
@@ -621,7 +621,7 @@ def map_function(entry, source):
         ('transforms', 'cubic_bezier'): 'matplotlib.bezier.BezierSegment',
     }
     if (p, n) in function_targets:
-        return attach(entry, function_targets[p, n], 'partial prototype', 'Curated mathematical/data constructor correspondence; immutable/bounded input or return model differs from native object protocol.', refs=[{'path': 'COMPATIBILITY.md'}], role='curated constructor/function')
+        return attach(entry, function_targets[p, n], 'partial prototype', 'Curated mathematical/data constructor correspondence; immutable/bounded input or return model differs from native object protocol.', refs=[{'path': 'docs/COMPATIBILITY.md'}], role='curated constructor/function')
     return attach(entry, reason='No audited one-to-one public Matplotlib correspondence; helper/group exists but does not earn a name-based unit.', group=p, role='port helper')
 
 

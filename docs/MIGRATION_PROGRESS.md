@@ -28,7 +28,7 @@
 - 当前代码：`f742c79e36a1b749e863e53668b69532b39321d5`；D54 功能提交 `0319b92` 已验收。
 - 官方完整归档 SHA256：`cf6686989f244a633bad4cf8972070abd651662a02aa30ca47507c8680e858c6`。
 - 源码/存根/API 文档输入摘要：`1dcac3004b888c062294fa95fba69ee3e6689ef1221f94327f8dd240b7693332`。
-- [计分方法](testdata/migration_progress_method.md)在结果发布前由提交 `48dcf16` 固定；
+- [计分方法](../testdata/migration_progress_method.md)在结果发布前由提交 `48dcf16` 固定；
   最终补充明确 runtime、公开 rc、字段和开发辅助 API 的分离口径。
 
 公开函数、类及其构造入口、方法、属性和协议构成 API 单位。类与构造器合并；
@@ -115,14 +115,14 @@ AST 盘点没有声称穷尽 Python 运行时反射。这是明确口径的迁�
 
 审计工具、逐项数据及方法已提交 `ef4cd9c`；本报告使用该提交保存的数据。
 
-- [上游逐项清单](testdata/upstream_api_inventory.json)：来源、公开证据、别名、继承、
+- [上游逐项清单](../testdata/upstream_api_inventory.json)：来源、公开证据、别名、继承、
   构造/属性要求、分组、配置与独立字段，以及输入文件哈希。
-- [当前逐项对应](testdata/port_api_mapping.json)：41 份接口、3,025 个 Moon 声明、
+- [当前逐项对应](../testdata/port_api_mapping.json)：41 份接口、3,025 个 Moon 声明、
   342 份生产源文件哈希、实际实现位置、对应 ID、分值、缺口和历史对照。
-- [独立汇总](testdata/migration_progress_summary.json)：精确分子/分母、分档、分组、
+- [独立汇总](../testdata/migration_progress_summary.json)：精确分子/分母、分档、分组、
   敏感性、58 项新增 ID 和两个输入 JSON 的 SHA256。
-- 生成器：[上游清点](scripts/audit_upstream_api.py)、[当前映射](scripts/audit_port_api.py)、
-  [独立复算](scripts/summarize_migration_progress.py)。
+- 生成器：[上游清点](../scripts/audit_upstream_api.py)、[当前映射](../scripts/audit_port_api.py)、
+  [独立复算](../scripts/summarize_migration_progress.py)。
 
 固定官方源码的默认目录为
 `.moonagent/audits/2026-10-24/matplotlib-d3ca9172e392048ec242b90e8423e88d1a3000b2`。
@@ -153,3 +153,6 @@ D55 准备笔记未计入实现。
 
 该表作为历史接口对照保留，不再充当当前产品的交付门禁。继续做接口研究时应给出
 对应基线和映射变化；产品交付以实际绘图行为、示例和用户需求验收。
+
+文档整理后，本报告位于 `docs/`。原始审计 JSON 的证据路径和哈希保留其历史基线；
+复现该次审计时使用记录的 Git 版本，而不是把历史路径当成当前目录布局。

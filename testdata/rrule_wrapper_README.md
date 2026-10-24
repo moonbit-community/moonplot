@@ -89,7 +89,7 @@ xafter 统一返回 eager Array；between/xafter/numeric ticks 最多100000项�
 惰性 naive stream，occurrence_count 按自然结束完整统计；密集无 count/until 规则可能很长。
 raw_rule 返回已有 typed RRule snapshot，其旧 ordinal 查询协议保持不变。
 不宣称 Python 动态 callable 代理、迭代/索引/反射/pickle 协议或 pytz.localize 适配。
-Matplotlib/dateutil 许可见根目录 LICENSE-MATPLOTLIB、LICENSE-DATEUTIL 与第三方声明。
+Matplotlib/dateutil 许可见 docs/licenses/LICENSE-MATPLOTLIB、docs/licenses/LICENSE-DATEUTIL 与第三方声明。
 
 同级 clock selector 的构造/重建现在按原 `__construct_byset` 进行 gcd residue 筛选，
 空结果即抛错；core 保存筛选值，raw construct 保持原输入，raw_rule.replace 不恢复已剔除值。

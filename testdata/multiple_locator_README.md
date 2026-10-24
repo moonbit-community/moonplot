@@ -3,7 +3,7 @@
 固定 Matplotlib `v3.11.2`，commit
 `d3ca9172e392048ec242b90e8423e88d1a3000b2`。D20 接入命名数值定位器、动态 rc 范围策略
 和现有 axis/render 链路；四目标验收已通过（wasm/wasm-gc/native各5346，JS5353项），证据见
-[执行检查点](../MIGRATION_STATUS.md)。
+[执行检查点](../docs/MIGRATION_STATUS.md)。
 
 | 固定来源 | SHA-256 |
 | --- | --- |

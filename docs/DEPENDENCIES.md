@@ -106,7 +106,7 @@ RelativeDelta；只抽取已被两个调用链实际需要的 calendar window/di
 无新增依赖、Python运行时或自有C。dateutil tzstr 的墙钟 offset 选择参考原
 `tz/_common.py::tzrangebase`，与完整 TZif 及旧 instant recurrence 语义分开保留。
 参考脚本使用开发依赖Python3.12.14、dateutil2.9.0.post0/NumPy2.3.5，固定源与许可见
-[testdata/rrule_wrapper_README.md](testdata/rrule_wrapper_README.md)。
+[testdata/rrule_wrapper_README.md](../testdata/rrule_wrapper_README.md)。
 
 ## D15 自动日期 recurrence 接线
 
@@ -148,7 +148,7 @@ divmod、Edge ge及multiple grid提取并补le/offset，由数值/DataError和�
 不增加外部依赖、运行时Python或自有C实现，旧日期helper/API保持原行为。
 config增加`axes_autolimit_mode`，axis复用已有margin/sticky/shared/secondary与render链路。
 参考生成仅使用既有开发Python3.12.14、NumPy2.3.5和固定Matplotlib源码；来源、typed边界
-及重现命令见[testdata/multiple_locator_README.md](testdata/multiple_locator_README.md)。
+及重现命令见[testdata/multiple_locator_README.md](../testdata/multiple_locator_README.md)。
 
 ## D21 命名线性、索引和固定定位器
 
@@ -159,7 +159,7 @@ set_view/get保留真实owner别名；无外部容器、运行时Python或新增
 NumPy linspace/arange的binary64运算
 及Fixed subsample/alias以固定Python3.12.14、NumPy2.3.5开发参考验证，原shape检查直接执行
 固定_api.check_shape AST。Index真实artist data interval与checked轴/SVG接线状态、typed
-范围和重现方式见[testdata/named_numeric_locator_README.md](testdata/named_numeric_locator_README.md)。
+范围和重现方式见[testdata/named_numeric_locator_README.md](../testdata/named_numeric_locator_README.md)。
 原Bbox数据边界、Grouper首次join顺序、GridSpec和Axes共享绑定方法也由固定AST独立验证；
 生产复用既有artist collector收集原始finite数据，并以私有rank保留共享组登记顺序。
 SubFigure的行列共享组预留各自ID区间，无新增容器或第三方依赖。
@@ -174,7 +174,7 @@ Auto经典默认沿原Int64数组，不用Double buffer伪造默认dtype写入�
 完整raw grid描述符用于nticks决策、prune与view端点，返回数组仍受100000前缀限制。
 Axis/Secondary字号与physical tick-space复用现有scene/render/SVG尺寸和文字链路，固定
 dpi72 profile；没有运行时Matplotlib、NumPy、Python、新外部库或C实现。新增classic Bool
-配置、参数/数值/Auto/物理源参考及重现命令见[testdata/maxn_locator_README.md](testdata/maxn_locator_README.md)。
+配置、参数/数值/Auto/物理源参考及重现命令见[testdata/maxn_locator_README.md](../testdata/maxn_locator_README.md)。
 
 ## D23 自动次刻度与空定位器
 
@@ -184,7 +184,7 @@ config 增加核心 bigint/debug 标准库导入，用于精确整数 rc 与公�
 轴与 secondary 使用现有 provider、共享绑定、变换和 scene/render/SVG 链路；Null 按独立
 刻度组跳过 getter/formatter。原源参考只依赖开发环境的固定 Python/NumPy，涵盖源 AST、
 Unicode15 整数转换及 NumPy 随机 signed-zero 代表观察；生产不引入 Python、NumPy 或 C。
-固定来源、typed 域与重现见[testdata/auto_minor_locator_README.md](testdata/auto_minor_locator_README.md)。
+固定来源、typed 域与重现见[testdata/auto_minor_locator_README.md](../testdata/auto_minor_locator_README.md)。
 
 ## D24 命名对数定位器
 
@@ -196,7 +196,7 @@ Grouper 所有权；箱线图按固定宽度 .6/cap .2 的实际端点收集范�
 正确舍入数学合同；Darwin libm非正确round的已知差异单独存原源/数学双值，不复制平台库。
 参考生成器仅在开发环境使用固定 Python/NumPy 执行原始 AST，包括完整 autoscale_view、
 Axis._set_lim、LogTransform 及真实 boxplot 路径；生产没有新增 Python、NumPy、C 或外部库。
-数值门禁状态与显式范围见[testdata/log_locator_README.md](testdata/log_locator_README.md)。
+数值门禁状态与显式范围见[testdata/log_locator_README.md](../testdata/log_locator_README.md)。
 
 ## D25 命名对称对数定位器
 
@@ -206,7 +206,7 @@ SymmetricalLogLocator 复用 D24 的参数预算类型、portable ln/pow、numer
 ticker 新导入内部 ticker/scale 包以捕获既有 Scale 值，没有外部依赖或依赖环。
 Scale 两个私有数值体和 SVG secondary mapping 直接复用原链路修正；原源证据执行完整
 变换树，C affine 内核以明确的矩阵乘法 sink 供应，未分发上游 C 或增加 Python 运行时。
-固定输入域、源/数学差异与重现见[testdata/symlog_locator_README.md](testdata/symlog_locator_README.md)。
+固定输入域、源/数学差异与重现见[testdata/symlog_locator_README.md](../testdata/symlog_locator_README.md)。
 
 ## D26 命名 Asinh 定位器
 
@@ -215,7 +215,7 @@ binary64舍入。新asinh/sinh/log10使用BigInt定向区间与自适应精度�
 并保留Darwin源平台整组刻度差异。完整linspace/outer通过逻辑分段与plateau跳跃求值。
 最小Scale::Asinh使用现有核心math变换，Axis/secondary/contour/SVG沿用现有链路；
 没有新增外部运行时依赖。原始Python/NumPy只参与开发参考生成，独立Decimal证据与
-重现见[testdata/asinh_locator_README.md](testdata/asinh_locator_README.md)。
+重现见[testdata/asinh_locator_README.md](../testdata/asinh_locator_README.md)。
 
 ## D27 命名 Logit 定位器
 
@@ -226,7 +226,7 @@ checked数值体。新增私有context hooks只在原raw_step阶段读取投影�
 其余MaxN数值顺序不变。Scale共享limit_range_for_scale供Axis与backend按实际几何限制范围；
 原源参考执行完整AST并保留raw重复/zero、单独的Data诊断与未迁移logger边界。
 没有运行时Python/NumPy/C调用或新外部依赖；重现见
-[testdata/logit_locator_README.md](testdata/logit_locator_README.md)。
+[testdata/logit_locator_README.md](../testdata/logit_locator_README.md)。
 
 ## D28 命名基础 Formatter
 
@@ -246,7 +246,7 @@ TickValues.select_mask 为主轴/secondary 次刻度提供保 dtype 的 fresh se
 原源生成使用固定 CPython3.12.14/NumPy2.3.5 和真实 string.Formatter；Unicode15.0 的
 printability 表由固定 Python API 全码点生成，用于 repr/KeyError，Invalidspec 的原字面
 消息独立保持。无新外部依赖，完整 source/typed/资源范围和重现见
-[testdata/string_formatter_README.md](testdata/string_formatter_README.md)。
+[testdata/string_formatter_README.md](../testdata/string_formatter_README.md)。
 
 ## D30 命名 PercentFormatter
 
@@ -256,7 +256,7 @@ log10。独立的 FormatterViewInterval 保留 Python 整数、浮点和 NumPy F
 只提供符号动态转义设置，没有新增 TeX 运行时。原源参考使用固定 CPython/NumPy，
 执行完整 PercentFormatter、真实 Axis/Bbox 与 secondary/frame 方法；NumPy 运行时警告
 单独记录。没有新运行时依赖，范围和复现见
-[testdata/percent_formatter_README.md](testdata/percent_formatter_README.md)。
+[testdata/percent_formatter_README.md](../testdata/percent_formatter_README.md)。
 
 ## D31 命名 ScalarFormatter
 
@@ -269,7 +269,7 @@ NumericLocale 是显式数值 locale profile，独立于 rc reset；没有 OS se
 findfont 走捕获 ValueError 分支，没有模拟查找结果或声称系统字体扫描已接入。
 短标签复用现有 SVG72 几何；正逆 affine 运算分开保留，逆矩阵使用独立数学 profile，
 原 Darwin NumPy/LAPACK 系数另存为证据。没有新的 Python/NumPy/C/TeX 或外部运行时依赖；
-完整类型、资源与宿主边界见[testdata/scalar_formatter_README.md](testdata/scalar_formatter_README.md)。
+完整类型、资源与宿主边界见[testdata/scalar_formatter_README.md](../testdata/scalar_formatter_README.md)。
 
 ## D32 命名 EngFormatter
 
@@ -281,7 +281,7 @@ NaN 的可移植身份哈希为零，原宿主地址派生的哈希碰撞行为�
 参考执行完整原 Eng/Scalar 类、builtin dict、实际 Axis/draw/secondary 与独立 Decimal
 数学 profile。CPython v3.12.14 dictobject.c 是行为依据，未分发 Python/NumPy 运行时或
 新增外部依赖。具体来源、数值差异和复现见
-[testdata/eng_formatter_README.md](testdata/eng_formatter_README.md)。
+[testdata/eng_formatter_README.md](../testdata/eng_formatter_README.md)。
 
 ## D33 命名 LogFormatter 家族
 
@@ -292,7 +292,7 @@ NaN 的可移植身份哈希为零，原宿主地址派生的哈希碰撞行为�
 Axis 仅新增当前实际 transform 的 optional linthresh provider，无 Python 反射服务。
 原源参考执行完整四类、真实 Formatter/RcParams/cbook/transform/Axis/Secondary/draw 与独立
 Decimal 数学 profile；native libm/NumPy warning 差异保留双值。没有新增运行时依赖，
-边界和复现见[testdata/log_formatter_README.md](testdata/log_formatter_README.md)。
+边界和复现见[testdata/log_formatter_README.md](../testdata/log_formatter_README.md)。
 
 ## D34 命名 LogitFormatter
 
@@ -300,12 +300,12 @@ Decimal 数学 profile；native libm/NumPy warning 差异保留双值。没有�
 新增只读 Bool/UInt64/Object 数组快照桥，以及保留对象身份的 LogitKey；浅复制共享可变标签
 集合。集合探测/扩容和带 NaN tuple 的 powersort 协议参考 CPython v3.12.14 的 setobject.c
 和 listobject.c，以 MoonBit typed arrays 重写，不引入 Python/C 运行时依赖。许可证保留在
-[LICENSE-CPYTHON](LICENSE-CPYTHON)，来源哈希与实际 builtin set/sorted 参考见
-[总指南](testdata/logit_formatter_README.md)、[集合](testdata/logit_set_README.md)和
-[排序](testdata/logit_sort_README.md)。完整 Axis 使用既有接线，无新几何/transform provider。
+[LICENSE-CPYTHON](licenses/LICENSE-CPYTHON)，来源哈希与实际 builtin set/sorted 参考见
+[总指南](../testdata/logit_formatter_README.md)、[集合](../testdata/logit_set_README.md)和
+[排序](../testdata/logit_sort_README.md)。完整 Axis 使用既有接线，无新几何/transform provider。
 Object dtype 的距离排序另按 NumPy 2.3.5 generic quicksort/introsort 与 heapsort fallback
 重写，以保留 NaN 的实际部分序比较结果；NumPy BSD 许可证保留在
-[LICENSE-NUMPY](LICENSE-NUMPY)。它是专用 MoonBit 协议实现，不加载 NumPy 运行时。
+[LICENSE-NUMPY](licenses/LICENSE-NUMPY)。它是专用 MoonBit 协议实现，不加载 NumPy 运行时。
 
 ## D35 显式 scale 默认安装
 
@@ -316,7 +316,7 @@ Object dtype 的距离排序另按 NumPy 2.3.5 generic quicksort/introsort 与 h
 Grouper/sharex/sharey/GridSpec、移除及 draw 原源方法，宿主 autoscale 只记录调度。
 完整构造/clear/units/secondary 生命周期仍在后续范围；参考依赖沿用已保留的
 Matplotlib/CPython/NumPy 来源与许可证。接口变化和精确复现见
-[testdata/scale_defaults_README.md](testdata/scale_defaults_README.md)。
+[testdata/scale_defaults_README.md](../testdata/scale_defaults_README.md)。
 
 ## D36 构造与 clear 生命周期
 
@@ -326,14 +326,14 @@ Matplotlib/CPython/NumPy 来源与许可证。接口变化和精确复现见
 clear、Axes.__clear、Grouper/sharex/y/_set_lim/GridSpec 与 Figure 移除体；保留转换信息的
 完整 tick 查询也有独立参考。没有新数值内核或外部运行时依赖；强 typed 引用不承诺
 Python weakref 到期时序。验收和后续范围见
-[testdata/initial_clear_README.md](testdata/initial_clear_README.md)。
+[testdata/initial_clear_README.md](../testdata/initial_clear_README.md)。
 
 ## D37 numeric autoscale 与缓存数据范围
 
 本切片复用同一固定 Matplotlib v3.11.2 原源、NumPy 2.3.5 与已审计的运行时，没有新增分发依赖。
 完整原 autoscale/request/unstale/bound/limit 及 Bbox 缓存算法由独立 Python generator 执行；
 controlled interval/Path/ownership hosts、精确来源 hash 和边界见
-[testdata/autoscale_README.md](testdata/autoscale_README.md)。四目标行为验收已通过，nonJS 各21892项、JS21899项。
+[testdata/autoscale_README.md](../testdata/autoscale_README.md)。四目标行为验收已通过，nonJS 各21892项、JS21899项。
 
 ## D38 内建 Date/Category 单位接线
 
@@ -341,7 +341,7 @@ controlled interval/Path/ownership hosts、精确来源 hash 和边界见
 独立参考新增执行固定 v3.11.2 的 units.py 与 category.py，源码从官方固定 tag 缓存并逐字
 校验 SHA256；同时执行原 Axis 单位方法、Date 具体类、真实共享 Ticker 和完整 autoscale。
 来源哈希、90 个原源案例、epoch 隔离及动态协议边界见
-[testdata/units_lifecycle_README.md](testdata/units_lifecycle_README.md)。整数 formatter 来源
+[testdata/units_lifecycle_README.md](../testdata/units_lifecycle_README.md)。整数 formatter 来源
 复用已有 BigInt/Scalar/Logit NumPy 促型代码；项目不分发 Python 或 NumPy 运行时。
 
 ## D39 Line 原始输入与单位回算
@@ -351,7 +351,7 @@ Line 原始坐标使用私有 MoonBit 数组保存，仍输出既有数值 Artis
 `e928511cec1f9ce19455008c1863d337b0dbd1c71ac2b8d40224c8d5c069e05c`，
 并复用已固定的 Axis、units/category/date、CallbackRegistry、共享 Ticker 与 Bbox 原源。
 执行边界、受控数值 Path 宿主和未迁移的 public lazy Line API 见
-[testdata/line_units_README.md](testdata/line_units_README.md)。既有 Matplotlib 与 NumPy 许可继续适用。
+[testdata/line_units_README.md](../testdata/line_units_README.md)。既有 Matplotlib 与 NumPy 许可继续适用。
 
 ## D40 次坐标轴默认对象与独立视图
 
@@ -360,7 +360,7 @@ Line 原始坐标使用私有 MoonBit 数组保存，仍输出既有数值 Artis
 Bbox 和数值 autoscale 方法；`axes/_secondary_axes.py` SHA256 为
 `b2aaaae077e03ff6538d1a4bf8a69c3476eed0e27120aa567de138c794599a93`。
 图形 superclass 构造和最终绘制宿主边界、53 个源观察及两个注册测试组见
-[testdata/secondary_lifecycle_README.md](testdata/secondary_lifecycle_README.md)。
+[testdata/secondary_lifecycle_README.md](../testdata/secondary_lifecycle_README.md)。
 不分发 Python/NumPy，也不把数值宿主视为完整 GUI 或通用 Transform 协议。
 
 ## D41 次坐标轴函数替换
@@ -368,7 +368,7 @@ Bbox 和数值 autoscale 方法；`axes/_secondary_axes.py` SHA256 为
 复用 D40 的完整原类、Axis/scale/autoscale 与数值图形宿主，无新增源码来源或分发依赖。
 独立原源记录46个观察（40参数/生命周期与6非线性阶段），其中14个动态参数明确保留为
 source-only；完整来源、typed callback 边界与复现见
-[testdata/secondary_functions_README.md](testdata/secondary_functions_README.md)。
+[testdata/secondary_functions_README.md](../testdata/secondary_functions_README.md)。
 现有 Matplotlib 与 NumPy 许可继续适用，运行时仍为纯 MoonBit 实现。
 
 ## D42 次坐标轴位置与对齐
@@ -378,7 +378,7 @@ source-only；完整来源、typed callback 边界与复现见
 宿主场景执行完整 `_AxesBase.draw` 数值控制体；该方法体 SHA256 为
 `fd1ee29a1bfb093c3a42fd9ba5175c8a704c3cdc8c6cc7c985614cf379050fa9`。
 56 条分项记录、41 个 typed 场景、7 条 source-only 参数记录与宿主边界见
-[testdata/secondary_position_README.md](testdata/secondary_position_README.md)。
+[testdata/secondary_position_README.md](../testdata/secondary_position_README.md)。
 项目不分发 Python/NumPy；既有 Matplotlib 与 NumPy 许可继续适用。
 
 ## D43 次坐标轴位置仿射
@@ -387,7 +387,7 @@ source-only；完整来源、typed callback 边界与复现见
 模块内 transforms 依赖，没有新增分发依赖。独立参考执行固定完整 Secondary、原生
 blend factory、locator 和 Bbox；52 条记录含 38 个 typed 场景与 14 条 source-only，
 其原生类来源、可变别名与非有限几何边界见
-[testdata/secondary_transform_README.md](testdata/secondary_transform_README.md)。
+[testdata/secondary_transform_README.md](../testdata/secondary_transform_README.md)。
 没有替换全局变换数学或引入新的运行时；既有 Matplotlib 与 NumPy 许可继续适用。
 
 ## D44 公开 Line 数据与延迟缓存
@@ -397,7 +397,7 @@ blend factory、locator 和 Bbox；52 条记录含 38 个 typed 场景与 14 条
 独立参考保留 21 条数据观察与 4 组 owner=None 转换记录；15 条 typed 数据操作和
 4 组 detached profiles 组成 8 个连续场景，6 条动态参数/容器/GUI/copy 记录为 source-only。
 具体哈希、执行方法与受控 Path 宿主见
-[testdata/line_data_README.md](testdata/line_data_README.md)。
+[testdata/line_data_README.md](../testdata/line_data_README.md)。
 没有分发 Python/NumPy；既有 Matplotlib 与 NumPy 许可继续适用。
 
 ## D45 Line 句柄移除
@@ -406,7 +406,7 @@ blend factory、locator 和 Bbox；52 条记录含 38 个 typed 场景与 14 条
 完整 Artist.remove、Axes.add_line/clear、Figure.delaxes 与既有 Line 缓存方法；15 条记录
 中 10 条 typed 操作组成 4 个连续场景，5 条查询/重接入记录保留为 source-only。
 来源哈希、图形宿主和移除绑定边界见
-[testdata/line_remove_README.md](testdata/line_remove_README.md)。
+[testdata/line_remove_README.md](../testdata/line_remove_README.md)。
 项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。
 
 ## D46 Line 可见性
@@ -415,7 +415,7 @@ blend factory、locator 和 Bbox；52 条记录含 38 个 typed 场景与 14 条
 独立参考执行固定 v3.11.2 的 Artist.get_visible/set_visible 及完整 Line.draw 控制体，
 仅去除 rasterization 呈现 decorator；no-line-style/no-marker 宿主执行实际早退、缓存和
 完成阶段。15 条原源操作保留为一个连续 typed 场景，具体来源哈希与边界见
-[testdata/line_visible_README.md](testdata/line_visible_README.md)。
+[testdata/line_visible_README.md](../testdata/line_visible_README.md)。
 项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。
 
 ## D47 relim 的可见性过滤
@@ -423,7 +423,7 @@ blend factory、locator 和 Bbox；52 条记录含 38 个 typed 场景与 14 条
 复用 D37/D44 的范围内核、稳定 Line 身份与 D46 可见性，无新运行时或分发依赖。
 独立参考执行完整固定 Axes.relim、Bbox 更新/重置及 Line cache，9 条原源记录保留为
 一个连续 typed 场景。来源哈希、非有限值表示与 ordinary in_autoscale 边界见
-[testdata/relim_visible_README.md](testdata/relim_visible_README.md)。
+[testdata/relim_visible_README.md](../testdata/relim_visible_README.md)。
 项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。
 
 
@@ -434,7 +434,7 @@ blend factory、locator 和 Bbox；52 条记录含 38 个 typed 场景与 14 条
 真实 RcParams bool validator 及独立 GC/SVG 样式方法，额外三个官方源码下载均须通过
 固定 SHA256。28 条 setter 记录投影为两个连续 typed 场景；11 条 SVG 样式记录保留
 为 source-only。来源哈希、NaN 与 SVG 数字格式边界见
-[testdata/line_width_README.md](testdata/line_width_README.md)。
+[testdata/line_width_README.md](../testdata/line_width_README.md)。
 项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。
 
 
@@ -445,7 +445,7 @@ core.colors 的 RGBA/CSS 输出。完整命名表从固定 v3.11.2 的 `_color_d
 colors.py 合并/别名语句及 `to_rgba` 生成；两个官方文件均强制 SHA256 校验。
 没有新增分发依赖。参考脚本另保留原 getter/setter、独立 RGBA primitive 与完整
 solid/no-marker Line.draw 的实际观察；来源、计数与边界见
-[testdata/line_color_README.md](testdata/line_color_README.md)。
+[testdata/line_color_README.md](../testdata/line_color_README.md)。
 项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。
 
 
@@ -456,7 +456,7 @@ solid/no-marker Line.draw 的实际观察；来源、计数与边界见
 完整 Artist alpha 方法、颜色 helper 和 solid/no-marker Line.draw。59 条实际观察中
 55 条 typed、4 条私有缓存先后顺序记录保留为 source-only；完整字段与原 bits 不改。
 来源、mandatory hash、None/Double 域和 portable cache 边界见
-[testdata/line_alpha_README.md](testdata/line_alpha_README.md)。
+[testdata/line_alpha_README.md](../testdata/line_alpha_README.md)。
 项目不分发 Python/NumPy，既有 Matplotlib 与 NumPy 许可继续适用。
 
 ## D51 Line 线型与虚线模板
@@ -464,10 +464,10 @@ solid/no-marker Line.draw 的实际观察；来源、计数与边界见
 复用不可变 Style、稳定 Line、现有 late-provider 与 SVG writer。四项 typed 配置
 复制模板和快照，Line 保存必要的未缩放历史，effective stroke 以不可变载荷传递。
 私有固定十一项建议 matcher 与 Float64 补偿求和改写自固定 CPython 3.12.14 源码；
-没有加入运行时依赖，许可与哈希列于 THIRD_PARTY_NOTICES.md。独立参考执行原始
+没有加入运行时依赖，许可与哈希列于 docs/THIRD_PARTY_NOTICES.md。独立参考执行原始
 setter、RcParams validator、完整 no-marker draw、GC 校验及真实 difflib/builtin sum，
 76 条原源记录中的七条原生容器行为保留为 source-only。来源、重现和各投影边界见
-[testdata/line_style_README.md](testdata/line_style_README.md)。
+[testdata/line_style_README.md](../testdata/line_style_README.md)。
 
 ## D52 Line 阶梯路径
 
@@ -477,7 +477,7 @@ setter、RcParams validator、完整 no-marker draw、GC 校验及真实 difflib
 默认路径的共享和阶梯路径的独立代均来自实际原源观察，未用简化 PathStorage 替代。
 75 条原源记录保留完整字段，String 域投影 74 条，原生 None 一条为 source-only。
 来源、数值/布局/警告边界和复现见
-[testdata/line_drawstyle_README.md](testdata/line_drawstyle_README.md)。
+[testdata/line_drawstyle_README.md](../testdata/line_drawstyle_README.md)。
 
 ## D53 Line 间隙色
 
@@ -486,7 +486,7 @@ setter、RcParams validator、完整 no-marker draw、GC 校验及真实 difflib
 Matplotlib v3.11.2 原方法重写。独立参考执行完整 gapcolor setter、is_dashed、逆虚线
 及 no-marker Line.draw，保留全部 54 条原观察；52 条 typed、两条原生可变 RGB 为
 source-only。完整 payload 有强制哈希，来源、重现与实际绘制阶段见
-[testdata/line_gapcolor_README.md](testdata/line_gapcolor_README.md)。
+[testdata/line_gapcolor_README.md](../testdata/line_gapcolor_README.md)。
 
 ## D54 Line 自定义虚线序列
 
@@ -494,4 +494,4 @@ source-only。完整 payload 有强制哈希，来源、重现与实际绘制阶
 没有新增运行时依赖。数值数组在调用时快照，明确映射固定原源不可变 tuple 输入；
 原生 list 的引用/变动和 None-pair 作为完整 source-only 记录保留。独立参考执行
 完整 set_dashes 委托链及 no-marker draw，54 条原观察中的 44 条属于该 typed 域。
-来源、哈希与复现见 [testdata/line_dashes_README.md](testdata/line_dashes_README.md)。
+来源、哈希与复现见 [testdata/line_dashes_README.md](../testdata/line_dashes_README.md)。

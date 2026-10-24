@@ -176,4 +176,4 @@ Source SHA256 values are stored in each JSON. Principal originals:
 
 No new dependencies, runtime Python/C calls or Mathplotlib source-version claims
 are introduced. The pinned source license/attribution continues through
-THIRD_PARTY_NOTICES.md and the existing dependency policy.
+docs/THIRD_PARTY_NOTICES.md and the existing dependency policy.

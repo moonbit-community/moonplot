@@ -99,5 +99,5 @@ moon check --target all
 moon test --target all
 ```
 
-The Matplotlib license is in `LICENSE-MATPLOTLIB`, with attribution in
-`THIRD_PARTY_NOTICES.md`. Python is needed only to regenerate references.
+The Matplotlib license is in `docs/licenses/LICENSE-MATPLOTLIB`, with attribution in
+`docs/THIRD_PARTY_NOTICES.md`. Python is needed only to regenerate references.

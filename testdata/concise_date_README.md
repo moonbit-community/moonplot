@@ -40,5 +40,5 @@ the current SVG text layer does not typeset TeX. These are documented bounds,
 not assertions of full locale, strftime or TeX backend compatibility. Python is
 only needed to regenerate references, never to run the library/tests.
 
-The retained Matplotlib license is in `LICENSE-MATPLOTLIB`, with attribution in
-`THIRD_PARTY_NOTICES.md`.
+The retained Matplotlib license is in `docs/licenses/LICENSE-MATPLOTLIB`, with attribution in
+`docs/THIRD_PARTY_NOTICES.md`.

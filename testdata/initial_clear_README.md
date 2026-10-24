@@ -1,7 +1,7 @@
 # 构造与 clear 的默认刻度生命周期
 
 D36 接通 `axis(horizontal=...)`、Scene 的实际创建入口及清理路径。实现和验证状态以
-`MIGRATION_STATUS.md` 为准；本片已完成四目标累计验收。
+`docs/MIGRATION_STATUS.md` 为准；本片已完成四目标累计验收。
 
 独立参考执行固定 Matplotlib v3.11.2 原源，预期不读取 MoonBit 实现：
 

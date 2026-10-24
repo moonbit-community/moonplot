@@ -4,9 +4,9 @@ This is a [MoonBit](https://docs.moonbitlang.com) project.
 
 ## Work continuity
 
-- At session start and after context compaction, read `MIGRATION_STATUS.md`
-  first. It is the execution checkpoint; `MIGRATION_PLAN.md` describes scope
-  and `COMPATIBILITY.md` describes capability status.
+- At session start and after context compaction, read `docs/MIGRATION_STATUS.md`
+  first. It is the execution checkpoint; `docs/MIGRATION_PLAN.md` describes scope
+  and `docs/COMPATIBILITY.md` describes capability status.
 - Resume the first unfinished task in the active slice. Read only the source
   and upstream sections needed for that task; do not restart the project survey
   or reconsider decisions already recorded as settled.

@@ -1842,10 +1842,10 @@ backends, and host integrations can be added without changing the core data
 API. It is not yet a complete Matplotlib replacement.
 
 The staged migration scope, package boundaries, and acceptance criteria are
-documented in [MIGRATION_PLAN.md](../MIGRATION_PLAN.md). The pinned upstream
+documented in [MIGRATION_PLAN.md](MIGRATION_PLAN.md). The pinned upstream
 survey and real implementation status are tracked in
-[UPSTREAM_SURVEY.md](../UPSTREAM_SURVEY.md) and
-[COMPATIBILITY.md](../COMPATIBILITY.md).
+[UPSTREAM_SURVEY.md](UPSTREAM_SURVEY.md) and
+[COMPATIBILITY.md](COMPATIBILITY.md).
 
 Run the example CLI with:
 

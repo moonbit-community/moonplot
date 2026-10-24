@@ -3,11 +3,12 @@
 更新时间：2026-10-24（Asia/Shanghai）
 
 这份文件是跨上下文压缩的工作接力清单。开始新的工作回合时，先读本文件，直接执行
-下一条未完成项；只有需要范围或历史依据时才查阅 `MIGRATION_PLAN.md` 和
-`COMPATIBILITY.md`。每完成一个步骤或检查就更新，避免依靠聊天摘要恢复进度。
+下一条未完成项；只有需要范围或历史依据时才查阅 `docs/MIGRATION_PLAN.md` 和
+`docs/COMPATIBILITY.md`。每完成一个步骤或检查就更新，避免依靠聊天摘要恢复进度。
 
 ## 检查点：从这里继续
 
+- **当前请求已完成：文档目录清理**。用户要求把根目录散乱文档集中到独立docs目录。8份项目文档已移至docs/，4份第三方license已移docs/licenses/；根目录仅保留README/AGENTS及主LICENSE，新增docs/README.md索引。AGENTS恢复入口现为docs/MIGRATION_STATUS.md，README/指南/审计脚本/源码注释引用均已更新。目录与验证已完成，本次提交同步origin/master；不恢复功能迭代或兼容调查。
 - **当前请求已完成**：用户要求的实际图示、README cleanup及push到`https://github.com/moonbit-community/moonplot.git`均已完成。示例提交bbdb248，README/文档提交2989aa9已正常push至origin/master，远端SHA/默认分支/README全文/预览图片均已核对。当前实用画图库范围保持，不自动恢复D55或完整兼容迁移。
 - **最新用户决定（覆盖下面旧主线）**：用户明确目标只是实用画图库，允许简单功能起步、逐步迭代，不要求完整复刻Matplotlib。随后明确“不要先迭代，先告诉我我们能做什么”。当前只说明已有能力与限制，停止功能、图廊、全面兼容及百分比调查；不要自行恢复D55。7%仅旧完整公开API合同的等权指数，不是当前画图库整体完成率，旧50%也无可靠整体分母。
 - 本回合在用户叫停前启动过未提交三图gallery试跑，native session28191已terminal134，stdout是DataError.InvalidTicks，具体触发尚未定位，不能称新画廊验收通过。全部新gallery/example文件已仅删除本回合自建内容，原样证据保存在.moonagent/checkpoints/practical-library-probe-2026-10-24/，生产代码/接口未改，当前无live工具。按用户要求先说明能力，不继续诊断此试跑或功能迭代。
@@ -37,7 +38,7 @@
 - D30最终验收：final16019 exit0；新增2293=96A+2079B+117C+1config；wasm/wasm-gc/native
   各19801/19801、JS19808/19808。info0/fmt0/checkall79tasks8旧Refwarn0error；168行接口已审
   finaldiff逐字cmp同。三新source root0（A rootlog、B/C final logs），原JSON源期望保持。
-- 下一条具体动作：本次图示/README/发布已完成，向用户给出仓库与实际图示；后续按用户提出的具体画图需求处理，不自动恢复D55或全量兼容调查。origin使用`git@github.com:moonbit-community/moonplot.git`，master已跟踪origin/master；HTTPS智能Git超时，既有SSH认证成功。当前无live工具/用户阻塞。
+- 下一条具体动作：本次目录清理与相关检查已完成，向用户给出docs/README.md索引；后续按新的用户请求处理。不恢复D55或全量兼容调查。origin使用SSH，本次提交正常同步origin/master，当前无live Moon或用户阻塞。
   full82531四target同1旧minor getter/draw边界假设失败，原完整source确认后仅修该test，
   定点24001四目标各6/6全过，其余已过项目未变；累计nonJS21853/JS21860全覆盖。
   finalinfofmtcheck0、77line接口全文审并finalcmp同，两newsource46918/1739 final0；
@@ -106,7 +107,7 @@
 - [x] `pyplot/state.mbt`：`axes` 默认/手动布局、`sca` 和失效当前句柄恢复已完成。
 - [x] `scene/figure_test.mbt`：矩形/SVG、`subplots_adjust` 独立性与非法参数测试。
 - [x] `pyplot/state_test.mbt`：新面板绘图测试已加入；SVG 断言已设置显式范围。
-- [x] `MIGRATION_STATUS.md`、`AGENTS.md` 与计划入口：持久清单及恢复规则已写入。
+- [x] `docs/MIGRATION_STATUS.md`、`AGENTS.md` 与计划入口：持久清单及恢复规则已写入。
 - [x] 第一版 `.mbti` 已由 `moon info && moon fmt` 重新生成并审查；
       `Figure::add_axes`、`pyplot.axes`、`gridspec.rect` 签名符合当前实现，
       `Figure::axes()` 与 `axes_list()` 返回契约未变。无 git 历史可用于接口差分。
@@ -143,7 +144,7 @@
   - [x] 修正 `Figure::add_axes` 文档中自动成为 pyplot current 的错误表述。
   - [x] `axes_list` 文档从 row-major 改为创建顺序；`Axes::rect` 描述涵盖手动矩形。
   - [x] 新公开 API 有可编译文档示例及黑盒测试，包括 `gridspec.rect`。
-  - [x] 校准 `COMPATIBILITY.md`、`MIGRATION_PLAN.md`；用接口文档提供新入口示例。
+  - [x] 校准 `docs/COMPATIBILITY.md`、`docs/MIGRATION_PLAN.md`；用接口文档提供新入口示例。
 - [x] **L02-07** 窄测试 117/117；`moon info && moon fmt`、全目标 check 通过，
       最终生成签名已审查；全目标测试 wasm/wasm-gc/js/native 各 682/682，exit 0。
 - [x] **L02-08** 检查点转入 L03；未将小切片验收等同于整个迁移完成。
@@ -185,7 +186,7 @@
   active_rect；active-only 必须在读取/绘制时重新按 original/aspect 计算。
 - 新增 scene/position_test.mbt（12 个黑盒测试）、scene/position_wbtest.mbt
   （1 个状态时序测试）；backend/svg/render_test.mbt 增加公共几何与绘制一致性回归。
-- 已更新 COMPATIBILITY.md、MIGRATION_PLAN.md；README 位置坐标/示例、
+- 已更新 docs/COMPATIBILITY.md、docs/MIGRATION_PLAN.md；README 位置坐标/示例、
   backend/svg/render.mbt 两个 helper 的可执行文档示例均已通过 L03 最终验收。
 - 实现期间 moon check --target wasm 通过，14 条原有 warnings/0 errors；曾出现的
   接口移动、括号及 render_panel 参数问题已修复。专项测试曾误用命名 set_margins
@@ -204,7 +205,7 @@
 ## 后续队列（当前切片验收后按序细化）
 
 以下是尚未验收的能力，不把已有原型整模块重新列为“从零开始”。开始前先核对局部
-接口与 `COMPATIBILITY.md`，已存在的能力直接复用；每次只展开一个可验收切片。
+接口与 `docs/COMPATIBILITY.md`，已存在的能力直接复用；每次只展开一个可验收切片。
 
 - [x] **L03** 独立 Axes 位置读写与 original/active/reset、SVG 几何同步已验收。
 - [x] **L04** 已有 Axes 移除、Figure/SubFigure 成员管理、每 Figure 当前面板历史，
@@ -845,7 +846,7 @@
   不为消警告加入会拒绝本来有效 offset 查询边界的额外校验。
 - 新增 scene cached locator SVG 黑盒；session 34872 已 exit 0：日期、tzdb、scene/pyplot 专项 199/199，日志 D03-narrow.log；当前无 live session。
 
-- 专项 199/199 后已同步 API/README/兼容清单/计划/notice，并保留 LICENSE-DATEUTIL；
+- 专项 199/199 后已同步 API/README/兼容清单/计划/notice，并保留 docs/licenses/LICENSE-DATEUTIL；
   白盒补充 after/between/before 确实读取已有缓存前缀。待 info/fmt/接口审查与全目标。
   新增 rrule_iterator/set_iterator、iterator_test/cache_wbtest、scene/rrule_cache_test；
   修改 locator_rrule/rrule_set/rrule_calendar/rrule_clock/rrule_ticks。无 live session。
@@ -885,7 +886,7 @@
   排除，避免排除首100000条时漏掉后续有效 occurrence；时区转换后的迭代 UTC
   终点也不再沿用原 DTSTART offset 而过早截断，已补 +14h→-5h 尾部回归。
 - 文档 README/COMPATIBILITY/MIGRATION_PLAN/THIRD_PARTY_NOTICES 与日期 mbti 已同步；
-  新 LICENSE-DATEUTIL 记录固定行为参考的 Apache/BSD notices，无新依赖/提交。
+  新 docs/licenses/LICENSE-DATEUTIL 记录固定行为参考的 Apache/BSD notices，无新依赖/提交。
 - 验证：旧日期 lazy 枚举专项150/150；基础接线152/152；缓存/流式165/165；
   扩展199/199；尾部边界修复后200/200；最终 info/fmt/check-all 与四目标全部通过。
 - D03 已验收；整体完整 Matplotlib 公开能力仍在迁移中。下一步按固定 __all__
@@ -6652,3 +6653,10 @@ D54 feature0319b92（6files/741insertions/13deletions）已本地提交，full46
 - 远端起始isEmpty=true，gh显示ADMIN。HTTPS smartGit多次超时，既有SSH密钥认证Lampese成功；origin改同仓库SSH，ls-remote96975 terminal0/空结果。下一docs commit→正常push master（不force）→核远端SHA/defaultbranch/README与图片。仍不恢复D55/全面兼容迁移。
 
 发布完成：README/文档/元数据提交2989aa9，push95239 terminal0/newmaster/upstream已设。远端git核验75351 terminal0，refs/heads/master与本地2989aa9c43507960219b9432f35b3774b8578066相同；GitHub API核验54749 terminal0/defaultmaster/isEmptyfalse，README逐字同本地160line，PNG已在远端（58435bytes）。此完成记录随后作为checkpoint提交并正常push；无生产API变化、无live工具，不继续D55或兼容调查。
+
+## 2026-10-24 根目录文档集中到 docs
+
+- [x] 8份根目录项目说明/兼容/依赖/迁移/上游/streamplot/第三方声明移至docs/；4份补充许可证移docs/licenses/，字节SHA与移动前完全相同。根目录保留README.mbt.md及README.md symlink、AGENTS.md和主LICENSE。
+- [x] 新docs/README.md统一索引；AGENTS/checkpoint入口、README、docs内部/跨目录Markdown链接、testdata指南、审计脚本4处证据路径和Scalar源码归属注释已同步。历史审计JSON保留原基线与哈希，报告标明需按记录提交复现。
+- [x] 83份Markdown/300个本地链接0缺失，12个移动路径及全部生成接口哈希核对通过；license内容不变。最终info5/fmt2 terminal0，7旧Refwarnings/0error，Python脚本py_compile0、staged diffcheck0。未改变绘图行为，不重跑已通过的行为测试。
+- [x] 已审stage rename与路径diff，除脚本引用和源码注释无运行逻辑改动。此批作为单一docs整理提交并正常同步origin/master；无live工具、无功能迭代或全面兼容调查。

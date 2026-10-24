@@ -3,7 +3,7 @@
 D22 对齐固定 Matplotlib `v3.11.2`，commit
 `d3ca9172e392048ec242b90e8423e88d1a3000b2`。参数、数值核、Auto 和实际轴接线已通过
 切片验收：wasm/wasm-gc/native各7250项，JS7257项全部通过；九份原源参考检查通过。
-验证记录与下一任务见 [执行检查点](../MIGRATION_STATUS.md)。
+验证记录与下一任务见 [执行检查点](../docs/MIGRATION_STATUS.md)。
 
 | 固定来源 | SHA-256 |
 | --- | --- |

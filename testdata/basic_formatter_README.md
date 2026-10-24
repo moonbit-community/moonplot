@@ -184,5 +184,5 @@ Source hashes are recorded in the JSON. Principal SHA256 values:
 - NumPy binary: `44fdecc68c23ac6dd5825dc124c801086f7f68dc15ab008ed584ed6a47be6305`
 
 No new dependency or runtime Python/C call is introduced. Existing upstream
-license/attribution and dependency boundaries remain in THIRD_PARTY_NOTICES.md
+license/attribution and dependency boundaries remain in docs/THIRD_PARTY_NOTICES.md
 and DEPENDENCIES.md.

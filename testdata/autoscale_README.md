@@ -70,5 +70,5 @@ finite bits and callback order. Separate integration files add37 focused tests
 (39 new registered tests in total). All three changed reference generators pass
 independent --check; their original numeric JSON observations are unchanged.
 The228-line interface diff was reviewed and final checks retain seven existing
-Ref deprecation warnings with no errors. See MIGRATION_STATUS.md for exact logs
+Ref deprecation warnings with no errors. See docs/MIGRATION_STATUS.md for exact logs
 and the diagnosed first-run failures rather than treating that run as passing.

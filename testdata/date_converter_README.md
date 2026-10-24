@@ -55,4 +55,4 @@ configuration and keeps explicit locators, fixed ticks/labels and timezones.
 Shared-axis setters validate all members before writing. Handwritten tests
 cover copying, rc snapshots, atomic validation, empty date plots, subsequent
 series, SVG shared text/XML, x/y and pyplot. The Matplotlib license and
-attribution remain in `LICENSE-MATPLOTLIB` and `THIRD_PARTY_NOTICES.md`.
+attribution remain in `docs/licenses/LICENSE-MATPLOTLIB` and `docs/THIRD_PARTY_NOTICES.md`.

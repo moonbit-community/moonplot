@@ -157,7 +157,7 @@ font/rc/backend behavior and general relim/dataLim caching remain separate
 migration work.
 
 
-The complete D23 acceptance record is in `MIGRATION_STATUS.md`. Interface review
+The complete D23 acceptance record is in `docs/MIGRATION_STATUS.md`. Interface review
 confirmed the intended config, named locator, checked owner and secondary-minor
 additions with no date-interface change or external runtime dependency. Static
 checking reported only the eight pre-existing Ref deprecation warnings.

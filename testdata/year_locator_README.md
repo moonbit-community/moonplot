@@ -79,4 +79,4 @@ base 正 Int32，日期字段遵循现有 selector/date 校验；不声明 Pytho
 MoonBit 表达方式。DateTime 模型不变，fold 在 wrapper 边界私有保存。eager ticks 上限100000。
 
 Matplotlib/dateutil 许可见根目录对应文件。CPython 源只参考算法与校验，不分发 C 代码；
-沿用 `THIRD_PARTY_NOTICES.md` 中既有 Python 行为重写声明。未增加外部依赖。
+沿用 `docs/THIRD_PARTY_NOTICES.md` 中既有 Python 行为重写声明。未增加外部依赖。

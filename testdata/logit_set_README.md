@@ -39,7 +39,7 @@ The fixed source is CPython v3.12.14 `Objects/setobject.c`, SHA256
 `e633e7ae4e427ecead8879965910e27427d34ae0fc5b956142bc337f741a367c`.
 The generator verifies that hash and the 64-bit Python3.12.14/NumPy2.3.5 runtime.
 The protocol is rewritten for typed MoonBit keys and arrays; the CPython license
-and attribution are retained in `LICENSE-CPYTHON` and `THIRD_PARTY_NOTICES.md`.
+and attribution are retained in `docs/licenses/LICENSE-CPYTHON` and `docs/THIRD_PARTY_NOTICES.md`.
 There is no Python runtime dependency.
 
 The generated key array reuses actual source aliases, including the NumPy Bool

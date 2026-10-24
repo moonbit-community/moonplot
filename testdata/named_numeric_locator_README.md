@@ -3,7 +3,7 @@
 D21 对齐固定 Matplotlib `v3.11.2`，commit
 `d3ca9172e392048ec242b90e8423e88d1a3000b2`。三类 direct 对象与公共 adapter/axis/render
 接线已通过切片验收：wasm/wasm-gc/native各6380项，JS6387项全部通过，八份原源参考
-`--check`通过。[执行检查点](../MIGRATION_STATUS.md)记录验证结果及后续任务。
+`--check`通过。[执行检查点](../docs/MIGRATION_STATUS.md)记录验证结果及后续任务。
 
 | 固定来源 | SHA-256 |
 | --- | --- |

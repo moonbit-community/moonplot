@@ -52,5 +52,5 @@ conversion; they do not use the UTC day or the floating epoch directly.
 SVG consumes the same formatters, retaining XML escaping and inverted/shared
 axis behavior. General TeX layout remains separate from TeX string output.
 
-The Matplotlib license and attribution remain in `LICENSE-MATPLOTLIB` and
-`THIRD_PARTY_NOTICES.md`. Python is only needed for regeneration.
+The Matplotlib license and attribution remain in `docs/licenses/LICENSE-MATPLOTLIB` and
+`docs/THIRD_PARTY_NOTICES.md`. Python is only needed for regeneration.

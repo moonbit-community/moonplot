@@ -5,7 +5,7 @@
 commit `d3ca9172e392048ec242b90e8423e88d1a3000b2`. It verifies the SHA256 of the
 complete upstream `dates.py` before evaluating those functions. No installed
 Matplotlib version is imported. The original Matplotlib license is retained
-in `LICENSE-MATPLOTLIB` and `THIRD_PARTY_NOTICES.md`.
+in `docs/licenses/LICENSE-MATPLOTLIB` and `docs/THIRD_PARTY_NOTICES.md`.
 
 Reference environment: Python 3.12.14, NumPy 2.3.5, python-dateutil 2.9.0.post0.
 The generator needs these packages; checked-in MoonBit assertions do not.

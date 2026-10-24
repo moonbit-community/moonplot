@@ -1,5 +1,5 @@
-// Adapted from Matplotlib v3.11.2 ScalarFormatter; see LICENSE-MATPLOTLIB
-// and THIRD_PARTY_NOTICES.md. Python state and NumPy operations are replaced
+// Adapted from Matplotlib v3.11.2 ScalarFormatter; see docs/licenses/LICENSE-MATPLOTLIB
+// and docs/THIRD_PARTY_NOTICES.md. Python state and NumPy operations are replaced
 // by an immutable layout computed for each MoonBit tick list and viewport.
 
 ///|
