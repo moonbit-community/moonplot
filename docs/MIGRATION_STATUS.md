@@ -19,21 +19,31 @@
 - [x] Rabbita hit_mode/tooltip回调/visible/class与默认丰富提示已落地，当前17个JS单测通过（原14+新3）。
 - [x] C最终真实Chrome156.0.8078.47六图13组通过0pageerror，截图桌面/mobile已由Root目视。
   原主图11项/资源7组也中央跑过；新图真实截图assets/tooltips.png。
-- [ ] 定向与完整四目标回归、接口/格式/结构/文档、版本包独立消费；小步commit/push，发布新功能版本。
+- [x] 完整四目标回归、接口/格式/结构/文档与外部消费者演练通过；前三步提交已push。
+- [x] 最后复审发现SVG图例覆盖区仍触发数据；已修同次绘制采集真实图例矩形，按panel排除，四目标定向与真实Chrome回归通过。
+- [ ] 图例修复提交后重新clean构建正式0.3.0包、实际发布与registry独立消费、GitHub附件回验。
 - 责任：A(/m2_svg_scoping)只drawing；B(/m2_package_audit)scene/backend/svg/internal-render与对应tests；C(/m2_resource_browser)新增tooltips示例/页面/runner；Root适配层/文档/交付。
 - 现有0.2.1已发布且registry验收完成，旧片全部历史；不重启旧API迁移。
 - 基线342713d814dc905a9ba273fcbd9b761d53d50ad2，证据.moonagent/checkpoints/tooltips-2026-10-25/。
-- 精确下一动作：收取全套Native最终结果与最后只读复审；其余接口/示例/文档已核，提交发布源后clean打0.3.0正式包、正常push并发布，registry实际消费验收。
+- 精确下一动作：提交图例修复并push，重新clean打0.3.0正式包（旧53e23ed正式包作废，尚未发布）；actual moon publish后验证registry独立安装与GitHub附件。
 - A最终drawing四目标19/19，XNearest统一按dx最小/dy tie，nearby Scatter仍优先；反例回归通过。
 - B与A已STOP source；C最终13组已terminal0并交回6文件，证据typed-tooltips/browser/。
 - Root首次外部ZIP65275静态四目标通过，新增第二图使旧CSS选择器strict失败；已修特定chart selector+滚动。
   演练93621 terminal0：四目标新hist/pie断言+真实Chrome6项（含bar自定义metadata）全部通过。
 - Root适配层17/17，新callback收到真实metadata、隐藏不求值/不派事件、旧point-only兼容、stale拒绝均通过。
-- Root final-demo-build2771 terminal0；中央info/fmt/check-all通过，full alltest84850已完成wasm/wasm-gc各22283、JS22307全部通过，正在Native（没有失败）。
+- Root final-demo-build2771 terminal0；中央info/fmt/check-all通过，full alltest84850 terminal0：wasm/wasm-gc/native各22283、JS22307全部通过。
   info-js95686及main/preview/gallery71378均terminal0，后两者SVG字节相同；主browser42441/资源27922均terminal0。
 - 当前Moon info的target只inspect而不改变Wasm canonical；新增tools/update_interfaces.py保留JS-only compiler mbti并fmt，已过。
   mbti审查只新增Drawing类型/可选参数、Rabbita view可选参数与内部RenderMetadata；既有HitPoint/Interaction与SceneAPI不变。
 - 用户交互/UI/六图示例已提交257e619；dryrun77435服务端202明确No changes made，CLI仍误报exit255（既有状态码处理差异）。
+- 53e23ed正式源已push；其clean正式ZIP builder74830四目标静态+Chrome6通过，但晚发现图例bug，未发布；该包禁止上传。
+- 晚修drawing/model/hit/shape_hit+exclusion_test，backend/svg/drawing/legend/panel与scene/drawing_semantic_wbtest；
+  A drawing四目标各23/23；Root82331四目标受影响drawing/scene/backend/svg/tests/api各1752/1752。
+  图例同panel排除/其他panel不屏蔽、四角真实legend、SVG完全相等、缩放/letterbox/legacy/非法rect均过。
+- 最终JS示例显式启用hist真实SVG图例，Chrome89549 terminal0：14组、0pageerror；新增断言确认图例底下确实是bar再要求noHit。
+  54218最初fixture未真正恢复legend而失败，已改clear_legend启用自动图例后通过；未掩盖生产失败。
+  assets/tooltips.png已更新并目视。中央interfaces/fmt与check-all94255、structure/diff均过。
+- A图例handoff已STOP无live会话；其余agents均STOP。日志与handoff仍在本片证据目录。
 - 旧预览服务已不在；新有意保留服务session8304/PID74453，显式服务仓库根：
   http://127.0.0.1:8765/rabbita/tooltips.html ，HTML+JS已绕过环境proxy核HTTP200；open_in_codex返回queued。
 

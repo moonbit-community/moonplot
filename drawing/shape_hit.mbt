@@ -48,6 +48,22 @@ fn rect_contains(
 }
 
 ///|
+// An overlay belongs to its panel; it must not mask another overlapping axes.
+fn Drawing::excluded(
+  self : Drawing,
+  panel_index : Int32,
+  x : Double,
+  y : Double,
+) -> Bool {
+  for (panel, rectangle) in self.exclusions {
+    if panel == panel_index && rect_contains(rectangle, x, y) {
+      return true
+    }
+  }
+  false
+}
+
+///|
 fn valid_shape(shape : HitShape) -> Bool {
   match shape {
     Point => true
@@ -127,6 +143,7 @@ fn Drawing::target_hit(
   for index = self.targets.length() - 1; index >= 0; index = index - 1 {
     let target = self.targets[index]
     if valid_info(target.info) &&
+      !self.excluded(target.info.point.panel_index, x, y) &&
       valid_shape(target.shape) &&
       rect_contains(target.bounds, x, y) &&
       shape_contains(target.shape, x, y) {
@@ -136,7 +153,8 @@ fn Drawing::target_hit(
   let mut best : HitPoint? = None
   let mut best_distance = radius
   for target in self.targets {
-    if target.shape != Point ||
+    if self.excluded(target.info.point.panel_index, x, y) ||
+      target.shape != Point ||
       (mode == XNearest && target.info.kind == Line) ||
       !valid_info(target.info) ||
       !rect_contains(target.bounds, x, y) ||
@@ -165,7 +183,8 @@ fn Drawing::target_hit(
   let mut best_dx = 0.0
   let mut best_dy = 0.0
   for target in self.targets {
-    if target.info.kind != Line ||
+    if self.excluded(target.info.point.panel_index, x, y) ||
+      target.info.kind != Line ||
       target.shape != Point ||
       !valid_info(target.info) ||
       !rect_contains(target.bounds, x, y) ||

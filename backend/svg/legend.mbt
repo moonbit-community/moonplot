@@ -7,6 +7,7 @@ fn append_legend(
   plot_height : Double,
   entries : Array[@render.LegendEntry],
   position : @render.LegendPosition,
+  on_box~ : (((Double, Double, Double, Double)) -> Unit)? = None,
 ) -> Unit {
   if entries.length() == 0 {
     return
@@ -35,6 +36,9 @@ fn append_legend(
     ("stroke", "#9ca3af"),
     ("stroke-width", "1"),
   ])
+  if on_box is Some(capture) {
+    capture((box_x, box_y, box_width, box_height))
+  }
   for i in 0..<entries.length() {
     let entry = entries[i]
     let y = box_y + 20.0 + Double::from_int(i) * 20.0

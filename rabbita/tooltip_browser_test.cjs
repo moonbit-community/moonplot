@@ -64,6 +64,15 @@ async function main() {
           if (!rect) throw Error('Missing colored bar rect ' + query.fill);
           x = rect.x.baseVal.value + rect.width.baseVal.value * query.fx;
           y = rect.y.baseVal.value + rect.height.baseVal.value * query.fy;
+        } else if (query.kind === 'legend') {
+          const rect = svg.querySelector('rect[fill="white"][fill-opacity="0.85"]');
+          if (!rect) throw Error('Missing embedded SVG legend');
+          x = rect.x.baseVal.value + rect.width.baseVal.value / 2;
+          y = rect.y.baseVal.value + rect.height.baseVal.value / 2;
+          const coveredBar = [...svg.querySelectorAll('rect[fill="#5e91a8"]')].slice(0, 3)
+            .some(bar => x >= bar.x.baseVal.value && x <= bar.x.baseVal.value + bar.width.baseVal.value &&
+              y >= bar.y.baseVal.value && y <= bar.y.baseVal.value + bar.height.baseVal.value);
+          if (!coveredBar) throw Error('Legend regression must cover a real histogram bar');
         } else if (query.kind === 'scatter') {
           const circle = svg.querySelectorAll('circle[fill="#ce8650"]')[query.index || 0];
           x = circle.cx.baseVal.value; y = circle.cy.baseVal.value + (query.dy || 0);
@@ -167,6 +176,8 @@ async function main() {
     await fieldIs('hist', 'Range', '2 – 3');
     await fieldIs('hist', 'Count', '4');
     checks.push('Histogram bin edges and the inclusive maximum expose original intervals and exact counts');
+    await noHit('hist', { kind: 'legend' });
+    checks.push('Embedded SVG legend suppresses the real histogram bar underneath its rectangle');
 
     await hover('pie', { kind: 'pie', angle: 30 }, 'pie', ['Research', 'Value', '1', 'Share', '16.67%']);
     await hover('pie', { kind: 'pie', angle: 120 }, 'pie', ['Operations', '2', '33.33%']);

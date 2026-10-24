@@ -6,7 +6,7 @@ import {
 }
 
 // Values
-pub fn drawing(Int, Int, String, Array[HitPoint], targets? : Array[HitTarget]) -> Drawing
+pub fn drawing(Int, Int, String, Array[HitPoint], targets? : Array[HitTarget], exclusions? : Array[(Int, (Double, Double, Double, Double))]) -> Drawing
 
 pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?) -> HitInfo
 

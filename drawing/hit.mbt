@@ -36,7 +36,8 @@ fn Drawing::nearest(
   let mut best : HitPoint? = None
   let mut best_distance = radius
   for point in self.points {
-    if !finite(point.screen_x) ||
+    if self.excluded(point.panel_index, x, y) ||
+      !finite(point.screen_x) ||
       !finite(point.screen_y) ||
       !finite(point.data_x) ||
       !finite(point.data_y) {

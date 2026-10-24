@@ -46,6 +46,7 @@ moon add moonbit-community/rabbita@0.16.7
 仍返回真实采样点，不插值，也不使用阶梯线展开后的顶点。
 
 只有所属面板范围内可以吸附；坐标轴标签、图例、面板外部和 letterbox 空白不会命中。
+SVG 图例的实际矩形会屏蔽所属面板的命中，不会屏蔽同位置的其他重叠面板。
 区域重叠时最后绘制的区域优先。命中是数据图元语义，不是所有像素的精确轮廓。
 
 ## 应用状态与自定义提示
@@ -111,7 +112,8 @@ let chart = @plot_dom.view(
 
 `Drawing::targets()`、`points()` 返回独立数组，外部修改不会改变快照。
 旧的手工 `drawing(width,height,svg,points)` 仍支持原来的点命中；
-`targets~` 可选参数允许其他生产者提供结构化区域。
+`targets~` 可选参数允许其他生产者提供结构化区域；
+`exclusions~` 接收 `(panel_index, (left, top, width, height))` 数组，供自定义生产者声明遮挡矩形。
 不依赖浏览器时可以调用 `hit_test(x,y,mode=XNearest)`；
 `hit_test_client(...)` 另外处理 CSS 比例、滚动和 `xMidYMid meet` letterbox。
 
@@ -123,9 +125,9 @@ let chart = @plot_dom.view(
 
 ## 验收与边界
 
-新增绘制路径和几何均有断言测试：Drawing 四目标各 **19/19**，Scene/SVG 语义定向四目标各 **16/16**，
+新增绘制路径和几何均有断言测试：Drawing 四目标各 **23/23**，Scene/SVG 语义定向四目标各 **17/17**，
 Rabbita JS **17/17**（包含原资源解析与新增提示测试）。
-Chrome 156 的六图专项 **13 组**、原主示例 **11 项**、资源专项 **7 组**均通过，页面错误为 0。
+Chrome 156 的六图专项 **14 组**、原主示例 **11 项**、资源专项 **7 组**均通过，页面错误为 0。
 实际生产 ZIP 的外部消费者四目标静态与浏览器 **6 项**也已通过演练。
 
 浏览器专项使用实际 SVG DOM 和鼠标，

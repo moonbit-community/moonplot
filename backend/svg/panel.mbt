@@ -478,6 +478,9 @@ fn render_panel(
     plot_height,
     panel.legend(),
     panel.legend_position(),
+    on_box=capture.map(snapshot => {
+      rectangle => snapshot.exclusions.push((panel_index, rectangle))
+    }),
   )
   match panel.title() {
     Some(value) =>

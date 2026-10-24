@@ -2,6 +2,7 @@
 priv struct DrawingCapture {
   points : Array[@drawing.HitPoint]
   targets : Array[@drawing.HitTarget]
+  exclusions : Array[(Int32, (Double, Double, Double, Double))]
 }
 
 ///|
@@ -9,7 +10,7 @@ priv struct DrawingCapture {
 pub fn render_drawing_with_positions_checked(
   figure : @render.Figure,
 ) -> (@drawing.Drawing, Array[(Double, Double, Double, Double)]) raise @core.DataError {
-  let capture : DrawingCapture = { points: [], targets: [], }
+  let capture : DrawingCapture = { points: [], targets: [], exclusions: [], }
   let (document, positions) = render_with_hits_checked(figure, Some(capture))
   (
     @drawing.drawing(
@@ -18,6 +19,7 @@ pub fn render_drawing_with_positions_checked(
       document,
       capture.points,
       targets=capture.targets,
+      exclusions=capture.exclusions,
     ),
     positions,
   )

@@ -12,6 +12,43 @@ fn semantic_axes() -> (Figure, Axes) raise {
 }
 
 ///|
+test "embedded SVG legends exclude line snapping in each actual corner" {
+  let figure = figure(width=400, height=200)
+  let axes = figure.add_axes(0.0, 0.0, 1.0, 1.0)
+  axes.set_x_limits(0.0, 4.0)
+  axes.set_y_limits(0.0, 10.0)
+  axes.plot([1.0, 3.0], [4.0, 8.0], label="Measured")
+  for
+    (corner, x, y) in [
+      (LegendPosition::UpperRight, 300.0, 24.0),
+      (LegendPosition::UpperLeft, 50.0, 24.0),
+      (LegendPosition::LowerRight, 300.0, 176.0),
+      (LegendPosition::LowerLeft, 50.0, 176.0),
+    ] {
+    axes.set_legend_position(corner)
+    let snapshot = figure.to_drawing()
+    assert_eq(snapshot.svg(), figure.to_svg_checked())
+    assert_eq(snapshot.hit_test(x, y, mode=@drawing.HitMode::XNearest), None)
+    assert_eq(
+      snapshot.hit_test_client(
+        x / 2.0,
+        y / 2.0,
+        0.0,
+        0.0,
+        200.0,
+        100.0,
+        mode=@drawing.HitMode::XNearest,
+      ),
+      None,
+    )
+    assert_true(
+      snapshot.hit_test(200.0, 100.0, mode=@drawing.HitMode::XNearest)
+      is Some(_),
+    )
+  }
+}
+
+///|
 test "bar and barh use the whole painted rectangle with source indices and clipping" {
   let (figure, axes) = semantic_axes()
   axes.bar(

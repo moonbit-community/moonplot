@@ -46,18 +46,28 @@ pub struct Drawing {
   priv svg : String
   priv points : Array[HitPoint]
   priv targets : Array[HitTarget]
+  priv exclusions : Array[(Int32, (Double, Double, Double, Double))]
 }
 
 ///|
-/// Capture the drawing and an independent copy of its hit-target array.
+/// Capture independent copies of point, semantic-target and exclusion arrays.
+/// Exclusions are (panel index, intrinsic left/top/width/height) overlay rectangles.
 pub fn drawing(
   width : Int32,
   height : Int32,
   svg : String,
   points : Array[HitPoint],
   targets~ : Array[HitTarget] = [],
+  exclusions~ : Array[(Int32, (Double, Double, Double, Double))] = [],
 ) -> Drawing {
-  { width, height, svg, points: points.copy(), targets: targets.copy(), }
+  {
+    width,
+    height,
+    svg,
+    points: points.copy(),
+    targets: targets.copy(),
+    exclusions: exclusions.copy(),
+  }
 }
 
 ///|

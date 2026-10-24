@@ -128,7 +128,7 @@ fn chart_drawing(model : Model, index : Int32) -> @drawing.Drawing raise {
     }
     4 => {
       fig.set_x_limits(0.0, 3.0)
-      fig.set_y_limits(0.0, 5.0)
+      fig.set_y_limits(0.0, 4.0)
       ignore(
         fig.hist(
           [0.0, 0.2, 1.0, 1.0, 2.0, 3.0, 3.0, 3.0],
@@ -137,6 +137,7 @@ fn chart_drawing(model : Model, index : Int32) -> @drawing.Drawing raise {
           label="Response time",
         ),
       )
+      fig.axes().clear_legend()
     }
     _ => {
       fig.grid(visible=false)
