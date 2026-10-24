@@ -23,7 +23,7 @@ async function main() {
       if (!filename.startsWith(root + path.sep)) {
         res.writeHead(403); res.end(); return;
       }
-      const mime = { '.html': 'text/html', '.js': 'text/javascript', '.png': 'image/png' };
+      const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png' };
       const content = await fs.readFile(filename);
       res.writeHead(200, { 'Content-Type': mime[path.extname(filename)] || 'application/octet-stream' });
       res.end(content);
@@ -68,53 +68,69 @@ async function main() {
       await page.waitForFunction(({ selector, fragment }) =>
         document.querySelector(selector)?.textContent.includes(fragment), { selector, fragment });
     }
+    async function stateIs(chart, values) {
+      const selector = chart === 'chart-a' ? '#a-selection' : '#b-selection';
+      await page.waitForFunction(({ selector, values }) => {
+        const summary = document.querySelector(selector);
+        return summary && Object.entries(values).every(([key, value]) => summary.dataset[key] === String(value));
+      }, { selector, values });
+    }
     async function select(chart, index = 0) {
       const p = await point(chart, index);
       await page.mouse.click(p.x, p.y);
-      await textIs(chart === 'chart-a' ? '#a-selection' : '#b-selection', `point=${index}`);
+      await stateIs(chart, { point: index, selected: true });
     }
 
+    const cardBeforeHover = await page.locator('.chart-card').first().boundingBox();
+    const legendBeforeHover = await page.locator('[data-testid="chart-a-legend"]').boundingBox();
     await hover('chart-a');
     assert((await page.locator('[data-testid="chart-a-tooltip"]').innerText()).includes('2'));
     assert.equal(await page.locator('[data-testid="chart-b-tooltip"]').count(), 0);
     await select('chart-a');
-    await textIs('#a-selection', 'x=1; y=2');
-    await textIs('#a-clicks', 'Clicks: 1');
+    await stateIs('chart-a', { x: 1, y: 2 });
+    await stateIs('chart-a', { clicks: 1 });
     assert.equal(await page.locator('#chart-a-svg [data-moonplot-selected]').count(), 1);
     checks.push('Hover tooltip and click selection update application state');
+    const cardAfterHover = await page.locator('.chart-card').first().boundingBox();
+    const legendAfterHover = await page.locator('[data-testid="chart-a-legend"]').boundingBox();
+    assert(Math.abs(cardAfterHover.height - cardBeforeHover.height) < 0.5);
+    assert(Math.abs(legendAfterHover.y - legendBeforeHover.y) < 0.5);
+    assert(!((await page.locator('body').innerText()).includes('series=')));
+    checks.push('Hover inspector does not move the legend or resize the card');
 
     await hover('chart-b');
     await page.waitForFunction(() => !document.querySelector('[data-testid="chart-a-tooltip"]'));
     await select('chart-b');
-    await textIs('#b-selection', 'x=1; y=7');
-    await textIs('#b-clicks', 'Clicks: 1');
-    await textIs('#a-clicks', 'Clicks: 1');
-    await textIs('#a-selection', 'x=1; y=2');
+    await stateIs('chart-b', { x: 1, y: 7 });
+    await stateIs('chart-b', { clicks: 1 });
+    await stateIs('chart-a', { clicks: 1 });
+    await stateIs('chart-a', { x: 1, y: 2 });
     checks.push('Two charts have independent hover, selection and click counts');
 
     const trend = page.locator('[data-testid="chart-a"] [data-moonplot-series="trend"]');
     const oldLinePoint = await point('chart-a', 3);
-    await trend.click();
+    await trend.focus();
+    await page.keyboard.press('Space');
     await page.waitForFunction(() => !document.querySelector('#chart-a-svg polyline'));
     assert.equal(await trend.getAttribute('aria-pressed'), 'false');
     await page.mouse.click(oldLinePoint.x, oldLinePoint.y);
-    await textIs('#a-selection', 'none');
-    await textIs('#a-clicks', 'Clicks: 1');
+    await stateIs('chart-a', { selected: false });
+    await stateIs('chart-a', { clicks: 1 });
     assert.equal(await page.locator('#chart-b-svg polyline').count(), 1);
     await trend.click();
     await page.waitForSelector('#chart-a-svg polyline');
     assert.equal(await trend.getAttribute('aria-pressed'), 'true');
-    checks.push('Legend toggles remove visible lines and their hit targets');
+    checks.push('Keyboard and pointer legend toggles remove lines and their hit targets');
 
     const before = await page.locator('#chart-a-svg polyline').getAttribute('points');
     await page.locator('#update-data').click();
     await textIs('#data-version', '1');
     await page.waitForFunction(before =>
       document.querySelector('#chart-a-svg polyline')?.getAttribute('points') !== before, before);
-    await textIs('#a-selection', 'none');
+    await stateIs('chart-a', { selected: false });
     await select('chart-a');
-    await textIs('#a-selection', 'x=1; y=3');
-    await textIs('#a-clicks', 'Clicks: 2');
+    await stateIs('chart-a', { x: 1, y: 3 });
+    await stateIs('chart-a', { clicks: 2 });
     checks.push('Data updates change geometry and report current data values');
 
     for (let i = 0; i < 3; i++) {
@@ -126,8 +142,8 @@ async function main() {
       assert.equal(await page.locator('[data-moonplot-root]').count(), 2);
     }
     await select('chart-a');
-    await textIs('#a-clicks', 'Clicks: 3');
-    await textIs('#b-clicks', 'Clicks: 1');
+    await stateIs('chart-a', { clicks: 3 });
+    await stateIs('chart-b', { clicks: 1 });
     checks.push('Repeated unmount/remount adds no duplicate event dispatch');
 
     await page.evaluate(() => {
@@ -140,7 +156,7 @@ async function main() {
     await hover('chart-a', 2);
     assert(await page.evaluate(() => scrollY > 0));
     await select('chart-a', 2);
-    await textIs('#a-selection', 'x=3; y=3.25');
+    await stateIs('chart-a', { x: 3, y: 3.25 });
     checks.push('Scroll and outer padding/borders use the actual SVG viewport');
 
     await page.locator('#chart-a-svg').evaluate(svg => {
@@ -148,10 +164,10 @@ async function main() {
     });
     await hover('chart-a', 1);
     await select('chart-a', 1);
-    await textIs('#a-selection', 'x=2; y=4.5');
+    await stateIs('chart-a', { x: 2, y: 4.5 });
     const box = await page.locator('#chart-a-svg').boundingBox();
     await page.mouse.click(box.x + box.width / 2, box.y + 5);
-    await textIs('#a-selection', 'none');
+    await stateIs('chart-a', { selected: false });
     checks.push('Matching viewBox letterboxing maps points and rejects empty bands');
 
     await page.evaluate(() => {
@@ -164,9 +180,15 @@ async function main() {
     await page.setViewportSize({ width: 640, height: 900 });
     await hover('chart-a', 3);
     await select('chart-a', 3);
-    await textIs('#a-selection', 'x=4; y=7');
-    await page.screenshot({ path: path.join(output, 'mobile.png'), fullPage: true });
+    await stateIs('chart-a', { x: 4, y: 7 });
     checks.push('Responsive width retains CSS-pixel hit coordinates');
+    await page.setViewportSize({ width: 375, height: 812 });
+    await hover('chart-a', 3);
+    await select('chart-a', 3);
+    await stateIs('chart-a', { x: 4, y: 7 });
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    await page.screenshot({ path: path.join(output, 'mobile.png'), fullPage: true });
+    checks.push('375px phone layout fits without horizontal overflow');
 
     await page.setViewportSize({ width: 1280, height: 900 });
     await page.locator('#reset').click();

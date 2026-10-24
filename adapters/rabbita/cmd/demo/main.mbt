@@ -97,22 +97,35 @@ fn update(model : Model, msg : Msg) -> Model {
 }
 
 ///|
-fn first_chart(model : Model) -> @drawing.Drawing raise {
+fn demo_figure() -> @mathplotlib.Figure raise {
   let fig = @mathplotlib.figure(width=560, height=350)
-  fig.set_title("Weekly throughput")
-  fig.set_x_label("Week")
-  fig.set_y_label("Items")
   fig.set_x_limits(0.5, 5.5)
   fig.set_y_limits(0.0, 10.0)
-  fig.grid(axis="y", color="#e2e8f0", linewidth=0.7)
+  fig.grid(axis="y", color="#e9edf1", linewidth=0.7)
+  fig.legend([])
+  for spine in fig.spines() {
+    spine.set_color("#d8dfe5")
+    spine.set_linewidth(0.7)
+    if spine.side() is (Top | Right) {
+      spine.set_visible(false)
+    }
+  }
+  fig
+}
+
+///|
+fn first_chart(model : Model) -> @drawing.Drawing raise {
+  let fig = demo_figure()
+  fig.set_x_label("Week")
   let shift = if model.version % 2 == 0 { 0.0 } else { 1.0 }
   let line = fig.plot_line(
     @mathplotlib.LineData::Numeric([1.0, 2.0, 3.0, 4.0, 5.0]),
     @mathplotlib.LineData::Numeric([2.0 + shift, 4.5, 3.25, 6.0 + shift, 5.5]),
-    color="#2563eb",
+    color="#4d79c7",
     label="Trend",
   )
   line.set_visible(model.line_a)
+  line.set_linewidth(2.2)
   let points = if model.scatter_a {
     [
       @mathplotlib.point(1.0, 2.2),
@@ -124,37 +137,69 @@ fn first_chart(model : Model) -> @drawing.Drawing raise {
   } else {
     []
   }
-  fig.scatter(points, color="#f97316", label="Samples")
-  fig.set_legend_position(@mathplotlib.LegendPosition::UpperLeft)
+  fig.scatter(points, color="#ce8650", label="Samples")
   fig.to_drawing()
 }
 
 ///|
 fn second_chart(model : Model) -> @drawing.Drawing raise {
-  let fig = @mathplotlib.figure(width=560, height=350)
-  fig.set_title("Independent chart")
+  let fig = demo_figure()
   fig.set_x_label("Sample")
-  fig.set_y_label("Value")
-  fig.set_x_limits(0.5, 5.5)
-  fig.set_y_limits(0.0, 10.0)
-  fig.grid(axis="y", color="#e2e8f0", linewidth=0.7)
   let line = fig.plot_line(
     @mathplotlib.LineData::Numeric([1.0, 2.0, 3.0, 4.0, 5.0]),
     @mathplotlib.LineData::Numeric([7.0, 6.0, 8.0, 5.0, 6.5]),
-    color="#16a34a",
+    color="#398575",
     label="Reference",
   )
   line.set_visible(model.line_b)
+  line.set_linewidth(2.2)
   fig.to_drawing()
 }
 
 ///|
-fn selected_text(point : @drawing.HitPoint?) -> String {
-  match point {
-    None => "none"
-    Some(point) =>
-      "series=\{point.artist_index}; point=\{point.point_index}; x=\{point.data_x}; y=\{point.data_y}"
+fn chart_heading(title : String, caption : String, unit : String) -> @html.Html {
+  @html.div(class="chart-heading", [
+    @html.div([@html.h2(title), @html.p(class="chart-caption", caption)]),
+    @html.span(class="chart-unit", unit),
+  ])
+}
+
+///|
+fn selection_summary(
+  id : String,
+  point : @drawing.HitPoint?,
+  clicks : Int32,
+  first : Bool,
+) -> @html.Html {
+  let attrs = @html.Attrs::build()
+    .data_set("clicks", clicks.to_string())
+    .data_set("selected", (point is Some(_)).to_string())
+  let text = match point {
+    None => "Click a point to keep its value here."
+    Some(point) => {
+      ignore(
+        attrs
+        .data_set("point", point.point_index.to_string())
+        .data_set("x", point.data_x.to_string())
+        .data_set("y", point.data_y.to_string()),
+      )
+      if first {
+        "Week \{point.data_x} · \{point.data_y} items"
+      } else {
+        "Sample \{point.data_x} · \{point.data_y}"
+      }
+    }
   }
+  @html.div(class="chart-footer", [
+    @html.div(id~, class="selection-summary", attrs~, [
+      @html.span(
+        class="selection-mark",
+        attrs=@html.Attrs::build().aria_hidden("true"),
+        "",
+      ),
+      @html.span(text),
+    ]),
+  ])
 }
 
 ///|
@@ -162,6 +207,9 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
   let charts = if model.mounted {
     @html.div(class="charts", [
       @html.div(class="chart-card", [
+        chart_heading(
+          "Weekly throughput", "Trend and observations over five weeks.", "Items",
+        ),
         @plot_dom.view(
           first_chart(model),
           id="chart-a",
@@ -169,22 +217,21 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
           hovered?=model.hover_a,
           selected?=model.selected_a,
           legend=[
-            @plot_dom.legend_item("trend", "Trend", "#2563eb", model.line_a),
+            @plot_dom.legend_item("trend", "Trend", "#4d79c7", model.line_a),
             @plot_dom.legend_item(
               "samples",
               "Samples",
-              "#f97316",
+              "#ce8650",
               model.scatter_a,
             ),
           ],
         ),
-        @html.div(
-          id="a-selection",
-          "Selected: " + selected_text(model.selected_a),
-        ),
-        @html.div(id="a-clicks", "Clicks: \{model.clicks_a}"),
+        selection_summary("a-selection", model.selected_a, model.clicks_a, true),
       ]),
       @html.div(class="chart-card", [
+        chart_heading(
+          "Reference series", "A separate view, with its own selection.", "Value",
+        ),
         @plot_dom.view(
           second_chart(model),
           id="chart-b",
@@ -195,35 +242,64 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
             @plot_dom.legend_item(
               "reference",
               "Reference",
-              "#16a34a",
+              "#398575",
               model.line_b,
             ),
           ],
         ),
-        @html.div(
-          id="b-selection",
-          "Selected: " + selected_text(model.selected_b),
+        selection_summary(
+          "b-selection",
+          model.selected_b,
+          model.clicks_b,
+          false,
         ),
-        @html.div(id="b-clicks", "Clicks: \{model.clicks_b}"),
       ]),
     ])
   } else {
-    @html.div(id="unmounted", "Charts removed. Mount them again to continue.")
+    @html.div(id="unmounted", [
+      @html.h2("Charts are paused"),
+      @html.p("Show the charts again to continue exploring."),
+    ])
   }
   @html.div([
     @html.div(class="controls", [
-      @html.button(id="update-data", on_click=emit(UpdateData), "Update data"),
-      @html.button(
-        id="toggle-mount",
-        on_click=emit(ToggleMount),
-        if model.mounted {
-          "Unmount charts"
-        } else {
-          "Mount charts"
-        },
-      ),
-      @html.button(id="reset", on_click=emit(Reset), "Reset"),
-      @html.span(id="data-version", "Data version: \{model.version}"),
+      @html.div(class="dataset", [
+        @html.span(
+          class="status-dot",
+          attrs=@html.Attrs::build().aria_hidden("true"),
+          "",
+        ),
+        @html.span("Sample dataset"),
+        @html.span(
+          id="data-version",
+          class="data-version",
+          "Revision \{model.version}",
+        ),
+      ]),
+      @html.div(class="control-actions", [
+        @html.button(
+          id="reset",
+          class="button button-quiet",
+          on_click=emit(Reset),
+          "Reset",
+        ),
+        @html.button(
+          id="toggle-mount",
+          class="button",
+          on_click=emit(ToggleMount),
+          if model.mounted {
+            "Hide charts"
+          } else {
+            "Show charts"
+          },
+        ),
+        @html.button(
+          id="update-data",
+          class="button button-primary",
+          on_click=emit(UpdateData),
+          "Update data",
+        ),
+      ]),
     ]),
     charts,
   ])

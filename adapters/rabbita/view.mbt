@@ -24,9 +24,9 @@ fn highlight(
     @svg.Attrs::build()
     .cx(point.screen_x.to_string())
     .cy(point.screen_y.to_string())
-    .r(if selected { "7" } else { "5" })
-    .fill("none")
-    .stroke(if selected { "#7c3aed" } else { "#0f172a" })
+    .r(if selected { "6" } else { "5" })
+    .fill("#ffffff")
+    .stroke(if selected { "#286b73" } else { "#52657b" })
     .stroke_width("2")
     .vector_effect("non-scaling-stroke")
     .pointer_events("none")
@@ -66,7 +66,7 @@ fn drawing_svg(
     .style("display", "block"),
   )
   let nodes = children.map(svg_content)
-  if hovered is Some(point) {
+  if hovered is Some(point) && selected != Some(point) {
     nodes.push(highlight(point, false, id))
   }
   if selected is Some(point) {
@@ -121,8 +121,30 @@ pub fn view(
   let parsed = parse_svg(drawing.svg())
   validate_drawing(drawing, parsed)
   let chart = drawing_svg(parsed, id, hovered, selected)
+  let viewport = [chart]
+  if hovered is Some(point) {
+    viewport.push(
+      @html.div(
+        class="moonplot-tooltip",
+        attrs=@html.Attrs::build()
+          .role("tooltip")
+          .data_set("testid", id + "-tooltip"),
+        [
+          @html.span(class="moonplot-coordinate", [
+            @html.span(class="moonplot-coordinate-label", "x"),
+            @html.b("\{point.data_x}"),
+          ]),
+          @html.span(class="moonplot-coordinate", [
+            @html.span(class="moonplot-coordinate-label", "y"),
+            @html.b("\{point.data_y}"),
+          ]),
+        ],
+      ),
+    )
+  }
   let children = [
     @html.div(
+      class="moonplot-viewport",
       attrs=@html.Attrs::build()
         .data_set("testid", id + "-viewport")
         .on_mousemove(event => {
@@ -132,39 +154,44 @@ pub fn view(
         .on_click(event => {
           on_event(Click(event_hit(drawing, event, hit_radius)))
         }),
-      [chart],
+      viewport,
     ),
   ]
-  if hovered is Some(point) {
-    children.push(
-      @html.div(
-        attrs=@html.Attrs::build()
-          .role("tooltip")
-          .data_set("testid", id + "-tooltip"),
-        "x: \{point.data_x}, y: \{point.data_y}",
-      ),
-    )
-  }
   if legend.length() > 0 {
     children.push(
       @html.div(
+        class="moonplot-legend",
         attrs=@html.Attrs::build()
           .role("group")
+          .aria_label("Chart series")
           .data_set("testid", id + "-legend"),
         legend.map(item => {
           @html.button(
             type_="button",
+            class="moonplot-series",
             attrs=@html.Attrs::build()
               .data_set("moonplot-series", item.key)
               .aria_pressed(item.visible.to_string())
-              .on_click(_ => on_event(ToggleSeries(item.key)))
-              .style("border-left", "0.8em solid " + item.color)
-              .style("opacity", if item.visible { "1" } else { "0.55" }),
-            item.label,
+              .on_click(_ => on_event(ToggleSeries(item.key))),
+            [
+              @html.span(
+                class="moonplot-swatch",
+                attrs=@html.Attrs::build()
+                  .aria_hidden("true")
+                  .style("background-color", item.color),
+                "",
+              ),
+              @html.span(item.label),
+            ],
           )
         }),
       ),
     )
   }
-  @html.div(id~, attrs=@html.Attrs::build().data_set("testid", id), children)
+  @html.div(
+    id~,
+    class="moonplot",
+    attrs=@html.Attrs::build().data_set("testid", id),
+    children,
+  )
 }
