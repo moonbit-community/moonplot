@@ -21,14 +21,14 @@
 - [x] Gallery 2折线/7散点/4柱及所有标签通过XML/有限数/面板几何检查；2400×840实际PNG视觉通过，柱形不再越框遮刻度。
 - [x] 四大目标、现有能力、M1记录、README/指南与Rabbita接入设计已整理；旧长计划/执行历史归档。
 - [x] 文档路线图已本地提交f4c0548，验证过的绘图实现已提交36e6710。
-- [ ] Gallery/最终验收记录提交后，正常push并核对远端SHA。
+- [x] Gallery/最终验收记录已提交bfdb503。
+- [x] 三个交付提交已正常push；origin/master与bfdb50322fab83e80bfd75b2d94cd26e2484c2ec相同，GitHub API核对README/路线/DOM设计/M1/SVG/PNG六个对象与本地一致。
 
 ## 精确下一动作
 
-先完成本轮剩余Git提交和正常push，核对origin/master与HEAD相同、工作区干净。
-随后当前里程碑可交付。下一功能切片是 [Rabbita DOM接入试验](RABBITA_DOM.md)：
+M1已交付，本检查点随最后一次记录提交同步。下一功能切片是 [Rabbita DOM接入试验](RABBITA_DOM.md)：
 隔离JS依赖与x版本，mount最小真实SVG节点树，再验证事件→消息→视图更新；不要先重写全部renderer。
-当前所有agents STOP，无live工具、无用户阻塞。尚未添加Rabbita依赖或承诺具体DOM公共API。
+当前所有agents STOP；push57122与远端核验93482均terminal0，无live工具、无用户阻塞。尚未添加Rabbita依赖或承诺具体DOM公共API。
 
 ## 验证证据与恢复约束
 
@@ -36,7 +36,8 @@
 - 原grid失败native77020已terminal255；原柱宽4回归失败78098已terminal2，证据在 `.moonagent/checkpoints/practical-library-probe-2026-10-24/`，不是live。
 - 首轮check曾发现公开枚举owner在internal不可由root用户构造，已移public core，后续四目标和root真实示例全部通过，不重查已修问题。
 - 历史D54全套：nonJS22233/JS22240曾通过。本轮353定向回归不冒称重跑完整历史套件，不因文档变化重复无关日期/formatter审计。
-- Git：master 跟踪 origin/master，origin使用SSH；本轮起始基线189e7e8。
+- Git：master 跟踪 origin/master，origin使用SSH；本轮起始基线189e7e8，产品交付bfdb503；本检查点更新随后正常提交与同步。
+- 文档验证：88份Markdown、354个本地链接无缺失，README symlink正常；最终diffcheck通过。
 - Rabbita固定查阅commit `c6bbd1b3b649d5f6ea6b21e6c42f8003ec41c367`（moon.mod0.16.7），源码研究已存ignored cache；具体约束和待验证项见设计。
 
 [路线图](MIGRATION_PLAN.md) · [现有能力](CAPABILITIES.md) · [M1验收](MILESTONE_M1.md) · [历史执行记录](archive/migration-status-through-2026-10-24.md)
