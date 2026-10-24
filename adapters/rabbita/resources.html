@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SVG resource isolation · MoonPlot acceptance fixture</title>
+  <link rel="stylesheet" href="./moonplot.css">
+  <style>
+    body { margin: 32px; color: #17212c; background: #f6f8fa; font: 15px system-ui, sans-serif; }
+    h1 { margin: 0 0 10px; font-size: 26px; }
+    p { color: #536172; }
+    h2 { font-size: 17px; margin: 0 0 16px; }
+    .controls { display: flex; gap: 12px; align-items: center; margin: 24px 0; }
+    button { padding: 8px 12px; border: 1px solid #cbd2da; border-radius: 6px; background: #fff; }
+    #resource-charts { display: flex; gap: 28px; flex-wrap: wrap; }
+    .resource-card { width: 320px; padding: 18px; border: 1px solid #dce2e8; background: #fff; border-radius: 10px; }
+    .resource-card p { margin: 12px 0 0; }
+  </style>
+</head>
+<body>
+  <h1>SVG resource isolation</h1>
+  <p>Acceptance fixture: both drawings reuse their original resource IDs. The red region clips to the left and blue to the right.</p>
+  <div id="app"></div>
+  <script type="module" src="./_build/js/debug/build/moonbit-community/moonplot-rabbita/cmd/resources/resources.js"></script>
+</body>
+</html>

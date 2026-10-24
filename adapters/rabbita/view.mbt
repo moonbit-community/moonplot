@@ -120,7 +120,12 @@ pub fn view(
 ) -> @rabbita.Html raise AdapterError {
   let parsed = parse_svg(drawing.svg())
   validate_drawing(drawing, parsed)
-  let chart = drawing_svg(parsed, id, hovered, selected)
+  let chart = drawing_svg(
+    scope_svg_resources(parsed, id),
+    id,
+    hovered,
+    selected,
+  )
   let viewport = [chart]
   if hovered is Some(point) {
     viewport.push(
