@@ -37,20 +37,24 @@
   三次remount、scroll+wrapper padding/border、letterbox、响应式CSS半径；0 pageerror。
 - [x] 桌面1280×900及窄屏截图已视觉检查；正式展示图在assets/rabbita-interactive.png。
 - [x] 核心moon.mod逐字未改；Rabbita仅独立module，局部moon.work链接核心，未发布Mooncakes。
-- [x] README、能力/路线、运行/依赖/许可/验收文档已同步；89份Markdown/373本地链接初查通过。
+- [x] README、能力/路线、运行/依赖/许可/验收文档已同步；89份Markdown/374本地链接最终检查通过，README symlink保留。
 - [x] 核心已提交05e9c20，adapter/双图示例/浏览器脚本已提交1d4de2a。
-- [ ] 提交最终文档，正常push并核对远端。
+- [x] 最终文档f1aac73已正常push；远端SHA与本地交付HEAD一致，GitHub八个文件blob/size均匹配。
+- [x] 工作区交付文件已提交；本页最终交接随后作为独立检查点提交并正常同步。
 
 ## 精确下一动作
 
-核心05e9c20、adapter1d4de2a已分批commit。下一提交最终文档与交付检查点，
-随后SSH正常push、核HEAD/远端SHA及GitHub文件对象，更新本页。
-G2.1交付后可优先做多图自定义SVG资源ID隔离，再按实际需求增加键盘/触摸或缩放平移；
+G2.1实现、验收、文档、提交和远端文件核查均已完成，无未处理失败。
+本片交付为05e9c20、1d4de2a、f1aac73；完整交付HEAD为
+f1aac7335d7e146e5d03bf1c8e77061aaec0909d，远端已核相同。
+后续继续实现时，建议下一小片为多图自定义SVG资源ID隔离：先构造两个同名渐变/clip定义，
+再局部改写id与引用，验收独立显示。其余按实际需求增加键盘/触摸或缩放平移。
 不要自动恢复旧全API迁移。当前命中为当前帧的数据点锚点，不是持久ID或任意形状轮廓。
 
 ## 证据、会话与运行方式
 
 - 本轮基线：cbc7358aea2e5b005a1bb48bf088ed46e4f00e54；master跟踪origin/master，远端SSH。
+- SSH push43148 terminal0；GitHub API八文件40301 terminal0，结果github-delivery.json。
 - 核心中央77401 terminal0；adapter最终19989 terminal0；最终全流程26231 terminal0；
   局部workspace JS81917 terminal0；npm查询28299 terminal0，Playwright1.62.1可用。
 - 浏览器首82725 terminal1（builder生命周期），修复后87506及最终26231均terminal0；
