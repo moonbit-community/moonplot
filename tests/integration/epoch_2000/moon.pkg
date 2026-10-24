@@ -1,7 +1,7 @@
 import {
-  "mathplotlib/mathplotlib/scene/axis",
-  "mathplotlib/mathplotlib/core",
-  "mathplotlib/mathplotlib/ticker/date",
-  "mathplotlib/mathplotlib/ticker/date/tzdb",
-  "mathplotlib/mathplotlib/pyplot",
+  "Lampese/mathplotlib/scene/axis",
+  "Lampese/mathplotlib/core",
+  "Lampese/mathplotlib/ticker/date",
+  "Lampese/mathplotlib/ticker/date/tzdb",
+  "Lampese/mathplotlib/pyplot",
 } for "test"

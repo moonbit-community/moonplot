@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib/ticker"
+package "Lampese/mathplotlib/ticker"
 
 import {
-  "mathplotlib/mathplotlib/config",
-  "mathplotlib/mathplotlib/core",
-  "mathplotlib/mathplotlib/ticker/scale",
+  "Lampese/mathplotlib/config",
+  "Lampese/mathplotlib/core",
+  "Lampese/mathplotlib/ticker/scale",
   "moonbitlang/core/bigint",
   "moonbitlang/core/debug",
 }

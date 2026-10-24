@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib/ticker/date"
+package "Lampese/mathplotlib/ticker/date"
 
 import {
   "moonbitlang/core/debug",

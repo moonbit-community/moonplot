@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib/drawing"
+package "Lampese/mathplotlib/drawing"
 
 import {
   "moonbitlang/core/debug",

@@ -1,27 +1,28 @@
 // Actual-page regression for shared SVG source IDs in two public adapter views.
-// Build cmd/resources first. Install Playwright, or set PLAYWRIGHT_MODULE.
+// Build rabbita/cmd/resources first. Install Playwright, or set PLAYWRIGHT_MODULE.
 const assert = require('node:assert/strict');
 const fs = require('node:fs/promises');
 const http = require('node:http');
 const path = require('node:path');
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 
-const root = __dirname;
+// Serve the module root so the page can load the shared build output.
+const root = path.resolve(__dirname, '..');
 const output = path.resolve(process.env.MOONPLOT_RESOURCE_OUTPUT ||
-  path.join(root, '../../.moonagent/checkpoints/M2/resource-browser/final'));
+  path.join(root, '.moonagent/checkpoints/Mooncakes-0.2.1/browser-resources'));
 const checks = [];
 const evidence = [];
 
 async function main() {
   await fs.mkdir(output, { recursive: true });
   await fs.access(path.join(root,
-    '_build/js/debug/build/moonbit-community/moonplot-rabbita/cmd/resources/resources.js'));
+    '_build/js/debug/build/rabbita/cmd/resources/resources.js'));
   const server = http.createServer(async (req, res) => {
     try {
       const url = new URL(req.url, 'http://127.0.0.1');
       if (url.pathname === '/favicon.ico') { res.writeHead(204); res.end(); return; }
       const filename = path.resolve(root, '.' + decodeURIComponent(
-        url.pathname === '/' ? '/resources.html' : url.pathname));
+        url.pathname.endsWith('/') ? url.pathname + 'index.html' : url.pathname));
       if (!filename.startsWith(root + path.sep)) { res.writeHead(403); res.end(); return; }
       const content = await fs.readFile(filename);
       const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css' };
@@ -40,7 +41,7 @@ async function main() {
     page = await browser.newPage({ viewport: { width: 1100, height: 700 }, deviceScaleFactor: 1 });
     page.on('pageerror', error => errors.push(String(error)));
     page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
-    await page.goto(`http://127.0.0.1:${server.address().port}/resources.html`, { waitUntil: 'networkidle' });
+    await page.goto(`http://127.0.0.1:${server.address().port}/rabbita/resources.html`, { waitUntil: 'networkidle' });
     await page.waitForFunction(() => document.querySelector('#resource-blue-svg') ||
       document.querySelector('#resource-error'));
     const fixtureError = await page.locator('#resource-error').count();

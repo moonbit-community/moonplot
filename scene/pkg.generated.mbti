@@ -1,18 +1,18 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib/scene"
+package "Lampese/mathplotlib/scene"
 
 import {
-  "mathplotlib/mathplotlib/core",
-  "mathplotlib/mathplotlib/core/colors",
-  "mathplotlib/mathplotlib/drawing",
-  "mathplotlib/mathplotlib/scene/axis",
-  "mathplotlib/mathplotlib/scene/boxplot",
-  "mathplotlib/mathplotlib/scene/colorbar",
-  "mathplotlib/mathplotlib/scene/gridspec",
-  "mathplotlib/mathplotlib/ticker",
-  "mathplotlib/mathplotlib/ticker/date",
-  "mathplotlib/mathplotlib/ticker/scale",
-  "mathplotlib/mathplotlib/transforms",
+  "Lampese/mathplotlib/core",
+  "Lampese/mathplotlib/core/colors",
+  "Lampese/mathplotlib/drawing",
+  "Lampese/mathplotlib/scene/axis",
+  "Lampese/mathplotlib/scene/boxplot",
+  "Lampese/mathplotlib/scene/colorbar",
+  "Lampese/mathplotlib/scene/gridspec",
+  "Lampese/mathplotlib/ticker",
+  "Lampese/mathplotlib/ticker/date",
+  "Lampese/mathplotlib/ticker/scale",
+  "Lampese/mathplotlib/transforms",
   "moonbitlang/core/ref",
 }
 

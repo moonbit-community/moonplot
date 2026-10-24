@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib/scene/gridspec"
+package "Lampese/mathplotlib/scene/gridspec"
 
 // Values
 pub fn gridspec(Int, Int, hspace? : Double, vspace? : Double, width_ratios? : Array[Double], height_ratios? : Array[Double]) -> GridSpec raise LayoutError

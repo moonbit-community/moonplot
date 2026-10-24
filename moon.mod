@@ -9,9 +9,9 @@
 //   "moonbitlang/x@0.4.6",
 // }
 
-name = "mathplotlib/mathplotlib"
+name = "Lampese/mathplotlib"
 
-version = "0.2.0"
+version = "0.2.1"
 
 readme = "README.mbt.md"
 
@@ -26,6 +26,7 @@ preferred_target = "wasm"
 description = "A MoonBit plotting library with SVG output."
 
 import {
+  "moonbit-community/rabbita@0.16.7",
   "Milky2018/xml@0.5.0",
   "caijiewei295/tzif-engine@0.1.0",
   "moonbitlang/x@0.4.46",

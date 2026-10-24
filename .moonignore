@@ -9,7 +9,6 @@ target
 __pycache__/
 *.pyc
 AGENTS.md
-adapters/
 tests/
 scripts/
 tools/

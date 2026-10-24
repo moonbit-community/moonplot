@@ -1,8 +1,8 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonbit-community/moonplot-rabbita"
+package "Lampese/mathplotlib/rabbita"
 
 import {
-  "mathplotlib/mathplotlib/drawing",
+  "Lampese/mathplotlib/drawing",
   "moonbit-community/rabbita/cmd",
   "moonbit-community/rabbita/html",
   "moonbitlang/core/debug",

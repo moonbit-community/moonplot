@@ -1,8 +1,8 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib/internal/tick_grid"
+package "Lampese/mathplotlib/internal/tick_grid"
 
 import {
-  "mathplotlib/mathplotlib/core",
+  "Lampese/mathplotlib/core",
 }
 
 // Values

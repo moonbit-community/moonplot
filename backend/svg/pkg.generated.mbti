@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib/backend/svg"
+package "Lampese/mathplotlib/backend/svg"
 
 import {
-  "mathplotlib/mathplotlib/core",
-  "mathplotlib/mathplotlib/drawing",
-  "mathplotlib/mathplotlib/internal/render",
+  "Lampese/mathplotlib/core",
+  "Lampese/mathplotlib/drawing",
+  "Lampese/mathplotlib/internal/render",
 }
 
 // Values

@@ -1,4 +1,4 @@
 import {
-  "mathplotlib/mathplotlib/ticker/date",
-  "mathplotlib/mathplotlib/ticker/date/tzdb",
+  "Lampese/mathplotlib/ticker/date",
+  "Lampese/mathplotlib/ticker/date/tzdb",
 } for "test"

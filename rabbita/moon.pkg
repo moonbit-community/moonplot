@@ -1,5 +1,5 @@
 import {
-  "mathplotlib/mathplotlib/drawing",
+  "Lampese/mathplotlib/drawing",
   "moonbit-community/rabbita",
   "moonbit-community/rabbita/html",
   "moonbit-community/rabbita/svg",
@@ -12,6 +12,6 @@ import {
 supported_targets = "js"
 
 import {
-  "mathplotlib/mathplotlib" @plot,
+  "Lampese/mathplotlib" @plot,
   "moonbitlang/core/ref",
 } for "wbtest"

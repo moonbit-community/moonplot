@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib/internal/date_epoch"
+package "Lampese/mathplotlib/internal/date_epoch"
 
 // Values
 pub fn parse(String) -> Result[Stamp, String]

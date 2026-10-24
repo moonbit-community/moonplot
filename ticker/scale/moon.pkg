@@ -1,4 +1,4 @@
 import {
   "moonbitlang/core/math",
-  "mathplotlib/mathplotlib/core",
+  "Lampese/mathplotlib/core",
 }

@@ -1,8 +1,8 @@
 import {
-  "mathplotlib/mathplotlib/internal/tick_grid",
-  "mathplotlib/mathplotlib/config",
-  "mathplotlib/mathplotlib/internal/date_epoch" @epoch_data,
-  "mathplotlib/mathplotlib/internal/date_host",
+  "Lampese/mathplotlib/internal/tick_grid",
+  "Lampese/mathplotlib/config",
+  "Lampese/mathplotlib/internal/date_epoch" @epoch_data,
+  "Lampese/mathplotlib/internal/date_host",
   "caijiewei295/tzif-engine" @tzif,
   "caijiewei295/tzif-engine/types" @tztypes,
   "caijiewei295/tzif-engine/posix" @tzposix,

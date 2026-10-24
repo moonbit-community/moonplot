@@ -1,8 +1,8 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib/ticker/scale"
+package "Lampese/mathplotlib/ticker/scale"
 
 import {
-  "mathplotlib/mathplotlib/core",
+  "Lampese/mathplotlib/core",
 }
 
 // Values

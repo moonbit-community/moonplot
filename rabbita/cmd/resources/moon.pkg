@@ -1,6 +1,6 @@
 import {
-  "mathplotlib/mathplotlib/drawing",
-  "moonbit-community/moonplot-rabbita" @plot_dom,
+  "Lampese/mathplotlib/drawing",
+  "Lampese/mathplotlib/rabbita" @plot_dom,
   "moonbit-community/rabbita",
   "moonbit-community/rabbita/html",
 }

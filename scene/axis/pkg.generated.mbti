@@ -1,12 +1,12 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib/scene/axis"
+package "Lampese/mathplotlib/scene/axis"
 
 import {
-  "mathplotlib/mathplotlib/core",
-  "mathplotlib/mathplotlib/ticker",
-  "mathplotlib/mathplotlib/ticker/category",
-  "mathplotlib/mathplotlib/ticker/date",
-  "mathplotlib/mathplotlib/ticker/scale",
+  "Lampese/mathplotlib/core",
+  "Lampese/mathplotlib/ticker",
+  "Lampese/mathplotlib/ticker/category",
+  "Lampese/mathplotlib/ticker/date",
+  "Lampese/mathplotlib/ticker/scale",
 }
 
 // Values

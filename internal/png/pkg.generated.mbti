@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib/internal/png"
+package "Lampese/mathplotlib/internal/png"
 
 // Values
 pub fn encode_rgba(Int, Int, BytesView) -> Bytes raise EncodeError

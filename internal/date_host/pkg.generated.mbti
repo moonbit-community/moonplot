@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib/internal/date_host"
+package "Lampese/mathplotlib/internal/date_host"
 
 // Values
 pub fn read_zone_file(String) -> Bytes?

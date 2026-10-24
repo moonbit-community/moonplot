@@ -1,16 +1,16 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib"
+package "Lampese/mathplotlib"
 
 import {
-  "mathplotlib/mathplotlib/core",
-  "mathplotlib/mathplotlib/core/colors",
-  "mathplotlib/mathplotlib/drawing",
-  "mathplotlib/mathplotlib/scene",
-  "mathplotlib/mathplotlib/scene/axis",
-  "mathplotlib/mathplotlib/scene/gridspec",
-  "mathplotlib/mathplotlib/ticker",
-  "mathplotlib/mathplotlib/ticker/category",
-  "mathplotlib/mathplotlib/ticker/scale",
+  "Lampese/mathplotlib/core",
+  "Lampese/mathplotlib/core/colors",
+  "Lampese/mathplotlib/drawing",
+  "Lampese/mathplotlib/scene",
+  "Lampese/mathplotlib/scene/axis",
+  "Lampese/mathplotlib/scene/gridspec",
+  "Lampese/mathplotlib/ticker",
+  "Lampese/mathplotlib/ticker/category",
+  "Lampese/mathplotlib/ticker/scale",
 }
 
 // Values

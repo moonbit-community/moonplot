@@ -1,8 +1,8 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mathplotlib/mathplotlib/config"
+package "Lampese/mathplotlib/config"
 
 import {
-  "mathplotlib/mathplotlib/core",
+  "Lampese/mathplotlib/core",
   "moonbitlang/core/bigint",
   "moonbitlang/core/debug",
 }

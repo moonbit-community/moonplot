@@ -1,7 +1,7 @@
 import {
-  "mathplotlib/mathplotlib/ticker/date",
+  "Lampese/mathplotlib/ticker/date",
 }
 
 import {
-  "mathplotlib/mathplotlib/config",
+  "Lampese/mathplotlib/config",
 } for "test"

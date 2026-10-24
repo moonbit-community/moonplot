@@ -1,24 +1,24 @@
 import {
   "Milky2018/xml",
-  "mathplotlib/mathplotlib/core",
-  "mathplotlib/mathplotlib/core/colors",
-  "mathplotlib/mathplotlib/drawing",
-  "mathplotlib/mathplotlib/scene/axis",
-  "mathplotlib/mathplotlib/scene/boxplot",
-  "mathplotlib/mathplotlib/scene/colorbar",
-  "mathplotlib/mathplotlib/internal/render",
-  "mathplotlib/mathplotlib/internal/png",
-  "mathplotlib/mathplotlib/ticker/scale" @ticker_scale,
-  "mathplotlib/mathplotlib/ticker",
+  "Lampese/mathplotlib/core",
+  "Lampese/mathplotlib/core/colors",
+  "Lampese/mathplotlib/drawing",
+  "Lampese/mathplotlib/scene/axis",
+  "Lampese/mathplotlib/scene/boxplot",
+  "Lampese/mathplotlib/scene/colorbar",
+  "Lampese/mathplotlib/internal/render",
+  "Lampese/mathplotlib/internal/png",
+  "Lampese/mathplotlib/ticker/scale" @ticker_scale,
+  "Lampese/mathplotlib/ticker",
   "moonbitlang/core/buffer",
   "moonbitlang/core/math",
 }
 
 import {
-  "mathplotlib/mathplotlib/scene/axis",
+  "Lampese/mathplotlib/scene/axis",
 } for "test"
 
 import {
-  "mathplotlib/mathplotlib/ticker",
-  "mathplotlib/mathplotlib/config",
+  "Lampese/mathplotlib/ticker",
+  "Lampese/mathplotlib/config",
 } for "wbtest"

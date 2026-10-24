@@ -6,20 +6,21 @@ const http = require('node:http');
 const path = require('node:path');
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 
-const root = __dirname;
+// The optional Rabbita package shares the parent module's build directory.
+const root = path.resolve(__dirname, '..');
 const output = path.resolve(process.env.MOONPLOT_BROWSER_OUTPUT ||
-  path.join(root, '../../.moonagent/checkpoints/G2-browser-acceptance'));
+  path.join(root, '.moonagent/checkpoints/Mooncakes-0.2.1/browser-main'));
 const checks = [];
 
 async function main() {
   await fs.mkdir(output, { recursive: true });
-  await fs.access(path.join(root, '_build/js/debug/build/moonbit-community/moonplot-rabbita/cmd/demo/demo.js'));
+  await fs.access(path.join(root, '_build/js/debug/build/rabbita/cmd/demo/demo.js'));
   const server = http.createServer(async (req, res) => {
     try {
       const url = new URL(req.url, 'http://127.0.0.1');
       if (url.pathname === '/favicon.ico') { res.writeHead(204); res.end(); return; }
       const filename = path.resolve(root, '.' + decodeURIComponent(
-        url.pathname === '/' ? '/index.html' : url.pathname));
+        url.pathname.endsWith('/') ? url.pathname + 'index.html' : url.pathname));
       if (!filename.startsWith(root + path.sep)) {
         res.writeHead(403); res.end(); return;
       }
@@ -40,7 +41,7 @@ async function main() {
     page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
     page.on('pageerror', error => errors.push(String(error)));
     page.on('console', msg => { if (msg.type() === 'error') errors.push(msg.text()); });
-    await page.goto(`http://127.0.0.1:${server.address().port}/`, { waitUntil: 'networkidle' });
+    await page.goto(`http://127.0.0.1:${server.address().port}/rabbita/`, { waitUntil: 'networkidle' });
     await page.waitForSelector('#chart-a-svg', { timeout: 15000 });
     assert.equal(await page.locator('#plot-error').count(), 0);
     assert.equal(await page.locator('[data-moonplot-root]').count(), 2);

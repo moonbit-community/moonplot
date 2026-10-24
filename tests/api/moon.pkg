@@ -1,3 +1,3 @@
 import {
-  "mathplotlib/mathplotlib",
+  "Lampese/mathplotlib",
 } for "test"

@@ -1,4 +1,4 @@
 import {
-  "mathplotlib/mathplotlib/ticker/date",
-  "mathplotlib/mathplotlib/config",
+  "Lampese/mathplotlib/ticker/date",
+  "Lampese/mathplotlib/config",
 } for "test"
