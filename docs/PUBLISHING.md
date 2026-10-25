@@ -1,7 +1,7 @@
 # 安装与发布
 
-本轮目标模块为 **`Lampese/mathplotlib@0.7.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
-0.7.0 正在进行最终验收与发布；已发布版本为 0.6.0，实际发布结果以本页后续记录与公开 registry 为准。
+当前分发模块为 **`Lampese/mathplotlib@0.7.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
+0.7.0 已实际发布 Mooncakes 与 GitHub，公开构建成功、包可用且未撤回。
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
 
@@ -9,7 +9,7 @@
 0.6.0 接续[矩形网格与二维计数交互](MESH_INTERACTION.md)，新示例为 `rabbita/grids.html`。
 0.7.0 接续[六边形分箱](HEXBIN_INTERACTION.md)与[小提琴分布](VIOLIN_INTERACTION.md)，
 同时修正旧 hexbin 分桶与轮廓错位；新示例为 `rabbita/distributions.html`。
-下方安装命令对应本轮目标 0.7.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
+下方安装命令对应 0.7.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
 查看 registry 版本。维护者使用 `tools/verify_registry.py` 从全新、无 `moon.work` 的应用
 安装并验证静态四目标和真实浏览器交互。
 GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0)
@@ -165,3 +165,17 @@ PLAYWRIGHT_MODULE=/path/to/node_modules/playwright \
 工具需要 Playwright 和已安装的 Google Chrome（或 `BROWSER_CHANNEL=bundled`）。
 它分别建立纯静态和浏览器消费者，真实安装 registry 包，核对源文件并运行应用；
 不会用本地库 workspace 替代 registry。测试临时 HTTP 与浏览器均会关闭。
+
+## 0.7.0 分布图发布验收
+
+2026-10-25 已实际发布 `Lampese/mathplotlib@0.7.0`，服务端200 OK，公开构建成功且包可安装。
+正式源码提交 `f5b55cda898e359cc839109c19044d73131e59b5`；[GitHub v0.7.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.7.0)
+的模块ZIP、独立源码应用ZIP、manifest和SHA256SUMS均已完整回下载，逐字、远端摘要/大小与tag提交核对通过。
+
+- 全套：Wasm/Wasm-GC/Native各22452/22452，JS22489/22489；新分布图Chrome13项与既有四例53项通过，均0页面错误。
+- clean正式包在仓库外通过静态四目标与Chrome17项；实际registry全新应用同样通过，543份安装源文件与正式模块ZIP逐一相同。
+- 模块ZIP：1980179 bytes，SHA256 `920a2a33c74f2797879ac295e76ccffd9289bb02af8bca6511d2afd6361fc2db`。
+- 独立源码ZIP：2005511 bytes，SHA256 `3b83615a8969d2ae7c8afb93465ae68a49d800af79c6f6461333274ddb210e7e`。
+
+[六角格](HEXBIN_INTERACTION.md)修正了旧真实分箱错误，中心、计数、聚合组与SVG会必要变化；
+[小提琴](VIOLIN_INTERACTION.md)的KDE采样与各统计部位有独立身份。静态入口签名保留，穷尽匹配HitKind需处理新增分支。
