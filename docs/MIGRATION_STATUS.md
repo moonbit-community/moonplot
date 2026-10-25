@@ -9,9 +9,9 @@
 - 已授权合理复用、独立subagents、小步verified local commits/push至moonbit-community/moonplot；2026-10-24明确授权实际Mooncakes发布，前缀Lampese/，统一Lampese/mathplotlib module。
 - 根facade api.mbt；consumer tests/api，global tests/integration，owning implementation/wbtests；维护mbt<2000行，结构检查必跑。
 
-## 当前切片：M11 Contour（独立实现中，尚未验收）
+## 当前切片：M11 Contour（源码验收通过，正式交付准备）
 
-- 范围[M11](MILESTONE_M11.md)，目标0.12.0；Root/consumer仍正式0.11.0，新语义尚未合Root/验收/发布。
+- 范围[M11](MILESTONE_M11.md)，目标0.12.0；Root/consumer已置0.12.0开发候选；正式registry仍0.11.0。首核心4717ae9已审合为Root7f9c8f0，新语义尚未完成验收/发布。
 - 从正式0.11源0177b0cd77cc3cb05f108a2af49f561e3a0fd036继续，仅regular contour、tricontour及委托wrapper；filled多环/孔洞独立后片，不扩完整API或重开19图调查。
 - 仅新HitKind::Contour，value精确resolved level/callseries；其他cell/vector/band/error/fraction不填，不新增ContourInfo。
 - point_index原ContourSet.segments生成path槽，inline两片保留；artist_index实际当前fragment。dataXY实际emitted valid-run边clip前安全midpoint，screenXY可见clip中点；不是grid/input观察或指针插值。
@@ -21,12 +21,15 @@
 - 额外仅修两线API无path串改前series，保静态legend/颜色/空Container；不扩大filled行为。
 - Root .moonagent/checkpoints/M11-contour/active-scope.md为已明确生产合同，producer-design/{design,handoff,source-manifest}已复制。固定合同可行，技术注意为inline原几何擦线范围和cursor线性。
 - m3_donut已从精确0177在own managed worktree建codex/m11-contour生产，拥有core/IR/Scene/backend/Drawing/tooltip/own tests和CONTOUR_INTERACTION.md；不得Root tracked写/版本/中央docs/consumer/UI/全库/push/publish/新agent。先Native与coherent小SHA让UI/review并行，再有限四target/adapter/info/fmt/结构。
-  最新coherent提交4717ae9已交（基于0177，18文件，公开仅Contour kind）；首Native6/6，all-target check77tasks/0errors，真实info/fmt/结构/diff过。尚未Root合并/四目标/adapter/旧SVG完整验收；producer继续bounded guards/paint/lifecycle/guide及0177同target旧SVG，无生产变化另报。
-- m4_area只读独立准备，own ignored immutable0177旧SVG/公开consumer/oracle；尚未授权新语义复审，待coherent SHA。保留M10最终packet，不重跑旧M10/M9。
-- m3_browser五文件ignored草稿已freeze：draft/HANDOFF.md、draft-validation.json；main543行、runner309行，14组计划。Standalone Moonfmt/Node语法/ignore过，无M11编译/Chrome/mbti/PNG/tracked部署；等真实core与Root明确七文件部署授权。
+  最新coherent提交4717ae9已交（基于0177，18文件，公开仅Contour kind）；首Native6/6，all-target check77tasks/0errors，真实info/fmt/结构/diff过。Root7f9c8f0已审合；56348 terminal0、六公开fixture×四目标共24 SVG与精确0177逐字且Drawing/static一致。producer继续bounded guards/paint/lifecycle/guide及必要四目标/adapter：最新Native15＋geometry/facade6共21专项过，覆盖4096边、NaN/Inf/Log、prepared mismatch、paint/反轴clip/CSS/multi-panel/closedloop/safe midpoint。1e308的默认locator InvalidTicks已在0177/current双实证同旧行为，fixed ticks两边同SVG且新中点finite，无locator改动。最终b71cc1c已Root审合为304d3f8：限定Native199/199、W/WG/JS各198/198、adapter44/44；实际info/fmt/结构/diff过。唯一生产delta为BarbIntent改priv及scene mbti去未用opaque，无Contour行为变化。指南CONTOUR_INTERACTION.md和七专项已合入。
+- m4_area独立复审已明确授权精确4717，own ignored immutable0177旧SVG/公开consumer/actualXML oracle；旧基线Native97718 terminal0八fixture已冻结，现Native/JS各11public＋4白盒均过，actualXML16/同target旧SVG16与34Contour targets匹配，最大误差1.1368683772161603e-13，无blocker，无live；最终packet待收sourcehash。保留M10最终packet，不重跑旧M10/M9。
+- m3_browser从五文件ignored草稿按精确4717完成七文件真实部署；拥有UI而不改core/版本/consumer/中央docs/其他UI，不full/commit/publish。详见下方实测结果。
 - 旧只读c9六小公开Native23053 terminal0、六SVG/返回paths/levels/artist顺序已存browser-design/：regular4path/18generic Points、仅末7点series Field/value为几何Y；inline7片series全空；tri仅末path有label；filled evenodd双环0targets。这些只是旧行为，不算新交互通过。
-- 精确下一动作：Root提交M10真实交付/当前M11文档检查点→审合4717ae9→明确授权UI真实部署与独立精确SHA新语义复审；Root公开consumer/组合并行→最后一次中央全套/真实交付。不得把首6Native当全部验收；继续复用定点资料，不重调查。
-- Root无测试/发布/下载live；M10 release-live.json已complete，tracked freeze已在完整网络审计后解除。唯一有意预览8765/session43005/PID70622。
+- [x] UI真实七文件已freeze：isolated95259/info/Chrome49823 terminal0，14/14、0errors；31实际整数事件、21边最大.971035CSSpx≤2、真实inline gap4.91008px拒绝；11typedframes与实际SVG/返回path/midpoint一致。真实1280×1015 PNG83701bytes/SHA ddf502eb9151f7d95287e0a494b119e2e00bb661991f5298c5d35ab4b8dcefb4已Root目视。证据draft/FINAL_HANDOFF.md和browser/final-evidence.json。
+- [x] Root新publicconsumer Native85615与JS app build71283 terminal0；Chrome80341 terminal0/36项/0errors，四实际contourevents≤.0583CSSpx，默认/自定level、两inline片与tri clip/空白/375px通过；Area前后两mode遮挡行为Native过。最初自己的range/未导出constructor编译错误已修consumer并留原log，非core故障。actual app/static package-info、fmt过且mbti逐字未变。证据public-summary.json。
+- m3_browser和m3_donut已转有限只读M12-contourf-prep（两个旧fixture/真实复合Path/孔洞设计），不生产/不改Roottracked/不重开全图调查；M11七文件保持freeze。
+- 精确下一动作：producer最终27owner文件含16production/3interfaces与Root逐一SHA相同，证据producer-final/root-match.json；接收独立精确4717全部通过（public Native51301/JS57106各11组、16actualXML/16同target旧SVG、每target34Contour targets；Native48652/JS98320各4白盒、1536边和private identity/provenance/inline/image/remove/clear无blocker，均terminal0）→正式源码提交/push→clean包/实际发布和下载闭环；已过中央full与12Chrome不重复。不得把首6Native当全部验收；继续复用定点资料，不重调查。
+- Root中央37734 terminal0：info/fmt/12JS、full268.44s（W/WG22564、JS22615、Native22566）、12Chrome148项/0errors、静态三SVG与preview/gallery逐字、docs/结构/diff全过；无意外mbti。证据central-summary.json和final-validation-progress.json。Root无测试/发布/下载live；UI e3901c3和public consumer/0.12候选925d742已commit。M10 release-live.json已complete，tracked freeze已在完整网络审计后解除。唯一有意预览8765/session43005/PID70622。
 
 ## 最新交付：M10 / 0.11.0（2026-10-25）
 

@@ -72,6 +72,14 @@ actual line runs, triangular flag paint and filled calm circles. Geometry stays
 in the existing writers. Each component checks only its own points, so metadata
 storage and validation remain O(N+P) for N inputs and P expanded components.
 
+Line-contour lineage is owned by `scene/contour_hit.mbt` and
+`internal/render/contour_hit.mbt`. Each generated path shares its call label,
+exact level and original path slot; inline fragments retain their own lineage.
+`backend/svg/contour_hit.mbt` captures the actual writer's finite line runs and
+clips only the visible anchor. Fragment snapshots are checked once, edge capture
+is constant work, and a linear preparation cursor preserves other artist
+ownership after inline expansion. No grid is copied per fragment or edge.
+
 ## Generated data and reference tests
 
 `internal/color_names` owns the complete pinned named-color table. Its three

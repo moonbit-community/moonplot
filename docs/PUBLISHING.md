@@ -1,7 +1,7 @@
 # 安装与发布
 
-当前分发模块为 **`Lampese/mathplotlib@0.11.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
-0.11.0已实际发布Mooncakes与GitHub，公开构建成功且未撤回；全新安装573份源文件、静态四目标/Chrome32与四附件完整下载均核验通过。
+当前源码准备 **`Lampese/mathplotlib@0.12.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
+0.12.0源码验收已通过，正在正式交付，正式clean包、Mooncakes与GitHub尚待本轮交付；当前已实际发布的registry版本为0.11.0。下面的0.12.0命令面向本轮发布包；发布前可使用源码workspace验证。
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
 
@@ -10,7 +10,7 @@
 0.7.0 接续[六边形分箱](HEXBIN_INTERACTION.md)与[小提琴分布](VIOLIN_INTERACTION.md)，
 同时修正旧 hexbin 分桶与轮廓错位；新示例为 `rabbita/distributions.html`。
 0.8.0 接续[Step](STEP_INTERACTION.md)、[Stairs](STAIRS_INTERACTION.md)与[ECDF](ECDF_INTERACTION.md)的原采样、区间及概率提示，
-新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。0.10.0接续[Quiver原位置与U/V分量](QUIVER_INTERACTION.md)，新示例为 `rabbita/vectors.html`。0.11.0接续[风羽原位置、U/V、旗面及静风圆](BARBS_INTERACTION.md)，新示例为 `rabbita/barbs.html`。下方安装命令对应0.11.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
+新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。0.10.0接续[Quiver原位置与U/V分量](QUIVER_INTERACTION.md)，新示例为 `rabbita/vectors.html`。0.11.0接续[风羽原位置、U/V、旗面及静风圆](BARBS_INTERACTION.md)，新示例为 `rabbita/barbs.html`。0.12.0接续[线等值线精确级别与inline标签](CONTOUR_INTERACTION.md)，新示例为 `rabbita/contours.html`。下方安装命令对应0.12.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
 查看 registry 版本。维护者使用 `tools/verify_registry.py` 从全新、无 `moon.work` 的应用
 安装并验证静态四目标和真实浏览器交互。
 GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0)
@@ -21,7 +21,7 @@ GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.
 在应用的模块目录运行：
 
 ```sh
-moon add Lampese/mathplotlib@0.11.0
+moon add Lampese/mathplotlib@0.12.0
 ```
 
 静态出图只需在对应 executable 的 `moon.pkg` 导入根包：
@@ -126,7 +126,7 @@ Mooncakes 安装路线只依赖 registry，不需要这个 workspace。
 | `moonbit-community/moonplot-rabbita` | `Lampese/mathplotlib/rabbita`，建议别名 `@plot_dom` |
 | 仓库 `adapters/rabbita/` | 仓库 `rabbita/` |
 
-更新应用的 `moon.mod`，移除两个旧模块依赖，改为单个 `Lampese/mathplotlib@0.11.0`；
+更新应用的 `moon.mod`，移除两个旧模块依赖，改为单个 `Lampese/mathplotlib@0.12.0`；
 同步更新 `moon.pkg` 的包前缀。根包默认 alias 仍是 `@mathplotlib`，已有绘图方法调用无需改名。
 浏览器组件显式写 `"Lampese/mathplotlib/rabbita" @plot_dom`，避免与 Rabbita 本身的 alias 冲突。
 移除仅为两个旧模块建立的 workspace 条目；自己的其他 workspace 成员照常保留。
@@ -245,3 +245,12 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 - 独立源码ZIP2386461bytes，SHA256 `ab9188c5c881f8c46f4176de83342c904067a289631328750ed44d08087ecc9d`。
 
 正式builder至实际网络闭环Root HEAD保持0177且gitclean，无tracked写入或commit；dirty演练未上传。
+
+## 0.12.0 线等值线发布验收
+
+规则网格与三角网格等值线提供精确level、call series及原生成path槽，默认inline拆线两片保留归属。数据坐标表示clip前实际生成边的安全中点，屏幕坐标表示可见片段中点；两个hit mode均要求真实线段邻近。原签名、返回paths、Container与静态SVG保持；filled多环/孔洞留给下一片。详见[等值线交互](CONTOUR_INTERACTION.md)。
+
+- producer限定Native199、其余三目标各198、Rabbita44通过，24份同target旧SVG与正式0177逐字相同。
+- 首核心4717已合Root7f9c8f0；最终b71cc1c已合304d3f8，27owner文件（16production/3interfaces）逐一SHA一致。除BarbIntent私有类型可见性外，Contour生产自首核心未变。
+- 真实双卡Chrome14项、0errors；31整数事件验证inline gap、mask、替换、独立图例、重挂载、CSS/letterbox及375px。外部public consumer Native/JS与Chrome36项、0errors通过。
+- 中央W/WG22564、Native22566、JS22615与12页面Chrome148项/0errors全部通过；真实info/fmt/静态三SVG/docs/结构/diff过，无意外mbti。独立Native/JS各11公开组与4白盒、16实际XML与16旧SVG通过且无blocker。正式clean/registry/GitHub附件交付仍在进行，本段不将源码验收当作实际发布。

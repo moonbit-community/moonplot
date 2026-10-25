@@ -212,7 +212,9 @@ and intrinsic SVG coordinates. ECDF indices refer to the returned distribution
 slots; other exact identities are described in each chart guide. Picking covers
 point anchors, bar and histogram regions, pie/donut sectors, matrix cells, error
 and area geometry, boxplot parts, hexagonal faces, violin parts, discrete strokes,
-stems, quiver arrows and wind barbs. Lines can also snap by X; segment interpolation is not provided;
+stems, quiver arrows, wind barbs and line contours. Contour indices identify
+generated paths and values identify exact levels; their coordinates describe
+generated-edge midpoints. Lines can also snap by X; segment interpolation is not provided;
 indices belong to the current frame, not persistent identities across reordering.
 
 The SVG uses responsive width and `xMidYMid meet`. Picking uses client coordinates,
@@ -231,6 +233,12 @@ The [wind example](http://127.0.0.1:8765/rabbita/barbs.html) is built with
 strokes, filled flags and calm disks with the original input position and U/V.
 The [Barbs guide](../docs/BARBS_INTERACTION.md) explains pivot, rounding and
 physical-only picking in both hit modes.
+
+The [contour example](http://127.0.0.1:8765/rabbita/contours.html) is built with
+`moon build rabbita/cmd/contours --target js`. The two cards cover regular and
+triangular grids, inline labels, masks, exact levels, independent legends and
+replacement data. The [contour guide](../docs/CONTOUR_INTERACTION.md) describes
+path slots and the difference between generated data and clipped screen anchors.
 
 ## Develop and verify
 

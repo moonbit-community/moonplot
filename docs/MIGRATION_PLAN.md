@@ -122,4 +122,4 @@ violin真实密度体与统计线。两者复用既有统计和绘制，不在�
 ## M11：线等值线的级别提示
 
 [M11](MILESTONE_M11.md)接续regular contour与tricontour真实线段的精确level/series，保留原生成path槽及默认inline标签拆线后的对应关系。坐标表示生成边的几何中点，不冒充原网格观测；filled多环/孔洞独立后片。
-目标0.12.0，已从正式0.11源0177b0c授权独立生产；Root继续保持正式0.11.0，尚无M11验收或发布。
+0.12.0源码验收已通过：四目标全套、12页面Chrome148项与独立Native/JS几何和生命周期复审全部通过；当前准备正式clean包/Mooncakes/registry/GitHub交付，尚未声称实际发布。

@@ -6,7 +6,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 
 **当前状态：M1至M10已验收交付，覆盖常用二维、统计区间、网格计数、分布、离散曲线、Stem、Quiver及Barbs交互。**
 [M10 Barbs](MILESTONE_M10.md)0.11.0已实际发布Mooncakes与GitHub：573安装源逐一匹配、四目标静态/Chrome32与四附件完整下载通过。风羽实际分部提供原输入位置/U/V提示；空数据名称串改、高级计数溢出和底层身份替换回退已修复并独立复审。
-中央W/WG各22543、Native22545、JS22592与11页面Chrome134项/0errors通过。下一片[M11线等值线](MILESTONE_M11.md)补精确级别与inline拆线后的语义，当前独立实现中，尚未验收。
+中央W/WG各22543、Native22545、JS22592与11页面Chrome134项/0errors通过。下一片[M11线等值线](MILESTONE_M11.md)补精确级别与inline拆线后的语义，核心、真实DOM、中央四目标全套与独立复审已过；12页面Chrome148项/0errors，0.12.0正式交付准备中。
 历史 M1 四目标353/353见 [M1 记录](MILESTONE_M1.md)，初批 DOM 见[DOM 记录](RABBITA_DOM.md)。
 
 **M2 v0.2.0** 补齐多图 SVG 资源隔离和独立接入版本包，详见 [M2 历史记录](MILESTONE_M2.md)。
@@ -36,6 +36,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 | 杆线图 | 竖向/横向stem | 实际杆段与默认圆头保留原head值、原索引、非零起点和正负方向；全局baseline静态 |
 | 向量箭头 | quiver原始位置与U/V分量 | 实际shaft及双wing命中，zero保留原索引洞，clip保留原tail；通用value明确为V，不计算magnitude |
 | 风羽图 | barbs与barbs_with_options的原输入位置/U/V | 实际羽枝Segment、旗面与三条描边、完整静风disk；pivot不改原始输入位置，value为原V。边界见M10 |
+| 线等值线（0.12开发候选） | regular contour与tricontour精确level/series | 实际生成边Segment，原path槽、inline双片、clip前数据中点与可见屏幕中点；两mode物理命中，见[M11](MILESTONE_M11.md)，源码验收通过、正式交付中 |
 | 图像与网格 | 标量图、RGB(A) 图像、热图、颜色映射和归一化 | 包含掩码、图像方向及部分插值路径 |
 | 科学绘图 | 误差线、填充区域、等值线、三角网格、向量场、流线 | 已有专项实现，复杂组合仍需按场景确认 |
 | 坐标轴 | 数值范围、刻度与格式器、线性及多种非线性尺度 | 包含显式设置和自动计算路径 |
