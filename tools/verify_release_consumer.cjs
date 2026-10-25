@@ -34,6 +34,7 @@ async function main() {
   let listening = false;
   const checks = [];
   const vectorEvents = [];
+  const barbEvents = [];
   const errors = [];
   try {
     await new Promise((resolve, reject) => {
@@ -380,6 +381,101 @@ async function main() {
     await checkVectorPart(3, 'Vector 2: U=-2; V=-4', 6, 6, -4);
     checks.push('Installed negative quiver components retain the original input index after a zero-vector gap and value means V');
 
+    async function barbPrimitive(id, kind, index) {
+      await page.locator(`#${id}`).scrollIntoViewIfNeeded();
+      return page.locator(`#${id}`).evaluate((svg, { kind, index }) => {
+        const screen = (node, x, y) => {
+          const p = new DOMPoint(x, y).matrixTransform(node.getScreenCTM());
+          return { x: p.x, y: p.y };
+        };
+        const distance = (p, a, b) => {
+          const dx = b.x - a.x, dy = b.y - a.y;
+          const t = Math.max(0, Math.min(1, ((p.x-a.x)*dx+(p.y-a.y)*dy)/(dx*dx+dy*dy)));
+          return Math.hypot(p.x-a.x-t*dx, p.y-a.y-t*dy);
+        };
+        const lines = [...svg.querySelectorAll('polyline[stroke="#9a6c3d"]')]
+          .map(node => [...node.points].map(p => screen(node, p.x, p.y)));
+        let points, circle, actual;
+        if (kind === 'line') {
+          points = lines[index];
+          if (!points || points.length !== 2) throw Error('Missing actual barb segment');
+          actual = { points };
+        } else if (kind === 'flag') {
+          const node = svg.querySelectorAll('polygon[fill="#5d7485"]')[index];
+          if (!node) throw Error('Missing actual filled flag');
+          points = [...node.points].map(p => screen(node, p.x, p.y));
+          if (points.length !== 3 || Number(node.getAttribute('stroke-width')) !== 0)
+            throw Error('Expected actual triangular flag with zero stroke width');
+          actual = { points, strokeWidth: 0 };
+        } else {
+          const node = svg.querySelectorAll('circle[fill="#5d7485"]')[index];
+          if (!node) throw Error('Missing actual calm disk');
+          const cx=Number(node.getAttribute('cx')), cy=Number(node.getAttribute('cy')), r=Number(node.getAttribute('r'));
+          const center=screen(node,cx,cy), edge=screen(node,cx+r,cy);
+          circle={ center, radius:Math.hypot(edge.x-center.x,edge.y-center.y), local:{cx,cy,r} };
+          actual={circle};
+          points=[{x:center.x-circle.radius,y:center.y-circle.radius},{x:center.x+circle.radius,y:center.y+circle.radius}];
+        }
+        const minX=Math.floor(Math.min(...points.map(p=>p.x))), maxX=Math.ceil(Math.max(...points.map(p=>p.x)));
+        const minY=Math.floor(Math.min(...points.map(p=>p.y))), maxY=Math.ceil(Math.max(...points.map(p=>p.y)));
+        const candidates=[];
+        for(let x=minX;x<=maxX;x++) for(let y=minY;y<=maxY;y++) {
+          if(x<=0||x>=innerWidth||y<=0||y>=innerHeight) continue;
+          const p={x,y};
+          if(kind==='line') {
+            const own=distance(p,...points), others=Math.min(...lines.filter((_,i)=>i!==index).map(s=>distance(p,...s)));
+            if(own<.8&&others>1.2) candidates.push({x,y,ownDistance:own,otherDistance:others,rank:-own});
+          } else if(kind==='flag') {
+            const crosses=points.map((a,i)=>{const b=points[(i+1)%3];return(b.x-a.x)*(y-a.y)-(b.y-a.y)*(x-a.x);});
+            const clearance=Math.min(...points.map((a,i)=>distance(p,a,points[(i+1)%3])));
+            if((crosses.every(v=>v>0)||crosses.every(v=>v<0))&&clearance>1.2)
+              candidates.push({x,y,edgeClearance:clearance,rank:clearance});
+          } else {
+            const d=Math.hypot(x-circle.center.x,y-circle.center.y);
+            if(d>1.2&&d<circle.radius*.9) candidates.push({x,y,distanceFromCenter:d,rank:d});
+          }
+        }
+        candidates.sort((a,b)=>b.rank-a.rank);
+        if(!candidates.length) throw Error(`No integer MouseEvent isolates actual ${kind} ${index}`);
+        svg.addEventListener('mousemove',event=>{
+          window.__releaseBarbEvent={clientX:event.clientX,clientY:event.clientY};
+        },{once:true});
+        return {...candidates[0],actual};
+      },{kind,index});
+    }
+    async function checkBarb(id, kind, index, expected) {
+      await page.mouse.move(5,5);
+      const p=await barbPrimitive(id,kind,index);
+      await page.mouse.move(p.x,p.y);
+      const testid=id==='release-barbs-svg'?'consumer-barbs-tooltip':'consumer-barb-symbols-tooltip';
+      await page.waitForFunction(({testid,text})=>document.querySelector(`[data-testid="${testid}"]`)?.textContent===text,{testid,text:expected.text});
+      const actualEvent=await page.evaluate(()=>window.__releaseBarbEvent);
+      assert.deepEqual(actualEvent,{clientX:p.x,clientY:p.y});
+      const tip=page.locator(`[data-testid="${testid}"]`);
+      assert.equal(await tip.getAttribute('data-barbs'),'true');
+      for(const [key,value] of Object.entries(expected.attrs)) assert.equal(await tip.getAttribute(`data-${key}`),String(value));
+      barbEvents.push({id,kind,index,...p,actualEvent,expected});
+    }
+    for(const index of [0,1,2,3]) await checkBarb('release-barbs-svg','line',index,{
+      text:'Wind 0: U=3; V=3',attrs:{'source-x':1,'source-y':1,value:3,artist:index}
+    });
+    checks.push('Installed basic barbs expose the original updated U/V on the real shaft and all three feathers with distinct artist identities');
+    await checkBarb('release-barbs-svg','line',4,{
+      text:'Wind 2: U=-2; V=-4',attrs:{'source-x':6,'source-y':6,value:-4,artist:4}
+    });
+    checks.push('Installed negative wind barbs preserve their original index after an omitted zero vector');
+    await checkBarb('release-barb-symbols-svg','flag',0,{
+      text:'Wind symbols 0: U=6.5; V=0',attrs:{'source-x':5,'source-y':3,value:0,artist:1}
+    });
+    checks.push('Installed zero-width flag fill returns original pivot-before input/U/V well inside the actual triangular face');
+    await checkBarb('release-barb-symbols-svg','circle',0,{
+      text:'Wind symbols 2: U=0.1; V=0.2',attrs:{'source-x':10,'source-y':2,value:.2,artist:8}
+    });
+    await checkBarb('release-barb-symbols-svg','circle',1,{
+      text:'Wind symbols 3: U=0; V=0',attrs:{'source-x':3,'source-y':11,value:0,artist:9}
+    });
+    checks.push('Installed full calm disks select beyond point proximity and retain nonzero rounded components and exact-zero input independently');
+
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);
@@ -392,7 +488,7 @@ async function main() {
     await page.setViewportSize({ width: 1100, height: 850 });
     await page.screenshot({ path: path.join(output, 'consumer.png'), fullPage: true });
     assert.deepEqual(errors, []);
-    const report = { bundle: root, browser: browser.version(), checks, vectorEvents, pageErrors: errors };
+    const report = { bundle: root, browser: browser.version(), checks, vectorEvents, barbEvents, pageErrors: errors };
     await fs.writeFile(path.join(output, 'report.json'), JSON.stringify(report, null, 2) + '\n');
     console.log(JSON.stringify(report, null, 2));
   } catch (error) {

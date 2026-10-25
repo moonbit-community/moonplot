@@ -12,7 +12,7 @@
 
 ## 当前切片：M10 Barbs（已明确授权独立生产，尚未验收）
 
-- 范围[M10](MILESTONE_M10.md)，目标0.11.0；当前Root/consumer仍正式0.10.0；两个修复已实现并合入，Barbs语义交互仍在实现，未验收/发布M10。
+- 范围[M10](MILESTONE_M10.md)，候选Root/consumer已改0.11.0；最新正式发布仍0.10.0。两个修复与核心语义已合入，独立复审发现identity miss需窄修，未完整验收/发布M10。
 - 仅Barbs两旧API，不扩Streamplot/一般样式；保留签名、Unit、多component顺序、无Container、按i校验并push/后项错误保留有效前缀。
 - HitKind::Barbs，复用VectorInfo U/V，value原V、原i、原pivot前input x/y和call label；middle/tip不能把输入都叫tail。
 - 实际Line仅非零valid-run Segment；真实Flag填面用Quad(a,b,c,c)，可见stroke三edges；calm用实际filled disk全Sector，无新Shape/Part/magnitude。两mode只physical，无XNearest fallback或伪端点。
@@ -31,8 +31,15 @@
 - [x] Root独立git archive正式c9并运行五公开fixture89973 terminal0：basic/反轴各8artists/8polyline，advanced各9artists/5polyline+2polygon+2circle，empty-label控制；原SVG及计数存baseline-consumer-report.json。旧generic targets不算Barbs通过。
 - [x] m4_area旧基线98036 terminal0/13项，8份实际XML组件几何及5控制，保存10SVG；21生产源SHA和oracle/fixtures已复制到Root baseline-review/。最大几何差5.684341886080802e-14px；仅冻结正式c9旧行为，等待精确语义SHA复审，无live。
 - [x] m3_browser ignored draft/HANDOFF已收，main465/runner305行，basic/options双卡及12组真实DOM计划；moonfmt/Node语法/ignore检查通过。尚无tracked部署/编译/Chrome/截图/生成mbti，等待Root明确授权。
-- 精确下一动作：提交/推送上述verified修复与检查点 → Root准备ignored公开static/app/browser和组合fixture；producer完成共享carrier及实际Segment/flag/disk语义 → coherent SHA合入 → 明确授权独立精确source复审与UI实际部署 → 中央一次全套/实际0.11发布。不得重跑已闭环M9或重新调查19图种。
-- Root无测试/发布/下载live；唯一有意预览8765/session43005/PID70622。producer仍实现；reviewer已冻结旧基线，UI已交ignored草稿等待；当前无Barbs语义验收结果。
+- [x] cd0319d已cherry为48f8cb4：共享BarbHitData+常数view、原i/input-before-pivot/U-V/calllabel，实际Segment/Quad+3edges/fullSector；公开仅追加HitKind::Barbs。Native84705 terminal0/14项、8Native旧SVG逐字，all-target carrier107/capture32 check0error，实际info/fmt/结构/diff过。
+- [x] Root公开Native50470 terminal0：basic/反轴各8Segment，advanced15或width0仅4填面目标，旗面/空bbox角/圆内偏心radius0、原数据副本及两physicalmode通过；五SVG与正式c9逐字。首probe main漏raise只编译失败，已留日志并修probe，无生产改动。
+- [x] Root外部dirty包32443 terminal0：四目标static与Chrome32/0errors，8实际Barbs整数事件精确等于请求；shaft/三羽枝/负值洞、零描边旗面深内点、rounded非零与exact-zero disk内部均过。仅rehearsal，未上传，正式clean包待最后。
+- [x] Root三组合19355 terminal0，四目标各3/3：flag/Area、calm/Hex paint order及普通Line真实sample/现有XNearest physical优先。前两轮新测试错误预设Line中段采样与XNearest全paintorder，已保留失败日志并只修测试，不改通用命中策略。
+- [x] UI七文件已实际部署并freeze：build28249/info/Chrome62943 terminal0，12/12、0errors；46真实整数hit、28segment最大1.3354CSSpx≤radius2，flag深内点每edge至少5.4422px，disk离center3.0584px>radius2且<实际半径3.4393px。
+  Root已view_image目视desktop/mobile；asset1280×1015/78865bytes/SHA303cb378d6959c6218bbe4b092d16e4bd496ab835fd10c8edc82403b29852c48；isolated JS4507611bytes/SHAbea988882813e533745f0d00bf40b585246f0263d344b689d0a6760167e21495。七SHA及真实compiler mbti见draft/FINAL_HANDOFF和browser/final-evidence.json；无UI live。
+- [ ] 独立复审实际Native69717抓到缺陷：原单shaft/Calm artist的points换成同值copy后，Scene identity miss丢Barbs intent，退generic Line端点/Scatter Point；不合冻结合同。producer已定位并优先做已知原component的static sentinel，不扩大通用Line协议；reviewer继续不可变cd0319d公开/XML/旧SVG/有界stress。修复SHA到后定点复审。
+- 精确下一动作：提交已verified UI/consumer与检查点小步；producer交identity-intent窄修SHA→Root合入→reviewer精确复审；完成producer四target/adapter/IR及文档→中央info/fmt/11JS/一次全套/11Chrome→clean包、真实Mooncakes/registry/GH完整下载。不得先发布或重跑已闭环M9/19图调查。
+- Root无测试/发布/下载live；唯一有意预览8765/session43005/PID70622。producer优先修identity并续专项，reviewer独立复审，UI已freeze；普通消费/UI通过不等于整个M10完成。
 
 ## 最新交付：M9 / 0.10.0（2026-10-25）
 

@@ -254,5 +254,6 @@ fn main raise {
   verify_discrete_coincident_consumer()
   verify_stem_consumer()
   verify_vector_consumer()
+  verify_barb_consumer()
   println(drawing.svg())
 }
