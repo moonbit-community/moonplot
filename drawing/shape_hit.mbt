@@ -89,6 +89,16 @@ fn valid_shape(shape : HitShape) -> Bool {
       finite(start) &&
       finite(sweep) &&
       sweep > 0.0
+    AnnularSector(cx, cy, inner, outer, start, sweep) =>
+      finite(cx) &&
+      finite(cy) &&
+      finite(inner) &&
+      finite(outer) &&
+      inner >= 0.0 &&
+      outer > inner &&
+      finite(start) &&
+      finite(sweep) &&
+      sweep > 0.0
   }
 }
 
@@ -115,6 +125,20 @@ fn shape_contains(shape : HitShape, x : Double, y : Double) -> Bool {
         return false
       }
       // The center belongs to every positive sweep and no angle is needed.
+      if (dx == 0.0 && dy == 0.0) || sweep >= 360.0 {
+        return true
+      }
+      let angle = @math.atan2(dy, dx) * 180.0 / @math.PI
+      degrees_normalized(degrees_normalized(angle) - degrees_normalized(start)) <=
+      sweep
+    }
+    AnnularSector(cx, cy, inner, outer, start, sweep) => {
+      let dx = x - cx
+      let dy = cy - y
+      let distance = hit_distance(dx, dy)
+      if !finite(dx) || !finite(dy) || distance < inner || distance > outer {
+        return false
+      }
       if (dx == 0.0 && dy == 0.0) || sweep >= 360.0 {
         return true
       }

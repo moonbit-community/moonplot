@@ -35,10 +35,13 @@ pub extend HitMode with @debug.Debug::{to_repr}
 /// angles follow mathematical coordinates, with the screen Y direction reversed.
 /// Nonpositive sizes/sweeps and nonfinite geometry do not hit; rectangle and
 /// sector edges are included, and sweeps of at least 360 degrees are full circles.
+/// Annular sectors use center X/Y, inner radius, outer radius, start and sweep.
+/// Inner/outer edges are included; a positive inner radius excludes the hole.
 pub(all) enum HitShape {
   Point
   Rectangle(Double, Double, Double, Double)
   Sector(Double, Double, Double, Double, Double)
+  AnnularSector(Double, Double, Double, Double, Double, Double)
 } derive(Eq, Debug)
 
 ///|

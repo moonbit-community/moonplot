@@ -25,7 +25,8 @@ fn Axes::update_artist_data_limits(self : Axes, artist : Artist) -> Unit {
     Artist::Text(_, _, _, _)
     | Artist::Annotation(_)
     | Artist::Table(_)
-    | Artist::Pie(_, _, _, _) => return
+    | Artist::Pie(_, _, _, _)
+    | Artist::Donut(_, _, _, _, _) => return
     Artist::HLine(_, _) | Artist::HSpan(_, _, _) => (false, true)
     Artist::VLine(_, _) | Artist::VSpan(_, _, _) => (true, false)
     _ => (true, true)

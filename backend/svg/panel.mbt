@@ -438,6 +438,40 @@ fn render_panel(
             }
           }),
         )
+      @render.Artist::Donut(values, labels, colors, start_angle, inner_radius) =>
+        append_donut(
+          writer,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          values,
+          labels,
+          colors,
+          start_angle,
+          inner_radius,
+          on_slice=capture.map(hits => {
+            (index, cx, cy, inner, outer, start, sweep, fraction) => {
+              collect_drawing_donut(
+                hits,
+                panel_index,
+                artist_index,
+                index,
+                values[index],
+                labels,
+                metadata.series(),
+                cx,
+                cy,
+                inner,
+                outer,
+                start,
+                sweep,
+                fraction,
+                position,
+              )
+            }
+          }),
+        )
       @render.Artist::BoxPlot(stats, horizontal, style) =>
         append_boxplot(
           writer, scale, left, top, plot_width, plot_height, stats, horizontal, style,

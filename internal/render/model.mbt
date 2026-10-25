@@ -39,6 +39,7 @@ pub(all) enum Artist {
   )
   Table(Table)
   Pie(Array[Double], Array[String], Array[String], Double)
+  Donut(Array[Double], Array[String], Array[String], Double, Double)
   BoxPlot(Array[@boxplot.BoxStats], Bool, @core.Style)
   Quiver(Array[@core.Point], Array[@core.Point], @core.Style)
   Violin(

@@ -87,6 +87,7 @@ pub(all) enum Artist {
   ColorImage(Array[Array[@colors.Rgba]], ImageOrigin, (Double, Double, Double, Double)?, Double, ImageInterpolation)
   Table(Table)
   Pie(Array[Double], Array[String], Array[String], Double)
+  Donut(Array[Double], Array[String], Array[String], Double, Double)
   BoxPlot(Array[@boxplot.BoxStats], Bool, @core.Style)
   Quiver(Array[@core.Point], Array[@core.Point], @core.Style)
   Violin(Array[ViolinStats], Array[Double], Array[Double], Bool, ViolinSide, Bool, Bool, Bool, @core.Style, @core.Style, Double)
@@ -129,6 +130,7 @@ pub fn Axes::contour(Self, Array[Array[Double]], x? : Array[Double], y? : Array[
 pub fn Axes::contourf(Self, Array[Array[Double]], x? : Array[Double], y? : Array[Double], levels? : Array[Double], nlevels? : Int, colors? : Array[String], cmap? : String, label? : String, extend_mode? : String, corner_mask? : Bool, locator? : @ticker.Locator?) -> ContourSet raise @core.DataError
 pub fn Axes::data_limits(Self, horizontal? : Bool) -> @core.Limits
 pub fn Axes::data_minpos(Self, horizontal? : Bool) -> Double
+pub fn Axes::donut(Self, Array[Double], labels? : Array[String], colors? : Array[String], start_angle? : Double, inner_radius? : Double) -> Array[Double] raise @core.DataError
 pub fn Axes::ecdf(Self, Array[Double], weights? : Array[Double], complementary? : Bool, horizontal? : Bool, compress? : Bool, color? : String, label? : String) -> Ecdf raise @core.DataError
 pub fn Axes::errorbar(Self, Array[Double], Array[Double], yerr? : Array[Double], xerr? : Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::eventplot(Self, Array[Array[Double]], orientation? : String, lineoffsets? : Array[Double], linelengths? : Array[Double], linewidth? : Double, color? : String) -> Unit raise @core.DataError
@@ -455,6 +457,7 @@ pub fn Figure::containers(Self) -> Array[Container]
 pub fn Figure::contour(Self, Array[Array[Double]], x? : Array[Double], y? : Array[Double], levels? : Array[Double], nlevels? : Int, color? : String, linewidth? : Double, label? : String, corner_mask? : Bool, locator? : @ticker.Locator, colors? : Array[String], linewidths? : Array[Double]) -> ContourSet raise @core.DataError
 pub fn Figure::contourf(Self, Array[Array[Double]], x? : Array[Double], y? : Array[Double], levels? : Array[Double], nlevels? : Int, colors? : Array[String], cmap? : String, label? : String, extend_mode? : String, corner_mask? : Bool, locator? : @ticker.Locator) -> ContourSet raise @core.DataError
 pub fn Figure::delaxes(Self, Axes) -> Unit raise @core.DataError
+pub fn Figure::donut(Self, Array[Double], labels? : Array[String], colors? : Array[String], start_angle? : Double, inner_radius? : Double) -> Array[Double] raise @core.DataError
 pub fn Figure::ecdf(Self, Array[Double], weights? : Array[Double], complementary? : Bool, horizontal? : Bool, compress? : Bool, color? : String, label? : String) -> Ecdf raise @core.DataError
 pub fn Figure::errorbar(Self, Array[Double], Array[Double], yerr? : Array[Double], xerr? : Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::eventplot(Self, Array[Array[Double]], orientation? : String, lineoffsets? : Array[Double], linelengths? : Array[Double], linewidth? : Double, color? : String) -> Unit raise @core.DataError

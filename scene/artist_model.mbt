@@ -38,6 +38,7 @@ pub(all) enum Artist {
   )
   Table(Table)
   Pie(Array[Double], Array[String], Array[String], Double)
+  Donut(Array[Double], Array[String], Array[String], Double, Double)
   BoxPlot(Array[@boxplot.BoxStats], Bool, @core.Style)
   Quiver(Array[@core.Point], Array[@core.Point], @core.Style)
   Violin(
@@ -150,6 +151,14 @@ fn copy_artist(artist : Artist) -> Artist {
     Artist::Table(table) => Artist::Table(copy_table(table))
     Artist::Pie(values, labels, colors, start_angle) =>
       Artist::Pie(values.copy(), labels.copy(), colors.copy(), start_angle)
+    Artist::Donut(values, labels, colors, start_angle, inner_radius) =>
+      Artist::Donut(
+        values.copy(),
+        labels.copy(),
+        colors.copy(),
+        start_angle,
+        inner_radius,
+      )
     Artist::BoxPlot(stats, horizontal, style) =>
       Artist::BoxPlot(stats.copy(), horizontal, style)
     Artist::Quiver(points, vectors, style) =>

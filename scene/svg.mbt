@@ -181,6 +181,8 @@ fn to_render_artist(artist : Artist) -> @render.Artist {
     }
     Artist::Pie(values, labels, colors, start_angle) =>
       @render.Artist::Pie(values, labels, colors, start_angle)
+    Artist::Donut(values, labels, colors, start_angle, inner_radius) =>
+      @render.Artist::Donut(values, labels, colors, start_angle, inner_radius)
     Artist::BoxPlot(stats, horizontal, style) =>
       @render.Artist::BoxPlot(stats, horizontal, style)
     Artist::Quiver(points, vectors, style) =>

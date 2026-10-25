@@ -97,6 +97,7 @@ pub(all) enum Artist {
   ColorImage(Array[Array[@colors.Rgba]], ImageOrigin, (Double, Double, Double, Double)?, Double, ImageInterpolation)
   Table(Table)
   Pie(Array[Double], Array[String], Array[String], Double)
+  Donut(Array[Double], Array[String], Array[String], Double, Double)
   BoxPlot(Array[@boxplot.BoxStats], Bool, @core.Style)
   Quiver(Array[@core.Point], Array[@core.Point], @core.Style)
   Violin(Array[ViolinStats], Array[Double], Array[Double], Bool, ViolinSide, Bool, Bool, Bool, @core.Style, @core.Style, Double)

@@ -94,6 +94,7 @@ pub(all) enum HitShape {
   Point
   Rectangle(Double, Double, Double, Double)
   Sector(Double, Double, Double, Double, Double)
+  AnnularSector(Double, Double, Double, Double, Double, Double)
 } derive(Eq, @debug.Debug)
 pub fn HitShape::equal(Self, Self) -> Bool
 pub fn HitShape::not_equal(Self, Self) -> Bool

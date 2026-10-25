@@ -145,7 +145,8 @@ fn include_artist(scale : Scale, artist : @render.Artist) -> Scale {
         None => scale
       }
     @render.Artist::Table(_) => scale
-    @render.Artist::Pie(_, _, _, _) => scale
+    @render.Artist::Pie(_, _, _, _) | @render.Artist::Donut(_, _, _, _, _) =>
+      scale
     @render.Artist::BoxPlot(stats, horizontal, _) => {
       let mut result = scale
       for index, stat in stats {
