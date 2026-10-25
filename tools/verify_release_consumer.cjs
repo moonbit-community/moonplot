@@ -114,7 +114,19 @@ async function main() {
     await page.waitForSelector('[data-testid="consumer-custom-tooltip"]');
     assert.equal(await page.locator('[data-testid="consumer-custom-tooltip"]').textContent(),
       'Orders · North: 5 items');
-    checks.push('Installed bar geometry triggers a custom semantic tooltip inside the whole rectangle');
+    checks.push('Installed grouped bar geometry triggers a custom series/category/value tooltip inside the whole rectangle');
+
+    await page.locator('#release-cells-svg').scrollIntoViewIfNeeded();
+    const cell = await page.locator('#release-cells-svg rect[x][y]').first().evaluate(rect => {
+      const x = Number(rect.getAttribute('x')) + Number(rect.getAttribute('width')) * 0.05;
+      const y = Number(rect.getAttribute('y')) + Number(rect.getAttribute('height')) * 0.05;
+      const p = new DOMPoint(x, y).matrixTransform(rect.ownerSVGElement.getScreenCTM());
+      return { x: p.x, y: p.y };
+    });
+    await page.mouse.move(cell.x, cell.y);
+    await page.waitForSelector('[data-testid="consumer-cell-tooltip"]');
+    assert.equal(await page.locator('[data-testid="consumer-cell-tooltip"]').textContent(), 'Cell 0,0: 1');
+    checks.push('Installed scalar heatmap exposes original row/column/value at a cell edge through the public callback');
 
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();

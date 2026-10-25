@@ -99,7 +99,7 @@ def main():
             "browser_application_declares_framework": "moonbit-community/rabbita@0.16.7",
             "installed_archive_files_equal": len(files),
             "static_targets": ["wasm", "wasm-gc", "js", "native"],
-            "browser": "6 real-browser consumer checks passed",
+            "browser": "7 real-browser consumer checks passed",
             "installed_source_location": str(dependency.resolve()),
         }
         (output / "report.json").write_text(json.dumps(report, indent=2) + "\n")

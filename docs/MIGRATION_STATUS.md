@@ -25,8 +25,9 @@
 - [ ] M3.1实现：同次cell draw捕获row/column/value/数据范围，扩展Drawing cell metadata与Rabbita提示。
   先nearest imshow/matshow，origin/extent/mask/NaN/多图/缩放；none/平滑PNG、RGB、不规则mesh暂不纳入。
 - [ ] M3.2分组/堆叠柱；M3.3真环形图；共同回归/独立消费/版本交付。
-- 精确下一动作：热图内核定向验收已过，提交该步；bars/donut独立worktree验收提交后按序cherry-pick，
-  修共享enum/panel/范围match冲突，再通知browser agent集成就绪，完成5图真实Chrome验收。
+- 精确下一动作：收Logit跨域柱修复commit并cherry-pick，自动Logit范围旧bug也由同agent排查；环角边界已修cca4d28。
+  根全套23914已terminal0：wasm/wasm-gc/native各22321、JS22346通过。晚修受影响包四目标回归后最终接口/fmt/结构、
+  重建新示例验Chrome、clean正式包/发布0.4.0。M4独立工作区同步推进误差棒/面积语义，0.4发布前不合入M4代码。
 - 当前实现改动：Root drawing/cell.mbt+target/shape_hit、backend/svg/image_hit.mbt+image/panel、api、rabbita/tooltip与对应新测试。
   CellInfo有row/column/x_range/y_range，HitInfo.cell为可选，Heatmap新kind；仅nearest scalar实际可见有效格采集。
 - 首轮check21382因ImageInterpolation未实现Eq失败，已改模式匹配；check93321通过（7既有Ref警告）。
@@ -37,7 +38,22 @@
   m3_donut在 /Users/lampese/.codex/worktrees/m3-donut-charts/mathplotlib；两者各自commit不push不发布。
   m3_browser只主workspace的全新rabbita/cmd/charts和charts.html/css/chart_browser_test.cjs，等Root合并后才build与真浏览器验收。
   bars API grouped_bar/stacked_bar(categories,series,labels,colors,horizontal,width,baseline；grouped另gap)；donut(values,labels,colors,start_angle,inner_radius=0.55)。
-- 新证据.moonagent/checkpoints/M3-implementation/；基线1ef9c80，本轮版本暂仍0.3.0，无新publish。
+- 新证据.moonagent/checkpoints/M3-implementation/；基线1ef9c80，当前准备0.4.0，无新publish。
+- 热图核心7adb3bc已正常push；Donut a5d6927已cherry为f210886，bars7dfbcaf已cherry为0a91ba6，均自动干净合并。
+  agent定向Donut四目标46/46、bars受影响包四目标1764/1764；证据已复制到本片donut/和bars/。
+- Root热图阶段受影响包50100四目标各1737/1737；整合check80458通过，整合全套23914进行中。
+- 新5图Chrome最终14/14，0pageerror，隔离targetdir新编译，5637 terminal0；实际JS4351013bytes/SHA c86374ec16d8c8f6d318d777bff128667d734bd9c29beaa0b27071cb07615214。
+  .moonagent/checkpoints/M3-charts/browser/含report与桌面/mobile，Root已目视assets/charts.png。
+  首轮runner图例恢复未等待render，已加DOM等待；文本色/长单位裁剪只在新fixture修复；无产品失败。
+- 交叉复审发现并实际复现两处产品角落：环起始射线舍入掉入360已修，新增drawing四目标29/29。
+  Logit柱baseline0/value1的双端越域却穿过有效viewport，被原edge helper丢弃；donut agent在独立worktree修复并回归。
+  两个agent复审热图/常规柱/环其余路径未见阻塞；不以发现问题为理由停止。
+- Root版本与consumer已准备0.4.0（尚未发布）；仓库外ZIP rehearsal30827 terminal0：四目标新图静态断言+Chrome7项全部通过。
+  consumer新增热图row/col/value、分组/横堆叠原值、真环孔断言；浏览器实际安装分组整段与热图边缘自定义提示。
+  本片rehearsal含dirty标记，不能上传；晚修后必须clean重做正式包。
+- M3 browser agent已冻结交回6新文件；Root拥有其后修改。无本轮Root测试残留会话，仅有原有预览8304。
+- 用户要求一直往后对齐，M4首片已委派m3_bars在其独立worktree实现误差棒typed范围/实际线段命中，基线cca4d28；
+  不编辑Root、不push/发布、不改Root检查点。Root仍优先完成M3交付，不把M4未验代码混入0.4。
 - 只读agents m3_chart_gaps与m3_interaction_gaps已完成交回，无写文件/测试/发布权限委派。
 - 证据.moonagent/checkpoints/M3-chart-coverage/，native探针52904、四目标25296均terminal0。
   第一次报告汇总把真实tab误按字面量分隔而报assert，已修汇总逻辑；产品运行无失败。

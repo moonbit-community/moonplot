@@ -6,6 +6,7 @@ struct Model {
   revision : Int32
   clicks : Int32
   bar_hover : @drawing.HitPoint?
+  cell_hover : @drawing.HitPoint?
 } derive(Eq)
 
 ///|
@@ -13,6 +14,7 @@ enum Msg {
   Chart(@plot_dom.Interaction)
   UpdateData
   Bar(@plot_dom.Interaction)
+  Cell(@plot_dom.Interaction)
 }
 
 ///|
@@ -29,9 +31,11 @@ fn update(model : Model, message : Msg) -> Model {
       { ..model, show_trend: !model.show_trend, hovered: None, selected: None, }
     Chart(ToggleSeries(_)) => model
     UpdateData =>
-      { ..model, revision: model.revision + 1, hovered: None, selected: None, bar_hover: None, }
+      { ..model, revision: model.revision + 1, hovered: None, selected: None, bar_hover: None, cell_hover: None, }
     Bar(Hover(point)) => { ..model, bar_hover: point, }
     Bar(_) => model
+    Cell(Hover(point)) => { ..model, cell_hover: point, }
+    Cell(_) => model
   }
 }
 
@@ -114,6 +118,20 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
         )
       },
     ),
+    @html.h2("Matrix cells"),
+    @plot_dom.view(
+      make_cell_drawing(),
+      id="release-cells",
+      on_event=event => emit(Cell(event)),
+      hovered?=model.cell_hover,
+      tooltip=info => {
+        let cell = info.cell.unwrap()
+        @html.b(
+          attrs=@html.Attrs::build().data_set("testid", "consumer-cell-tooltip"),
+          "Cell \{cell.row},\{cell.column}: \{info.value}",
+        )
+      },
+    ),
   ])
 }
 
@@ -121,7 +139,18 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
 fn make_bar_drawing(model : Model) -> @drawing.Drawing raise {
   let figure = @plot.figure(width=600, height=240)
   figure.legend([])
-  figure.bar_category(["North", "South"], [4.0 + model.revision.to_double(), -2.0], label="Orders")
+  figure.grouped_bar(
+    ["North", "South"],
+    [[4.0 + model.revision.to_double(), -2.0], [2.0, 3.0]],
+    labels=["Orders", "Returns"],
+  )
+  figure.to_drawing()
+}
+
+///|
+fn make_cell_drawing() -> @drawing.Drawing raise {
+  let figure = @plot.figure(width=600, height=240)
+  figure.imshow([[1.0, 2.0], [3.0, 0.0 / 0.0]], aspect="auto")
   figure.to_drawing()
 }
 
@@ -136,6 +165,7 @@ fn main {
         revision: 0,
         clicks: 0,
         bar_hover: None,
+        cell_hover: None,
       },
       update~,
     )

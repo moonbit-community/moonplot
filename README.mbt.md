@@ -15,7 +15,8 @@ an SVG rendering pipeline.
 
 ## Features
 
-- **Everyday charts:** line, scatter, bar, histogram, pie, box, and violin plots.
+- **Everyday charts:** line, scatter, grouped/stacked bars, histogram, pie/donut,
+  box, and violin plots.
 - **Scientific plots:** error bars, filled regions, contours, triangulated meshes,
   vector fields, and stream plots.
 - **Images and color:** scalar and RGB(A) images, heatmaps, color maps,
@@ -30,6 +31,8 @@ an SVG rendering pipeline.
 - **Rabbita components:** an optional JS adapter provides real SVG DOM nodes,
   point and region hover, line x snapping, selection, legend buttons, reactive data
   updates, scoped SVG resources, and customizable semantic tooltips.
+- **Matrix interactions:** nearest scalar heatmaps expose original row, column,
+  value and data intervals across whole cells. See the [new chart guide](docs/M3_CHARTS.md).
 
 Support varies by chart and option. See the
 [usage guide](docs/USAGE.md) for examples and the
