@@ -75,46 +75,54 @@ fn tripcolor_binary_scale(magnitude : Double) -> Double {
 }
 
 ///|
-// A collinear source must not become an interactive sliver just because the
-// three screen transforms round independently. No screen tolerance is used.
+// Normalize each axis separately: a valid face may have very different units
+// on X and Y. Both overflow fallback and product scaling must retain that axis.
+fn tripcolor_axis_spans(
+  a : Double,
+  b : Double,
+  c : Double,
+) -> (Double, Double)? {
+  if a.is_nan() ||
+    a.is_inf() ||
+    b.is_nan() ||
+    b.is_inf() ||
+    c.is_nan() ||
+    c.is_inf() {
+    return None
+  }
+  let raw = (b - a, c - a)
+  let (first, second) = if raw.0.is_inf() || raw.1.is_inf() {
+    let scale = a.abs().max(b.abs()).max(c.abs())
+    if scale == 0.0 || scale.is_nan() || scale.is_inf() {
+      return None
+    }
+    let scale = tripcolor_binary_scale(scale)
+    (b / scale - a / scale, c / scale - a / scale)
+  } else {
+    raw
+  }
+  let scale = first.abs().max(second.abs())
+  if scale == 0.0 || scale.is_nan() || scale.is_inf() {
+    return None
+  }
+  let scale = tripcolor_binary_scale(scale)
+  Some((first / scale, second / scale))
+}
+
+///|
+// Keep source collinearity independent of separately rounded screen transforms.
+// No hit tolerance is used; ambiguous/nonfinite geometry stays static.
 fn tripcolor_source_area(points : Array[@core.Point]) -> Bool {
   let a = points[0]
   let b = points[1]
   let c = points[2]
-  let raw = (b.x() - a.x(), b.y() - a.y(), c.x() - a.x(), c.y() - a.y())
-  let (dx, dy, qx, qy) = if raw.0.is_inf() ||
-    raw.1.is_inf() ||
-    raw.2.is_inf() ||
-    raw.3.is_inf() {
-    // Finite opposite extremes may overflow subtraction. Scale coordinates
-    // first in that case; unprovable or collapsed geometry stays static.
-    let scale = a
-      .x()
-      .abs()
-      .max(a.y().abs())
-      .max(b.x().abs())
-      .max(b.y().abs())
-      .max(c.x().abs())
-      .max(c.y().abs())
-    if scale == 0.0 || scale.is_nan() || scale.is_inf() {
-      return false
-    }
-    let scale = tripcolor_binary_scale(scale)
-    (
-      b.x() / scale - a.x() / scale,
-      b.y() / scale - a.y() / scale,
-      c.x() / scale - a.x() / scale,
-      c.y() / scale - a.y() / scale,
-    )
-  } else {
-    raw
-  }
-  let scale = dx.abs().max(dy.abs()).max(qx.abs()).max(qy.abs())
-  if scale == 0.0 || scale.is_nan() || scale.is_inf() {
+  guard tripcolor_axis_spans(a.x(), b.x(), c.x()) is Some((dx, qx)) else {
     return false
   }
-  let scale = tripcolor_binary_scale(scale)
-  let cross = dx / scale * (qy / scale) - dy / scale * (qx / scale)
+  guard tripcolor_axis_spans(a.y(), b.y(), c.y()) is Some((dy, qy)) else {
+    return false
+  }
+  let cross = dx * qy - dy * qx
   !cross.is_nan() && !cross.is_inf() && cross != 0.0
 }
 

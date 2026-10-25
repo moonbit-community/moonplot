@@ -90,3 +90,36 @@ test "tripcolor area normalization cannot open another exactly collinear integer
     ),
   )
 }
+
+///|
+test "tripcolor source area preserves per-axis units through both scaling stages" {
+  for
+    points in [
+      [
+        @core.point(0.0, 0.0),
+        @core.point(2.0e200, 0.0),
+        @core.point(0.0, 3.0e-200),
+      ],
+      [
+        @core.point(-1.0e308, 0.0),
+        @core.point(1.0e308, 0.0),
+        @core.point(0.0, 3.0e-200),
+      ],
+      [
+        @core.point(0.0, -1.0e308),
+        @core.point(3.0e-200, 0.0),
+        @core.point(0.0, 1.0e308),
+      ],
+    ] {
+    assert_true(
+      tripcolor_hit_data(
+        points,
+        0,
+        37.0,
+        (0, 1, 2),
+        false,
+        "Different axis units",
+      ).matches_points(points),
+    )
+  }
+}
