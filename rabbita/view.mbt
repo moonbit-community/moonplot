@@ -37,8 +37,74 @@ fn highlight(
 }
 
 ///|
+// New Polar-kind held state needs the same proven circle as pointer selection.
+// Existing ordinary/legacy Drawing presentation retains its previous contract.
+fn frame_point_presentable(
+  drawing : @drawing.Drawing,
+  point : @drawing.HitPoint,
+) -> Bool {
+  match tooltip_info(drawing, point) {
+    Some(info) =>
+      if info.kind is Polar {
+        drawing.polar_circle(point.panel_index) is Some(_)
+      } else {
+        true
+      }
+    None => false
+  }
+}
+
+///|
+fn frame_highlight(
+  drawing : @drawing.Drawing,
+  point : @drawing.HitPoint,
+  selected : Bool,
+  id : String,
+) -> @svg.Svg {
+  let marker = highlight(point, selected, id)
+  match drawing.polar_circle(point.panel_index) {
+    None => marker
+    Some((cx, cy, radius)) => {
+      let kind = if selected { "selected" } else { "hover" }
+      // Source SVG resources use moonplot-resource-. This separate namespace
+      // remains injective for arbitrary chart IDs and cannot alias source IDs.
+      let clip_id = "moonplot-decoration-" +
+        resource_component(id) +
+        "-polar-\{point.panel_index}-\{kind}"
+      @svg.node("g", @svg.Attrs::build(), [
+        @svg.node("defs", @svg.Attrs::build(), [
+          @svg.node(
+            "clipPath",
+            @svg.Attrs::build().id(clip_id).clip_path_units("userSpaceOnUse"),
+            [
+              @svg.node(
+                "circle",
+                @svg.Attrs::build()
+                .cx(cx.to_string())
+                .cy(cy.to_string())
+                .r(radius.to_string()),
+                [],
+              ),
+            ],
+          ),
+        ]),
+        @svg.node(
+          "g",
+          @svg.Attrs::build()
+          .clip_path("url(#" + clip_id + ")")
+          .data_set("moonplot-decoration", kind)
+          .data_set("moonplot-panel", point.panel_index.to_string()),
+          [marker],
+        ),
+      ])
+    }
+  }
+}
+
+///|
 fn drawing_svg(
   content : SvgContent,
+  drawing : @drawing.Drawing,
   id : String,
   hovered : @drawing.HitPoint?,
   selected : @drawing.HitPoint?,
@@ -67,10 +133,10 @@ fn drawing_svg(
   )
   let nodes = children.map(svg_content)
   if hovered is Some(point) && selected != Some(point) {
-    nodes.push(highlight(point, false, id))
+    nodes.push(frame_highlight(drawing, point, false, id))
   }
   if selected is Some(point) {
-    nodes.push(highlight(point, true, id))
+    nodes.push(frame_highlight(drawing, point, true, id))
   }
   @svg.svg(xmlns="http://www.w3.org/2000/svg", attrs~, nodes)
 }
@@ -91,19 +157,18 @@ fn event_hit(
     None => None
   }
   match svg_root {
-    Some(root) => {
-      let rect = root.get_bounding_client_rect()
-      drawing.hit_test_client(
-        event.get_client_x(),
-        event.get_client_y(),
-        rect.get_left(),
-        rect.get_top(),
-        rect.get_width(),
-        rect.get_height(),
-        radius~,
-        mode~,
-      )
-    }
+    Some(root) =>
+      match
+        svg_client_coordinates(
+          drawing,
+          root,
+          event.get_client_x(),
+          event.get_client_y(),
+        ) {
+        Some((x, y, scale)) =>
+          drawing.hit_test(x, y, radius=radius / scale, mode~)
+        None => None
+      }
     None => None
   }
 }
@@ -129,12 +194,13 @@ pub fn view(
 ) -> @rabbita.Html raise AdapterError {
   let parsed = parse_svg(drawing.svg())
   validate_drawing(drawing, parsed)
-  let hovered = hovered.filter(point => tooltip_info(drawing, point) is Some(_))
+  let hovered = hovered.filter(point => frame_point_presentable(drawing, point))
   let selected = selected.filter(point => {
-    tooltip_info(drawing, point) is Some(_)
+    frame_point_presentable(drawing, point)
   })
   let chart = drawing_svg(
     scope_svg_resources(parsed, id),
+    drawing,
     id,
     hovered,
     selected,

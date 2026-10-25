@@ -93,7 +93,46 @@ fn polar_consumer_attrs(
 }
 
 ///|
-fn polar_consumer_view(model : Model) -> @html.Html raise {
+fn polar_consumer_state_attrs(
+  attrs : @html.Attrs,
+  prefix : String,
+  frame : @drawing.Drawing,
+  hovered : @drawing.HitPoint?,
+  selected : @drawing.HitPoint?,
+) -> Unit {
+  if frame.polar_circle(0) is Some((cx, cy, radius)) {
+    ignore(attrs.data_set(prefix + "-cx", cx.to_string()))
+    ignore(attrs.data_set(prefix + "-cy", cy.to_string()))
+    ignore(attrs.data_set(prefix + "-disk-radius", radius.to_string()))
+  }
+  for entry in [("hover", hovered), ("selected", selected)] {
+    let key = prefix + "-" + entry.0
+    ignore(attrs.data_set(key, "-1"))
+    if entry.1 is Some(point) {
+      if frame.hit_info(point) is Some(info) {
+        ignore(attrs.data_set(key, point.point_index.to_string()))
+        ignore(attrs.data_set(key + "-artist", point.artist_index.to_string()))
+        ignore(attrs.data_set(key + "-theta", point.data_x.to_string()))
+        ignore(attrs.data_set(key + "-radius", point.data_y.to_string()))
+        ignore(attrs.data_set(key + "-value", info.value.to_string()))
+        ignore(attrs.data_set(key + "-series", info.series))
+        ignore(attrs.data_set(key + "-category", info.category.unwrap_or("")))
+        ignore(
+          attrs.data_set(
+            key + "-polar",
+            (info.kind == @drawing.HitKind::Polar).to_string(),
+          ),
+        )
+      }
+    }
+  }
+}
+
+///|
+fn polar_consumer_view(
+  model : Model,
+  emit : @rabbita.Emit[Msg],
+) -> @html.Html raise {
   let field = make_polar_consumer_figure(model, false)
   let radar = make_polar_consumer_figure(model, true)
   let a = field.to_drawing()
@@ -104,8 +143,45 @@ fn polar_consumer_view(model : Model) -> @html.Html raise {
   )
   polar_consumer_attrs(attrs, "field", field, a)
   polar_consumer_attrs(attrs, "radar", radar, b)
+  polar_consumer_state_attrs(
+    attrs,
+    "field",
+    a,
+    model.polar_hover,
+    model.polar_selected,
+  )
+  polar_consumer_state_attrs(
+    attrs,
+    "radar",
+    b,
+    model.radar_hover,
+    model.radar_selected,
+  )
   @html.div(id="polar-consumer", attrs~, [
-    @plot_dom.view(a, id="release-polar", on_event=_ => @rabbita.none),
-    @plot_dom.view(b, id="release-radar", on_event=_ => @rabbita.none),
+    @plot_dom.view(
+      a,
+      id="release-polar",
+      on_event=e => emit(Polar(e)),
+      hovered?=model.polar_hover,
+      selected?=model.polar_selected,
+    ),
+    @plot_dom.view(
+      b,
+      id="release-radar",
+      on_event=e => emit(Radar(e)),
+      hovered?=model.radar_hover,
+      selected?=model.radar_selected,
+      hit_mode=@drawing.HitMode::XNearest,
+      tooltip=info => {
+        @html.b(
+          attrs=@html.Attrs::build()
+            .data_set("testid", "consumer-radar-tooltip")
+            .data_set("theta", info.point.data_x.to_string())
+            .data_set("radius", info.point.data_y.to_string())
+            .data_set("category", info.category.unwrap_or("")),
+          "\{info.series} · \{info.category.unwrap_or("")}：\{info.value} 分；原角度 \{info.point.data_x} rad",
+        )
+      },
+    ),
   ])
 }

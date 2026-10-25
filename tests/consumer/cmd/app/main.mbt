@@ -28,6 +28,10 @@ struct Model {
   tripcolor_mean_hover : @drawing.HitPoint?
   streamplot_hover : @drawing.HitPoint?
   streamplot_style_hover : @drawing.HitPoint?
+  polar_hover : @drawing.HitPoint?
+  polar_selected : @drawing.HitPoint?
+  radar_hover : @drawing.HitPoint?
+  radar_selected : @drawing.HitPoint?
 } derive(Eq)
 
 ///|
@@ -57,6 +61,8 @@ enum Msg {
   TripcolorMean(@plot_dom.Interaction)
   Streamplot(@plot_dom.Interaction)
   StreamplotStyle(@plot_dom.Interaction)
+  Polar(@plot_dom.Interaction)
+  Radar(@plot_dom.Interaction)
 }
 
 ///|
@@ -101,6 +107,10 @@ fn update(model : Model, message : Msg) -> Model {
         tripcolor_mean_hover: None,
         streamplot_hover: None,
         streamplot_style_hover: None,
+        polar_hover: None,
+        polar_selected: None,
+        radar_hover: None,
+        radar_selected: None,
       }
     Bar(Hover(point)) => { ..model, bar_hover: point, }
     Bar(_) => model
@@ -149,6 +159,12 @@ fn update(model : Model, message : Msg) -> Model {
     Streamplot(_) => model
     StreamplotStyle(Hover(point)) => { ..model, streamplot_style_hover: point, }
     StreamplotStyle(_) => model
+    Polar(Hover(point)) => { ..model, polar_hover: point, }
+    Polar(Click(point)) => { ..model, polar_selected: point, }
+    Polar(_) => model
+    Radar(Hover(point)) => { ..model, radar_hover: point, }
+    Radar(Click(point)) => { ..model, radar_selected: point, }
+    Radar(_) => model
   }
 }
 
@@ -349,7 +365,7 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
     @html.h2("Continuous flow samples"),
     streamplot_consumer_view(model, emit),
     @html.h2("Polar coordinates and radar outlines"),
-    polar_consumer_view(model),
+    polar_consumer_view(model, emit),
     @html.h2("Nonuniform mesh"),
     @plot_dom.view(
       make_mesh_drawing(model),
@@ -544,6 +560,10 @@ fn main {
         tripcolor_mean_hover: None,
         streamplot_hover: None,
         streamplot_style_hover: None,
+        polar_hover: None,
+        polar_selected: None,
+        radar_hover: None,
+        radar_selected: None,
       },
       update~,
     )

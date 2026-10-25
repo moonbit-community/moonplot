@@ -1,4 +1,4 @@
-// Real external-consumer SVG paint checks; polar interaction is a later slice.
+// Real external-consumer polar paint and original-sample interaction checks.
 const assert = require('node:assert/strict');
 
 async function snapshot(page) {
@@ -22,9 +22,11 @@ async function snapshot(page) {
         const p = new DOMPoint(x, y).matrixTransform(toRoot(node));
         return { x: p.x, y: p.y };
       };
-      const clips = [...svg.querySelectorAll('clipPath')];
-      if (clips.length !== 1) throw Error('Expected one true circular data clip');
-      const clip = clips[0];
+      const dataGroups = [...svg.querySelectorAll('g[clip-path]')].filter(node => node.querySelector('polyline'));
+      if (dataGroups.length !== 1) throw Error('Expected one actual circular data group');
+      const dataRef = dataGroups[0].getAttribute('clip-path').match(/^url\(["']?#([^"')]+)["']?\)$/);
+      const clip = [...svg.querySelectorAll('clipPath')].find(node => node.id === dataRef?.[1]);
+      if (!clip) throw Error('Actual data group has no scoped circular resource');
       const circle = clip.querySelector('circle');
       if (!circle || clip.querySelector('rect')) throw Error('Clip is not an actual circle');
       // SVGPointList and SVGAnimatedLength expose float32 values in Chrome.
@@ -85,8 +87,8 @@ function verify(s, revision) {
   assert.equal(s.data.revision, String(revision));
   assert(s.idsUnique, 'Actual mounted SVG resources must be unique');
   for (const name of ['field', 'radar']) {
-    assert.equal(s.data[name + 'Points'], '0');
-    assert.equal(s.data[name + 'Targets'], '0');
+    assert.equal(s.data[name + 'Points'], name === 'field' ? '7' : '10');
+    assert.equal(s.data[name + 'Targets'], name === 'field' ? '7' : '10');
     assert.equal(s.data[name + 'Artists'], '2');
     const p = s.panels[name];
     assert.equal(p.clipUnits, 'userSpaceOnUse');
@@ -184,33 +186,135 @@ async function desktop(page, checks, events, initial) {
   assert(orange(pixels.unclipped[1]), 'Removing only the actual circle clip must reveal the retained outside marker');
   events.push({ raster: pixels });
   checks.push('Browser native SVG raster proves a retained scatter marker inside the square but outside the true disk is removed by the actual circle clip');
-  for (const id of ['release-polar-svg', 'release-radar-svg']) {
-    await page.locator('#' + id).scrollIntoViewIfNeeded();
-    const point = await page.locator('#' + id).evaluate(svg => {
-      const vertex = svg.querySelector('g[clip-path] polyline').points.getItem(1);
-      const p = new DOMPoint(vertex.x, vertex.y).matrixTransform(svg.getScreenCTM());
-      const x = Math.round(p.x), y = Math.round(p.y);
-      window.__releasePolarEvent = null;
-      svg.addEventListener('mousemove', event => {
-        window.__releasePolarEvent = { x: event.clientX, y: event.clientY };
-      }, { once: true });
-      return { x, y };
-    });
-    await page.mouse.move(point.x, point.y);
-    await page.waitForFunction(() => window.__releasePolarEvent !== null);
-    const actualEvent = await page.evaluate(() => window.__releasePolarEvent);
-    assert.deepEqual(actualEvent, point);
-    assert.equal(await page.locator(`[data-testid="${id.slice(0, -4)}-tooltip"]`).count(), 0);
-    events.push({ id, requested: point, actualEvent });
+  await interact(page, 'field', { artist: 0, index: 1 }, events);
+  await expectState(page, 'field', 0, 1, Math.PI / 6, .6, 'Polar radius', '');
+  const defaultTip = page.locator('[data-testid="release-polar-tooltip"]');
+  assert.equal(await defaultTip.getAttribute('data-moonplot-kind'), 'polar');
+  assert.deepEqual(await defaultTip.locator('.moonplot-coordinate-label').allTextContents(), ['Theta (rad)', 'Radius']);
+  const values = await defaultTip.locator('.moonplot-coordinate b').allTextContents();
+  near(Number(values[0]), Math.PI / 6, 'default raw radians');
+  near(Number(values[1]), .6, 'default original radius');
+  checks.push('Installed polar line selects a nearby original sample without visible markers and shows exact raw radians and radius in default rows');
+  await interact(page, 'field', { artist: 1, index: 1 }, events, 'click');
+  await expectState(page, 'field', 1, 1, Math.PI / 2, .75, 'Samples', '', 'selected');
+  await assertHighlight(page, 'release-polar', 'selected');
+  checks.push('Installed polar scatter click preserves its own artist and original index, with selection clipped to the same immutable frame circle');
+  await interact(page, 'radar', { artist: 0, index: 2 }, events);
+  await expectState(page, 'radar', 0, 2, 4 * Math.PI / 5, 90, 'Current', '覆盖');
+  const custom = page.locator('[data-testid="consumer-radar-tooltip"]');
+  assert.equal(await custom.getAttribute('data-category'), '覆盖');
+  near(Number(await custom.getAttribute('data-theta')), 4 * Math.PI / 5, 'custom original theta');
+  assert((await custom.textContent()).includes('覆盖：90 分；原角度'));
+  await interact(page, 'radar', { artist: 0, index: 2 }, events, 'click');
+  await expectState(page, 'radar', 0, 2, 4 * Math.PI / 5, 90, 'Current', '覆盖', 'selected');
+  await assertHighlight(page, 'release-radar', 'selected');
+  checks.push('Installed clockwise north-zero radar preserves its original category and raw angle/radius through XNearest, Chinese formatting and click selection');
+  for (const name of ['field', 'radar']) {
+    await interact(page, name, { negative: 'corner' }, events);
+    await page.waitForFunction(name => document.querySelector('#polar-consumer').dataset[name + 'Hover'] === '-1', name);
+    const id = name === 'field' ? 'release-polar' : 'release-radar';
+    assert.equal(await page.locator(`[data-testid="${id}-tooltip"]`).count(), 0);
+    assert.equal(await page.locator(`[data-testid="${id}-hover"]`).count(), 0);
   }
-  checks.push('Actual integer mouse events on mounted polar and radar DOM produce no invented Cartesian tooltip; both public drawings expose zero targets');
+  checks.push('Real integer pointer events inside each circle bounding square but outside its true disk clear hover in both installed point modes');
+}
+
+async function expectState(page, name, artist, index, theta, radius, series, category, kind = 'hover') {
+  const key = name + kind[0].toUpperCase() + kind.slice(1);
+  await page.waitForFunction(({ key, index, artist }) => {
+    const d = document.querySelector('#polar-consumer').dataset;
+    return d[key] === String(index) && d[key + 'Artist'] === String(artist);
+  }, { key, index, artist });
+  const d = await page.locator('#polar-consumer').evaluate(n => ({ ...n.dataset }));
+  near(Number(d[key + 'Theta']), theta, name + ' raw theta');
+  near(Number(d[key + 'Radius']), radius, name + ' raw radius');
+  near(Number(d[key + 'Value']), radius, name + ' raw value');
+  assert.equal(d[key + 'Series'], series);
+  assert.equal(d[key + 'Category'], category);
+  assert.equal(d[key + 'Polar'], 'true');
+}
+
+async function assertHighlight(page, id, kind) {
+  const proof = await page.locator('#' + id + '-svg').evaluate((svg, { id, kind }) => {
+    const highlight = svg.querySelector(`[data-testid="${id}-${kind}"]`);
+    if (!highlight) throw Error('Missing actual selection decoration');
+    let node = highlight;
+    while (node && node !== svg && !node.hasAttribute('clip-path')) node = node.parentElement;
+    const ref = node?.getAttribute('clip-path')?.match(/^url\(["']?#([^"')]+)["']?\)$/)?.[1];
+    const clip = [...svg.querySelectorAll('clipPath')].find(n => n.id === ref);
+    const circle = clip?.querySelector('circle');
+    if (!circle) throw Error('Actual polar decoration is missing its own circular clip');
+    const c = n => [Number(n.getAttribute('cx')), Number(n.getAttribute('cy')), Number(n.getAttribute('r'))];
+    const paintGroup = [...svg.querySelectorAll('g[clip-path]')].find(n => n.querySelector('polyline'));
+    const dataId = paintGroup.getAttribute('clip-path').match(/^url\(["']?#([^"')]+)["']?\)$/)[1];
+    const dataCircle = [...svg.querySelectorAll('clipPath')].find(n => n.id === dataId).querySelector('circle');
+    return { own: c(circle), actual: c(dataCircle), scoped: ref.startsWith('moonplot-decoration-') && ref.endsWith('-polar-0-' + kind) };
+  }, { id, kind });
+  for (let i = 0; i < 3; i++) near(proof.own[i], proof.actual[i], 'actual decoration clip');
+  assert(proof.scoped, 'Decoration resources must be scoped to this adapter');
+}
+
+async function interact(page, name, request, events, type = 'mousemove') {
+  const id = name === 'field' ? 'release-polar-svg' : 'release-radar-svg';
+  await page.locator('#' + id).scrollIntoViewIfNeeded();
+  const eventPoint = await page.locator('#' + id).evaluate((svg, { name, request, type }) => {
+    const data = document.querySelector('#polar-consumer').dataset;
+    const cx = Number(data[name + 'Cx']), cy = Number(data[name + 'Cy']), r = Number(data[name + 'DiskRadius']);
+    const matrix = svg.getScreenCTM();
+    let x, y;
+    if (request.negative === 'corner') {
+      x = cx + .9 * r; y = cy + .9 * r;
+    } else {
+      let paint;
+      if (name === 'field' && request.artist === 1) {
+        const marker = svg.querySelectorAll('g[clip-path] circle[fill="#bd7145"]')[request.index];
+        x = Number(marker.getAttribute('cx')); y = Number(marker.getAttribute('cy'));
+        paint = marker;
+      } else {
+        const colors = name === 'field' ? ['#6b4b9a'] : ['#398575', '#a76a42'];
+        paint = [...svg.querySelectorAll('g[clip-path] polyline')].find(n => n.getAttribute('stroke') === colors[request.artist]);
+        const xy = paint.getAttribute('points').trim().split(/\s+/)[request.index].split(',').map(Number);
+        [x, y] = xy;
+      }
+      const actual = new DOMPoint(x, y).matrixTransform(matrix.inverse().multiply(paint.getScreenCTM()));
+      x = actual.x; y = actual.y;
+    }
+    const client = new DOMPoint(x, y).matrixTransform(matrix);
+    const clientX = Math.round(client.x), clientY = Math.round(client.y);
+    const intrinsic = new DOMPoint(clientX, clientY).matrixTransform(matrix.inverse());
+    const distance = Math.hypot(clientX - client.x, clientY - client.y);
+    if (distance > .71) throw Error('Unstable integer pointer location');
+    const diskDistance = Math.hypot(intrinsic.x - cx, intrinsic.y - cy);
+    if (request.negative && diskDistance <= r) throw Error('Integer event no longer proves outside the actual disk');
+    if (!request.negative && diskDistance > r) throw Error('Positive sample is outside the actual disk');
+    window.__releasePolarEvent = null;
+    svg.addEventListener(type, e => { window.__releasePolarEvent = { clientX: e.clientX, clientY: e.clientY, type: e.type }; }, { once: true });
+    return { clientX, clientY, type, intrinsic: { x: intrinsic.x, y: intrinsic.y }, diskDistance, r, distance };
+  }, { name, request, type });
+  if (type === 'click') await page.mouse.click(eventPoint.clientX, eventPoint.clientY);
+  else {
+    await page.mouse.move(1, 1);
+    await page.mouse.move(eventPoint.clientX, eventPoint.clientY);
+  }
+  await page.waitForFunction(() => window.__releasePolarEvent !== null);
+  const actualEvent = await page.evaluate(() => window.__releasePolarEvent);
+  assert.deepEqual(actualEvent, { clientX: eventPoint.clientX, clientY: eventPoint.clientY, type });
+  events.push({ name, request, ...eventPoint, actualEvent });
 }
 
 async function mobile(page, checks) {
   await page.locator('#release-polar-svg').scrollIntoViewIfNeeded();
   verify(await snapshot(page), 1);
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-  checks.push('375px public polar and radar retain physically round clipping, category labels and zero captures without page overflow');
+  const mobileEvents = [];
+  await interact(page, 'field', { artist: 0, index: 1 }, mobileEvents);
+  await expectState(page, 'field', 0, 1, Math.PI / 6, .6, 'Polar radius', '');
+  await interact(page, 'radar', { artist: 1, index: 3 }, mobileEvents, 'click');
+  await expectState(page, 'radar', 1, 3, 6 * Math.PI / 5, 85, 'Reference', '稳定', 'selected');
+  await assertHighlight(page, 'release-radar', 'selected');
+  assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+  checks.push('375px installed polar and radar retain physical original-sample picking, clipped selections and readable custom category/radius metadata without overflow');
+  return mobileEvents;
 }
 
 module.exports = { snapshot, desktop, mobile };

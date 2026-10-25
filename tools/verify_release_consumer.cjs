@@ -921,7 +921,7 @@ async function main() {
     await checkStreamplotStyle(3);
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     checks.push('375px installed streamplot keeps physical continuous picking and readable typed Chinese field metadata');
-    await polar.mobile(page, checks);
+    polarEvents.push(...await polar.mobile(page, checks));
     await page.screenshot({ path: path.join(output, 'consumer-mobile.png'), fullPage: true });
     checks.push('375px independent consumer retains responsive hit coordinates');
     await page.setViewportSize({ width: 1100, height: 850 });
