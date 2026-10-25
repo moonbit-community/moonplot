@@ -1,7 +1,8 @@
 # 安装与发布
 
-当前分发模块为 **`Lampese/mathplotlib@0.7.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
-0.7.0 已实际发布 Mooncakes 与 GitHub，公开构建成功、包可用且未撤回。
+本次发布目标为 **`Lampese/mathplotlib@0.8.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
+0.8.0 功能及中央验收已通过，尚未实际发布；上一公开版本0.7.0已发布且可安装。
+当前源码和下方命令已准备0.8.0，实际发布、registry及GitHub附件验收完成后更新本页。
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
 
@@ -9,7 +10,8 @@
 0.6.0 接续[矩形网格与二维计数交互](MESH_INTERACTION.md)，新示例为 `rabbita/grids.html`。
 0.7.0 接续[六边形分箱](HEXBIN_INTERACTION.md)与[小提琴分布](VIOLIN_INTERACTION.md)，
 同时修正旧 hexbin 分桶与轮廓错位；新示例为 `rabbita/distributions.html`。
-下方安装命令对应 0.7.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
+0.8.0 接续[Step](STEP_INTERACTION.md)、[Stairs](STAIRS_INTERACTION.md)与[ECDF](ECDF_INTERACTION.md)的原采样、区间及概率提示，
+新示例为 `rabbita/discrete.html`。下方安装命令对应本次0.8.0发布目标；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
 查看 registry 版本。维护者使用 `tools/verify_registry.py` 从全新、无 `moon.work` 的应用
 安装并验证静态四目标和真实浏览器交互。
 GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0)
@@ -20,7 +22,7 @@ GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.
 在应用的模块目录运行：
 
 ```sh
-moon add Lampese/mathplotlib@0.7.0
+moon add Lampese/mathplotlib@0.8.0
 ```
 
 静态出图只需在对应 executable 的 `moon.pkg` 导入根包：
@@ -125,7 +127,7 @@ Mooncakes 安装路线只依赖 registry，不需要这个 workspace。
 | `moonbit-community/moonplot-rabbita` | `Lampese/mathplotlib/rabbita`，建议别名 `@plot_dom` |
 | 仓库 `adapters/rabbita/` | 仓库 `rabbita/` |
 
-更新应用的 `moon.mod`，移除两个旧模块依赖，改为单个 `Lampese/mathplotlib@0.7.0`；
+更新应用的 `moon.mod`，移除两个旧模块依赖，改为单个 `Lampese/mathplotlib@0.8.0`；
 同步更新 `moon.pkg` 的包前缀。根包默认 alias 仍是 `@mathplotlib`，已有绘图方法调用无需改名。
 浏览器组件显式写 `"Lampese/mathplotlib/rabbita" @plot_dom`，避免与 Rabbita 本身的 alias 冲突。
 移除仅为两个旧模块建立的 workspace 条目；自己的其他 workspace 成员照常保留。
@@ -179,3 +181,15 @@ PLAYWRIGHT_MODULE=/path/to/node_modules/playwright \
 
 [六角格](HEXBIN_INTERACTION.md)修正了旧真实分箱错误，中心、计数、聚合组与SVG会必要变化；
 [小提琴](VIOLIN_INTERACTION.md)的KDE采样与各统计部位有独立身份。静态入口签名保留，穷尽匹配HitKind需处理新增分支。
+
+## 0.8.0 离散曲线发布验收（候选）
+
+功能、独立复审与中央验收已完成，clean正式包、实际Mooncakes/registry与GitHub附件核验尚待执行。
+静态签名和14份旧SVG保持；Step原sample、Stairs原interval与ECDF实际returned slot通过同次绘制进入提示。
+
+- 全套：Wasm/Wasm-GC/Native各22488/22488，JS22531/22531；info/fmt、八JS构建、结构与文档链接通过。
+- 八个Chrome示例98项通过，页面错误为0；新离散例14项含实际整数事件可定位的原端点、横竖/填充切换、压缩、独立显隐/更新/重挂载、375px与CSS半径。
+- 修复后仓库外dirty演练静态四目标+Chrome23项通过；包含两/三重复Step的物理命中与横轴吸附、ECDF末尾零权重重合返回槽。
+- 独立复审：Step端点往返Native/JS各810次与各12控制；Stairs各29组、22实际XML/5000几何包含；ECDF各28组/26实际XML及最终source-tie bounded各26组。
+
+以上为候选验收，不作为实际发布记录；所有dirty演练包不得上传。

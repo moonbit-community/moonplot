@@ -100,4 +100,5 @@ violin真实密度体与统计线。两者复用既有统计和绘制，不在�
 ## M7：离散曲线
 
 [M7](MILESTONE_M7.md)接续step/stairs/ECDF的原采样、区间和概率语义，保留已有静态输出。
-公共Line快照guard与实际valid-run捕获由单一owner维护，按三份可验收commit交付；目标0.8.0，尚未发布。
+公共Line快照guard与实际valid-run捕获由单一owner维护，三份源commit已合入；目标0.8.0，尚未发布。
+三组合四目标各3/3与仓库外静态四目标/Chrome23演练通过；ECDF独立复审及四图DOM已通过；中央四目标全套、八页面Chrome98项已通过，正式包与实际发布验证待执行。

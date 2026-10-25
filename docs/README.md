@@ -9,6 +9,9 @@ Start with the [project README](../README.md) to render a chart.
 - [Flat meshes and two-dimensional counts](MESH_INTERACTION.md)
 - [Hexagonal partitions, counts and aggregation values](HEXBIN_INTERACTION.md)
 - [Violin KDE samples and statistical parts](VIOLIN_INTERACTION.md)
+- [Step sample identities and alignment](STEP_INTERACTION.md)
+- [Stairs intervals, baselines and actual filled strips](STAIRS_INTERACTION.md)
+- [ECDF returned slots and cumulative probabilities](ECDF_INTERACTION.md)
 
 - [Install the unified module and migrate package paths](PUBLISHING.md)
 - [Current capabilities and M1 acceptance](CAPABILITIES.md)

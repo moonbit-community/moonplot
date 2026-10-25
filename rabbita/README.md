@@ -5,7 +5,7 @@ Interactive MoonPlot SVG components built with public
 real SVG DOM inside composable `Html`; your application owns its state.
 
 The component is the **`Lampese/mathplotlib/rabbita` package** in the unified
-`Lampese/mathplotlib@0.7.0` module. See [installation and release status](../docs/PUBLISHING.md)
+`Lampese/mathplotlib@0.8.0` module. See [installation and release status](../docs/PUBLISHING.md)
 for the current publication result. There is no separate adapter module to install.
 
 ![Two interactive charts](https://raw.githubusercontent.com/moonbit-community/moonplot/master/assets/rabbita-interactive.png)
@@ -15,7 +15,7 @@ for the current publication result. There is no separate adapter module to insta
 From your application's module directory:
 
 ```sh
-moon add Lampese/mathplotlib@0.7.0
+moon add Lampese/mathplotlib@0.8.0
 ```
 
 Import the packages used by your application's view in `moon.pkg`:
@@ -91,6 +91,24 @@ Build `rabbita/cmd/distributions --target js` and open
 changed centers/counts, and the [violin guide](../docs/VIOLIN_INTERACTION.md)
 for sample and part identities. Hexbin marginals remain static.
 
+## Step, stairs and cumulative distributions (0.8.0)
+
+`Step` retains original sample indices and values across pre/post/mid alignment;
+interior risers belong to the incoming value. `Stairs` retains original values
+and directed edge intervals; valid filled polygons provide whole-strip picking
+with the original signed baseline/value in `HitInfo.band`. `Ecdf` uses the
+actual `Ecdf.values()` / `probabilities()` return slots. Its `fraction` is the
+computed after-probability and `band` holds the directed before/after jump,
+including decreasing complementary probabilities. Compressed slots are not
+unique input observation indices. Default and custom tooltips receive the same
+metadata; no synthetic corner is presented as an extra observation.
+
+Build `rabbita/cmd/discrete --target js` and open `/rabbita/discrete.html` for
+four independent charts. See the [step](../docs/STEP_INTERACTION.md),
+[stairs](../docs/STAIRS_INTERACTION.md) and [ECDF](../docs/ECDF_INTERACTION.md)
+guides. Filled stairs with invalid or nonmonotonic polygons remain static;
+complete dashed-gap picking is outside this release.
+
 ## Component API
 
 Your application must also declare `moonbit-community/rabbita@0.16.7` when importing
@@ -162,10 +180,11 @@ legend buttons retain their accessibility attributes.
 
 ## Layout and scope
 
-`HitPoint` contains panel, artist and original sample indices, numeric data values
-and intrinsic SVG coordinates. Picking covers point anchors, bar and histogram
-regions, pie/donut sectors, matrix cells, error and area geometry, boxplot parts,
-hexagonal faces and violin parts. Lines can also snap by X; segment interpolation is not provided;
+`HitPoint` contains panel, artist and per-chart source indices, numeric data values
+and intrinsic SVG coordinates. ECDF indices refer to the returned distribution
+slots; other exact identities are described in each chart guide. Picking covers
+point anchors, bar and histogram regions, pie/donut sectors, matrix cells, error
+and area geometry, boxplot parts, hexagonal faces, violin parts and discrete strokes. Lines can also snap by X; segment interpolation is not provided;
 indices belong to the current frame, not persistent identities across reordering.
 
 The SVG uses responsive width and `xMidYMid meet`. Picking uses client coordinates,

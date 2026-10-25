@@ -35,28 +35,36 @@
 - [x] ECDF owner a05ac95384e853d003a0c509f7907a239390a34c 已合873ce68：实际returned slot/value/after fraction/outgoing interval/原before→after band，CCDF保留递减方向；不改旧排序/累加/SVG。
   共享actual-run只映射一次，非零真实stroke连通run中的零边允许canonical Point，不造零Segment；三图相邻槽保留末尾零权重源点。
   owner Native24/24、四目标定向各117/117、adapter36/36、14旧SVG逐字/info/fmt/checkall/结构通过；无公共mbti增量，own clean/no live。
-- [ ] m4_area固定a05ac953 ECDF独立复审进行中，已发现实际shared capture回归：fig400×200/fullaxes x/y0..10，pre xs[2,2,8]/ys[3,3,6]，(80,140),radius0两mode应later原sample1/interval(2,2)，a05却sample0/None。
+- [x] m4_area固定a05ac953 ECDF独立复审与6541907 bounded复核已冻结，已发现实际shared capture回归：fig400×200/fullaxes x/y0..10，pre xs[2,2,8]/ys[3,3,6]，(80,140),radius0两mode应later原sample1/interval(2,2)，a05却sample0/None。
   原2dbf sourcePoints[1,2]，a05 zero-edge采集变[1,0,2]，capture顺序倒置了sameartist重合source tie。证据m4 ownignored ecdf-shared-{before,a05}.log/probe，m3_donut已接应先复现后窄修；普通Line/Scatter/跨artist绘制顺序不得放宽。
   Root已补真实发布consumer verify_discrete_coincident_consumer：同Step反例、三重复物理点与(80,180) XNearest fallback应i2、Ecdf [1,3,3]/weights[1,1,0]尾零重合应returned i2/p1/band1→1，两mode均验。
   原源dirty-before演练84280 terminal1停首Wasm runtime abort，shared-tie-before/保留；Root修后shared-tie-fixed演练35574 terminal0，静态4目标+Chrome23全过，含新增2/3重合physical/fallback与ECDF末尾零权重，overlay31800四目标各3/3全过；所有dirty包不上传。
   m4本体独立公开Native/JS各28/28、26实际XML手列路径全部通过，含16个二进制权重组合、首/末零权重重合点、Log反向valid-run与既有overflow结果；无ECDF本体新问题。
   producer Native82180 terminal2已复现精确case；窄修仅sameartist、均newdiscrete canonical Point且screen位置完全相同的平距按较大point_index，其他等距/跨artist/Point-vs-Segment/旧图规则保留；物理Point初修四目标各121/121通过，但producer同族又发现3重复点(80,180,radius0) Step XNearest fallback仍依捕获首序而错回1、原应2；正将同sameartist同坐标source-index规则复用到fallback，未交half-fix。
-  完整fix6541907ab913aeb32e60219a95ffbe784a6f822a已合0877cd9（owner Native27/27、定向四目标各121/121、adapter36/36、14旧SVG/info/fmt/结构通过），Root两生产SHA已匹配；m4现对固定fix做bounded zero/tie/run复核，不重跑28表；Root最终全套需等此fix/UI冻结后再执行。
+  完整fix6541907ab913aeb32e60219a95ffbe784a6f822a已合0877cd9（owner Native27/27、定向四目标各121/121、adapter36/36、14旧SVG/info/fmt/结构通过），Root两生产SHA已匹配；m4固定fix bounded Native/JS各26/26、45157/21688 terminal0，无blocker；物理/offstroke source tie、NaN/zero-run与旧图/跨artist控制全部通过，28本体表未重复。
+  五份final review证据已复制Root ecdf-review/；用fix manifest覆盖base已被有意修改的Drawing源后，最终全部production SHA匹配，root-final-match.json已留档。
 - [x] Root完整ECDF公开consumer与第三组合回归：overlay76936 terminal0，四目标各3/3；dirty包演练66446 terminal0，静态四目标+Chrome23项通过。
   证据ecdf-rehearsal/；不是正式包，绝不可上传。覆盖压缩/未压缩、权重、CCDF、横竖与getter副本、真实jump/plateau/返回索引；Root只owns consumer/中央docs/发布。
-- [ ] m3_browser已明确授权部署七文件：rabbita/cmd/discrete/{main.mbt,moon.pkg,pkg.generated.mbti}、discrete.html/css/browser_test与真实assets/discrete.png；隔离构建+实际Chrome14、真实compiler接口与截图后冻结。
+- [x] m3_browser最终七文件已冻结并合31f8a15：：rabbita/cmd/discrete/{main.mbt,moon.pkg,pkg.generated.mbti}、discrete.html/css/browser_test与真实assets/discrete.png；隔离构建+实际Chrome14、真实compiler接口与截图后冻结。
   五手写文件已部署；owner隔离build99477 terminal0/69tasks、0errors；Chrome98821首轮terminal1停在pre原sample0端点、incoming1，plateau/riser正确、0pageerror，首日志/截图保留。
   事件量化已实证：目标client(154.27777453831266,690.3316004616873)，真实MouseEvent(154,690)，到原Point≈0.433 CSSpx、到riser≈0.278px；incoming合理，非1e-14逆算回归。
   UI runner改用实际整数事件可精确定位的对齐布局端点验收，保留首日志/endpoint-probe.json；FFI与adapter全Double，不改生产epsilon。修正runner真实事件前提后59822 terminal0：Chrome14/14、0errors，桌面/mobile owner目视通过；对齐布局真实event(129,615)=canonicalClient、逆算约3e-14仍source0。
-  event-quantization-evidence.json与report保留真实事件、canonical/原double/viewport证据。此轮尚未冻结；Root已合完整fix0877cd9并明确通知owner最后隔离重build/真实14组及真实asset，完成后七文件freeze。
+  event-quantization-evidence.json与report保留真实事件、canonical/原double/viewport证据。完整fix后owner Chrome79492 terminal0：14/14、0errors；最后隔离build/info通过，七文件已冻结。三个真实端点event与canonicalClient一致；桌面/mobile目视通过。
+  asset1280×1550/94636bytes/SHA7a1a90e05627186363ca0d8a15f695f11ea769e782f01ea6eae54c3fac4c9674，JS4489623bytes/SHA78d79c981f059831d01571ddd871646af25cf34f74abccb00004076d39ef4f82；browser-final/final-evidence.json含七文件/生产SHA与真实compiler接口。
   Root已加discrete.html/css的包排除；UI不改中央docs/consumer/生产/版本，不commit/push。
-- 精确下一动作：收shared source tie修后公开消费/三组合重验、独立bounded复核与UI七文件冻结 → 定点重验受影响消费/组合 → 中央info/fmt/八build/四目标全套/实际浏览器 → clean正式0.8包/实际发布。
+- [x] Root中央85355 terminal0：info/fmt/八JS build、全套Wasm/Wasm-GC/Native各22488/22488，JS22531/22531。
+  默认Chrome新离散14/分布13/网格11/统计14/图表14/提示14/双图11/资源7，共98项，0errors。
+  三native SVG可解析，preview6886/gallery14246与资产逐字相同；38份MD/477本地链接、结构/diff均过；无意外mbti差异。
+  Root已目视asset；默认与隔离JS4489623bytes/SHA78d79c981f059831d01571ddd871646af25cf34f74abccb00004076d39ef4f82一致；8765 HTML/CSS/JS实际HTTP200/逐字相同。
+- [ ] clean正式包、实际Mooncakes发布/全新registry逐文件与四目标静态/Chrome23消费、GitHub四附件完整下载核验尚待执行。
+- 精确下一动作：提交release-prep文档并push，clean HEAD运行build_release.py（不用allow-dirty）输出release-final → 实际publish/registry → GitHub四附件完整下载/tag/digest → post-delivery文档commit，继续Stem。
+  正式源SHA以该clean HEAD和生成manifest为准；正式builder启动至交付回验完成期间不得改tracked文件/commit，进度仅写ignored。
   不重开19图调查；Stem定点设计保留next-stem-notes.md，尚未实现，M7交付闭环后再开。
 - Rootowns合入/公开冲突、consumer、中央文档/版本和实际发布；不新开agent。精确设计Root .moonagent/checkpoints/M7-discrete/design/。
 - Root Step源b27f6a9、验证5f010cd、consumer/0.8候选版与两组合回归47d1435已push65503 terminal0。
   Root source fix88bf8ad/public endpoint回归92e81ea已push55820 terminal0。
-  Root Stairs源f451acd与consumer/checkpoint419075b均已push70680 terminal0；Stairs独立验收349c586已push62897 terminal0；ECDF873ce68尚待push，Root consumer/checkpoint未提交，UI七文件由m3_browser正在部署。
-- 无Root测试/下载live；UI owner最后隔离build/Chrome14进行中，reviewer固定6541907 bounded复核；有意服务8765/session43005/PID70622。M6发布与核验均已闭环。
+  Root Stairs源f451acd与consumer/checkpoint419075b均已push70680 terminal0；Stairs独立验收349c586已push62897 terminal0；ECDF873ce68尚待push，Root消费回归6c5f0ae已push97483 terminal0；UI31f8a15已提交；待提交仅Root中央发布准备文档。
+- 无Root/owner/reviewer测试或下载live；85355已terminal0，证据final-validation-progress.json。有意预览8765/session43005/PID70622继续；open_in_codex返回queued，未声称已在前台打开。M6已闭环。
 
 ## 最新交付：M6 六边形分箱与小提琴分布（2026-10-25）
 
