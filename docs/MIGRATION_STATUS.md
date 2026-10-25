@@ -9,9 +9,9 @@
 - 已授权合理复用、独立subagents、小步verified commits/push到moonbit-community/moonplot、实际Mooncakes发布Lampese/前缀，统一单module。
 - 根facade api.mbt；consumer tests/api；global tests/integration；own implementation/wbtests；维护mbt<2000行，结构检查必跑。
 
-## 当前切片：M13 Tripcolor（功能与独立专项通过，0.14.0候选待中央完整验收）
+## 当前切片：M13 Tripcolor（功能与独立专项通过，0.14.0候选中央完整验收通过，准备实际交付）
 
-- 合同 `.moonagent/checkpoints/M13-tripcolor/active-scope.md` 与[M13](MILESTONE_M13.md)。正式基线0.13源 `87a3280f31fb3ba043da415f89eab6ad5a8ef59e`；Root/consumer现0.14.0候选，实际公开分发仍0.13.0。没有提前发布。
+- 合同 `.moonagent/checkpoints/M13-tripcolor/active-scope.md` 与[M13](MILESTONE_M13.md)。正式基线0.13源 `87a3280f31fb3ba043da415f89eab6ad5a8ef59e`；Root/consumer现aebc4e6的0.14.0候选，实际公开分发仍0.13.0。没有提前发布。
 - 已实现Tripcolor kind、单环nonzero FilledRegion、TriColorInfo有序vertices/vertex_mean及facade。保Unit/0Containers、actualmesh原面槽/series、mask洞、全输入norm、facecount==vertexcount时face优先、原ordered均值位模式/overflow omission/同target旧SVG。两mode actualfill/plot only；真实边的安全preclipdata与visibleclipscreen锚点，非原网格观测；默认Value/Vertex mean与中文custom，无geometryXY。三点onceguard/knownslot/linear cursor，无wholemesh perface。详见[专项指南](TRIPCOLOR_INTERACTION.md)。
 - [x] owner最终 `a7f53f271bb42d426ddab47ffe3f0af3fb267dc8`，Root core `ff0663c34571ae4e3028fa40fcd5aecd868c032f`；empty ee→fe6、首9702→a54、tests/guide917→6c8、两窄fix bac7→242/a7→ff 均审合。36ownerfiles（19production/3interfaces/13tests/guide）Root逐SHA一致，producer-final/root-match.json。新a7专项34539 terminal0：Native23、W/WG/JS各22、adapter2；actualinfo/fmt/structure/diff0，Native3旧SVG再次过。旧bac7 broader205/204/48仅明确保留为未改部分依据，不冒称新源全表。
 - [x] 独立最终a7 Native43311/JS94555七delta均[0,0,0,1,1,1,1]，14同target旧SVG逐字，exact Fraction证3共线/4合法，无remaining blocker。原9702固定三fixture/44query、八额外接受fixture/1120query（maxdiff2.84217e-14）、Scene4+IR2每端6tests与仅两M12 helper控制复用；Drawing.region不变。Root19production/3interfaces/region全SHA同，89proof文件已SHA核copy、4immutable archives原地SHA核对，final-review/root-production-match.json。
@@ -19,9 +19,9 @@
 - [x] UI七files commit81fc697；build16148/info8afcad全0，Chrome65892首轮14/14、29实际整数事件相符、14typed geometry/24callbacks/5native negatives/0errors，mask真实前后/norm-only/两次data/legend/remount/CSS375均过。assets/triangles.png62757bytes/SHAca496caa102ebc47d430ec46ac48d21cebd268bda545f8a8a9da511f347df764，Root核七SHA并目视；FINAL_HANDOFF.md/ui-final-evidence.json保原证据。
 - [x] 外部consumer commit19ce678：Native28910、JS38269/第二exec66c6c5全0；Chrome81253实际46/46、11三角面整数事件/0errors（原槽/tuple/mode、raw15/35/45、均值8/10/12/10、mask/bbox/XNearest空白/375中文）。info71772/fmt86144f均0，两private mbti不变。before86608误用facade genericfactory、28433误把public artists深拷贝当live，均纠正consumer并保log，非core缺陷。
 - [x] ENOSPC119MiB曾阻断checkpoint heredoc/review setup/owner finalinfo101，原失败保留，只续受影响步骤。Root15049 terminal0清旧42targetcache/10.8GiB，保JS/publish/源码/log/JSON/SVG/PNG/ZIP；agent清own可再生cache，后可用17GiB，cache-cleanup-result.json有清单；不重跑已过历史完整矩阵。
-- [ ] 精确下一动作：候选版本/使用文档已改，先coherent commit；运行 `.moonagent/checkpoints/M13-tripcolor/verify_final.py` 的prelude（真实info/fmt+14JS），然后suite唯一一次 `moon test --target all`，再postlude（14真实Chrome/静态/docs/structure/diff）和collect_central.py。脚本已准备未执行，目标是否通过以真实结果为准；不要重跑M12全套，不重复已过full除非相关变化/失败。
-- [ ] 中央过后记录正式docs/sourcecommit，push，gitclean冻结Root tracked直到 clean包→actualpublish→公开success/checksum→无workspace全新registry四静态/Chrome46→GitHub四完整附件bytes/digest/size/tag→unchangedHEAD/gitclean finalaudit。此闭环尚未执行。final_audit.py支持真实session或chunk，不编造会话ID。
-- Root当前无验证live，origin/master=f371ea5，尚未formal tracked freeze；Root准备central，三agent已stop/no live。预览8765/session43005/PID70622仍filled-contours.html/旧defaultJS，等central build后再验证新triangles实际HTTP与预览，不声称前台。
+- [x] 中央最终验收：候选aebc4e6已commit。prelude94492 terminal0（真实info/fmt0、14JS构建0），唯一full81669 terminal0/267.69s：W/WG22611、Native22614、JS22666全过。postlude29009 terminal0，collect dffa65全21steps0：14页面Chrome176/0errors、三静态SVG（preview/gallery逐字）、50MD562本地链接、structure/diff全部0，无意外mbti。final-ui-asset-check.json证central PNG同asset；不要重跑M12全套，不重复已过full除非相关变化/失败。
+- [ ] 精确下一动作：提交本次中央结果的正式docs/sourcecommit，push，然后gitclean冻结Root tracked直到 clean包→actualpublish→公开success/checksum→无workspace全新registry四静态/Chrome46→GitHub四完整附件bytes/digest/size/tag→unchangedHEAD/gitclean finalaudit。此闭环尚未执行。final_audit.py支持真实session或chunk，不编造会话ID。
+- Root当前无验证live，origin/master=f371ea5，尚未formal tracked freeze；Root进行central，M13两独立交付已freeze/no live。预览8765/session43005/PID70622的triangles.html/JS/三CSS均实际HTTP200逐字同本地（JS4686665bytes/SHAe528fb4363a0046927ea128c7336142f0191f34f18a19b398c7359bc0a3121ea），open_in_codex queued、不声称前台。producer已获准own ignored做M14最小body线段+场值设计，未授权production或Roottracked。
 - 下一片streamplot只读准备已freeze：M14-streamplot-prep/HANDOFF.md/packet-sha256.json；immutable87a三Native11259/XML00ab46通过（1668源不变），旧49通用Line/Point targets的value是生成y，未有typed流线语义，1Container与实际返回/paint错位已记录。未实现M14，待0.14交付后定精确合同；不重新全库调查。
 
 ## 最新交付：M12 /0.13.0（2026-10-25）

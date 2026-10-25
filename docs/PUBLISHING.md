@@ -3,7 +3,7 @@
 工作树候选为 **`Lampese/mathplotlib@0.14.0`**，核心绘图与Rabbita组件仍是一个module。
 新增[三角面原值与顶点均值](TRIPCOLOR_INTERACTION.md)，示例为 `rabbita/triangles.html`。
 功能、独立Native/JS复审、真实双卡Chrome14与外部consumer46项已通过；
-中央完整回归、clean包、实际Mooncakes与GitHub发布仍待执行。
+中央四目标全套与14页面Chrome176项/0errors已过；clean包、实际Mooncakes与GitHub发布仍待执行。
 下方0.14.0安装命令在正式发布后可用；目前实际已发布版本仍为0.13.0，
 其590份源文件/四目标静态/Chrome41与四附件已在M12核验。
 
@@ -282,5 +282,7 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 默认Value/Vertex mean与中文自定义提示使用同一元数据。两个实际反例已修复：
 源共线被屏幕舍入打开，以及共同scale丢失异量纲合法面；两轴独立2幂证明不改变静态writer。
 
-本节当前只记录候选与专项结果，实际发布闭环尚未执行，不能据此认定registry已有0.14.0。
+中央唯一全套：Wasm/Wasm-GC各22611、Native22614、JS22666；14真实Chrome示例176项/0errors，info/fmt、14JS构建、三静态SVG、50MD/562本地链接和结构均通过。
+
+本节当前记录候选与完整回归结果，实际发布闭环尚未执行，不能据此认定registry已有0.14.0。
 完整验收与网络交付结果将分别更新于[M13](MILESTONE_M13.md)和[执行检查点](MIGRATION_STATUS.md)。

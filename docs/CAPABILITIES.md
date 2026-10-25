@@ -6,7 +6,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 
 **当前状态：M1至M12已验收并实际交付，覆盖常用二维、统计区间、网格计数、分布、离散曲线、Stem、Quiver、Barbs、线等值线与填色等值区交互。**
 [M12填色等值区](MILESTONE_M12.md)0.13.0已发布Mooncakes与GitHub：真实nonzero/evenodd多环保留孔洞、分岛空白与原logicalband槽，提示有限clip区间/代表值/系列。590安装源逐一同正式ZIP，四目标静态/Chrome41和GitHub四附件完整下载通过。
-中央W/WG22589、Native22591、JS22642及13页面Chrome162项/0errors通过；独立Native/JS各9公开、5Scene、3delta与432几何查询一致，无blocker。[M13三角网格着色](MILESTONE_M13.md)已实现并通过独立Native/JS、双卡Chrome14和外部consumer46专项；工作树0.14.0候选的中央全套与发布闭环待完成。
+中央W/WG22589、Native22591、JS22642及13页面Chrome162项/0errors通过；独立Native/JS各9公开、5Scene、3delta与432几何查询一致，无blocker。[M13三角网格着色](MILESTONE_M13.md)已实现并通过独立Native/JS、双卡Chrome14和外部consumer46专项；工作树0.14.0候选的中央四目标（22611/22611/22614/22666）及14页面Chrome176/0errors已过，实际打包/发布/安装闭环待完成。
 
 **M2 v0.2.0** 补齐多图 SVG 资源隔离和独立接入版本包，详见 [M2 历史记录](MILESTONE_M2.md)。
 当前正式分发为 **`Lampese/mathplotlib@0.13.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
@@ -112,7 +112,7 @@ Gallery SVG 解析、数据计数、面板边界与 2400×840 展示预览已检
 - 离散曲线不把合成转折点当新增观测；ECDF索引属于实际返回数组，压缩后不等于唯一原输入索引。
   非单调/有被删除顶点的filled stairs保留静态，不捏造矩形；完整dash空隙几何尚未纳入，见[Step](STEP_INTERACTION.md)、[Stairs](STAIRS_INTERACTION.md)、[ECDF](ECDF_INTERACTION.md)。
 
-- 填色等值区显示clip区间和代表值，不能据此推断鼠标处原标量场值；几何锚点不代表网格观测。旧SVG的plot外margin填色保持静态，详见[填色等值区指南](CONTOURF_INTERACTION.md)。0.13.0已实际发布；三角面着色交互已通过[M13专项](MILESTONE_M13.md)，0.14.0完整验收和实际发布待完成。
+- 填色等值区显示clip区间和代表值，不能据此推断鼠标处原标量场值；几何锚点不代表网格观测。旧SVG的plot外margin填色保持静态，详见[填色等值区指南](CONTOURF_INTERACTION.md)。0.13.0已实际发布；三角面着色交互已通过[M13专项](MILESTONE_M13.md)，0.14.0中央完整验收已过，实际发布待完成。
 
 这些限制用于描述当前行为，不表示相关能力没有后续价值。
 新功能按实际需求和可验证的使用场景逐步纳入。
