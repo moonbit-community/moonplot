@@ -48,11 +48,11 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses the published **`Lampese/mathplotlib@0.14.0`** module. See [installation and migration instructions](docs/PUBLISHING.md).
+This candidate targets the unified **`Lampese/mathplotlib@0.15.0`** module. See [installation and migration instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.14.0
+moon add Lampese/mathplotlib@0.15.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add
@@ -304,12 +304,27 @@ share the same typed metadata. See the [tripcolor guide](docs/TRIPCOLOR_INTERACT
 
 ![Face values and vertex means in Rabbita](assets/triangles.png)
 
+### Continuous streamlines and sampled fields
+
+```sh
+moon build rabbita/cmd/streamlines --target js
+```
+
+Open [the streamplot example](http://127.0.0.1:8765/rabbita/streamlines.html)
+to inspect U/V field samples along continuous body strokes. The same frame
+retains the original seed and generated-edge indices, with optional raw color
+values before normalization. Default and Chinese custom tooltips update with
+the field and style grids. See the [streamplot guide](docs/STREAMPLOT_INTERACTION.md)
+for generated midpoint semantics and the static arrow boundary.
+
+![Continuous streamlines and sampled fields in Rabbita](assets/streamlines.png)
+
 ### Current scope
 
 - SVG is the static output backend; Rabbita DOM is an optional browser component.
   Standalone PNG/PDF export and a desktop GUI backend are not available.
 - Interactive picking includes line/scatter anchors, bar and histogram regions,
-  pie/donut sectors, matrix cells, statistical areas, distribution parts, discrete curves, stems, quiver arrows, wind barbs, line contours, filled contour bands and triangular faces.
+  pie/donut sectors, matrix cells, statistical areas, distribution parts, discrete curves, stems, quiver arrows, wind barbs, line contours, filled contour bands, triangular faces and continuous streamline bodies.
   Touch gestures, zoom/pan, and keyboard navigation remain future work.
 - 3D plotting, animation, and full mathtext/TeX and font layout are not available.
 - The library is not a drop-in Matplotlib implementation. Python's dynamic

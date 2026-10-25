@@ -43,6 +43,7 @@ Start with the [project README](../README.md) to render a chart.
 - [Rabbita interactive DOM implementation and acceptance](RABBITA_DOM.md)
 - [Current execution checkpoint](MIGRATION_STATUS.md)
 - [Upstream survey](UPSTREAM_SURVEY.md)
+- [Continuous streamline field samples and interaction](STREAMPLOT_INTERACTION.md)
 - [Streamplot behavior notes](STREAMPLOT_PARITY.md)
 - [Third-party notices](THIRD_PARTY_NOTICES.md) and [license texts](licenses/)
 

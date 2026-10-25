@@ -1,9 +1,9 @@
 # 安装与发布
 
-当前分发模块为 **`Lampese/mathplotlib@0.14.0`**：核心绘图与Rabbita组件仍是一个module。
-新增[三角面原值与顶点均值](TRIPCOLOR_INTERACTION.md)，示例为 `rabbita/triangles.html`。
-0.14.0已实际发布Mooncakes与GitHub；公开构建成功，600份全新registry安装源逐一等于正式ZIP，
-四目标静态/Chrome46和四附件完整下载均核验通过。
+当前候选为 **`Lampese/mathplotlib@0.15.0`**：核心绘图与 Rabbita 组件仍是一个 module。
+新增[连续流线的生成场值](STREAMPLOT_INTERACTION.md)，示例为 `rabbita/streamlines.html`。
+候选已完成专项接入验证，中央验收和实际发布尚待执行；当前已交付版本仍为 0.14.0。
+0.14.0 的公开构建、600 份全新安装源、四目标静态/Chrome46 与 GitHub 四附件已核验。
 
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
@@ -13,7 +13,7 @@
 0.7.0 接续[六边形分箱](HEXBIN_INTERACTION.md)与[小提琴分布](VIOLIN_INTERACTION.md)，
 同时修正旧 hexbin 分桶与轮廓错位；新示例为 `rabbita/distributions.html`。
 0.8.0 接续[Step](STEP_INTERACTION.md)、[Stairs](STAIRS_INTERACTION.md)与[ECDF](ECDF_INTERACTION.md)的原采样、区间及概率提示，
-新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。0.10.0接续[Quiver原位置与U/V分量](QUIVER_INTERACTION.md)，新示例为 `rabbita/vectors.html`。0.11.0接续[风羽原位置、U/V、旗面及静风圆](BARBS_INTERACTION.md)，新示例为 `rabbita/barbs.html`。0.12.0接续[线等值线精确级别与inline标签](CONTOUR_INTERACTION.md)，新示例为 `rabbita/contours.html`。0.13.0接续[填色等值区、多环与孔洞](CONTOURF_INTERACTION.md)，新示例为 `rabbita/filled-contours.html`。下方安装命令对应0.14.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
+新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。0.10.0接续[Quiver原位置与U/V分量](QUIVER_INTERACTION.md)，新示例为 `rabbita/vectors.html`。0.11.0接续[风羽原位置、U/V、旗面及静风圆](BARBS_INTERACTION.md)，新示例为 `rabbita/barbs.html`。0.12.0接续[线等值线精确级别与inline标签](CONTOUR_INTERACTION.md)，新示例为 `rabbita/contours.html`。0.13.0接续[填色等值区、多环与孔洞](CONTOURF_INTERACTION.md)，新示例为 `rabbita/filled-contours.html`。下方安装命令对应 0.15.0 候选；发布状态以上方记录为准。使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
 查看 registry 版本。维护者使用 `tools/verify_registry.py` 从全新、无 `moon.work` 的应用
 安装并验证静态四目标和真实浏览器交互。
 GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0)
@@ -24,7 +24,7 @@ GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.
 在应用的模块目录运行：
 
 ```sh
-moon add Lampese/mathplotlib@0.14.0
+moon add Lampese/mathplotlib@0.15.0
 ```
 
 静态出图只需在对应 executable 的 `moon.pkg` 导入根包：
@@ -129,7 +129,7 @@ Mooncakes 安装路线只依赖 registry，不需要这个 workspace。
 | `moonbit-community/moonplot-rabbita` | `Lampese/mathplotlib/rabbita`，建议别名 `@plot_dom` |
 | 仓库 `adapters/rabbita/` | 仓库 `rabbita/` |
 
-更新应用的 `moon.mod`，移除两个旧模块依赖，改为单个 `Lampese/mathplotlib@0.14.0`；
+更新应用的 `moon.mod`，移除两个旧模块依赖，改为单个 `Lampese/mathplotlib@0.15.0`；
 同步更新 `moon.pkg` 的包前缀。根包默认 alias 仍是 `@mathplotlib`，已有绘图方法调用无需改名。
 浏览器组件显式写 `"Lampese/mathplotlib/rabbita" @plot_dom`，避免与 Rabbita 本身的 alias 冲突。
 移除仅为两个旧模块建立的 workspace 条目；自己的其他 workspace 成员照常保留。
@@ -286,3 +286,11 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 模块ZIP2576088bytes/SHAad6d8b29519c75f25039e961daa2f9a74127bfc05b510fe1ba11a3d457f8c51f；source2627432bytes/627files/SHAa4700d81c5f3d26fa0912e9dcd9b80090e88a24d6eb62df90435a56dbc60ff76。
 [GitHub v0.14.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.14.0)已完整下载核验。
 完整验收与网络交付结果记录于[M13](MILESTONE_M13.md)和[执行检查点](MIGRATION_STATUS.md)。
+
+## 0.15.0 Streamplot 候选
+
+现有 streamplot、mesh 和 style-grid 入口保留旧积分、样式、返回 Set、Container 和 SVG。
+新增连续线身的原 seed/edge、有限中点 U/V、同次样式原颜色标量及默认/自定义提示。
+箭头仍静态，无法证明的样本和 prepared Line 不生成推测数据。
+外部 consumer 已通过 Native/JS、真实 Chrome51（13 次流线整数事件、0 页面错误），
+实际 info/fmt 与两个 private 接口核对通过。中央全套、clean 包和实际分发待完成。

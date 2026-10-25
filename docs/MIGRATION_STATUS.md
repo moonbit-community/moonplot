@@ -1,6 +1,6 @@
 # MoonPlot 当前执行检查点
 
-更新时间：2026-10-25（Asia/Shanghai）。恢复先读本页，按精确下一动作继续。
+更新时间：2026-10-26（Asia/Shanghai）。恢复先读本页，按精确下一动作继续。
 
 ## 范围与用户决定
 
@@ -9,19 +9,21 @@
 - 已授权合理复用、独立subagents、coherent verified commits/push到moonbit-community/moonplot、实际Mooncakes Lampese/统一单module。
 - root facade api.mbt；consumer tests/api；global tests/integration；implementation/own wbtests留own package；维护mbt<2000行，structure必跑。
 
-## 当前切片：M14 Streamplot（首核心已审合，接入与专项验证中）
+## 当前切片：M14 Streamplot（专项完成，0.15.0 候选中央验收待跑）
 
-- 精确合同 `.moonagent/checkpoints/M14-streamplot/active-scope.md` 与[M14](MILESTONE_M14.md)。基线正式0.14源 `1215721c9e63e7036be9580ecd1560e7eabe0be3`，Root/consumer版本仍0.14.0，不提前bump/发布0.15。
-- 复用existing streamplot/mesh/style-grids，只连续body实际非零Segment在plot内两mode物理命中。Streamplot kind、StreamplotInfo{seed_index原尝试槽,u,v,color_value?}/HitInfo.streamplot/facade；point_index原joined edge、artist_index实际bodyLine、series原call；value恒V。u/v为原有限(a+b)/2处旧bilinear场样本，color同次旧style原scalar；不换safehalf/色值反推/鼠标采样/magnitude/原网格观测。默认U/V+真实可选Color value，无观测XY；typed缺失安全Value回退。
-- 共享轨迹/edge表，wholeLine onceidentity/content、split查两点+constant offset，actual writer validrun source_start对应；geometry storage/guard/capture O(points+edges)，新field构造保旧locator O(E*(nx+ny))成本，禁止虚称整体线性。actual全部arrowpush（包括Set未返回shaft）owned-static不冒generic y Point；保旧积分/seed/occupancy/style/norm/paint/Set/1Container/SVG。preparedSome无proof静态且保completion，不扩LineContext API；维护knownslot/cursor/image/inline/remove/clear及其他kinds。只有actual证明empty relabel才窄修，保静态legend/cycle/空Container。
-- [x] 只读准备M14-streamplot-prep/已freeze：immutable87a Native11259三图/XML、1668源未改；producer-design/两文件已copy，三项Root决定（原midpoint与同次color、旧locator成本、preparedSome静态）已冻结。不是M14新验收。
-- [x] 精确121旧baseline：producer Native57725三SVG；独立Native98134/JS27224 terminal0，各三XML/SVG，旧generic Line/Point14/18/17、value=生成y、各1Container、normal==Drawing。Native与旧87a Native逐字，JS是真121实跑；Set/paint/未返回shaft/原edge与midpoint rawUV/color已freeze。reviewer own M14-streamplot-review/source-manifest.json含10窄source/22proof SHA。无新语义旧结果重标。
-- [x] 首legacy窄fix owner09b6353c916cd8030e54007eafcb7a0d1355500e（Root完整审后合为99ea119）：empty/rejected call actual Native87412 terminal2 before→82399 terminal0/1test2子例；仅conditionalrecord_series，空Set/1Container/staticlegend保留。原log/旧source保留。
-- [x] 首核心owner `b29c70ba6a3d809c84981c13c843eb0bfa95aae6`（parent09b）：24files/3expectedmbti；owner全targetcheck291tasks0、Native85727 4/4，3fixture12/12/6真实bodySegment、seed/edge/artist/series/U1V0/同次color、Set/Container、三Native旧SVG与Set嵌套别名/oldFrame通过，actualinfo/fmt/structure0。Root已逐文件审全部production及3mbti并合为59888a2，25ownerfiles SHA全部相同（producer-first/root-match.json）；这不是M14最终验收。
-- 分工：m3_donut在managed own codex/m14-streamplot从exact121负责core/own tests/STREAMPLOT_INTERACTION.md，继续boundedguards/lifecycle/holes/paint/adapter/4targets/guide，不full/Root/version/UI/central/push/publish/新agent。m4_area已精确授权b29 ownignored Native/JS新review，先3actualfixtures再有限反例导向控制，不重跑M13大矩阵。m3_browser已在精确b29/Root598基础明确授权实际7files、隔离JS/info/fmt/Chrome/PNG，不碰core/central/consumer/version/full/release。Root版本/centraldocs/consumer/UI/full/真实发布。
-- Root consumer-draft两mbt已standalonefmt0，并部署实际tests/consumer及Model/Msg接线；隔离public-workspace已建立，Native65048/JS25542及e85669/Chrome73264均terminal0，51checks/13新流线整数事件/0errors，actualinfo82d8d7/afab8e、fmt dbd96f与两private接口未变：static12/12/6与publicfactory/alias/oldFrame；app更新U1.5/V.25、rawcolor5+x超norm、rejectedseed0→实际seed1/default中文custom。DRAFT.md列Model/Msg接线；三fixture12/12/6、Set alias/oldDrawing、更新U/V、六原edge/rawcolor超norm、真实openhead静态、双mode空白/CSS375通过。Root首consumer算术括号语法失败718fc8与误cwd后重复运行c10f84保记录并修harness，无production改动。
-- 精确下一动作：审收UI7真实packet/PNG并commit externalconsumer/checkpoint；收owner bounded四目标/指南与精确独立review后合coherent最终核心；再0.15版本/中央docs和一次中央全套。已过consumer51无需无因重跑。Root0.15/中央full尚未跑，不重复M13已闭环检查。
-- M13 Root tracked freeze已在actual finalaudit后解除；现在可以commit postdeliverydocs与后续coherent M14。postdelivery与M14起始b00fe95已push terminal0（79249），Root最新59888a2，origin/masterb00fe95。Root无验证/网络live；agent M14 core/review/草稿各在独立own/ignored推进。intentional预览8765/session43005/PID70622为triangles.html，实际HTML/JS/三CSS200逐字，open_in_codex queued不声称前台。仅connectionrefused才重启。
+- 合同见 `.moonagent/checkpoints/M14-streamplot/active-scope.md` 与[M14](MILESTONE_M14.md)。正式基线0.14源 `1215721c9e63e7036be9580ecd1560e7eabe0be3`。Root与consumer已改0.15.0候选；尚未发布，当前正式仍0.14.0。
+- 既有streamplot/mesh/style-grids只接连续body实际非零Segment，plot内双mode物理命中。Streamplot kind、readonly StreamplotInfo{seed_index原尝试槽,u,v,color_value?}/HitInfo.streamplot/facade；point_index原joined edge、artist_index实际bodyLine、series原call、value恒V。u/v为原有限(a+b)/2处旧bilinear样本，color来自同次旧style原scalar；不换safehalf/反推色值/鼠标处采样/magnitude/原网格观测。默认U/V及真实可选Color value；typedNone安全Value回退。
+- 一份共享轨迹/edge表，wholeLine onceidentity/content、split只两点+constant offset，actual valid-run source_start对应；geometry/guard/capture O(points+edges)，新增field保旧locator O(E*(nx+ny))，不虚称整体线性。所有实际arrow pushes（含Set未返回shaft）owned-static，保旧积分/seed/occupancy/style/norm/paint/Set/一个完整Container/SVG。preparedSome无proof静态并保completion，不扩LineContext；维护known-slot/cursor/image/inline/remove/clear及其他kind。
+- [x] exact121旧baseline：producer Native57725三SVG；独立Native98134/JS27224各三XML/SVG，旧generic14/18/17/value=生成y，各1Container。旧87a Native只作额外同目标对照，JS是真121实跑；不重标旧结果。
+- [x] actual empty/rejected relabel：owner09b6353→Root99ea119；beforeNative87412 terminal2→82399 terminal0/1test两子例，保空Set/1Container/staticlegend/cycle。原失败已保。
+- [x] core b29c70b→Root59888a2，Root逐production和3interfaces审；actual全targetcheck291tasks0、Native85727首4/4，三fixture12/12/6body Segment、原seed/edge/U/V/color、Set/Container/三旧SVG、nested alias/oldDrawing过。
+- [x] final owner807f27c→Rootb1acc2e仅8owningtests+指南，production仍b29。Native7749 21专项、adapter42657 2过；affected30069 terminal0：Native59/其余三各58/Rabbita50，77504 terminal0三fixture×四目标12次同目标旧新SVG逐字；info/fmt/structure/diff/guide3links过。Root核34owner=19production/3mbti/11tests/guide及75proof SHA全同，producer-final/root-match.json；不重复full或旧M13矩阵。
+- [x] precise b29独立复审无blocker：public Native44769/JS67353 terminal0，各三例12/12/6、六XML/六同目标旧SVG、240真实物理检查；Scene6+Backend2 Native1521/JS46768各8/8。变量old sampler、seed/style洞、missingmidpoint、alias/crosskind/prepared completion/ordinaryNone、五kind生命周期、反Log/clip/paint/CSS通过。Root22源接口/46proof SHA核copy、两archive原处核SHA、六旧数学块直接同formal121；independent-review/root-production-match.json。
+- [x] UI41e7977精确七files；isolated build63626、info/fmt080f41及最终c87424全0；Chrome首60052/最终93748均14/0errors，最终26整数事件/20callbacks/12geometry/6negative。三位小数仅展示，raw metadata逐值不变；实际PNG56728bytes/SHA36c487d354de33ae74653da8d8292a5511bea524cbbc9e24fe53e27407234e8e已Root目视，ui-root-match.json七SHA相同。Helper误把README symlink当blob的失败保留并修，仅证据helper失败。
+- [x] Rootconsumer b3ddbc5：actual Native65048/JS25542和e85669/Chrome73264全0；51checks/13新流线整数事件/0errors；actualinfo82d8d7/afab8e、fmt dbd96f与两private接口未变。3fixture12/12/6、Setaliases/oldDrawing、更新U1.5/V.25、拒seed0→1/六原edge/rawcolor5+x超norm、openhead静态、双mode空白/CSS375过。首Root算术括号语法718fc8与误cwd后重复c10f84有记录并修harness，无production改动。
+- [ ] 一次中央：prelude actual info/fmt+15JS→唯一moon test --target all→15真实页面/三static SVG/文档链接/structure/diff。脚本verify_final.py/collect_central.py已准备，还没跑；正式clean/发布/public API/fresh registry/GitHub四附件整下载与finalaudit均待做。
+- 精确下一动作：commit候选版本和中央文档、push coherent步骤；跑prelude→唯一full→postlude并检查实际结果/接口，不因验证失败停滞、不无因重复full。之后正式clean源码commit/freeze through网络audit；M13不重跑。
+- Root tracked freeze目前解除；各agent已收bounded，无production/UI修改或live。当前HEAD41e7977加本次候选文档待commit，origin/masterb00fe95；Root无验证/网络live。intentional预览8765/session43005/PID70622仍triangles.html；新streamlines待Root实际build并HTTP逐字核后切换。open_in_codex queued不声称前台，仅connectionrefused才重启。
 
 ## 最新交付：M13 /0.14.0（2026-10-25）
 

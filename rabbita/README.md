@@ -5,7 +5,7 @@ Interactive MoonPlot SVG components built with public
 real SVG DOM inside composable `Html`; your application owns its state.
 
 The component is the **`Lampese/mathplotlib/rabbita` package** in the unified
-`Lampese/mathplotlib@0.14.0` module. See [installation and release status](../docs/PUBLISHING.md)
+`Lampese/mathplotlib@0.15.0` module. See [installation and release status](../docs/PUBLISHING.md)
 for the current publication result. There is no separate adapter module to install.
 
 ![Two interactive charts](https://raw.githubusercontent.com/moonbit-community/moonplot/master/assets/rabbita-interactive.png)
@@ -15,7 +15,7 @@ for the current publication result. There is no separate adapter module to insta
 From your application's module directory:
 
 ```sh
-moon add Lampese/mathplotlib@0.14.0
+moon add Lampese/mathplotlib@0.15.0
 ```
 
 Import the packages used by your application's view in `moon.pkg`:
@@ -256,6 +256,14 @@ face slots and values or the existing vertex arithmetic mean, with ordered
 actual nondegenerate face fill inside the plot; masks leave real gaps. Tooltips
 show Value or Vertex mean, with no geometric X/Y rows. See the
 [tripcolor guide](../docs/TRIPCOLOR_INTERACTION.md).
+
+The [streamplot example](http://127.0.0.1:8765/rabbita/streamlines.html)
+is built with `moon build rabbita/cmd/streamlines --target js`. Continuous body
+strokes expose the original seed-attempt slot, generated edge index, sampled
+U/V and optional raw color value through `HitInfo.streamplot`. Both hit modes
+require physical stroke proximity. Default rows show U/V and optional Color
+value; custom content can add units and local labels. Arrow components retain
+static paint in this slice. See the [streamplot guide](../docs/STREAMPLOT_INTERACTION.md).
 
 ## Develop and verify
 
