@@ -10,7 +10,7 @@
 - 用户授权合理复用、独立 subagents、小步本地commit与正常push至 moonbit-community/moonplot。
 - 不用历史API指数或未经调查的估算表示整体完成率。
 
-## 当前切片：M3 交付与 M4 实现（2026-10-25）
+## 当前切片：M4 统计图与区间交互（2026-10-25）
 
 - 用户明确要求“继续往后对齐图功能，一直往后对齐”；持续实现和交付，不停在规划。
 - [x] 0.3.0 正式 ZIP 的 19 图、四目标调查已完成并保留于 docs/CHART_COVERAGE.md 与 docs/audits/chart-coverage-0.3.0/。
@@ -25,16 +25,16 @@
 - [x] 五图真实 DOM、默认/中文回调、图例隐藏/恢复、数据更新、重挂载、375px 与实际透明孔像素验收。
 - [x] 四目标全套、晚修后受影响回归、接口/fmt/check/结构、旧 SVG 与旧浏览器回归。
 - [x] 0.4.0 dirty ZIP 演练：仓库外四目标静态断言 + Chrome 七项通过；仅为 rehearsal，禁止上传。
-- [ ] clean 正式包 → Mooncakes 实际发布/独立 registry 消费 → GitHub v0.4.0 四附件回下载核验。
-- 精确下一动作：提交剩余文档并 push（b5c10d3 尚未 push），运行 tools/build_release.py 的 clean 正式构建，
-  再发布 Lampese/mathplotlib@0.4.0。完成前不合入 M4 生产代码，不把尚未发布的版本记为已发布。
+- [x] clean 正式包、Mooncakes 实际发布/独立 registry 消费、GitHub v0.4.0 四附件回下载核验。
+- 精确下一动作：先合入 ErrorBar 5707f896，再合 Area b9d7ff9、Box d7c97df 增量；保留全部 typed 字段，重新生成接口。
+  修复独立复审发现的区域吞掉后画 ErrorBar、none/transparent 仍有误差命中目标，再部署 M4 五图草稿与中央验收。
 
 ### M3 源码、修复与验证
 
-- 当前版本文件与 tests/consumer 为 0.4.0；实际已发布仍为 0.3.0，正式源 2fb8bcf。
+- 当前版本文件与 tests/consumer 为 0.4.0；实际 Mooncakes/GitHub 均已发布 0.4.0，正式源 2f859ed。
 - 已合入并 push：7adb3bc 热图、f210886 真环形、0a91ba6 多系列柱、cca4d28 环角边界、
   4ed3096 Logit 双端越域但区间穿过 viewport 的柱、367d1ad 五图页面与独立消费。
-  b5c10d3 修自动 Logit endpoint-only 概率数据的有限范围；仅在默认数据 minpos 路径回退，显式配置保留。
+  已 push 的 b5c10d3 修自动 Logit endpoint-only 概率数据的有限范围；仅在默认数据 minpos 路径回退，显式配置保留。
 - 已知边界：旧普通 bar 的 Logit 无效端点仍由旧谓词过滤；新 grouped/stacked 完整区间可以正确穿过有效域。
   不把自动视图修正宣称为旧普通柱所有非线性组合都已对齐。
 - CellInfo/Heatmap/HitInfo.cell、BarSegment/BarSegments、Donut/AnnularSector 及 facade 接口已生成并审查；
@@ -47,8 +47,16 @@
 - 最终 Chrome156.0.8078.47：新图53386 14项、旧提示67802 14项、旧主例31721 11项、资源35593 7项，均terminal0/0pageerror。
   实际新 JS4352045bytes，SHA256 be6afc69354d9aa6d3ed552309a51c0fa1d295ef42185508e9e9a80fd864694a。
 - 16715 terminal0：preview.svg6886bytes、gallery.svg14246bytes，均解析且与原资产逐字一致。
-- 证据 .moonagent/checkpoints/M3-implementation/；正式构建输出拟用 release-final/，独立安装拟用 registry-consumer/。
+- 证据 .moonagent/checkpoints/M3-implementation/；正式 release-final/ 和 registry-consumer/ 已完成。
   30827 rehearsal terminal0/dirty=true 仅作演练证据；所有测试进程已结束。
+- 2f859ed691a4c7692341e3f97cc6bf03b1edce36 已正常 push；clean builder86191 terminal0/dirty_rehearsal=false。
+  正式模块 ZIP1,659,036bytes/510files，sha256 3c5cd49c8a2f48832e3df2e7f9b44b3ea98c900a1ef21ececf5ec594fdd48512。
+  source bundle1,678,776bytes/523files；正式 ZIP 仓库外静态四目标与 Chrome7通过。
+- moon publish79378 terminal0/Server200；公开0.4.0/build_status=success/has_package=true/yanked=false。
+  真实 registry15907 terminal0：无workspace覆盖，510文件逐一相同，静态四目标和Chrome7全过。
+- GitHub82755发布、93791下载均terminal0；v0.4.0 tag指向2f859ed，四附件逐字节与远端摘要一致。
+  https://github.com/moonbit-community/moonplot/releases/tag/v0.4.0 。旧tag/附件未改。
+  正式交付无残留测试会话；本页后补记录不移动正式tag。
 
 ### M4：独立实现中，目标 0.5.0
 
@@ -61,10 +69,16 @@
   真实填充按屏幕主方向中点归最近原样本；非单调/重复位置不生成交互目标，静态照常。
   四目标受影响各1800/1800、adapter20/20；info/fmt/结构通过。
   worktree /Users/lampese/.codex/worktrees/m4-filled-area/mathplotlib，已交回。
-- [ ] m3_donut 在 /Users/lampese/.codex/worktrees/m3-donut-charts/mathplotlib 做箱线图，
-  基于 b5c10d3 + ErrorBar，提交仅含 BoxInfo/BoxPart 增量；同次复用 BoxStats 和实际箱/须/帽/离群点。
+- [x] 箱线独立实现/定向验收，未合入：d7c97df062bc11dec1d1fc3284c7df344d8874c3。
+  worktree /Users/lampese/.codex/worktrees/m3-donut-charts/mathplotlib，底座含 ErrorBar，本commit仅Box增量。
+  复用 BoxStats 与实际箱/须/帽/离群点；精准四目标各49/49、adapter22/22，4份旧SVG14723bytes相同。
+  info/fmt/check/结构通过，已交回。
 - [ ] m3_browser 只在 ignored .moonagent/checkpoints/M4-statistics/draft/ 起草五图 DOM/runner，
   等 Root 合入 M4 后通知部署；不写 Git-visible 文件，不影响 0.4 正式包的 clean 源。
+- 独立 ErrorBar 只读复审有两个实证，Root合入后统一修，不在UI绕过：
+  bar→errorbar 后画误差线/中心被area-first吞掉；none/transparent仍有不可见端帽目标。
+  还需独立mode回归：两真实中心+长横臂中，Nearest按真线段，XNearest仍按中心x而不选须。
+  审查证据在 m4-filled-area worktree 的 .moonagent/checkpoints/M4-error-review/review.md，源未改。
 - M4 并未完成中央合入/浏览器/独立消费/发布；范围见 MILESTONE_M4.md。
   Root 完成 0.4 发布后先合 ErrorBar，再合 Area/Box，保留全部 typed metadata 分支并重新生成接口。
 - 只有有意预览 session8304/PID74453 保留，根目录服务：

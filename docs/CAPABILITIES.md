@@ -9,7 +9,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 **G2.1 交互 DOM 首片也已验收**：可选 Rabbita JS 组件、折线/散点交互与双图示例，详见[DOM 记录](RABBITA_DOM.md)。
 
 **M2 v0.2.0** 补齐多图 SVG 资源隔离和独立接入版本包，详见 [M2 历史记录](MILESTONE_M2.md)。
-当前源码目标为 **`Lampese/mathplotlib@0.4.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
+当前分发为 **`Lampese/mathplotlib@0.4.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
 发布状态和安装方式见 [接入说明](PUBLISHING.md)。
 
 ## 如何理解状态

@@ -1,7 +1,7 @@
 # M3：常用图表扩展与矩阵交互
 
-创建日期：2026-10-25。状态：**三个目标已实现并通过核心与真实浏览器验收；正在完成正式版本交付。**
-已发布版本仍为 `Lampese/mathplotlib@0.3.0`；M3 目标版本为 0.4.0，验收通过后再发布。
+创建日期：2026-10-25。状态：**三个目标与交付均完成。**
+`Lampese/mathplotlib@0.4.0` 已发布 Mooncakes 与 [GitHub v0.4.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.4.0)。
 
 基于[本轮图表调查](CHART_COVERAGE.md)，本里程碑同时补常见图类与日常交互。
 保留现有 SVG、统一 module、Rabbita 组件和已验收的 0.3.0 行为。
@@ -51,8 +51,8 @@ RGB(A) 图片、none/平滑插值、曲面网格、pcolormesh/hist2d 分箱语�
 - [x] 三个目标逐项实现，并通过相应单元、集成、SVG 与真实 DOM 检查；实现与验收分别记录。
 - [x] 审查公开接口和已有调用；新增枚举变体涉及调用方穷尽匹配时，在迁移说明提供示例。
 - [x] 运行接口生成、格式、结构检查及所需回归；每个已验收步骤单独 commit。
-- [ ] clean 正式包与实际 registry 安装的仓库外四目标静态/真实浏览器消费、Mooncakes/GitHub 交付。
-  dirty ZIP 演练已通过四目标与浏览器七项；正式发布仍待执行。
+- [x] clean 正式包与实际 registry 安装的仓库外四目标静态/真实浏览器消费、Mooncakes/GitHub 交付。
+  正式 ZIP 与安装源510文件逐一相同，四目标静态/Chrome七项通过，四份附件回下载核对一致。
 
 面积/置信带/误差棒、箱线/小提琴的交互，以及 pcolormesh/hist2d/hexbin 等语义适配，
 保留在[缺口清单](CHART_COVERAGE.md)中。极坐标/雷达、3D、动画和新导出后端属于独立后续目标。
@@ -67,6 +67,6 @@ Chrome 156 的新图 14 组、原提示 14 组、原主例 11 项与资源隔离
 最终受影响的 drawing/scene/backend/svg/tests/api 四目标各 1,798/1,798。
 接口、格式和结构检查通过，旧 preview/gallery SVG 与资产逐字一致。
 
-下一片 [M4](MILESTONE_M4.md) 的统计图与区间交互在独立工作区实施，待 0.4.0 交付后合入。
+下一片 [M4](MILESTONE_M4.md) 的统计图与区间交互在独立工作区实施，现开始合入与中央验证。
 
 执行状态、改动、验证与精确下一动作维护于 [执行检查点](MIGRATION_STATUS.md)。
