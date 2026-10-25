@@ -36,6 +36,10 @@ an SVG rendering pipeline.
 - **Matrix and bin interactions:** nearest scalar images and flat rectangular
   meshes expose original row, column, value and data intervals across whole cells;
   2D histograms expose both bin intervals and their original counts. See the [mesh guide](docs/MESH_INTERACTION.md).
+- **Distribution interactions:** hexagonal bins expose counts and aggregation values
+  across their actual faces; violin bodies expose KDE samples and statistical
+  strokes. See the [hexbin](docs/HEXBIN_INTERACTION.md) and
+  [violin](docs/VIOLIN_INTERACTION.md) guides.
 
 Support varies by chart and option. See the
 [usage guide](docs/USAGE.md) for examples and the
@@ -44,11 +48,11 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.6.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
+MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.7.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.6.0
+moon add Lampese/mathplotlib@0.7.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add
@@ -186,11 +190,27 @@ With the repository served as above, open
 [the tooltip examples](http://127.0.0.1:8765/rabbita/tooltips.html).
 Use `hit_mode=XNearest` to opt into line x snapping; existing calls keep nearest-point picking.
 
+### Hexagonal bins and violin distributions
+
+```sh
+moon build rabbita/cmd/distributions --target js
+```
+
+Open [the four-chart distribution example](http://127.0.0.1:8765/rabbita/distributions.html)
+to inspect counts, custom reductions, KDE density samples and statistical parts.
+Version 0.7.0 also corrects the earlier hexbin partition: point assignment and
+polygon vertices now share the same hexagonal lattice. Hexbin centers, counts,
+aggregation groups and SVG geometry can change; see the
+[compatibility details](docs/HEXBIN_INTERACTION.md).
+
+![Hexagonal bins and violin distributions in Rabbita](assets/distributions.png)
+
 ### Current scope
 
 - SVG is the static output backend; Rabbita DOM is an optional browser component.
   Standalone PNG/PDF export and a desktop GUI backend are not available.
-- Interactive picking covers line/scatter anchors, bar rectangles, histogram bins and pie sectors.
+- Interactive picking includes line/scatter anchors, bar and histogram regions,
+  pie/donut sectors, matrix cells, statistical areas and distribution parts.
   Touch gestures, zoom/pan, and keyboard navigation remain future work.
 - 3D plotting, animation, and full mathtext/TeX and font layout are not available.
 - The library is not a drop-in Matplotlib implementation. Python's dynamic

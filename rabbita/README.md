@@ -5,7 +5,7 @@ Interactive MoonPlot SVG components built with public
 real SVG DOM inside composable `Html`; your application owns its state.
 
 The component is the **`Lampese/mathplotlib/rabbita` package** in the unified
-`Lampese/mathplotlib@0.6.0` module. See [installation and release status](../docs/PUBLISHING.md)
+`Lampese/mathplotlib@0.7.0` module. See [installation and release status](../docs/PUBLISHING.md)
 for the current publication result. There is no separate adapter module to install.
 
 ![Two interactive charts](https://raw.githubusercontent.com/moonbit-community/moonplot/master/assets/rabbita-interactive.png)
@@ -15,7 +15,7 @@ for the current publication result. There is no separate adapter module to insta
 From your application's module directory:
 
 ```sh
-moon add Lampese/mathplotlib@0.6.0
+moon add Lampese/mathplotlib@0.7.0
 ```
 
 Import the packages used by your application's view in `moon.pkg`:
@@ -76,6 +76,20 @@ original scalar values and both boundary intervals. `hist2d` uses `Histogram2D`
 with x/y bin intervals and raw counts, including zero-count cells. See the
 [mesh guide](../docs/MESH_INTERACTION.md); build `rabbita/cmd/grids --target js`
 and open `/rabbita/grids.html` for three independent, responsive charts.
+
+## Hexagonal bins and violin distributions (0.7.0)
+
+`Hexbin` targets cover the real six-vertex faces and retain original centers,
+counts and computed reduction values in `HitInfo.hexbin`. `Violin` targets
+distinguish KDE samples from mean, median, extrema, range and quantile strokes
+through `HitInfo.violin`. KDE samples describe the density estimate rather than
+individual observations. Existing custom tooltip callbacks receive both types.
+
+Build `rabbita/cmd/distributions --target js` and open
+`/rabbita/distributions.html` for four independent charts. Read the
+[hexbin guide](../docs/HEXBIN_INTERACTION.md) for the corrected partition and
+changed centers/counts, and the [violin guide](../docs/VIOLIN_INTERACTION.md)
+for sample and part identities. Hexbin marginals remain static.
 
 ## Component API
 
@@ -149,8 +163,9 @@ legend buttons retain their accessibility attributes.
 ## Layout and scope
 
 `HitPoint` contains panel, artist and original sample indices, numeric data values
-and intrinsic SVG coordinates. Picking covers Line, Scatter and PathCollection point anchors, Bar/BarH/Histogram
-rectangles and Pie sectors. Lines can also snap by X; segment interpolation is not provided;
+and intrinsic SVG coordinates. Picking covers point anchors, bar and histogram
+regions, pie/donut sectors, matrix cells, error and area geometry, boxplot parts,
+hexagonal faces and violin parts. Lines can also snap by X; segment interpolation is not provided;
 indices belong to the current frame, not persistent identities across reordering.
 
 The SVG uses responsive width and `xMidYMid meet`. Picking uses client coordinates,

@@ -5,6 +5,10 @@ Start with the [project README](../README.md) to render a chart.
 ## Using the library
 
 - [Hover values, regions, line x snapping and custom tooltips](TOOLTIPS.md)
+- [Statistical areas, error bars and boxplots](STATISTICS.md)
+- [Flat meshes and two-dimensional counts](MESH_INTERACTION.md)
+- [Hexagonal partitions, counts and aggregation values](HEXBIN_INTERACTION.md)
+- [Violin KDE samples and statistical parts](VIOLIN_INTERACTION.md)
 
 - [Install the unified module and migrate package paths](PUBLISHING.md)
 - [Current capabilities and M1 acceptance](CAPABILITIES.md)
