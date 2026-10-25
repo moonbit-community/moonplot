@@ -40,7 +40,7 @@ fn Drawing::statistical_overlay_hit(
 ) -> HitPoint? {
   let mut best : HitPoint? = None
   let mut best_distance = radius
-  let eligible_errors : Array[(Int32, Int32)] = []
+  let eligible_errors : Map[(Int32, Int32), Bool] = {}
   for index in (area_index + 1)..<self.targets.length() {
     let target = self.targets[index]
     let point = target.info.point
@@ -59,9 +59,7 @@ fn Drawing::statistical_overlay_hit(
     }
     if mode == XNearest && target.info.kind == ErrorBar {
       let identity = (point.panel_index, point.artist_index)
-      if !eligible_errors.contains(identity) {
-        eligible_errors.push(identity)
-      }
+      eligible_errors[identity] = true
     } else if distance <= best_distance &&
       (best is None || distance < best_distance) {
       best = Some(point)
@@ -78,7 +76,7 @@ fn Drawing::statistical_overlay_hit(
     let point = target.info.point
     if target.info.kind != ErrorBar ||
       target.shape != Point ||
-      !eligible_errors.contains((point.panel_index, point.artist_index)) ||
+      eligible_errors.get((point.panel_index, point.artist_index)) is None ||
       self.excluded(point.panel_index, x, y) ||
       !valid_info(target.info) ||
       !rect_contains(target.bounds, x, y) ||
