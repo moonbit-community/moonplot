@@ -18,7 +18,9 @@
 ## 实施与验收
 
 - [x] M16实际交付已核验，正式基线与最小合同固定，三个独立工作区分工。
-- [ ] 核心实现、原始数据归属、区域命中与边界；own四目标及少量旧SVG控制。
+- [x] Drawing/默认tooltip底层：PolarBar、圆盘门控、扇区面积及laterPolar物理overlay；
+  fractional圆实际失败保留，窄舍入修复后Drawing四目标各64、RabbitaJS54通过。
+- [ ] Scene/IR/SVG核心、原始数据归属；own四目标及少量旧SVG控制。
 - [ ] 独立Native/JS几何与来源核对。
 - [ ] 真实RabbitaDOM、hover/click、更新/图例/重挂载和375px。
 - [ ] 外部consumer、生成接口/格式/结构、中央相关回归。

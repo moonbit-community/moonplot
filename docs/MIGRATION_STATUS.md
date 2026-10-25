@@ -19,14 +19,19 @@ Mooncakes Lampese/统一module与GitHub交付。root facade/owning tests/mbt<200
   r>显式max的可见填面可提示rawr，先min后比避免溢出；full2π真圆、hugeθ先约简。
   宽度独立于capture guard可静态画变异typedBar，手工Bar无角宽仍checked unsupported。
   两mode按面积，圆逐候选gate；只窄补newBar上的laterPolar物理overlay，不改旧Pie/普通tie。
-- [ ] Producer在独立m3-donut工作区从formalcedbf16建codex/m17-polar-bars，owns Scene/IR/SVG/Drawing、
-  默认tooltip、own tests/接口和POLAR.md；先coherent snapshot再affected四目标/RabbitaJS/旧SVG控制。
+- [ ] Producer在独立m3-donut工作区从formalcedbf16建codex/m17-polar-bars，owns Scene/IR/SVG、
+  own tests/接口和POLAR.md；先coherent snapshot再affected四目标/RabbitaJS/旧SVG控制。
 - [ ] Browser在独立ignored工作区准备既有polar页面接入；owns示例UI/runner/PNG，等coherentcore再实际DOM。
 - [ ] Independent在m4-filled-area ignored准备必要数学/源guard核对，等coherentcore再Native/JS；不写生产。
+- [x] Root底层Drawing与默认tooltip首步：PolarBar enum、逐候选circle gate、真实扇区面积、
+  仅newarea允许laterPolar物理overlay。fractional(cx200,cy129,R43.8)西边界实际before71387
+  0/1后窄修通过；旧Pie严格Sector不变。四目标Drawing各64、RabbitaJS54及actualinfo/fmt/
+  structure/diff33374均终0，唯一接口差异为HitKind::PolarBar。原自写pattern缺括号编译失败已单列保留。
 - [ ] Root owns外部consumer、docs/version/中央、实际分发。已有M16全套不重跑，M17源变化才针对验证。
 
-精确下一动作：Root已发三个followup，等待producer首个coherent snapshot；同时整理M16已交付docs并
-提交。根目录不新增杂文件。active scope与draft/15源prep保ignored
+精确下一动作：Root已接手Drawing/tooltip并通过首步验证，给producer可编译patch以继续Scene/IR/SVG。
+等待producer首个coherent snapshot后并行browser/reviewer。M16已交付docs已提交并push373715b（19212终0）。Root已在ignored consumer-draft准备静态/DOM与focused JS用例，
+只有JS语法检查通过，尚未编译新API或当作接入通过。根目录不新增杂文件。active scope与draft/15源prep保ignored
 `.moonagent/checkpoints/M17-polar-bars/ACTIVE_SCOPE.md`；这里只记实际状态，未验收不勾完成。
 
 ## 最近已实际交付：M16 / 0.17.0

@@ -59,3 +59,8 @@ fn Drawing::polar_admits(
     }
   }
 }
+
+///|
+fn HitKind::requires_polar_circle(self : HitKind) -> Bool {
+  self is (Polar | PolarBar)
+}

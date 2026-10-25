@@ -25,6 +25,7 @@ pub(all) enum HitKind {
   Tripcolor
   Streamplot
   Polar
+  PolarBar
 } derive(Eq, Debug)
 
 ///|

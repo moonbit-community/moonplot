@@ -277,11 +277,11 @@ fn Drawing::target_hit(
         target.info.point.panel_index,
         x,
         y,
-        polar=target.info.kind == Polar,
+        polar=target.info.kind.requires_polar_circle(),
       ) &&
       valid_shape(target.shape) &&
       rect_contains(target.bounds, x, y) &&
-      shape_contains(target.shape, x, y) {
+      target.area_contains(x, y) {
       return match
         self.statistical_overlay_hit(index, x, y, radius, scale, mode) {
         Some(point) => Some(point)
@@ -297,7 +297,7 @@ fn Drawing::target_hit(
         target.info.point.panel_index,
         x,
         y,
-        polar=target.info.kind == Polar,
+        polar=target.info.kind.requires_polar_circle(),
       ) ||
       (
         mode == XNearest &&
@@ -333,7 +333,7 @@ fn Drawing::target_hit(
         target.info.point.panel_index,
         x,
         y,
-        polar=target.info.kind == Polar,
+        polar=target.info.kind.requires_polar_circle(),
       ) ||
       (
         target.info.kind != Line &&
