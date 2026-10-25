@@ -99,6 +99,7 @@ fn ecdf_result(
   }
   let output_values = Array(capacity=pairs.length())
   let output_probabilities = Array(capacity=pairs.length())
+  let before_probabilities = Array(capacity=pairs.length())
   let points : Array[@core.Point] = []
   let mut cumulative = 0.0
   let mut index = 0
@@ -129,6 +130,7 @@ fn ecdf_result(
     }
     output_values.push(value)
     output_probabilities.push(after)
+    before_probabilities.push(before)
     let first_point = if horizontal {
       @core.point(before, value)
     } else {
@@ -143,8 +145,38 @@ fn ecdf_result(
     points.push(second_point)
     index = if compress { next_index } else { index + 1 }
   }
+  let datums = []
+  let owners = []
+  for i in 0..<output_values.length() {
+    datums.push(
+      @render.discrete_datum(
+        i,
+        points[i * 2 + 1],
+        output_values[i],
+        interval=if i + 1 < output_values.length() {
+          Some((output_values[i], output_values[i + 1]))
+        } else {
+          None
+        },
+        fraction=Some(output_probabilities[i]),
+        band=Some(
+          @drawing.band_info(
+            before_probabilities[i],
+            output_probabilities[i],
+            horizontal~,
+          ),
+        ),
+      ),
+    )
+    if i > 0 {
+      owners.push(i - 1)
+    }
+    owners.push(i)
+  }
+  let source = @render.discrete_line_hit_data(Ecdf, points, datums, owners).unwrap()
   let resolved_color = axes.resolve_color(color)
   axes.push_artist(Artist::Line(points, @core.style(resolved_color)))
+  axes.record_discrete_line(source)
   axes.add_auto_legend(label, resolved_color, LegendKind::Line)
   { values: output_values, probabilities: output_probabilities, }
 }

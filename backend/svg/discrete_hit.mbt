@@ -159,21 +159,68 @@ fn collect_drawing_discrete_line(
   series : String,
 ) -> Unit {
   let (left, top, width, height) = bounds
+  let screen = points.map(p => {
+    (map_x(scale, left, width, p.x()), map_y(scale, top, height, p.y()))
+  })
+  let mut has_stroke = false
+  for i in 0..<(screen.length() - 1) {
+    let a = screen[i]
+    let b = screen[i + 1]
+    if violin_screen_finite(a.0) &&
+      violin_screen_finite(a.1) &&
+      violin_screen_finite(b.0) &&
+      violin_screen_finite(b.1) &&
+      a != b {
+      has_stroke = true
+      break
+    }
+  }
+  if !has_stroke {
+    return
+  }
   for i in 0..<(points.length() - 1) {
     guard source.owner(source_start + i) is Some(owner) else { continue }
     guard source.datum(owner) is Some(datum) else { continue }
     if !valid_point(scale, datum.point) || !violin_screen_finite(datum.value) {
       continue
     }
-    let a = points[i]
-    let b = points[i + 1]
-    let segment = (
-      map_x(scale, left, width, a.x()),
-      map_y(scale, top, height, a.y()),
-      map_x(scale, left, width, b.x()),
-      map_y(scale, top, height, b.y()),
-    )
+    let a = screen[i]
+    let b = screen[i + 1]
+    let segment = (a.0, a.1, b.0, b.1)
     if segment.0 == segment.2 && segment.1 == segment.3 {
+      // A zero-weight/duplicate return slot can lie on a zero edge of a
+      // connected painted run. Keep its real endpoint, never a zero-length
+      // Segment. A wholly zero run was rejected above.
+      collect_discrete_source_point(
+        output, used, source, owner, panel_index, artist_index, series, scale, bounds,
+        segment,
+      )
+      if owner > 0 {
+        collect_discrete_source_point(
+          output,
+          used,
+          source,
+          owner - 1,
+          panel_index,
+          artist_index,
+          series,
+          scale,
+          bounds,
+          segment,
+        )
+      }
+      collect_discrete_source_point(
+        output,
+        used,
+        source,
+        owner + 1,
+        panel_index,
+        artist_index,
+        series,
+        scale,
+        bounds,
+        segment,
+      )
       continue
     }
     guard violin_visible_segment(segment, bounds) is Some((x0, y0, x1, y1)) else {
@@ -199,9 +246,10 @@ fn collect_drawing_discrete_line(
       output, used, source, owner, panel_index, artist_index, series, scale, bounds,
       segment,
     )
-    // Pre steps begin a jump at the previous real sample. That original
-    // endpoint retains its own index instead of becoming the next plateau.
-    if source.kind == Step && owner > 0 {
+    // Adjacent canonical slots may be endpoints of this edge: pre steps
+    // begin a jump at the previous sample, and a zero-weight ECDF slot can
+    // end the preceding plateau. Their source indices remain selectable.
+    if owner > 0 {
       collect_discrete_source_point(
         output,
         used,
@@ -215,19 +263,17 @@ fn collect_drawing_discrete_line(
         segment,
       )
     }
-    if source.kind == Step {
-      collect_discrete_source_point(
-        output,
-        used,
-        source,
-        owner + 1,
-        panel_index,
-        artist_index,
-        series,
-        scale,
-        bounds,
-        segment,
-      )
-    }
+    collect_discrete_source_point(
+      output,
+      used,
+      source,
+      owner + 1,
+      panel_index,
+      artist_index,
+      series,
+      scale,
+      bounds,
+      segment,
+    )
   }
 }
