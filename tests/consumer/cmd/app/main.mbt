@@ -348,6 +348,8 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
     tripcolor_consumer_view(model, emit),
     @html.h2("Continuous flow samples"),
     streamplot_consumer_view(model, emit),
+    @html.h2("Polar coordinates and radar outlines"),
+    polar_consumer_view(model),
     @html.h2("Nonuniform mesh"),
     @plot_dom.view(
       make_mesh_drawing(model),
