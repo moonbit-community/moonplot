@@ -3,7 +3,7 @@
 2026-10-26启动，目标0.17.0。基线为已实际交付的0.16.0正式源
 `99964396315269ebf7765c7437ab7258aa339b8e`。核心与adapter已合，外部consumer专项通过；
 页面完整场景和中央回归已通过，独立实际检查无剩余反例；
-最终源与证据已核对；clean包与实际发布待完成。
+最终源与证据已核对；0.17.0已实际发布，clean包、全新registry与GitHub附件核验均通过。
 
 本片接续M15静态图，补原始角度、半径与雷达类别的点提示，以及与实际圆盘一致的命中范围。
 保持现有出图与调用方式，应用可继续更新数据、切换方向/系列和重挂载。
@@ -45,7 +45,11 @@
 - [x] 一次中央全套9480终0/267.4秒：W/WG22658、Native22662、JS22718。
   actualinfo/fmt与16JS构建53079、postlude64089均终0，16页面Chrome204/0错误、
   三static、结构/文档/预期接口全部通过；23steps全0，未重复全套。
-- [ ] clean包及实际Mooncakes/registry/GitHub交付。
+- [x] 正式源cedbf16：clean22726、publish92686、公开success935e50、全新registry37462、
+  GitHub create44289与完整下载92054均终0。612安装源同正式ZIP、四static/Chrome59与8整数事件；
+  四附件完整字节/大小/digest/tag核验通过。finalaudit2bb881确认HEAD/gitclean全程不变后解除freeze。
+  [v0.17.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.17.0)与
+  [完整交付记录](archive/migration-status-through-2026-10-26-m16.md)保留证据。
 
 数值圆盘边界只采用与投影运算一致的binary64舍入界，与CSS缩放和用户命中半径无关；
 略超原径轴上限的数据另作严格过滤，明显圆外点和包围框空角保持不可选。
