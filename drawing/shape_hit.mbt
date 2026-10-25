@@ -313,10 +313,19 @@ fn Drawing::target_hit(
     if !finite(dx) || !finite(dy) {
       continue
     }
-    if best is None || dx < best_dx || (dx == best_dx && dy < best_dy) {
+    let coincident_later = match best_target {
+      Some(previous) =>
+        discrete_coincident_source_tie(target, previous).unwrap_or(false)
+      None => false
+    }
+    if best is None ||
+      dx < best_dx ||
+      (dx == best_dx && dy < best_dy) ||
+      (dx == best_dx && dy == best_dy && coincident_later) {
       best = Some(point)
       best_dx = dx
       best_dy = dy
+      best_target = Some(target)
     }
   }
   best

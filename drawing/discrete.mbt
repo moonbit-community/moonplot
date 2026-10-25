@@ -22,6 +22,30 @@ fn discrete_source_roundoff(target : HitTarget, x : Double, y : Double) -> Bool 
 }
 
 ///|
+// Zero path edges can discover an earlier slot after a later one. Compare
+// coincident canonical Points by source order, not incidental capture order.
+// Other positions and different artists retain their existing tie rules.
+fn discrete_coincident_source_tie(
+  candidate : HitTarget,
+  previous : HitTarget,
+) -> Bool? {
+  let a = previous.info.point
+  let b = candidate.info.point
+  if discrete_kind(previous.info.kind) &&
+    discrete_kind(candidate.info.kind) &&
+    previous.shape == Point &&
+    candidate.shape == Point &&
+    a.panel_index == b.panel_index &&
+    a.artist_index == b.artist_index &&
+    a.screen_x == b.screen_x &&
+    a.screen_y == b.screen_y {
+    Some(b.point_index > a.point_index)
+  } else {
+    None
+  }
+}
+
+///|
 // Later paths resolve transition ties. At a real source endpoint of the same
 // artist, a source Point retains its original sample/return slot.
 fn proximity_tie_later(candidate : HitTarget, previous : HitTarget?) -> Bool {
@@ -38,6 +62,9 @@ fn proximity_tie_later(candidate : HitTarget, previous : HitTarget?) -> Bool {
     a.artist_index == b.artist_index &&
     discrete_kind(old.info.kind) &&
     discrete_kind(candidate.info.kind) {
+    if discrete_coincident_source_tie(candidate, old) is Some(later) {
+      return later
+    }
     if old.shape == Point && candidate.shape != Point {
       return false
     }

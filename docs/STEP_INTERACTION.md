@@ -29,7 +29,8 @@ value is the actual source y, never an interpolation along the jump.
 
 An exact unique original sample coordinate retains that sample's index.
 Synthetic corners use later path-edge order. Coincident original samples use
-a fixed source-order tie; one pointer position cannot select every duplicate.
+the later original index, independently of endpoint capture order; one pointer
+position cannot select every duplicate.
 The screen anchor can lie on the actual visible segment while data coordinates
 remain the source sample.
 

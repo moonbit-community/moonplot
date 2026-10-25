@@ -12,7 +12,8 @@ with x/y exchanged for horizontal stairs. Generated corners are not samples.
 For outlines, the actual plateau belongs to its interval and the inside of a
 jump belongs to the interval it enters. Exact unique source points retain
 their original index. Synthetic-corner ties use later path-edge order.
-Repeated original coordinates use a fixed source-order tie. Missing vertices
+Repeated original coordinates use the later original index, independently of
+endpoint capture order. Missing vertices
 split actual outline runs without compacting the original indices.
 
 Filled stairs can be selected throughout each real interval strip, rather than
