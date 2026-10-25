@@ -79,7 +79,8 @@ fn collect_drawing_boxplot(
   let x1 = Double::min(x + box_width, left + width)
   let y0 = Double::max(y, top)
   let y1 = Double::min(y + box_height, top + height)
-  if !x.is_nan() &&
+  if sample.fill_visible &&
+    !x.is_nan() &&
     !x.is_inf() &&
     !y.is_nan() &&
     !y.is_inf() &&
@@ -113,47 +114,81 @@ fn collect_drawing_boxplot(
       (y0 + y1) / 2.0,
     )
   }
-  // These are the five actually emitted lines, in their original paint order.
-  // A zero-length whisker has no visible butt-capped stroke; the real median
-  // line still makes a constant-valued group interactive.
-  let parts : Array[(@drawing.BoxPart, Double)] = [
-    (LowerWhisker, stat.lower_whisker()),
-    (UpperWhisker, stat.upper_whisker()),
-    (Box, stat.median()),
-    (LowerCap, stat.lower_whisker()),
-    (UpperCap, stat.upper_whisker()),
-  ]
-  for index, (part, value) in parts {
-    let segment = sample.segments[index]
-    if segment.0 == segment.2 && segment.1 == segment.3 {
-      continue
+  if sample.stroke_visible {
+    // An unfilled box has only its original outline, not an interactive interior
+    // or edges invented at the viewport's clipping boundary.
+    if !sample.fill_visible && box_width > 0.0 && box_height > 0.0 {
+      for
+        segment in [
+          (x, y, x + box_width, y),
+          (x + box_width, y, x + box_width, y + box_height),
+          (x + box_width, y + box_height, x, y + box_height),
+          (x, y + box_height, x, y),
+        ] {
+        guard visible_error_segment(segment, bounds)
+          is Some((sx0, sy0, sx1, sy1)) else {
+          continue
+        }
+        if sx0 == sx1 && sy0 == sy1 {
+          continue
+        }
+        append_drawing_box_target(
+          output,
+          panel_index,
+          artist_index,
+          sample,
+          metadata,
+          bounds,
+          Box,
+          stat.median(),
+          Segment(sx0, sy0, sx1, sy1),
+          (sx0 + sx1) / 2.0,
+          (sy0 + sy1) / 2.0,
+        )
+      }
     }
-    guard visible_error_segment(segment, bounds) is Some((sx0, sy0, sx1, sy1)) else {
-      continue
+    // These are the five actually emitted lines, in their original paint order.
+    // A zero-length whisker has no visible butt-capped stroke; the real median
+    // line still makes a constant-valued group interactive.
+    let parts : Array[(@drawing.BoxPart, Double)] = [
+      (LowerWhisker, stat.lower_whisker()),
+      (UpperWhisker, stat.upper_whisker()),
+      (Box, stat.median()),
+      (LowerCap, stat.lower_whisker()),
+      (UpperCap, stat.upper_whisker()),
+    ]
+    for index, (part, value) in parts {
+      let segment = sample.segments[index]
+      if segment.0 == segment.2 && segment.1 == segment.3 {
+        continue
+      }
+      guard visible_error_segment(segment, bounds) is Some((sx0, sy0, sx1, sy1)) else {
+        continue
+      }
+      if sx0 == sx1 && sy0 == sy1 {
+        continue
+      }
+      // Different cap anchors remain distinguishable in exact-point metadata
+      // lookup when constant groups paint both caps on the same centerline.
+      let fraction = match part {
+        LowerCap => 0.25
+        UpperCap => 0.75
+        _ => 0.5
+      }
+      append_drawing_box_target(
+        output,
+        panel_index,
+        artist_index,
+        sample,
+        metadata,
+        bounds,
+        part,
+        value,
+        Segment(sx0, sy0, sx1, sy1),
+        sx0 + (sx1 - sx0) * fraction,
+        sy0 + (sy1 - sy0) * fraction,
+      )
     }
-    if sx0 == sx1 && sy0 == sy1 {
-      continue
-    }
-    // Different cap anchors remain distinguishable in exact-point metadata
-    // lookup when constant groups paint both caps on the same centerline.
-    let fraction = match part {
-      LowerCap => 0.25
-      UpperCap => 0.75
-      _ => 0.5
-    }
-    append_drawing_box_target(
-      output,
-      panel_index,
-      artist_index,
-      sample,
-      metadata,
-      bounds,
-      part,
-      value,
-      Segment(sx0, sy0, sx1, sy1),
-      sx0 + (sx1 - sx0) * fraction,
-      sy0 + (sy1 - sy0) * fraction,
-    )
   }
   for (value, sx, sy) in sample.fliers {
     if !value.is_nan() &&

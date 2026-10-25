@@ -10,6 +10,31 @@ priv struct RenderedErrorBar {
 }
 
 ///|
+// Only discard paints whose transparency is known. Other valid CSS paints
+// (named colors, currentColor, variables) need not use our small color parser.
+fn statistics_paint_visible(value : String) -> Bool {
+  let color = value.trim().to_owned().to_lower()
+  if color == "none" {
+    return false
+  }
+  // SVG also accepts CSS's four-digit RGBA shorthand.
+  let color = match color.to_array() {
+    ['#', r, g, b, a] => "#\{r}\{r}\{g}\{g}\{b}\{b}\{a}\{a}"
+    _ => color
+  }
+  try @colors.parse_color(color).alpha() > 0.0 catch {
+    _ => true
+  }
+}
+
+///|
+fn statistics_stroke_visible(style : @core.Style) -> Bool {
+  // Invalid CSS widths retain SVG's fallback behavior; an explicit zero width
+  // is the value that reliably disables the stroke without changing output.
+  style.width() != 0.0 && statistics_paint_visible(style.color())
+}
+
+///|
 fn append_error_segment(
   writer : @xml.Writer,
   x1 : Double,
@@ -47,6 +72,11 @@ fn append_errorbar(
   on_sample~ : ((RenderedErrorBar) -> Unit)? = None,
 ) -> Unit {
   append_line(writer, scale, left, top, plot_width, plot_height, points, style)
+  let on_sample = if statistics_stroke_visible(style) {
+    on_sample
+  } else {
+    None
+  }
   let cap = 4.0
   for i in 0..<points.length() {
     let p = points[i]

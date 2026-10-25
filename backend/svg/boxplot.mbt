@@ -4,6 +4,8 @@ priv struct RenderedBoxPlot {
   stat : @boxplot.BoxStats
   position : Double
   horizontal : Bool
+  fill_visible : Bool
+  stroke_visible : Bool
   rectangle : (Double, Double, Double, Double)
   segments : Array[(Double, Double, Double, Double)]
   fliers : Array[(Double, Double, Double)]
@@ -23,6 +25,9 @@ fn append_boxplot(
   on_box~ : ((RenderedBoxPlot) -> Unit)? = None,
 ) -> Unit {
   let fill = if style.fill() == "" { style.color() } else { style.fill() }
+  let fill_visible = statistics_paint_visible(fill)
+  let stroke_visible = statistics_stroke_visible(style)
+  let outliers_visible = statistics_paint_visible(style.color())
   let box_width = 0.6
   let cap_width = 0.2
   for index, stat in stats {
@@ -100,7 +105,7 @@ fn append_boxplot(
             ("r", "3"),
             ("fill", style.color()),
           ])
-          if fliers is Some(captured) {
+          if outliers_visible && fliers is Some(captured) {
             captured.push((flier, flier_x, center_y))
           }
         }
@@ -111,6 +116,8 @@ fn append_boxplot(
           stat,
           position,
           horizontal,
+          fill_visible,
+          stroke_visible,
           rectangle: (
             Double::min(x1, x2),
             Double::min(y1, y2),
@@ -192,7 +199,7 @@ fn append_boxplot(
             ("r", "3"),
             ("fill", style.color()),
           ])
-          if fliers is Some(captured) {
+          if outliers_visible && fliers is Some(captured) {
             captured.push((flier, center_x, flier_y))
           }
         }
@@ -203,6 +210,8 @@ fn append_boxplot(
           stat,
           position,
           horizontal,
+          fill_visible,
+          stroke_visible,
           rectangle: (
             Double::min(x1, x2),
             Double::min(y1, y2),
