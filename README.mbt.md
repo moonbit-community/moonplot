@@ -48,7 +48,7 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-This candidate targets the unified **`Lampese/mathplotlib@0.15.0`** module. See [installation and migration instructions](docs/PUBLISHING.md).
+MoonPlot uses the published **`Lampese/mathplotlib@0.15.0`** module. See [installation and migration instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
@@ -341,7 +341,8 @@ for generated midpoint semantics and the static arrow boundary.
 - [M2 interactive plotting and source-release history](docs/MILESTONE_M2.md)
 - [Filled contour regions and holes: completed M12](docs/MILESTONE_M12.md)
 - [Triangular face values and vertex means: completed M13](docs/MILESTONE_M13.md)
-- [Current M14: continuous streamline field samples](docs/MILESTONE_M14.md)
+- [Continuous streamline field samples: completed M14](docs/MILESTONE_M14.md)
+- [Current M15: polar plots and radar outlines](docs/MILESTONE_M15.md)
 - [Four capability goals](docs/MIGRATION_PLAN.md)
 - [Rabbita interactive DOM and acceptance](docs/RABBITA_DOM.md)
 - [Dependencies and integration notes](docs/DEPENDENCIES.md)

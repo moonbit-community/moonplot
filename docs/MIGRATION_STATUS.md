@@ -4,45 +4,48 @@
 
 ## 范围与用户决定
 
-- 实用MoonBit画图库，以能力/场景对齐，用户要求“一直往后对齐”。不恢复全Matplotlib/Python动态API计划，不编造整体百分比。
-- M1至M13及0.3.0提示片均已实际交付；当前正式Lampese/mathplotlib0.14.0，推进M14连续流线body场值，目标0.15.0。
-- 已授权合理复用、独立subagents、coherent verified commits/push到moonbit-community/moonplot、实际Mooncakes Lampese/统一单module。
-- root facade api.mbt；consumer tests/api；global tests/integration；implementation/own wbtests留own package；维护mbt<2000行，structure必跑。
+- 实用MoonBit画图库，按能力/场景继续对齐。用户要求“一直往后对齐”，允许先做简单可用功能；不恢复全部Matplotlib/Python API计划，不编造整体百分比。
+- M1至M14及0.3提示片均已实际交付，当前正式`Lampese/mathplotlib@0.15.0`。当前M15目标0.16.0，模块与consumer版本仍0.15.0。
+- 已授权合理复用、独立subagents、coherent verified commits/push到moonbit-community/moonplot、实际Mooncakes Lampese/统一module。
+- root facade api.mbt；consumer tests/api；globals tests/integration；implementation/own wbtests留owner包；维护mbt<2000行，structure必跑。
 
-## 当前切片：M14 Streamplot（中央验收通过，0.15.0 实际交付待做）
+## 当前切片：M15 Polar / Radar（A已授权，尚未实现验收）
 
-- 合同见 `.moonagent/checkpoints/M14-streamplot/active-scope.md` 与[M14](MILESTONE_M14.md)。正式基线0.14源 `1215721c9e63e7036be9580ecd1560e7eabe0be3`。Root与consumer已改0.15.0候选；尚未发布，当前正式仍0.14.0。
-- 既有streamplot/mesh/style-grids只接连续body实际非零Segment，plot内双mode物理命中。Streamplot kind、readonly StreamplotInfo{seed_index原尝试槽,u,v,color_value?}/HitInfo.streamplot/facade；point_index原joined edge、artist_index实际bodyLine、series原call、value恒V。u/v为原有限(a+b)/2处旧bilinear样本，color来自同次旧style原scalar；不换safehalf/反推色值/鼠标处采样/magnitude/原网格观测。默认U/V及真实可选Color value；typedNone安全Value回退。
-- 一份共享轨迹/edge表，wholeLine onceidentity/content、split只两点+constant offset，actual valid-run source_start对应；geometry/guard/capture O(points+edges)，新增field保旧locator O(E*(nx+ny))，不虚称整体线性。所有实际arrow pushes（含Set未返回shaft）owned-static，保旧积分/seed/occupancy/style/norm/paint/Set/一个完整Container/SVG。preparedSome无proof静态并保completion，不扩LineContext；维护known-slot/cursor/image/inline/remove/clear及其他kind。
-- [x] exact121旧baseline：producer Native57725三SVG；独立Native98134/JS27224各三XML/SVG，旧generic14/18/17/value=生成y，各1Container。旧87a Native只作额外同目标对照，JS是真121实跑；不重标旧结果。
-- [x] actual empty/rejected relabel：owner09b6353→Root99ea119；beforeNative87412 terminal2→82399 terminal0/1test两子例，保空Set/1Container/staticlegend/cycle。原失败已保。
-- [x] core b29c70b→Root59888a2，Root逐production和3interfaces审；actual全targetcheck291tasks0、Native85727首4/4，三fixture12/12/6body Segment、原seed/edge/U/V/color、Set/Container/三旧SVG、nested alias/oldDrawing过。
-- [x] final owner807f27c→Rootb1acc2e仅8owningtests+指南，production仍b29。Native7749 21专项、adapter42657 2过；affected30069 terminal0：Native59/其余三各58/Rabbita50，77504 terminal0三fixture×四目标12次同目标旧新SVG逐字；info/fmt/structure/diff/guide3links过。Root核34owner=19production/3mbti/11tests/guide及75proof SHA全同，producer-final/root-match.json；不重复full或旧M13矩阵。
-- [x] precise b29独立复审无blocker：public Native44769/JS67353 terminal0，各三例12/12/6、六XML/六同目标旧SVG、240真实物理检查；Scene6+Backend2 Native1521/JS46768各8/8。变量old sampler、seed/style洞、missingmidpoint、alias/crosskind/prepared completion/ordinaryNone、五kind生命周期、反Log/clip/paint/CSS通过。Root22源接口/46proof SHA核copy、两archive原处核SHA、六旧数学块直接同formal121；independent-review/root-production-match.json。
-- [x] UI41e7977精确七files；isolated build63626、info/fmt080f41及最终c87424全0；Chrome首60052/最终93748均14/0errors，最终26整数事件/20callbacks/12geometry/6negative。三位小数仅展示，raw metadata逐值不变；实际PNG56728bytes/SHA36c487d354de33ae74653da8d8292a5511bea524cbbc9e24fe53e27407234e8e已Root目视，ui-root-match.json七SHA相同。Helper误把README symlink当blob的失败保留并修，仅证据helper失败。
-- [x] Rootconsumer b3ddbc5：actual Native65048/JS25542和e85669/Chrome73264全0；51checks/13新流线整数事件/0errors；actualinfo82d8d7/afab8e、fmt dbd96f与两private接口未变。3fixture12/12/6、Setaliases/oldDrawing、更新U1.5/V.25、拒seed0→1/六原edge/rawcolor5+x超norm、openhead静态、双mode空白/CSS375过。首Root算术括号语法718fc8与误cwd后重复c10f84有记录并修harness，无production改动。
-- [x] central prelude87978 terminal0：actual info/fmt+15JS全部通过，无额外接口diff。唯一full73204 terminal0/265.69s：Wasm/WG各22631、Native22635、JS22688全部通过。
-- [x] postlude40698 terminal0：15真实页面Chrome190/0errors、三static SVG/52MD576links/structure/diff过，流线JS与PNG同UI实际产物，无额外mbti。22步骤均0，central-summary.json及central-streamlines-artifact.json已保存。仅发布忽略补齐8个科学图开发HTML/CSS，不改build/test输入，故不重复已过full。
-- [ ] 正式clean/发布/public API/fresh registry/GitHub四附件整下载与finalaudit待做。
-- 首 clean80513 terminal0、四静态/Chrome51通过，但正式5551a36文档误称开发页面保留在发布源码包；实际bundle是library+consumer。发布前保留首artifacts/logs于release-first-doc-correction并解除旧freeze，仅修此事实文字，不改任何绘图源、不重跑full。尚未moon publish。
-- 精确下一动作：commit/push此文档更正，冻结新gitclean HEAD；重建正式clean包，核archive19production/3interface/guide与八开发页排除、四静态/Chrome51，再实际publish/publicchecksum/fresh registry/GitHub整下载/finalaudit。新的网络audit期间Roottracked/HEAD必须不变。
-- Root tracked freeze目前解除；各agent已收bounded，无production/UI修改或live。候选6167df5、原5551a36均已push（89099/3009各0），首clean80513已终；本次只改事实文档待commit，无验证/网络live。intentional预览8765/session43005/PID70622已核streamlines.html、JS4785354bytes/SHAe2f3c76c1f56a0a4f1f6023bbf551d87c8360481ddddf3ddd5fa08d301b21391及三CSS全200逐字；open_in_codex已queued。open_in_codex queued不声称前台，仅connectionrefused才重启。
+合同 `.moonagent/checkpoints/M15-polar/active-scope.md` 和[M15](MILESTONE_M15.md)。基线为实际交付0.15正式源 `67c095118a45d27f6f3ab3d8fb3d3dff2a0e8877`。
 
-## 最新交付：M13 /0.14.0（2026-10-25）
+- 选择A：typed PolarAxes/PolarDirection、显式Figure.add_polar_axes，极坐标Line/Scatter与closed outline Radar。静态SVG+RabbitaDOM，应用可更新/legend/remount；整个polar capture禁用，无新HitKind/PolarInfo/Drawingcircle-gate。原theta/r hover与真实圆盘CSSgate留下一片，不冒Cartesian XY观测。
+- Scene保原theta/r，现Line/Scatter Artist+可选projectionIR+专用renderer，不新增大批Artist变体或一般projection框架。默认弧度、东零/CCW，offset和typed方向可设；真圆物理R，data/grid/frame/clip用同cx/cy/R；data-only circle clip按panel唯一。
+- 线性径域[0,rmax]，显式max finite>0、auto联合有效非负最大、空/零fallback1。nonfinite/负r为missing，line断run/scatter跳过；r0合法，r>max原值保留并实际圆clip。派生不finite保守断run。tick标签错长原子报错，明确unsupported Cartesian设置/图元。
+- 投影后相邻点为chord；closed仅整组有效合成首尾，raw原N点不增样本。Radar K>=3/同长labels，同panel多条分类表一致，不偷偷旋转；顶部/CW由应用显式设。无填面/维度归一化/rmin环域/Log径/wedge/插值曲线。
+- 先从Cartesian range/shared-minima/aspect/tick-layout路径早分流；普通panels/provider/cache/交互保持。公开方法最小plot/scatter/radar、radiusmax/offset/direction/ticks/title/legend。输入/config复制一次；clear若暴露须保polar身份。Root负责中央接口复审与完整接入。
 
-- [x] Tripcolor原面/tuple/均值与两mode actualfill、mask洞/plot边界；原均值/norm/Unit/0Containers/旧SVG保持。empty调用串series、screen舍入打开共线、共同scale丢异量纲三真实反例都保before并修，最终双stage per-axis纯2幂、不改writer/epsilon。
-- [x] owner最终a7→Rootff0663c，36ownerfiles=19production/3interfaces/13tests/guide逐SHA同；a7专项Native23/其余22/adapter2，旧bac7 broader205/204/48仅保未改部分。独立原9702证明+新a7 Native43311/JS94555七delta与14旧SVG全过，Fraction源det3共线/4合法；1120XMLquery、Scene4+IR2各6、两M12 helper控制复用，89proof核copy/4archiveSHA核同，无blocker。
-- [x] UI81fc697 build16148/info8afcad/Chrome65892首轮14、29整数事件/0errors；consumer19ce678 Native28910/JS/Chrome81253 46、11三角面事件/0errors、actualinfo/fmt。PNG62757bytes/SHAca496caa102ebc47d430ec46ac48d21cebd268bda545f8a8a9da511f347df764已目视，central最终同asset。
-- [x] central prelude94492、唯一full81669/267.69s、postlude29009全0：W/WG22611、Native22614、JS22666；14Chrome176/0errors、info/fmt/14JS/三SVG/50MD562links/structure/diff、无意外mbti，未重复full。
-- [x] 正式源1215721c9e63e7036be9580ecd1560e7eabe0be3/push16253；clean72205 terminal0/dirtyfalse、四static/Chrome46。module2576088bytes/600files/SHAad6d8b29519c75f25039e961daa2f9a74127bfc05b510fe1ba11a3d457f8c51f；source2627432bytes/627files/SHAa4700d81c5f3d26fa0912e9dcd9b80090e88a24d6eb62df90435a56dbc60ff76。
-- [x] actualpublish41626 terminal0/200；首公开88851 success/haspackage/notyanked/checksum一致；全新无workspace registry45660 terminal0，600安装源逐一同正式ZIP、四static/Chrome46过；GHcreate31266、完整download40683 terminal0，四附件bytes/digest/size/tag一致。
-- [x] finalaudit08f63a terminal0/2026-10-25T15:42:13.752634Z：Root正式builder至网络audit HEAD121及gitclean不变，无tracked写/commit；之后才解除freeze。[GitHub v0.14.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.14.0)。Root证据M13-tripcolor/producer-final、final-review、central-summary、release-final/artifacts/download-check、registry-consumer、delivery-final-audit/release-live complete。formal-docs-check.json50/562与postdelivery检查分开，不重标。
-- 本轮actual ENOSPC119MiB时保失败，仅清旧42targetcache/10.8GiB与agents own可再生cache，JS/publish/源码/log/JSON/SVG/PNG/ZIP全保；可用恢复17GiB，cache-cleanup-result.json有清单。未因环境失败停止或重跑已过全套。
+### 已完成准备与实施分工
 
-## 历史与源码地图
+- [x] producer-prep/96行A/B设计+31必要source SHA；review-prep/五角度独立公式、非方形真圆、闭合原N及未来圆盘门控要点。仅准备，不当新功能通过。
+- [x] M14 finalaudit290642 terminal0已确认正式67全过程gitclean/HEAD不变并解除freeze；M15A精确合同已冻结，Root允许新工作。
+- [ ] m3_donut在既有managed own worktree从exact67创建codex/m15-polar，core/own tests/docs/POLAR.md与actual expectedinterfaces。先少量必要immutable非polar控制与earlycoherent core+Native三实际新场景，再bounded4targets/info/fmt/structure，不full/Roottracked/central/version/consumer/UI/push/publish/newagent。
+- [ ] m3_browser仅Root ignored M15-polar/draft五file+standaloneMoonfmt/Node syntax；静态双卡spiral+scatter/五维radar，controls/clip/zero capture/CSS375，不能部署/compile/Chrome/mbti/PNG直到coherentSHA和Root明确7file授权。
+- [ ] m4_area仅own exact67旧baseline准备：少量Native/JS普通Line3anchors与一streamplot12targets/sourceSHA；新数学harness可draft，不执行新polar语义，等精确coherentSHA与Root授权。无旧大矩阵/full/生产/Roottracked写。
+- Root负责publicM15/版本/consumer/7UI/一次中央全套/真实发布；当前只发布后文档，不提前bump0.16、不重跑M14已闭环检查。
 
-- [M13完整历史](archive/migration-status-through-2026-10-25-m13.md)、[M12](archive/migration-status-through-2026-10-25-m12.md)、[M11](archive/migration-status-through-2026-10-25-m11.md)、[M10](archive/migration-status-through-2026-10-25-m10.md)、[M9](archive/migration-status-through-2026-10-25-m9.md)、[M8](archive/migration-status-through-2026-10-25-m8.md)、[早期](archive/migration-status-through-2026-10-25-m4.md)保留既有决定/失败/交付；已闭环里程碑不重跑。
-- master，SSH origin=git@github.com:moonbit-community/moonplot.git；独立分支codex/。静态core不importUI，统一module Rabbita仅JS，pins0.16.7/XML0.5.0不要误改。
-- JS-only接口由tools/update_interfaces.py实际compiler生成；最后info/fmt并审预期mbti、python3 tools/check_structure.py及适当tests；Root统一版本/中央/发布，维护文件<2000行。
+精确下一动作：提交0.15实际交付归档和M15起始文档，核本地链接；收producer首coherent core及actual Native三场景+mbti后逐production审合，明确授权UI7和独立新语义，Root做真实publicconsumer。必要失败留before并排查，不因失败停滞。
+
+Root无验证/网络live，M14freeze已解除；M15owner和browser/old-review在各自own/ignored推进。intentional预览8765/session43005/PID70622仍streamlines.html，HTML/JS4785354bytes/SHAe2f3c76c1f56a0a4f1f6023bbf551d87c8360481ddddf3ddd5fa08d301b21391与三CSS实际200逐字，open_in_codex queued，不声称前台。新polar尚未出图。仅connectionrefused才重启预览。
+
+## 最新实际交付：M14 /0.15.0
+
+- 连续streamplot/mesh/style-grid真实body Segment、原seed/edge、旧有限中点U/V与同次rawcolor；value恒V。保原积分/style/norm/Set/1Container/SVG，全部实际arrow owned-static。源carrier/guard/capture O(points+edges)，额外旧locator采样O(E*(nx+ny))分开记录。唯一legacy窄fix实际empty/rejected串series有before87412→after82399。
+- owner最终807→Rootb1acc2e、production精确b29→Root59888a2；34owner/75proof SHA同。Native59/其余各58/Rabbita50及12同target旧新SVG全过。独立Native/JS三fixture12/12/6、六XML/六旧SVG/240物理检查、Scene6+Backend2各8/8，22源接口/46proof、两archive原处SHA、六旧数学块Root核同，无blocker。
+- UI41e7977真实14/26整数事件/0errors；PNG56728bytes/SHA36c487d354de33ae74653da8d8292a5511bea524cbbc9e24fe53e27407234e8e已目视，中央同字节；externalconsumer b3ddbc5 Native65048/JS/Chrome73264 51checks/13流线事件/0errors，实际info/fmt/private接口未变。Root最初语法/误cwd与UI证据helper symlink失败均保记录并修，不是production失败。
+- central prelude87978、唯一full73204/265.69s、postlude40698全部0：W/WG22631、Native22635、JS22688；15页面Chrome190/0errors、三静态SVG/52MD576links/structure/diff，无额外mbti。
+- 正式源67c095118a45d27f6f3ab3d8fb3d3dff2a0e8877/push28357；clean82436 terminal0/dirtyfalse/四staticChrome51。module2636244bytes/601files/SHA57ba9f51b526f162d8efd750dd5207288a5afafca8d267154f2388b96d0d636d；source2691216bytes/630files/SHAc166ac772b66593f4a8a31a2fbfebb638437412222f2ef4c70225f5bb5643c4f。
+- actualpublish93030/public首35351、全新无workspace registry16095、GHcreate54326/完整下载40546均terminal0；public success/notyanked/checksum同、601安装源逐一同ZIP/四staticChrome51、四附件bytes/digest/size/tag全同。[GitHub v0.15.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.15.0)。
+- finalaudit290642 terminal0/2026-10-25T16:28:26.854860Z：正式builder至网络audit RootHEAD67与gitclean不变，无tracked写/commit，之后解除freeze。首5551clean80513虽过但发布前更正“开发页面在源码包”的事实文字，原artifacts/logs保留且未发布，不为文档重跑full。
+- Root证据 `.moonagent/checkpoints/M14-streamplot/` 的producer-final、independent-review、consumer-verification、ui-root-match、central-summary、release-final/artifacts/download-check、registry-consumer、delivery-final-audit/release-live complete；formal-docs-check52/576不被M15后续文档检查重标。
+
+## 历史与工作约束
+
+[M14完整历史](archive/migration-status-through-2026-10-26-m14.md)、[M13](archive/migration-status-through-2026-10-25-m13.md)、[M12](archive/migration-status-through-2026-10-25-m12.md)、[M11](archive/migration-status-through-2026-10-25-m11.md)、[M10](archive/migration-status-through-2026-10-25-m10.md)、[早期](archive/migration-status-through-2026-10-25-m4.md)保留既有决定/失败/交付。已完成片不重跑。
+master，SSH origin=git@github.com:moonbit-community/moonplot.git；新branch codex/；单module核心不importUI，Rabbita仅JS，pins0.16.7/XML0.5.0不误改。JS-only接口由tools/update_interfaces.py实际compiler生成；最后info/fmt审预期mbti及structure，维护文件<2000行。
 
 [路线图](MIGRATION_PLAN.md) · [能力](CAPABILITIES.md) · [架构](ARCHITECTURE.md) · [安装](PUBLISHING.md)

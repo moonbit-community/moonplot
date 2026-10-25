@@ -1,7 +1,7 @@
 # M14：连续流线与生成场值提示
 
-2026-10-25启动；目标0.15.0，当前正式版本0.14.0。精确基线
-`1215721c9e63e7036be9580ecd1560e7eabe0be3`。首核心、独立复审与外部接入已通过，中央验收通过，clean 包与实际发布待完成。
+2026-10-25启动，2026-10-26实际交付0.15.0。精确基线
+`1215721c9e63e7036be9580ecd1560e7eabe0be3`。核心、独立复审、外部接入、中央验收与实际分发全部通过。
 
 沿现有流线的实际连续线段查看双线性采样的U/V与可选颜色标量，保留原种子尝试槽和生成边编号。
 复用既有streamplot/mesh/style-grids入口和积分器；不复制完整Matplotlib参数集。
@@ -39,7 +39,7 @@
 - [x] 双卡真实 Chrome14、26 次整数事件/20 callback/12 geometry frame/6 negative、0 errors；默认/中文提示、更新/颜色可选/原 seed 空位/箭头静态、legend/remount/CSS375 通过。UI commit41e7977；实际 PNG56728bytes 已目视。
 - [x] 外部 consumer 实际 Native65048、JS25542/e85669、Chrome73264：51 项、13 次新流线整数事件、0 页面错误；info/fmt 与两个 private 接口未变。
 - [x] 一次中央 prelude87978→唯一 full73204/265.69s→postlude40698，全部 terminal0。Wasm/WG 各22631、Native22635、JS22688；15 页面 Chrome190/0errors，三静态 SVG/52MD576links/structure/diff 通过，无额外接口变更。最终流线 PNG 与已提交56728bytes逐字相同。
-- [ ] 正式 clean 包、实际 Mooncakes/public registry 消费和 GitHub 四附件完整下载/final audit。
+- [x] 正式 clean82436、actual publish93030/public35351、全新 registry16095 与 GitHub create54326/完整下载40546均terminal0；601安装源逐一同ZIP、四静态/Chrome51、四附件bytes/digest/size/tag一致。finalaudit290642确认正式67全过程HEAD/gitclean未变，之后解除freeze。
 
 producer在独立managed branch `codex/m14-streamplot`负责core/own tests/专项指南；
 Root负责中央文档、版本、外部接入与发布。首核心 b29（Root59888a2）已完整 source/interface 审核，追加 owning tests 与指南 807（Rootb1acc2e）不改生产代码。
@@ -51,3 +51,6 @@ reviewer 精确 b29 的 Native/JS public 与有限反例复审无 blocker；brow
 发布源码包包含库与独立 consumer 示例。
 它不改变 build/test 输入；没有为文档或发布忽略重复已通过的整库回归。
 正式源提交后保持 Root tracked 文件和 HEAD 不变，直到实际网络交付核验结束。
+
+正式源 `67c095118a45d27f6f3ab3d8fb3d3dff2a0e8877`；[GitHub v0.15.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.15.0)。
+[完整历史与实际交付](archive/migration-status-through-2026-10-26-m14.md)保留原始失败、文档更正和精确证据。
