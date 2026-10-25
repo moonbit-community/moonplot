@@ -11,6 +11,9 @@ fn target_distance(
       if !rect_contains(target.bounds, point.screen_x, point.screen_y) {
         return None
       }
+      if discrete_source_roundoff(target, x, y) {
+        return Some(0.0)
+      }
       let dx = (point.screen_x - x) * scale
       let dy = (point.screen_y - y) * scale
       if finite(dx) && finite(dy) {
