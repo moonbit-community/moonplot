@@ -37,6 +37,7 @@ async function main() {
   const barbEvents = [];
   const contourEvents = [];
   const filledEvents = [];
+  const tripcolorEvents = [];
   const errors = [];
   try {
     await new Promise((resolve, reject) => {
@@ -653,6 +654,116 @@ async function main() {
     assert.equal(await page.locator('[data-testid="release-filled-contours-tooltip"]').count(),0);
     checks.push('Installed legacy margin paint remains visible in native SVG geometry and outside the interactive plot without fabricated clipping');
 
+    async function moveTripcolor(id, request) {
+      await page.mouse.move(5, 5);
+      await page.locator(`#${id}`).scrollIntoViewIfNeeded();
+      const sample = await page.locator(`#${id}`).evaluate((svg, { id, request }) => {
+        const nodes = [...svg.querySelectorAll('polygon')];
+        const mean = id.includes('-mean-');
+        const slots = mean ? [0, 1, 2, 3] : [0, 2, 3];
+        if (nodes.length !== slots.length) throw Error('Unexpected actual tripcolor face count');
+        const matrix = svg.getScreenCTM(), inverse = matrix.inverse();
+        const nodeInverses = nodes.map(node => node.getScreenCTM().inverse());
+        const rect = svg.getBoundingClientRect();
+        const state = document.querySelector('#tripcolor-consumer');
+        const prefix = mean ? 'mean' : 'face';
+        const bounds = ['Left', 'Top', 'Width', 'Height'].map(key => Number(state.dataset[prefix + key]));
+        if (!bounds.every(Number.isFinite)) throw Error('Missing actual tripcolor plot bounds');
+        const firstBox = nodes[0].getBBox();
+        const classify = (x, y) => {
+          const p = new DOMPoint(x, y).matrixTransform(inverse);
+          const nativeFill = nodes.map((node, i) =>
+            node.isPointInFill(new DOMPoint(x, y).matrixTransform(nodeInverses[i])));
+          const top = nativeFill.lastIndexOf(true);
+          return { x, y, svgX: p.x, svgY: p.y, nativeFill, top,
+            face: top < 0 ? -1 : slots[top],
+            inPlot: p.x >= bounds[0] && p.y >= bounds[1] &&
+              p.x <= bounds[0] + bounds[2] && p.y <= bounds[1] + bounds[3] };
+        };
+        const wanted = p => p.inPlot && (request.negative ? p.top === -1 : p.face === request.face) &&
+          (!request.bboxCorner || (!p.nativeFill[0] && p.svgX > firstBox.x &&
+            p.svgX < firstBox.x + firstBox.width && p.svgY > firstBox.y &&
+            p.svgY < firstBox.y + firstBox.height));
+        const stable = p => wanted(p) && [[-1, 0], [1, 0], [0, -1], [0, 1]]
+          .every(([dx, dy]) => wanted(classify(p.x + dx, p.y + dy)));
+        let selected;
+        if (request.negative) {
+          let proposal;
+          if (request.negative === 'mask') {
+            // Actual retained triangles provide the missing face's three vertices.
+            // Their average only proposes an event; the real complete polygons
+            // and native fill predicates must prove a stable blank position.
+            const vertices = [[0, 1], [1, 0], [0, 2]].map(([node, point]) => {
+              const p = nodes[node].points.getItem(point);
+              return new DOMPoint(p.x, p.y).matrixTransform(nodes[node].getScreenCTM());
+            });
+            proposal = { x: Math.round(vertices.reduce((s, p) => s + p.x, 0) / 3),
+              y: Math.round(vertices.reduce((s, p) => s + p.y, 0) / 3) };
+          } else {
+            const p = new DOMPoint(bounds[0] + 3, bounds[1] + 3).matrixTransform(matrix);
+            proposal = { x: Math.round(p.x), y: Math.round(p.y) };
+          }
+          selected = classify(proposal.x, proposal.y);
+          if (!stable(selected)) throw Error('Actual polygons do not prove the requested blank position');
+        } else {
+          outer: for (let y = Math.max(1, Math.ceil(rect.top) + 2); y < Math.min(innerHeight - 1, rect.bottom - 2); y += 3) {
+            for (let x = Math.max(1, Math.ceil(rect.left) + 2); x < Math.min(innerWidth - 1, rect.right - 2); x += 3) {
+              const p = classify(x, y);
+              if (stable(p)) { selected = p; break outer; }
+            }
+          }
+          if (!selected) throw Error('No stable integer event matches the actual tripcolor polygons');
+        }
+        window.__releaseTripcolorEvent = null;
+        svg.addEventListener('mousemove', event => {
+          window.__releaseTripcolorEvent = { clientX: event.clientX, clientY: event.clientY };
+        }, { once: true });
+        return { ...selected, id, request, bounds };
+      }, { id, request });
+      await page.mouse.move(sample.x, sample.y);
+      const actualEvent = await page.evaluate(() => window.__releaseTripcolorEvent);
+      assert.deepEqual(actualEvent, { clientX: sample.x, clientY: sample.y });
+      tripcolorEvents.push({ ...sample, actualEvent });
+      return sample;
+    }
+    for (const [face, value, vertices] of [[0, 15, '0,1,4'], [2, 35, '2,3,4'], [3, 45, '3,0,4']]) {
+      await moveTripcolor('release-tripcolor-svg', { face });
+      await page.waitForFunction(face => document.querySelector('#tripcolor-consumer')?.dataset.face === String(face), face);
+      const tip = page.locator('[data-testid="release-tripcolor-tooltip"]');
+      await tip.waitFor();
+      assert.equal(await tip.getAttribute('data-moonplot-kind'), 'tripcolor');
+      assert.equal(await tip.locator('.moonplot-tooltip-series').textContent(), 'Face scalars');
+      assert.deepEqual(await tip.locator('.moonplot-coordinate-label').allTextContents(), ['Value']);
+      assert.deepEqual(await tip.locator('.moonplot-coordinate b').allTextContents(), [String(value)]);
+      const typed = await page.locator('#tripcolor-consumer').evaluate(node => ({
+        vertices: node.dataset.faceVertices, mean: node.dataset.faceVertexMean, value: node.dataset.faceValue
+      }));
+      assert.deepEqual(typed, { vertices, mean: 'false', value: String(value) });
+    }
+    checks.push('Installed tripcolor retains original masked face slots, ordered vertices and updated raw values beyond the color normalization range');
+    const corner = await moveTripcolor('release-tripcolor-svg', { face: 3, bboxCorner: true });
+    assert.equal(corner.nativeFill[0], false);
+    await page.waitForFunction(() => document.querySelector('#tripcolor-consumer')?.dataset.face === '3');
+    checks.push('Installed tripcolor selects the actual later face in an earlier triangle bounding-box corner');
+    await moveTripcolor('release-tripcolor-svg', { negative: 'mask' });
+    await page.waitForFunction(() => document.querySelector('#tripcolor-consumer')?.dataset.face === '-1');
+    assert.equal(await page.locator('[data-testid="release-tripcolor-tooltip"]').count(), 0);
+    await moveTripcolor('release-tripcolor-mean-svg', { negative: 'blank' });
+    await page.waitForFunction(() => !document.querySelector('[data-testid="consumer-tripcolor-tooltip"]'));
+    checks.push('Installed tripcolor preserves the real masked blank face and XNearest does not invent hits in empty plot space');
+    const meanVertices = ['0,1,4', '1,2,4', '2,3,4', '3,0,4'];
+    async function checkTripcolorMean(face) {
+      await moveTripcolor('release-tripcolor-mean-svg', { face });
+      const expected = `顶点均值 ${[8, 10, 12, 10][face]}；顶点 ${meanVertices[face]}`;
+      await page.waitForFunction(expected => document.querySelector('[data-testid="consumer-tripcolor-tooltip"]')?.textContent === expected, expected);
+      const tip = page.locator('[data-testid="consumer-tripcolor-tooltip"]');
+      assert.equal(await tip.getAttribute('data-tripcolor'), 'true');
+      assert.equal(await tip.getAttribute('data-face'), String(face));
+      assert.equal(await tip.getAttribute('data-vertex-mean'), 'true');
+    }
+    for (const face of [0, 1, 2, 3]) await checkTripcolorMean(face);
+    checks.push('Installed triangulation wrapper exposes all exact updated vertex means and ordered source triples through a Chinese custom tooltip');
+
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);
@@ -668,16 +779,21 @@ async function main() {
     await page.waitForFunction(()=>document.querySelector('[data-testid="consumer-filled-contour-tooltip"]')?.textContent==='填色区间 1.5..2.5；代表值 2');
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
     checks.push('375px installed filled-region picking keeps its actual whole-Path geometry and Chinese range tooltip without overflow');
+    await checkTripcolorMean(3);
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    checks.push('375px installed tripcolor keeps physical polygon picking and readable Chinese vertex-mean metadata without overflow');
     await page.screenshot({ path: path.join(output, 'consumer-mobile.png'), fullPage: true });
     checks.push('375px independent consumer retains responsive hit coordinates');
     await page.setViewportSize({ width: 1100, height: 850 });
     await page.screenshot({ path: path.join(output, 'consumer.png'), fullPage: true });
     assert.deepEqual(errors, []);
-    const report = { bundle: root, browser: browser.version(), checks, vectorEvents, barbEvents, contourEvents, filledEvents, pageErrors: errors };
+    const report = { bundle: root, browser: browser.version(), checks, vectorEvents, barbEvents, contourEvents, filledEvents, tripcolorEvents, pageErrors: errors };
     await fs.writeFile(path.join(output, 'report.json'), JSON.stringify(report, null, 2) + '\n');
     console.log(JSON.stringify(report, null, 2));
   } catch (error) {
     if (page) await page.screenshot({ path: path.join(output, 'failure.png'), fullPage: true }).catch(() => {});
+    await fs.writeFile(path.join(output, 'failure.json'), JSON.stringify({ error: String(error),
+      checks, vectorEvents, barbEvents, contourEvents, filledEvents, tripcolorEvents, pageErrors: errors }, null, 2) + '\n');
     throw error;
   } finally {
     try {

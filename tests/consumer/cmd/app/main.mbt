@@ -24,6 +24,8 @@ struct Model {
   tricontour_hover : @drawing.HitPoint?
   filled_contour_hover : @drawing.HitPoint?
   trifilled_contour_hover : @drawing.HitPoint?
+  tripcolor_hover : @drawing.HitPoint?
+  tripcolor_mean_hover : @drawing.HitPoint?
 } derive(Eq)
 
 ///|
@@ -49,6 +51,8 @@ enum Msg {
   TriContour(@plot_dom.Interaction)
   FilledContour(@plot_dom.Interaction)
   TriFilledContour(@plot_dom.Interaction)
+  Tripcolor(@plot_dom.Interaction)
+  TripcolorMean(@plot_dom.Interaction)
 }
 
 ///|
@@ -89,6 +93,8 @@ fn update(model : Model, message : Msg) -> Model {
         tricontour_hover: None,
         filled_contour_hover: None,
         trifilled_contour_hover: None,
+        tripcolor_hover: None,
+        tripcolor_mean_hover: None,
       }
     Bar(Hover(point)) => { ..model, bar_hover: point, }
     Bar(_) => model
@@ -129,6 +135,10 @@ fn update(model : Model, message : Msg) -> Model {
     TriFilledContour(Hover(point)) =>
       { ..model, trifilled_contour_hover: point, }
     TriFilledContour(_) => model
+    Tripcolor(Hover(point)) => { ..model, tripcolor_hover: point, }
+    Tripcolor(_) => model
+    TripcolorMean(Hover(point)) => { ..model, tripcolor_mean_hover: point, }
+    TripcolorMean(_) => model
   }
 }
 
@@ -324,6 +334,8 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
     contour_consumer_view(model, emit),
     @html.h2("Filled contour bands and holes"),
     filled_contour_consumer_view(model, emit),
+    @html.h2("Triangular face values and vertex arithmetic means"),
+    tripcolor_consumer_view(model, emit),
     @html.h2("Nonuniform mesh"),
     @plot_dom.view(
       make_mesh_drawing(model),
@@ -514,6 +526,8 @@ fn main {
         tricontour_hover: None,
         filled_contour_hover: None,
         trifilled_contour_hover: None,
+        tripcolor_hover: None,
+        tripcolor_mean_hover: None,
       },
       update~,
     )
