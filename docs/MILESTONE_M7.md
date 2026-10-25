@@ -5,7 +5,7 @@
 
 ## 原始数据与实际几何
 
-- [ ] `step`的pre/post/mid保留原采样下标、x/y/value与plateau区间；生成的转折点不作为新增观测。
+- [x] `step`的pre/post/mid保留原采样下标、x/y/value与plateau区间；生成的转折点不作为新增观测。
   plateau和riser复用同一原数据项，跳变归进入的新值；倒序输入不交换原索引或区间方向。
 - [ ] `stairs`的outline支持横竖向，保留原values下标与原edges区间；filled仅在严格单调、全有效的实际完整polygon可证明为各区间strip并集时提供区域命中。
   NaN或域外顶点被renderer删除后，不为剩余复杂面捏造矩形目标。
@@ -31,3 +31,9 @@
 公共carrier/guard/三图由同一owner按Step→Stairs→ECDF分可验收commit，Root负责中央合入与交付。
 Stem的杆/头语义已有定点设计，保留后续切片；不因已有静态入口就宣称所有图已交互对齐。
 精确进度见[检查点](MIGRATION_STATUS.md)，当前发布见[安装说明](PUBLISHING.md)。
+
+## 阶段验证
+
+Step实现与共享底座已合入，独立专项四目标各95/95、adapter32/32；Root两组合回归四目标各2/2。
+Root仓库外dirty演练已通过静态四目标与Chrome19项；这些结果限于当前Step片，不是0.8.0正式发布或后两图验收。
+独立guard/JS复审进行中，Stairs与ECDF源语义仍待完成。

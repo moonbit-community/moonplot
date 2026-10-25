@@ -11,24 +11,29 @@
 - 用户已于2026-10-24明确授权实际发布Mooncakes，前缀Lampese/，并要求核心与Rabbita合并单一Lampese/mathplotlib module。
 - 不用历史API指数或未经调查的估算表示整体完成率。
 
-## 当前切片：M7 离散曲线（已开工）
+## 当前切片：M7 离散曲线（已开工，0.8.0未发布）
 
-- 继续用户“一直往后对齐”：下一片step/stairs/ECDF原数据语义，目标0.8.0；尚未升级版本或改M7生产源。
-- [x] 范围冻结于MILESTONE_M7.md，定点设计已复制Root .moonagent/checkpoints/M7-discrete/design/。
-- [ ] 第一未完成步骤：m3_donut在own worktree从正式f5b55cd起codex/m7-discrete，实施完整Step+公共DiscreteLineHitData/provider snapshot guard/实际valid-run捕获。
-  之后同一owner依次做Stairs/ECDF；每片专项四目标/adapter/旧SVG控制/info/fmt/结构后coherent commit交接，不在child跑全套。
-  step保留原采样项；stairs保留原values/edges与baseline；ECDF保留既有返回值/概率索引，不反推合成转折点。
-- m3_donut已完成Step首版共享IR/guard/source_start callback，all-target check54589在其own worktree进行中；尚未交commit，不算验证完成。
-  14旧SVG已在生产改动前native固定。精确原sample Point优先，合成corner后edge/incoming；重复source坐标后原序Point胜出。
-- m4_area独立只读复审/原始path oracle准备中；等Step精确hash再实际外部消费，不改生产。
-  m3_browser Root ignored M7-discrete/draft四卡/14组runner/HANDOFF已完成，仅moonfmt/Node语法通过；未授权部署或宣称编译/Chrome通过。
-- Root拥有合入/公开冲突、consumer、中央文档与实际发布；不新开agent。各agent不push/发布，不改Root版本或当前检查点。
-- 精确下一动作：收首Step可编译commit与独立复审 → cherry-pick并扩公开consumer/组合回归；同owner接Stairs/ECDF。
-  UI先ignored草稿，功能合入后明确授权部署；Root再做最终全套/Chrome/实际发布，不重开19图调查。
-- M6 post-delivery记录52a5e94已push82801 terminal0；M7范围cba03bb亦push39709 terminal0。正式tag仍f5b55cd，0.7全部发布核验已结束。
-- Root三组组合回归也在ignored consumer-draft/discrete_overlay_wbtest.mbt准备（仅moonfmt，未编译）：Step/Area、Step/Hex、ECDF/Stairs，均验证两paint顺序与两HitMode。
-- Root仓库外consumer三图片段已在ignored consumer-draft准备：static_step/static_distributions、app_step/app_distributions、browser_step/browser_distributions；moonfmt与Node语法通过，未部署/编译，不算实现验收。
-- 当前M7主工作树干净；版本仍0.7.0，无未提交生产源码。唯一有意服务仍8765/session43005/PID70622。
+- 继续用户“一直往后对齐”，范围MILESTONE_M7.md；Root候选版本/consumer已准备0.8.0，公开正式版本仍0.7.0。
+- [x] Step首实现efd9d07abf82253adf083cc0981777a4a4de5972已合b27f6a9：三mode原sample/interval、same-write valid-run source_start、同一私有IR载体/实际context guard、默认tooltip。
+  原source Point精确命中优先，合成corner后edge/incoming；重复source坐标后原序Point胜出。Stairs/Ecdf仅enum与fallback提示预置，source尚未接，不是已实现。
+- [x] Step验证c0353987ce9d4a9b26a8b71326e94f7a001079c4已合5f010cd，仅adapter与facade两测试文件。
+  owner54589 checkall terminal0/77tasks；36295 native11/11（8Step/IRguard/callback/14整SVG控制），86447专项四目标各95/95，adapter32/32，info/fmt/结构通过。
+  native93210曾10/11：set_color("none")转生成rgba透明却生7目标；new discrete gate已修生成格式alpha，后续全部通过，不改旧静态或全局统计gate。
+- [x] Root Step仓库外演练20649 terminal0：dirty包静态4目标+真实Chrome19项全过。初55348只失败于Root新helper缺Unit返回注解，已修并保留首日志。
+  证据step-rehearsal-fixed/；这不是正式包，绝不可上传。实际Stairs/Ecdf接入仍待源实现。
+- [x] Root两组组合回归19233 terminal0，四目标各2/2：Step/Area、Step/Hex两paint顺序与两HitMode；scene/discrete_overlay_wbtest.mbt。
+- [ ] m4_area独立复审进行中：固定efd9d07快照，公开native15组及14 SVG实际XML原路径通过；guard86800/JS92032与实际SVG小数端点→CSS往返核验待收，不能宣称复审完成。
+  evidence own worktree .moonagent/checkpoints/M7-discrete-review/；计划已复制Root review-plan/。
+- [ ] m3_donut当前own worktree codex/m7-discrete在c035398之后实施Stairs，随后ECDF；共享IR/guard/capture由同一owner维护。
+  每片定向四目标/adapter/旧SVG控制/info/fmt/结构后coherent commit交Root，不在child跑全套、不改Root/版本/中央docs、不push发布。
+- [ ] m3_browser Root ignored draft四卡/14组runner/HANDOFF已完成，仅moonfmt/Node语法通过；未授权部署/编译/Chrome/截图。
+- Root完整consumer三图片段在ignored consumer-draft准备，Step已部署并真实验过；app/static_distributions与browser_distributions待后两源实现。
+  三组合回归第三组ECDF/Stairs只在ignored全量草稿，尚未部署；后续补回完整文件。
+- 精确下一动作：收m4实际guard/JS/浮点端点复审并排查反例 → 合Stairs→ECDF后扩consumer/第三组合回归 → 授权UI七文件部署/Chrome14 → 最终全套/正式包/实际发布。
+  不重开19图调查；Stem定点设计保留next-stem-notes.md，尚未实现。
+- Rootowns合入/公开冲突、consumer、中央文档/版本和实际发布；不新开agent。精确设计Root .moonagent/checkpoints/M7-discrete/design/。
+- Root f59e842/dd4e5ca已push8414 terminal0；b27f6a9/5f010cd及本轮consumer版本/两组合回归待提交/push。当前只有Root自己的未提交改动。
+- 无Root测试/下载live，唯一有意服务8765/session43005/PID70622；M6发布与核验都已闭环。
 
 ## 最新交付：M6 六边形分箱与小提琴分布（2026-10-25）
 

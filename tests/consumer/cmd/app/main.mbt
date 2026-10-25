@@ -13,6 +13,7 @@ struct Model {
   bins_hover : @drawing.HitPoint?
   hex_hover : @drawing.HitPoint?
   violin_hover : @drawing.HitPoint?
+  step_hover : @drawing.HitPoint?
 } derive(Eq)
 
 ///|
@@ -27,6 +28,7 @@ enum Msg {
   Bins(@plot_dom.Interaction)
   Hex(@plot_dom.Interaction)
   Violin(@plot_dom.Interaction)
+  Step(@plot_dom.Interaction)
 }
 
 ///|
@@ -56,6 +58,7 @@ fn update(model : Model, message : Msg) -> Model {
         bins_hover: None,
         hex_hover: None,
         violin_hover: None,
+        step_hover: None,
       }
     Bar(Hover(point)) => { ..model, bar_hover: point, }
     Bar(_) => model
@@ -73,6 +76,8 @@ fn update(model : Model, message : Msg) -> Model {
     Hex(_) => model
     Violin(Hover(point)) => { ..model, violin_hover: point, }
     Violin(_) => model
+    Step(Hover(point)) => { ..model, step_hover: point, }
+    Step(_) => model
   }
 }
 
@@ -252,6 +257,8 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
         )
       },
     ),
+    @html.h2("Discrete steps"),
+    step_consumer_view(model, emit),
     @html.h2("Nonuniform mesh"),
     @plot_dom.view(
       make_mesh_drawing(model),
@@ -431,6 +438,7 @@ fn main {
         bins_hover: None,
         hex_hover: None,
         violin_hover: None,
+        step_hover: None,
       },
       update~,
     )

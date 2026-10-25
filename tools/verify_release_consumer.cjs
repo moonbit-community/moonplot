@@ -224,6 +224,28 @@ async function main() {
     await page.waitForFunction(() => document.querySelector('[data-testid="consumer-violin-tooltip"]')?.textContent === 'Quantile 0: 3');
     checks.push('Installed violin quantile preserves its source index and exact value through the public callback');
 
+    async function stepEdge(index) {
+      await page.locator('#release-step-svg').scrollIntoViewIfNeeded();
+      return page.locator('#release-step-svg polyline').first().evaluate((line, index) => {
+        const a = line.points.getItem(index), b = line.points.getItem(index + 1);
+        const p = new DOMPoint((a.x + b.x) / 2, (a.y + b.y) / 2)
+          .matrixTransform(line.ownerSVGElement.getScreenCTM());
+        return { x: p.x, y: p.y };
+      }, index);
+    }
+    const plateau = await stepEdge(0);
+    await page.mouse.move(plateau.x, plateau.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-step-tooltip"]')?.textContent === 'Step 0: 3; range=0..2');
+    assert.equal(await page.locator('[data-testid="consumer-step-tooltip"]').getAttribute('data-step'), 'true');
+    assert.equal(await page.locator('[data-testid="consumer-step-tooltip"]').getAttribute('data-source-x'), '0');
+    checks.push('Installed step plateau exposes the original sample and interval without a synthetic corner index');
+    const riser = await stepEdge(1);
+    await page.mouse.move(riser.x, riser.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-step-tooltip"]')?.textContent === 'Step 1: 7; range=2..5');
+    assert.equal(await page.locator('[data-testid="consumer-step-tooltip"]').getAttribute('data-source-x'), '2');
+    assert.equal(await page.locator('[data-testid="consumer-step-tooltip"]').getAttribute('data-source-y'), '7');
+    checks.push('Installed step jump selects the incoming real sample instead of interpolating a new observation');
+
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);
