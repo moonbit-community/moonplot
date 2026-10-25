@@ -13,17 +13,23 @@
 ## 当前切片：M8 Stem（独立实现中，0.9.0未发布）
 
 - 范围[M8](MILESTONE_M8.md)。当前Root版本与公开registry均0.8.0；尚未改0.9候选版本、未合Stem代码，不把旧静态入口算新交互已完成。
-- [ ] m3_donut已明确派从正式M7 2f7aeb77c70499979b43273d1ea8a0b0504ba040 在own managed worktree建codex/m8-stem，实现core/IR/scene/SVG/Drawing/tooltip、专项/facade/adapter与独立STEM guide；Root不被并行改源。
+- [ ] m3_donut已从正式M7 2f7aeb77c70499979b43273d1ea8a0b0504ba040 在own managed worktree建codex/m8-stem，实现core/IR/scene/SVG/Drawing/tooltip、专项/facade/adapter与独立STEM guide；Root不被并行改源。
   固定合同：新增HitKind::Stem，原i/原head坐标/value=head/label，band=BandInfo(bottom,head,horizontal,false)，不加StemInfo/公共mutable数组。
   Rod Segment与实际默认head Point各保留真实component artist_index；全局baseline静态，bottom非观测；两mode只物理，无panel-wide虚构fallback。
   保持旧签名/Container/N+2顺序/静态SVG；复用actual-run与actual-head callback/metadata/context/clip/paint，call级只读共享carrier+Rod(i)/Heads，严防每rod复制N datum造成O(N²)。
-  Native首验、受影响四目标/adapter/info/fmt/结构后coherent commit交Root；不全套、不push发布、不改中央docs/版本/consumer/UI。
-- [ ] m4_area已派固定正式0.8 immutable archive准备独立public harness/oracle与少量实际旧stem SVG；非零正负baseline、NaN原下标洞、Log0仅head、clip/反向与overlay/旧图为重点，收到精确commit再复审。
-- [ ] m3_browser已派Root ignored .moonagent/checkpoints/M8-stem/draft 三卡UI草稿（竖向、横向、置信带覆盖），只语法fmt/Node检查；尚未授权tracked部署/编译/Chrome/PNG。
+  10份实际旧Stem SVG（横竖×bottom0/1×finite/NaN+empty）Native74853 1/1已冻结，不再update；正在实现共享StemHitData与常数StemHitView、实际Line run/heads circle callback。
+  头按实际circle fill/radius可见性捕获，不以原painter未写出的line alpha误屏蔽实际head。Native首验、受影响四目标/adapter/info/fmt/结构后coherent commit交Root；不全套、不push发布、不改中央docs/版本/consumer/UI。
+- [x] m4_area固定正式0.8 immutable archive完成reviewer准备：Native77543 terminal0，8份真实StemSVG+Container/N+2控制与Python实际polyline/circle8/8通过；只验旧源，不算M8新target验收。
+  own ignored M8-stem-review/plan.md/oracle.json/baseline-results.json/baseline-source-manifest.json/observed-old-gaps.json/future-checks.mbt.txt已冻结，独立输入已与producer同步；待精确commit再复审，无live。
+- [x] m3_browser已完成Root ignored .moonagent/checkpoints/M8-stem/draft/HANDOFF.md 三卡草稿（竖向、横向、置信带覆盖），447行main/359行runner/12组计划；语法fmt/Node/ignore/whitespace terminal0，未授权tracked部署/编译/Chrome/PNG。
+  与producer确认NaN源洞fixture heads[5,NaN,-1,7]/locs[1,2,4,7]/bottom1，更新[3,NaN,-2,6]；不是已运行M8测试，无live。
   预定七文件stems例；保留M7实际MouseEvent经验，不将page.mouse参数当真实浮点event，端点采用可实际表达布局并记录event。
-- [ ] Root下一步准备外部consumer/组合用例并等最小可验Stem commit；合入后再部署UI，最终只跑一次必要全套与实际0.9发布。
+- [ ] Root已准备ignored consumer-draft/static_stem.mbt/app_stem.mbt/browser_stem.mjs，Moon格式解析/Node语法通过，尚未部署或语义运行。
+  静态原i/head/band/真实各artist与Container N+2、横竖/反向/输入副本、NaN+zero-height、两端视图外clip、Log0仅head和baseline空白；app横向非零bottom，实际rod/head两组计划将外部检查23→25。
+  Root三组合草稿已写：Stem/Area横竖与两顺序、Stem/Hex与Stem/Step两顺序，每组两mode；Root将owns scene/stem_overlay_wbtest.mbt，尚未部署/语义运行。
+  Root已准备isolated final脚本但未执行，九JS例/最终四目标/实际浏览器/静态/链接/结构、0.9正式交付；等最小可验Stem commit，合入后才部署UI。
 - M8派发先于M7最后网络下载数十秒，仅own worktree/ignored草稿；Root直到65222完整成功保持M7 tracked freeze，M7来源/包未被后续工作污染。
-- 精确下一动作：提交本次M7交付记录/M8 scope并push → 收producer首个定向可验commit与UI草稿 → Root合入/公开consumer/独立复审 → UI正式授权/最终交付。
+- 精确下一动作：M7交付记录/M8 scope0075e7b已push90203 terminal0 → 收producer首个定向可验commit与UI草稿 → Root合入/公开consumer/独立复审 → UI正式授权/最终交付。
 - 不重开19图调查；旧Stem定点设计Root .moonagent/checkpoints/M7-discrete/next-stem-notes.md与design/stem-later.md仅作源图；其中旧StemInfo建议/授权版本已被本页固定合同替代。
 - Root无测试/发布/下载live；三个M8 agents任务已派，live IDs由各owner报告；唯一有意预览8765/session43005/PID70622。
 
