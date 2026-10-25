@@ -16,6 +16,7 @@ import {
   "Lampese/mathplotlib/internal/color_names",
   "moonbitlang/core/math",
   "moonbitlang/core/ref",
+  "moonbitlang/core/debug",
 }
 
 import {

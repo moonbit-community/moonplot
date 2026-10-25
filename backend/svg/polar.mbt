@@ -24,6 +24,7 @@ fn polar_display_scale() -> Scale {
 fn validate_polar_panel(panel : @render.Panel) -> Unit raise @core.DataError {
   guard panel.polar() is Some(p) else { return }
   if panel.explicit_bounds() is Some(_) ||
+    !panel.frame_visible() ||
     panel.share_x_group() is Some(_) ||
     panel.share_y_group() is Some(_) ||
     panel.aspect() is Some(_) ||
@@ -32,7 +33,7 @@ fn validate_polar_panel(panel : @render.Panel) -> Unit raise @core.DataError {
     !panel.secondary_x().is_empty() ||
     !panel.secondary_y().is_empty() {
     raise polar_error(
-      "Cartesian bounds, sharing, aspects and secondary axes are unsupported",
+      "Cartesian bounds, axis-off, sharing, aspects and secondary axes are unsupported",
     )
   }
   for axis in [panel.x_axis(), panel.y_axis()] {
