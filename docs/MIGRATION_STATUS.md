@@ -10,6 +10,24 @@
 - 用户授权合理复用、独立 subagents、小步本地commit与正常push至 moonbit-community/moonplot。
 - 不用历史API指数或未经调查的估算表示整体完成率。
 
+## 当前切片：M6 六边形分箱与小提琴分布（2026-10-25）
+
+- 用户“一直往后对齐”的授权持续；0.6.0已交付，接续MILESTONE_M6.md，不再重复M3/M4/M5调查。
+- [x] 定点只读设计收敛，复用现有 hexbin/violin 的计算与绘制；下一目标0.7.0，版本尚未改。
+- [ ] m4_area：原managed worktree /Users/lampese/.codex/worktrees/m4-filled-area/mathplotlib，
+  从正式源b563204新分支codex/m6-hexbin，实现HexbinInfo/Reduction/Hexbin kind/可选metadata、实际六角Quad×2。
+  原count和reduce结果保留，不重算callback；marginals=true首片静态不生成语义目标，避免误命中边缘条下方。
+- [ ] m3_donut：原managed worktree /Users/lampese/.codex/worktrees/m3-donut-charts/mathplotlib，
+  从b563204接codex/m6-violin，实现只读ViolinInfo/Part与KDE body/summary真实命中；不把估计采样说成观测点。
+  须同时处理后画mean/median/quantile等Segment在body或hex区域上方的优先级。
+- [ ] m3_browser：仅Root ignored .moonagent/checkpoints/M6-distributions/draft/四图草稿，等生产合入后通知部署。
+- Root拥有中央文档/合入冲突/consumer/版本/发布；各agent不push/发布、不改中央文档或版本。
+  不再开新agent；独立实现只定向检查，Root合入后统一全套与实际消费。
+- 精确下一动作：等待两实现的API/测试交接，期间Root维护范围与准备消费验收；先合一个再合另一个，
+  解决HitInfo、metadata、callback与public再导出冲突后由编译器更新接口。不能把未合入实现说成已可用。
+- M5 post-delivery记录9e8a001已本地commit，push45303 terminal0；M5所有测试/registry/下载已结束。
+  有意预览仍session43005/PID70622，grids.html与JS已HTTP200；无M6 Root运行测试会话。
+
 ## 最新交付：M5 网格与二维计数（2026-10-25）
 
 - 用户要求“一直往后对齐”；M4/0.5.0已完整交付，现继续MILESTONE_M5.md，不重启全项目调查。
