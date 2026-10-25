@@ -143,8 +143,15 @@ fn shape_contains(shape : HitShape, x : Double, y : Double) -> Bool {
         return true
       }
       let angle = @math.atan2(dy, dx) * 180.0 / @math.PI
-      degrees_normalized(degrees_normalized(angle) - degrees_normalized(start)) <=
-      sweep
+      let offset = degrees_normalized(
+        degrees_normalized(angle) - degrees_normalized(start),
+      )
+      // atan2 and the degree conversion can put an exact edge a few rounding
+      // steps outside its interval, wrapping a tiny negative offset to 360.
+      // Bound this allowance by four binary64 epsilons over one revolution
+      // (about 3.2e-13 degrees), rather than a visible angular hit radius.
+      let roundoff = 4.0 * 360.0 * 2.220446049250313e-16
+      offset <= sweep + roundoff || 360.0 - offset <= roundoff
     }
   }
 }

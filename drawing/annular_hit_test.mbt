@@ -99,3 +99,42 @@ test "annular clients preserve the transparent hole under scaling letterboxes an
     Some(point),
   )
 }
+
+///|
+fn annular_edge_point(angle : Double) -> (Double, Double) {
+  let radians = angle * @math.PI / 180.0
+  (200.0 + 50.0 * @math.cos(radians), 100.0 - 50.0 * @math.sin(radians))
+}
+
+///|
+test "annular angular edges tolerate only floating point roundoff at rotated start and end rays" {
+  let point = @drawing.hit_point(0, 0, 0, 0.0, 1.0, 250.0, 100.0)
+  for start in [15.0, 30.0, 60.0, 120.0, 195.0, 315.0, -330.0, 735.0] {
+    for sweep in [15.0, 90.0, 210.0] {
+      let frame = @drawing.drawing(400, 200, "", [], targets=[
+        target(
+          point,
+          AnnularSector(200.0, 100.0, 20.0, 64.0, start, sweep),
+          kind=Pie,
+          bounds=(0.0, 0.0, 400.0, 200.0),
+        ),
+      ])
+      for angle in [start, start + sweep] {
+        let (x, y) = annular_edge_point(angle)
+        assert_eq(frame.hit_test(x, y, radius=0.0), Some(point))
+      }
+      // These points are still extremely close to the edge, but their
+      // directional displacement exceeds the calculation's rounding budget.
+      for distance in [1.0e-12, 1.0e-11, 1.0e-10] {
+        for angle in [start + distance, start + sweep - distance] {
+          let (x, y) = annular_edge_point(angle)
+          assert_eq(frame.hit_test(x, y, radius=0.0), Some(point))
+        }
+        for angle in [start - distance, start + sweep + distance] {
+          let (x, y) = annular_edge_point(angle)
+          assert_eq(frame.hit_test(x, y, radius=1000.0, mode=XNearest), None)
+        }
+      }
+    }
+  }
+}
