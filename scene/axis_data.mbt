@@ -48,10 +48,18 @@ fn Axes::bind_axis_data(self : Axes, horizontal : Bool) -> Unit {
     axes.unstale_view()
   })
   axis.bind_minpos(() => {
-    if horizontal {
+    let minimum = if horizontal {
       state.val.x_data_minpos
     } else {
       state.val.y_data_minpos
+    }
+    // Area endpoints may span (0, 1) without containing an interior sample.
+    // Keep the raw data minimum, but use the locator's standard probability
+    // fallback when that derived minimum cannot be a Logit domain boundary.
+    if axis.scale().is_logit() && minimum >= 1.0 && !minimum.is_inf() {
+      1.0e-7
+    } else {
+      minimum
     }
   })
   axis.bind_shared_minpos(() => {

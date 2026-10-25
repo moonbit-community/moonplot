@@ -49,6 +49,10 @@ fig.stacked_bar(
 `info.point.data_y` 为实际顶点 7；横向图对应 `data_x`。
 CSS 缩放、留白、面板裁剪和 SVG 图例遮挡规则与普通柱一致。
 
+Log 与 Logit 视图会裁剪真实矩形。Logit 上从 0 到 1 的柱段能覆盖有效概率区间，
+即使两个端点都处于尺度边界；自动范围会选择严格位于 `(0, 1)` 内的有限视图。
+反向坐标轴与横向柱遵循同样的规则，完全位于有效域外的柱段不绘制也不命中。
+
 底层 `Artist::BarSegments(Array[BarSegment], Bool, Style)` 使用显式位置、宽度和基线。
 `Bool` 指横向；`BarSegment` 是只读值，通过 `bar_segment(position, value, baseline=..., width=..., category=...)`
 构造。现有 `Artist::Bar`、`Artist::BarH` 与原有 `bar` / `barh` 的默认行为保持不变。

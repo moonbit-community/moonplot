@@ -364,7 +364,16 @@ fn bind_render_data_minima(figure : @render.Figure) -> Unit {
         values
       })
       axis.bind_render_minpos(
-        () => artist_minpos(panel.artists(), horizontal),
+        () => {
+          let minimum = artist_minpos(panel.artists(), horizontal)
+          // Match Scene's default policy for bounded probability areas. An
+          // explicitly bound owning-axis provider still takes precedence.
+          if axis.scale().is_logit() && minimum >= 1.0 && !minimum.is_inf() {
+            1.0e-7
+          } else {
+            minimum
+          }
+        },
         () => {
           let target_group = if horizontal {
             panel.share_x_group()
