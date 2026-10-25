@@ -23,6 +23,7 @@ Start with the [project README](../README.md) to render a chart.
 
 - [Source organization and package boundaries](ARCHITECTURE.md)
 - [Four capability goals and milestone scope](MIGRATION_PLAN.md)
+- [Current milestone: discrete curves and cumulative distributions](MILESTONE_M7.md)
 - [Rabbita interactive DOM implementation and acceptance](RABBITA_DOM.md)
 - [Current execution checkpoint](MIGRATION_STATUS.md)
 - [Upstream survey](UPSTREAM_SURVEY.md)
