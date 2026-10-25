@@ -10,57 +10,66 @@
 - 用户授权合理复用、独立 subagents、小步本地commit与正常push至 moonbit-community/moonplot。
 - 不用历史API指数或未经调查的估算表示整体完成率。
 
-## 当前切片：M3 实现（2026-10-25）
+## 当前切片：M3 交付与 M4 实现（2026-10-25）
 
-- 用户要求重新看还有哪些图没对齐/没适配，并开启下一个milestone；随后明确“继续往后对齐图功能，一直往后对齐”，授权持续实现，不停在规划。
-- [x] 分开核对静态图类、语义命中和便利入口，不重启全API迁移调查。
-- [x] 从实际0.3.0正式ZIP在仓库外显式workspace运行19个代表性输入；native/wasm/wasm-gc/JS均成功。
-  所有Drawing SVG等于静态SVG，XML解析通过；四目标各图points/targets与SVG长度逐项一致。
-- [x] 明确新图缺口：分组/堆叠柱缺宽度/基线/组内布局；环形图缺内半径和环孔命中。
-  热图/矩阵、pcolormesh/hist2d/hexbin、面积/堆叠面积、箱线/小提琴、误差棒等已有静态实现，语义交互未适配。
-  contour/stem/ecdf等只有生成后的普通线点目标，不能算完整高级语义。
-- [x] 已建立docs/CHART_COVERAGE.md及可复现输入/结果，docs/MILESTONE_M3.md定义三项目标和验收标准。
-  M3范围：规则nearest标量热图交互 → 分组/堆叠柱（横竖向） → 真正透明环孔的环形图。
-  其余科学/分布交互留后续；本轮是调查与范围建立，不宣称功能已经实现。目标0.4.0未发布。
-- [ ] M3.1实现：同次cell draw捕获row/column/value/数据范围，扩展Drawing cell metadata与Rabbita提示。
-  先nearest imshow/matshow，origin/extent/mask/NaN/多图/缩放；none/平滑PNG、RGB、不规则mesh暂不纳入。
-- [ ] M3.2分组/堆叠柱；M3.3真环形图；共同回归/独立消费/版本交付。
-- 精确下一动作：收Logit跨域柱修复commit并cherry-pick，自动Logit范围旧bug也由同agent排查；环角边界已修cca4d28。
-  根全套23914已terminal0：wasm/wasm-gc/native各22321、JS22346通过。晚修受影响包四目标回归后最终接口/fmt/结构、
-  重建新示例验Chrome、clean正式包/发布0.4.0。M4独立工作区同步推进误差棒/面积语义，0.4发布前不合入M4代码。
-- 当前实现改动：Root drawing/cell.mbt+target/shape_hit、backend/svg/image_hit.mbt+image/panel、api、rabbita/tooltip与对应新测试。
-  CellInfo有row/column/x_range/y_range，HitInfo.cell为可选，Heatmap新kind；仅nearest scalar实际可见有效格采集。
-- 首轮check21382因ImageInterpolation未实现Eq失败，已改模式匹配；check93321通过（7既有Ref警告）。
-  首轮过滤测试73149暴露两处测试假设（默认upper数据范围、panel索引）错误，已核真实绘制后修断言；非产品失败。
-  adapter18/18已过；完整drawing24+新image_hit8四目标各32/32（5914 terminal0），matshow/透明色/图例遮挡均过。
-  范围生成info/fmt20981 terminal0，公共变化为CellInfo/Heatmap/HitInfo.cell及root类型alias；现有SVG路径未改输出。
-- 责任：Root热图/适配层/交付；m3_bars在 /Users/lampese/.codex/worktrees/m3-multiseries-bars/mathplotlib，
-  m3_donut在 /Users/lampese/.codex/worktrees/m3-donut-charts/mathplotlib；两者各自commit不push不发布。
-  m3_browser只主workspace的全新rabbita/cmd/charts和charts.html/css/chart_browser_test.cjs，等Root合并后才build与真浏览器验收。
-  bars API grouped_bar/stacked_bar(categories,series,labels,colors,horizontal,width,baseline；grouped另gap)；donut(values,labels,colors,start_angle,inner_radius=0.55)。
-- 新证据.moonagent/checkpoints/M3-implementation/；基线1ef9c80，当前准备0.4.0，无新publish。
-- 热图核心7adb3bc已正常push；Donut a5d6927已cherry为f210886，bars7dfbcaf已cherry为0a91ba6，均自动干净合并。
-  agent定向Donut四目标46/46、bars受影响包四目标1764/1764；证据已复制到本片donut/和bars/。
-- Root热图阶段受影响包50100四目标各1737/1737；整合check80458通过，整合全套23914进行中。
-- 新5图Chrome最终14/14，0pageerror，隔离targetdir新编译，5637 terminal0；实际JS4351013bytes/SHA c86374ec16d8c8f6d318d777bff128667d734bd9c29beaa0b27071cb07615214。
-  .moonagent/checkpoints/M3-charts/browser/含report与桌面/mobile，Root已目视assets/charts.png。
-  首轮runner图例恢复未等待render，已加DOM等待；文本色/长单位裁剪只在新fixture修复；无产品失败。
-- 交叉复审发现并实际复现两处产品角落：环起始射线舍入掉入360已修，新增drawing四目标29/29。
-  Logit柱baseline0/value1的双端越域却穿过有效viewport，被原edge helper丢弃；donut agent在独立worktree修复并回归。
-  两个agent复审热图/常规柱/环其余路径未见阻塞；不以发现问题为理由停止。
-- Root版本与consumer已准备0.4.0（尚未发布）；仓库外ZIP rehearsal30827 terminal0：四目标新图静态断言+Chrome7项全部通过。
-  consumer新增热图row/col/value、分组/横堆叠原值、真环孔断言；浏览器实际安装分组整段与热图边缘自定义提示。
-  本片rehearsal含dirty标记，不能上传；晚修后必须clean重做正式包。
-- M3 browser agent已冻结交回6新文件；Root拥有其后修改。无本轮Root测试残留会话，仅有原有预览8304。
-- 用户要求一直往后对齐，M4首片已委派m3_bars在其独立worktree实现误差棒typed范围/实际线段命中，基线cca4d28；
-  不编辑Root、不push/发布、不改Root检查点。Root仍优先完成M3交付，不把M4未验代码混入0.4。
-- 只读agents m3_chart_gaps与m3_interaction_gaps已完成交回，无写文件/测试/发布权限委派。
-- 证据.moonagent/checkpoints/M3-chart-coverage/，native探针52904、四目标25296均terminal0。
-  第一次报告汇总把真实tab误按字面量分隔而报assert，已修汇总逻辑；产品运行无失败。
-  19图输入/四目标结果另保存docs/audits/chart-coverage-0.3.0/，不把当前分支冒充固定发布源。
-- 无本片残留运行会话；后续实现不要重跑旧全项目调查。保留0.3.0的有意本地预览8304。
-- 收尾接口生成/fmt、structure与diff检查通过，生成接口无变化；本轮24份当前Markdown/432条本地链接通过。
-  只提交调查证据和M3文档，不重复全项目测试；产品0.3.0与已发布tag/附件不变。
+- 用户明确要求“继续往后对齐图功能，一直往后对齐”；持续实现和交付，不停在规划。
+- [x] 0.3.0 正式 ZIP 的 19 图、四目标调查已完成并保留于 docs/CHART_COVERAGE.md 与 docs/audits/chart-coverage-0.3.0/。
+  不重复调查，不用历史 API 数量估算整体百分比。
+- [x] M3.1 nearest 标量 imshow/matshow：真实整格命中、原始 row/column/value/数据范围、默认和自定义提示。
+  upper/lower、反向 extent、mask/NaN/透明格、裁剪/图例/CSS/letterbox/更新均有测试。
+  none/平滑 PNG、RGB(A)、不规则 mesh 不属于本片 cell 语义。
+- [x] M3.2 grouped_bar/stacked_bar：横竖向、组内间距、正负独立累计、非零基线、稳定系列/类别/原值。
+  BarSegments 输入先校验再变更状态；整段命中复用实际绘制；保留原 Bar/BarH 路径。
+- [x] M3.3 donut：真实透明孔、内外半径和环扇区命中，完整单片环、旋转跨零角与原始占比。
+  新 AnnularSector 角边界舍入修正不改变旧 Sector；Figure 本身白色背景保留。
+- [x] 五图真实 DOM、默认/中文回调、图例隐藏/恢复、数据更新、重挂载、375px 与实际透明孔像素验收。
+- [x] 四目标全套、晚修后受影响回归、接口/fmt/check/结构、旧 SVG 与旧浏览器回归。
+- [x] 0.4.0 dirty ZIP 演练：仓库外四目标静态断言 + Chrome 七项通过；仅为 rehearsal，禁止上传。
+- [ ] clean 正式包 → Mooncakes 实际发布/独立 registry 消费 → GitHub v0.4.0 四附件回下载核验。
+- 精确下一动作：提交剩余文档并 push（b5c10d3 尚未 push），运行 tools/build_release.py 的 clean 正式构建，
+  再发布 Lampese/mathplotlib@0.4.0。完成前不合入 M4 生产代码，不把尚未发布的版本记为已发布。
+
+### M3 源码、修复与验证
+
+- 当前版本文件与 tests/consumer 为 0.4.0；实际已发布仍为 0.3.0，正式源 2fb8bcf。
+- 已合入并 push：7adb3bc 热图、f210886 真环形、0a91ba6 多系列柱、cca4d28 环角边界、
+  4ed3096 Logit 双端越域但区间穿过 viewport 的柱、367d1ad 五图页面与独立消费。
+  b5c10d3 修自动 Logit endpoint-only 概率数据的有限范围；仅在默认数据 minpos 路径回退，显式配置保留。
+- 已知边界：旧普通 bar 的 Logit 无效端点仍由旧谓词过滤；新 grouped/stacked 完整区间可以正确穿过有效域。
+  不把自动视图修正宣称为旧普通柱所有非线性组合都已对齐。
+- CellInfo/Heatmap/HitInfo.cell、BarSegment/BarSegments、Donut/AnnularSector 及 facade 接口已生成并审查；
+  M3_CHARTS.md、MULTISERIES_BARS.md、DONUT.md 说明新 API 和枚举穷尽匹配迁移。
+- 全套23914 terminal0：wasm/wasm-gc/native 各22321/22321，JS22346/22346；发生在三处晚修之前。
+  最终晚修后4128 terminal0：drawing/scene/backend/svg/tests/api 四目标各1798/1798。
+  不将早期全套说成晚修后再次重跑；既有 Logit 对比四目标199/199亦通过。
+- 最终25518 terminal0：tools/update_interfaces.py（all info + JS-only 编译器接口 + fmt）和新示例 build。
+  结构/diff 检查通过；维护文件最大1930行测试、1440行生产，IR1381行。
+- 最终 Chrome156.0.8078.47：新图53386 14项、旧提示67802 14项、旧主例31721 11项、资源35593 7项，均terminal0/0pageerror。
+  实际新 JS4352045bytes，SHA256 be6afc69354d9aa6d3ed552309a51c0fa1d295ef42185508e9e9a80fd864694a。
+- 16715 terminal0：preview.svg6886bytes、gallery.svg14246bytes，均解析且与原资产逐字一致。
+- 证据 .moonagent/checkpoints/M3-implementation/；正式构建输出拟用 release-final/，独立安装拟用 registry-consumer/。
+  30827 rehearsal terminal0/dirty=true 仅作演练证据；所有测试进程已结束。
+
+### M4：独立实现中，目标 0.5.0
+
+- [x] 误差棒独立实现/定向验收，未合入：5707f896e52dbdd67d75a246c2458f38740bc9d3。
+  ErrorInfo、ErrorBar、Segment；实际中心/误差臂/端帽，范围溢出拒绝、原样本吸附、旧 SVG 不变。
+  四目标受影响各1803（JS1823），adapter20/20；info/fmt/结构通过。
+  worktree /Users/lampese/.codex/worktrees/m3-multiseries-bars/mathplotlib，现已交回。
+- [x] 面积独立实现/定向验收，未合入：b9d7ff9c0b07558189e2f4b9466b12ed748b128e。
+  Area/BandInfo/Quadrilateral、fill_between/x 与 stackplot 四基线，stack 原值单独保留；
+  真实填充按屏幕主方向中点归最近原样本；非单调/重复位置不生成交互目标，静态照常。
+  四目标受影响各1800/1800、adapter20/20；info/fmt/结构通过。
+  worktree /Users/lampese/.codex/worktrees/m4-filled-area/mathplotlib，已交回。
+- [ ] m3_donut 在 /Users/lampese/.codex/worktrees/m3-donut-charts/mathplotlib 做箱线图，
+  基于 b5c10d3 + ErrorBar，提交仅含 BoxInfo/BoxPart 增量；同次复用 BoxStats 和实际箱/须/帽/离群点。
+- [ ] m3_browser 只在 ignored .moonagent/checkpoints/M4-statistics/draft/ 起草五图 DOM/runner，
+  等 Root 合入 M4 后通知部署；不写 Git-visible 文件，不影响 0.4 正式包的 clean 源。
+- M4 并未完成中央合入/浏览器/独立消费/发布；范围见 MILESTONE_M4.md。
+  Root 完成 0.4 发布后先合 ErrorBar，再合 Area/Box，保留全部 typed metadata 分支并重新生成接口。
+- 只有有意预览 session8304/PID74453 保留，根目录服务：
+  http://127.0.0.1:8765/rabbita/tooltips.html 与 http://127.0.0.1:8765/rabbita/charts.html 。
+  open_in_codex 返回 queued，不宣称已切换用户页面。测试临时 HTTP/Chrome 均 finally 关闭。
 
 ## 已完成切片：常用图表命中与提示（2026-10-25）
 

@@ -1,9 +1,9 @@
 # M2：可接入的浏览器交互绘图
 
-## 当前入口：0.3.0 统一模块
+## 当前入口：0.4.0 统一模块
 
 用户在 v0.2.0 交付后明确要求使用 `Lampese/` 前缀发布，并将核心与组件合并。
-当前方案为 **`Lampese/mathplotlib@0.3.0`**：根包用于静态出图，
+当前方案为 **`Lampese/mathplotlib@0.4.0`**：根包用于静态出图，
 `Lampese/mathplotlib/rabbita` 为同 module 的 JS 子包，别名建议 `@plot_dom`。
 安装命令、迁移路径及当前发布验收见 [发布说明](PUBLISHING.md)，组件使用见
 [当前指南](../rabbita/README.md)。0.3.0 新增[区域命中、横轴吸附与丰富提示](TOOLTIPS.md)。

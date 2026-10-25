@@ -5,7 +5,7 @@ Interactive MoonPlot SVG components built with public
 real SVG DOM inside composable `Html`; your application owns its state.
 
 The component is the **`Lampese/mathplotlib/rabbita` package** in the unified
-`Lampese/mathplotlib@0.3.0` module. See [installation and release status](../docs/PUBLISHING.md)
+`Lampese/mathplotlib@0.4.0` module. See [installation and release status](../docs/PUBLISHING.md)
 for the current publication result. There is no separate adapter module to install.
 
 ![Two interactive charts](https://raw.githubusercontent.com/moonbit-community/moonplot/master/assets/rabbita-interactive.png)
@@ -15,7 +15,7 @@ for the current publication result. There is no separate adapter module to insta
 From your application's module directory:
 
 ```sh
-moon add Lampese/mathplotlib@0.3.0
+moon add Lampese/mathplotlib@0.4.0
 ```
 
 Import the packages used by your application's view in `moon.pkg`:
@@ -49,6 +49,16 @@ floating content while preserving events, and `tooltip_class` adds your styling 
 `HitInfo` supplies series, category, value, histogram interval and pie fraction.
 See the [complete tooltip guide](../docs/TOOLTIPS.md) and the
 [six-chart example](https://github.com/moonbit-community/moonplot/blob/v0.3.0/rabbita/cmd/tooltips/main.mbt).
+
+## Matrix cells and more charts (0.4.0)
+
+Nearest scalar `imshow`/`matshow` cells expose `info.cell` (zero-based row,
+column and data intervals) and the raw scalar `info.value`. Whole grouped and
+stacked bar segments retain series/category/original values, including negative
+stacks and horizontal layouts. True donut sectors reuse Pie tooltips and leave
+the center hole empty. See the [chart guide](../docs/M3_CHARTS.md) and run
+`moon build rabbita/cmd/charts --target js`, then open `/rabbita/charts.html`
+from the repository's static server.
 
 ## Component API
 

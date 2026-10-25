@@ -101,7 +101,7 @@ The rabbita subpackage supports only JS. Static core packages support all four
 targets; installing the module also resolves its Rabbita dependencies. Native, wasm, wasm-gc and JS static consumers are tested.
 The browser app is tested with Google Chrome and public Rabbita APIs.
 
-See https://github.com/moonbit-community/moonplot/blob/v{version}/docs/TOOLTIPS.md
+See https://github.com/moonbit-community/moonplot/blob/v{version}/docs/CAPABILITIES.md
 for acceptance, supported interactions and limits. Apache-2.0; additional notices
 are in library/docs/THIRD_PARTY_NOTICES.md and library/docs/licenses/.
 """

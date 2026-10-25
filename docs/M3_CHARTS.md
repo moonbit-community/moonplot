@@ -54,7 +54,8 @@ let drawing = fig.to_drawing()
 
 同一快照采集实际矩形并受面板和 SVG 图例裁剪。共享格边界按后绘制格优先，
 包括交界顶点。非有限值、mask、零透明度以及完全透明的颜色不提供有效目标。
-行列标签、格内数值和色条可以组合已有刻度、text、colorbar API，示例已演示。
+示例使用现有刻度和 text 提供行列标签、格内数值，外层 HTML 色条标明同一显式 vmin/vmax。
+静态图也可组合现有 colorbar API。
 
 本轮交互仅覆盖 nearest 标量格子。RGB(A)、none/平滑 PNG、pcolor/pcolormesh/hist2d
 和不规则网格仍可静态绘制，但不因此获得本次的 cell 语义。查询当前仍线性扫描目标。
@@ -104,3 +105,5 @@ let portions = fig.donut(
 日期/单位/本地化、浮层样式及隐藏提示的方式与 [0.3.0 提示指南](TOOLTIPS.md)一致。
 
 范围与逐项验收状态见 [M3](MILESTONE_M3.md)，实际命令和交付结果见 [执行检查点](MIGRATION_STATUS.md)。
+
+![M3 实际浏览器示例](../assets/charts.png)

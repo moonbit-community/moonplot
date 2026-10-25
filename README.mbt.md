@@ -41,11 +41,11 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.3.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
+MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.4.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.3.0
+moon add Lampese/mathplotlib@0.4.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add
