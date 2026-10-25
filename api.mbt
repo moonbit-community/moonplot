@@ -39,6 +39,7 @@ pub using @drawing {
   type HexbinReduction,
   type ViolinInfo,
   type ViolinPart,
+  type VectorInfo,
   type HitKind,
   type HitMode,
   type HitShape,

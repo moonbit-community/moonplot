@@ -647,10 +647,28 @@ fn render_panel(
             }
           }),
         )
-      @render.Artist::Quiver(points, vectors, style) =>
+      @render.Artist::Quiver(points, vectors, style) => {
+        let source = vector_for_paint(metadata.vector(), points, vectors, style)
         append_quiver(
-          writer, scale, left, top, plot_width, plot_height, points, vectors, style,
+          writer,
+          scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          points,
+          vectors,
+          style,
+          on_arrow=vector_capture(
+            capture,
+            source,
+            panel_index,
+            artist_index,
+            position,
+            metadata.series(),
+          ),
         )
+      }
       @render.Artist::Violin(
         stats,
         positions,

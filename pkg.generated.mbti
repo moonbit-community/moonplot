@@ -175,6 +175,8 @@ pub using @core {type Style}
 
 pub using @scene {type SubFigure}
 
+pub using @drawing {type VectorInfo}
+
 pub using @scene {type ViolinBandwidth}
 
 pub using @drawing {type ViolinInfo}

@@ -18,6 +18,7 @@ pub(all) enum HitKind {
   Stairs
   Ecdf
   Stem
+  Quiver
 } derive(Eq, Debug)
 
 ///|
@@ -81,6 +82,7 @@ pub struct HitInfo {
   box : BoxInfo?
   hexbin : HexbinInfo?
   violin : ViolinInfo?
+  vector : VectorInfo?
 } derive(Eq, Debug)
 
 ///|
@@ -104,6 +106,7 @@ pub fn hit_info(
   box~ : BoxInfo? = None,
   hexbin~ : HexbinInfo? = None,
   violin~ : ViolinInfo? = None,
+  vector~ : VectorInfo? = None,
 ) -> HitInfo {
   {
     point,
@@ -119,6 +122,7 @@ pub fn hit_info(
     box,
     hexbin,
     violin,
+    vector,
   }
 }
 

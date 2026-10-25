@@ -10,6 +10,7 @@ pub struct HitMetadata {
   priv hexbin : HexbinHitData?
   priv discrete : DiscreteLineHitData?
   priv stem : StemHitView?
+  priv vector : VectorHitData?
 }
 
 ///|
@@ -22,6 +23,7 @@ pub fn hit_metadata(
   hexbin~ : HexbinHitData? = None,
   discrete~ : DiscreteLineHitData? = None,
   stem~ : StemHitView? = None,
+  vector~ : VectorHitData? = None,
 ) -> HitMetadata {
   {
     series,
@@ -32,7 +34,13 @@ pub fn hit_metadata(
     hexbin,
     discrete,
     stem,
+    vector,
   }
+}
+
+///|
+pub fn HitMetadata::vector(self : HitMetadata) -> VectorHitData? {
+  self.vector
 }
 
 ///|

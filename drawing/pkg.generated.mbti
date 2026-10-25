@@ -18,11 +18,13 @@ pub fn error_info((Double, Double), (Double, Double)) -> ErrorInfo
 
 pub fn hexbin_info(Int, Int, Int, reduction? : HexbinReduction) -> HexbinInfo
 
-pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?, band? : BandInfo?, box? : BoxInfo?, hexbin? : HexbinInfo?, violin? : ViolinInfo?) -> HitInfo
+pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?, band? : BandInfo?, box? : BoxInfo?, hexbin? : HexbinInfo?, violin? : ViolinInfo?, vector? : VectorInfo?) -> HitInfo
 
 pub fn hit_point(Int, Int, Int, Double, Double, Double, Double) -> HitPoint
 
 pub fn hit_target(HitInfo, HitShape, (Double, Double, Double, Double)) -> HitTarget
+
+pub fn vector_info(Double, Double) -> VectorInfo
 
 pub fn violin_info(Int, position~ : Double, mean~ : Double, median~ : Double, minimum~ : Double, maximum~ : Double, part~ : ViolinPart, horizontal? : Bool) -> ViolinInfo
 
@@ -131,6 +133,7 @@ pub struct HitInfo {
   box : BoxInfo?
   hexbin : HexbinInfo?
   violin : ViolinInfo?
+  vector : VectorInfo?
 } derive(Eq, @debug.Debug)
 pub fn HitInfo::equal(Self, Self) -> Bool
 pub fn HitInfo::not_equal(Self, Self) -> Bool
@@ -154,6 +157,7 @@ pub(all) enum HitKind {
   Stairs
   Ecdf
   Stem
+  Quiver
 } derive(Eq, @debug.Debug)
 pub fn HitKind::equal(Self, Self) -> Bool
 pub fn HitKind::not_equal(Self, Self) -> Bool
@@ -200,6 +204,14 @@ pub struct HitTarget {
 pub fn HitTarget::equal(Self, Self) -> Bool
 pub fn HitTarget::not_equal(Self, Self) -> Bool
 pub fn HitTarget::to_repr(Self) -> @debug.Repr
+
+pub struct VectorInfo {
+  u : Double
+  v : Double
+} derive(Eq, @debug.Debug)
+pub fn VectorInfo::equal(Self, Self) -> Bool
+pub fn VectorInfo::not_equal(Self, Self) -> Bool
+pub fn VectorInfo::to_repr(Self) -> @debug.Repr
 
 pub struct ViolinInfo {
   group_index : Int

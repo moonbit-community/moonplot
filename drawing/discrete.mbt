@@ -1,6 +1,10 @@
 ///|
 fn discrete_kind(kind : HitKind) -> Bool {
-  kind == Step || kind == Stairs || kind == Ecdf || kind == Stem
+  kind == Step ||
+  kind == Stairs ||
+  kind == Ecdf ||
+  kind == Stem ||
+  kind == Quiver
 }
 
 ///|

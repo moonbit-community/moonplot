@@ -9,6 +9,7 @@ priv struct ArtistHitData {
   mut hexbin : @render.HexbinHitData?
   mut discrete : DiscreteLineSource?
   mut stem : @render.StemHitView?
+  mut vector : @render.VectorHitData?
 }
 
 ///|
@@ -19,6 +20,8 @@ fn same_hit_artist(first : Artist, second : Artist) -> Bool {
     | (Bar(a, _), Bar(b, _))
     | (BarH(a, _), BarH(b, _)) => physical_equal(a, b)
     (Polygon(a, _), Polygon(b, _)) => physical_equal(a, b)
+    (Quiver(a, u, _), Quiver(b, v, _)) =>
+      physical_equal(a, b) && physical_equal(u, v)
     (FillBetween(a, _, _), FillBetween(b, _, _)) => physical_equal(a, b)
     (BarSegments(a, _, _), BarSegments(b, _, _)) => physical_equal(a, b)
     (ErrorBar(a, _, _, _), ErrorBar(b, _, _, _)) => physical_equal(a, b)
@@ -45,7 +48,16 @@ fn ArtistHitData::render_metadata(self : ArtistHitData) -> @render.HitMetadata {
     hexbin=self.hexbin,
     discrete=self.discrete.map(source => source.data),
     stem=self.stem,
+    vector=self.vector,
   )
+}
+
+///|
+fn Axes::record_vector_hit(self : Axes, source : @render.VectorHitData) -> Unit {
+  let records = self.state.val.artist_hits
+  if !records.is_empty() {
+    records[records.length() - 1].vector = Some(source)
+  }
 }
 
 ///|

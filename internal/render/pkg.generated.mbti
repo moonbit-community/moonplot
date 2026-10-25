@@ -25,7 +25,7 @@ pub fn figure_with_subfigures(Int, Int, Int, Array[Panel], Array[@colorbar.Color
 
 pub fn hexbin_hit_data(Int, @core.Point, Double, @drawing.HexbinInfo) -> HexbinHitData
 
-pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?, mesh? : MeshHitData?, hexbin? : HexbinHitData?, discrete? : DiscreteLineHitData?, stem? : StemHitView?) -> HitMetadata
+pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?, mesh? : MeshHitData?, hexbin? : HexbinHitData?, discrete? : DiscreteLineHitData?, stem? : StemHitView?, vector? : VectorHitData?) -> HitMetadata
 
 pub fn legend_entry(String, String, LegendKind) -> LegendEntry
 
@@ -48,6 +48,8 @@ pub fn subfigure(@gridspec.Rect, String?) -> SubFigure
 pub fn table(Array[TableCell], Int, Int, Double, Double, Double, Double, Array[Double]) -> Table
 
 pub fn table_cell(Int, Int, String, String, String, String, String) -> TableCell
+
+pub fn vector_hit_data(Array[@core.Point], Array[@core.Point]) -> VectorHitData?
 
 pub fn violin_stats(Array[Double], Array[Double], Double, Double, Double, Double, Array[Double]) -> ViolinStats
 
@@ -170,6 +172,7 @@ pub fn HitMetadata::interval(Self, Int) -> (Double, Double)?
 pub fn HitMetadata::mesh(Self) -> MeshHitData?
 pub fn HitMetadata::series(Self) -> String
 pub fn HitMetadata::stem(Self) -> StemHitView?
+pub fn HitMetadata::vector(Self) -> VectorHitData?
 
 pub(all) enum ImageInterpolation {
   Nearest
@@ -450,6 +453,18 @@ pub fn TableCell::facecolor(Self) -> String
 pub fn TableCell::row(Self) -> Int
 pub fn TableCell::text(Self) -> String
 pub fn TableCell::visible_edges(Self) -> String
+
+pub struct VectorDatum {
+  index : Int
+  point : @core.Point
+  vector : @drawing.VectorInfo
+}
+
+pub struct VectorHitData {
+  // private fields
+}
+pub fn VectorHitData::datum(Self, Int) -> VectorDatum?
+pub fn VectorHitData::matches(Self, Array[@core.Point], Array[@core.Point]) -> Bool
 
 pub(all) enum ViolinSide {
   Both

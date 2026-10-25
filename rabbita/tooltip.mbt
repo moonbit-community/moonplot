@@ -36,6 +36,7 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     Stairs => "stairs"
     Ecdf => "ecdf"
     Stem => "stem"
+    Quiver => "quiver"
   }
 }
 
@@ -112,6 +113,14 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
       rows.push(("Value", info.value.to_string()))
       if info.kind == Stairs && info.band is Some(band) {
         rows.push(("Baseline", band.lower.to_string()))
+      }
+    }
+    Quiver => {
+      rows.push(("X", info.point.data_x.to_string()))
+      rows.push(("Y", info.point.data_y.to_string()))
+      if info.vector is Some(vector) {
+        rows.push(("U", vector.u.to_string()))
+        rows.push(("V", vector.v.to_string()))
       }
     }
     Stem =>

@@ -64,6 +64,7 @@ pub fn Axes::quiver(
   self.push_artist(
     Artist::Quiver(points, vectors, @core.style(resolved_color, width=1.5)),
   )
+  self.record_vector_hit(@render.vector_hit_data(points, vectors).unwrap())
   self.add_auto_legend(label, resolved_color, LegendKind::Line)
   self.add_container(ContainerKind::Quiver, start, label)
 }
