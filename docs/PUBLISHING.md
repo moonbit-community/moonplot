@@ -1,8 +1,8 @@
 # 安装与发布
 
-当前源码候选为 **`Lampese/mathplotlib@0.16.0`**，新增[极坐标折线、散点和闭合雷达](POLAR.md)，
-示例为 `rabbita/polar.html`。专项、外部consumer与中央完整验收已通过；正式包、全新安装和实际发布尚未完成。
-下方0.16.0安装命令用于本次正式发布后；最近实际已发布版本仍为0.15.0。
+当前分发为 **`Lampese/mathplotlib@0.16.0`**，新增[极坐标折线、散点和闭合雷达](POLAR.md)，
+示例为 `rabbita/polar.html`。已实际发布Mooncakes与[GitHub v0.16.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.16.0)；
+607份全新安装源逐一同正式ZIP，四目标静态/Chrome56及GitHub四附件完整下载核验通过。
 核心绘图与 Rabbita 组件仍是一个 module。
 
 0.15.0的[连续流线生成场值](STREAMPLOT_INTERACTION.md)已实际发布Mooncakes与GitHub；
@@ -16,7 +16,7 @@
 0.7.0 接续[六边形分箱](HEXBIN_INTERACTION.md)与[小提琴分布](VIOLIN_INTERACTION.md)，
 同时修正旧 hexbin 分桶与轮廓错位；新示例为 `rabbita/distributions.html`。
 0.8.0 接续[Step](STEP_INTERACTION.md)、[Stairs](STAIRS_INTERACTION.md)与[ECDF](ECDF_INTERACTION.md)的原采样、区间及概率提示，
-新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。0.10.0接续[Quiver原位置与U/V分量](QUIVER_INTERACTION.md)，新示例为 `rabbita/vectors.html`。0.11.0接续[风羽原位置、U/V、旗面及静风圆](BARBS_INTERACTION.md)，新示例为 `rabbita/barbs.html`。0.12.0接续[线等值线精确级别与inline标签](CONTOUR_INTERACTION.md)，新示例为 `rabbita/contours.html`。0.13.0接续[填色等值区、多环与孔洞](CONTOURF_INTERACTION.md)，新示例为 `rabbita/filled-contours.html`。下方安装命令对应本次0.16.0候选；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
+新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。0.10.0接续[Quiver原位置与U/V分量](QUIVER_INTERACTION.md)，新示例为 `rabbita/vectors.html`。0.11.0接续[风羽原位置、U/V、旗面及静风圆](BARBS_INTERACTION.md)，新示例为 `rabbita/barbs.html`。0.12.0接续[线等值线精确级别与inline标签](CONTOUR_INTERACTION.md)，新示例为 `rabbita/contours.html`。0.13.0接续[填色等值区、多环与孔洞](CONTOURF_INTERACTION.md)，新示例为 `rabbita/filled-contours.html`。下方安装命令对应0.16.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
 查看 registry 版本。维护者使用 `tools/verify_registry.py` 从全新、无 `moon.work` 的应用
 安装并验证静态四目标和真实浏览器交互。
 GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0)
@@ -299,7 +299,7 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 实际 info/fmt 与两个 private 接口核对通过。中央 prelude87978、唯一 full73204（265.69s）、postlude40698 全部通过：Wasm/Wasm-GC22631、Native22635、JS22688；15 页面 Chrome190/0errors，三静态 SVG、52 文档576本地链接、结构与差异检查通过，无额外接口变化。正式源67c0951：clean82436、actual publish93030/public35351、全新registry16095、GHcreate54326/完整下载40546均terminal0，601安装源与四附件逐一核同。finalaudit290642确认整个正式交付期HEAD/gitclean未变。
 [GitHub v0.15.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.15.0)与[M14](MILESTONE_M14.md)记录结果。
 
-## 0.16.0 Polar / Radar 候选
+## 0.16.0 Polar / Radar 发布验收
 
 新增 typed `PolarAxes` 与 `Figure.add_polar_axes`，支持弧度输入的极坐标折线、散点和闭合轮廓雷达。
 原theta/r及N点保持，数据独立圆形裁剪；非方形面板仍为真圆。显式方向/角偏移、径上限、刻度、
@@ -307,5 +307,4 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 
 外部consumer Native/JS、Chrome56及真实SVG栅格裁剪检查已通过。中央唯一完整回归93615
 在264.29秒内通过W/WG22644、Native22648、JS22701；16页面Chrome204/0errors、
-三静态SVG、54份文档594本地链接、结构与预期接口检查均通过。正式clean包与实际
-Mooncakes/全新registry/GitHub四附件核验仍待完成。当前进度见[M15](MILESTONE_M15.md)与[执行检查点](MIGRATION_STATUS.md)。
+三静态SVG、54份文档594本地链接、结构与预期接口检查均通过。正式clean5127、actualpublish89744、公开buildsuccessa46bad、全新registry61533和GitHubcreate9181/完整下载47226均0。607源同正式ZIP，四static/Chrome56；formal999至finalaudit30f5fc全程HEAD/gitclean不变，之后解除冻结。当前进度见[M15](MILESTONE_M15.md)与[执行检查点](MIGRATION_STATUS.md)。

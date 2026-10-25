@@ -4,14 +4,14 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 当前工作复用已有的数据、图表、坐标轴和 SVG 实现，以完整使用场景判断效果。
 本页区分实现、历史验证与本轮验收，不把原型的全部参数和组合标为完成。
 
-**当前状态：M1至M14已验收并实际交付，新增连续流线的原种子/边编号与生成场值提示。**
-[M14](MILESTONE_M14.md)0.15.0已发布Mooncakes与GitHub；601安装源逐一等于正式包，
-四目标静态/Chrome51和GitHub四附件完整下载核验通过。中央W/WG22631、Native22635、
-JS22688及15页面Chrome190/0errors通过，独立Native/JS复审无剩余blocker。
-当前[M15](MILESTONE_M15.md)基础极坐标和闭合雷达已完成专项、外部接入与中央验收；0.16.0候选待正式包与实际发布核验。
+**当前状态：M1至M15已验收并实际交付，新增基础极坐标折线、散点和闭合轮廓雷达。**
+[M15](MILESTONE_M15.md)0.16.0已发布Mooncakes与GitHub；607安装源逐一同正式包，
+四目标静态/Chrome56和GitHub四附件完整下载核验通过。中央W/WG22644、Native22648、
+JS22701及16页面Chrome204/0errors通过，独立Native/JS复审无剩余blocker。
+当前[M16](MILESTONE_M16.md)接续原theta/r与雷达类别提示、真正圆盘的逐panel命中，尚未实现验收。
 
 **M2 v0.2.0** 补齐多图 SVG 资源隔离和独立接入版本包，详见 [M2 历史记录](MILESTONE_M2.md)。
-当前正式分发为 **`Lampese/mathplotlib@0.15.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
+当前正式分发为 **`Lampese/mathplotlib@0.16.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
 发布状态和安装方式见 [接入说明](PUBLISHING.md)。
 
 ## 如何理解状态
@@ -41,7 +41,7 @@ JS22688及15页面Chrome190/0errors通过，独立Native/JS复审无剩余blocke
 | 填色等值区 | contourf与tricontourf完整band region | 实际nonzero/evenodd多环保持孔洞和分岛空白，有限区间/代表值与原逻辑band槽；M12已实际交付0.13.0，见[专项指南](CONTOURF_INTERACTION.md) |
 | 三角面着色 | tripcolor/direct/wrapper逐面值或顶点均值 | 原面槽、实际有序顶点和均值标志；mask空白/物理填面，两mode不跨空角。M13已交付0.14.0，见[指南](TRIPCOLOR_INTERACTION.md) |
 | 连续流线 | streamplot / mesh / style-grid 的生成场值提示 | 原 seed/edge、边中点 U/V 与可选原颜色标量；实际非零线身物理命中，箭头静态。M14已交付0.15.0，见[指南](STREAMPLOT_INTERACTION.md) |
-| 极坐标与雷达 | typed PolarAxes 的折线、散点与闭合轮廓雷达 | 弧度输入、方向/偏移、径刻度与分类标签、真圆投影/裁剪；保留原theta/r与N点，静态SVG和RabbitaDOM。首片无极坐标悬停；M15代码与中央验收已通过，正式发布待核，见[指南](POLAR.md) |
+| 极坐标与雷达 | typed PolarAxes 的折线、散点与闭合轮廓雷达 | 弧度输入、方向/偏移、径刻度与分类标签、真圆投影/裁剪；保留原theta/r与N点，静态SVG和RabbitaDOM。首片无极坐标悬停；M15已实际交付0.16.0，见[指南](POLAR.md) |
 | 图像与网格 | 标量图、RGB(A) 图像、热图、颜色映射和归一化 | 包含掩码、图像方向及部分插值路径 |
 | 科学绘图 | 误差线、填充区域、等值线、三角网格、向量场、流线 | 已有专项实现，复杂组合仍需按场景确认 |
 | 坐标轴 | 数值范围、刻度与格式器、线性及多种非线性尺度 | 包含显式设置和自动计算路径 |

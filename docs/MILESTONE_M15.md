@@ -1,7 +1,7 @@
 # M15：极坐标折线、散点与闭合雷达
 
-2026-10-26启动，目标0.16.0。基线为已实际交付的0.15.0正式源
-`67c095118a45d27f6f3ab3d8fb3d3dff2a0e8877`。实现、专项与中央验收已完成，待正式包与实际发布。
+2026-10-26完成并实际交付0.16.0。基线为已实际交付的0.15.0正式源
+`67c095118a45d27f6f3ab3d8fb3d3dff2a0e8877`。实现、专项、中央与实际交付均已完成。
 
 本片先交付可用的静态 SVG 和可组合 Rabbita DOM；应用可以更新数据、切换系列和重挂载。
 原始角度/半径的点提示与圆盘指针门控留下一片，不生成笛卡尔观测式提示。
@@ -35,6 +35,8 @@
 - [x] 双卡UI1efb4e3真实DOM更新、四独立图例、三次重挂载、资源隔离、圆形SVG实际像素与375px；最终Chrome74155 14/14、33整数事件、0errors，实际PNG已目视。
 - [x] 独立consumer Native96487、JS6483与axis-off后build145a36、Chrome26756全部0；56checks含五个新极坐标组、实际SVG栅格圆裁剪和375px真圆。actualinfo79875与四文件fmt0、两private接口不变。consumer提交97f2b78。
 - [x] 中央prelude57456、唯一full93615/264.29s、postlude83376全部0，23步骤；W/WG22644、Native22648、JS22701、16页面Chrome204/0errors，三静态SVG/54MD594links/structure/diff/预期接口通过。canonical polarJS4663158bytes与实际served核同，中央PNG逐字等于已目视asset。collector首复制旧22步骤计数失败已保留并修，仅重新汇总，未重跑通过的full。
-- [ ] 正式clean包、全新registry安装及实际Mooncakes/GitHub四附件交付。
+- [x] 正式源9996439/push30930；clean5127/dirtyfalse/四staticChrome56，module607files/2748140bytes、source638files/2806598bytes；20owner生产/接口/guide与asset逐字。actualpublish89744/200，首public queued仅等待，第二a46bad buildsuccess/checksum同；fresh registry61533的607安装源逐字/四staticChrome56。GitHubcreate9181/完整四附件47226/bytes/digest/size/tag全同，finalaudit30f5fc确认全过程HEAD999/gitclean不变，之后解除freeze。
+
+[GitHub v0.16.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.16.0)。后续原theta/r与类别提示见[M16](MILESTONE_M16.md)。
 
 [当前执行检查点](MIGRATION_STATUS.md) · [能力](CAPABILITIES.md) · [路线图](MIGRATION_PLAN.md)

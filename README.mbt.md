@@ -50,8 +50,7 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses the unified **`Lampese/mathplotlib`** module. The current source is the
-**0.16.0 release candidate**; see [publication status and installation instructions](docs/PUBLISHING.md).
+MoonPlot uses the published **`Lampese/mathplotlib@0.16.0`** module. See [publication status and installation instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
@@ -361,7 +360,8 @@ updates; polar hover values are planned separately. See the [polar guide](docs/P
 - [Filled contour regions and holes: completed M12](docs/MILESTONE_M12.md)
 - [Triangular face values and vertex means: completed M13](docs/MILESTONE_M13.md)
 - [Continuous streamline field samples: completed M14](docs/MILESTONE_M14.md)
-- [Current M15: polar plots and radar outlines](docs/MILESTONE_M15.md)
+- [Polar plots and radar outlines: completed M15](docs/MILESTONE_M15.md)
+- [Current M16: original polar values and circular picking](docs/MILESTONE_M16.md)
 - [Four capability goals](docs/MIGRATION_PLAN.md)
 - [Rabbita interactive DOM and acceptance](docs/RABBITA_DOM.md)
 - [Dependencies and integration notes](docs/DEPENDENCIES.md)
