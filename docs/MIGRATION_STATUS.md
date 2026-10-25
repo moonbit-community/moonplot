@@ -21,7 +21,9 @@
 - m3_donut定点只读packet已收Root M9-quiver/design，16源SHA与正式0.9 Root精确匹配。Native20060 terminal0保存6旧SVG，旧targets0，未来panel交点只作预期9/9/3/1/1/3。
 - 已明确授权m3_donut从正式0.9 source95a34c3dc154f48fb3b83b7f37ecad3a0e8273c8在own managed worktree建codex/m9-quiver，拥有核心/API/IR/scene/backend/tooltip/own测试与QUIVER_INTERACTION.md。按固定合同实现、定向4目标/adapter、真实info/fmt/结构后coherent commits；不跑全库全套、不push/publish/新agent、不动Root。
 - m4_area已被明确授权own ignored M9-quiver-review独立baseline/oracle准备；m3_browser已被明确授权ignored UI草稿/实际DOM测试设计；review/UI均不可写Root tracked、commit/push或提前生产。
-- Root ignored M9-quiver/consumer-draft/static-vector.mbt是未编译草稿：原样本/输入副本/zero洞/actual Segment/反轴/跨视图原起点与u/v，不作为测试通过。
+- Root ignored M9-quiver/consumer-draft已备static-vector.mbt、app-vector.mbt、vector-checks.cjs.txt与integrate_consumer.py，尚未部署/编译：原样本/输入副本/zero洞/反轴/跨panel，真实shaft+两wing独立整数MouseEvent、公开u/v callback，不能记新验收。
+- Root29994 terminal0 Native只保存自己外部fixture的3份旧SVG，真实线数9/9/3、首shaft分别(80,160→240,120)/(320,80→160,120)/(-200,120→600,120)，匹配独立手算坐标，旧targets0；M9-quiver/baseline-consumer-report.json与SVG已冻结。部署新源后核对旧字节，不重复旧测试。
+- M8交付/M9范围f1e3058已push65943 terminal0，Root clean；本阶段最初未建workdir的probe启动被工具拒绝未执行，建目录后29994成功，非生产错误。
 - 精确下一动作：M8实际发布闭环全部完成，交付文档commit/push → M9 producer实际实现/精确commit → Root合入+独立消费/组合与版本/文档 → 精确commit独立复审+显式UI部署 → 中央验收/发布。
 - Root无测试/发布/下载live；唯一有意预览8765/session43005/PID70622。producer已授权M9生产，review/UI仅准备，无M8未决blocker。
 

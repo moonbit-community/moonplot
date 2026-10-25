@@ -24,3 +24,11 @@
 m3_donut负责精确正式0.9源上的生产实现；m4_area准备独立oracle与旧SVG；m3_browser先只写ignored草稿。
 Root负责合入、公开consumer与组合测试、版本/文档和实际发布。实现、验证、发布分别记录，不提前标完成。
 详见[执行检查点](MIGRATION_STATUS.md)、[能力](CAPABILITIES.md)与[安装](PUBLISHING.md)。
+
+## 准备记录
+
+- [x] 正式0.9源固定；producer定点旧行为packet/6SVG与16源SHA已收，全部与Root一致，实际旧targets0。
+- [x] Root独立公开consumer旧Native3SVG保存通过，实际线段9/9/3和手算shaft坐标相符；此项只验证基线，不是M9命中验收。
+- [ ] producer新实现/精确commit与定向验收。
+
+Root外部静态/浏览器fixture及部署脚本、UI双卡、reviewer独立oracle均在ignored准备；尚未对新Quiver接口编译。
