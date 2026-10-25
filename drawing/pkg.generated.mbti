@@ -16,6 +16,8 @@ pub fn drawing(Int, Int, String, Array[HitPoint], targets? : Array[HitTarget], e
 
 pub fn error_info((Double, Double), (Double, Double)) -> ErrorInfo
 
+pub fn filled_region(Array[Array[(Double, Double)]], even_odd? : Bool) -> FilledRegion
+
 pub fn hexbin_info(Int, Int, Int, reduction? : HexbinReduction) -> HexbinInfo
 
 pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?, band? : BandInfo?, box? : BoxInfo?, hexbin? : HexbinInfo?, violin? : ViolinInfo?, vector? : VectorInfo?) -> HitInfo
@@ -97,6 +99,15 @@ pub fn ErrorInfo::equal(Self, Self) -> Bool
 pub fn ErrorInfo::not_equal(Self, Self) -> Bool
 pub fn ErrorInfo::to_repr(Self) -> @debug.Repr
 
+pub struct FilledRegion {
+  // private fields
+} derive(Eq, @debug.Debug)
+pub fn FilledRegion::equal(Self, Self) -> Bool
+pub fn FilledRegion::even_odd(Self) -> Bool
+pub fn FilledRegion::not_equal(Self, Self) -> Bool
+pub fn FilledRegion::rings(Self) -> Array[Array[(Double, Double)]]
+pub fn FilledRegion::to_repr(Self) -> @debug.Repr
+
 pub struct HexbinInfo {
   row : Int
   column : Int
@@ -160,6 +171,7 @@ pub(all) enum HitKind {
   Quiver
   Barbs
   Contour
+  ContourF
 } derive(Eq, @debug.Debug)
 pub fn HitKind::equal(Self, Self) -> Bool
 pub fn HitKind::not_equal(Self, Self) -> Bool
@@ -189,6 +201,7 @@ pub fn HitPoint::to_repr(Self) -> @debug.Repr
 pub(all) enum HitShape {
   Point
   Segment(Double, Double, Double, Double)
+  FilledRegion(FilledRegion)
   Rectangle(Double, Double, Double, Double)
   Sector(Double, Double, Double, Double, Double)
   AnnularSector(Double, Double, Double, Double, Double, Double)

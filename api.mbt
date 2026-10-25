@@ -28,6 +28,8 @@ pub using @core {
 /// Prepared output and data-point locations for interactive adapters.
 pub using @drawing {
   type Drawing,
+  type FilledRegion,
+  filled_region,
   type HitPoint,
   type HitInfo,
   type CellInfo,

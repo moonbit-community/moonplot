@@ -30,6 +30,8 @@ pub fn eng_formatter(unit? : String, places? : Int, sep? : String) -> @ticker.Fo
 
 pub fn figure(width? : Int, height? : Int) -> @scene.Figure
 
+pub fn filled_region(Array[Array[(Double, Double)]], even_odd? : Bool) -> @drawing.FilledRegion
+
 pub fn fixed_formatter(Array[String]) -> @ticker.Formatter
 
 pub fn format_str_formatter(String) -> @ticker.Formatter
@@ -110,6 +112,8 @@ pub using @drawing {type Drawing}
 pub using @drawing {type ErrorInfo}
 
 pub using @scene {type Figure}
+
+pub using @drawing {type FilledRegion}
 
 pub using @ticker {type Formatter}
 

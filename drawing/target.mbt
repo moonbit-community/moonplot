@@ -21,6 +21,7 @@ pub(all) enum HitKind {
   Quiver
   Barbs
   Contour
+  ContourF
 } derive(Eq, Debug)
 
 ///|
@@ -56,6 +57,8 @@ pub(all) enum HitShape {
   Point
   /// A finite centerline segment; proximity uses the caller's CSS pixel radius.
   Segment(Double, Double, Double, Double)
+  /// One immutable filled path; all subpaths share its actual SVG fill rule.
+  FilledRegion(FilledRegion)
   Rectangle(Double, Double, Double, Double)
   Sector(Double, Double, Double, Double, Double)
   AnnularSector(Double, Double, Double, Double, Double, Double)

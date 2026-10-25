@@ -135,6 +135,7 @@ fn Drawing::excluded(
 ///|
 fn valid_shape(shape : HitShape) -> Bool {
   match shape {
+    FilledRegion(region) => region.valid
     Point => true
     Segment(x0, y0, x1, y1) =>
       finite(x0) && finite(y0) && finite(x1) && finite(y1)
@@ -177,6 +178,7 @@ fn degrees_normalized(angle : Double) -> Double {
 fn shape_contains(shape : HitShape, x : Double, y : Double) -> Bool {
   match shape {
     Point | Segment(_, _, _, _) => false
+    FilledRegion(region) => region.contains(x, y)
     Quadrilateral(ax, ay, bx, by, cx, cy, dx, dy) =>
       quad_contains((ax, ay), (bx, by), (cx, cy), (dx, dy), x, y)
     Rectangle(left, top, width, height) =>
