@@ -103,6 +103,7 @@ pub fn Axes::barbs(
   }
   validate_barbs_style(linewidth, barb_length)
   let resolved_color = self.resolve_color(color)
+  let first_artist = self.state.val.artists.length()
   for index in 0..<xs.length() {
     let x = xs[index]
     let y = ys[index]
@@ -118,7 +119,12 @@ pub fn Axes::barbs(
     }
     add_barb_artists(self, x, y, u, v, resolved_color, linewidth, barb_length)
   }
-  self.add_auto_legend(label, resolved_color, LegendKind::Line)
+  self.add_auto_legend(
+    label,
+    resolved_color,
+    LegendKind::Line,
+    record_series=self.state.val.artists.length() > first_artist,
+  )
 }
 
 ///|
@@ -371,6 +377,7 @@ pub fn Axes::barbs_with_options(
     half_increment, full_increment, flag_increment, pivot,
   )
   let resolved_color = self.resolve_color(color)
+  let first_artist = self.state.val.artists.length()
   for index in 0..<xs.length() {
     let x = xs[index]
     let y = ys[index]
@@ -389,5 +396,10 @@ pub fn Axes::barbs_with_options(
       flag_increment, rounding, flip, fill_empty, pivot,
     )
   }
-  self.add_auto_legend(label, resolved_color, LegendKind::Line)
+  self.add_auto_legend(
+    label,
+    resolved_color,
+    LegendKind::Line,
+    record_series=self.state.val.artists.length() > first_artist,
+  )
 }
