@@ -147,9 +147,20 @@ fn render_panel(
   }
   for artist_index, artist in panel.artists() {
     let metadata = panel.hit_metadata(artist_index)
+    // Filled-contour ownership cannot authorize another artist domain, even
+    // with an unproven prepared Line/Step context. Keep its static paint and
+    // completion, but never revive generic point or other-kind capture.
+    let contourf_artist = match artist {
+      @render.Artist::Polygon(_, _) | @render.Artist::CompoundPolygon(_, _) =>
+        true
+      _ => false
+    }
     let capture = if (metadata.barb() is Some(view) && !view.enabled()) ||
       (metadata.contour() is Some(view) && !view.enabled()) ||
-      (metadata.contourf() is Some(data) && !data.enabled()) {
+      (
+        metadata.contourf() is Some(data) &&
+        (!data.enabled() || !contourf_artist)
+      ) {
       None
     } else {
       capture
