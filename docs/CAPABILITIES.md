@@ -9,7 +9,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 **G2.1 交互 DOM 首片也已验收**：可选 Rabbita JS 组件、折线/散点交互与双图示例，详见[DOM 记录](RABBITA_DOM.md)。
 
 **M2 v0.2.0** 补齐多图 SVG 资源隔离和独立接入版本包，详见 [M2 历史记录](MILESTONE_M2.md)。
-当前分发为 **`Lampese/mathplotlib@0.4.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
+当前源码目标为 **`Lampese/mathplotlib@0.5.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
 发布状态和安装方式见 [接入说明](PUBLISHING.md)。
 
 ## 如何理解状态
@@ -23,7 +23,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 0.3.0 增加柱形/直方图/饼图区域命中、折线横轴吸附与自定义提示，见 [提示功能](TOOLTIPS.md)。
 2026-10-25 已重新核对常见图类的静态与交互缺口，见[本轮调查](CHART_COVERAGE.md)。
 [M3](MILESTONE_M3.md) 已实现 nearest 标量热图单元格提示、分组/正负堆叠柱与真正环形图，
-使用方法见 [0.4.0 图表指南](M3_CHARTS.md)。[M4](MILESTONE_M4.md) 接续统计图与区间交互。
+使用方法见 [0.4.0 图表指南](M3_CHARTS.md)。[M4](MILESTONE_M4.md) 已实现统计图与区间交互，正在最终验收与交付；见 [统计图指南](STATISTICS.md)。
 
 ## 现有能力
 
@@ -38,7 +38,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 | 图形组合 | 多面板、共享轴、嵌套网格、次坐标轴 | 支持标题、轴标签、网格、图例、表格与标注 |
 | 可变折线 | `Line2D` 数据、可见性、颜色、透明度、线宽、线型等 | 支持缓存更新、移除和保留渲染输入的相关生命周期 |
 | 输出 | 自包含 SVG 字符串 | 可保存为文件，用浏览器或 SVG 工具查看 |
-| 浏览器组件 | `Figure::to_drawing()` 与 `rabbita` JS 子包 | 真实 SVG DOM；折线/散点、柱形/直方图/饼环图、nearest 标量热图语义命中与自定义提示；应用控制图例与数据更新；仅 JS 浏览器 |
+| 浏览器组件 | `Figure::to_drawing()` 与 `rabbita` JS 子包 | 真实 SVG DOM；折线/散点、柱形/直方图/饼环图、nearest 标量热图及误差/面积/箱线的语义命中与自定义提示；应用控制图例与数据更新；仅 JS 浏览器 |
 
 常用入口可从根包使用，较细的功能分布在 `scene`、`ticker`、`transforms` 等包。
 当前模块导入名为 `Lampese/mathplotlib`，展示名为 MoonPlot；浏览器组件导入 `Lampese/mathplotlib/rabbita`。

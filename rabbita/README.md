@@ -5,7 +5,7 @@ Interactive MoonPlot SVG components built with public
 real SVG DOM inside composable `Html`; your application owns its state.
 
 The component is the **`Lampese/mathplotlib/rabbita` package** in the unified
-`Lampese/mathplotlib@0.4.0` module. See [installation and release status](../docs/PUBLISHING.md)
+`Lampese/mathplotlib@0.5.0` module. See [installation and release status](../docs/PUBLISHING.md)
 for the current publication result. There is no separate adapter module to install.
 
 ![Two interactive charts](https://raw.githubusercontent.com/moonbit-community/moonplot/master/assets/rabbita-interactive.png)
@@ -15,7 +15,7 @@ for the current publication result. There is no separate adapter module to insta
 From your application's module directory:
 
 ```sh
-moon add Lampese/mathplotlib@0.4.0
+moon add Lampese/mathplotlib@0.5.0
 ```
 
 Import the packages used by your application's view in `moon.pkg`:
@@ -59,6 +59,15 @@ stacks and horizontal layouts. True donut sectors reuse Pie tooltips and leave
 the center hole empty. See the [chart guide](../docs/M3_CHARTS.md) and run
 `moon build rabbita/cmd/charts --target js`, then open `/rabbita/charts.html`
 from the repository's static server.
+
+## Statistical ranges and distributions (0.5.0)
+
+Error-bar centers, arms and caps expose `info.error`; confidence and stacked-area
+interiors expose `info.band`; box bodies, whiskers, caps and outliers expose
+`info.box`. These carry original values and computed statistics from the same
+SVG draw. Default and custom tooltips share the typed metadata. See the
+[statistics guide](../docs/STATISTICS.md); build `rabbita/cmd/statistics --target js`
+and open `/rabbita/statistics.html` for five charts and a real error-bar overlay.
 
 ## Component API
 

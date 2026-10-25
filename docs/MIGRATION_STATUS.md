@@ -26,8 +26,8 @@
 - [x] 四目标全套、晚修后受影响回归、接口/fmt/check/结构、旧 SVG 与旧浏览器回归。
 - [x] 0.4.0 dirty ZIP 演练：仓库外四目标静态断言 + Chrome 七项通过；仅为 rehearsal，禁止上传。
 - [x] clean 正式包、Mooncakes 实际发布/独立 registry 消费、GitHub v0.4.0 四附件回下载核验。
-- 精确下一动作：等待/合入 m3_donut 的统计不可见色 capture 小修，等待新统计五图真实 Chrome；
-  随后最终 info/fmt/结构、完整四目标测试、扩展0.5独立消费者，clean包/registry/GitHub交付。
+- 精确下一动作：收完整四目标6993的Native最终结果，收五个中央Chrome（下方会话），
+  更新最终文档并commit/push，运行clean正式0.5包 → 实际Mooncakes/registry10项 → GitHub附件回验。
   三份M4已合入：ErrorBar9be5098、Area7fa861b、Boxb5b87c8；冲突均保留三种metadata，并用编译器重生接口。
 
 ### M3 源码、修复与验证
@@ -85,10 +85,31 @@
   仅实际命中的后画 ErrorBar/BoxPlot 描边/点可压过区域；XNearest按激活系列原中心选择。
   最终45323 terminal0：5组真实 Scene 组合反例四目标各5/5，含顺序/模式/无关系列/CSS/箱线部位。
   初筛9906是部分名字匹配4组，不能混作最终5组；原先 browser 已真实复现该问题。
-- [ ] m3_donut 独立处理none/transparent与零宽统计图采集，不改实际SVG输出；完成后小commit合入。
-- [ ] m3_browser 已获授权部署新统计五图并独立target-dir验收；不改旧示例。
-  草稿已部署，首轮证明误差/带/箱/堆叠单图语义通过，真实叠加错误已留证据；现用Root修正重build。
-- M4 尚未完成最终全套/浏览器/独立消费/发布；范围见 MILESTONE_M4.md。
+- [x] none/transparent/零alphahex与零宽统计采集修复9062380已合为1c62dd7。
+  独立四目标定向各69/69、接口/结构通过；Box独立fill/可见离群点保留，空心Box只命中真实边框不造裁剪边。
+  未识别CSS paint保守保留，SVG写出属性/顺序未改，所有新场景静态=Drawing。
+- [x] 新统计五图overlay修正后Chrome70273 terminal0：14组、0pageerror，Root目视实际截图。
+  仍等none/transparent合入后最终重build；增加data-*完整字段断言的30012也在跑。
+- [x] m3_browser最终65082 terminal0，14/14、0error，7新文件冻结交Root。
+  最终JS4,449,616bytes/SHA55b92e48a1ec5e4d256ea3b3c427a485a7572709069c41af2a2b1e65027b2f64；
+  assets/statistics.png119391bytes/SHAa47b210fb3348a2302e1c047317a39dd70a7fc311824c290934114cbd4510462。
+  data-*核原坐标、Band四字段/原stack值、Box全部部位/原组号/原统计；首轮真实失败留证，生产修后完整通过，无UI绕过。
+- [x] 0.5.0版本/独立consumer已准备，dirty演练42977 terminal0：仓库外静态四目标+Chrome10全过。
+  增加真实ErrorBar叠Area、Band原范围、stack原值、Box分位/离群点消费；此包不可上传，晚修后必须clean重做。
+  新工具按实际browser report统计检查数量，避免硬编码结果。
+- Root将overlay激活系列从Array改为Map避免大量series二次查找，check通过；最终全套负责回归。
+- [x] 最终完整全套6993 terminal0：Wasm/Wasm-GC/Native各22391/22391、JS22422/22422。包含透明采集与Map overlay。
+- 最终97754 terminal0：update_interfaces.py（info all+JS-only mbti+fmt）和五个默认target-dir JS示例build通过。
+  公共接口审查只加ErrorInfo/BandInfo/BoxInfo/BoxPart、三个kind、Segment/Quadrilateral、HitInfo三可选字段，旧Scene调用不变。
+- [x] 中央五Chrome均terminal0：统计54417 14项、M3图80899 14项、提示21898 14项、主例27928 11项、资源70598 7项；
+  输出 .moonagent/checkpoints/M4-statistics/browser-final-{statistics,charts,tooltips,main,resources}/。
+  五份report均无pageerror，新统计默认build JS与agent最终hash相同；仅预览8304保留，测试服务finally关闭。
+- 22791 terminal0：main native输出2497bytes、preview6886、gallery14246；后两份与原资产逐字相同，三SVG均解析。
+- 最终结构检查通过；下一步提交0.5源码和文档，再clean正式打包，不上传dirty演练。
+- M4范围见 MILESTONE_M4.md；后续M5定点调查已确定1D flat网格+无权重hist2d计数，m4_area只读设计中。
+  m3_donut已在独立worktree接续旧普通Bar/BarH跨Logit有效域遗留修复，0.5发布前不合入。
+  M5范围见MILESTONE_M5.md；m4_area在clean独立worktree从1c62dd7实施flat网格+hist2d，已明确委派，不改Root或版本。
+  M5网格数据在Scene push处保存，Polygon原数组身份；前置image与inline contour错位需游标+身份校验，不能单索引错误退化。
   Root已完成0.4发布，M4合并和第一轮定向已过，继续上述精确下一动作。
 - 只有有意预览 session8304/PID74453 保留，根目录服务：
   http://127.0.0.1:8765/rabbita/tooltips.html 与 http://127.0.0.1:8765/rabbita/charts.html 。

@@ -92,6 +92,7 @@ def main():
         with (output / "browser.log").open("w") as log:
             subprocess.run(["node", str(ROOT / "tools/verify_release_consumer.cjs"), str(root)],
                            cwd=ROOT, env=environment, stdout=log, stderr=subprocess.STDOUT, check=True)
+        browser_checks = json.loads((output / "browser/report.json").read_text())["checks"]
         report = {
             "module": module, "version": version,
             "no_workspace_override": True,
@@ -99,7 +100,7 @@ def main():
             "browser_application_declares_framework": "moonbit-community/rabbita@0.16.7",
             "installed_archive_files_equal": len(files),
             "static_targets": ["wasm", "wasm-gc", "js", "native"],
-            "browser": "7 real-browser consumer checks passed",
+            "browser": f"{len(browser_checks)} real-browser consumer checks passed",
             "installed_source_location": str(dependency.resolve()),
         }
         (output / "report.json").write_text(json.dumps(report, indent=2) + "\n")

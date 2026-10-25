@@ -31,6 +31,8 @@ an SVG rendering pipeline.
 - **Rabbita components:** an optional JS adapter provides real SVG DOM nodes,
   point and region hover, line x snapping, selection, legend buttons, reactive data
   updates, scoped SVG resources, and customizable semantic tooltips.
+- **Statistical interactions:** error arms/caps, confidence and stacked-area interiors,
+  and boxplot bodies/whiskers/outliers expose typed ranges and statistics. See the [statistics guide](docs/STATISTICS.md).
 - **Matrix interactions:** nearest scalar heatmaps expose original row, column,
   value and data intervals across whole cells. See the [new chart guide](docs/M3_CHARTS.md).
 
@@ -41,11 +43,11 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.4.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
+MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.5.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.4.0
+moon add Lampese/mathplotlib@0.5.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add

@@ -34,7 +34,9 @@ fn main raise {
   assert_eq(cells[2].info.value, 3.0)
   let grouped = @plot.figure(width=400, height=240)
   grouped.legend([])
-  grouped.grouped_bar(["A", "B"], [[2.0, -1.0], [3.0, 4.0]], labels=["First", "Second"])
+  grouped.grouped_bar(["A", "B"], [[2.0, -1.0], [3.0, 4.0]], labels=[
+    "First", "Second",
+  ])
   let groups = grouped.to_drawing().targets()
   assert_eq(groups.length(), 4)
   assert_eq(groups[0].info.category, Some("A"))
@@ -50,9 +52,79 @@ fn main raise {
   ignore(ring.donut([1.0, 3.0], labels=["A", "B"]))
   let ring_frame = ring.to_drawing()
   assert_eq(ring_frame.targets()[0].info.fraction, Some(0.25))
-  guard ring_frame.targets()[0].shape is @plot.HitShape::AnnularSector(cx, cy, _, _, _, _) else {
+  guard ring_frame.targets()[0].shape
+    is @plot.HitShape::AnnularSector(cx, cy, _, _, _, _) else {
     fail("Ring shape absent from installed public package")
   }
   assert_eq(ring_frame.hit_test(cx, cy, radius=100.0), None)
+  let statistics = @plot.figure(width=400, height=200)
+  let axes = statistics.add_axes(0.0, 0.0, 1.0, 1.0)
+  axes.set_x_limits(0.0, 4.0)
+  axes.set_y_limits(0.0, 10.0)
+  axes.legend([])
+  axes.fill_between([0.0, 4.0], [1.0, 1.0], [7.0, 7.0], label="Band")
+  axes.errorbar([1.0], [4.0], yerr=[2.0], label="Measured")
+  let stats_frame = statistics.to_drawing()
+  assert_eq(stats_frame.svg(), statistics.to_svg_checked())
+  let error = stats_frame
+    .hit_info(stats_frame.hit_test(100.0, 100.0, radius=0.0).unwrap())
+    .unwrap()
+  assert_eq(error.kind, @plot.HitKind::ErrorBar)
+  assert_eq(error.series, "Measured")
+  assert_eq(error.error.unwrap().y_range, (2.0, 6.0))
+  let band = stats_frame
+    .hit_info(stats_frame.hit_test(320.0, 100.0, radius=0.0).unwrap())
+    .unwrap()
+  assert_eq(band.kind, @plot.HitKind::Area)
+  assert_eq((band.band.unwrap().lower, band.band.unwrap().upper), (1.0, 7.0))
+  assert_eq(band.point.point_index, 1)
+  let areas = @plot.figure(width=400, height=240)
+  areas.legend([])
+  ignore(
+    areas.stackplot(
+      [0.0, 1.0],
+      [[2.0, 3.0], [4.0, 1.0]],
+      labels=["First", "Second"],
+      baseline="sym",
+    ),
+  )
+  let area_frame = areas.to_drawing()
+  assert_eq(area_frame.svg(), areas.to_svg_checked())
+  for target in area_frame.targets() {
+    let info = target.info
+    assert_true(info.band.unwrap().stacked)
+    let expected = if info.series == "First" { [2.0, 3.0] } else { [4.0, 1.0] }
+    assert_eq(info.value, expected[info.point.point_index])
+  }
+  assert_true(!area_frame.targets().is_empty())
+  let boxes = @plot.figure(width=400, height=240)
+  boxes.legend([])
+  let computed = boxes.boxplot(
+    [[1.0, 2.0, 3.0, 4.0, 5.0, 20.0]],
+    label="Distribution",
+  )
+  let box_frame = boxes.to_drawing()
+  assert_eq(box_frame.svg(), boxes.to_svg_checked())
+  let mut saw_outlier = false
+  for target in box_frame.targets() {
+    let box = target.info.box.unwrap()
+    assert_eq(
+      (box.group_index, box.q1, box.median, box.q3),
+      (0, computed[0].q1(), computed[0].median(), computed[0].q3()),
+    )
+    if box.part is @plot.BoxPart::Outlier(value) {
+      saw_outlier = true
+      assert_eq((value, target.info.value), (20.0, 20.0))
+      assert_eq(
+        box_frame.hit_test(
+          target.info.point.screen_x,
+          target.info.point.screen_y,
+          radius=0.0,
+        ),
+        Some(target.info.point),
+      )
+    }
+  }
+  assert_true(saw_outlier)
   println(drawing.svg())
 }

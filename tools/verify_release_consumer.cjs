@@ -128,6 +128,39 @@ async function main() {
     assert.equal(await page.locator('[data-testid="consumer-cell-tooltip"]').textContent(), 'Cell 0,0: 1');
     checks.push('Installed scalar heatmap exposes original row/column/value at a cell edge through the public callback');
 
+    await page.locator('#release-statistics-svg').scrollIntoViewIfNeeded();
+    const errorArm = await page.locator('#release-statistics-svg line[stroke="#975a40"]').first().evaluate(line => {
+      const x = (Number(line.getAttribute('x1')) + Number(line.getAttribute('x2'))) / 2;
+      const y = (Number(line.getAttribute('y1')) + Number(line.getAttribute('y2'))) / 2;
+      const p = new DOMPoint(x, y).matrixTransform(line.ownerSVGElement.getScreenCTM());
+      return { x: p.x, y: p.y };
+    });
+    await page.mouse.move(errorArm.x, errorArm.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-statistics-tooltip"]')?.textContent === 'Measured: 5 [3, 7]');
+    checks.push('Installed error-bar overlay exposes its original value and full typed range above the confidence band');
+
+    const bandInterior = await page.locator('#release-statistics-svg polygon[fill="#deebe7"]').evaluate(polygon => {
+      const points = [...polygon.points];
+      const xs = points.map(p => p.x), ys = points.map(p => p.y);
+      const x = Math.min(...xs) + (Math.max(...xs) - Math.min(...xs)) * 0.8;
+      const y = (Math.min(...ys) + Math.max(...ys)) / 2;
+      const p = new DOMPoint(x, y).matrixTransform(polygon.ownerSVGElement.getScreenCTM());
+      return { x: p.x, y: p.y };
+    });
+    await page.mouse.move(bandInterior.x, bandInterior.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-statistics-tooltip"]')?.textContent === 'Band: 1..7');
+    checks.push('Installed filled-area interior retains its own bounds away from the measurement overlay');
+
+    await page.locator('#release-boxes-svg').scrollIntoViewIfNeeded();
+    const outlier = await page.locator('#release-boxes-svg circle[fill="#567681"]').first().evaluate(circle => {
+      const p = new DOMPoint(Number(circle.getAttribute('cx')), Number(circle.getAttribute('cy')))
+        .matrixTransform(circle.ownerSVGElement.getScreenCTM());
+      return { x: p.x, y: p.y };
+    });
+    await page.mouse.move(outlier.x, outlier.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-box-tooltip"]')?.textContent === 'Box: 2.25 / 3.5 / 4.75; value=20');
+    checks.push('Installed boxplot outlier carries original quartiles, median and outlier value to a custom tooltip');
+
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);

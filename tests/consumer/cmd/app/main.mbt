@@ -7,6 +7,8 @@ struct Model {
   clicks : Int32
   bar_hover : @drawing.HitPoint?
   cell_hover : @drawing.HitPoint?
+  statistics_hover : @drawing.HitPoint?
+  box_hover : @drawing.HitPoint?
 } derive(Eq)
 
 ///|
@@ -15,6 +17,8 @@ enum Msg {
   UpdateData
   Bar(@plot_dom.Interaction)
   Cell(@plot_dom.Interaction)
+  Statistics(@plot_dom.Interaction)
+  Box(@plot_dom.Interaction)
 }
 
 ///|
@@ -31,11 +35,24 @@ fn update(model : Model, message : Msg) -> Model {
       { ..model, show_trend: !model.show_trend, hovered: None, selected: None, }
     Chart(ToggleSeries(_)) => model
     UpdateData =>
-      { ..model, revision: model.revision + 1, hovered: None, selected: None, bar_hover: None, cell_hover: None, }
+      {
+        ..model,
+        revision: model.revision + 1,
+        hovered: None,
+        selected: None,
+        bar_hover: None,
+        cell_hover: None,
+        statistics_hover: None,
+        box_hover: None,
+      }
     Bar(Hover(point)) => { ..model, bar_hover: point, }
     Bar(_) => model
     Cell(Hover(point)) => { ..model, cell_hover: point, }
     Cell(_) => model
+    Statistics(Hover(point)) => { ..model, statistics_hover: point, }
+    Statistics(_) => model
+    Box(Hover(point)) => { ..model, box_hover: point, }
+    Box(_) => model
   }
 }
 
@@ -113,7 +130,9 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
       tooltip=info => {
         let category = info.category.unwrap_or("")
         @html.b(
-          attrs=@html.Attrs::build().data_set("testid", "consumer-custom-tooltip"),
+          attrs=@html.Attrs::build().data_set(
+            "testid", "consumer-custom-tooltip",
+          ),
           "\{info.series} · \{category}: \{info.value} items",
         )
       },
@@ -129,6 +148,43 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
         @html.b(
           attrs=@html.Attrs::build().data_set("testid", "consumer-cell-tooltip"),
           "Cell \{cell.row},\{cell.column}: \{info.value}",
+        )
+      },
+    ),
+    @html.h2("Intervals and measurements"),
+    @plot_dom.view(
+      make_statistics_drawing(model),
+      id="release-statistics",
+      on_event=event => emit(Statistics(event)),
+      hovered?=model.statistics_hover,
+      tooltip=info => {
+        let text = if info.error is Some(error) {
+          "Measured: \{info.value} [\{error.y_range.0}, \{error.y_range.1}]"
+        } else if info.band is Some(band) {
+          "Band: \{band.lower}..\{band.upper}"
+        } else {
+          "Value: \{info.value}"
+        }
+        @html.b(
+          attrs=@html.Attrs::build().data_set(
+            "testid", "consumer-statistics-tooltip",
+          ),
+          text,
+        )
+      },
+    ),
+    @html.h2("Distribution statistics"),
+    @plot_dom.view(
+      make_box_drawing(),
+      id="release-boxes",
+      on_event=event => emit(Box(event)),
+      hovered?=model.box_hover,
+      tooltip=info => {
+        let box = info.box.unwrap()
+        let text = "Box: \{box.q1} / \{box.median} / \{box.q3}; value=\{info.value}"
+        @html.b(
+          attrs=@html.Attrs::build().data_set("testid", "consumer-box-tooltip"),
+          text,
         )
       },
     ),
@@ -155,6 +211,44 @@ fn make_cell_drawing() -> @drawing.Drawing raise {
 }
 
 ///|
+fn make_statistics_drawing(model : Model) -> @drawing.Drawing raise {
+  let figure = @plot.figure(width=600, height=240)
+  let axes = figure.add_axes(0.0, 0.0, 1.0, 1.0)
+  axes.legend([])
+  axes.set_x_limits(0.0, 4.0)
+  axes.set_y_limits(0.0, 10.0)
+  axes.fill_between(
+    [0.0, 4.0],
+    [1.0, 1.0],
+    [7.0, 7.0],
+    color="#deebe7",
+    label="Band",
+  )
+  axes.errorbar(
+    [1.0, 3.0],
+    [4.0 + model.revision.to_double(), 6.0],
+    yerr=[2.0, 1.0],
+    color="#975a40",
+    label="Measured",
+  )
+  figure.to_drawing()
+}
+
+///|
+fn make_box_drawing() -> @drawing.Drawing raise {
+  let figure = @plot.figure(width=600, height=240)
+  figure.legend([])
+  ignore(
+    figure.boxplot(
+      [[1.0, 2.0, 3.0, 4.0, 5.0, 20.0]],
+      color="#567681",
+      label="Distribution",
+    ),
+  )
+  figure.to_drawing()
+}
+
+///|
 fn main {
   @rabbita.new(() => {
     let (state, emit) = @rabbita.create_pure_state(
@@ -166,6 +260,8 @@ fn main {
         clicks: 0,
         bar_hover: None,
         cell_hover: None,
+        statistics_hover: None,
+        box_hover: None,
       },
       update~,
     )
