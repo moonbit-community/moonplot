@@ -18,6 +18,8 @@ fn validate_barbs_style(
 ///|
 fn add_barb_artists(
   axes : Axes,
+  source : @render.BarbHitData,
+  source_index : Int32,
   x : Double,
   y : Double,
   u : Double,
@@ -37,7 +39,11 @@ fn add_barb_artists(
   let start = @core.point(x, y)
   let end = @core.point(x + u, y + v)
   let style = @core.style(color, width=linewidth)
-  axes.push_artist(Artist::Line([start, end], style))
+  axes.push_barb_component(
+    Artist::Line([start, end], style),
+    source,
+    source_index,
+  )
   let wing_length = Double::min(barb_length, magnitude * 0.35)
   if wing_length > 0.0 {
     for index in 1..<=3 {
@@ -49,7 +55,11 @@ fn add_barb_artists(
         barb_x + perpendicular_x * wing_length * side,
         barb_y + perpendicular_y * wing_length * side,
       )
-      axes.push_artist(Artist::Line([@core.point(barb_x, barb_y), wing], style))
+      axes.push_barb_component(
+        Artist::Line([@core.point(barb_x, barb_y), wing], style),
+        source,
+        source_index,
+      )
     }
   }
 }
@@ -104,6 +114,7 @@ pub fn Axes::barbs(
   validate_barbs_style(linewidth, barb_length)
   let resolved_color = self.resolve_color(color)
   let first_artist = self.state.val.artists.length()
+  let source = barb_source(xs, ys, us, vs, label)
   for index in 0..<xs.length() {
     let x = xs[index]
     let y = ys[index]
@@ -117,7 +128,9 @@ pub fn Axes::barbs(
         message="barb vectors must be finite",
       )
     }
-    add_barb_artists(self, x, y, u, v, resolved_color, linewidth, barb_length)
+    add_barb_artists(
+      self, source, index, x, y, u, v, resolved_color, linewidth, barb_length,
+    )
   }
   self.add_auto_legend(
     label,
@@ -178,6 +191,8 @@ fn barb_anchor(
 ///|
 fn add_barb_flag(
   axes : Axes,
+  source : @render.BarbHitData,
+  source_index : Int32,
   end : @core.Point,
   unit_x : Double,
   unit_y : Double,
@@ -200,12 +215,18 @@ fn add_barb_flag(
     root.x() + perpendicular_x * span * side,
     root.y() + perpendicular_y * span * side,
   )
-  axes.push_artist(Artist::Polygon([root, outer, tip], style))
+  axes.push_barb_component(
+    Artist::Polygon([root, outer, tip], style),
+    source,
+    source_index,
+  )
 }
 
 ///|
 fn add_barb_advanced_artists(
   axes : Axes,
+  source : @render.BarbHitData,
+  source_index : Int32,
   x : Double,
   y : Double,
   u : Double,
@@ -231,11 +252,13 @@ fn add_barb_advanced_artists(
   let style = @core.style(color, width=linewidth, fill=color)
   if magnitude == 0.0 {
     if fill_empty {
-      axes.push_artist(
+      axes.push_barb_component(
         Artist::Scatter(
           [end],
           @core.style(color, width=linewidth, radius=barb_length * 0.3),
         ),
+        source,
+        source_index,
       )
     }
     return
@@ -257,11 +280,13 @@ fn add_barb_advanced_artists(
   }
   if effective_magnitude < half_increment {
     if fill_empty {
-      axes.push_artist(
+      axes.push_barb_component(
         Artist::Scatter(
           [end],
           @core.style(color, width=linewidth, radius=barb_length * 0.3),
         ),
+        source,
+        source_index,
       )
     }
     return
@@ -273,13 +298,17 @@ fn add_barb_advanced_artists(
     flag_increment,
     axes.state.val.artists.length(),
   )
-  axes.push_artist(Artist::Line([start, end], style))
+  axes.push_barb_component(
+    Artist::Line([start, end], style),
+    source,
+    source_index,
+  )
   let span = Double::min(barb_length, magnitude * 0.35)
   let mut cursor = 0.0
   for _ in 0..<flag_count {
     add_barb_flag(
-      axes, end, unit_x, unit_y, perpendicular_x, perpendicular_y, cursor, span,
-      side, style,
+      axes, source, source_index, end, unit_x, unit_y, perpendicular_x, perpendicular_y,
+      cursor, span, side, style,
     )
     cursor += span * 0.9
   }
@@ -289,7 +318,11 @@ fn add_barb_advanced_artists(
       root.x() + perpendicular_x * span * side,
       root.y() + perpendicular_y * span * side,
     )
-    axes.push_artist(Artist::Line([root, wing], style))
+    axes.push_barb_component(
+      Artist::Line([root, wing], style),
+      source,
+      source_index,
+    )
     cursor += span * 0.9
   }
   if half_count > 0 {
@@ -298,7 +331,11 @@ fn add_barb_advanced_artists(
       root.x() + perpendicular_x * span * 0.5 * side,
       root.y() + perpendicular_y * span * 0.5 * side,
     )
-    axes.push_artist(Artist::Line([root, wing], style))
+    axes.push_barb_component(
+      Artist::Line([root, wing], style),
+      source,
+      source_index,
+    )
   }
 }
 
@@ -389,6 +426,7 @@ pub fn Axes::barbs_with_options(
   )
   let resolved_color = self.resolve_color(color)
   let first_artist = self.state.val.artists.length()
+  let source = barb_source(xs, ys, us, vs, label)
   for index in 0..<xs.length() {
     let x = xs[index]
     let y = ys[index]
@@ -403,8 +441,8 @@ pub fn Axes::barbs_with_options(
       )
     }
     add_barb_advanced_artists(
-      self, x, y, u, v, resolved_color, linewidth, barb_length, half_increment, full_increment,
-      flag_increment, rounding, flip, fill_empty, pivot,
+      self, source, index, x, y, u, v, resolved_color, linewidth, barb_length, half_increment,
+      full_increment, flag_increment, rounding, flip, fill_empty, pivot,
     )
   }
   self.add_auto_legend(

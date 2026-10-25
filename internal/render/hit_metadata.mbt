@@ -11,6 +11,7 @@ pub struct HitMetadata {
   priv discrete : DiscreteLineHitData?
   priv stem : StemHitView?
   priv vector : VectorHitData?
+  priv barb : BarbHitView?
 }
 
 ///|
@@ -24,6 +25,7 @@ pub fn hit_metadata(
   discrete~ : DiscreteLineHitData? = None,
   stem~ : StemHitView? = None,
   vector~ : VectorHitData? = None,
+  barb~ : BarbHitView? = None,
 ) -> HitMetadata {
   {
     series,
@@ -35,12 +37,18 @@ pub fn hit_metadata(
     discrete,
     stem,
     vector,
+    barb,
   }
 }
 
 ///|
 pub fn HitMetadata::vector(self : HitMetadata) -> VectorHitData? {
   self.vector
+}
+
+///|
+pub fn HitMetadata::barb(self : HitMetadata) -> BarbHitView? {
+  self.barb
 }
 
 ///|

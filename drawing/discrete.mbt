@@ -4,7 +4,8 @@ fn discrete_kind(kind : HitKind) -> Bool {
   kind == Stairs ||
   kind == Ecdf ||
   kind == Stem ||
-  kind == Quiver
+  kind == Quiver ||
+  kind == Barbs
 }
 
 ///|

@@ -7,6 +7,7 @@ test "advanced Barbs reject nonfinite derived magnitudes and unrepresentable fla
       (1.0, 1.0e-12, 1.0e-12, 1.0e-12, false),
       (1.0, 1.0e-12, 1.0e-12, 50.0, false),
       (2147483647.0, 1.0, 1.0, 1.0, false),
+      (2400000001000000000.0, 1.0, 1.0, 1500000000.0, false),
     ] {
     let fig = figure()
     try

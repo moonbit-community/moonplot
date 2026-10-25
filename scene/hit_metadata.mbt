@@ -10,6 +10,7 @@ priv struct ArtistHitData {
   mut discrete : DiscreteLineSource?
   mut stem : @render.StemHitView?
   mut vector : @render.VectorHitData?
+  mut barb : @render.BarbHitView?
 }
 
 ///|
@@ -49,6 +50,7 @@ fn ArtistHitData::render_metadata(self : ArtistHitData) -> @render.HitMetadata {
     discrete=self.discrete.map(source => source.data),
     stem=self.stem,
     vector=self.vector,
+    barb=self.barb,
   )
 }
 

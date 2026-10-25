@@ -151,7 +151,12 @@ fn render_panel(
       @render.Artist::Line(points, style) =>
         match panel.prepare_line(points) {
           Some(context) => {
-            let discrete = match context.discrete() {
+            let prepared_discrete = if metadata.barb() is Some(_) {
+              None
+            } else {
+              context.discrete()
+            }
+            let discrete = match prepared_discrete {
               Some(data) =>
                 discrete_line_for_paint(
                   Some(data),
@@ -181,6 +186,7 @@ fn render_panel(
             if capture is Some(hits) &&
               discrete is None &&
               metadata.stem() is None &&
+              metadata.barb() is None &&
               (
                 metadata.discrete() is None ||
                 discrete_line_visible(context.first_style())
@@ -205,6 +211,7 @@ fn render_panel(
             }
           }
           None => {
+            let barb = barb_stroke_for_paint(metadata.barb(), points, style)
             let stem = stem_rod_for_paint(metadata.stem(), points, style)
             let discrete = discrete_line_for_paint(
               metadata.discrete(),
@@ -220,7 +227,11 @@ fn render_panel(
               plot_height,
               points,
               style,
-              on_segment=if stem is Some(_) {
+              on_segment=if barb is Some(_) {
+                barb_stroke_capture(
+                  capture, barb, panel_index, artist_index, scale, position,
+                )
+              } else if stem is Some(_) {
                 stem_rod_capture(
                   capture,
                   stem,
@@ -245,6 +256,7 @@ fn render_panel(
             if capture is Some(hits) &&
               discrete is None &&
               metadata.stem() is None &&
+              metadata.barb() is None &&
               (metadata.discrete() is None || discrete_line_visible(style)) &&
               style.width() > 0.0 &&
               style.line_stroke().linestyle() != "None" {
@@ -273,16 +285,29 @@ fn render_panel(
           plot_height,
           points,
           style,
-          on_circle=stem_head_capture(
-            capture,
-            stem,
-            panel_index,
-            artist_index,
-            position,
-            metadata.series(),
-          ),
+          on_circle=if metadata.barb() is Some(_) {
+            barb_calm_capture(
+              capture,
+              barb_calm_for_paint(metadata.barb(), points, style),
+              panel_index,
+              artist_index,
+              position,
+              style.radius(),
+            )
+          } else {
+            stem_head_capture(
+              capture,
+              stem,
+              panel_index,
+              artist_index,
+              position,
+              metadata.series(),
+            )
+          },
         )
-        if capture is Some(hits) && metadata.stem() is None {
+        if capture is Some(hits) &&
+          metadata.stem() is None &&
+          metadata.barb() is None {
           collect_drawing_points(
             hits,
             panel_index,
@@ -405,6 +430,16 @@ fn render_panel(
           style,
           on_polygon=capture.map(hits => {
             visible => {
+              collect_barb_flag(
+                hits,
+                metadata.barb(),
+                panel_index,
+                artist_index,
+                visible,
+                scale,
+                position,
+                style,
+              )
               collect_drawing_mesh(
                 hits, panel_index, artist_index, visible, scale, position, metadata,
               )
