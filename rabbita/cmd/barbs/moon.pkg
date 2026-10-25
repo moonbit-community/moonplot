@@ -1,0 +1,11 @@
+import {
+  "Lampese/mathplotlib" @plot,
+  "Lampese/mathplotlib/drawing",
+  "Lampese/mathplotlib/rabbita" @plot_dom,
+  "moonbit-community/rabbita",
+  "moonbit-community/rabbita/html",
+}
+
+pkgtype(kind: "executable")
+
+supported_targets = "js"
