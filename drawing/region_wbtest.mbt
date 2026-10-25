@@ -95,3 +95,30 @@ test "filled region mixed area and collinear rings never turn an empty line into
     assert_eq(region.rings(), [square, line])
   }
 }
+
+///|
+test "filled region ignored remote collinear ring cannot shrink the effective bounds of a local fill" {
+  let square = [(10.0, 10.0), (40.0, 10.0), (40.0, 40.0), (10.0, 40.0)]
+  let remote_line = [(-1.0e18, 60.0), (-1.0e18, 70.0), (-1.0e18, 80.0)]
+  for even_odd in [false, true] {
+    let frame = region_test_frame(
+      filled_region([square, remote_line], even_odd~),
+    )
+    assert_true(frame.hit_test(20.0, 20.0, radius=0.0) is Some(_))
+  }
+}
+
+///|
+test "filled region caches actual extrema across remote real filled components without reconstructing right from width" {
+  let square = [(10.0, 10.0), (40.0, 10.0), (40.0, 40.0), (10.0, 40.0)]
+  let remote = [
+    (-1.0e18, 10.0),
+    (-1.0e18 + 1024.0, 10.0),
+    (-1.0e18 + 1024.0, 40.0),
+    (-1.0e18, 40.0),
+  ]
+  for even_odd in [false, true] {
+    let frame = region_test_frame(filled_region([remote, square], even_odd~))
+    assert_true(frame.hit_test(20.0, 20.0, radius=0.0) is Some(_))
+  }
+}

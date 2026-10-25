@@ -36,14 +36,18 @@ pub fn filled_region(
     }
     let first = ring[0]
     let mut second = first
+    let mut ring_xmin = 1.0 / 0.0
+    let mut ring_xmax = -1.0 / 0.0
+    let mut ring_ymin = 1.0 / 0.0
+    let mut ring_ymax = -1.0 / 0.0
     for p in ring {
       if !finite(p.0) || !finite(p.1) {
         valid = false
       }
-      xmin = xmin.min(p.0)
-      xmax = xmax.max(p.0)
-      ymin = ymin.min(p.1)
-      ymax = ymax.max(p.1)
+      ring_xmin = ring_xmin.min(p.0)
+      ring_xmax = ring_xmax.max(p.0)
+      ring_ymin = ring_ymin.min(p.1)
+      ring_ymax = ring_ymax.max(p.1)
       if second == first && p != first {
         second = p
       }
@@ -58,9 +62,26 @@ pub fn filled_region(
     }
     filled_rings.push(ring_area)
     area = area || ring_area
+    if ring_area {
+      xmin = xmin.min(ring_xmin)
+      xmax = xmax.max(ring_xmax)
+      ymin = ymin.min(ring_ymin)
+      ymax = ymax.max(ring_ymax)
+    }
   }
-  let bounds = (xmin, ymin, xmax - xmin, ymax - ymin)
-  valid = valid && area && valid_rect(bounds)
+  // Store extrema, not origin+size: reconstructing max from a remote min
+  // and rounded span can exclude a local component by many screen pixels.
+  let bounds = (xmin, ymin, xmax, ymax)
+  valid = valid &&
+    area &&
+    finite(xmin) &&
+    finite(xmax) &&
+    finite(ymin) &&
+    finite(ymax) &&
+    xmin < xmax &&
+    ymin < ymax &&
+    finite(xmax - xmin) &&
+    finite(ymax - ymin)
   { rings: copied, even_odd, valid, filled_rings, bounds, }
 }
 
@@ -78,7 +99,14 @@ pub fn FilledRegion::even_odd(self : FilledRegion) -> Bool {
 
 ///|
 fn FilledRegion::contains(self : FilledRegion, x : Double, y : Double) -> Bool {
-  if !self.valid || !rect_contains(self.bounds, x, y) {
+  let (xmin, ymin, xmax, ymax) = self.bounds
+  if !self.valid ||
+    !finite(x) ||
+    !finite(y) ||
+    x < xmin ||
+    x > xmax ||
+    y < ymin ||
+    y > ymax {
     return false
   }
   let mut winding = 0
