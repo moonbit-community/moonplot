@@ -293,6 +293,36 @@ async function main() {
     await page.waitForFunction(() => document.querySelector('[data-testid="consumer-ecdf-tooltip"]')?.textContent === 'ECDF 1: 3; probability=0.25; jump=0.625..0.25');
     checks.push('Installed ECDF point indices follow returned compressed slots while directed before/after probabilities remain intact');
 
+    async function stemRod(index) {
+      await page.locator('#release-stem-svg').scrollIntoViewIfNeeded();
+      return page.locator('#release-stem-svg polyline').nth(index).evaluate(line => {
+        const points = line.getAttribute('points').trim().split(/\s+/).map(pair => pair.split(',').map(Number));
+        const p = new DOMPoint((points[0][0] + points[1][0]) / 2,
+          (points[0][1] + points[1][1]) / 2).matrixTransform(line.getScreenCTM());
+        return { x: p.x, y: p.y };
+      });
+    }
+    const positiveStem = await stemRod(0);
+    await page.mouse.move(positiveStem.x, positiveStem.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-stem-tooltip"]')?.textContent === 'Stem 0: 5; baseline=1; horizontal=true');
+    assert.equal(await page.locator('[data-testid="consumer-stem-tooltip"]').getAttribute('data-stem'), 'true');
+    assert.equal(await page.locator('[data-testid="consumer-stem-tooltip"]').getAttribute('data-source-x'), '5');
+    assert.equal(await page.locator('[data-testid="consumer-stem-tooltip"]').getAttribute('data-source-y'), '1');
+    const stemHead = await page.locator('#release-stem-svg circle').first().evaluate(circle => {
+      const p = new DOMPoint(Number(circle.getAttribute('cx')), Number(circle.getAttribute('cy')))
+        .matrixTransform(circle.getScreenCTM());
+      return { x: p.x, y: p.y };
+    });
+    await page.mouse.move(stemHead.x, stemHead.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-stem-tooltip"]')?.textContent === 'Stem 0: 5; baseline=1; horizontal=true');
+    checks.push('Installed horizontal stem rod interiors and actual heads retain the original head value, location and nonzero baseline');
+    const negativeStem = await stemRod(1);
+    await page.mouse.move(negativeStem.x, negativeStem.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-stem-tooltip"]')?.textContent === 'Stem 1: -2; baseline=1; horizontal=true');
+    assert.equal(await page.locator('[data-testid="consumer-stem-tooltip"]').getAttribute('data-source-x'), '-2');
+    assert.equal(await page.locator('[data-testid="consumer-stem-tooltip"]').getAttribute('data-source-y'), '3');
+    checks.push('Installed negative stems return the original sample index and signed head instead of a rod endpoint index or height');
+
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);
