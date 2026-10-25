@@ -13,6 +13,7 @@ priv struct ArtistHitData {
   mut barb : @render.BarbHitView?
   mut contour : ContourSource?
   mut contourf : ContourFSource?
+  mut tricolor : TripcolorSource?
 }
 
 ///|
@@ -56,6 +57,7 @@ fn ArtistHitData::render_metadata(self : ArtistHitData) -> @render.HitMetadata {
     barb=self.barb,
     contour=self.contour.map(source => source.view),
     contourf=self.contourf.map(source => source.data),
+    tricolor=self.tricolor.map(source => source.data),
   )
 }
 
@@ -91,6 +93,15 @@ fn AxesData::hit_metadata(
   index : Int32,
   cursor : @ref.Ref[Int32],
 ) -> @render.HitMetadata {
+  if self.tricolor_intents.get(index) is Some(intent) {
+    cursor.val = intent.source.cursor.val
+    let data = if same_hit_artist(intent.artist, artist) {
+      intent.source.data
+    } else {
+      intent.source.data.invalidated()
+    }
+    return @render.hit_metadata(data.series(), tricolor=Some(data))
+  }
   if self.contourf_intents.get(index) is Some(intent) {
     cursor.val = intent.source.cursor.val
     let data = if same_hit_artist(intent.artist, artist) {

@@ -31,7 +31,7 @@ pub fn figure_with_subfigures(Int, Int, Int, Array[Panel], Array[@colorbar.Color
 
 pub fn hexbin_hit_data(Int, @core.Point, Double, @drawing.HexbinInfo) -> HexbinHitData
 
-pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?, mesh? : MeshHitData?, hexbin? : HexbinHitData?, discrete? : DiscreteLineHitData?, stem? : StemHitView?, vector? : VectorHitData?, barb? : BarbHitView?, contour? : ContourHitView?, contourf? : ContourFHitData?) -> HitMetadata
+pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?, mesh? : MeshHitData?, hexbin? : HexbinHitData?, discrete? : DiscreteLineHitData?, stem? : StemHitView?, vector? : VectorHitData?, barb? : BarbHitView?, contour? : ContourHitView?, contourf? : ContourFHitData?, tricolor? : TripcolorHitData?) -> HitMetadata
 
 pub fn legend_entry(String, String, LegendKind) -> LegendEntry
 
@@ -54,6 +54,8 @@ pub fn subfigure(@gridspec.Rect, String?) -> SubFigure
 pub fn table(Array[TableCell], Int, Int, Double, Double, Double, Double, Array[Double]) -> Table
 
 pub fn table_cell(Int, Int, String, String, String, String, String) -> TableCell
+
+pub fn tripcolor_hit_data(Array[@core.Point], Int, Double, (Int, Int, Int), Bool, String) -> TripcolorHitData
 
 pub fn vector_hit_data(Array[@core.Point], Array[@core.Point]) -> VectorHitData?
 
@@ -225,6 +227,7 @@ pub fn HitMetadata::interval(Self, Int) -> (Double, Double)?
 pub fn HitMetadata::mesh(Self) -> MeshHitData?
 pub fn HitMetadata::series(Self) -> String
 pub fn HitMetadata::stem(Self) -> StemHitView?
+pub fn HitMetadata::tricolor(Self) -> TripcolorHitData?
 pub fn HitMetadata::vector(Self) -> VectorHitData?
 
 pub(all) enum ImageInterpolation {
@@ -506,6 +509,17 @@ pub fn TableCell::facecolor(Self) -> String
 pub fn TableCell::row(Self) -> Int
 pub fn TableCell::text(Self) -> String
 pub fn TableCell::visible_edges(Self) -> String
+
+pub struct TripcolorHitData {
+  // private fields
+}
+pub fn TripcolorHitData::enabled(Self) -> Bool
+pub fn TripcolorHitData::info(Self) -> @drawing.TriColorInfo
+pub fn TripcolorHitData::invalidated(Self) -> Self
+pub fn TripcolorHitData::matches_points(Self, Array[@core.Point]) -> Bool
+pub fn TripcolorHitData::series(Self) -> String
+pub fn TripcolorHitData::slot(Self) -> Int
+pub fn TripcolorHitData::value(Self) -> Double
 
 pub struct VectorDatum {
   index : Int

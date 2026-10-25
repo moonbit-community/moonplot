@@ -20,11 +20,13 @@ pub fn filled_region(Array[Array[(Double, Double)]], even_odd? : Bool) -> Filled
 
 pub fn hexbin_info(Int, Int, Int, reduction? : HexbinReduction) -> HexbinInfo
 
-pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?, band? : BandInfo?, box? : BoxInfo?, hexbin? : HexbinInfo?, violin? : ViolinInfo?, vector? : VectorInfo?) -> HitInfo
+pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?, band? : BandInfo?, box? : BoxInfo?, hexbin? : HexbinInfo?, violin? : ViolinInfo?, vector? : VectorInfo?, tricolor? : TriColorInfo?) -> HitInfo
 
 pub fn hit_point(Int, Int, Int, Double, Double, Double, Double) -> HitPoint
 
 pub fn hit_target(HitInfo, HitShape, (Double, Double, Double, Double)) -> HitTarget
+
+pub fn tricolor_info((Int, Int, Int), vertex_mean? : Bool) -> TriColorInfo
 
 pub fn vector_info(Double, Double) -> VectorInfo
 
@@ -145,6 +147,7 @@ pub struct HitInfo {
   hexbin : HexbinInfo?
   violin : ViolinInfo?
   vector : VectorInfo?
+  tricolor : TriColorInfo?
 } derive(Eq, @debug.Debug)
 pub fn HitInfo::equal(Self, Self) -> Bool
 pub fn HitInfo::not_equal(Self, Self) -> Bool
@@ -172,6 +175,7 @@ pub(all) enum HitKind {
   Barbs
   Contour
   ContourF
+  Tripcolor
 } derive(Eq, @debug.Debug)
 pub fn HitKind::equal(Self, Self) -> Bool
 pub fn HitKind::not_equal(Self, Self) -> Bool
@@ -219,6 +223,14 @@ pub struct HitTarget {
 pub fn HitTarget::equal(Self, Self) -> Bool
 pub fn HitTarget::not_equal(Self, Self) -> Bool
 pub fn HitTarget::to_repr(Self) -> @debug.Repr
+
+pub struct TriColorInfo {
+  vertices : (Int, Int, Int)
+  vertex_mean : Bool
+} derive(Eq, @debug.Debug)
+pub fn TriColorInfo::equal(Self, Self) -> Bool
+pub fn TriColorInfo::not_equal(Self, Self) -> Bool
+pub fn TriColorInfo::to_repr(Self) -> @debug.Repr
 
 pub struct VectorInfo {
   u : Double

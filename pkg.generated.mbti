@@ -78,6 +78,8 @@ pub fn str_method_formatter(String) -> @ticker.Formatter
 
 pub fn style(String, width? : Double, radius? : Double, fill? : String, font_size? : Double, marker? : String, line_alpha? : Double?, line_stroke? : @core.LineStroke, line_gapcolor? : String?) -> @core.Style
 
+pub fn tricolor_info((Int, Int, Int), vertex_mean? : Bool) -> @drawing.TriColorInfo
+
 // Errors
 
 // Types and methods
@@ -178,6 +180,8 @@ pub using @scene {type StreamplotSet}
 pub using @core {type Style}
 
 pub using @scene {type SubFigure}
+
+pub using @drawing {type TriColorInfo}
 
 pub using @drawing {type VectorInfo}
 

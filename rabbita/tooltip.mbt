@@ -40,6 +40,7 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     Barbs => "barbs"
     Contour => "contour"
     ContourF => "contourf"
+    Tripcolor => "tripcolor"
   }
 }
 
@@ -118,6 +119,17 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
         rows.push(("Baseline", band.lower.to_string()))
       }
     }
+    Tripcolor =>
+      rows.push(
+        (
+          if info.tricolor is Some(face) && face.vertex_mean {
+            "Vertex mean"
+          } else {
+            "Value"
+          },
+          info.value.to_string(),
+        ),
+      )
     Contour => rows.push(("Level", info.value.to_string()))
     ContourF => {
       if info.interval is Some((lower, upper)) {

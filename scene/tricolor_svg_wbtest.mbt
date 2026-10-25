@@ -1,0 +1,16 @@
+///|
+// Actual Native output from exact formal0.13 source87a3280; target-specific
+// floating formatting is not a cross-target golden. No mirrored painter.
+#cfg(target="native")
+test "tripcolor three formal 0.13 Native SVG controls remain byte identical" {
+  let expected = [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"300\" viewBox=\"0 0 400 300\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><polygon points=\"84.8,225.20000000000002 315.2,225.20000000000002 200,150\" fill=\"#364e80\" stroke=\"#364e80\" stroke-width=\"0\"/><polygon points=\"315.2,74.8 84.8,74.8 200,150\" fill=\"#67c364\" stroke=\"#67c364\" stroke-width=\"0\"/><polygon points=\"84.8,74.8 84.8,225.20000000000002 200,150\" fill=\"#fde725\" stroke=\"#fde725\" stroke-width=\"0\"/><rect x=\"184\" y=\"64\" width=\"152\" height=\"32\" fill=\"white\" fill-opacity=\"0.85\" stroke=\"#9ca3af\" stroke-width=\"1\"/><rect x=\"194\" y=\"72\" width=\"22\" height=\"12\" fill=\"#364e80\"/><text x=\"226\" y=\"84\" text-anchor=\"start\" font-family=\"sans-serif\" font-size=\"11\">Face scalars</text></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"300\" viewBox=\"0 0 400 300\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><polygon points=\"84.8,225.20000000000002 315.2,225.20000000000002 200,150\" fill=\"#327c89\" stroke=\"#327c89\" stroke-width=\"0\"/><polygon points=\"315.2,225.20000000000002 315.2,74.8 200,150\" fill=\"#34a37e\" stroke=\"#34a37e\" stroke-width=\"0\"/><polygon points=\"315.2,74.8 84.8,74.8 200,150\" fill=\"#67c364\" stroke=\"#67c364\" stroke-width=\"0\"/><polygon points=\"84.8,74.8 84.8,225.20000000000002 200,150\" fill=\"#34a37e\" stroke=\"#34a37e\" stroke-width=\"0\"/><rect x=\"184\" y=\"64\" width=\"152\" height=\"32\" fill=\"white\" fill-opacity=\"0.85\" stroke=\"#9ca3af\" stroke-width=\"1\"/><rect x=\"194\" y=\"72\" width=\"22\" height=\"12\" fill=\"#327c89\"/><text x=\"226\" y=\"84\" text-anchor=\"start\" font-family=\"sans-serif\" font-size=\"11\">Vertex arithmetic means</text></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"300\" viewBox=\"0 0 400 300\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><polygon points=\"84.8,225.20000000000002 315.2,225.20000000000002 84.8,74.8\" fill=\"#3e2065\" stroke=\"#3e2065\" stroke-width=\"0\"/><polygon points=\"315.2,225.20000000000002 315.2,74.8 84.8,74.8\" fill=\"#364e80\" stroke=\"#364e80\" stroke-width=\"0\"/><polygon points=\"84.8,225.20000000000002 315.2,225.20000000000002 315.2,74.8\" fill=\"#349b80\" stroke=\"#349b80\" stroke-width=\"0\"/><polygon points=\"84.8,225.20000000000002 315.2,74.8 84.8,74.8\" fill=\"#a3d14b\" stroke=\"#a3d14b\" stroke-width=\"0\"/><rect x=\"184\" y=\"64\" width=\"152\" height=\"32\" fill=\"white\" fill-opacity=\"0.85\" stroke=\"#9ca3af\" stroke-width=\"1\"/><rect x=\"194\" y=\"72\" width=\"22\" height=\"12\" fill=\"#3e2065\"/><text x=\"226\" y=\"84\" text-anchor=\"start\" font-family=\"sans-serif\" font-size=\"11\">Equal counts choose faces</text></svg>",
+  ]
+  for case in 0..<3 {
+    let fig = tricolor_control_figure(case)
+    assert_eq(fig.to_svg_checked(), expected[case])
+    assert_eq(fig.to_drawing().svg(), expected[case])
+  }
+}

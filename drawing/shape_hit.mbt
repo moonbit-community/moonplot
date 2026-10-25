@@ -10,6 +10,13 @@ fn valid_point(point : HitPoint) -> Bool {
 fn valid_info(info : HitInfo) -> Bool {
   valid_point(info.point) &&
   finite(info.value) &&
+  (match info.tricolor {
+    Some(face) => {
+      let (a, b, c) = face.vertices
+      a >= 0 && b >= 0 && c >= 0 && a != b && b != c && a != c
+    }
+    None => true
+  }) &&
   (match info.vector {
     Some(vector) => finite(vector.u) && finite(vector.v)
     None => true

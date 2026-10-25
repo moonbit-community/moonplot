@@ -14,6 +14,7 @@ pub struct HitMetadata {
   priv barb : BarbHitView?
   priv contour : ContourHitView?
   priv contourf : ContourFHitData?
+  priv tricolor : TripcolorHitData?
 }
 
 ///|
@@ -30,6 +31,7 @@ pub fn hit_metadata(
   barb~ : BarbHitView? = None,
   contour~ : ContourHitView? = None,
   contourf~ : ContourFHitData? = None,
+  tricolor~ : TripcolorHitData? = None,
 ) -> HitMetadata {
   {
     series,
@@ -44,6 +46,7 @@ pub fn hit_metadata(
     barb,
     contour,
     contourf,
+    tricolor,
   }
 }
 
@@ -133,4 +136,9 @@ pub fn HitMetadata::contour(self : HitMetadata) -> ContourHitView? {
 ///|
 pub fn HitMetadata::contourf(self : HitMetadata) -> ContourFHitData? {
   self.contourf
+}
+
+///|
+pub fn HitMetadata::tricolor(self : HitMetadata) -> TripcolorHitData? {
+  self.tricolor
 }

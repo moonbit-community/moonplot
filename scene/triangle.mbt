@@ -229,6 +229,7 @@ fn tripcolor_mesh(
   vmin : Double?,
   vmax : Double?,
   cmap : String,
+  series : String,
 ) -> String? raise @core.DataError {
   validate_tri_mesh(xs, ys, triangles)
   validate_tri_mask(mask, triangles)
@@ -265,15 +266,18 @@ fn tripcolor_mesh(
       if first_color is None {
         first_color = Some(color)
       }
-      axes.push_artist(
-        Artist::Polygon(
-          [
-            @core.point(xs[triangle[0]], ys[triangle[0]]),
-            @core.point(xs[triangle[1]], ys[triangle[1]]),
-            @core.point(xs[triangle[2]], ys[triangle[2]]),
-          ],
-          @core.style(color, width=0.0, fill=color),
-        ),
+      axes.push_tripcolor_face(
+        [
+          @core.point(xs[triangle[0]], ys[triangle[0]]),
+          @core.point(xs[triangle[1]], ys[triangle[1]]),
+          @core.point(xs[triangle[2]], ys[triangle[2]]),
+        ],
+        @core.style(color, width=0.0, fill=color),
+        index,
+        value,
+        (triangle[0], triangle[1], triangle[2]),
+        !face_values,
+        series,
       )
     }
   }
@@ -339,6 +343,7 @@ pub fn Axes::tripcolor(
       vmin,
       vmax,
       cmap,
+      label,
     ) {
     Some(color) => color
     None => "#000000"
@@ -399,6 +404,7 @@ pub fn Axes::tripcolor_triangulation(
       vmin,
       vmax,
       cmap,
+      label,
     ) {
     Some(color) => color
     None => "#000000"

@@ -42,6 +42,8 @@ pub using @drawing {
   type ViolinInfo,
   type ViolinPart,
   type VectorInfo,
+  type TriColorInfo,
+  tricolor_info,
   type HitKind,
   type HitMode,
   type HitShape,

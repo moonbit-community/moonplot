@@ -1154,10 +1154,12 @@ fn Axes::erase_inline_contour_segment(
   let barb_intents = Map([])
   let contour_intents = Map([])
   let contourf_intents = Map([])
+  let tricolor_intents = Map([])
   for index, artist in self.state.val.artists {
     let barb_intent = self.state.val.barb_intents.get(index)
     let contour_intent = self.state.val.contour_intents.get(index)
     let contourf_intent = self.state.val.contourf_intents.get(index)
+    let tricolor_intent = self.state.val.tricolor_intents.get(index)
     match artist {
       Artist::Line(points, style) if contour_same_segment(points, target) =>
         for part in contour_inline_parts(points) {
@@ -1166,6 +1168,9 @@ fn Axes::erase_inline_contour_segment(
           }
           if contourf_intent is Some(intent) {
             contourf_intents[updated.length()] = intent
+          }
+          if tricolor_intent is Some(intent) {
+            tricolor_intents[updated.length()] = intent
           }
           let fragment = Artist::Line(part, style)
           if contour_intent is Some(intent) {
@@ -1182,6 +1187,9 @@ fn Axes::erase_inline_contour_segment(
         }
         if contourf_intent is Some(intent) {
           contourf_intents[updated.length()] = intent
+        }
+        if tricolor_intent is Some(intent) {
+          tricolor_intents[updated.length()] = intent
         }
         updated.push(artist)
       }
@@ -1202,6 +1210,10 @@ fn Axes::erase_inline_contour_segment(
   self.state.val.contourf_intents.clear()
   for index, intent in contourf_intents {
     self.state.val.contourf_intents[index] = intent
+  }
+  self.state.val.tricolor_intents.clear()
+  for index, intent in tricolor_intents {
+    self.state.val.tricolor_intents[index] = intent
   }
   self.prune_line_originals()
 }

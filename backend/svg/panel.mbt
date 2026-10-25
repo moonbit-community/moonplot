@@ -155,7 +155,24 @@ fn render_panel(
         true
       _ => false
     }
-    let capture = if (metadata.barb() is Some(view) && !view.enabled()) ||
+    // Tripcolor owns only its original Polygon. Unknown/prepared or conflicting
+    // owned metadata must not authorize any other-kind fallback.
+    let tricolor_conflict = metadata.mesh() is Some(_) ||
+      metadata.hexbin() is Some(_) ||
+      metadata.discrete() is Some(_) ||
+      metadata.stem() is Some(_) ||
+      metadata.vector() is Some(_) ||
+      metadata.barb() is Some(_) ||
+      metadata.contour() is Some(_) ||
+      metadata.contourf() is Some(_) ||
+      metadata.band_horizontal() is Some(_)
+    let tricolor = match (metadata.tricolor(), artist) {
+      (Some(data), @render.Artist::Polygon(points, _)) if !tricolor_conflict &&
+        data.matches_points(points) => Some(data)
+      _ => None
+    }
+    let capture = if (metadata.tricolor() is Some(_) && tricolor is None) ||
+      (metadata.barb() is Some(view) && !view.enabled()) ||
       (metadata.contour() is Some(view) && !view.enabled()) ||
       (
         metadata.contourf() is Some(data) &&
@@ -464,6 +481,18 @@ fn render_panel(
           style,
           on_polygon=capture.map(hits => {
             visible => {
+              collect_tripcolor_region(
+                hits,
+                tricolor,
+                panel_index,
+                artist_index,
+                visible,
+                scale,
+                position,
+                style,
+                figure.width(),
+                figure.height(),
+              )
               collect_contourf_region(
                 hits,
                 contourf,

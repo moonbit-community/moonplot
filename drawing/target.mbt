@@ -22,6 +22,7 @@ pub(all) enum HitKind {
   Barbs
   Contour
   ContourF
+  Tripcolor
 } derive(Eq, Debug)
 
 ///|
@@ -88,6 +89,7 @@ pub struct HitInfo {
   hexbin : HexbinInfo?
   violin : ViolinInfo?
   vector : VectorInfo?
+  tricolor : TriColorInfo?
 } derive(Eq, Debug)
 
 ///|
@@ -112,6 +114,7 @@ pub fn hit_info(
   hexbin~ : HexbinInfo? = None,
   violin~ : ViolinInfo? = None,
   vector~ : VectorInfo? = None,
+  tricolor~ : TriColorInfo? = None,
 ) -> HitInfo {
   {
     point,
@@ -128,6 +131,7 @@ pub fn hit_info(
     hexbin,
     violin,
     vector,
+    tricolor,
   }
 }
 
