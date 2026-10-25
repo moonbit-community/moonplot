@@ -6,11 +6,37 @@
 
 - 实用 MoonBit 画图库，能力与场景对齐，不要求完整 Matplotlib API 复刻，不恢复旧 D55 清单。
 - M1 基础二维 SVG、G2.1 首批 Rabbita DOM、后续 UI 整理均已验收与交付。
-- 代码组织请求已完成。当前用户要求“直接做M2”：补资源隔离与可接入版本交付；保持原公开API与绘图行为。
+- 代码组织、M2资源隔离与独立交付、0.3.0图表提示均已完成。当前用户要求调查图类缺口并开启下一milestone，见下方M3切片。
 - 用户授权合理复用、独立 subagents、小步本地commit与正常push至 moonbit-community/moonplot。
 - 不用历史API指数或未经调查的估算表示整体完成率。
 
-## 当前切片：常用图表命中与提示（2026-10-25）
+## 当前切片：M3 调查与里程碑建立（2026-10-25）
+
+- 用户要求重新看还有哪些图没对齐/没适配，并开启下一个milestone。
+- [x] 分开核对静态图类、语义命中和便利入口，不重启全API迁移调查。
+- [x] 从实际0.3.0正式ZIP在仓库外显式workspace运行19个代表性输入；native/wasm/wasm-gc/JS均成功。
+  所有Drawing SVG等于静态SVG，XML解析通过；四目标各图points/targets与SVG长度逐项一致。
+- [x] 明确新图缺口：分组/堆叠柱缺宽度/基线/组内布局；环形图缺内半径和环孔命中。
+  热图/矩阵、pcolormesh/hist2d/hexbin、面积/堆叠面积、箱线/小提琴、误差棒等已有静态实现，语义交互未适配。
+  contour/stem/ecdf等只有生成后的普通线点目标，不能算完整高级语义。
+- [x] 已建立docs/CHART_COVERAGE.md及可复现输入/结果，docs/MILESTONE_M3.md定义三项目标和验收标准。
+  M3范围：规则nearest标量热图交互 → 分组/堆叠柱（横竖向） → 真正透明环孔的环形图。
+  其余科学/分布交互留后续；本轮是调查与范围建立，不宣称功能已经实现。目标0.4.0未发布。
+- [ ] M3.1实现：同次cell draw捕获row/column/value/数据范围，扩展Drawing cell metadata与Rabbita提示。
+  先nearest imshow/matshow，origin/extent/mask/NaN/多图/缩放；none/平滑PNG、RGB、不规则mesh暂不纳入。
+- [ ] M3.2分组/堆叠柱；M3.3真环形图；共同回归/独立消费/版本交付。
+- 精确下一动作：从backend/svg/image.mbt的nearest cell循环入手，实现M3.1；先定cell metadata并复用真实矩形，
+  不解析SVG、不从颜色反推、不复用直方图interval塞行列。按M3文档逐项实现与验收，再更新接口和commit。
+- 本轮生产代码/版本均未改变，仍为0.3.0；无新publish。调查基线源2fb8bcf，当前Git起点906d44b。
+- 只读agents m3_chart_gaps与m3_interaction_gaps已完成交回，无写文件/测试/发布权限委派。
+- 证据.moonagent/checkpoints/M3-chart-coverage/，native探针52904、四目标25296均terminal0。
+  第一次报告汇总把真实tab误按字面量分隔而报assert，已修汇总逻辑；产品运行无失败。
+  19图输入/四目标结果另保存docs/audits/chart-coverage-0.3.0/，不把当前分支冒充固定发布源。
+- 无本片残留运行会话；后续实现不要重跑旧全项目调查。保留0.3.0的有意本地预览8304。
+- 收尾接口生成/fmt、structure与diff检查通过，生成接口无变化；本轮24份当前Markdown/432条本地链接通过。
+  只提交调查证据和M3文档，不重复全项目测试；产品0.3.0与已发布tag/附件不变。
+
+## 已完成切片：常用图表命中与提示（2026-10-25）
 
 - 用户截图要求：柱/横柱整个矩形可悬停，折线按x吸附实际样本；提示系列、分类、值，直方图区间/频数，饼图分类/值/占比；调用方可自定义格式/外观。
 - [x] Drawing immutable HitInfo/HitTarget/区域与HitMode已落地；保留HitPoint与Interaction；Nearest兼容，XNearest显式开启。
