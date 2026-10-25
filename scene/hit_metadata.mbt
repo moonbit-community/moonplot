@@ -8,6 +8,7 @@ priv struct ArtistHitData {
   mut mesh : @render.MeshHitData?
   mut hexbin : @render.HexbinHitData?
   mut discrete : DiscreteLineSource?
+  mut stem : @render.StemHitView?
 }
 
 ///|
@@ -43,7 +44,22 @@ fn ArtistHitData::render_metadata(self : ArtistHitData) -> @render.HitMetadata {
     mesh=self.mesh,
     hexbin=self.hexbin,
     discrete=self.discrete.map(source => source.data),
+    stem=self.stem,
   )
+}
+
+///|
+fn Axes::record_stem_hit(
+  self : Axes,
+  view : @render.StemHitView,
+  label : String,
+) -> Unit {
+  let records = self.state.val.artist_hits
+  if !records.is_empty() {
+    let record = records[records.length() - 1]
+    record.stem = Some(view)
+    record.series = label
+  }
 }
 
 ///|

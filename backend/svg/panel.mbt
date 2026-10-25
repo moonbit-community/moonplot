@@ -180,6 +180,7 @@ fn render_panel(
             )
             if capture is Some(hits) &&
               discrete is None &&
+              metadata.stem() is None &&
               (
                 metadata.discrete() is None ||
                 discrete_line_visible(context.first_style())
@@ -204,6 +205,7 @@ fn render_panel(
             }
           }
           None => {
+            let stem = stem_rod_for_paint(metadata.stem(), points, style)
             let discrete = discrete_line_for_paint(
               metadata.discrete(),
               points,
@@ -218,18 +220,31 @@ fn render_panel(
               plot_height,
               points,
               style,
-              on_segment=discrete_line_capture(
-                capture,
-                discrete,
-                panel_index,
-                artist_index,
-                scale,
-                position,
-                metadata.series(),
-              ),
+              on_segment=if stem is Some(_) {
+                stem_rod_capture(
+                  capture,
+                  stem,
+                  panel_index,
+                  artist_index,
+                  scale,
+                  position,
+                  metadata.series(),
+                )
+              } else {
+                discrete_line_capture(
+                  capture,
+                  discrete,
+                  panel_index,
+                  artist_index,
+                  scale,
+                  position,
+                  metadata.series(),
+                )
+              },
             )
             if capture is Some(hits) &&
               discrete is None &&
+              metadata.stem() is None &&
               (metadata.discrete() is None || discrete_line_visible(style)) &&
               style.width() > 0.0 &&
               style.line_stroke().linestyle() != "None" {
@@ -248,10 +263,26 @@ fn render_panel(
           }
         }
       @render.Artist::Scatter(points, style) => {
+        let stem = stem_heads_for_paint(metadata.stem(), points, style)
         append_scatter(
-          writer, scale, left, top, plot_width, plot_height, points, style,
+          writer,
+          scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          points,
+          style,
+          on_circle=stem_head_capture(
+            capture,
+            stem,
+            panel_index,
+            artist_index,
+            position,
+            metadata.series(),
+          ),
         )
-        if capture is Some(hits) {
+        if capture is Some(hits) && metadata.stem() is None {
           collect_drawing_points(
             hits,
             panel_index,

@@ -17,6 +17,7 @@ pub(all) enum HitKind {
   Step
   Stairs
   Ecdf
+  Stem
 } derive(Eq, Debug)
 
 ///|

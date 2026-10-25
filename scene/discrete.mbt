@@ -64,6 +64,12 @@ pub fn Axes::stem(
     )
   }
   let locations = stem_locations(heads, locs)
+  let source = @render.stem_hit_data(
+    heads,
+    locations,
+    bottom,
+    orientation == "horizontal",
+  ).unwrap()
   let resolved_color = self.resolve_color(color)
   let start = self.state.val.artists.length()
   let markers = Array(capacity=heads.length())
@@ -87,6 +93,7 @@ pub fn Axes::stem(
       )
       markers.push(@core.point(head, location))
     }
+    self.record_stem_hit(source.view(rod=Some(index)), label)
   }
   if orientation == "vertical" {
     self.push_artist(Artist::HLine(bottom, @core.style(resolved_color)))
@@ -96,6 +103,7 @@ pub fn Axes::stem(
   self.push_artist(
     Artist::Scatter(markers, @core.style(resolved_color, width=0.0, radius=3.5)),
   )
+  self.record_stem_hit(source.view(), label)
   self.add_auto_legend(label, resolved_color, LegendKind::Line)
   self.add_container(ContainerKind::Stem, start, label)
 }

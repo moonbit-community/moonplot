@@ -25,7 +25,7 @@ pub fn figure_with_subfigures(Int, Int, Int, Array[Panel], Array[@colorbar.Color
 
 pub fn hexbin_hit_data(Int, @core.Point, Double, @drawing.HexbinInfo) -> HexbinHitData
 
-pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?, mesh? : MeshHitData?, hexbin? : HexbinHitData?, discrete? : DiscreteLineHitData?) -> HitMetadata
+pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?, mesh? : MeshHitData?, hexbin? : HexbinHitData?, discrete? : DiscreteLineHitData?, stem? : StemHitView?) -> HitMetadata
 
 pub fn legend_entry(String, String, LegendKind) -> LegendEntry
 
@@ -40,6 +40,8 @@ pub fn panel_with_sharing(@gridspec.Rect?, Array[Artist], String?, Array[LegendE
 pub fn secondary_axis(SecondaryLocation, (Double) -> Double, (Double) -> Double, String?, Int, Array[Double]?, @ticker.Locator?, @ticker.Formatter?, named_formatter? : @ticker.BaseFormatter?, minor_named_formatter? : @ticker.BaseFormatter?, formatter_provider? : ((Bool) -> @ticker.BaseFormatter?)?, legacy_formatter_provider? : (() -> @ticker.Formatter?)?, null_group_provider? : ((Bool) -> Bool)?, major_formatter_locations_provider? : (() -> @ticker.FormatterLocations raise @core.DataError)?, minor_formatter_locations_provider? : (() -> @ticker.FormatterLocations raise @core.DataError)?, tick_label_size? : Double, minor_locator? : @ticker.MinorLocator?, minor_ticks_provider? : (() -> Array[Double] raise @core.DataError)?, synchronize_view_provider? : (() -> Unit raise @core.DataError)?, prepare_draw_provider? : (() -> Unit raise @core.DataError)?, positioned_aspect_provider? : ((Double, Double, Double, Double) -> Unit raise @core.DataError)?, drawing_context_provider? : (() -> SecondaryDrawingContext)?, placement_provider? : (() -> SecondaryPlacement)?, locator_provider? : (() -> @ticker.Locator?)?, minor_locator_provider? : (() -> @ticker.MinorLocator?)?, fixed_ticks_provider? : (() -> Array[Double]?)?, formatter_view_provider? : (() -> (Double, Double))?, draw_order? : Int?) -> SecondaryAxis
 
 pub fn spine(SpineSide, Bool, String, Double, SpinePosition, (Double, Double)?) -> Spine
+
+pub fn stem_hit_data(Array[Double], Array[Double], Double, Bool) -> StemHitData?
 
 pub fn subfigure(@gridspec.Rect, String?) -> SubFigure
 
@@ -167,6 +169,7 @@ pub fn HitMetadata::hexbin(Self) -> HexbinHitData?
 pub fn HitMetadata::interval(Self, Int) -> (Double, Double)?
 pub fn HitMetadata::mesh(Self) -> MeshHitData?
 pub fn HitMetadata::series(Self) -> String
+pub fn HitMetadata::stem(Self) -> StemHitView?
 
 pub(all) enum ImageInterpolation {
   Nearest
@@ -392,6 +395,18 @@ pub(all) enum SpineSide {
   Bottom
   Top
 }
+
+pub struct StemHitData {
+  // private fields
+}
+pub fn StemHitData::view(Self, rod? : Int?) -> StemHitView
+
+pub struct StemHitView {
+  // private fields
+}
+pub fn StemHitView::datum(Self, Int) -> DiscreteDatum?
+pub fn StemHitView::matches_points(Self, Array[@core.Point]) -> Bool
+pub fn StemHitView::rod(Self) -> Int?
 
 pub struct SubFigure {
   rect : @gridspec.Rect

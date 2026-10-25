@@ -35,6 +35,7 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     Step => "step"
     Stairs => "stairs"
     Ecdf => "ecdf"
+    Stem => "stem"
   }
 }
 
@@ -113,6 +114,23 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
         rows.push(("Baseline", band.lower.to_string()))
       }
     }
+    Stem =>
+      if info.band is Some(band) {
+        rows.push(
+          (
+            "Location",
+            (if band.horizontal {
+              info.point.data_y
+            } else {
+              info.point.data_x
+            }).to_string(),
+          ),
+        )
+        rows.push(("Value", info.value.to_string()))
+        rows.push(("Bottom", band.lower.to_string()))
+      } else {
+        rows.push(("Value", info.value.to_string()))
+      }
     Ecdf => {
       rows.push(("Value", info.value.to_string()))
       if info.fraction is Some(probability) {

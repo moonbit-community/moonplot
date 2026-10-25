@@ -198,16 +198,16 @@ fn append_scatter(
   plot_height : Double,
   points : Array[@core.Point],
   style : @core.Style,
+  on_circle~ : ((Int32, Double, Double) -> Unit)? = None,
 ) -> Unit {
-  for p in points {
+  for i, p in points {
     if valid_point(scale, p) {
-      append_marker(
-        writer,
-        map_x(scale, left, plot_width, p.x()),
-        map_y(scale, top, plot_height, p.y()),
-        style,
-        style.marker(),
-      )
+      let x = map_x(scale, left, plot_width, p.x())
+      let y = map_y(scale, top, plot_height, p.y())
+      append_marker(writer, x, y, style, style.marker())
+      if style.marker() == "o" && on_circle is Some(capture) {
+        capture(i, x, y)
+      }
     }
   }
 }
