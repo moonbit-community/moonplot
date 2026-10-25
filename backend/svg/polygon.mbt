@@ -169,9 +169,11 @@ fn append_compound_polygon(
   plot_height : Double,
   polygons : Array[Array[@core.Point]],
   style : @core.Style,
+  on_polygons~ : ((Array[Array[@core.Point]]) -> Unit)? = None,
 ) -> Unit {
   let path = StringBuilder()
   let mut loop_count = 0
+  let emitted = []
   for points in polygons {
     if points.length() < 3 {
       continue
@@ -201,6 +203,9 @@ fn append_compound_polygon(
       path.write_string(float_text(map_y(scale, top, plot_height, point.y())))
     }
     path.write_string(" Z")
+    if on_polygons is Some(_) {
+      emitted.push(visible)
+    }
     loop_count += 1
   }
   if loop_count == 0 {
@@ -214,6 +219,9 @@ fn append_compound_polygon(
     ("stroke-width", float_text(style.width())),
     ("fill-rule", "evenodd"),
   ])
+  if on_polygons is Some(collect) {
+    collect(emitted)
+  }
 }
 
 ///|

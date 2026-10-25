@@ -148,7 +148,8 @@ fn render_panel(
   for artist_index, artist in panel.artists() {
     let metadata = panel.hit_metadata(artist_index)
     let capture = if (metadata.barb() is Some(view) && !view.enabled()) ||
-      (metadata.contour() is Some(view) && !view.enabled()) {
+      (metadata.contour() is Some(view) && !view.enabled()) ||
+      (metadata.contourf() is Some(data) && !data.enabled()) {
       None
     } else {
       capture
@@ -436,7 +437,11 @@ fn render_panel(
             }
           }),
         )
-      @render.Artist::Polygon(points, style) =>
+      @render.Artist::Polygon(points, style) => {
+        let contourf = match metadata.contourf() {
+          Some(data) if data.matches_polygon(points) => Some(data)
+          _ => None
+        }
         append_polygon(
           writer,
           scale,
@@ -448,6 +453,19 @@ fn render_panel(
           style,
           on_polygon=capture.map(hits => {
             visible => {
+              collect_contourf_region(
+                hits,
+                contourf,
+                panel_index,
+                artist_index,
+                [visible],
+                false,
+                scale,
+                position,
+                style,
+                figure.width(),
+                figure.height(),
+              )
               collect_barb_flag(
                 hits,
                 metadata.barb(),
@@ -472,10 +490,40 @@ fn render_panel(
             }
           }),
         )
-      @render.Artist::CompoundPolygon(polygons, style) =>
+      }
+      @render.Artist::CompoundPolygon(polygons, style) => {
+        let contourf = match metadata.contourf() {
+          Some(data) if data.matches_rings(polygons) => Some(data)
+          _ => None
+        }
         append_compound_polygon(
-          writer, scale, left, top, plot_width, plot_height, polygons, style,
+          writer,
+          scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          polygons,
+          style,
+          on_polygons=capture.map(hits => {
+            visible => {
+              collect_contourf_region(
+                hits,
+                contourf,
+                panel_index,
+                artist_index,
+                visible,
+                true,
+                scale,
+                position,
+                style,
+                figure.width(),
+                figure.height(),
+              )
+            }
+          }),
         )
+      }
       @render.Artist::GouraudTriangle(points, colors) =>
         append_gouraud_triangle(
           writer,

@@ -6,6 +6,7 @@ struct AxesData {
   artist_hits : Array[ArtistHitData]
   barb_intents : Map[Int32, BarbIntent]
   contour_intents : Map[Int32, ContourIntent]
+  contourf_intents : Map[Int32, ContourFIntent]
   x_axis : @axis.Axis
   y_axis : @axis.Axis
   mut title : String?
@@ -77,6 +78,7 @@ fn AxesData::clear_presentation(self : AxesData) -> Unit {
   self.artist_hits.clear()
   self.barb_intents.clear()
   self.contour_intents.clear()
+  self.contourf_intents.clear()
   self.line_originals.clear()
   self.title = None
   self.explicit_bounds = None
@@ -139,6 +141,7 @@ fn Axes::push_artist(self : Axes, artist : Artist) -> Unit {
     vector: None,
     barb: None,
     contour: None,
+    contourf: None,
   })
   self.update_artist_data_limits(artist)
   match artist {
@@ -195,6 +198,7 @@ fn new_axes_state(
     artist_hits: [],
     barb_intents: Map([]),
     contour_intents: Map([]),
+    contourf_intents: Map([]),
     x_axis: @axis.axis(),
     y_axis: @axis.axis(horizontal=false),
     title: None,

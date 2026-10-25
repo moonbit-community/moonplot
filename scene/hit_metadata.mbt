@@ -12,6 +12,7 @@ priv struct ArtistHitData {
   mut vector : @render.VectorHitData?
   mut barb : @render.BarbHitView?
   mut contour : ContourSource?
+  mut contourf : ContourFSource?
 }
 
 ///|
@@ -22,6 +23,7 @@ fn same_hit_artist(first : Artist, second : Artist) -> Bool {
     | (Bar(a, _), Bar(b, _))
     | (BarH(a, _), BarH(b, _)) => physical_equal(a, b)
     (Polygon(a, _), Polygon(b, _)) => physical_equal(a, b)
+    (CompoundPolygon(a, _), CompoundPolygon(b, _)) => physical_equal(a, b)
     (Quiver(a, u, _), Quiver(b, v, _)) =>
       physical_equal(a, b) && physical_equal(u, v)
     (FillBetween(a, _, _), FillBetween(b, _, _)) => physical_equal(a, b)
@@ -53,6 +55,7 @@ fn ArtistHitData::render_metadata(self : ArtistHitData) -> @render.HitMetadata {
     vector=self.vector,
     barb=self.barb,
     contour=self.contour.map(source => source.view),
+    contourf=self.contourf.map(source => source.data),
   )
 }
 
@@ -88,6 +91,15 @@ fn AxesData::hit_metadata(
   index : Int32,
   cursor : @ref.Ref[Int32],
 ) -> @render.HitMetadata {
+  if self.contourf_intents.get(index) is Some(intent) {
+    cursor.val = intent.source.cursor.val
+    let data = if same_hit_artist(intent.artist, artist) {
+      intent.source.data
+    } else {
+      intent.source.data.invalidated()
+    }
+    return @render.hit_metadata(data.series(), contourf=Some(data))
+  }
   if self.contour_intents.get(index) is Some(intent) {
     cursor.val = intent.source.cursor.val
     let view = if same_hit_artist(intent.artist, artist) {

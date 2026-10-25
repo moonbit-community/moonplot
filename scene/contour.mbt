@@ -710,6 +710,8 @@ fn contour_render_filled_band(
   lower : Double,
   upper : Double,
   style : @core.Style,
+  slot : Int32,
+  series : String,
   corner_mask : Bool,
 ) -> Array[Array[@core.Point]] {
   if lower >= upper {
@@ -740,11 +742,7 @@ fn contour_render_filled_band(
     }
   }
   let merged = contour_union_polygons(polygons)
-  if merged.length() == 1 {
-    axes.push_artist(Artist::Polygon(merged[0], style))
-  } else if merged.length() > 1 {
-    axes.push_artist(Artist::CompoundPolygon(merged, style))
-  }
+  axes.push_contourf_band(merged, style, slot, lower, upper, series)
   merged
 }
 
@@ -1012,6 +1010,8 @@ pub fn Axes::contourf(
       data_lower,
       resolved_levels[0],
       @core.style(fill_color, width=0.0, fill=fill_color),
+      color_index,
+      label,
       corner_mask,
     )
     for path in paths {
@@ -1034,6 +1034,8 @@ pub fn Axes::contourf(
       lower,
       upper,
       @core.style(fill_color, width=0.0, fill=fill_color),
+      color_index,
+      label,
       corner_mask,
     )
     for path in paths {
@@ -1054,6 +1056,8 @@ pub fn Axes::contourf(
       resolved_levels[resolved_levels.length() - 1],
       data_upper,
       @core.style(fill_color, width=0.0, fill=fill_color),
+      color_index,
+      label,
       corner_mask,
     )
     for path in paths {
@@ -1064,7 +1068,12 @@ pub fn Axes::contourf(
     }
   }
   let legend_color = contour_palette_color(0, rendered_bands, colors, cmap)
-  self.add_auto_legend(label, legend_color, LegendKind::Patch)
+  self.add_auto_legend(
+    label,
+    legend_color,
+    LegendKind::Patch,
+    record_series=self.state.val.artists.length() > start,
+  )
   self.add_container(ContainerKind::Contour, start, label)
   {
     levels: resolved_levels,
@@ -1144,14 +1153,19 @@ fn Axes::erase_inline_contour_segment(
   let updated : Array[Artist] = []
   let barb_intents = Map([])
   let contour_intents = Map([])
+  let contourf_intents = Map([])
   for index, artist in self.state.val.artists {
     let barb_intent = self.state.val.barb_intents.get(index)
     let contour_intent = self.state.val.contour_intents.get(index)
+    let contourf_intent = self.state.val.contourf_intents.get(index)
     match artist {
       Artist::Line(points, style) if contour_same_segment(points, target) =>
         for part in contour_inline_parts(points) {
           if barb_intent is Some(intent) {
             barb_intents[updated.length()] = intent
+          }
+          if contourf_intent is Some(intent) {
+            contourf_intents[updated.length()] = intent
           }
           let fragment = Artist::Line(part, style)
           if contour_intent is Some(intent) {
@@ -1165,6 +1179,9 @@ fn Axes::erase_inline_contour_segment(
         }
         if contour_intent is Some(intent) {
           contour_intents[updated.length()] = intent
+        }
+        if contourf_intent is Some(intent) {
+          contourf_intents[updated.length()] = intent
         }
         updated.push(artist)
       }
@@ -1181,6 +1198,10 @@ fn Axes::erase_inline_contour_segment(
   self.state.val.contour_intents.clear()
   for index, intent in contour_intents {
     self.state.val.contour_intents[index] = intent
+  }
+  self.state.val.contourf_intents.clear()
+  for index, intent in contourf_intents {
+    self.state.val.contourf_intents[index] = intent
   }
   self.prune_line_originals()
 }

@@ -90,6 +90,8 @@ fn tricontour_render_filled_band(
   lower : Double,
   upper : Double,
   style : @core.Style,
+  slot : Int32,
+  series : String,
 ) -> Array[Array[@core.Point]] {
   if lower >= upper {
     return []
@@ -117,11 +119,7 @@ fn tricontour_render_filled_band(
     }
   }
   let merged = contour_union_polygons(polygons)
-  if merged.length() == 1 {
-    axes.push_artist(Artist::Polygon(merged[0], style))
-  } else if merged.length() > 1 {
-    axes.push_artist(Artist::CompoundPolygon(merged, style))
-  }
+  axes.push_contourf_band(merged, style, slot, lower, upper, series)
   merged
 }
 
@@ -690,6 +688,8 @@ pub fn Axes::tricontourf(
       data_lower,
       resolved_levels[0],
       @core.style(fill_color, width=0.0, fill=fill_color),
+      color_index,
+      label,
     )
     for path in paths {
       filled_segments.push(path.copy())
@@ -727,12 +727,11 @@ pub fn Axes::tricontourf(
       }
     }
     let merged = contour_union_polygons(polygons)
+    self.push_contourf_band(merged, style, color_index, lower, upper, label)
     if merged.length() == 1 {
-      self.push_artist(Artist::Polygon(merged[0], style))
       filled_segments.push(merged[0].copy())
       filled_segment_levels.push((lower + upper) / 2.0)
     } else if merged.length() > 1 {
-      self.push_artist(Artist::CompoundPolygon(merged, style))
       for polygon in merged {
         filled_segments.push(polygon.copy())
         filled_segment_levels.push((lower + upper) / 2.0)
@@ -754,6 +753,8 @@ pub fn Axes::tricontourf(
       resolved_levels[resolved_levels.length() - 1],
       data_upper,
       @core.style(fill_color, width=0.0, fill=fill_color),
+      color_index,
+      label,
     )
     for path in paths {
       filled_segments.push(path.copy())
@@ -763,7 +764,12 @@ pub fn Axes::tricontourf(
     }
   }
   let legend_color = contour_palette_color(0, rendered_bands, colors, cmap)
-  self.add_auto_legend(label, legend_color, LegendKind::Patch)
+  self.add_auto_legend(
+    label,
+    legend_color,
+    LegendKind::Patch,
+    record_series=self.state.val.artists.length() > start,
+  )
   self.add_container(ContainerKind::Contour, start, label)
   {
     levels: resolved_levels,
