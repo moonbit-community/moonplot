@@ -1170,7 +1170,12 @@ fn Axes::streamplot_impl(
     color_norm,
     color_map,
   )
-  self.add_auto_legend(label, resolved_color, LegendKind::Line)
+  self.add_auto_legend(
+    label,
+    resolved_color,
+    LegendKind::Line,
+    record_series=self.state.val.artists.length() > start,
+  )
   self.add_container(ContainerKind::Streamplot, start, label)
   result
 }
