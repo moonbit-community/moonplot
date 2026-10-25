@@ -327,6 +327,7 @@ pub fn Axes::tripcolor(
   mask~ : Array[Bool] = [],
 ) -> Unit raise @core.DataError {
   let mesh = triangulation(xs, ys, triangles~, mask~)
+  let start = self.state.val.artists.length()
   let legend_color = match
     tripcolor_mesh(
       self,
@@ -342,7 +343,12 @@ pub fn Axes::tripcolor(
     Some(color) => color
     None => "#000000"
   }
-  self.add_auto_legend(label, legend_color, LegendKind::Patch)
+  self.add_auto_legend(
+    label,
+    legend_color,
+    LegendKind::Patch,
+    record_series=self.state.val.artists.length() > start,
+  )
 }
 
 ///|
@@ -381,6 +387,7 @@ pub fn Axes::tripcolor_triangulation(
   cmap~ : String = "viridis",
   label~ : String = "",
 ) -> Unit raise @core.DataError {
+  let start = self.state.val.artists.length()
   let legend_color = match
     tripcolor_mesh(
       self,
@@ -396,7 +403,12 @@ pub fn Axes::tripcolor_triangulation(
     Some(color) => color
     None => "#000000"
   }
-  self.add_auto_legend(label, legend_color, LegendKind::Patch)
+  self.add_auto_legend(
+    label,
+    legend_color,
+    LegendKind::Patch,
+    record_series=self.state.val.artists.length() > start,
+  )
 }
 
 ///|
