@@ -50,11 +50,11 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses the published **`Lampese/mathplotlib@0.16.0`** module. See [publication status and installation instructions](docs/PUBLISHING.md).
+MoonPlot uses the **`Lampese/mathplotlib@0.17.0`** module. See [publication status and installation instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.16.0
+moon add Lampese/mathplotlib@0.17.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add
@@ -332,8 +332,9 @@ to change data, switch angle direction, toggle each series, and remount both
 charts. `Figure::add_polar_axes` accepts raw angles in radians and nonnegative
 radii. Radar profiles retain their original categories and share one radial
 scale. Both SVG and Rabbita DOM use a true circular clip in rectangular panels.
-This first polar slice provides static charts with application-controlled
-updates; polar hover values are planned separately. See the [polar guide](docs/POLAR.md).
+Hover or click the original polar samples to see radians, radius and radar
+categories. Both hit modes require physical point proximity inside the actual
+circle; tooltip content and units can be customized. See the [polar guide](docs/POLAR.md).
 
 ![Polar lines, scatter points and radar outlines in Rabbita](assets/polar.png)
 
@@ -342,7 +343,7 @@ updates; polar hover values are planned separately. See the [polar guide](docs/P
 - SVG is the static output backend; Rabbita DOM is an optional browser component.
   Standalone PNG/PDF export and a desktop GUI backend are not available.
 - Interactive picking includes line/scatter anchors, bar and histogram regions,
-  pie/donut sectors, matrix cells, statistical areas, distribution parts, discrete curves, stems, quiver arrows, wind barbs, line contours, filled contour bands, triangular faces and continuous streamline bodies.
+  pie/donut sectors, matrix cells, statistical areas, distribution parts, discrete curves, stems, quiver arrows, wind barbs, line contours, filled contour bands, triangular faces, continuous streamline bodies and original polar samples.
   Touch gestures, zoom/pan, and keyboard navigation remain future work.
 - 3D plotting, animation, and full mathtext/TeX and font layout are not available.
 - The library is not a drop-in Matplotlib implementation. Python's dynamic

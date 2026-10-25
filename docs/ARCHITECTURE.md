@@ -101,8 +101,14 @@ configuration in `internal/render/polar.mbt`, and a dedicated SVG path in
 `backend/svg/polar.mbt`. Original theta/radius pairs remain ordinary Line/Scatter
 data; projection and an optional closing vertex are produced only for painting.
 The polar branch bypasses Cartesian range/tick/aspect preparation and emits a
-data-only circular clip. This first slice produces no polar hit targets, while
-ordinary panels in mixed figures retain their existing interaction paths.
+data-only circular clip. `internal/render/polar_hit.mbt` retains one original
+call snapshot and checks identity/content once per artist. Actual writer
+callbacks in `backend/svg/polar_hit.mbt` capture eligible original observations;
+closing paint never creates a new source identity. `drawing/polar.mbt` owns the
+copied panel-circle table and candidate-local admission. The private Rabbita
+`svg_coordinates.mbt` bridge maps the actual SVG CTM once per event; polar
+highlight clips use the same immutable frame circle. Ordinary mixed panels
+retain their existing semantics.
 
 ## Generated data and reference tests
 

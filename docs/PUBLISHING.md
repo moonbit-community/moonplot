@@ -1,5 +1,10 @@
 # 安装与发布
 
+当前仓库源码为 **0.17.0 交付候选**：补齐极坐标原弧度/半径与雷达类别提示、圆盘命中和高亮。
+仓库外consumer Native/JS/Chrome59及中央四目标/16Chrome204通过；
+clean包与实际公开发布尚待执行。
+最近已公开版本仍为下述0.16.0；本页在实际registry与附件核验后更新。
+
 当前分发为 **`Lampese/mathplotlib@0.16.0`**，新增[极坐标折线、散点和闭合雷达](POLAR.md)，
 示例为 `rabbita/polar.html`。已实际发布Mooncakes与[GitHub v0.16.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.16.0)；
 607份全新安装源逐一同正式ZIP，四目标静态/Chrome56及GitHub四附件完整下载核验通过。

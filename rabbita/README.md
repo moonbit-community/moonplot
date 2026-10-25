@@ -5,7 +5,7 @@ Interactive MoonPlot SVG components built with public
 real SVG DOM inside composable `Html`; your application owns its state.
 
 The component is the **`Lampese/mathplotlib/rabbita` package** in the unified
-`Lampese/mathplotlib@0.16.0` module. See [installation and release status](../docs/PUBLISHING.md)
+`Lampese/mathplotlib@0.17.0` module. See [installation and release status](../docs/PUBLISHING.md)
 for the current publication result. There is no separate adapter module to install.
 
 ![Two interactive charts](https://raw.githubusercontent.com/moonbit-community/moonplot/master/assets/rabbita-interactive.png)
@@ -15,7 +15,7 @@ for the current publication result. There is no separate adapter module to insta
 From your application's module directory:
 
 ```sh
-moon add Lampese/mathplotlib@0.16.0
+moon add Lampese/mathplotlib@0.17.0
 ```
 
 Import the packages used by your application's view in `moon.pkg`:
@@ -270,8 +270,10 @@ is built with `moon build rabbita/cmd/polar --target js`. Two composable SVG
 views show a polar spiral with scatter points and two closed radar profiles.
 The application updates data, toggles series, chooses direction, and remounts
 the charts. Circular data clipping keeps the physical disk round in rectangular
-panels. This first polar slice exposes no hit targets or hover tooltips; raw
-theta/radius interaction is a later slice. See the [polar guide](../docs/POLAR.md).
+panels. Polar tooltips expose original radians and radius plus per-call radar
+categories; both hit modes use physical point proximity within the actual disk.
+Hover and selection highlights share its circular clip. Default and custom
+content support units and local labels. See the [polar guide](../docs/POLAR.md).
 
 ## Develop and verify
 
