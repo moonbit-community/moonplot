@@ -1,8 +1,7 @@
 # 安装与发布
 
-本次发布目标为 **`Lampese/mathplotlib@0.8.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
-0.8.0 功能及中央验收已通过，尚未实际发布；上一公开版本0.7.0已发布且可安装。
-当前源码和下方命令已准备0.8.0，实际发布、registry及GitHub附件验收完成后更新本页。
+当前分发模块为 **`Lampese/mathplotlib@0.8.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
+0.8.0已实际发布Mooncakes与GitHub，公开构建成功、包可安装且未撤回；实际registry与附件核验已完成。
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
 
@@ -11,7 +10,7 @@
 0.7.0 接续[六边形分箱](HEXBIN_INTERACTION.md)与[小提琴分布](VIOLIN_INTERACTION.md)，
 同时修正旧 hexbin 分桶与轮廓错位；新示例为 `rabbita/distributions.html`。
 0.8.0 接续[Step](STEP_INTERACTION.md)、[Stairs](STAIRS_INTERACTION.md)与[ECDF](ECDF_INTERACTION.md)的原采样、区间及概率提示，
-新示例为 `rabbita/discrete.html`。下方安装命令对应本次0.8.0发布目标；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
+新示例为 `rabbita/discrete.html`。下方安装命令对应0.8.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
 查看 registry 版本。维护者使用 `tools/verify_registry.py` 从全新、无 `moon.work` 的应用
 安装并验证静态四目标和真实浏览器交互。
 GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0)
@@ -182,9 +181,9 @@ PLAYWRIGHT_MODULE=/path/to/node_modules/playwright \
 [六角格](HEXBIN_INTERACTION.md)修正了旧真实分箱错误，中心、计数、聚合组与SVG会必要变化；
 [小提琴](VIOLIN_INTERACTION.md)的KDE采样与各统计部位有独立身份。静态入口签名保留，穷尽匹配HitKind需处理新增分支。
 
-## 0.8.0 离散曲线发布验收（候选）
+## 0.8.0 离散曲线发布验收
 
-功能、独立复审与中央验收已完成，clean正式包、实际Mooncakes/registry与GitHub附件核验尚待执行。
+功能、独立复审与中央验收已完成；2026-10-25实际发布返回200，公开构建成功且包可安装。
 静态签名和14份旧SVG保持；Step原sample、Stairs原interval与ECDF实际returned slot通过同次绘制进入提示。
 
 - 全套：Wasm/Wasm-GC/Native各22488/22488，JS22531/22531；info/fmt、八JS构建、结构与文档链接通过。
@@ -192,4 +191,10 @@ PLAYWRIGHT_MODULE=/path/to/node_modules/playwright \
 - 修复后仓库外dirty演练静态四目标+Chrome23项通过；包含两/三重复Step的物理命中与横轴吸附、ECDF末尾零权重重合返回槽。
 - 独立复审：Step端点往返Native/JS各810次与各12控制；Stairs各29组、22实际XML/5000几何包含；ECDF各28组/26实际XML及最终source-tie bounded各26组。
 
-以上为候选验收，不作为实际发布记录；所有dirty演练包不得上传。
+正式源码提交`2f7aeb77c70499979b43273d1ea8a0b0504ba040`；clean正式包与全新registry应用均通过静态四目标/Chrome23，555份安装源逐一相同。
+[GitHub v0.8.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.8.0)四附件已完整下载并核验逐字、远端digest/size与tag源码提交。
+
+- 模块ZIP2087347 bytes，SHA256 `4588b872d933110fec36b2498ff30bcf96d61d2ae570b5532c7dbf33d0b7be43`。
+- 独立源码ZIP2117382 bytes，SHA256 `e4e18ace990bdb00af49aec8a5aa870acd67a9a19419d883dd85681ebcd02367`。
+
+所有dirty演练包仅保留开发记录，实际发布只使用clean正式归档；旧版本tag和附件不变。

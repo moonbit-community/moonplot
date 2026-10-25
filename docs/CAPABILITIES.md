@@ -4,13 +4,13 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 当前工作复用已有的数据、图表、坐标轴和 SVG 实现，以完整使用场景判断效果。
 本页区分实现、历史验证与本轮验收，不把原型的全部参数和组合标为完成。
 
-**当前状态：M1至M6已验收交付，覆盖常用二维、统计区间、网格计数和分布图交互。**
-0.7.0 已发布 Mooncakes 与 GitHub：实际543份安装源、四目标静态及浏览器17项、四附件均已核验；详见[M6分布图](MILESTONE_M6.md)。
-[M7离散曲线](MILESTONE_M7.md)功能及中央验收已通过：全套Wasm/Wasm-GC/Native各22488、JS22531，八页面Chrome98项、0errors；仓库外dirty演练静态四目标+Chrome23通过。0.8.0正式包/实际发布验证待执行。
+**当前状态：M1至M7已验收交付，覆盖常用二维、统计区间、网格计数、分布及离散曲线交互。**
+0.8.0已实际发布Mooncakes与GitHub：555份安装源逐一匹配、四目标静态/Chrome23消费及四附件完整下载通过；[M7](MILESTONE_M7.md)记录全套与98项页面验收。
+下一片[M8 Stem](MILESTONE_M8.md)独立实现中，尚未验收或发布。
 历史 M1 四目标353/353见 [M1 记录](MILESTONE_M1.md)，初批 DOM 见[DOM 记录](RABBITA_DOM.md)。
 
 **M2 v0.2.0** 补齐多图 SVG 资源隔离和独立接入版本包，详见 [M2 历史记录](MILESTONE_M2.md)。
-当前分发为 **`Lampese/mathplotlib@0.7.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
+当前分发为 **`Lampese/mathplotlib@0.8.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
 发布状态和安装方式见 [接入说明](PUBLISHING.md)。
 
 ## 如何理解状态
