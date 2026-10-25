@@ -26,23 +26,28 @@
   已处理后画mean/median/quantile等Segment在body或hex区域上方的优先级；
   独立定向4目标各86/86、adapter28/28、6旧Violin SVG控制/info/fmt/结构通过，worktree clean/no live会话。
   Root证据violin/已复制；合并api/HitInfo冲突保留两个新字段/类型，mbti由真实编译器重生，merge-interfaces.log exit0。
-- [x] m3_browser四图ignored草稿/HANDOFF/12组runner已完成，格式/Node语法通过，尚未部署/编译；
-  等Violin及修正后的Hex生产合入、grid语义同步后明确通知部署。
+- [x] m3_browser四图ignored草稿/HANDOFF/13组runner已完成，格式/Node语法通过，尚未部署/编译；
+  Violin已合入；等修正后的Hex合入后明确通知部署，草稿已按新grid同步。
 - Root拥有中央文档/合入冲突/consumer/版本/发布；各agent不push/发布、不改中央文档或版本。
   不再开新agent；独立实现只定向检查，Root合入后统一全套与实际消费。
-- 精确下一动作：Violin已合入，等Hex数学修正交接；Root已按固定接口准备consumer静态原值/KDE摘要和4项新DOM断言（尚未编译，待合入后检查）；
-  解决HitInfo、metadata、callback与public再导出冲突后由编译器更新接口。不能把未合入实现说成已可用。
-- Root新增scene/distribution_overlay_wbtest.mbt两个组合回归草稿（尚未编译）：横竖Violin统计线/Hex先后覆盖、Hex上ErrorBar与两HitMode；68166 terminal0：两组四目标各2/2通过（数学修正前）；测试以实际返回中心作布局，数学修正后随全套重验。
-- Root consumer格式检查已过，runner node语法通过；新字段尚未Root编译，不等同消费验收。
+- 精确下一动作：等m4_area数学fix commit与m3_donut独立复审结论 → cherry-pick → 两组合回归及最终相关/全套，
+  并通知m3_browser七文件部署/13组真实Chrome。Root随后完成当前使用文档、clean包/actual registry17项/GitHub四附件回验。
+  HitInfo/metadata/callback/public再导出冲突已解决、编译器接口已生成，不要再做合并调查或重写接口。
+- Root新增并提交scene/distribution_overlay_wbtest.mbt两个组合回归：横竖Violin统计线/Hex先后覆盖、Hex上ErrorBar与两HitMode。
+  68166 terminal0：四目标各2/2通过（数学修正前）；测试以实际返回中心作布局，数学修正后随最终全套重验。
+- Root后续188ba30及之前M6提交已push，8030 terminal0，origin/master=188ba30；Root仅rabbita/.moonignore未提交（未来distributions两个静态壳排除）。
+- Root consumer格式/Node语法与实际dirty包编译已过；静态4目标+Chrome17见下方。仅旧Hex数学下的接入演练，不可上传。
 - M6范围2f6e17c、检查点历史归档cad2245已本地commit；Root的consumer静态/app/runner、0.7版本和两组合回归已验证提交7ceec9b；未提交为rabbita ignore与中央docs；Hexbin与Violin生产已cherry-pick，Hex数学修正仍在独立worktree。
-- m4_area从只读调查转入已授权的真实数学修正：旧hexbin数据归属与实际六角可能错位（(.1,.1)归center(1,1.5)但半径1的源六角miny=.5）；
+- m4_area从只读调查转入已授权的真实数学修正：旧hexbin数据归属与实际六角已证实错位（(.1,.1)归center(1,1.5)但半径1的源六角miny=.5）；
   独立真实probe66077 terminal0证实源点不在所分格、同列邻格正面积重叠、异列邻格空隙。
   Root决定将真实分箱修正纳入尚未发布0.7/M6，先修后交付；此前Hex静态字节不变只是历史阶段证据，不能报作最终承诺。
   m4_area在7bad分支接数学fix：固定本地upstream双交错格点weighted nearest+同sx/sy六顶点，不扩API，保持已算原值metadata。
   grid已冻结：nx=gridsize,ny=max(1,floor(nx/√3))，integer/half两候选按dx²+3dy²，family tie半格；
   row=2*j+parity/column=i，occupied mincnt/首次遇到返回顺序/输入sample顺序保留；已同步UI。
   两hex卡新数据[.8,1.2,2.8,3.1,3.2]/[1.6,2.2,1.6,2,2.2] ->center(1,2)/(3,2)，row1/col0,1/count2,3；
-  m3_donut只读独立建立oracle/审查同一partition，m3_browser只更新ignored草稿；待修正后部署四卡，不能把已知错误算法当最终版本交付。
+  m3_donut只读独立oracle：有理数12513点无内部重叠/空洞，有限合法格点21786点与全中心穷举最近距离一致；
+  最终仍等实际MoonBit diff复审。m3_browser只更新ignored草稿；待修正后部署四卡，不能把已知错误算法当最终版本交付。
+  原probe实际SVG/几何证据已复制Root legacy-binning-audit/；UI已更新13组草稿，新增10次源观测点真实SVG包含+hover核验。
 - M5 post-delivery记录9e8a001已本地commit，push45303 terminal0；M5所有测试/registry/下载已结束。
   有意预览仍session43005/PID70622，grids.html与JS已HTTP200；Root adapter合并回归terminal0 JS30/30；dirty consumer演练99492 terminal0：静态4目标+Chrome17通过（旧Hex数学下，只查公开接入、绝不可上传该包）；
   Hex数学修正后只做最终正式验收，不复跑无关调查。
