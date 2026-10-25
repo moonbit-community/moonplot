@@ -1,15 +1,15 @@
 # Hexbin interaction
 
 `Figure::hexbin` and `Axes::hexbin` now prepare whole-face hover/click targets
-when `marginals=false` (the default). Static SVG output is unchanged. Rabbita's
+when `marginals=false` (the default). Rabbita's
 existing `view`, `on_event`, `tooltip`, `tooltip_class`, and hit-mode options work
 with these targets without a separate chart component.
 
 ```moonbit
 let fig = @plot.figure(width=640, height=360)
 let bins = fig.hexbin(
-  [0.1, 0.2, 2.1, 2.2, 2.3],
-  [0.1, 0.2, 0.8, 0.9, 1.0],
+  [0.8, 1.2, 2.8, 3.1, 3.2],
+  [1.6, 2.2, 1.6, 2.0, 2.2],
   values=[2.0, 6.0, 10.0, 20.0, 30.0],
   gridsize=2,
   extent=[0.0, 4.0, 0.0, 4.0],
@@ -24,6 +24,44 @@ let drawing = fig.to_drawing()
 The snippet assumes the facade package is imported as `@plot` and errors are
 propagated by the enclosing function. `bins` remains the existing `Hexbin`
 result with copying `centers()`, `values()`, and `counts()` accessors.
+
+## Corrected hexagonal partition
+
+The earlier static algorithm assigned rectangular buckets and then drew
+separately spaced hexagons. For `extent=[0,4,0,4], gridsize=2`, input `(0.1,0.1)`
+was counted in a hexagon centered at `(1,1.5)` whose lowest y was `0.5`.
+Neighboring faces could overlap or leave gaps. This release corrects the
+mathematical partition; hexbin SVG vertices, centers, counts, reduced groups,
+and numerical row/column identities can therefore change. It does not preserve
+the old incorrect static output.
+
+The corrected core follows the two interleaved lattices and weighted nearest
+selection in the pinned Matplotlib v3.11.2 `Axes.hexbin` source (`_axes.py`,
+SHA256 `f61e1cb43575eca70b01c9c80f16d3015e91a8101fe9ce0cc3fdc3d80441c8a7`).
+It keeps MoonPlot's existing typed inputs and occupied-only behavior:
+
+- `nx=gridsize`, `ny=max(1,floor(nx/sqrt(3)))`. Keeping `ny>=1` preserves the
+  accepted `gridsize=1` case. Steps are `sx=x_span/nx`, `sy=y_span/ny` in the
+  current axes' transformed coordinates.
+- Integer centers `(i,j)` and half-grid centers `(i+0.5,j+0.5)` are compared
+  using normalized `dx²+3dy²`. Nearest integer coordinates use ties-to-even;
+  equal distances between the two families choose the half grid. Half-grid
+  coordinate ties choose the floor-indexed candidate, clamped to the valid
+  finite grid at the maximum extent edges.
+- `row=2*j+parity`, `column=i`, where parity is zero for integer centers and
+  one for half centers. Odd rows shift X by half a column; rows advance by half
+  a Y step. Return order remains the first occurrence of each occupied cell.
+- The matching vertices are offsets `(±sx/2,±sy/6)` and `(0,±sy/3)`. Shared
+  vertices use identical global integer-numerator expressions, avoiding seams
+  from different arithmetic orders. Each retained sample belongs to its actual
+  face; neighboring lattice faces share edges without positive-area overlap.
+- Explicit extents retain MoonPlot's original data units, reversed-bound
+  handling and inclusive prefilter on all four edges. No extra extent padding
+  or zero-count cells are added. A sparse plot can have unpainted empty cells.
+  Input order within a reducer group is preserved.
+
+The example above has centers `(1,2)` and `(3,2)`, both on row 1, columns 0 and 1,
+and counts 2 and 3. With `mincnt=3`, only the second is returned, at index 0.
 
 ## Source metadata
 
@@ -82,10 +120,13 @@ polygons with the new drawing configuration; it does not repeat aggregation.
 
 - Only occupied cells passing `count >= mincnt` exist. `mincnt=0` does not
   synthesize empty cells. Extent filtering and the returned ordering are kept.
-- `marginals=true` keeps the entire call static for this slice. Existing
-  marginal rectangles are painted over the cells within the same axes and
-  include counts from cells filtered by `mincnt`; no Hexbin targets are emitted
-  for either the faces or these rectangles.
+- `marginals=true` keeps the entire call static for this slice. Marginal
+  rectangles are painted over the cells within the same axes and include
+  counts from cells filtered by `mincnt`; no Hexbin targets are emitted for
+  either the faces or these rectangles. X marginals group actual integer/half
+  column centers, while Y marginals group encoded rows. Their midpoint-based
+  intervals are clipped to the extent, retain each direction's total count,
+  and use that direction's maximum group count to bound the bar thickness.
 - Colormap sampling retains actual RGBA alpha for capture. Known invisible
   explicit fills (`none`, `transparent`, zero-alpha hex colors) have no interior
   target, even with a visible outline. Other CSS paints retain the existing

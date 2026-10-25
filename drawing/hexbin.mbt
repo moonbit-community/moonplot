@@ -18,6 +18,7 @@ pub extend HexbinReduction with @debug.Debug::{to_repr}
 
 ///|
 /// Original lattice indices and sample count for one occupied hexagonal bin.
+/// Even rows use integer grid centers; odd rows offset X by half a column.
 /// The original center is HitPoint.data_x/data_y; HitInfo.value is the stored
 /// count or reduced scalar, never its normalized color or logarithm.
 pub struct HexbinInfo {

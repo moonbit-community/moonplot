@@ -154,27 +154,6 @@ fn hexbin_finite(value : Double) -> Bool {
 }
 
 ///|
-fn hexbin_vertices(
-  center_x : Double,
-  center_y : Double,
-  radius : Double,
-  x_scale : @scale.Scale,
-  y_scale : @scale.Scale,
-) -> Array[@core.Point] {
-  let result = Array(capacity=6)
-  for side in 0..<6 {
-    let angle = @math.PI / 6.0 + Double::from_int(side) * @math.PI / 3.0
-    result.push(
-      @core.point(
-        x_scale.inverse(center_x + radius * @math.cos(angle)),
-        y_scale.inverse(center_y + radius * @math.sin(angle)),
-      ),
-    )
-  }
-  result
-}
-
-///|
 fn hexbin_scale_values(
   xs : Array[Double],
   ys : Array[Double],
@@ -200,20 +179,6 @@ fn hexbin_scale_values(
     scaled_ys.push(y_scale.transform(y))
   }
   (scaled_xs, scaled_ys)
-}
-
-///|
-fn hexbin_cell_index(
-  cells : Array[HexbinCell],
-  col : Int32,
-  row : Int32,
-) -> Int32? {
-  for index in 0..<cells.length() {
-    if cells[index].col == col && cells[index].row == row {
-      return Some(index)
-    }
-  }
-  None
 }
 
 ///|
@@ -331,37 +296,6 @@ fn hexbin_rectangle(
     @core.point(x_scale.inverse(xmax), y_scale.inverse(ymax)),
     @core.point(x_scale.inverse(xmin), y_scale.inverse(ymax)),
   ]
-}
-
-///|
-fn hexbin_column_count(cells : Array[HexbinCell], column : Int32) -> Int32 {
-  let mut result = 0
-  for cell in cells {
-    if cell.col == column {
-      result += cell.count
-    }
-  }
-  result
-}
-
-///|
-fn hexbin_row_count(cells : Array[HexbinCell], row : Int32) -> Int32 {
-  let mut result = 0
-  for cell in cells {
-    if cell.row == row {
-      result += cell.count
-    }
-  }
-  result
-}
-
-///|
-fn hexbin_max_row(cells : Array[HexbinCell]) -> Int32 {
-  let mut result = -1
-  for cell in cells {
-    result = Int32::max(result, cell.row)
-  }
-  result
 }
 
 ///|
@@ -545,13 +479,9 @@ pub fn Axes::hexbin(
     Some(bounds) => bounds
     None => hexbin_bounds(scaled_xs, scaled_ys)
   }
-  let diameter = (xmax - xmin) / Double::from_int(gridsize)
-  let radius = diameter / 2.0
-  let vertical_step = radius * 1.5
+  let grid = hexbin_grid(xmin, xmax, ymin, ymax, gridsize)
   let cells : Array[HexbinCell] = []
-  let binned_xs : Array[Double] = []
-  let binned_ys : Array[Double] = []
-  let binned_indices : Array[Int32] = []
+  let cell_indices : Map[(Int32, Int32), Int32] = Map([])
   for index in 0..<xs.length() {
     if scaled_xs[index] < xmin ||
       scaled_xs[index] > xmax ||
@@ -559,48 +489,33 @@ pub fn Axes::hexbin(
       scaled_ys[index] > ymax {
       continue
     }
-    binned_xs.push(scaled_xs[index])
-    binned_ys.push(scaled_ys[index])
-    binned_indices.push(index)
-  }
-  for index in 0..<binned_xs.length() {
-    let column = Double::max(
-      0.0,
-      Double::min(
-        Double::from_int(gridsize - 1),
-        ((binned_xs[index] - xmin) / diameter).to_int().to_double(),
-      ),
-    ).to_int()
-    let offset = if column % 2 == 0 { 0.0 } else { vertical_step / 2.0 }
-    let row = Double::max(
-      0.0,
-      ((binned_ys[index] - ymin - offset) / vertical_step).to_int().to_double(),
-    ).to_int()
-    let source_index = binned_indices[index]
-    match hexbin_cell_index(cells, column, row) {
+    let (column, row) = grid.cell(scaled_xs[index], scaled_ys[index])
+    match cell_indices.get((column, row)) {
       Some(cell) => {
         cells[cell].count += 1
         if values.length() > 0 {
-          cells[cell].sum += values[source_index]
-          cells[cell].samples.push(values[source_index])
+          cells[cell].sum += values[index]
+          cells[cell].samples.push(values[index])
         }
       }
-      None =>
+      None => {
+        cell_indices[(column, row)] = cells.length()
         cells.push({
           col: column,
           row,
           count: 1,
           sum: if values.length() > 0 {
-            values[source_index]
+            values[index]
           } else {
             0.0
           },
           samples: if values.length() > 0 {
-            [values[source_index]]
+            [values[index]]
           } else {
             []
           },
         })
+      }
     }
   }
   let centers : Array[@core.Point] = []
@@ -609,12 +524,7 @@ pub fn Axes::hexbin(
   let bin_indices : Array[(Int32, Int32)] = []
   for cell in cells {
     if cell.count >= mincnt {
-      let center_x = xmin + radius + Double::from_int(cell.col) * diameter
-      let offset = if cell.col % 2 == 0 { 0.0 } else { vertical_step / 2.0 }
-      let center_y = ymin +
-        radius * 1.5 +
-        Double::from_int(cell.row) * vertical_step +
-        offset
+      let (center_x, center_y) = grid.center(cell.col, cell.row)
       let value = reduce_hexbin_cell(
         cell,
         values.length() > 0,
@@ -671,6 +581,7 @@ pub fn Axes::hexbin(
   }
   for index in 0..<centers.length() {
     let center = centers[index]
+    let (row, column) = bin_indices[index]
     let stroke_color = if edgecolor == "" {
       fill_color[index]
     } else {
@@ -678,13 +589,7 @@ pub fn Axes::hexbin(
     }
     self.push_artist(
       Artist::Polygon(
-        hexbin_vertices(
-          x_scale.transform(center.x()),
-          y_scale.transform(center.y()),
-          radius,
-          x_scale,
-          y_scale,
-        ),
+        grid.vertices(column, row, x_scale, y_scale),
         @core.style(stroke_color, width=linewidth, fill=fill_color[index]),
       ),
     )
@@ -692,7 +597,6 @@ pub fn Axes::hexbin(
     // this first interaction slice wholly static for that mode, rather than
     // selecting an obscured cell through a marginal's paint.
     if !marginals && hit_paints[index] && hexbin_finite(bin_values[index]) {
-      let (row, column) = bin_indices[index]
       self.record_hit_series(label)
       self.record_hexbin(
         @render.hexbin_hit_data(
@@ -710,12 +614,17 @@ pub fn Axes::hexbin(
     }
   }
   if marginals && cells.length() > 0 {
-    let mut maximum_count = 1
-    for cell in cells {
-      maximum_count = Int32::max(maximum_count, cell.count)
+    let marginals = hexbin_marginals(cells)
+    let mut maximum_column = 1
+    let mut maximum_row = 1
+    for _, count in marginals.columns {
+      maximum_column = maximum_column.max(count)
     }
-    let marginal_height = Double::min((ymax - ymin) * 0.2, vertical_step * 0.75)
-    let marginal_width = Double::min((xmax - xmin) * 0.2, diameter * 0.75)
+    for _, count in marginals.rows {
+      maximum_row = maximum_row.max(count)
+    }
+    let marginal_height = Double::min((ymax - ymin) * 0.2, grid.sy / 4.0)
+    let marginal_width = Double::min((xmax - xmin) * 0.2, grid.sx / 4.0)
     let marginal_color = if color == "" { legend_color } else { color }
     let marginal_style = @core.style(
       if edgecolor == "" {
@@ -726,45 +635,34 @@ pub fn Axes::hexbin(
       width=linewidth,
       fill=marginal_color,
     )
-    for column in 0..<gridsize {
-      let count = hexbin_column_count(cells, column)
-      if count > 0 {
-        let lower = xmin + Double::from_int(column) * diameter
-        let upper = lower + diameter
-        let height = marginal_height *
-          Double::from_int(count) /
-          Double::from_int(maximum_count)
-        self.push_artist(
-          Artist::Polygon(
-            hexbin_rectangle(
-              lower,
-              upper,
-              ymin,
-              ymin + height,
-              x_scale,
-              y_scale,
-            ),
-            marginal_style,
-          ),
-        )
-      }
+    for (column, parity), count in marginals.columns {
+      let center = xmin +
+        (column.to_double() + parity.to_double() / 2.0) * grid.sx
+      let lower = xmin.max(center - grid.sx / 4.0)
+      let upper = xmax.min(center + grid.sx / 4.0)
+      let height = marginal_height *
+        Double::from_int(count) /
+        Double::from_int(maximum_column)
+      self.push_artist(
+        Artist::Polygon(
+          hexbin_rectangle(lower, upper, ymin, ymin + height, x_scale, y_scale),
+          marginal_style,
+        ),
+      )
     }
-    let last_row = hexbin_max_row(cells)
-    for row in 0..<=last_row {
-      let count = hexbin_row_count(cells, row)
-      if count > 0 {
-        let lower = ymin + Double::from_int(row) * vertical_step
-        let upper = lower + vertical_step
-        let width = marginal_width *
-          Double::from_int(count) /
-          Double::from_int(maximum_count)
-        self.push_artist(
-          Artist::Polygon(
-            hexbin_rectangle(xmax - width, xmax, lower, upper, x_scale, y_scale),
-            marginal_style,
-          ),
-        )
-      }
+    for row, count in marginals.rows {
+      let center = ymin + row.to_double() / 2.0 * grid.sy
+      let lower = ymin.max(center - grid.sy / 4.0)
+      let upper = ymax.min(center + grid.sy / 4.0)
+      let width = marginal_width *
+        Double::from_int(count) /
+        Double::from_int(maximum_row)
+      self.push_artist(
+        Artist::Polygon(
+          hexbin_rectangle(xmax - width, xmax, lower, upper, x_scale, y_scale),
+          marginal_style,
+        ),
+      )
     }
   }
   self.add_auto_legend(label, legend_color, LegendKind::Patch)

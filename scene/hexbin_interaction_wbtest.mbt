@@ -21,8 +21,8 @@ fn hexbin_pair(
   label~ : String = "Bins",
 ) -> Hexbin raise {
   ax.hexbin(
-    [0.1, 0.2, 2.1, 2.2, 2.3],
-    [0.1, 0.2, 0.8, 0.9, 1.0],
+    [0.8, 1.2, 2.8, 3.1, 3.2],
+    [1.6, 2.2, 1.6, 2.0, 2.2],
     gridsize=2,
     extent=[0.0, 4.0, 0.0, 4.0],
     mincnt~,
@@ -37,7 +37,7 @@ test "hexbin interaction returns real centers lattice indices counts and values 
   let (fig, ax) = hexbin_axes()
   let bins = hexbin_pair(ax)
   assert_eq(bins.counts(), [2, 3])
-  assert_eq(bins.centers().map(p => (p.x(), p.y())), [(1.0, 1.5), (3.0, 2.25)])
+  assert_eq(bins.centers().map(p => (p.x(), p.y())), [(1.0, 2.0), (3.0, 2.0)])
   let frame = fig.to_drawing()
   assert_eq(frame.svg(), fig.to_svg_checked())
   assert_eq(frame.points().length(), 2)
@@ -51,7 +51,7 @@ test "hexbin interaction returns real centers lattice indices counts and values 
     assert_eq(first.info.value, bins.values()[index])
     assert_eq(
       first.info.hexbin,
-      Some(@drawing.hexbin_info(0, index, index + 2)),
+      Some(@drawing.hexbin_info(1, index, index + 2)),
     )
     assert_eq(first.info.point.point_index, index)
     for target in [first, second] {
@@ -73,7 +73,7 @@ test "hexbin interaction returns real centers lattice indices counts and values 
     assert_eq(frame.hit_test(p.screen_x, p.screen_y, radius=0.0), Some(p))
   }
   // The first bin's top-right bounding-box corner lies outside the hexagon.
-  assert_eq(frame.hit_test(180.0, 77.0, radius=1000.0), None)
+  assert_eq(frame.hit_test(190.0, 40.0, radius=1000.0), None)
 }
 
 ///|
@@ -146,7 +146,7 @@ test "hexbin interaction mincnt extent and empty bins follow the original return
   assert_eq(result.counts(), [3])
   let info = fig.to_drawing().targets()[0].info
   assert_eq(info.point.point_index, 0)
-  assert_eq(info.hexbin, Some(@drawing.hexbin_info(0, 1, 3)))
+  assert_eq(info.hexbin, Some(@drawing.hexbin_info(1, 1, 3)))
   ax.clear()
   ignore(hexbin_pair(ax))
   ax.set_x_limits(2.0, 4.0)
@@ -261,17 +261,17 @@ test "hexbin interaction logarithmic symmetric and reversed axes use actual mapp
 ///|
 test "hexbin interaction retains visible faces when centers lie outside limits and rejects painter-truncated faces" {
   let (fig, ax) = hexbin_axes()
-  ignore(ax.hexbin([0.1], [0.1], gridsize=2, extent=[0.0, 4.0, 0.0, 4.0]))
+  ignore(ax.hexbin([0.8], [1.6], gridsize=2, extent=[0.0, 4.0, 0.0, 4.0]))
   ax.set_x_limits(1.2, 2.0)
   let frame = fig.to_drawing()
   assert_true(frame.points()[0].screen_x < 0.0)
-  let p = frame.hit_test(100.0, 125.0, radius=0.0).unwrap()
-  assert_eq((p.data_x, p.data_y), (1.0, 1.5))
+  let p = frame.hit_test(100.0, 100.0, radius=0.0).unwrap()
+  assert_eq((p.data_x, p.data_y), (1.0, 2.0))
   assert_eq(frame.hit_test(-1.0, 125.0), None)
   // Later axis-domain changes can make append_polygon discard source vertices.
   ax.clear()
   ax.set_x_scale(@scale.linear_scale())
-  ignore(ax.hexbin([-0.1], [0.1], gridsize=1, extent=[-1.0, 1.0, 0.0, 4.0]))
+  ignore(ax.hexbin([0.2], [1.8], gridsize=2, extent=[-0.25, 1.75, 0.0, 4.0]))
   ax.set_x_scale(@scale.log_scale())
   ax.set_x_limits(0.01, 2.0)
   let incomplete = fig.to_drawing()
@@ -285,8 +285,8 @@ test "hexbin interaction color equality preserves series identity and later face
   ignore(hexbin_pair(ax, color="red", label="First"))
   ignore(
     ax.hexbin(
-      [0.1],
-      [0.1],
+      [0.8],
+      [1.6],
       values=[42.0],
       gridsize=2,
       extent=[0.0, 4.0, 0.0, 4.0],
@@ -297,7 +297,7 @@ test "hexbin interaction color equality preserves series identity and later face
   let frame = fig.to_drawing()
   assert_eq(frame.points().length(), 3)
   let expected = frame.points()[2]
-  for (x, y) in [(80.0, 110.0), (120.0, 140.0), (100.0, 125.0)] {
+  for (x, y) in [(80.0, 80.0), (120.0, 120.0), (100.0, 100.0)] {
     let p = frame.hit_test(x, y, radius=0.0).unwrap()
     assert_eq(p, expected)
     assert_eq(frame.hit_info(p).unwrap().series, "Last")
@@ -310,14 +310,14 @@ test "hexbin interaction both halves retain statistical overlay priority and rev
   for error_first in [false, true] {
     let (fig, ax) = hexbin_axes()
     if error_first {
-      ax.errorbar([0.8, 1.2], [1.8, 1.2], xerr=[0.15, 0.15], label="Measured")
+      ax.errorbar([0.8, 1.2], [2.4, 1.6], xerr=[0.15, 0.15], label="Measured")
     }
-    ignore(ax.hexbin([0.1], [0.1], gridsize=2, extent=[0.0, 4.0, 0.0, 4.0]))
+    ignore(ax.hexbin([0.8], [1.6], gridsize=2, extent=[0.0, 4.0, 0.0, 4.0]))
     if !error_first {
-      ax.errorbar([0.8, 1.2], [1.8, 1.2], xerr=[0.15, 0.15], label="Measured")
+      ax.errorbar([0.8, 1.2], [2.4, 1.6], xerr=[0.15, 0.15], label="Measured")
     }
     let frame = fig.to_drawing()
-    for (x, y) in [(80.0, 110.0), (120.0, 140.0)] {
+    for (x, y) in [(80.0, 80.0), (120.0, 120.0)] {
       for mode in [@drawing.HitMode::Nearest, XNearest] {
         let p = frame.hit_test(x, y, radius=1.0e-10, mode~).unwrap()
         assert_eq(

@@ -245,8 +245,9 @@ test "hexbin extent clips points before aggregation" {
     reduce="sum",
     extent=[0.0, 1.0, 0.0, 1.0],
   )
-  assert_eq(bins.counts(), [2])
-  assert_eq(bins.values(), [4.0])
+  // True hexagonal Voronoi cells separate the corner and half-grid center.
+  assert_eq(bins.counts(), [1, 1])
+  assert_eq(bins.values(), [1.0, 3.0])
   assert_true(bins.centers()[0].x() >= 0.0)
   assert_true(bins.centers()[0].x() <= 1.0)
 }
