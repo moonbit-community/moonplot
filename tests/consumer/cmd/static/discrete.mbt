@@ -29,13 +29,18 @@ fn verify_step_consumer() -> Unit raise {
       let i = info.point.point_index
       assert_true(i >= 0 && i < 3)
       assert_eq(info.series, "Steps")
-      assert_eq((info.point.data_x, info.point.data_y), (expected_x[i], expected_y[i]))
+      assert_eq(
+        (info.point.data_x, info.point.data_y),
+        (expected_x[i], expected_y[i]),
+      )
       assert_eq(info.value, expected_y[i])
       assert_eq(info.interval, intervals[i])
       assert_eq(frame.hit_info(info.point), Some(info))
       if target.shape is @plot.HitShape::Segment(x0, y0, x1, y1) {
         saw_segment = true
-        let picked = frame.hit_test((x0 + x1) / 2.0, (y0 + y1) / 2.0, radius=0.0).unwrap()
+        let picked = frame
+          .hit_test((x0 + x1) / 2.0, (y0 + y1) / 2.0, radius=0.0)
+          .unwrap()
         let actual = frame.hit_info(picked).unwrap()
         assert_eq((actual.point.point_index, actual.value), (i, expected_y[i]))
       }
@@ -69,7 +74,17 @@ fn verify_step_roundtrip_consumer() -> Unit raise {
   let scale = (width / 401.0).min(height / 257.0)
   let client_x = left + (width - 401.0 * scale) / 2.0 + source.screen_x * scale
   let client_y = top + (height - 257.0 * scale) / 2.0 + source.screen_y * scale
-  let picked = frame.hit_test_client(client_x, client_y, left, top, width, height, radius=1.0e-6).unwrap()
+  let picked = frame
+    .hit_test_client(
+      client_x,
+      client_y,
+      left,
+      top,
+      width,
+      height,
+      radius=1.0e-6,
+    )
+    .unwrap()
   let info = frame.hit_info(picked).unwrap()
   assert_eq((info.point.point_index, info.value), (0, 2.3))
   assert_eq((info.point.data_x, info.point.data_y), (0.2, 2.3))
@@ -110,7 +125,14 @@ fn verify_stairs_consumer() -> Unit raise {
         let end = if i == 0 { 1.0 } else { 4.0 }
         assert_eq(info.value, value)
         assert_eq(info.interval, Some((start, end)))
-        assert_eq((info.point.data_x, info.point.data_y), if horizontal { (value, start) } else { (start, value) })
+        assert_eq(
+          (info.point.data_x, info.point.data_y),
+          if horizontal {
+            (value, start)
+          } else {
+            (start, value)
+          },
+        )
         assert_eq(frame.hit_info(info.point), Some(info))
         if filled {
           let band = info.band.unwrap()
@@ -165,20 +187,120 @@ fn verify_ecdf_consumer() -> Unit raise {
           assert_true(i >= 0 && i < values.length())
           assert_eq(info.value, values[i])
           assert_eq(info.fraction, Some(probabilities[i]))
-          assert_eq(info.interval, if i + 1 < values.length() { Some((values[i], values[i + 1])) } else { None })
-          let before = if i == 0 { if complementary { 1.0 } else { 0.0 } } else { probabilities[i - 1] }
+          assert_eq(
+            info.interval,
+            if i + 1 < values.length() {
+              Some((values[i], values[i + 1]))
+            } else {
+              None
+            },
+          )
+          let before = if i == 0 {
+            if complementary {
+              1.0
+            } else {
+              0.0
+            }
+          } else {
+            probabilities[i - 1]
+          }
           let band = info.band.unwrap()
           assert_eq((band.lower, band.upper), (before, probabilities[i]))
           assert_eq(band.horizontal, horizontal)
           assert_true(!band.stacked)
-          assert_eq((info.point.data_x, info.point.data_y), if horizontal { (probabilities[i], values[i]) } else { (values[i], probabilities[i]) })
+          assert_eq(
+            (info.point.data_x, info.point.data_y),
+            if horizontal {
+              (probabilities[i], values[i])
+            } else {
+              (values[i], probabilities[i])
+            },
+          )
           assert_eq(frame.hit_info(info.point), Some(info))
         }
         if compressed {
           assert_eq(values, [1.0, 3.0, 4.0])
-          assert_eq(probabilities, if complementary { [0.625, 0.25, 0.0] } else { [0.375, 0.75, 1.0] })
+          assert_eq(
+            probabilities,
+            if complementary {
+              [0.625, 0.25, 0.0]
+            } else {
+              [0.375, 0.75, 1.0]
+            },
+          )
         }
       }
     }
+  }
+}
+
+///|
+fn verify_discrete_coincident_consumer() -> Unit raise {
+  let figure = @plot.figure(width=400, height=200)
+  let axes = figure.add_axes(0.0, 0.0, 1.0, 1.0)
+  axes.set_x_limits(0.0, 10.0)
+  axes.set_y_limits(0.0, 10.0)
+  axes.legend([])
+  axes.step([2.0, 2.0, 8.0], [3.0, 3.0, 6.0], where_="pre")
+  let frame = figure.to_drawing()
+  for mode in [@plot.HitMode::Nearest, XNearest] {
+    let info = frame
+      .hit_info(frame.hit_test(80.0, 140.0, radius=0.0, mode~).unwrap())
+      .unwrap()
+    assert_eq(info.kind, @plot.HitKind::Step)
+    assert_eq(
+      (info.point.point_index, info.value, info.interval),
+      (1, 3.0, Some((2.0, 2.0))),
+    )
+  }
+  let repeated = @plot.figure(width=400, height=200)
+  let repeated_axes = repeated.add_axes(0.0, 0.0, 1.0, 1.0)
+  repeated_axes.set_x_limits(0.0, 10.0)
+  repeated_axes.set_y_limits(0.0, 10.0)
+  repeated_axes.legend([])
+  repeated_axes.step([2.0, 2.0, 2.0, 8.0], [3.0, 3.0, 3.0, 6.0], where_="pre")
+  let repeated_frame = repeated.to_drawing()
+  for mode in [@plot.HitMode::Nearest, XNearest] {
+    let info = repeated_frame
+      .hit_info(
+        repeated_frame.hit_test(80.0, 140.0, radius=0.0, mode~).unwrap(),
+      )
+      .unwrap()
+    assert_eq(
+      (info.point.point_index, info.value, info.interval),
+      (2, 3.0, Some((2.0, 2.0))),
+    )
+  }
+  let snapped = repeated_frame
+    .hit_info(
+      repeated_frame
+      .hit_test(80.0, 180.0, radius=0.0, mode=@plot.HitMode::XNearest)
+      .unwrap(),
+    )
+    .unwrap()
+  assert_eq(
+    (snapped.point.point_index, snapped.value, snapped.interval),
+    (2, 3.0, Some((2.0, 2.0))),
+  )
+  let cumulative = @plot.figure(width=400, height=200)
+  let ecdf_axes = cumulative.add_axes(0.0, 0.0, 1.0, 1.0)
+  ecdf_axes.set_x_limits(0.0, 4.0)
+  ecdf_axes.set_y_limits(0.0, 2.0)
+  ecdf_axes.legend([])
+  let result = ecdf_axes.ecdf([1.0, 3.0, 3.0], weights=[1.0, 1.0, 0.0])
+  assert_eq(result.values(), [1.0, 3.0, 3.0])
+  assert_eq(result.probabilities(), [0.5, 1.0, 1.0])
+  let ecdf_frame = cumulative.to_drawing()
+  for mode in [@plot.HitMode::Nearest, XNearest] {
+    let info = ecdf_frame
+      .hit_info(ecdf_frame.hit_test(300.0, 100.0, radius=0.0, mode~).unwrap())
+      .unwrap()
+    assert_eq(info.kind, @plot.HitKind::Ecdf)
+    assert_eq(
+      (info.point.point_index, info.value, info.fraction, info.interval),
+      (2, 3.0, Some(1.0), None),
+    )
+    let band = info.band.unwrap()
+    assert_eq((band.lower, band.upper), (1.0, 1.0))
   }
 }
