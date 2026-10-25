@@ -19,6 +19,8 @@ an SVG rendering pipeline.
   box, and violin plots.
 - **Scientific plots:** error bars, filled regions, contours, triangulated meshes,
   vector fields, and stream plots.
+- **Polar plots:** radial lines and scatter points, plus closed radar outlines
+  with category labels, angle direction, radial ticks, and circular clipping.
 - **Images and color:** scalar and RGB(A) images, heatmaps, color maps,
   normalization, masks, and colorbars.
 - **Figure composition:** multiple axes, shared axes, nested grids, secondary
@@ -48,11 +50,12 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses the published **`Lampese/mathplotlib@0.15.0`** module. See [installation and migration instructions](docs/PUBLISHING.md).
+MoonPlot uses the unified **`Lampese/mathplotlib`** module. The current source is the
+**0.16.0 release candidate**; see [publication status and installation instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.15.0
+moon add Lampese/mathplotlib@0.16.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add
@@ -318,6 +321,22 @@ the field and style grids. See the [streamplot guide](docs/STREAMPLOT_INTERACTIO
 for generated midpoint semantics and the static arrow boundary.
 
 ![Continuous streamlines and sampled fields in Rabbita](assets/streamlines.png)
+
+### Polar plots and radar outlines
+
+```sh
+moon build rabbita/cmd/polar --target js
+```
+
+Open [the polar and radar example](http://127.0.0.1:8765/rabbita/polar.html)
+to change data, switch angle direction, toggle each series, and remount both
+charts. `Figure::add_polar_axes` accepts raw angles in radians and nonnegative
+radii. Radar profiles retain their original categories and share one radial
+scale. Both SVG and Rabbita DOM use a true circular clip in rectangular panels.
+This first polar slice provides static charts with application-controlled
+updates; polar hover values are planned separately. See the [polar guide](docs/POLAR.md).
+
+![Polar lines, scatter points and radar outlines in Rabbita](assets/polar.png)
 
 ### Current scope
 

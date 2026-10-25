@@ -96,6 +96,14 @@ once. `backend/svg/tricolor_hit.mbt` and the contourf collector share the small
 scalar semantics and source ownership remain separate. `drawing/tricolor.mbt`
 provides readonly metadata. No full mesh is copied or searched per face.
 
+Polar plots have a typed Scene owner in `scene/polar.mbt`, a copied readonly
+configuration in `internal/render/polar.mbt`, and a dedicated SVG path in
+`backend/svg/polar.mbt`. Original theta/radius pairs remain ordinary Line/Scatter
+data; projection and an optional closing vertex are produced only for painting.
+The polar branch bypasses Cartesian range/tick/aspect preparation and emits a
+data-only circular clip. This first slice produces no polar hit targets, while
+ordinary panels in mixed figures retain their existing interaction paths.
+
 ## Generated data and reference tests
 
 `internal/color_names` owns the complete pinned named-color table. Its three

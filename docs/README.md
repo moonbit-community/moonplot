@@ -41,6 +41,7 @@ Start with the [project README](../README.md) to render a chart.
 - [Triangular face values and vertex means: completed M13](MILESTONE_M13.md)
 - [Continuous streamline field samples: completed M14](MILESTONE_M14.md)
 - [Current milestone: polar plots and radar outlines](MILESTONE_M15.md)
+- [Polar plots, radial scales and closed radar outlines](POLAR.md)
 - [Rabbita interactive DOM implementation and acceptance](RABBITA_DOM.md)
 - [Current execution checkpoint](MIGRATION_STATUS.md)
 - [Upstream survey](UPSTREAM_SURVEY.md)
