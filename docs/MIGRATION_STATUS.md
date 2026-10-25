@@ -24,24 +24,26 @@
 - [x] Root两组组合回归19233 terminal0，四目标各2/2：Step/Area、Step/Hex两paint顺序与两HitMode；scene/discrete_overlay_wbtest.mbt。
 - [x] m4_area固定efd9d07独立复审与16ae5ab bounded复核已交：Native15/JS15公开消费、各4个guard白盒、14实际XML路径/14旧源SVG字节控制均过；证据已复制Root step-review/。
   真实阻塞：原Point经meet client往返有55/810误选incoming；401×257/full axes,limits[-1.7,4.8]/[-3.2,10.3],pre xs[.2,1.9,4.1],ys[2.3,7.2,4.4]，viewport17.7/5.9/377.7/255.7，1e-6radius回i1而应i0。
-  810逆变换有约4e-14误差；Root已新增verify_step_roundtrip_consumer，13936 terminal0：实际dirty包静态4目标+Chrome19通过；12048两组合四目标各2/2亦过，新增consumer回归待提交。owner精确fix16ae5ab376a93861cc83fdfc3008e59bc2a5351c已合88bf8ad，m4 bounded复核Native810/810、JS810/810，两端各12controls通过，原55误选归零；近点1e-8/1e-6SVGpx仍incoming、同artist/不同artist/旧Line严格规则保留；未重跑已过15/guard/14SVG。
+  810逆变换有约4e-14误差；Root已新增verify_step_roundtrip_consumer，13936 terminal0：实际dirty包静态4目标+Chrome19通过；12048两组合四目标各2/2亦过，consumer回归已随92e81ea提交。owner精确fix16ae5ab376a93861cc83fdfc3008e59bc2a5351c已合88bf8ad，m4 bounded复核Native810/810、JS810/810，两端各12controls通过，原55误选归零；近点1e-8/1e-6SVGpx仍incoming、同artist/不同artist/旧Line严格规则保留；未重跑已过15/guard/14SVG。
   修复精确SHA与Root一致：drawing/discrete.mbt=ba3dec872177cb008372b429340e4efd2d6c99fab99a7a103eda6cf90a913c73，proximity.mbt=db7b53bb2abd6e46572faa8dcfb91624316f9ebf0335f0c3a674b8c09a223547。
 - [x] Stairs 2dbf50fa3d62eaf6a7a2628ae81faf05a0afc2e6已合f451acd：outline复用Line guard/edge map；filled只在全原polygon匹配、finite/原与映射strictmonotone后生成真实interval strips。
   Native16/16、8516定向四目标各80/80、adapter34/34、14旧SVG逐字/info/fmt/结构通过；无新公共struct，仅internal datum_count。
 - [x] Root Stairs公开消费32702 terminal0：dirty包静态4+Chrome21，横向非零baseline正负值/非等宽源区间全部通过；不得上传演练包。
-- [ ] m4_area固定2dbf50fa正在独立Stairs几何/原datum/坏面非虚构/clip与非线性反向验证；仅定向Native/JS，不重跑Step。
+- [x] m4_area固定2dbf50fa独立Stairs复审冻结：Native/JS各29/29、22实际XML path、5000个point-in-polygon/实际rect并集控制、两个专用Native guard各1/1，全terminal0无阻塞。
+  覆盖横竖/正负非零baseline/双轴反向、NaN整面拒绝、Log0删baseline、原/映射回折与退化、双Log/zero-area索引洞、clip及outline有效run。
+  Root已复制stairs-review/三个冻结证据，manifest全部7份production SHA逐一匹配；无ECDF验收外推。
 - [ ] m3_donut own codex/m7-discrete当前ECDF首production check2545 terminal0/0errors，正在加returned slot/weights/compress/CCDF/zero-weight duplicates与callback定向测试。
   仅builder和共享actual-run capture小改，不改原排序/累加/静态SVG；需定向重验Step/Stairs，Root最终再全套。
   每片专项、adapter/旧SVG/info/fmt/结构后coherent commit交Root；不改版本/中央docs、不push发布。
 - [ ] m3_browser Root ignored draft四卡/14组runner/HANDOFF已完成，仅moonfmt/Node语法通过；未授权部署/编译/Chrome/截图。
 - Root consumer的Step/Stairs已部署并真实验过；ignored consumer-draft内Ecdf片段待最后源实现，尚未部署。
   三组合回归第三组ECDF/Stairs只在ignored全量草稿，尚未部署；后续补回完整文件。
-- 精确下一动作：提交Root已过Stairs公开消费/收独立复审 → 合ECDF/扩完整consumer与第三组合 → 授权UI七文件部署/Chrome14 → 最终全套/正式0.8包/实际发布。
+- 精确下一动作：Stairs源/公开消费已提交且独立复审已收 → 合ECDF/扩完整consumer与第三组合 → 授权UI七文件部署/Chrome14 → 最终全套/正式0.8包/实际发布。
   不重开19图调查；Stem定点设计保留next-stem-notes.md，尚未实现。
 - Rootowns合入/公开冲突、consumer、中央文档/版本和实际发布；不新开agent。精确设计Root .moonagent/checkpoints/M7-discrete/design/。
 - Root Step源b27f6a9、验证5f010cd、consumer/0.8候选版与两组合回归47d1435已push65503 terminal0。
   Root source fix88bf8ad/public endpoint回归92e81ea已push55820 terminal0。
-  当前Root未提交仅已验证的Stairs消费5文件与checkpoint，Stairs源f451acd尚待push；所有改动均Root自身。
+  Root Stairs源f451acd与consumer/checkpoint419075b均已push70680 terminal0；仅后续checkpoint更新未提交，所有改动均Root自身。
 - 无Root测试/下载live，唯一有意服务8765/session43005/PID70622；M6发布与核验都已闭环。
 
 ## 最新交付：M6 六边形分箱与小提琴分布（2026-10-25）
