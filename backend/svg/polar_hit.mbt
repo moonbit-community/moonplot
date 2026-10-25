@@ -15,7 +15,17 @@ fn polar_inside_circle(
     let ratio = low / high
     high * (1.0 + ratio * ratio).sqrt()
   }
-  radius > 0.0 && polar_finite(dx) && polar_finite(dy) && distance <= radius
+  // Affine projection and subtraction can move a mathematical boundary by a
+  // few binary64 rounding steps. This matches Drawing admission, independently
+  // of CSS scale and hover radius. The raw radial domain is checked separately.
+  let roundoff = 4.0 *
+    2.220446049250313e-16 *
+    x.abs().max(y.abs()).max(cx.abs()).max(cy.abs()).max(radius.abs())
+  radius > 0.0 &&
+  polar_finite(dx) &&
+  polar_finite(dy) &&
+  polar_finite(distance) &&
+  (distance <= radius || distance - radius <= roundoff)
 }
 
 ///|
@@ -30,12 +40,15 @@ fn collect_polar_point(
   y : Double,
   circle : (Double, Double, Double),
   bounds : (Double, Double, Double, Double),
+  maximum : Double,
 ) -> Unit {
   if index < 0 || index >= used.length() || used[index] {
     return
   }
   guard source.point(index) is Some(raw) else { return }
-  if !polar_raw_valid(raw) || !polar_inside_circle(x, y, circle) {
+  if !polar_raw_valid(raw) ||
+    raw.y() > maximum ||
+    !polar_inside_circle(x, y, circle) {
     return
   }
   let point = @drawing.hit_point(
@@ -60,8 +73,8 @@ fn collect_polar_point(
 }
 
 ///|
-// The callback runs only after this exact projected valid run is written.
-// Original indices survive NaN splits; the synthetic closing index is ignored.
+// Actual valid runs retain original indices. Only the renderer's one appended
+// closing vertex can give original sample zero an additional painted endpoint.
 fn polar_line_capture(
   output : DrawingCapture?,
   source : @render.PolarHitData?,
@@ -70,6 +83,8 @@ fn polar_line_capture(
   artist_index : Int32,
   position : (Double, Double, Double, Double),
   circle : (Double, Double, Double),
+  maximum : Double,
+  closed : Bool,
 ) -> ((Array[@core.Point], Int32) -> Unit)? {
   guard output is Some(hits) && source is Some(data) else { return None }
   if !discrete_line_visible(style) ||
@@ -84,6 +99,7 @@ fn polar_line_capture(
     let screen = points.map(p => {
       (map_x(scale, left, width, p.x()), map_y(scale, top, height, p.y()))
     })
+    let painted = [ for _ in 0..<screen.length() => false ]
     for i in 0..<(screen.length() - 1) {
       let a = screen[i]
       let b = screen[i + 1]
@@ -94,30 +110,35 @@ fn polar_line_capture(
         !polar_finite(b.1) {
         continue
       }
-      collect_polar_point(
-        hits,
-        used,
-        data,
-        start + i,
-        panel_index,
-        artist_index,
-        a.0,
-        a.1,
-        circle,
-        position,
-      )
-      collect_polar_point(
-        hits,
-        used,
-        data,
-        start + i + 1,
-        panel_index,
-        artist_index,
-        b.0,
-        b.1,
-        circle,
-        position,
-      )
+      painted[i] = true
+      painted[i + 1] = true
+    }
+    if closed &&
+      start == 0 &&
+      screen.length() == data.length() + 1 &&
+      screen.length() > 1 &&
+      screen[0] == screen[screen.length() - 1] &&
+      painted[painted.length() - 1] {
+      painted[0] = true
+    }
+    // Emit original order to preserve first-point ties at coincident anchors.
+    for i in 0..<screen.length() {
+      if painted[i] {
+        let (x, y) = screen[i]
+        collect_polar_point(
+          hits,
+          used,
+          data,
+          start + i,
+          panel_index,
+          artist_index,
+          x,
+          y,
+          circle,
+          position,
+          maximum,
+        )
+      }
     }
   })
 }
@@ -131,6 +152,7 @@ fn polar_marker_capture(
   artist_index : Int32,
   position : (Double, Double, Double, Double),
   circle : (Double, Double, Double),
+  maximum : Double,
 ) -> ((Int32, Double, Double) -> Unit)? {
   guard output is Some(hits) && source is Some(data) else { return None }
   let fill = if style.fill() == "" { style.color() } else { style.fill() }
@@ -144,6 +166,7 @@ fn polar_marker_capture(
   Some((index, x, y) => {
     collect_polar_point(
       hits, used, data, index, panel_index, artist_index, x, y, circle, position,
+      maximum,
     )
   })
 }

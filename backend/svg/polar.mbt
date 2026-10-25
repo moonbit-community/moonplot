@@ -344,7 +344,15 @@ fn append_polar_panel(
             mapped,
             style,
             on_segment=polar_line_capture(
-              capture, source, style, panel_index, i, position, circle,
+              capture,
+              source,
+              style,
+              panel_index,
+              i,
+              position,
+              circle,
+              maximum,
+              config.closed(i),
             ),
           )
         }
@@ -367,7 +375,7 @@ fn append_polar_panel(
             mapped,
             style,
             on_circle=polar_marker_capture(
-              capture, source, style, panel_index, i, position, circle,
+              capture, source, style, panel_index, i, position, circle, maximum,
             ),
           )
         }

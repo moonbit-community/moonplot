@@ -29,7 +29,7 @@ pub fn Drawing::polar_circle(
   self : Drawing,
   panel_index : Int32,
 ) -> (Double, Double, Double)? {
-  self.polar_circles.get(panel_index).flatten()
+  self.polar_circles.get(panel_index).bind(value => value)
 }
 
 ///|
@@ -46,7 +46,16 @@ fn Drawing::polar_admits(
     Some(Some((cx, cy, radius))) => {
       let dx = x - cx
       let dy = y - cy
-      finite(dx) && finite(dy) && hit_distance(dx, dy) <= radius
+      let distance = hit_distance(dx, dy)
+      // Use the same projection-roundoff bound as the polar collector. It is
+      // intrinsic numeric error, never a CSS or caller-supplied hit tolerance.
+      let roundoff = 4.0 *
+        2.220446049250313e-16 *
+        x.abs().max(y.abs()).max(cx.abs()).max(cy.abs()).max(radius.abs())
+      finite(dx) &&
+      finite(dy) &&
+      finite(distance) &&
+      (distance <= radius || distance - radius <= roundoff)
     }
   }
 }
