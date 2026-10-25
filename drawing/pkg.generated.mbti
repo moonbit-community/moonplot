@@ -8,13 +8,15 @@ import {
 // Values
 pub fn band_info(Double, Double, horizontal? : Bool, stacked? : Bool) -> BandInfo
 
+pub fn box_info(Int, q1~ : Double, median~ : Double, q3~ : Double, lower_whisker~ : Double, upper_whisker~ : Double, part? : BoxPart) -> BoxInfo
+
 pub fn cell_info(Int, Int, (Double, Double), (Double, Double)) -> CellInfo
 
 pub fn drawing(Int, Int, String, Array[HitPoint], targets? : Array[HitTarget], exclusions? : Array[(Int, (Double, Double, Double, Double))]) -> Drawing
 
 pub fn error_info((Double, Double), (Double, Double)) -> ErrorInfo
 
-pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?, band? : BandInfo?) -> HitInfo
+pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?, band? : BandInfo?, box? : BoxInfo?) -> HitInfo
 
 pub fn hit_point(Int, Int, Int, Double, Double, Double, Double) -> HitPoint
 
@@ -32,6 +34,31 @@ pub struct BandInfo {
 pub fn BandInfo::equal(Self, Self) -> Bool
 pub fn BandInfo::not_equal(Self, Self) -> Bool
 pub fn BandInfo::to_repr(Self) -> @debug.Repr
+
+pub struct BoxInfo {
+  group_index : Int
+  q1 : Double
+  median : Double
+  q3 : Double
+  lower_whisker : Double
+  upper_whisker : Double
+  part : BoxPart
+} derive(Eq, @debug.Debug)
+pub fn BoxInfo::equal(Self, Self) -> Bool
+pub fn BoxInfo::not_equal(Self, Self) -> Bool
+pub fn BoxInfo::to_repr(Self) -> @debug.Repr
+
+pub(all) enum BoxPart {
+  Box
+  LowerWhisker
+  UpperWhisker
+  LowerCap
+  UpperCap
+  Outlier(Double)
+} derive(Eq, @debug.Debug)
+pub fn BoxPart::equal(Self, Self) -> Bool
+pub fn BoxPart::not_equal(Self, Self) -> Bool
+pub fn BoxPart::to_repr(Self) -> @debug.Repr
 
 pub struct CellInfo {
   row : Int
@@ -75,6 +102,7 @@ pub struct HitInfo {
   cell : CellInfo?
   error : ErrorInfo?
   band : BandInfo?
+  box : BoxInfo?
 } derive(Eq, @debug.Debug)
 pub fn HitInfo::equal(Self, Self) -> Bool
 pub fn HitInfo::not_equal(Self, Self) -> Bool
@@ -90,6 +118,7 @@ pub(all) enum HitKind {
   Heatmap
   ErrorBar
   Area
+  BoxPlot
 } derive(Eq, @debug.Debug)
 pub fn HitKind::equal(Self, Self) -> Bool
 pub fn HitKind::not_equal(Self, Self) -> Bool

@@ -33,6 +33,8 @@ pub using @drawing {
   type CellInfo,
   type ErrorInfo,
   type BandInfo,
+  type BoxInfo,
+  type BoxPart,
   type HitKind,
   type HitMode,
   type HitShape,

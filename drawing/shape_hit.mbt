@@ -43,6 +43,24 @@ fn valid_info(info : HitInfo) -> Bool {
   (match info.band {
     Some(band) => finite(band.lower) && finite(band.upper)
     None => true
+  }) &&
+  (match info.box {
+    Some(box) =>
+      box.group_index >= 0 &&
+      finite(box.lower_whisker) &&
+      finite(box.q1) &&
+      finite(box.median) &&
+      finite(box.q3) &&
+      finite(box.upper_whisker) &&
+      box.lower_whisker <= box.q1 &&
+      box.q1 <= box.median &&
+      box.median <= box.q3 &&
+      box.q3 <= box.upper_whisker &&
+      (match box.part {
+        Outlier(value) => finite(value)
+        _ => true
+      })
+    None => true
   })
 }
 

@@ -28,6 +28,7 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     Heatmap => "heatmap"
     ErrorBar => "errorbar"
     Area => "area"
+    BoxPlot => "boxplot"
   }
 }
 
@@ -87,6 +88,21 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
         rows.push(("y range", "\{ymin} – \{ymax}"))
       }
     }
+    BoxPlot =>
+      if info.box is Some(box) {
+        rows.push(("Group", (box.group_index + 1).to_string()))
+        rows.push(("Median", box.median.to_string()))
+        rows.push(("Q1", box.q1.to_string()))
+        rows.push(("Q3", box.q3.to_string()))
+        let lower = box.lower_whisker
+        let upper = box.upper_whisker
+        rows.push(("Whiskers", "\{lower} – \{upper}"))
+        if box.part is Outlier(value) {
+          rows.push(("Outlier", value.to_string()))
+        }
+      } else {
+        rows.push(("Value", info.value.to_string()))
+      }
     Heatmap => {
       if info.cell is Some(cell) {
         rows.push(("Row", cell.row.to_string()))

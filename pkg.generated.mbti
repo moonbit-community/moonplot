@@ -93,6 +93,10 @@ pub using @core {type BarSegment}
 
 pub using @core {type Bounds}
 
+pub using @drawing {type BoxInfo}
+
+pub using @drawing {type BoxPart}
+
 pub using @category {type CategoryAxis}
 
 pub using @drawing {type CellInfo}

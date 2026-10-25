@@ -525,7 +525,22 @@ fn render_panel(
         )
       @render.Artist::BoxPlot(stats, horizontal, style) =>
         append_boxplot(
-          writer, scale, left, top, plot_width, plot_height, stats, horizontal, style,
+          writer,
+          scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          stats,
+          horizontal,
+          style,
+          on_box=capture.map(hits => {
+            sample => {
+              collect_drawing_boxplot(
+                hits, panel_index, artist_index, sample, metadata, position,
+              )
+            }
+          }),
         )
       @render.Artist::Quiver(points, vectors, style) =>
         append_quiver(

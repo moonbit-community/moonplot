@@ -17,6 +17,7 @@ fn same_hit_artist(first : Artist, second : Artist) -> Bool {
     (FillBetween(a, _, _), FillBetween(b, _, _)) => physical_equal(a, b)
     (BarSegments(a, _, _), BarSegments(b, _, _)) => physical_equal(a, b)
     (ErrorBar(a, _, _, _), ErrorBar(b, _, _, _)) => physical_equal(a, b)
+    (BoxPlot(a, _, _), BoxPlot(b, _, _)) => physical_equal(a, b)
     (PathCollection(a), PathCollection(b)) => physical_equal(a, b)
     (Pie(a, _, _, _), Pie(b, _, _, _))
     | (Donut(a, _, _, _, _), Donut(b, _, _, _, _)) => physical_equal(a, b)

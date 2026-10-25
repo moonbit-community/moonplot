@@ -10,6 +10,7 @@ pub(all) enum HitKind {
   Heatmap
   ErrorBar
   Area
+  BoxPlot
 } derive(Eq, Debug)
 
 ///|
@@ -70,6 +71,7 @@ pub struct HitInfo {
   cell : CellInfo?
   error : ErrorInfo?
   band : BandInfo?
+  box : BoxInfo?
 } derive(Eq, Debug)
 
 ///|
@@ -90,6 +92,7 @@ pub fn hit_info(
   cell~ : CellInfo? = None,
   error~ : ErrorInfo? = None,
   band~ : BandInfo? = None,
+  box~ : BoxInfo? = None,
 ) -> HitInfo {
   {
     point,
@@ -102,6 +105,7 @@ pub fn hit_info(
     cell,
     error,
     band,
+    box,
   }
 }
 
