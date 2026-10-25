@@ -48,11 +48,11 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.12.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
+MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.13.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.12.0
+moon add Lampese/mathplotlib@0.13.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add
@@ -276,12 +276,26 @@ clipping and geometry midpoint anchors.
 
 ![Regular and triangular contour levels in Rabbita](assets/contours.png)
 
+### Filled contour bands and holes
+
+```sh
+moon build rabbita/cmd/filled_contours --target js
+```
+
+Open [the filled contour example](http://127.0.0.1:8765/rabbita/filled-contours.html)
+to inspect nested bands and separate islands. Tooltips show the scalar interval,
+representative value and original series. Whole-region picking preserves holes,
+the original band slots and the space between islands through data and mask updates.
+See the [filled contour guide](docs/CONTOURF_INTERACTION.md).
+
+![Nested bands and separate filled contour regions in Rabbita](assets/filled-contours.png)
+
 ### Current scope
 
 - SVG is the static output backend; Rabbita DOM is an optional browser component.
   Standalone PNG/PDF export and a desktop GUI backend are not available.
 - Interactive picking includes line/scatter anchors, bar and histogram regions,
-  pie/donut sectors, matrix cells, statistical areas, distribution parts, discrete curves, stems, quiver arrows, wind barbs and line contours.
+  pie/donut sectors, matrix cells, statistical areas, distribution parts, discrete curves, stems, quiver arrows, wind barbs, line contours and filled contour bands.
   Touch gestures, zoom/pan, and keyboard navigation remain future work.
 - 3D plotting, animation, and full mathtext/TeX and font layout are not available.
 - The library is not a drop-in Matplotlib implementation. Python's dynamic

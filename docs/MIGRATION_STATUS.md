@@ -9,22 +9,21 @@
 - 已授权合理复用、独立subagents、小步verified local commits/push至moonbit-community/moonplot；明确允许实际Mooncakes发布，前缀Lampese/，统一Lampese/mathplotlib module。
 - 根facade api.mbt；consumer tests/api，global tests/integration，owning implementation/wbtests；维护mbt<2000行，结构检查必跑。
 
-## 当前切片：M12 ContourF（已授权独立实现，尚未验收）
+## 当前切片：M12 ContourF（核心与真实 UI 已集成，组合验收中）
 
-- 范围[M12](MILESTONE_M12.md)，目标0.13.0；Root/consumer仍正式0.12.0，尚无M12合入/验收/发布。基线为正式ae1ce6b4c45d17fd2c1fbee388525f5c7f713307。
-- 完整合同Root .moonagent/checkpoints/M12-contourf/active-scope.md；只existing contourf/tricontourf/wrapper，保生成/union/ContourSet getter算术/签名/Container/legend/颜色/旧SVG，不重开全图调查。
-- 新kind ContourF/shape FilledRegion(opaque FilledRegion)。filled_region(rings,even_odd~Bool=false)两层deepcopy，rings()返回deepcopy，even_odd()只读；最小factory/type reexport根facade。valid_shape用immutable预验证cache。
-- interval实际finite scalar clip阈值，value保旧finite代表值bitwise，只有finite endpoints sum overflow时safehalf；不改legacy layers/segment_levels，不新增ContourFInfo，不伪Area band/cell/vector/fraction/category。默认Range/Representative，产品不展示XY。
-- point_index原logical band/color槽含requested空under/over洞，不是layers去空去重索引、segments展平环索引或grid/input观察。series原call，artist_index当前actualPolygon/Compound。
-- 单Polygon按真实nonzero，Compound按evenodd，成功writer后一次实际filtered loops回调；一个band artist一个完整region，孔洞/分离岛间bbox空白不填，hole可透选更早paint。两mode只plot内physical fill，margin旧可见paint保持static，无axesclip声明/静态裁剪改动。
-- 非零按actual mapped screen边判断。可见boundary：data是实际emitted边clip前safe midpoint，screen是visibleclip midpoint。无边交plot：一次center rule确认覆盖才capture，screen=plotcenter/data=首真实非零finite边midpoint；两个是不同几何锚点，不是inverse/grid/pointer。零/collinear/少点可static，不能仅signedarea0拒绝所有crossing。
-- known-slot/outer+inner identity/content每artist每frame一次guard，mismatch/prepared unknown无genericPolygon回退或归属复活；linear cursor维护image/inline/remove/clear及Contour/Barbs。O(totalgeneratedgeometry+artists)，pointer O(relevant edges)，无每ring复制grid/每edge完整Region。额外只条件legend修filled emptylabel leak。
-- producer m3_donut已明确授权：复用own managed worktree，从精确ae1建立codex/m12-contourf，负责core/IR/Scene/backend/Drawing/tooltip、own tests和CONTOURF_INTERACTION.md。先两fixture/alias/holes的Native与早coherent SHA，再必要bounded4target/adapter/info/fmt/structure；不Roottracked/版本/中央docs/consumer/UI/full/push/publish/新agent。
-- m4_area有限独立baseline准备已授权：own ignored immutable ae1、复用两fixture冻结Native/JS实际XML/旧SVG与oracle；首Native56291/JS30951 live，待实际收取，未授权新语义复审，等coherent exactSHA。
-- m3_browser仅ignored五文件UI/runner草稿已授权，future7file部署名rabbita/cmd/filled_contours、rabbita/filled-contours.html/css、filled_contours_browser_test.cjs、assets/filled-contours.png。暂无M12编译/mbti/Chrome/PNG/tracked部署。
-- M12只读准备Root .moonagent/checkpoints/M12-contourf-prep/：SOURCE_MAP/HANDOFF、producer-design三文件；独立feasibility packet在m4own worktree可按需复制。正式0177两Native39962 terminal0：regular5loops→3artists/layers.25,1,1.75，tri4loops→1Compound/layer1，两SVG0targets且无clipPath；实际XML孔洞/间隙/band映射已冻结，属于旧行为不算M12验收。两value/anchor决定已独立复核无blocker。
-- 精确下一动作：Root先commit/push M11真实交付与M12当前文档；producer独立生产不中断→收到首coherent SHA做source review/审合→明确授权7file UI部署和独立exactSHA新语义复审→Root publicconsumer/组合并行→中央一次全套和真实交付。不要重跑已通过M11验收或旧调查。
-- Root无测试/发布/下载live；M11 release-live.json complete/source_frozen=false，最终网络audit已解除tracked freeze。唯一有意预览8765/session43005/PID70622。M12 delegates各自记录own会话，不擅自归为通过。
+- 范围 [M12](MILESTONE_M12.md)，目标 0.13.0；Root/consumer 已 bump 候选 0.13.0，正式分发仍 0.12.0，未发布候选。正式旧基线 `ae1ce6b4c45d17fd2c1fbee388525f5c7f713307`。核心与最终 tests/guide Root `f6b46f9`（production last14a），真实 UI commit `994c536`、consumer `0454960`，origin/master `0f84972`。
+- 完整合同 `.moonagent/checkpoints/M12-contourf/active-scope.md`；只补 existing contourf/tricontourf/wrapper，保生成/union/ContourSet getter 算术、签名、Container、legend、颜色与旧 SVG。单 Polygon 真实 nonzero，Compound 真实 evenodd，一 band artist 一完整 region；孔洞与分岛空白不填，孔洞可透选更早 paint。两 mode 仅 plot 内 physical fill；旧 margin paint 静态保留，不虚构 axes clip。
+- `FilledRegion` opaque，factory/getter 两层 deepcopy，private 预验证 cache；`ContourF`/`FilledRegion` 新 kind/shape。interval 是真实有限 clip pair，value 保旧有限代表值，仅端点相加溢出 safehalf；series 原 call，point_index 原 logical band/color slot，含 requested 空 extension/band 洞。默认 Range/Representative，产品不显示几何 XY，无伪 BandInfo/ContourFInfo。
+- actual writer 成功后捕获过滤后的全部 loops；非零按 mapped screen edge。有边交 plot：data 为 clip 前真实边 safe midpoint，screen 为 visible clip midpoint。无边交 plot：同一 opaque Region 一次中心 containment 证明覆盖后用 plot center，data 取首真实非零边中点；是两种几何锚点，不是 inverse/grid/pointer 配对样本。known slot、outer/inner identity/content 每 artist/frame 一次；unknown/mismatch prepared 静态，无 generic fallback。线性 cursor 维持 image/inline/remove/clear 及 Contour/Barbs，O(total generated geometry + artists)，pointer O(relevant edges)。额外只修空 filled call 串改前 series。
+- [x] primitive `cc0e34e` → Root `26e78d5`；Root mixed 有效 square+collinear ring 反例 before Native54236 误 hit，fix `4aa63ea` → `8a3e65f`，per-ring 非共线 mask 保 bowtie/getter。owner Drawing Native54186 53/53、Root 同公开 probe after14085 terminal0。证据 `primitive-root-counterexample.json`。
+- [x] actual Scene/IR/backend 捕获 `1f7f82a` → Root `4721d92`，已逐段审 source：owner Native16445 7 项、all-target check42904 119 tasks/0errors；Native 两完整旧 SVG33980 terminal0，与精确旧基线逐字相同。不是全套或正式发布。
+- [x] 独立极远 collinear ring/BBox 反例 Native4422 terminal134：未填 ring 污染 bbox 与 left+width 消差。fix `c02c12c` → Root `5af344b`，仅有效 ring 范围与实际 extrema cache；owner Native/JS68202 各6/6，独立 exact c02 Native/JS 各8 边界组通过。旧失败和修复后证据均保留。
+- [x] 真实 UI 七文件已验证并 commit `994c536`：rabbita/cmd/filled_contours、filled-contours.html/css、filled_contours_browser_test.cjs、assets/filled-contours.png。实际隔离 build95498/info terminal0；Chrome72778 terminal0、14/14、0pageerrors，24真实整数事件，整 Path 原生 fill oracle、孔洞/分岛 gap/静态 margin、737真实 before-mask DOM 样本、原槽1/2/3、图例/重挂载/CSS/375px 均过。PNG1280×1034/60561bytes/SHA6231fbc25bdd294584259eca606c3f87e3294d0bb1b7bbe775c8c79bcd58e777 已 Root 目视。冻结七文件 SHA 在 draft/FINAL_HANDOFF.md；不当作0.13正式交付。
+- Root public consumer 已接线真实 regular/tri fixtures、facade immutable region 和交互卡；Native8673 terminal0，初 JS58831 和最新 bounds/state JS rebuild 均 terminal0。new release consumer runner 实际 Chrome17558 terminal0：41组、10个填色真实整数事件、0pageerrors；最终 consumer info/fmt terminal0、实际两个 mbti byte unchanged，已 coherent commit。报告 public-browser/report.json，未重跑已过检查。
+- 独立 reviewer exact c02 新语义 Native/JS/XML/source 组合验收运行中。实际 provenance blocker Native3796 terminal2：把 enabled ContourF metadata 附到实际 Line，raw 和 unproven prepared context 都错误产生3个 generic Line targets，预期[0,0]却[3,3]。最小 probe/log 在 reviewer own M12-contourf-review/contourf-c02c12c/backend/svg/；producer fix `14a09c2` 已 source-review 合 Root `8bd1f93`：统一 capture gate 仅允许实际 Polygon/Compound，保静态输出/provider completion；owner Native10/JS7 定向组及精确14a受影响四目标34167各184/184、adapter46/46通过；最终静态8SVG36662也terminal0，exact ae1两fixture×四target逐字且Drawing/static同。final tests/guide f91已合f6b46f9，31owner文件含18production/3interfaces SHA与Root全同，producer own clean/no live。独立 exact14a Native87190/JS67121 各3/3：原反例、Step/Scatter/Bar、legacy controls、P/C与provider完成均过，IR blocker 已解除。c02 public Native57883/JS各9/9、Scene Native11108/JS36128各5/5、query Native54815/JS均过；实际XML/18旧SVG/数学oracle与最终manifest仍在收表，未提前宣称完整独立通过。
+- 三 delegate：m3_donut own codex/m12-contourf 负责 core/IR/Scene/backend/Drawing/tooltip/own tests/CONTOURF_INTERACTION.md，先 blocker SHA，再 bounded 四目标/adapter/guide；m4_area own worktree 独立精确 c02 新语义/实际 XML/旧 SVG，保反例与 source manifest；m3_browser 七文件验收已完成 freeze，现仅 own ignored M13-tripcolor-prep 只读下一片准备：immutable ae1 的既有三角面 oldSVG/value/slot，不改 Root tracked/当前实现或视作新能力验收。均不 Root tracked/版本/中央 docs/consumer/full/push/publish/新 agent。
+- 精确下一动作：Root prelude16307实际info/fmt+13JS terminal0，无额外mbti。唯一中央full30284已开始，对稳定14a生产与独立收表并行（尚未通过）；reviewer精确delta已通过，实际XML/18旧SVG与最终 no-blocker manifest仍需闭环后才能发布。full若过再13Chrome/static/docs/结构，实际结果写入最终候选文档并commit/push→clean实际发布/registry/GH整下载闭环。不要重跑已通过 M11 交付或旧调查。
+- Root live full30284；有意预览8765/session43005/PID70622。M11 release-live.json complete/source_frozen=false。M12 还未进入正式 tracked freeze；delegates 各自记录 own 会话，不擅自归为通过。
 
 ## 最新交付：M11 /0.12.0（2026-10-25）
 
@@ -42,7 +41,7 @@
 
 - M10/0.11 Barbs、M9/0.10 Quiver、M8/0.9 Stem、M7/0.8离散曲线、M6/0.7 Hex/Violin、M5/0.6 mesh/hist2d与M1至M4及提示片均完整正式交付，无需重跑。
 - [M11完整历史](archive/migration-status-through-2026-10-25-m11.md)、[M10](archive/migration-status-through-2026-10-25-m10.md)、[M9](archive/migration-status-through-2026-10-25-m9.md)、[M8](archive/migration-status-through-2026-10-25-m8.md)、[早期](archive/migration-status-through-2026-10-25-m4.md)保留既有决策/失败/附件证明。
-- 正式预览http://127.0.0.1:8765/rabbita/contours.html，默认JS4668239bytes/SHA f0845c3dbee48534ed31ad019723b0b4e98a0801e9c453db55157cfb2138d603；HTML/JS/三CSS实际HTTP200逐字。open_in_codex queued未声称前台，仅connectionrefused才重启并更新session/PID。
+- M12候选预览http://127.0.0.1:8765/rabbita/filled-contours.html，默认JS4709395bytes/SHA28a84c6b4b0b56a37d2faa9ae6e3a679aee2cc96006167f8d965e30ba6556c7a；HTML/JS/三CSS实际HTTP200逐字，证据M12/preview-http.json。open_in_codex queued未声称前台，仅connectionrefused才重启并更新session/PID。
 - master，SSH origin=git@github.com:moonbit-community/moonplot.git；独立分支codex/。静态core不importUI，统一module Rabbita只JS。
 - JS-only接口用tools/update_interfaces.py真实compiler生成；最后info/fmt、预期mbti审查、python3 tools/check_structure.py与适当tests；版本/发布Root统一收口。
 

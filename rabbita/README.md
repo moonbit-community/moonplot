@@ -212,9 +212,12 @@ and intrinsic SVG coordinates. ECDF indices refer to the returned distribution
 slots; other exact identities are described in each chart guide. Picking covers
 point anchors, bar and histogram regions, pie/donut sectors, matrix cells, error
 and area geometry, boxplot parts, hexagonal faces, violin parts, discrete strokes,
-stems, quiver arrows, wind barbs and line contours. Contour indices identify
+stems, quiver arrows, wind barbs, line contours and filled contour bands. Contour indices identify
 generated paths and values identify exact levels; their coordinates describe
-generated-edge midpoints. Lines can also snap by X; segment interpolation is not provided;
+generated-edge midpoints. Filled contours expose the finite clip interval,
+representative value and original logical band slot. Whole nonzero/evenodd regions
+preserve holes and separate islands, and both hit modes require actual fill within
+the plot. Lines can also snap by X; segment interpolation is not provided;
 indices belong to the current frame, not persistent identities across reordering.
 
 The SVG uses responsive width and `xMidYMid meet`. Picking uses client coordinates,
@@ -239,6 +242,12 @@ The [contour example](http://127.0.0.1:8765/rabbita/contours.html) is built with
 triangular grids, inline labels, masks, exact levels, independent legends and
 replacement data. The [contour guide](../docs/CONTOUR_INTERACTION.md) describes
 path slots and the difference between generated data and clipped screen anchors.
+
+The [filled contour example](http://127.0.0.1:8765/rabbita/filled-contours.html)
+is built with `moon build rabbita/cmd/filled_contours --target js`. Its two cards
+cover nested bands, holes, disconnected islands, masks and replacement data.
+The [filled contour guide](../docs/CONTOURF_INTERACTION.md) explains original band
+slots, range-only tooltips, immutable region inspection and static margin paint.
 
 ## Develop and verify
 

@@ -80,6 +80,14 @@ clips only the visible anchor. Fragment snapshots are checked once, edge capture
 is constant work, and a linear preparation cursor preserves other artist
 ownership after inline expansion. No grid is copied per fragment or edge.
 
+Filled-contour metadata lives in `scene/contourf_hit.mbt` and
+`internal/render/contourf_hit.mbt`. Each band keeps its original logical slot,
+finite clip interval, representative value and immutable geometry snapshot.
+`backend/svg/contourf_hit.mbt` receives the actual successful polygon/path writer
+output once per band. `drawing/region.mbt` owns the opaque whole-region
+value, cached validity and physical nonzero/evenodd containment. Separate rings
+share one region; no grid or entire region is copied for each captured edge.
+
 ## Generated data and reference tests
 
 `internal/color_names` owns the complete pinned named-color table. Its three

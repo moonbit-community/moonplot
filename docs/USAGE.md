@@ -1843,6 +1843,12 @@ let tri_bands = try! fig.tricontourf(xs, ys, triangles, [0.0, 1.0, 2.0], levels=
 和 `linewidth`。`ContourSet::segments()`、`segment_levels()`、`allsegs()` 和
 `layers()` 可读取已拼接的线路径或 filled band 边界。
 
+`Figure::to_drawing()` 的线等值线提示保存精确 level 和原生成路径槽；填色等值区
+保存实际 clip 区间、代表值和原逻辑 band 槽，完整区域按真实 SVG 填充规则识别孔洞。
+填色的 band 槽不等于上述 getter 的去空 layer 或展平边界环索引，几何锚点也不表示
+鼠标处标量场采样。详见[线等值线交互](CONTOUR_INTERACTION.md)和
+[填色等值区交互](CONTOURF_INTERACTION.md)。
+
 线性轴也可以切换为基础十进制对数轴，或使用跨过零点的对称对数轴；普通对数轴上的
 非正数据点会被 SVG 后端跳过：
 

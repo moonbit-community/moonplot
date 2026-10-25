@@ -15,6 +15,8 @@ Start with the [project README](../README.md) to render a chart.
 - [Stem sample values, rods, heads and baselines](STEM_INTERACTION.md)
 - [Quiver original positions, vector components and actual strokes](QUIVER_INTERACTION.md)
 - [Wind barbs, flags, calm disks and original vector components](BARBS_INTERACTION.md)
+- [Contour exact levels, generated paths and inline labels](CONTOUR_INTERACTION.md)
+- [Filled contour bands, holes and range tooltips](CONTOURF_INTERACTION.md)
 
 - [Install the unified module and migrate package paths](PUBLISHING.md)
 - [Current capabilities and M1 acceptance](CAPABILITIES.md)
@@ -33,7 +35,8 @@ Start with the [project README](../README.md) to render a chart.
 - [Stem rods and sample values: completed M8](MILESTONE_M8.md)
 - [Quiver vector components: completed M9](MILESTONE_M9.md)
 - [Wind barbs, flags and calm symbols: completed M10](MILESTONE_M10.md)
-- [Current milestone: contour line levels and inline labels](MILESTONE_M11.md)
+- [Contour line levels and inline labels: completed M11](MILESTONE_M11.md)
+- [Current milestone: filled contour bands and holes](MILESTONE_M12.md)
 - [Rabbita interactive DOM implementation and acceptance](RABBITA_DOM.md)
 - [Current execution checkpoint](MIGRATION_STATUS.md)
 - [Upstream survey](UPSTREAM_SURVEY.md)
