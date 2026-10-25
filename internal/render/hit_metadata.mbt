@@ -1,11 +1,12 @@
 ///|
-/// Source labels, histogram edges and area semantics for one stable identity.
+/// Source labels, histogram edges, area and mesh semantics for one identity.
 /// Coordinates and current category units are resolved by the actual renderer.
 pub struct HitMetadata {
   priv series : String
   priv edges : Array[Double]?
   priv band_horizontal : Bool?
   priv band_values : Array[Double]?
+  priv mesh : MeshHitData?
 }
 
 ///|
@@ -14,12 +15,14 @@ pub fn hit_metadata(
   edges~ : Array[Double]? = None,
   band_horizontal~ : Bool? = None,
   band_values~ : Array[Double]? = None,
+  mesh~ : MeshHitData? = None,
 ) -> HitMetadata {
   {
     series,
     edges: edges.map(values => values.copy()),
     band_horizontal,
     band_values: band_values.map(values => values.copy()),
+    mesh,
   }
 }
 
@@ -69,4 +72,9 @@ pub fn HitMetadata::band_value(self : HitMetadata, index : Int32) -> Double? {
     Some(values) => values.get(index)
     None => None
   }
+}
+
+///|
+pub fn HitMetadata::mesh(self : HitMetadata) -> MeshHitData? {
+  self.mesh
 }

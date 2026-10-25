@@ -110,10 +110,21 @@ fn add_mesh(
   cmap : String,
   draw_bad : Bool,
   antialiased : Bool,
+  histogram2d~ : Bool = false,
 ) -> Unit raise @core.DataError {
   let color_map = resolve_colormap(cmap)
   let norm = linear_color_norm(vmin, vmax)
-  add_mesh_with_norm(axes, data, x, y, norm, color_map, draw_bad, antialiased)
+  add_mesh_with_norm(
+    axes,
+    data,
+    x,
+    y,
+    norm,
+    color_map,
+    draw_bad,
+    antialiased,
+    histogram2d~,
+  )
 }
 
 ///|
@@ -126,6 +137,7 @@ fn add_mesh_with_norm(
   color_map : @colors.ColorMap,
   draw_bad : Bool,
   antialiased : Bool,
+  histogram2d~ : Bool = false,
 ) -> Unit raise @core.DataError {
   let (rows, columns) = validate_mesh_data(data)
   if (x.length() == 0) != (y.length() == 0) {
@@ -143,7 +155,8 @@ fn add_mesh_with_norm(
       if !draw_bad && (value.is_nan() || value.is_inf()) {
         continue
       }
-      let normalized : Double? = if norm.is_valid(value) {
+      let valid = norm.is_valid(value)
+      let normalized : Double? = if valid {
         Some(mesh_transform(norm, value))
       } else if color_map.bad() is Some(_) {
         // Values rejected by a normalization (for example non-positive
@@ -156,7 +169,8 @@ fn add_mesh_with_norm(
       }
       match normalized {
         Some(normalized) => {
-          let color = color_map.sample_extended(normalized).to_css()
+          let paint = color_map.sample_extended(normalized)
+          let color = paint.to_css()
           axes.push_artist(
             Artist::Polygon(
               [
@@ -172,6 +186,19 @@ fn add_mesh_with_norm(
               ),
             ),
           )
+          if valid && !value.is_nan() && !value.is_inf() && paint.alpha() > 0.0 {
+            axes.record_mesh_cell(
+              @render.mesh_hit_data(
+                row,
+                column,
+                columns,
+                value,
+                (xs[column], xs[column + 1]),
+                (ys[row], ys[row + 1]),
+                histogram=histogram2d,
+              ),
+            )
+          }
         }
         None => ()
       }

@@ -16,6 +16,7 @@ fn collect_drawing_cell(
   artist_index : Int32,
   cell : RenderedCell,
   position : (Double, Double, Double, Double),
+  kind~ : @drawing.HitKind = Heatmap,
 ) -> Unit {
   let (left, top, width, height) = position
   let (x, y, w, h) = cell.rectangle
@@ -46,7 +47,7 @@ fn collect_drawing_cell(
   )
   let info = @drawing.hit_info(
     point,
-    Heatmap,
+    kind,
     value=cell.value,
     cell=Some(
       @drawing.cell_info(cell.row, cell.column, cell.x_range, cell.y_range),

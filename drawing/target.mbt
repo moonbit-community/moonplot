@@ -6,6 +6,7 @@ pub(all) enum HitKind {
   Bar
   BarH
   Histogram
+  Histogram2D
   Pie
   Heatmap
   ErrorBar

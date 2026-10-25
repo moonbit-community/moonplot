@@ -227,7 +227,18 @@ pub fn Axes::hist2d(
       }
     }
   }
-  self.pcolormesh(counts, x=x_edges, y=y_edges, cmap~)
+  add_mesh(
+    self,
+    counts,
+    x_edges,
+    y_edges,
+    None,
+    None,
+    cmap,
+    true,
+    false,
+    histogram2d=true,
+  )
 }
 
 ///|

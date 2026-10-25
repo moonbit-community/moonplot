@@ -312,7 +312,21 @@ fn render_panel(
         )
       @render.Artist::Polygon(points, style) =>
         append_polygon(
-          writer, scale, left, top, plot_width, plot_height, points, style,
+          writer,
+          scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          points,
+          style,
+          on_polygon=capture.map(hits => {
+            visible => {
+              collect_drawing_mesh(
+                hits, panel_index, artist_index, visible, scale, position, metadata,
+              )
+            }
+          }),
         )
       @render.Artist::CompoundPolygon(polygons, style) =>
         append_compound_polygon(

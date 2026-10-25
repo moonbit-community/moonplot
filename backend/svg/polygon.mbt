@@ -128,6 +128,7 @@ fn append_polygon(
   plot_height : Double,
   points : Array[@core.Point],
   style : @core.Style,
+  on_polygon~ : ((Array[@core.Point]) -> Unit)? = None,
 ) -> Unit {
   if points.length() < 3 {
     return
@@ -148,6 +149,9 @@ fn append_polygon(
     ("stroke", style.color()),
     ("stroke-width", float_text(style.width())),
   ])
+  if on_polygon is Some(collect) {
+    collect(visible)
+  }
 }
 
 ///|

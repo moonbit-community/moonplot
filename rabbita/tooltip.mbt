@@ -24,6 +24,7 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     Bar => "bar"
     BarH => "barh"
     Histogram => "histogram"
+    Histogram2D => "histogram2d"
     Pie => "pie"
     Heatmap => "heatmap"
     ErrorBar => "errorbar"
@@ -50,6 +51,15 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
     Histogram => {
       if info.interval is Some((lower, upper)) {
         rows.push(("Range", "\{lower} – \{upper}"))
+      }
+      rows.push(("Count", info.value.to_string()))
+    }
+    Histogram2D => {
+      if info.cell is Some(cell) {
+        let (xmin, xmax) = cell.x_range
+        let (ymin, ymax) = cell.y_range
+        rows.push(("x range", "\{xmin} – \{xmax}"))
+        rows.push(("y range", "\{ymin} – \{ymax}"))
       }
       rows.push(("Count", info.value.to_string()))
     }

@@ -4,6 +4,7 @@ package "Lampese/mathplotlib/internal/render"
 import {
   "Lampese/mathplotlib/core",
   "Lampese/mathplotlib/core/colors",
+  "Lampese/mathplotlib/drawing",
   "Lampese/mathplotlib/scene/axis",
   "Lampese/mathplotlib/scene/boxplot",
   "Lampese/mathplotlib/scene/colorbar",
@@ -18,11 +19,13 @@ pub fn figure(Int, Int, Int, Array[Panel], Array[@colorbar.Colorbar], String?) -
 
 pub fn figure_with_subfigures(Int, Int, Int, Array[Panel], Array[@colorbar.Colorbar], Array[SubFigure], String?) -> Figure
 
-pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?) -> HitMetadata
+pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?, mesh? : MeshHitData?) -> HitMetadata
 
 pub fn legend_entry(String, String, LegendKind) -> LegendEntry
 
 pub fn line_drawing_context(Array[@core.Point], @core.Style, () -> Unit, foreground? : (() -> @core.Style raise @core.DataError)?, hit_points? : Array[@core.Point]?) -> LineDrawingContext
+
+pub fn mesh_hit_data(Int, Int, Int, Double, (Double, Double), (Double, Double), histogram? : Bool) -> MeshHitData
 
 pub fn panel(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.Bounds?, @axis.Axis, @axis.Axis, Bool, Array[SecondaryAxis], Array[SecondaryAxis], aspect? : Double, anchor? : (Double, Double), adjustable? : String, box_aspect? : Double, line_provider? : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)?, legend_position? : @core.LegendPosition) -> Panel
 
@@ -128,6 +131,7 @@ pub fn HitMetadata::band_horizontal(Self) -> Bool?
 pub fn HitMetadata::band_stacked(Self) -> Bool
 pub fn HitMetadata::band_value(Self, Int) -> Double?
 pub fn HitMetadata::interval(Self, Int) -> (Double, Double)?
+pub fn HitMetadata::mesh(Self) -> MeshHitData?
 pub fn HitMetadata::series(Self) -> String
 
 pub(all) enum ImageInterpolation {
@@ -181,6 +185,13 @@ pub fn LineDrawingContext::first_style(Self) -> @core.Style
 pub fn LineDrawingContext::hit_points(Self) -> Array[@core.Point]?
 pub fn LineDrawingContext::points(Self) -> Array[@core.Point]
 pub fn LineDrawingContext::resolve_foreground_style(Self) -> @core.Style? raise @core.DataError
+
+pub struct MeshHitData {
+  cell : @drawing.CellInfo
+  columns : Int
+  value : Double
+  histogram : Bool
+}
 
 pub struct Panel {
   rect : @gridspec.Rect?

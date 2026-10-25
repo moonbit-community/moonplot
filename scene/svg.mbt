@@ -362,7 +362,12 @@ fn Figure::to_render_figure(
     let lines = state.line_originals.copy()
     let artists = Array(capacity=state.artists.length())
     let hit_metadata = if capture_points {
-      state.artists.map(artist => state.hit_metadata(artist))
+      let cursor = @ref.Ref(0)
+      let result = Array(capacity=state.artists.length())
+      for index, artist in state.artists {
+        result.push(state.hit_metadata(artist, index, cursor))
+      }
+      result
     } else {
       []
     }

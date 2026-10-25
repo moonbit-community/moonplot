@@ -128,6 +128,7 @@ fn Axes::push_artist(self : Axes, artist : Artist) -> Unit {
     histogram_edges: None,
     band_horizontal: None,
     band_values: None,
+    mesh: None,
   })
   self.update_artist_data_limits(artist)
   match artist {
