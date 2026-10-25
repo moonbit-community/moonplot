@@ -211,3 +211,94 @@ test "Barbs known transparent paint has no ghost while zero stroke width retains
   assert_true(frame.targets()[0].shape is Quadrilateral(_, _, _, _, _, _, _, _))
   assert_true(frame.targets()[1].shape is Sector(_, _, _, _, _))
 }
+
+///|
+test "Barbs Segment radius stays in CSS pixels and calm disk remains real geometry through viewport mapping" {
+  let fig = figure(width=400, height=240)
+  let ax = fig.add_axes(0.0, 0.0, 1.0, 1.0)
+  ax.set_x_limits(0.0, 10.0)
+  ax.set_y_limits(0.0, 10.0)
+  ax.barbs([2.0], [3.0], [3.0], [4.0], barb_length=0.0)
+  let frame = fig.to_drawing()
+  let length = (120.0 * 120.0 + 96.0 * 96.0).sqrt()
+  let x = 290.0 + 6.0 * 96.0 / length
+  let y = 260.0 + 6.0 * 120.0 / length
+  let circles = barbs_control_figure(3).to_drawing()
+  guard circles.targets()[0].shape is Sector(cx, cy, r, _, _) else {
+    fail("Expected calm disk")
+  }
+  for mode in [@drawing.HitMode::Nearest, XNearest] {
+    assert_eq(
+      frame.hit_test_client(x, y, 10.0, 20.0, 800.0, 480.0, radius=5.99, mode~),
+      None,
+    )
+    let point = frame
+      .hit_test_client(x, y, 10.0, 20.0, 800.0, 480.0, radius=6.01, mode~)
+      .unwrap()
+    assert_eq(
+      frame.hit_info(point).unwrap().vector,
+      Some(@drawing.vector_info(3.0, 4.0)),
+    )
+    assert_eq(
+      frame.hit_test_client(
+        290.0,
+        120.0,
+        10.0,
+        20.0,
+        800.0,
+        800.0,
+        radius=10.0,
+        mode~,
+      ),
+      None,
+    )
+    assert_true(
+      circles.hit_test_client(
+        10.0 + 2.0 * (cx + r * 0.75),
+        20.0 + 2.0 * cy,
+        10.0,
+        20.0,
+        800.0,
+        480.0,
+        radius=0.0,
+        mode~,
+      )
+      is Some(_),
+    )
+  }
+}
+
+///|
+test "Barbs same colors and independent panels retain each immutable call label and real artist" {
+  let fig = figure(width=600, height=240)
+  for panel in 0..<2 {
+    let ax = fig.add_axes(if panel == 0 { 0.0 } else { 0.55 }, 0.0, 0.45, 1.0)
+    ax.set_x_limits(0.0, 10.0)
+    ax.set_y_limits(0.0, 10.0)
+    ax.legend([])
+    ax.barbs([1.0], [1.0], [1.0], [1.0], color="#123456", label="first")
+    ax.barbs([6.0], [1.0], [-1.0], [2.0], color="#123456", label="second")
+  }
+  let frame = fig.to_drawing()
+  assert_eq(frame.targets().length(), 16)
+  for target in frame.targets() {
+    let expected = if target.info.point.artist_index < 4 {
+      "first"
+    } else {
+      "second"
+    }
+    assert_eq(target.info.series, expected)
+    let selected = frame
+      .hit_test(
+        target.info.point.screen_x,
+        target.info.point.screen_y,
+        radius=1.0e-7,
+      )
+      .unwrap()
+    let info = frame.hit_info(selected).unwrap()
+    assert_eq(
+      (info.kind, info.point.panel_index, info.series),
+      (Barbs, target.info.point.panel_index, expected),
+    )
+  }
+}

@@ -361,6 +361,8 @@ pub fn Axes::yaxis_date(Self, format? : String) -> Unit raise @core.DataError
 
 type AxesData
 
+type BarbIntent
+
 pub struct Container {
   kind : ContainerKind
   artists : Array[Artist]
