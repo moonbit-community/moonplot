@@ -146,6 +146,32 @@ pub fn PolarAxes::plot(
 }
 
 ///|
+/// Draw filled sectors centered at theta, with one required angular width in
+/// radians. Radii begin at zero; nonpositive or missing samples keep their slots.
+pub fn PolarAxes::bar(
+  self : PolarAxes,
+  theta : Array[Double],
+  radius : Array[Double],
+  width~ : Double,
+  color~ : String = "",
+  label~ : String = "",
+) -> Unit raise @core.DataError {
+  if !polar_finite(width) || width <= 0.0 || width > 2.0 * @math.PI {
+    raise @core.DataError::InvalidReference(
+      message="polar bar width must be finite and in (0, 2pi] radians",
+    )
+  }
+  let points = @core.series(theta, radius).points()
+  let resolved = self.axes.resolve_color(color)
+  self.axes.push_artist(
+    Bar(points, @core.style(resolved, width=0.0, fill=resolved)),
+  )
+  self.config().closed.push(false)
+  self.config().hit_data.push(@render.polar_bar_hit_data(points, label, width))
+  self.axes.add_auto_legend(label, resolved, LegendKind::Patch)
+}
+
+///|
 /// Draw circular markers; size is their SVG pixel radius, not marker area.
 pub fn PolarAxes::scatter(
   self : PolarAxes,

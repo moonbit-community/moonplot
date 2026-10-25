@@ -1,4 +1,11 @@
 ///|
+priv enum PolarSourceKind {
+  Curve
+  Marker
+  Bars(Double)
+} derive(Eq)
+
+///|
 /// One typed polar call's immutable original samples and presentation identity.
 /// The original array is retained only to verify the actual artist's provenance.
 pub struct PolarHitData {
@@ -6,7 +13,7 @@ pub struct PolarHitData {
   priv expected : Array[@core.Point]
   priv series : String
   priv categories : Array[String]?
-  priv scatter : Bool
+  priv kind : PolarSourceKind
 }
 
 ///|
@@ -21,7 +28,11 @@ pub fn polar_hit_data(
     expected: points.copy(),
     series,
     categories: categories.map(values => values.copy()),
-    scatter,
+    kind: if scatter {
+      Marker
+    } else {
+      Curve
+    },
   }
 }
 
@@ -63,8 +74,16 @@ pub fn PolarHitData::matches_points(
   points : Array[@core.Point],
   scatter~ : Bool = false,
 ) -> Bool {
-  if self.scatter != scatter ||
-    !physical_equal(self.original, points) ||
+  self.kind == (if scatter { Marker } else { Curve }) &&
+  self.matches_source(points)
+}
+
+///|
+fn PolarHitData::matches_source(
+  self : PolarHitData,
+  points : Array[@core.Point],
+) -> Bool {
+  if !physical_equal(self.original, points) ||
     self.expected.length() != points.length() ||
     (self.categories is Some(values) && values.length() != points.length()) {
     return false
@@ -75,4 +94,30 @@ pub fn PolarHitData::matches_points(
     }
   }
   true
+}
+
+///|
+/// Preserve the angular width independently of whether capture is still valid.
+pub fn polar_bar_hit_data(
+  points : Array[@core.Point],
+  series : String,
+  width : Double,
+) -> PolarHitData {
+  { ..polar_hit_data(points, series), kind: Bars(width), }
+}
+
+///|
+pub fn PolarHitData::bar_width(self : PolarHitData) -> Double? {
+  match self.kind {
+    Bars(width) => Some(width)
+    _ => None
+  }
+}
+
+///|
+pub fn PolarHitData::matches_bar(
+  self : PolarHitData,
+  points : Array[@core.Point],
+) -> Bool {
+  self.kind is Bars(_) && self.matches_source(points)
 }

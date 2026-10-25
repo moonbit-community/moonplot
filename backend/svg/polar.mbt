@@ -73,9 +73,17 @@ fn validate_polar_panel(panel : @render.Panel) -> Unit raise @core.DataError {
   if panel.artists().length() != p.series_count() {
     raise polar_error("only typed polar series are supported")
   }
-  for artist in panel.artists() {
+  for i, artist in panel.artists() {
     match artist {
       @render.Artist::Line(_, _) | @render.Artist::Scatter(_, _) => ()
+      @render.Artist::Bar(_, _) =>
+        match p.hit_data(i).bind(data => data.bar_width()) {
+          Some(width) =>
+            if !polar_finite(width) || width <= 0.0 || width > 2.0 * @math.PI {
+              raise polar_error("invalid bar angular width")
+            }
+          None => raise polar_error("bar needs typed polar angular width")
+        }
       _ => raise polar_error("unsupported artist")
     }
   }
@@ -140,8 +148,9 @@ fn polar_radius_max(
   let mut maximum = 0.0
   for artist in panel.artists() {
     let points = match artist {
-      @render.Artist::Line(points, _) | @render.Artist::Scatter(points, _) =>
-        points
+      @render.Artist::Line(points, _)
+      | @render.Artist::Scatter(points, _)
+      | @render.Artist::Bar(points, _) => points
       _ => []
     }
     for point in points {
@@ -377,6 +386,24 @@ fn append_polar_panel(
             on_circle=polar_marker_capture(
               capture, source, style, panel_index, i, position, circle, maximum,
             ),
+          )
+        }
+        @render.Artist::Bar(points, style) => {
+          let data = config.hit_data(i).unwrap()
+          let source = if capture is Some(_) && data.matches_bar(points) {
+            Some(data)
+          } else {
+            None
+          }
+          append_polar_bars(
+            writer,
+            points,
+            style,
+            config,
+            maximum,
+            circle,
+            data.bar_width().unwrap(),
+            on_bar=polar_bar_capture(capture, source, panel_index, i, position),
           )
         }
         _ => () // validate_polar_panel already rejects unsupported input.

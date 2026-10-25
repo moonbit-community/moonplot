@@ -43,6 +43,8 @@ pub fn panel(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.
 
 pub fn panel_with_sharing(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.Bounds?, @axis.Axis, @axis.Axis, Int?, Int?, Bool, Array[SecondaryAxis], Array[SecondaryAxis], show_x_tick_labels? : Bool, show_y_tick_labels? : Bool, frame_visible? : Bool, x_margin? : Double, y_margin? : Double, spines? : Array[Spine], aspect? : Double, anchor? : (Double, Double), adjustable? : String, box_aspect? : Double, line_provider? : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)?, legend_position? : @core.LegendPosition, hit_metadata? : Array[HitMetadata], polar? : PolarProjection?) -> Panel
 
+pub fn polar_bar_hit_data(Array[@core.Point], String, Double) -> PolarHitData
+
 pub fn polar_hit_data(Array[@core.Point], String, scatter? : Bool, categories? : Array[String]?) -> PolarHitData
 
 pub fn polar_projection(Double?, Double, Bool, Array[Double], Array[String], Array[Double]?, Array[String], Array[Bool], cartesian_compatible? : Bool, hit_data? : Array[PolarHitData]) -> PolarProjection
@@ -360,8 +362,10 @@ pub fn Panel::y_margin(Self) -> Double
 pub struct PolarHitData {
   // private fields
 }
+pub fn PolarHitData::bar_width(Self) -> Double?
 pub fn PolarHitData::category(Self, Int) -> String?
 pub fn PolarHitData::length(Self) -> Int
+pub fn PolarHitData::matches_bar(Self, Array[@core.Point]) -> Bool
 pub fn PolarHitData::matches_points(Self, Array[@core.Point], scatter? : Bool) -> Bool
 pub fn PolarHitData::point(Self, Int) -> @core.Point?
 pub fn PolarHitData::series(Self) -> String

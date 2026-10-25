@@ -777,6 +777,7 @@ pub fn PathCollection::styles(Self) -> Array[@core.Style]
 pub struct PolarAxes {
   // private fields
 }
+pub fn PolarAxes::bar(Self, Array[Double], Array[Double], width~ : Double, color? : String, label? : String) -> Unit raise @core.DataError
 pub fn PolarAxes::clear(Self) -> Unit
 pub fn PolarAxes::legend(Self, Array[LegendEntry]) -> Unit
 pub fn PolarAxes::legend_entries(Self) -> Array[LegendEntry]
