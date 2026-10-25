@@ -6,11 +6,31 @@
 
 - 实用 MoonBit 画图库，能力与场景对齐，不要求完整 Matplotlib API 复刻，不恢复旧 D55 清单。
 - M1 基础二维 SVG、G2.1 首批 Rabbita DOM、后续 UI 整理均已验收与交付。
-- 代码组织、M2资源隔离与独立交付、0.3.0图表提示均已完成。用户已明确要求持续实现后续图功能，当前先完成M3，再按实际缺口继续。
+- 代码组织、M2资源隔离、0.3.0提示、M3/0.4.0图表扩展、M4/0.5.0统计交互均已交付；用户要求持续往后对齐，当前M5。
 - 用户授权合理复用、独立 subagents、小步本地commit与正常push至 moonbit-community/moonplot。
 - 不用历史API指数或未经调查的估算表示整体完成率。
 
-## 当前切片：M4 统计图与区间交互（2026-10-25）
+## 当前切片：M5 网格与二维计数（2026-10-25）
+
+- 用户要求“一直往后对齐”；M4/0.5.0已完整交付，现继续MILESTONE_M5.md，不重启全项目调查。
+- [x] 冻结范围：1D严格单调边界flat pcolor/pcolormesh、无权重hist2d计数；复用CellInfo，hist新增Histogram2D kind。
+  保留原始row/column/scalar或count/x-y区间，不把归一化色彩反推成原值。
+  _grid曲线边界/nearest/Gouraud/hexbin/权重密度均明确留后。
+- [ ] m4_area在 /Users/lampese/.codex/worktrees/m4-filled-area/mathplotlib 从1c62dd7实施网格/二维分箱。
+  Scene push处保留原始信息、Polygon原points数组身份、同次实际绘制采集；IR小只读MeshHitData，不增root结果类型。
+  metadata查找需序号身份校验+连续record游标+fallback；image checked attach和inline contour会使两数组错位，不能只按index或每格从头扫描。
+- [ ] m3_donut在 /Users/lampese/.codex/worktrees/m3-donut-charts/mathplotlib 修旧Bar/BarH的Logit跨有效域遗留行为。
+  当前生产仅backend/svg/bar.mbt，首轮7/7已过，12份原线性/Log/合法Logit横竖/反向SVG固定快照相同；正跑四目标与接口/结构，等commit。
+- [ ] m3_browser仅在 ignored .moonagent/checkpoints/M5-grids/draft/ 起草3卡：非均匀缺失网格、hist2d零格/最大边界、反向网格。
+  未来rabbita/cmd/grids、grids.html/css/grids_browser_test.cjs、assets/grids.png；Root明确通知M5 API合入后才部署/编译/Chrome。
+- 精确下一动作：收Bar小修verified commit后cherry-pick；网格仍在其独立worktree实现，不先写Root相同文件。
+  先合已验收步骤并持续commit，两个功能齐备后通知browser部署，中央定向/全套/独立消费，再准备0.6.0交付。
+- Root master目前仍为已发布0.5.0源码加文档记录，尚无M5实现合入；版本0.6.0尚未准备/发布。
+  不改已发布0.5.0 tag/附件。M5各agent不push/发布、不改Root版本/主检查点。
+- M5证据拟用 .moonagent/checkpoints/M5-grids/；Root当前无测试残留，只保留预览session43005/PID70622，
+  http://127.0.0.1:8765/rabbita/statistics.html ，根目录服务、HTML/JS已HTTP200。
+
+## 已完成切片：M3/0.4.0 与 M4/0.5.0（2026-10-25）
 
 - 用户明确要求“继续往后对齐图功能，一直往后对齐”；持续实现和交付，不停在规划。
 - [x] 0.3.0 正式 ZIP 的 19 图、四目标调查已完成并保留于 docs/CHART_COVERAGE.md 与 docs/audits/chart-coverage-0.3.0/。
@@ -26,13 +46,12 @@
 - [x] 四目标全套、晚修后受影响回归、接口/fmt/check/结构、旧 SVG 与旧浏览器回归。
 - [x] 0.4.0 dirty ZIP 演练：仓库外四目标静态断言 + Chrome 七项通过；仅为 rehearsal，禁止上传。
 - [x] clean 正式包、Mooncakes 实际发布/独立 registry 消费、GitHub v0.4.0 四附件回下载核验。
-- 精确下一动作：收完整四目标6993的Native最终结果，收五个中央Chrome（下方会话），
-  更新最终文档并commit/push，运行clean正式0.5包 → 实际Mooncakes/registry10项 → GitHub附件回验。
+- M4精确下一动作：已无必做交付项。后续按上方当前M5继续；不要重复下方已验收检查或移动已发布tag。
   三份M4已合入：ErrorBar9be5098、Area7fa861b、Boxb5b87c8；冲突均保留三种metadata，并用编译器重生接口。
 
 ### M3 源码、修复与验证
 
-- 当前版本文件与 tests/consumer 为 0.4.0；实际 Mooncakes/GitHub 均已发布 0.4.0，正式源 2f859ed。
+- M3交付时版本文件与 tests/consumer 为0.4.0；Mooncakes/GitHub均已发布，正式源2f859ed。
 - 已合入并 push：7adb3bc 热图、f210886 真环形、0a91ba6 多系列柱、cca4d28 环角边界、
   4ed3096 Logit 双端越域但区间穿过 viewport 的柱、367d1ad 五图页面与独立消费。
   已 push 的 b5c10d3 修自动 Logit endpoint-only 概率数据的有限范围；仅在默认数据 minpos 路径回退，显式配置保留。
@@ -59,7 +78,7 @@
   https://github.com/moonbit-community/moonplot/releases/tag/v0.4.0 。旧tag/附件未改。
   正式交付无残留测试会话；本页后补记录不移动正式tag。
 
-### M4：中央整合中，目标 0.5.0
+### M4：已交付 0.5.0
 
 - [x] 误差棒独立实现/定向验收，原提交：5707f896e52dbdd67d75a246c2458f38740bc9d3。
   ErrorInfo、ErrorBar、Segment；实际中心/误差臂/端帽，范围溢出拒绝、原样本吸附、旧 SVG 不变。
@@ -105,10 +124,21 @@
   输出 .moonagent/checkpoints/M4-statistics/browser-final-{statistics,charts,tooltips,main,resources}/。
   五份report均无pageerror，新统计默认build JS与agent最终hash相同；仅预览8304保留，测试服务finally关闭。
 - 22791 terminal0：main native输出2497bytes、preview6886、gallery14246；后两份与原资产逐字相同，三SVG均解析。
-- 最终结构检查通过；下一步提交0.5源码和文档，再clean正式打包，不上传dirty演练。
+- 最终结构/30份当前Markdown427链接/diff检查通过；Map优化cde2a20、统计示例/consumer/0.5文档4be3e04已push。
+- clean正式builder85272 terminal0/dirty_rehearsal=false，source_commit4be3e045aed85dbbe31db2e8d08bbcd14ec42300。
+  模块ZIP1,792,126bytes/527files，sha256570fca3952e6b6ae70ea0002f4c970e601633ebf1ef34610a410917d2e5b0138；
+  source bundle1,814,222bytes/540files。实际正式ZIP仓库外静态四目标+Chrome10全过。
+- moon publish32775 terminal0/Server200；公开0.5.0/build_status=success/has_package=true/yanked=false。
+  registry-consumer9318 terminal0：无workspace覆盖，527文件逐一相同，静态四目标/Chrome10均通过。
+- GitHub85690发布、60468下载均terminal0，43314 tag核对通过；tag指向正式源4be3e04。
+  四附件与本地正式源逐字节相同，远端size/digest一致，证据release-final/download-check.json。
+  https://github.com/moonbit-community/moonplot/releases/tag/v0.5.0 。0.5交付完成；随后文档记录不移动tag/替换附件。
+- 原有预览8304已失效，探测发现connection refused后已启动新session43005/PID70622，显式serve仓库根。
+  statistics.html与默认build的JS均HTTP200；http://127.0.0.1:8765/rabbita/statistics.html 。
+  open_in_codex仍返回queued；不宣称已导航。旧tooltips/charts路径仍同根可用；后续只保留该预览服务。
 - M4范围见 MILESTONE_M4.md；后续M5定点调查已确定1D flat网格+无权重hist2d计数，m4_area只读设计中。
   m3_donut已在独立worktree接续旧普通Bar/BarH跨Logit有效域遗留修复，0.5发布前不合入。
-  M5范围见MILESTONE_M5.md；m4_area在clean独立worktree从1c62dd7实施flat网格+hist2d，已明确委派，不改Root或版本。
+  后续M5范围与当前实施状态见最上方，不重做调查。
   M5网格数据在Scene push处保存，Polygon原数组身份；前置image与inline contour错位需游标+身份校验，不能单索引错误退化。
   Root已完成0.4发布，M4合并和第一轮定向已过，继续上述精确下一动作。
 - 只有有意预览 session8304/PID74453 保留，根目录服务：

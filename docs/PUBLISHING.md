@@ -1,6 +1,6 @@
 # 安装与发布
 
-当前源码目标模块为 **`Lampese/mathplotlib@0.5.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
+当前分发模块为 **`Lampese/mathplotlib@0.5.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
 
