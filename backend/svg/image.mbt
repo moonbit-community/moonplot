@@ -78,6 +78,7 @@ fn append_image(
   extent : (Double, Double, Double, Double)?,
   alpha : Double,
   interpolation : @render.ImageInterpolation,
+  on_cell~ : ((RenderedCell) -> Unit)? = None,
 ) -> Unit {
   if data.length() == 0 || data[0].length() == 0 {
     return
@@ -144,6 +145,28 @@ fn append_image(
             ("height", float_text(Double::abs(y2 - y1))),
             ("fill", try! pixel.scale_alpha(alpha).to_css()),
           ])
+          if interpolation is @render.ImageInterpolation::Nearest &&
+            alpha > 0.0 &&
+            pixel.alpha() > 0.0 &&
+            norm.is_valid(value) &&
+            !value.is_nan() &&
+            !value.is_inf() &&
+            on_cell is Some(collect) {
+            collect({
+              row,
+              column,
+              columns,
+              value,
+              x_range: (x_start, x_end),
+              y_range: (y_start, y_end),
+              rectangle: (
+                Double::min(x1, x2),
+                Double::min(y1, y2),
+                Double::abs(x2 - x1),
+                Double::abs(y2 - y1),
+              ),
+            })
+          }
         }
       }
     }

@@ -6,13 +6,13 @@
 
 - 实用 MoonBit 画图库，能力与场景对齐，不要求完整 Matplotlib API 复刻，不恢复旧 D55 清单。
 - M1 基础二维 SVG、G2.1 首批 Rabbita DOM、后续 UI 整理均已验收与交付。
-- 代码组织、M2资源隔离与独立交付、0.3.0图表提示均已完成。当前用户要求调查图类缺口并开启下一milestone，见下方M3切片。
+- 代码组织、M2资源隔离与独立交付、0.3.0图表提示均已完成。用户已明确要求持续实现后续图功能，当前先完成M3，再按实际缺口继续。
 - 用户授权合理复用、独立 subagents、小步本地commit与正常push至 moonbit-community/moonplot。
 - 不用历史API指数或未经调查的估算表示整体完成率。
 
-## 当前切片：M3 调查与里程碑建立（2026-10-25）
+## 当前切片：M3 实现（2026-10-25）
 
-- 用户要求重新看还有哪些图没对齐/没适配，并开启下一个milestone。
+- 用户要求重新看还有哪些图没对齐/没适配，并开启下一个milestone；随后明确“继续往后对齐图功能，一直往后对齐”，授权持续实现，不停在规划。
 - [x] 分开核对静态图类、语义命中和便利入口，不重启全API迁移调查。
 - [x] 从实际0.3.0正式ZIP在仓库外显式workspace运行19个代表性输入；native/wasm/wasm-gc/JS均成功。
   所有Drawing SVG等于静态SVG，XML解析通过；四目标各图points/targets与SVG长度逐项一致。
@@ -25,9 +25,19 @@
 - [ ] M3.1实现：同次cell draw捕获row/column/value/数据范围，扩展Drawing cell metadata与Rabbita提示。
   先nearest imshow/matshow，origin/extent/mask/NaN/多图/缩放；none/平滑PNG、RGB、不规则mesh暂不纳入。
 - [ ] M3.2分组/堆叠柱；M3.3真环形图；共同回归/独立消费/版本交付。
-- 精确下一动作：从backend/svg/image.mbt的nearest cell循环入手，实现M3.1；先定cell metadata并复用真实矩形，
-  不解析SVG、不从颜色反推、不复用直方图interval塞行列。按M3文档逐项实现与验收，再更新接口和commit。
-- 本轮生产代码/版本均未改变，仍为0.3.0；无新publish。调查基线源2fb8bcf，当前Git起点906d44b。
+- 精确下一动作：热图内核定向验收已过，提交该步；bars/donut独立worktree验收提交后按序cherry-pick，
+  修共享enum/panel/范围match冲突，再通知browser agent集成就绪，完成5图真实Chrome验收。
+- 当前实现改动：Root drawing/cell.mbt+target/shape_hit、backend/svg/image_hit.mbt+image/panel、api、rabbita/tooltip与对应新测试。
+  CellInfo有row/column/x_range/y_range，HitInfo.cell为可选，Heatmap新kind；仅nearest scalar实际可见有效格采集。
+- 首轮check21382因ImageInterpolation未实现Eq失败，已改模式匹配；check93321通过（7既有Ref警告）。
+  首轮过滤测试73149暴露两处测试假设（默认upper数据范围、panel索引）错误，已核真实绘制后修断言；非产品失败。
+  adapter18/18已过；完整drawing24+新image_hit8四目标各32/32（5914 terminal0），matshow/透明色/图例遮挡均过。
+  范围生成info/fmt20981 terminal0，公共变化为CellInfo/Heatmap/HitInfo.cell及root类型alias；现有SVG路径未改输出。
+- 责任：Root热图/适配层/交付；m3_bars在 /Users/lampese/.codex/worktrees/m3-multiseries-bars/mathplotlib，
+  m3_donut在 /Users/lampese/.codex/worktrees/m3-donut-charts/mathplotlib；两者各自commit不push不发布。
+  m3_browser只主workspace的全新rabbita/cmd/charts和charts.html/css/chart_browser_test.cjs，等Root合并后才build与真浏览器验收。
+  bars API grouped_bar/stacked_bar(categories,series,labels,colors,horizontal,width,baseline；grouped另gap)；donut(values,labels,colors,start_angle,inner_radius=0.55)。
+- 新证据.moonagent/checkpoints/M3-implementation/；基线1ef9c80，本轮版本暂仍0.3.0，无新publish。
 - 只读agents m3_chart_gaps与m3_interaction_gaps已完成交回，无写文件/测试/发布权限委派。
 - 证据.moonagent/checkpoints/M3-chart-coverage/，native探针52904、四目标25296均terminal0。
   第一次报告汇总把真实tab误按字面量分隔而报assert，已修汇总逻辑；产品运行无失败。

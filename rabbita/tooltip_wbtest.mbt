@@ -125,3 +125,37 @@ test "legacy drawings retain coordinate tooltips without inventing metadata" {
   assert_eq(info.category, None)
   assert_eq(tooltip_rows(info), [("x", "1"), ("y", "2")])
 }
+
+///|
+test "heatmap tooltip rows and callback carry original cell metadata" {
+  let point = @drawing.hit_point(0, 0, 5, 2.0, 1.0, 50.0, 50.0)
+  let cell = @drawing.cell_info(1, 2, (1.5, 2.5), (0.5, 1.5))
+  let info = @drawing.hit_info(point, Heatmap, value=18.5, cell=Some(cell))
+  assert_eq(tooltip_kind(info.kind), "heatmap")
+  assert_eq(tooltip_rows(info), [
+    ("Row", "1"),
+    ("Column", "2"),
+    ("Value", "18.5"),
+  ])
+  let snapshot = @drawing.drawing(
+    100,
+    100,
+    "<svg viewBox=\"0 0 100 100\"/>",
+    [point],
+    targets=[
+      @drawing.hit_target(
+        info,
+        Rectangle(0.0, 0.0, 100.0, 100.0),
+        (0.0, 0.0, 100.0, 100.0),
+      ),
+    ],
+  )
+  let received : @ref.Ref[@drawing.CellInfo?] = @ref.Ref(None)
+  ignore(
+    view(snapshot, id="cell", on_event=_ => @rabbita.none, hovered=point, tooltip=info => {
+      received.val = info.cell
+      @html.b("\{info.value} 元")
+    }),
+  )
+  assert_eq(received.val, Some(cell))
+}

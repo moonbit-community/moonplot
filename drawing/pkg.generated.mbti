@@ -6,9 +6,11 @@ import {
 }
 
 // Values
+pub fn cell_info(Int, Int, (Double, Double), (Double, Double)) -> CellInfo
+
 pub fn drawing(Int, Int, String, Array[HitPoint], targets? : Array[HitTarget], exclusions? : Array[(Int, (Double, Double, Double, Double))]) -> Drawing
 
-pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?) -> HitInfo
+pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?) -> HitInfo
 
 pub fn hit_point(Int, Int, Int, Double, Double, Double, Double) -> HitPoint
 
@@ -17,6 +19,16 @@ pub fn hit_target(HitInfo, HitShape, (Double, Double, Double, Double)) -> HitTar
 // Errors
 
 // Types and methods
+pub struct CellInfo {
+  row : Int
+  column : Int
+  x_range : (Double, Double)
+  y_range : (Double, Double)
+} derive(Eq, @debug.Debug)
+pub fn CellInfo::equal(Self, Self) -> Bool
+pub fn CellInfo::not_equal(Self, Self) -> Bool
+pub fn CellInfo::to_repr(Self) -> @debug.Repr
+
 pub struct Drawing {
   // private fields
 }
@@ -38,6 +50,7 @@ pub struct HitInfo {
   value : Double
   interval : (Double, Double)?
   fraction : Double?
+  cell : CellInfo?
 } derive(Eq, @debug.Debug)
 pub fn HitInfo::equal(Self, Self) -> Bool
 pub fn HitInfo::not_equal(Self, Self) -> Bool
@@ -50,6 +63,7 @@ pub(all) enum HitKind {
   BarH
   Histogram
   Pie
+  Heatmap
 } derive(Eq, @debug.Debug)
 pub fn HitKind::equal(Self, Self) -> Bool
 pub fn HitKind::not_equal(Self, Self) -> Bool

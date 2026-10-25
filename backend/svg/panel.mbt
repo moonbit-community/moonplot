@@ -359,6 +359,13 @@ fn render_panel(
           None,
           1.0,
           @render.ImageInterpolation::Nearest,
+          on_cell=capture.map(hits => {
+            cell => {
+              collect_drawing_cell(
+                hits, panel_index, artist_index, cell, position,
+              )
+            }
+          }),
         )
       }
       @render.Artist::ImageNorm(
@@ -371,8 +378,26 @@ fn render_panel(
         interpolation
       ) =>
         append_image(
-          writer, scale, left, top, plot_width, plot_height, data, norm, cmap, origin,
-          extent, alpha, interpolation,
+          writer,
+          scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          data,
+          norm,
+          cmap,
+          origin,
+          extent,
+          alpha,
+          interpolation,
+          on_cell=capture.map(hits => {
+            cell => {
+              collect_drawing_cell(
+                hits, panel_index, artist_index, cell, position,
+              )
+            }
+          }),
         )
       @render.Artist::ColorImage(data, origin, extent, alpha, interpolation) =>
         append_color_image(

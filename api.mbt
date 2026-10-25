@@ -28,6 +28,7 @@ pub using @drawing {
   type Drawing,
   type HitPoint,
   type HitInfo,
+  type CellInfo,
   type HitKind,
   type HitMode,
   type HitShape,

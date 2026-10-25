@@ -89,6 +89,8 @@ pub using @core {type Bounds}
 
 pub using @category {type CategoryAxis}
 
+pub using @drawing {type CellInfo}
+
 pub using @scene {type ContourSet}
 
 pub using @core {type DataError}

@@ -17,6 +17,18 @@ fn valid_info(info : HitInfo) -> Bool {
   (match info.fraction {
     Some(value) => finite(value)
     None => true
+  }) &&
+  (match info.cell {
+    Some(cell) =>
+      cell.row >= 0 &&
+      cell.column >= 0 &&
+      finite(cell.x_range.0) &&
+      finite(cell.x_range.1) &&
+      finite(cell.y_range.0) &&
+      finite(cell.y_range.1) &&
+      cell.x_range.0 != cell.x_range.1 &&
+      cell.y_range.0 != cell.y_range.1
+    None => true
   })
 }
 

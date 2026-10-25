@@ -7,6 +7,7 @@ pub(all) enum HitKind {
   BarH
   Histogram
   Pie
+  Heatmap
 } derive(Eq, Debug)
 
 ///|
@@ -56,6 +57,7 @@ pub struct HitInfo {
   value : Double
   interval : (Double, Double)?
   fraction : Double?
+  cell : CellInfo?
 } derive(Eq, Debug)
 
 ///|
@@ -73,8 +75,9 @@ pub fn hit_info(
   category~ : String? = None,
   interval~ : (Double, Double)? = None,
   fraction~ : Double? = None,
+  cell~ : CellInfo? = None,
 ) -> HitInfo {
-  { point, kind, series, category, value, interval, fraction, }
+  { point, kind, series, category, value, interval, fraction, cell, }
 }
 
 ///|

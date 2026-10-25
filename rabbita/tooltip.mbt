@@ -25,6 +25,7 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     BarH => "barh"
     Histogram => "histogram"
     Pie => "pie"
+    Heatmap => "heatmap"
   }
 }
 
@@ -57,6 +58,13 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
       }
     }
     Bar | BarH => rows.push(("Value", info.value.to_string()))
+    Heatmap => {
+      if info.cell is Some(cell) {
+        rows.push(("Row", cell.row.to_string()))
+        rows.push(("Column", cell.column.to_string()))
+      }
+      rows.push(("Value", info.value.to_string()))
+    }
   }
   rows
 }
