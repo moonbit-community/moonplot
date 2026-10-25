@@ -5,7 +5,7 @@ Interactive MoonPlot SVG components built with public
 real SVG DOM inside composable `Html`; your application owns its state.
 
 The component is the **`Lampese/mathplotlib/rabbita` package** in the unified
-`Lampese/mathplotlib@0.9.0` module. See [installation and release status](../docs/PUBLISHING.md)
+`Lampese/mathplotlib@0.10.0` module. See [installation and release status](../docs/PUBLISHING.md)
 for the current publication result. There is no separate adapter module to install.
 
 ![Two interactive charts](https://raw.githubusercontent.com/moonbit-community/moonplot/master/assets/rabbita-interactive.png)
@@ -15,7 +15,7 @@ for the current publication result. There is no separate adapter module to insta
 From your application's module directory:
 
 ```sh
-moon add Lampese/mathplotlib@0.9.0
+moon add Lampese/mathplotlib@0.10.0
 ```
 
 Import the packages used by your application's view in `moon.pkg`:
@@ -122,6 +122,20 @@ a log-invalid bottom does not create a rod even when its head is visible. Build
 `rabbita/cmd/stems --target js` and open `/rabbita/stems.html` for vertical,
 horizontal and confidence-band examples. See the [stem guide](../docs/STEM_INTERACTION.md).
 
+## Quiver vector components (0.10.0)
+
+`Quiver` targets follow each actually written shaft and arrow wing. Each carries
+its original input index, tail X/Y, label and immutable `HitInfo.vector.u/v`.
+`HitInfo.value` is explicitly the original V component. Default tooltips label
+X/Y/U/V; the component does not calculate a vector magnitude.
+
+Both hit modes require physical stroke proximity. Zero vectors keep index gaps,
+and clipping retains the original tail and signed components. The arrowhead is
+open, with no filled triangle target. Build `rabbita/cmd/vectors --target js` and
+open `/rabbita/vectors.html` for separate default/custom tooltips, a real reference
+band, independent legends and replacement data. See the
+[Quiver guide](../docs/QUIVER_INTERACTION.md) for exact boundaries.
+
 ## Component API
 
 Your application must also declare `moonbit-community/rabbita@0.16.7` when importing
@@ -197,7 +211,7 @@ legend buttons retain their accessibility attributes.
 and intrinsic SVG coordinates. ECDF indices refer to the returned distribution
 slots; other exact identities are described in each chart guide. Picking covers
 point anchors, bar and histogram regions, pie/donut sectors, matrix cells, error
-and area geometry, boxplot parts, hexagonal faces, violin parts, discrete strokes and stems. Lines can also snap by X; segment interpolation is not provided;
+and area geometry, boxplot parts, hexagonal faces, violin parts, discrete strokes, stems and quiver arrows. Lines can also snap by X; segment interpolation is not provided;
 indices belong to the current frame, not persistent identities across reordering.
 
 The SVG uses responsive width and `xMidYMid meet`. Picking uses client coordinates,

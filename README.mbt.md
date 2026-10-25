@@ -48,11 +48,11 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.9.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
+MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.10.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.9.0
+moon add Lampese/mathplotlib@0.10.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add
@@ -234,12 +234,26 @@ See the [stem guide](docs/STEM_INTERACTION.md) for source identities and clippin
 
 ![Stem values and baselines in Rabbita](assets/stems.png)
 
+### Vector arrows and original components
+
+```sh
+moon build rabbita/cmd/vectors --target js
+```
+
+Open [the vector example](http://127.0.0.1:8765/rabbita/vectors.html) to inspect
+original X/Y positions and signed U/V components along the actual shaft and
+both arrow wings. Zero vectors preserve later input indices; clipped strokes
+retain the original source position. A second chart overlays vectors on a
+reference band. See the [Quiver guide](docs/QUIVER_INTERACTION.md).
+
+![Vector components and reference band in Rabbita](assets/vectors.png)
+
 ### Current scope
 
 - SVG is the static output backend; Rabbita DOM is an optional browser component.
   Standalone PNG/PDF export and a desktop GUI backend are not available.
 - Interactive picking includes line/scatter anchors, bar and histogram regions,
-  pie/donut sectors, matrix cells, statistical areas, distribution parts, discrete curves and stems.
+  pie/donut sectors, matrix cells, statistical areas, distribution parts, discrete curves, stems and quiver arrows.
   Touch gestures, zoom/pan, and keyboard navigation remain future work.
 - 3D plotting, animation, and full mathtext/TeX and font layout are not available.
 - The library is not a drop-in Matplotlib implementation. Python's dynamic

@@ -10,7 +10,7 @@
 - 2026-10-24用户明确授权实际发布Mooncakes，前缀Lampese/，核心与Rabbita为单一Lampese/mathplotlib module。
 - 根facade api.mbt；消费测试tests/api；全局配置tests/integration；实现/白盒归拥有包，维护mbt<2000行。
 
-## 当前切片：M9 Quiver（已明确授权独立生产，尚未验收）
+## 当前切片：M9 Quiver（全部功能验收通过，待0.10.0正式发布）
 
 - 范围[M9](MILESTONE_M9.md)，目标0.10.0，Root版本仍正式0.9.0；仅Quiver，不扩Barbs/Streamplot，不重开19图调查。
 - 固定：HitKind::Quiver；只读VectorInfo{u,v}+HitInfo.vector?；data原x/y、原输入i、通用value明确原v；默认提示X/Y/U/V。
@@ -20,19 +20,26 @@
 - normoverflow可真实发生：x=y=-8e307,u=v=1.7e308在SymLog可画但norm Inf；首片不新增magnitude接口，不截断、不假0。
 - m3_donut只读packet已收Root M9-quiver/design，16生产源SHA与正式0.9一致；6旧SVG Native20060 terminal0。首完整核心e475dd7390749bb4bd8e55cb4853cb2fe00c4733已合Root4403974（base正式95a）。
 - [x] 核心e475：call级points/vectors复制源、双arrayidentity、once O(N)完整guard、actual三write后原i回调，Segment clip/actual style gate、VectorInfo/vector?/Quiver及X/Y/U/V提示/facade。旧计算/Unit/Container/非finite整call验证保持。
-  all-target check64133 129tasks/0errors、Native43097 10/10含6旧SVG逐字，实际compiler info/fmt/结构/diff通过；尚未四目标/adapter最终验收，producer继续有限paint/provider/facade/tooltip/tests与guide后续commit，不跑全库全套。
+  all-target check64133 129tasks/0errors、Native43097 10/10含6旧SVG逐字；后续0f6530ada8bf141f130775f60de4a460592903de已合Root60f7ca4，仅补5测试/guide文件，生产/接口自e475不变。
+  79098 terminal0 affected Wasm/Wasm-GC/JS各155/155、Native156/156（多native-only golden1），Rabbita40/40；54068 terminal0 exact95a immutable archive同6公共fixture旧/新各4目标24SVG逐字。compiler info/fmt/结构/diff与25最终文件SHA匹配。
+  首Wasm155/156为Native libm最后一位字面golden被误用于跨target；只加Native cfg，原字符串未改，未保留镜像writer，同target旧/新SVG24份已独立实证排除生产回归。
 - [x] m4独立准备从正式95a：Native66949 terminal0，8旧SVG+3公开control，actualXML独立oracle最大差1.14e-13、旧targets0。Root已收baseline-review/5文件+8SVG；未来visibleparts9/9/6/6/6/1/3/1尚只是预期。
-  已明确授权m4 exact e475 immutable archive Native/JS独立复审、实际geometry/guards/旧SVG，无Root/生产写/全套/新agent。Quiver不使用Line prepare_line，不虚构provider协议；只验实际source/content/provider边界。
+  m4 exact e475独立复审全部通过无blocker/live：Native/JS各18公开组、各8XML41target逐一真实line/原数据/clipanchor、Native8旧SVG逐字、4096datum/12288targets两端过；Scene71239与Backend98449各Native2/2，dual identity/content/zero槽/旧Drawing/IR mismatch及poisonedLineprovider0调用/actual paint边界均过。
+  final-review/四份冻结证据已收Root，14生产源SHA精确匹配；0f6530a仅tests/guide不需要重做复审，Quiver实际不调用Line prepare_line。
 - [x] Root0.10候选与公开consumer/3组合已部署，info/fmt与Node语法通过。88431 terminal0四目标overlay各3/3：Quiver/Area、Quiver/Stem真实compound身份、Quiver/Hex，两顺序/两mode。
   26693 terminal0 dirty外部演练：静态四目标+真实Chrome28项/0errors，4次actual integer MouseEvent与请求相同，shaft/双wing各自独立dist<.23px、距其他线>1.36px（radius1）；原tail/u/v、zero洞、负v、输入副本/反轴/clip通过。dirty包不上传。
   Root29994保存3旧Native SVG，90255新实际各targets9/9/1且三个SVG逐字相同；M9-quiver/consumer-svg-check.json与baseline-consumer-report留证，基线实际source82471d9仅docs异于formal95a。
 - UI七文件已freeze，隔离53444/info91925与真实Chrome91091 terminal0，12/12/0pageerrors；24实际shaft/wing事件最大距1.1154CSSpx（radius2），open head空白点到9线clearance4.4868px实际nohit。
   Root已目视真实desktop/mobile并逐一核七SHA，asset1280×1015/75274bytes/SHA9bab68fb64b8bfc66c3eac9c586efad7cebc1844ab25fa53fbe146f7278e1b01；实际JS4509800bytes/SHA9fb452af149cda424cf7c472bf18c50bd8cfa8b4f755129df0bbe0a421b09c9c。
   初Chrome18129/65682分别runner dataset数字连字键、临时zoom头部被卡裁切，已只修runner并保留失败证据；main从草稿部署未改，未扩大生产epsilon。证据M9-quiver/browser-final/final-evidence与draft/FINAL_HANDOFF，无UI live。
-- Root helpers M9-quiver/verify_final/check_docs/check_static/verify_github/release-notes已准备未执行；integrate_consumer.py已执行一次，不可重复部署。
+- Root UI f8b6633已commit，默认build通过、默认/隔离JS4509800bytes/SHA精确一致，8765实际HTML/JS/三CSS HTTP200逐字同磁盘；preview-http.json留证。open_in_codex返回queued，未声称前台已打开。
+- [x] Root中央72277 terminal0：Wasm/Wasm-GC各22520/22520、Native22521/22521、JS22567/22567；info/fmt/10JS builds无意外mbti变化。
+  十个真实Chrome122项/0errors；三个native SVG可解析，preview6886/gallery14246与资产逐字；42MD/498本地链接、结构/diff全部通过。七文件freeze仍SHA相同；证据M9-quiver/final-validation-progress.json/log、browser-final-summary。
+- [ ] clean正式包/实际0.10发布尚待；所有dirty包未上传。候选README/guide/发布状态已更新。
+- Root helpers M9-quiver/verify_github与release-notes已备，未实际release；integrate_consumer.py/update_release_docs.py已各执行一次，不可重复。
 - M8交付/M9范围f1e3058已push65943 terminal0，定点准备82471d9已push20460 terminal0，Root消费6dfee94已push82568 terminal0；最初probe未建workdir的工具拒绝未执行，建目录后29994成功，非生产问题。
-- 精确下一动作：M8实际发布闭环全部完成，交付文档commit/push → 核心e475已合、Root独立消费/组合通过 → 收producer后续commit/四目标与adapter结果 → m4 exact复审+UI实际通过冻结 → 文档/中央验收 → clean0.10实际交付。
-- Root无测试/发布/下载live；唯一有意预览8765/session43005/PID70622。producer补定向/tests/guide，review与UI实际验收进行中，无M8未决blocker。
+- 精确下一动作：M8实际发布闭环全部完成，交付文档commit/push → producer最终0f6530a已合、定向/独立/UI/外部全部过 → 中央72277已terminal0全部过 → 更新验证文档release-prep commit/push → clean0.10实际publish/registry4+Chrome28/GH四附件完整下载；formal冻结期不tracked写/commit。
+- Root无测试/发布/下载live；唯一有意预览8765/session43005/PID70622。UI/reviewer均已freeze无live。producer已被明确授权仅只读M10 Barbs定点设计/少量旧SVG（不实现/commit/Root写/新agent，任何M9反例优先），等正式0.10 SHA及明确授权再生产。
 
 ## 最新交付：M8 / 0.9.0（2026-10-25）
 
@@ -57,7 +64,7 @@
 - M7/0.8正式2f7aeb77c70499979b43273d1ea8a0b0504ba040：Step/Stairs/ECDF，中央各22488/JS22531/Chrome98；555安装源/4目标Chrome23与四附件全验。
 - M6/0.7真实Hex数学分箱修正与Violin、M5/0.6 meshes/hist2d、M1至M4均已正式交付，无需重验。
 - [M8之前实施记录](archive/migration-status-through-2026-10-25-m8.md)、[M7历史](archive/migration-status-through-2026-10-25-m7.md)、[M5历史](archive/migration-status-through-2026-10-25-m5.md)、[早期历史](archive/migration-status-through-2026-10-25-m4.md)保留逐步命令与失败定位，旧tag/附件不移动。
-- 当前预览http://127.0.0.1:8765/rabbita/stems.html，实际正式0.9默认JS已构建/验证。服务若connection refused才重启并更新session/PID，不复活旧测试服务器。
+- 当前预览http://127.0.0.1:8765/rabbita/vectors.html，实际0.10候选默认JS已构建/验证。服务若connection refused才重启并更新session/PID，不复活旧测试服务器。
 - 主master，SSH origin=git@github.com:moonbit-community/moonplot.git；独立分支前缀codex/。
 - JS-only接口用tools/update_interfaces.py真实compiler生成；最后info/fmt、预期mbti审查、python3 tools/check_structure.py与适当测试。
 

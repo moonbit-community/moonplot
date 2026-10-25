@@ -1,7 +1,7 @@
 # 安装与发布
 
-当前分发模块为 **`Lampese/mathplotlib@0.9.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
-0.9.0已实际发布Mooncakes与GitHub，公开构建成功、包可安装且未撤回；全新registry与四附件完整下载核验均通过。
+本次发布目标为 **`Lampese/mathplotlib@0.10.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
+0.10.0功能、独立复审与中央最终均通过，尚未实际发布；上一正式0.9.0可安装且实际registry/GitHub核验已完成。
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
 
@@ -10,7 +10,7 @@
 0.7.0 接续[六边形分箱](HEXBIN_INTERACTION.md)与[小提琴分布](VIOLIN_INTERACTION.md)，
 同时修正旧 hexbin 分桶与轮廓错位；新示例为 `rabbita/distributions.html`。
 0.8.0 接续[Step](STEP_INTERACTION.md)、[Stairs](STAIRS_INTERACTION.md)与[ECDF](ECDF_INTERACTION.md)的原采样、区间及概率提示，
-新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。下方安装命令对应0.9.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
+新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。0.10.0接续[Quiver原位置与U/V分量](QUIVER_INTERACTION.md)，新示例为 `rabbita/vectors.html`。下方安装命令对应本次0.10.0发布目标；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
 查看 registry 版本。维护者使用 `tools/verify_registry.py` 从全新、无 `moon.work` 的应用
 安装并验证静态四目标和真实浏览器交互。
 GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0)
@@ -21,7 +21,7 @@ GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.
 在应用的模块目录运行：
 
 ```sh
-moon add Lampese/mathplotlib@0.9.0
+moon add Lampese/mathplotlib@0.10.0
 ```
 
 静态出图只需在对应 executable 的 `moon.pkg` 导入根包：
@@ -126,7 +126,7 @@ Mooncakes 安装路线只依赖 registry，不需要这个 workspace。
 | `moonbit-community/moonplot-rabbita` | `Lampese/mathplotlib/rabbita`，建议别名 `@plot_dom` |
 | 仓库 `adapters/rabbita/` | 仓库 `rabbita/` |
 
-更新应用的 `moon.mod`，移除两个旧模块依赖，改为单个 `Lampese/mathplotlib@0.9.0`；
+更新应用的 `moon.mod`，移除两个旧模块依赖，改为单个 `Lampese/mathplotlib@0.10.0`；
 同步更新 `moon.pkg` 的包前缀。根包默认 alias 仍是 `@mathplotlib`，已有绘图方法调用无需改名。
 浏览器组件显式写 `"Lampese/mathplotlib/rabbita" @plot_dom`，避免与 Rabbita 本身的 alias 冲突。
 移除仅为两个旧模块建立的 workspace 条目；自己的其他 workspace 成员照常保留。
@@ -213,3 +213,13 @@ Stem原样本、真实杆段和圆头通过既有字段进入默认/自定义提
 - 独立源码ZIP2212594bytes，SHA256 `99934cca03b701938b30fe18acf0a42844b5ffb9fa6509002b3acf26e52d3a39`。
 
 正式构建至网络验收闭环未改tracked文件；dirty演练包未上传。
+
+## 0.10.0 Quiver 发布验收（候选）
+
+实际箭杆与双箭翼带原tail X/Y、原i和只读VectorInfo U/V；通用value明确原V。双mode只physical，open head不增加填面或横轴吸附。原签名/Unit/Container/非finite整call校验与旧SVG保持。
+
+Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、三个独立旧SVG逐字已通过；dirty包不上传。
+- 定向W/WG/JS各155、Native156、Rabbita40全部通过；24份同target旧/新SVG逐字。Native golden限定本target，未以libm末位差误报生产回归。
+- 独立Native/JS各18公开组、各8XML41targets、Native8旧SVG、Scene2+Backend2通过；14生产SHA与中央匹配。
+- 中央Wasm/Wasm-GC各22520、Native22521、JS22567；十页面Chrome122项/0errors、三个SVG、42MD/498本地链接、info/fmt/10JS builds和结构全部通过。
+- clean正式包、实际Mooncakes全新安装与GitHub四附件完整下载尚待，未完成项目不算发布。
