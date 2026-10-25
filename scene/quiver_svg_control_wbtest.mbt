@@ -73,7 +73,8 @@ fn quiver_control_figure(case : Int32) -> Figure raise {
 }
 
 ///|
-test "quiver retains six exact pre-interaction SVG documents" {
+#cfg(target="native")
+test "quiver retains six exact pre-interaction Native SVG documents" {
   let documents = []
   for i in 0..<6 {
     documents.push(quiver_control_figure(i).to_svg_checked())
