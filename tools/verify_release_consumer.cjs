@@ -188,6 +188,42 @@ async function main() {
     await page.waitForFunction(() => document.querySelector('[data-testid="consumer-bins-tooltip"]')?.textContent === 'Count 2; x=1..2; y=1..2');
     checks.push('Installed two-dimensional histogram includes repeated maximum-boundary samples in the last bin');
 
+    const hexCenter = await polygonPoint('release-hex-svg', 0);
+    await page.mouse.move(hexCenter.x, hexCenter.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-hex-tooltip"]')?.textContent === 'Mean 5; count=3');
+    assert.equal(await page.locator('[data-testid="consumer-hex-tooltip"]').getAttribute('data-mean'), 'true');
+    checks.push('Installed hexbin exposes the original mean and count from the actual six-vertex cell');
+
+    await page.locator('#release-violin-svg').scrollIntoViewIfNeeded();
+    const densityPoint = await page.locator('#release-violin-svg polygon').evaluate(polygon => {
+      const count = polygon.points.numberOfItems / 2;
+      const high = polygon.points.getItem(3), low = polygon.points.getItem(2 * count - 1 - 3);
+      const p = new DOMPoint(low.x + (high.x - low.x) * 0.95, high.y)
+        .matrixTransform(polygon.ownerSVGElement.getScreenCTM());
+      return { x: p.x, y: p.y };
+    });
+    await page.mouse.move(densityPoint.x, densityPoint.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-violin-tooltip"]')?.textContent === 'KDE 5; mean=4; median=4; range=2..6');
+    checks.push('Installed violin body reports a KDE sample coordinate and the original distribution summary');
+
+    async function violinSummaryPoint(index) {
+      return page.locator('#release-violin-svg line[stroke="#5c3b9c"]').nth(index).evaluate(line => {
+        const x0 = Number(line.getAttribute('x1')), x1 = Number(line.getAttribute('x2'));
+        const y0 = Number(line.getAttribute('y1')), y1 = Number(line.getAttribute('y2'));
+        const p = new DOMPoint(x0 + (x1 - x0) * 0.85, y0 + (y1 - y0) * 0.85)
+          .matrixTransform(line.ownerSVGElement.getScreenCTM());
+        return { x: p.x, y: p.y };
+      });
+    }
+    const median = await violinSummaryPoint(1);
+    await page.mouse.move(median.x, median.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-violin-tooltip"]')?.textContent === 'Median 4');
+    checks.push('Installed coincident mean and median retain the later median part above the filled violin');
+    const quantile = await violinSummaryPoint(5);
+    await page.mouse.move(quantile.x, quantile.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-violin-tooltip"]')?.textContent === 'Quantile 0: 3');
+    checks.push('Installed violin quantile preserves its source index and exact value through the public callback');
+
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);

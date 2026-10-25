@@ -11,6 +11,8 @@ struct Model {
   box_hover : @drawing.HitPoint?
   mesh_hover : @drawing.HitPoint?
   bins_hover : @drawing.HitPoint?
+  hex_hover : @drawing.HitPoint?
+  violin_hover : @drawing.HitPoint?
 } derive(Eq)
 
 ///|
@@ -23,6 +25,8 @@ enum Msg {
   Box(@plot_dom.Interaction)
   Mesh(@plot_dom.Interaction)
   Bins(@plot_dom.Interaction)
+  Hex(@plot_dom.Interaction)
+  Violin(@plot_dom.Interaction)
 }
 
 ///|
@@ -50,6 +54,8 @@ fn update(model : Model, message : Msg) -> Model {
         box_hover: None,
         mesh_hover: None,
         bins_hover: None,
+        hex_hover: None,
+        violin_hover: None,
       }
     Bar(Hover(point)) => { ..model, bar_hover: point, }
     Bar(_) => model
@@ -63,6 +69,10 @@ fn update(model : Model, message : Msg) -> Model {
     Mesh(_) => model
     Bins(Hover(point)) => { ..model, bins_hover: point, }
     Bins(_) => model
+    Hex(Hover(point)) => { ..model, hex_hover: point, }
+    Hex(_) => model
+    Violin(Hover(point)) => { ..model, violin_hover: point, }
+    Violin(_) => model
   }
 }
 
@@ -198,6 +208,50 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
         )
       },
     ),
+    @html.h2("Hexagonal aggregates"),
+    @plot_dom.view(
+      make_hex_drawing(model),
+      id="release-hex",
+      on_event=event => emit(Hex(event)),
+      hovered?=model.hex_hover,
+      tooltip=info => {
+        let bin = info.hexbin.unwrap()
+        @html.b(
+          attrs=@html.Attrs::build()
+            .data_set("testid", "consumer-hex-tooltip")
+            .data_set("count", bin.count.to_string())
+            .data_set(
+              "mean",
+              (bin.reduction == @drawing.HexbinReduction::Mean).to_string(),
+            ),
+          "Mean \{info.value}; count=\{bin.count}",
+        )
+      },
+    ),
+    @html.h2("Violin density and summaries"),
+    @plot_dom.view(
+      make_violin_drawing(model),
+      id="release-violin",
+      on_event=event => emit(Violin(event)),
+      hovered?=model.violin_hover,
+      tooltip=info => {
+        let violin = info.violin.unwrap()
+        let text = match violin.part {
+          @drawing.ViolinPart::Body(_, coordinate, _) =>
+            "KDE \{coordinate}; mean=\{violin.mean}; median=\{violin.median}; range=\{violin.minimum}..\{violin.maximum}"
+          @drawing.ViolinPart::Median => "Median \{info.value}"
+          @drawing.ViolinPart::Quantile(index, value) =>
+            "Quantile \{index}: \{value}"
+          _ => "Summary \{info.value}"
+        }
+        @html.b(
+          attrs=@html.Attrs::build().data_set(
+            "testid", "consumer-violin-tooltip",
+          ),
+          text,
+        )
+      },
+    ),
     @html.h2("Nonuniform mesh"),
     @plot_dom.view(
       make_mesh_drawing(model),
@@ -320,6 +374,46 @@ fn make_bins_drawing(model : Model) -> @drawing.Drawing raise {
 }
 
 ///|
+fn make_hex_drawing(model : Model) -> @drawing.Drawing raise {
+  let figure = @plot.figure(width=600, height=240)
+  figure.legend([])
+  let shift = model.revision.to_double()
+  ignore(
+    figure.hexbin(
+      [1.0, 1.0, 1.0],
+      [1.0, 1.0, 1.0],
+      values=[2.0 + shift, 4.0 + shift, 6.0 + shift],
+      gridsize=4,
+      extent=[0.0, 4.0, 0.0, 4.0],
+      reduce="mean",
+    ),
+  )
+  figure.to_drawing()
+}
+
+///|
+fn make_violin_drawing(model : Model) -> @drawing.Drawing raise {
+  let figure = @plot.figure(width=600, height=240)
+  figure.legend([])
+  figure.set_x_limits(0.0, 2.0)
+  figure.set_y_limits(0.0, 7.0)
+  let shift = model.revision.to_double()
+  ignore(
+    figure.violinplot(
+      [[1.0 + shift, 2.0 + shift, 3.0 + shift, 4.0 + shift, 5.0 + shift]],
+      points=5,
+      width=0.8,
+      showmeans=true,
+      showmedians=true,
+      quantiles=[[0.25]],
+      facecolor="#d5c7ec",
+      linecolor="#5c3b9c",
+    ),
+  )
+  figure.to_drawing()
+}
+
+///|
 fn main {
   @rabbita.new(() => {
     let (state, emit) = @rabbita.create_pure_state(
@@ -335,6 +429,8 @@ fn main {
         box_hover: None,
         mesh_hover: None,
         bins_hover: None,
+        hex_hover: None,
+        violin_hover: None,
       },
       update~,
     )

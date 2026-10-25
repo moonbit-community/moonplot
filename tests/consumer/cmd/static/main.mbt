@@ -181,5 +181,71 @@ fn main raise {
       Some(target.info.point),
     )
   }
+  let hexagons = @plot.figure(width=400, height=240)
+  hexagons.legend([])
+  let aggregated = hexagons.hexbin(
+    [1.0, 1.0, 1.0],
+    [1.0, 1.0, 1.0],
+    values=[2.0, 4.0, 6.0],
+    gridsize=4,
+    extent=[0.0, 4.0, 0.0, 4.0],
+    reduce="mean",
+    label="Aggregates",
+  )
+  assert_eq(aggregated.counts(), [3])
+  assert_eq(aggregated.values(), [4.0])
+  let hex_frame = hexagons.to_drawing()
+  assert_eq(hex_frame.svg(), hexagons.to_svg_checked())
+  assert_eq(hex_frame.points().length(), 1)
+  assert_eq(hex_frame.targets().length(), 2)
+  for target in hex_frame.targets() {
+    assert_eq(target.info.kind, @plot.HitKind::Hexbin)
+    assert_eq(target.info.value, 4.0)
+    assert_eq(target.info.series, "Aggregates")
+    let bin = target.info.hexbin.unwrap()
+    assert_eq(bin.count, 3)
+    assert_eq(bin.reduction, @plot.HexbinReduction::Mean)
+    assert_eq(hex_frame.hit_info(target.info.point), Some(target.info))
+  }
+  let violins = @plot.figure(width=400, height=240)
+  violins.legend([])
+  let summaries = violins.violinplot(
+    [[1.0, 2.0, 3.0, 4.0, 5.0]],
+    points=5,
+    showmeans=true,
+    showmedians=true,
+    quantiles=[[0.25]],
+    label="Distribution",
+  )
+  let violin_frame = violins.to_drawing()
+  assert_eq(violin_frame.svg(), violins.to_svg_checked())
+  let mut saw_density = false
+  let mut saw_quantile = false
+  for target in violin_frame.targets() {
+    assert_eq(target.info.kind, @plot.HitKind::Violin)
+    assert_eq(target.info.series, "Distribution")
+    let violin = target.info.violin.unwrap()
+    assert_eq(violin.group_index, 0)
+    assert_eq(violin.mean, 3.0)
+    assert_eq(violin.median, 3.0)
+    assert_eq((violin.minimum, violin.maximum), (1.0, 5.0))
+    // Even coincident means, medians and body samples preserve their own part.
+    assert_eq(violin_frame.hit_info(target.info.point), Some(target.info))
+    match violin.part {
+      @plot.ViolinPart::Body(index, coordinate, density) => {
+        assert_eq(coordinate, summaries[0].coords()[index])
+        assert_eq(density, summaries[0].vals()[index])
+        assert_eq(target.info.value, coordinate)
+        saw_density = true
+      }
+      @plot.ViolinPart::Quantile(index, value) => {
+        assert_eq(index, 0)
+        assert_eq(value, 2.0)
+        saw_quantile = true
+      }
+      _ => ()
+    }
+  }
+  assert_true(saw_density && saw_quantile)
   println(drawing.svg())
 }
