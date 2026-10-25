@@ -6,11 +6,11 @@
 
 - 实用 MoonBit 画图库，能力与场景对齐，不要求完整 Matplotlib API 复刻，不恢复旧 D55 清单。
 - M1 基础二维 SVG、G2.1 首批 Rabbita DOM、后续 UI 整理均已验收与交付。
-- 代码组织、M2资源隔离、0.3.0提示、M3/0.4.0图表扩展、M4/0.5.0统计交互均已交付；用户要求持续往后对齐，当前M5。
+- 代码组织、M2资源隔离、0.3.0提示、M3/0.4.0图表扩展、M4/0.5.0统计交互均已交付；用户要求持续往后对齐，M5/0.6.0现亦已交付，下一片M6。
 - 用户授权合理复用、独立 subagents、小步本地commit与正常push至 moonbit-community/moonplot。
 - 不用历史API指数或未经调查的估算表示整体完成率。
 
-## 当前切片：M5 网格与二维计数（2026-10-25）
+## 最新交付：M5 网格与二维计数（2026-10-25）
 
 - 用户要求“一直往后对齐”；M4/0.5.0已完整交付，现继续MILESTONE_M5.md，不重启全项目调查。
 - [x] 冻结范围：1D严格单调边界flat pcolor/pcolormesh、无权重hist2d计数；复用CellInfo，hist新增Histogram2D kind。
@@ -26,9 +26,8 @@
   初build/定向compiler info通过；实际Chrome66558 terminal0，11项/0error，Root已目视实际截图。
   初JS4,341,955bytes/SHA c6289716bdd256931ca5a1161d8fd44fd7692fccf2ba013062a70fbc936f4c2d；
   asset89442bytes/SHA23732ee4e6c32481c6f8f85d79f9ad15a32d5fc9302ca1b7db568e3b618418ed，与实际截图相同。
-- 精确下一动作：最终文档/接口/结构后commit/push，
-  clean0.6包 → 实际publish/registry13项 → GitHub四附件回验。不要重复已通过的完整调查或已完M4检查。
-- Root现已合网格0ea853e与普通柱eda85a6，版本/root consumer已准备0.6.0，尚未实际发布。
+- 精确下一动作：M5无剩余必做验收项；记录交付后继续M6六边形分箱与小提琴图。不要重复已通过的完整调查或已完M4检查。
+- Root现已合网格0ea853e与普通柱eda85a6，版本/root consumer为0.6.0；正式发布与独立消费现已完整验收。
 - 独立网格受影响四目标各1867/1867、adapter26/26；6份基线SVG共6922bytes相同。
   native含创建/两SVG/断言：10k格约47ms，image前置约46.9ms；仅实测，不设脆弱时限。
 - m3_donut只读复审无阻塞，Row/Col/alpha/norm/inline-contour错位/default cell=None均看过；Root亦复查真实alpha和polygon校验。
@@ -45,7 +44,17 @@
   71131网格11、25338统计14、12330图表14、23712提示14，均0pageerror，browser-restored-*/。
   最终grids JS4338728bytes/SHA3819b8939be52f2b4fd839b96b48f4e5ee879fd42a2a846d9c666fd2074ec40e。
   77927 terminal0：三native SVG解析，preview6886/gallery14246与旧资产逐字相同；31份当前Markdown437本地链接/结构/diff通过。
-- M6只读定点设计另行并行：m4_area看hexbin；m3_donut看Violin，不实现、不改Root或版本。0.6交付前不合后续生产代码。
+- 515f0ef消除Map初始化warning，示例/consumer/0.6文档b563204ab9d021f7660c1ab0166104972ad2e4a8已push。
+  clean builder19040 terminal0，dirty_rehearsal=false，外部静态四目标+Chrome13全过；
+  模块ZIP1879592bytes/531files/SHAf29da6521079f7dfca8d82bffba7cb96aa040f30ce9fa9c3807c25d8a2afba17，
+  source1903028bytes/544files/SHA00e032a676218f017f5f8b43cac92bd4dfc627b73c8c63fe00719c8703fc7030。
+  publish58662 terminal0/Server200；公开0.6.0/buildsuccess/has_package=true/yanked=false。
+  GitHub36636与download37805均terminal0，完整下载后四附件逐字/远端摘要/tag核验全过；
+  首轮误读未下载完文件的预读断言不成立，已等terminal后完整重验；正式tag指向b563204，download-check.json已落盘。
+  registry21402 terminal0：531份源文件逐一相同，无workspace覆盖，静态四目标+Chrome13全过。
+  https://github.com/moonbit-community/moonplot/releases/tag/v0.6.0 。
+- M6后续并行：m4_area在独立worktree从b563204接hexbin；m3_donut小提琴设计已收敛待实施；m3_browser仅ignored draft。
+  当前Root无M6生产合入；各agent不改版本/中央docs、不push/发布。
 - M5证据 .moonagent/checkpoints/M5-grids/；bar证据已复制ordinary-logit-bars/。
   上述全套/中央浏览器会话均已结束；仅有意预览session43005/PID70622，
   http://127.0.0.1:8765/rabbita/statistics.html ，根目录服务、HTML/JS已HTTP200。
