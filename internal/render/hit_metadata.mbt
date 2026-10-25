@@ -8,6 +8,7 @@ pub struct HitMetadata {
   priv band_values : Array[Double]?
   priv mesh : MeshHitData?
   priv hexbin : HexbinHitData?
+  priv discrete : DiscreteLineHitData?
 }
 
 ///|
@@ -18,6 +19,7 @@ pub fn hit_metadata(
   band_values~ : Array[Double]? = None,
   mesh~ : MeshHitData? = None,
   hexbin~ : HexbinHitData? = None,
+  discrete~ : DiscreteLineHitData? = None,
 ) -> HitMetadata {
   {
     series,
@@ -26,7 +28,13 @@ pub fn hit_metadata(
     band_values: band_values.map(values => values.copy()),
     mesh,
     hexbin,
+    discrete,
   }
+}
+
+///|
+pub fn HitMetadata::discrete(self : HitMetadata) -> DiscreteLineHitData? {
+  self.discrete
 }
 
 ///|

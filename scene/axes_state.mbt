@@ -130,6 +130,7 @@ fn Axes::push_artist(self : Axes, artist : Artist) -> Unit {
     band_values: None,
     mesh: None,
     hexbin: None,
+    discrete: None,
   })
   self.update_artist_data_limits(artist)
   match artist {

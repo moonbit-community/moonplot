@@ -258,7 +258,7 @@ fn Drawing::target_hit(
   }
   let mut best : HitPoint? = None
   let mut best_distance = radius
-  let mut best_violin = false
+  let mut best_target : HitTarget? = None
   for target in self.targets {
     if self.excluded(target.info.point.panel_index, x, y) ||
       (
@@ -278,14 +278,11 @@ fn Drawing::target_hit(
       (
         best is None ||
         distance < best_distance ||
-        (
-          distance == best_distance &&
-          (best_violin || target.info.kind == Violin)
-        )
+        (distance == best_distance && proximity_tie_later(target, best_target))
       ) {
       best = Some(point)
       best_distance = distance
-      best_violin = target.info.kind == Violin
+      best_target = Some(target)
     }
   }
   if best is Some(_) || mode == Nearest {
@@ -295,7 +292,11 @@ fn Drawing::target_hit(
   let mut best_dy = 0.0
   for target in self.targets {
     if self.excluded(target.info.point.panel_index, x, y) ||
-      (target.info.kind != Line && target.info.kind != ErrorBar) ||
+      (
+        target.info.kind != Line &&
+        target.info.kind != ErrorBar &&
+        target.info.kind != Step
+      ) ||
       target.shape != Point ||
       !valid_info(target.info) ||
       !rect_contains(target.bounds, x, y) ||

@@ -15,17 +15,21 @@ import {
 // Values
 pub fn annotation(Double, Double, Double, Double, String, String, String, String, Bool, String, Double, Double, Double, @core.Style) -> Annotation
 
+pub fn discrete_datum(Int, @core.Point, Double, interval? : (Double, Double)?, fraction? : Double?, band? : @drawing.BandInfo?) -> DiscreteDatum
+
+pub fn discrete_line_hit_data(@drawing.HitKind, Array[@core.Point], Array[DiscreteDatum], Array[Int]) -> DiscreteLineHitData?
+
 pub fn figure(Int, Int, Int, Array[Panel], Array[@colorbar.Colorbar], String?) -> Figure
 
 pub fn figure_with_subfigures(Int, Int, Int, Array[Panel], Array[@colorbar.Colorbar], Array[SubFigure], String?) -> Figure
 
 pub fn hexbin_hit_data(Int, @core.Point, Double, @drawing.HexbinInfo) -> HexbinHitData
 
-pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?, mesh? : MeshHitData?, hexbin? : HexbinHitData?) -> HitMetadata
+pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?, mesh? : MeshHitData?, hexbin? : HexbinHitData?, discrete? : DiscreteLineHitData?) -> HitMetadata
 
 pub fn legend_entry(String, String, LegendKind) -> LegendEntry
 
-pub fn line_drawing_context(Array[@core.Point], @core.Style, () -> Unit, foreground? : (() -> @core.Style raise @core.DataError)?, hit_points? : Array[@core.Point]?) -> LineDrawingContext
+pub fn line_drawing_context(Array[@core.Point], @core.Style, () -> Unit, foreground? : (() -> @core.Style raise @core.DataError)?, hit_points? : Array[@core.Point]?, discrete? : DiscreteLineHitData?) -> LineDrawingContext
 
 pub fn mesh_hit_data(Int, Int, Int, Double, (Double, Double), (Double, Double), histogram? : Bool) -> MeshHitData
 
@@ -109,6 +113,24 @@ pub(all) enum Artist {
   Violin(Array[ViolinStats], Array[Double], Array[Double], Bool, ViolinSide, Bool, Bool, Bool, @core.Style, @core.Style, Double)
 }
 
+pub struct DiscreteDatum {
+  index : Int
+  point : @core.Point
+  value : Double
+  interval : (Double, Double)?
+  fraction : Double?
+  band : @drawing.BandInfo?
+}
+
+pub struct DiscreteLineHitData {
+  kind : @drawing.HitKind
+  // private fields
+}
+pub fn DiscreteLineHitData::datum(Self, Int) -> DiscreteDatum?
+pub fn DiscreteLineHitData::matches_path(Self, Array[@core.Point]) -> Bool
+pub fn DiscreteLineHitData::matches_xy(Self, Array[Double], Array[Double]) -> Bool
+pub fn DiscreteLineHitData::owner(Self, Int) -> Int?
+
 pub struct Figure {
   width : Int
   height : Int
@@ -139,6 +161,7 @@ pub struct HitMetadata {
 pub fn HitMetadata::band_horizontal(Self) -> Bool?
 pub fn HitMetadata::band_stacked(Self) -> Bool
 pub fn HitMetadata::band_value(Self, Int) -> Double?
+pub fn HitMetadata::discrete(Self) -> DiscreteLineHitData?
 pub fn HitMetadata::hexbin(Self) -> HexbinHitData?
 pub fn HitMetadata::interval(Self, Int) -> (Double, Double)?
 pub fn HitMetadata::mesh(Self) -> MeshHitData?
@@ -191,6 +214,7 @@ pub struct LineDrawingContext {
   // private fields
 }
 pub fn LineDrawingContext::complete(Self) -> Unit
+pub fn LineDrawingContext::discrete(Self) -> DiscreteLineHitData?
 pub fn LineDrawingContext::first_style(Self) -> @core.Style
 pub fn LineDrawingContext::hit_points(Self) -> Array[@core.Point]?
 pub fn LineDrawingContext::points(Self) -> Array[@core.Point]

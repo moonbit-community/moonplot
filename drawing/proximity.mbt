@@ -40,7 +40,7 @@ fn Drawing::statistical_overlay_hit(
 ) -> HitPoint? {
   let mut best : HitPoint? = None
   let mut best_distance = radius
-  let mut best_violin = false
+  let mut best_target : HitTarget? = None
   let eligible_errors : Map[(Int32, Int32), Bool] = Map([])
   for index in (area_index + 1)..<self.targets.length() {
     let target = self.targets[index]
@@ -48,7 +48,8 @@ fn Drawing::statistical_overlay_hit(
     if (
         target.info.kind != ErrorBar &&
         target.info.kind != BoxPlot &&
-        target.info.kind != Violin
+        target.info.kind != Violin &&
+        !discrete_kind(target.info.kind)
       ) ||
       self.excluded(point.panel_index, x, y) ||
       !valid_info(target.info) ||
@@ -69,14 +70,11 @@ fn Drawing::statistical_overlay_hit(
       (
         best is None ||
         distance < best_distance ||
-        (
-          distance == best_distance &&
-          (best_violin || target.info.kind == Violin)
-        )
+        (distance == best_distance && proximity_tie_later(target, best_target))
       ) {
       best = Some(point)
       best_distance = distance
-      best_violin = target.info.kind == Violin
+      best_target = Some(target)
     }
   }
   if best is Some(_) || mode == Nearest || eligible_errors.is_empty() {

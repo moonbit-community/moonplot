@@ -360,6 +360,14 @@ fn Figure::to_render_figure(
     // Pin this frame's stable Line identities, without touching invalid data.
     // A later clear/new attachment must not redirect an old IR completion.
     let lines = state.line_originals.copy()
+    let discrete_sources = []
+    if capture_points {
+      for record in state.artist_hits {
+        if record.discrete is Some(source) {
+          discrete_sources.push(source)
+        }
+      }
+    }
     let artists = Array(capacity=state.artists.length())
     let hit_metadata = if capture_points {
       let cursor = @ref.Ref(0)
@@ -461,6 +469,9 @@ fn Figure::to_render_figure(
               } else {
                 None
               }
+              let discrete = prepared_discrete_line(
+                discrete_sources, line, current, hit_points,
+              )
               if style.width() > 0.0 &&
                 (
                   stroke.linestyle() == "--" ||
@@ -498,6 +509,7 @@ fn Figure::to_render_figure(
                       line_drawing_foreground_style(style, source_color)
                     }),
                     hit_points~,
+                    discrete~,
                   ),
                 )
               }
@@ -507,6 +519,7 @@ fn Figure::to_render_figure(
                   line_drawing_foreground_style(style, source_color),
                   () => line.mark_drawn(),
                   hit_points~,
+                  discrete~,
                 ),
               )
             }

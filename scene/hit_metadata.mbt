@@ -7,6 +7,7 @@ priv struct ArtistHitData {
   mut band_values : Array[Double]?
   mut mesh : @render.MeshHitData?
   mut hexbin : @render.HexbinHitData?
+  mut discrete : DiscreteLineSource?
 }
 
 ///|
@@ -41,6 +42,7 @@ fn ArtistHitData::render_metadata(self : ArtistHitData) -> @render.HitMetadata {
     band_values=self.band_values,
     mesh=self.mesh,
     hexbin=self.hexbin,
+    discrete=self.discrete.map(source => source.data),
   )
 }
 

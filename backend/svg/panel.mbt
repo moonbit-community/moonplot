@@ -151,10 +151,39 @@ fn render_panel(
       @render.Artist::Line(points, style) =>
         match panel.prepare_line(points) {
           Some(context) => {
+            let discrete = match context.discrete() {
+              Some(data) =>
+                discrete_line_for_paint(
+                  Some(data),
+                  context.points(),
+                  context.first_style(),
+                )
+              None => None
+            }
             append_line_context(
-              writer, scale, left, top, plot_width, plot_height, context,
+              writer,
+              scale,
+              left,
+              top,
+              plot_width,
+              plot_height,
+              context,
+              on_segment=discrete_line_capture(
+                capture,
+                discrete,
+                panel_index,
+                artist_index,
+                scale,
+                position,
+                metadata.series(),
+              ),
             )
             if capture is Some(hits) &&
+              discrete is None &&
+              (
+                metadata.discrete() is None ||
+                discrete_line_visible(context.first_style())
+              ) &&
               context.first_style().width() > 0.0 &&
               context.first_style().line_stroke().linestyle() != "None" {
               let points = match context.hit_points() {
@@ -175,10 +204,33 @@ fn render_panel(
             }
           }
           None => {
+            let discrete = discrete_line_for_paint(
+              metadata.discrete(),
+              points,
+              style,
+            )
             append_line_artist(
-              writer, scale, left, top, plot_width, plot_height, points, style,
+              writer,
+              scale,
+              left,
+              top,
+              plot_width,
+              plot_height,
+              points,
+              style,
+              on_segment=discrete_line_capture(
+                capture,
+                discrete,
+                panel_index,
+                artist_index,
+                scale,
+                position,
+                metadata.series(),
+              ),
             )
             if capture is Some(hits) &&
+              discrete is None &&
+              (metadata.discrete() is None || discrete_line_visible(style)) &&
               style.width() > 0.0 &&
               style.line_stroke().linestyle() != "None" {
               collect_drawing_points(

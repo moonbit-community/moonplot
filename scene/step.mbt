@@ -144,7 +144,10 @@ pub fn Axes::step(
   color~ : String = "",
   label~ : String = "",
 ) -> Unit raise @core.DataError {
-  self.line(step_points(xs, ys, where_), color~, label~)
+  let points = step_points(xs, ys, where_)
+  let source = step_hit_data(xs, ys, where_, points)
+  self.line(points, color~, label~)
+  self.record_discrete_line(source)
 }
 
 ///|

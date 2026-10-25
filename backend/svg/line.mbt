@@ -10,6 +10,8 @@ fn append_line_segment(
   style : @core.Style,
   line_alpha~ : Double? = None,
   line_dashes~ : (Double, Array[Double])? = None,
+  source_start~ : Int32 = 0,
+  on_segment~ : ((Array[@core.Point], Int32) -> Unit)? = None,
 ) -> Unit {
   if points.length() == 0 {
     return
@@ -35,6 +37,9 @@ fn append_line_segment(
     attributes.push(("stroke-dashoffset", float_text(offset)))
   }
   try! writer.empty_element("polyline", attributes)
+  if on_segment is Some(capture) {
+    capture(points, source_start)
+  }
 }
 
 ///|
@@ -49,9 +54,11 @@ fn append_line(
   style : @core.Style,
   line_alpha~ : Double? = None,
   line_dashes~ : (Double, Array[Double])? = None,
+  on_segment~ : ((Array[@core.Point], Int32) -> Unit)? = None,
 ) -> Unit {
   let mut segment : Array[@core.Point] = []
-  for p in points {
+  let mut source_start = 0
+  for i, p in points {
     if valid_point(scale, p) {
       segment.push(p)
     } else if segment.length() > 0 {
@@ -66,8 +73,13 @@ fn append_line(
         style,
         line_alpha~,
         line_dashes~,
+        source_start~,
+        on_segment~,
       )
       segment = []
+      source_start = i + 1
+    } else {
+      source_start = i + 1
     }
   }
   if segment.length() > 0 {
@@ -82,6 +94,8 @@ fn append_line(
       style,
       line_alpha~,
       line_dashes~,
+      source_start~,
+      on_segment~,
     )
   }
 }
@@ -98,6 +112,7 @@ fn append_line_artist(
   plot_height : Double,
   points : Array[@core.Point],
   style : @core.Style,
+  on_segment~ : ((Array[@core.Point], Int32) -> Unit)? = None,
 ) -> Unit raise @core.DataError {
   let stroke = style.line_stroke()
   if stroke.linestyle() == "None" || points.is_empty() {
@@ -144,6 +159,7 @@ fn append_line_artist(
     style,
     line_alpha=style.line_alpha(),
     line_dashes~,
+    on_segment~,
   )
 }
 
@@ -156,6 +172,7 @@ fn append_line_context(
   plot_width : Double,
   plot_height : Double,
   context : @render.LineDrawingContext,
+  on_segment~ : ((Array[@core.Point], Int32) -> Unit)? = None,
 ) -> Unit raise @core.DataError {
   let current = context.points()
   append_line_artist(
@@ -167,6 +184,7 @@ fn append_line_context(
     plot_height,
     current,
     context.first_style(),
+    on_segment~,
   )
   if context.resolve_foreground_style() is Some(foreground) {
     append_line_artist(

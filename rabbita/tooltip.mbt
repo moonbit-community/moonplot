@@ -32,6 +32,9 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     Area => "area"
     BoxPlot => "boxplot"
     Violin => "violin"
+    Step => "step"
+    Stairs => "stairs"
+    Ecdf => "ecdf"
   }
 }
 
@@ -101,6 +104,18 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
       } else {
         rows.push(("Value", info.value.to_string()))
       }
+    Step | Stairs => {
+      if info.interval is Some((start, end)) {
+        rows.push(("Range", "\{start} – \{end}"))
+      }
+      rows.push(("Value", info.value.to_string()))
+    }
+    Ecdf => {
+      rows.push(("Value", info.value.to_string()))
+      if info.fraction is Some(probability) {
+        rows.push(("Probability", probability.to_string()))
+      }
+    }
     Bar | BarH => rows.push(("Value", info.value.to_string()))
     ErrorBar => {
       rows.push(("x", info.point.data_x.to_string()))

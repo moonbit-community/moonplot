@@ -14,6 +14,9 @@ pub(all) enum HitKind {
   Area
   BoxPlot
   Violin
+  Step
+  Stairs
+  Ecdf
 } derive(Eq, Debug)
 
 ///|

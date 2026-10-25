@@ -7,6 +7,7 @@ pub struct LineDrawingContext {
   priv foreground : (() -> @core.Style raise @core.DataError)?
   priv on_complete : () -> Unit
   priv hit_points : Array[@core.Point]?
+  priv discrete : DiscreteLineHitData?
 }
 
 ///|
@@ -16,6 +17,7 @@ pub fn line_drawing_context(
   on_complete : () -> Unit,
   foreground~ : (() -> @core.Style raise @core.DataError)? = None,
   hit_points~ : Array[@core.Point]? = None,
+  discrete~ : DiscreteLineHitData? = None,
 ) -> LineDrawingContext {
   {
     points: points.copy(),
@@ -23,7 +25,16 @@ pub fn line_drawing_context(
     foreground,
     on_complete,
     hit_points: hit_points.map(points => points.copy()),
+    discrete,
   }
+}
+
+///|
+/// None on a prepared context explicitly vetoes any older artist metadata.
+pub fn LineDrawingContext::discrete(
+  self : LineDrawingContext,
+) -> DiscreteLineHitData? {
+  self.discrete
 }
 
 ///|
