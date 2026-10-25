@@ -48,11 +48,11 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.8.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
+MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.9.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.8.0
+moon add Lampese/mathplotlib@0.9.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add
@@ -220,12 +220,26 @@ and [ECDF](docs/ECDF_INTERACTION.md) guides for exact identities and supported g
 
 ![Step, interval stairs and cumulative distributions in Rabbita](assets/discrete.png)
 
+### Stem values and baselines
+
+```sh
+moon build rabbita/cmd/stems --target js
+```
+
+Open [the three-chart stem example](http://127.0.0.1:8765/rabbita/stems.html)
+to inspect original samples along a rod or at its head. Vertical and horizontal
+stems retain signed values and nonzero baselines; missing samples keep their
+original indices. The example also combines stems with a confidence band.
+See the [stem guide](docs/STEM_INTERACTION.md) for source identities and clipping.
+
+![Stem values and baselines in Rabbita](assets/stems.png)
+
 ### Current scope
 
 - SVG is the static output backend; Rabbita DOM is an optional browser component.
   Standalone PNG/PDF export and a desktop GUI backend are not available.
 - Interactive picking includes line/scatter anchors, bar and histogram regions,
-  pie/donut sectors, matrix cells, statistical areas, distribution parts and discrete curves.
+  pie/donut sectors, matrix cells, statistical areas, distribution parts, discrete curves and stems.
   Touch gestures, zoom/pan, and keyboard navigation remain future work.
 - 3D plotting, animation, and full mathtext/TeX and font layout are not available.
 - The library is not a drop-in Matplotlib implementation. Python's dynamic

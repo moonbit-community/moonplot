@@ -10,7 +10,7 @@
 - 2026-10-24用户明确授权实际发布Mooncakes，前缀Lampese/，核心与Rabbita为单一Lampese/mathplotlib module。
 - 根facade api.mbt；消费测试tests/api；全局配置tests/integration；实现/白盒归拥有包，维护mbt<2000行。
 
-## 当前切片：M8 Stem（独立实现中，0.9.0未发布）
+## 当前切片：M8 Stem（全部功能验收通过，0.9.0待正式发布）
 
 - 范围[M8](MILESTONE_M8.md)。Root与consumer候选版本已0.9.0，公开正式版本仍0.8.0；Stem cf4de322cb6fe9937a0dbf697a26dae8ecebfc3d已合fe9de53，尚未发布0.9。
 - [x] m3_donut完整Stem cf4de322已合fe9de53：20files、共享只读call源表/常数view、actual valid-run rods与actual circle后原i heads、BandInfo/rawhead/原label/真实component身份，旧签名/Unit/Container/N+2不变。
@@ -24,12 +24,16 @@
 - [x] Root公开consumer/三组合已部署：overlay52561四目标各3/3；dirty rehearsal68477 terminal0，静态四目标+真实Chrome25、0errors。
   原head/i/band/真实Rod i与Heads N+1/Container N+2、横竖/反向/输入副本、NaN+zero-height、bothends clip、Log0仅head、两modebaseline空白均过。
   actual rod/head+负值callback两组已入release consumer；Root scene/stem_overlay_wbtest.mbt含Stem/Area横竖两顺序、Stem/Hex与Stem/Step两顺序/两mode，全部通过。
-- [ ] Root中央最终40879正在顺序info/fmt→九JS build→一次四目标全套→九实际浏览器→静态/链接/结构/diff；final-validation.log与final-validation-progress.json。没有结果前不记通过。
-- [ ] 收M8独立复审与中央最终后，clean正式包/实际Mooncakes+registry/四附件下载；所有dirty演练不上传。
+- [x] Root中央40879 terminal0：info/fmt/九JS build，一次最终全套Wasm/Wasm-GC/Native各22505/22505，JS22550/22550。
+  九实际Chrome110项/0errors（Stem12+既有98）、三native SVG解析，preview6886/gallery14246逐字、40份MD/488本地链接、结构/diff全部通过，无意外mbti差异。
+  默认/隔离JS与七文件freeze SHA逐一相同，8765 HTML/CSS/JS实际HTTP200逐字相同；Root已目视真实asset。
+- [x] m4独立复审cf4de322全部通过，无blocker/live：Native/JS各23公开组、各8实际SVG/23target逐一匹配实际primitive、旧Native8SVG逐字、Native Scene2+context1均terminal0。4096datum/8192targets两端通过；源码确认1表/常数view/heads全guard一次。
+  最终review.md/results/geometry/source-manifest已收Root M8-stem/final-review，Root11生产文件SHA逐一匹配。
+- [ ] 提交正式release-prep/clean包、实际Mooncakes+registry/四附件下载；所有dirty演练不上传。
 - M8派发先于M7最后网络下载数十秒，仅own worktree/ignored草稿；Root直到65222完整成功保持M7 tracked freeze，M7来源/包未被后续工作污染。
-- 精确下一动作：M7交付记录/M8 scope0075e7b已push90203 terminal0 → Stem源已合/Root消费与UI已过 → 收m4独立复审与40879中央最终 → 文档/verified commit → clean0.9实际发布。
+- 精确下一动作：全部功能/中央/独立验证已过 → 文档release-prep verified commit并push → clean0.9 builder → 实际publish/registry四目标+Chrome25 → GitHub四附件完整下载核验。formal builder开始直到网络闭环不改tracked文件/commit。
 - 不重开19图调查；旧Stem定点设计Root .moonagent/checkpoints/M7-discrete/next-stem-notes.md与design/stem-later.md仅作源图；其中旧StemInfo建议/授权版本已被本页固定合同替代。
-- Root live40879中央最终；m4复审cf4de322；UI owner已freeze无live。m3_donut另被明确授权只读准备M9 Quiver定点设计（不实现/commit/Root写入，任何M8反例优先），不重开总调查；唯一有意预览8765/session43005/PID70622。
+- Root无测试/发布/下载live，40879已terminal0；m4复审cf4de322已freeze无live；UI owner已freeze无live。m3_donut另被明确授权只读准备M9 Quiver定点设计（不实现/commit/Root写入，任何M8反例优先），不重开总调查；唯一有意预览8765/session43005/PID70622。
 
 ## 最新交付：M7 / 0.8.0（2026-10-25）
 
@@ -56,7 +60,7 @@
 
 - M6/0.7.0真实Hex数学分箱修正与Violin body/summary、M5/0.6.0 meshes/hist2d均已实际发布闭环；早期证据保留在M7交接历史和[M5历史](archive/migration-status-through-2026-10-25-m5.md)。
 - M1至M4完整记录见[早期执行历史](archive/migration-status-through-2026-10-25-m4.md)。旧tag与附件不移动或覆盖。
-- 当前预览http://127.0.0.1:8765/rabbita/discrete.html，实际0.8默认JS已构建/验证。服务若connection refused才重启并更新session/PID，不复活旧测试服务器。
+- 当前预览http://127.0.0.1:8765/rabbita/stems.html，实际0.9候选默认JS已构建/验证。服务若connection refused才重启并更新session/PID，不复活旧测试服务器。
 - 主分支master，SSH origin=git@github.com:moonbit-community/moonplot.git；独立分支前缀codex/。
 - JS-only接口由tools/update_interfaces.py通过真实moon info生成；最后info/fmt、审查mbti、python3 tools/check_structure.py及适当测试。
 

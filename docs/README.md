@@ -12,6 +12,7 @@ Start with the [project README](../README.md) to render a chart.
 - [Step sample identities and alignment](STEP_INTERACTION.md)
 - [Stairs intervals, baselines and actual filled strips](STAIRS_INTERACTION.md)
 - [ECDF returned slots and cumulative probabilities](ECDF_INTERACTION.md)
+- [Stem sample values, rods, heads and baselines](STEM_INTERACTION.md)
 
 - [Install the unified module and migrate package paths](PUBLISHING.md)
 - [Current capabilities and M1 acceptance](CAPABILITIES.md)

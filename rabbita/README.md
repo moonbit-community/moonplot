@@ -5,7 +5,7 @@ Interactive MoonPlot SVG components built with public
 real SVG DOM inside composable `Html`; your application owns its state.
 
 The component is the **`Lampese/mathplotlib/rabbita` package** in the unified
-`Lampese/mathplotlib@0.8.0` module. See [installation and release status](../docs/PUBLISHING.md)
+`Lampese/mathplotlib@0.9.0` module. See [installation and release status](../docs/PUBLISHING.md)
 for the current publication result. There is no separate adapter module to install.
 
 ![Two interactive charts](https://raw.githubusercontent.com/moonbit-community/moonplot/master/assets/rabbita-interactive.png)
@@ -15,7 +15,7 @@ for the current publication result. There is no separate adapter module to insta
 From your application's module directory:
 
 ```sh
-moon add Lampese/mathplotlib@0.8.0
+moon add Lampese/mathplotlib@0.9.0
 ```
 
 Import the packages used by your application's view in `moon.pkg`:
@@ -109,6 +109,19 @@ four independent charts. See the [step](../docs/STEP_INTERACTION.md),
 guides. Filled stairs with invalid or nonmonotonic polygons remain static;
 complete dashed-gap picking is outside this release.
 
+## Stem samples and baselines (0.9.0)
+
+`Stem` targets cover the actual nonzero rod strokes and default circular heads.
+Both carry original input indices, head coordinates, head values and labels.
+`HitInfo.band` stores `(bottom,head,horizontal,false)`, preserving signed values
+and nonzero baselines. Rods and heads retain their own actual artist identities;
+the whole baseline remains static. Both hit modes select physical geometry.
+
+Missing samples keep index gaps. A clipped rod retains the original head value;
+a log-invalid bottom does not create a rod even when its head is visible. Build
+`rabbita/cmd/stems --target js` and open `/rabbita/stems.html` for vertical,
+horizontal and confidence-band examples. See the [stem guide](../docs/STEM_INTERACTION.md).
+
 ## Component API
 
 Your application must also declare `moonbit-community/rabbita@0.16.7` when importing
@@ -184,7 +197,7 @@ legend buttons retain their accessibility attributes.
 and intrinsic SVG coordinates. ECDF indices refer to the returned distribution
 slots; other exact identities are described in each chart guide. Picking covers
 point anchors, bar and histogram regions, pie/donut sectors, matrix cells, error
-and area geometry, boxplot parts, hexagonal faces, violin parts and discrete strokes. Lines can also snap by X; segment interpolation is not provided;
+and area geometry, boxplot parts, hexagonal faces, violin parts, discrete strokes and stems. Lines can also snap by X; segment interpolation is not provided;
 indices belong to the current frame, not persistent identities across reordering.
 
 The SVG uses responsive width and `xMidYMid meet`. Picking uses client coordinates,
