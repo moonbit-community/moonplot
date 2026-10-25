@@ -1,11 +1,9 @@
 # 安装与发布
 
-工作树候选为 **`Lampese/mathplotlib@0.14.0`**，核心绘图与Rabbita组件仍是一个module。
+当前分发模块为 **`Lampese/mathplotlib@0.14.0`**：核心绘图与Rabbita组件仍是一个module。
 新增[三角面原值与顶点均值](TRIPCOLOR_INTERACTION.md)，示例为 `rabbita/triangles.html`。
-功能、独立Native/JS复审、真实双卡Chrome14与外部consumer46项已通过；
-中央四目标全套与14页面Chrome176项/0errors已过；clean包、实际Mooncakes与GitHub发布仍待执行。
-下方0.14.0安装命令在正式发布后可用；目前实际已发布版本仍为0.13.0，
-其590份源文件/四目标静态/Chrome41与四附件已在M12核验。
+0.14.0已实际发布Mooncakes与GitHub；公开构建成功，600份全新registry安装源逐一等于正式ZIP，
+四目标静态/Chrome46和四附件完整下载均核验通过。
 
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
@@ -15,7 +13,7 @@
 0.7.0 接续[六边形分箱](HEXBIN_INTERACTION.md)与[小提琴分布](VIOLIN_INTERACTION.md)，
 同时修正旧 hexbin 分桶与轮廓错位；新示例为 `rabbita/distributions.html`。
 0.8.0 接续[Step](STEP_INTERACTION.md)、[Stairs](STAIRS_INTERACTION.md)与[ECDF](ECDF_INTERACTION.md)的原采样、区间及概率提示，
-新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。0.10.0接续[Quiver原位置与U/V分量](QUIVER_INTERACTION.md)，新示例为 `rabbita/vectors.html`。0.11.0接续[风羽原位置、U/V、旗面及静风圆](BARBS_INTERACTION.md)，新示例为 `rabbita/barbs.html`。0.12.0接续[线等值线精确级别与inline标签](CONTOUR_INTERACTION.md)，新示例为 `rabbita/contours.html`。0.13.0接续[填色等值区、多环与孔洞](CONTOURF_INTERACTION.md)，新示例为 `rabbita/filled-contours.html`。下方安装命令对应0.14.0候选；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
+新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。0.10.0接续[Quiver原位置与U/V分量](QUIVER_INTERACTION.md)，新示例为 `rabbita/vectors.html`。0.11.0接续[风羽原位置、U/V、旗面及静风圆](BARBS_INTERACTION.md)，新示例为 `rabbita/barbs.html`。0.12.0接续[线等值线精确级别与inline标签](CONTOUR_INTERACTION.md)，新示例为 `rabbita/contours.html`。0.13.0接续[填色等值区、多环与孔洞](CONTOURF_INTERACTION.md)，新示例为 `rabbita/filled-contours.html`。下方安装命令对应0.14.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
 查看 registry 版本。维护者使用 `tools/verify_registry.py` 从全新、无 `moon.work` 的应用
 安装并验证静态四目标和真实浏览器交互。
 GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0)
@@ -276,7 +274,7 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 - [GitHub v0.13.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.13.0)创建21562与四附件整下载72398 terminal0，bytes/digest/size/tag87a全过。最终audit2026-10-25T14:19:05.947223Z，Root从clean builder至网络闭环HEAD固定87a且gitclean，无tracked写/commit，之后明确解除freeze。
 - 模块ZIP2503930bytes/590files，SHA256 `7372afea56bda7a91464f507da5bf61495958355914290a0eb4fc4ad947ae3e1`；源码ZIP2551348bytes/615files，SHA256 `ec030e46c161077851991d45396dce28d2618bd0803f9f26a75bf5780f8155a4`。
 
-## 0.14.0 Tripcolor 候选
+## 0.14.0 Tripcolor 发布验收
 
 新增原面槽、真实有序顶点和逐面标量/顶点均值提示；保mask洞、全输入norm、原均值位模式与溢出省略、Unit/0Container和旧SVG。
 默认Value/Vertex mean与中文自定义提示使用同一元数据。两个实际反例已修复：
@@ -284,5 +282,7 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 
 中央唯一全套：Wasm/Wasm-GC各22611、Native22614、JS22666；14真实Chrome示例176项/0errors，info/fmt、14JS构建、三静态SVG、50MD/562本地链接和结构均通过。
 
-本节当前记录候选与完整回归结果，实际发布闭环尚未执行，不能据此认定registry已有0.14.0。
-完整验收与网络交付结果将分别更新于[M13](MILESTONE_M13.md)和[执行检查点](MIGRATION_STATUS.md)。
+正式源1215721c9e63e7036be9580ecd1560e7eabe0be3，实际publish200、公开success/has_package/未撤回/checksum一致；600份全新安装源、四静态/Chrome46以及GitHub四附件bytes/digest/size/tag全部通过。
+模块ZIP2576088bytes/SHAad6d8b29519c75f25039e961daa2f9a74127bfc05b510fe1ba11a3d457f8c51f；source2627432bytes/627files/SHAa4700d81c5f3d26fa0912e9dcd9b80090e88a24d6eb62df90435a56dbc60ff76。
+[GitHub v0.14.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.14.0)已完整下载核验。
+完整验收与网络交付结果记录于[M13](MILESTONE_M13.md)和[执行检查点](MIGRATION_STATUS.md)。

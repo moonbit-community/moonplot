@@ -1,6 +1,6 @@
 # M13：三角网格着色与原始面信息
 
-创建日期：2026-10-25。状态：**已实现并通过 UI/外部接入专项；独立复审与中央完整验收已过，0.14.0实际交付待完成**。
+创建日期：2026-10-25。状态：**已实现并通过 UI/外部接入专项；独立复审与中央完整验收已过，0.14.0实际交付已完成**。
 目标0.14.0；当前实际分发0.13.0，正式基线为
 `87a3280f31fb3ba043da415f89eab6ad5a8ef59e`。
 
@@ -39,7 +39,7 @@
 - [x] 真实双卡 DOM、默认和中文均值提示、更新/掩码/图例/重挂载/CSS/375px。
   浏览器以实际 Polygon 的 `isPointInFill` 和真实 plot bounds 为独立依据。
 - [x] 中央真实 info/fmt/结构、一次完整回归、既有浏览器示例与静态示例。
-- [ ] clean 包、实际 Mooncakes、全新无 workspace 安装、GitHub 四附件完整下载与固定源码审计。
+- [x] clean 包、实际 Mooncakes、全新无 workspace 安装、GitHub 四附件完整下载与固定源码审计。
 
 只读准备先用精确旧0.12源运行3个 Native/XML 基线：掩码原面槽0/2/3对应值10/30/40，
 顶点均值5/7/9/7；facecount等于vertexcount时仍按逐面值2/5/11/17处理。
@@ -73,6 +73,19 @@ a7专项Native23/其余22、adapter2通过；旧bac7 broader205/204/48只作为�
 唯一中央全套81669已通过（267.69s）：Wasm/Wasm-GC各22611、Native22614、JS22666。
 prelude94492和postlude29009全部0，14页面Chrome176项/0errors、info/fmt/14JS、
 三个静态SVG、50份文档562个本地链接、结构与diff均通过，无意外接口变化。
-最终三角面截图与冻结asset逐字相同。0.14.0实际发布与独立安装闭环尚未执行。
+最终三角面截图与冻结asset逐字相同。0.14.0实际发布与独立安装闭环已完成。
 
 [执行检查点](MIGRATION_STATUS.md) · [当前能力](CAPABILITIES.md) · [路线图](MIGRATION_PLAN.md)
+
+## 正式交付
+
+正式源 `1215721c9e63e7036be9580ecd1560e7eabe0be3`，
+[GitHub v0.14.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.14.0)。
+实际publish200，首公开API构建成功/包可用/未撤回/checksum一致；无workspace全新registry
+安装600份文件逐一等于正式ZIP，四目标静态和Chrome46通过。四附件完整下载后
+bytes/digest/size/tag全部一致；正式builder至最终audit没有Root tracked写或commit。
+
+- Module ZIP：2576088bytes，SHA256 `ad6d8b29519c75f25039e961daa2f9a74127bfc05b510fe1ba11a3d457f8c51f`。
+- Source ZIP：2627432bytes/627files，SHA256 `a4700d81c5f3d26fa0912e9dcd9b80090e88a24d6eb62df90435a56dbc60ff76`。
+
+以上发布结果在网络闭环完成后记录；正式包内保留发布前的候选验收记录。

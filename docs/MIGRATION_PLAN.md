@@ -13,7 +13,7 @@
 | **G1：基础二维 SVG 可用版（M1）** | 折线、散点、柱状图；标题、轴标签、刻度、网格、图例；可运行多图示例 | 已验收：修复 grid 单轴与柱宽范围错误、补四角图例，实际出图与相关四目标回归通过 |
 | **G2：Rabbita 交互 DOM** | 在 Rabbit-TEA/Rabbita 应用中返回可组合的 DOM，响应悬停、点击和数据更新 | G2.1/M2 已验收；0.3.0 补齐六类图表语义命中与自定义提示，见[提示功能](TOOLTIPS.md)；其余交互缺口逐项推进 |
 | **G3：常用数据与科学绘图场景** | 日期趋势、分类对比、分布统计、热图及更复杂的组合图 | 已有大量静态实现；[M3](MILESTONE_M3.md) 接续热图交互、分组/堆叠柱与真正环形图 |
-| **G4：导出、接入与持续交付** | 清晰的安装和错误信息、稳定的库入口、更多输出方式、小步发布 | SVG、单一 Lampese/mathplotlib module 与独立接入验证；0.13.0 已交付；PNG/PDF与性能按需推进 |
+| **G4：导出、接入与持续交付** | 清晰的安装和错误信息、稳定的库入口、更多输出方式、小步发布 | SVG、单一 Lampese/mathplotlib module 与独立接入验证；0.14.0 已交付；PNG/PDF与性能按需推进 |
 
 G4 的文档和质量工作随每个里程碑推进。M1 与 G2.1 已完成验收；后续继续按具体场景扩展 G2/G3。
 G3 不需要等全部图表参数一致才交付；其内部顺序由实际使用需求决定。
@@ -132,4 +132,9 @@ violin真实密度体与统计线。两者复用既有统计和绘制，不在�
 ## M13：三角网格着色的原面与顶点信息
 
 [M13](MILESTONE_M13.md)接续已有tripcolor/direct/wrapper，显示原逐面标量或旧顶点均值，保留原面槽和实际有序顶点三元组。复用actual Polygon与nonzero FilledRegion，不伪矩阵行列，保mask洞与原normalization/均值/Unit/0Container/SVG。
-目标0.14.0，正式基线0.13源87a3280f31fb3ba043da415f89eab6ad5a8ef59e。实现、独立Native/JS复审、Chrome14与外部consumer46专项已过；当前工作树为0.14.0候选，中央四目标全套与14页面Chrome176项已过，实际发布待完成，正式分发仍0.13.0。
+0.14.0已实际交付：独立Native/JS复审、中央四目标全套与14页面Chrome176项、clean包/600份全新registry源/四静态/Chrome46和GitHub四附件整下载均过；正式源1215721。
+
+## M14：连续流线的生成场值
+
+[M14](MILESTONE_M14.md)复用streamplot/mesh/style-grids，接续实际body线段、原seed尝试槽与生成edge，显示原有限中点的双线性U/V及同次style颜色标量。保旧积分/样式/返回Set/1Container和SVG；箭头首片保静态。
+目标0.15.0，正式基线0.14源1215721c9e63e7036be9580ecd1560e7eabe0be3。独立实现已授权，精确旧Native/JS baseline已冻结；新语义/中央验收尚未完成，不计为已发布能力。
