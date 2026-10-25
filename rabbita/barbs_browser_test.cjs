@@ -252,11 +252,29 @@ async function main() {
     await page.locator('#barbs-calm').click(); await state('advanced', { fillEmpty: false, 'circles-2': 0, 'circles-3': 0 });
     await noHit('advanced', { kind: 'absolute', x: calm.actualCircle.local.x, y: calm.actualCircle.local.y });
     await state('basic', { selected: true, clicks: 1 });
-    await page.locator('#barbs-calm').click(); await hover('advanced', circle(2), ['0.2']); await source('advanced', { point: 2 }, 'circle');
+    await page.locator('#barbs-calm').click(); await state('advanced', { fillEmpty: true, 'circles-2': 1, 'circles-3': 1 });
+    await hover('advanced', circle(2), ['0.2']); await source('advanced', { point: 2 }, 'circle');
     await legend('basic').click(); await state('basic', { 'segments-0': 0, selected: false }); await noHit('basic', data(2, 2.5));
-    await legend('basic').click(); await hover('basic', line(0), ['3']);
-    await legend('advanced').click(); assert.equal(await page.locator('#barb-advanced-svg polygon, #barb-advanced-svg circle[fill="#8a70b5"]').count(), 0);
-    await noHit('advanced', data(10, 2)); await legend('advanced').click(); await hover('advanced', face, ['6.5']);
+    await legend('basic').click(); await state('basic', { 'segments-0': 4 }); await hover('basic', line(0), ['3']);
+    const advancedMarks = () => page.evaluate(() => ({
+      time: performance.now(),
+      marks: document.querySelectorAll('#barb-advanced-svg polygon, #barb-advanced-svg circle[fill="#8a70b5"]').length,
+      status: { ...document.querySelector('#barb-advanced-status').dataset },
+    }));
+    const beforeHide = await advancedMarks(); assert.equal(beforeHide.marks, 3);
+    await legend('advanced').click(); const immediatelyAfterHide = await advancedMarks();
+    // A click dispatches the update; complete the reactive render before
+    // inspecting marks or reading geometry for a subsequent mouse event.
+    await state('advanced', { 'segments-0': 0, 'segments-1': 0, 'flags-0': 0, 'circles-2': 0, 'circles-3': 0, selected: false });
+    await page.waitForFunction(() => document.querySelectorAll('#barb-advanced-svg polygon, #barb-advanced-svg circle[fill="#8a70b5"]').length === 0);
+    const completedHide = await advancedMarks(); assert.equal(completedHide.marks, 0);
+    await noHit('advanced', data(10, 2));
+    await legend('advanced').click(); const immediatelyAfterShow = await advancedMarks();
+    await state('advanced', { 'segments-0': 6, 'segments-1': 4, 'flags-0': 1, 'circles-2': 1, 'circles-3': 1 });
+    await page.waitForFunction(() => document.querySelectorAll('#barb-advanced-svg polygon, #barb-advanced-svg circle[fill="#8a70b5"]').length === 3);
+    const completedShow = await advancedMarks(); assert.equal(completedShow.marks, 3);
+    evidence.push({ phase: 'advanced-legend-render-completion', beforeHide, immediatelyAfterHide, completedHide, immediatelyAfterShow, completedShow });
+    await hover('advanced', face, ['6.5']);
     checks.push('Independent legends and calm visibility remove only their own targets, preserve source labels and keep the other chart state');
 
     await page.locator('#barbs-update').click(); await page.waitForFunction(() => document.querySelector('#barbs-revision')?.textContent === 'Revision 1');
