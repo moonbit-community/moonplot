@@ -1,6 +1,6 @@
 # M12：填色等值区、孔洞与区间提示
 
-创建日期：2026-10-25。状态：**核心与真实 UI 已集成，组合验收中**。目标0.13.0，当前正式版本0.12.0。
+创建日期：2026-10-25。状态：**能力验收通过，0.13.0 发布候选**。目标0.13.0，当前正式版本0.12.0。
 从正式源`ae1ce6b4c45d17fd2c1fbee388525f5c7f713307`继续，补已有`contourf`、`tricontourf`及三角网格wrapper；不重新计算标量场或复制全部Matplotlib参数。
 
 ## 能力合同
@@ -22,18 +22,20 @@
 - [x] 实际nonzero/evenodd、多环孔洞、分离岛屿与bbox空隙、孔洞透选更早填色、实际paint顺序和两mode。
 - [x] filter后实际写出几何、mask/非线性轴/反轴、透明/零宽填色、plot与margin边界及两类锚点。
 - [x] Region输入和两层getter别名、公开Drawing构造、旧帧、identity/content失配、生命周期与有界多边压力。
-- [ ] 精确0.12源的同target旧SVG、独立Native/JS实际XML及必要四目标/adapter。（owner四目标、adapter与8份旧SVG已过，独立最终packet待闭环。）
+- [x] 精确0.12源的同target旧SVG、独立Native/JS实际XML及必要四目标/adapter。
 - [x] 真实双卡DOM，默认/中文区间代表值、更新/图例/重挂载、CSS与375px；Chrome以实际Path/Polygon的`isPointInFill`及plot边界作独立oracle。
-- [ ] 中央info/fmt/结构/一次全套、既有Chrome、clean包、实际Mooncakes/registry与GitHub完整下载。
+- [x] 中央info/fmt/结构/一次全套、13页面Chrome162项与三静态SVG。
+- [ ] clean包、实际Mooncakes/registry与GitHub四附件完整下载。
 
-只读准备已完成两个正式0177旧fixture的Native和实际XML：规则网格5个返回环绘成3个band artists；三角wrapper的两离散环岛有4个返回环、1个Compound。两孔洞和中间bbox空白不着色；两SVG均无axes clip资源。它们是旧行为资料，不算M12新功能验收。源码与Region设计已独立复核，生产从正式0.12源开始。
+## 实际验收记录
 
-producer独立工作树负责core/IR/Scene/backend/Drawing/tooltip、own tests及专用指南；Root负责版本、中央文档、consumer、UI和交付。browser先做ignored草稿，独立review先冻结旧基线，收到coherent精确SHA和明确授权才执行新语义验收。
+- 最终producer `f91dab853b214da3b5b5a2c5d45b0a729d4fd86a` 的31文件含18production/3interfaces与Root逐字相同；生产自guard修复 `14a09c2` 不变。受影响四目标各184/184、adapter46/46、8份同target旧SVG通过。
+- mixed collinear ring、极远坐标BBox与ContourF metadata跨kind三个真实反例均保留before并修复；最后类型域gate只允许实际Polygon/Compound，保provider completion与静态输出。独立Native/JS各3组delta通过，原blocker解除。
+- 独立c02证据：Native/JS各9 public、各5 Scene白盒，18份实际XML/18份同target正式0.12 SVG逐字一致；每target12个实际region、432个独立XML winding/clip查询一致，最大坐标差2.842170943040401e-14。加14a唯一Panel delta后无剩余blocker。
+- 真实双卡Chrome14项、24整数事件、0pageerrors；原槽1/2/3、孔洞透选、分岛gap、737真实mask前样本、图例/重挂载/CSS/375px通过。最终中央截图与assets/filled-contours.png逐字相同，图片已目视。
+- 外部consumer Native/JS、实际info/fmt及Chrome41项/10个填色整数事件/0pageerrors通过，两份实际mbti无变化。
+- Root prelude16307及postlude47933均terminal0；唯一full30284 terminal0/268.45s：W/WG22589、JS22642、Native22591。13页面Chrome162项/0errors、三静态SVG（preview/gallery逐字）、48文档538链接/结构/diff通过，无额外mbti；未重复全套。
 
-[执行检查点](MIGRATION_STATUS.md) · [能力](CAPABILITIES.md) · [路线图](MIGRATION_PLAN.md)
+本页记录能力验收和候选版本；clean包与真实分发仍待闭环，不能将其写成已经发布。producer负责core/IR/Scene/backend/Drawing/tooltip、own tests与专项指南；Root负责组合、consumer、UI、版本与交付。
 
-primitive 与 actual Scene 捕获已合入 Root `5af344b`，包含 mixed collinear ring 与极远坐标 BBox 两个真实反例修复。真实双卡 UI 首次 Chrome14/14、0pageerrors，图片已目视；外部 consumer Native、JS、实际 info/fmt 与浏览器41项均通过，0pageerrors。
-
-独立 exact c02 组合复审曾发现 blocker：ContourF metadata 配到实际 Line 时，raw 与 unproven prepared context 错误回退为 generic Line targets，预期保持静态。统一 actual artist 类型域 gate 已合入 Root8bd1f93，owner Native/JS 定向回归过，独立14a delta Native/JS各3组均过，原blocker已解除；独立实际XML最终packet、中央全套与正式发布仍待闭环，不能把局部通过视为 M12 完成。
-
-最终producer `f91dab853b214da3b5b5a2c5d45b0a729d4fd86a` 的31文件含18份生产与3份接口已与Root逐字核对；生产自guard修复14a不变。受影响四目标各184/184、adapter46/46及8份同target旧SVG均过。Root中央actualinfo/fmt和13JS已过，唯一中央full30284正在执行；独立delta复审已通过，实际XML最终packet和正式分发仍未闭环。
+[执行检查点](MIGRATION_STATUS.md) · [能力](CAPABILITIES.md) · [专项指南](CONTOURF_INTERACTION.md) · [安装与发布](PUBLISHING.md)

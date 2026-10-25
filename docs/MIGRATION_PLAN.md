@@ -127,4 +127,4 @@ violin真实密度体与统计线。两者复用既有统计和绘制，不在�
 ## M12：填色等值区
 
 [M12](MILESTONE_M12.md)接续已有contourf/tricontourf的多环、孔洞和区间代表值提示。单Polygon与Compound分别保留真实nonzero/evenodd规则，原逻辑band槽不冒充layers或展平环索引；实际填色只在plot内交互，保留旧SVG margin行为。
-目标0.13.0，已从正式0.12源ae1ce6b实现实际区域捕获。真实双卡Chrome14项与外部consumer41项通过；独立组合复审和中央全套尚未闭环，当前正式分发仍0.12.0。
+目标0.13.0，已从正式0.12源ae1ce6b实现实际区域捕获。真实双卡Chrome14项与外部consumer41项通过；独立Native/JS复审无blocker，四目标全套与13页面Chrome162项通过。能力已验收，0.13.0待clean包与实际分发；当前正式分发仍0.12.0。

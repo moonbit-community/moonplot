@@ -1,7 +1,7 @@
 # 安装与发布
 
 本轮候选模块为 **`Lampese/mathplotlib@0.13.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
-0.13.0等待本轮中央验收与实际发布。上个正式版本0.12.0已实际发布Mooncakes与GitHub，公开构建成功且未撤回；无workspace全新安装581份源文件与正式包逐一相同，四目标静态/Chrome36及四附件完整下载均核验通过。
+0.13.0本地验收已通过，等待clean包与实际发布。上个正式版本0.12.0已实际发布Mooncakes与GitHub，公开构建成功且未撤回；无workspace全新安装581份源文件与正式包逐一相同，四目标静态/Chrome36及四附件完整下载均核验通过。
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
 
@@ -262,7 +262,8 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 
 规则与三角网格的填色区保留真实whole-region nonzero/evenodd规则、孔洞和分离岛间空白。提示含有限clip区间、旧有限代表值和原call系列；band索引保留requested空extension槽。两mode只在plot内实际填面命中，旧SVG margin paint保持静态；几何锚点不表示网格观测或指针处标量场值。详见[专项指南](CONTOURF_INTERACTION.md)。
 
-- 已集成core、IR、实际writer capture与不可变FilledRegion；collinear/BBox/metadata跨kind三个真实反例均留before证据并修复。
-- producer精确14a受影响四目标各184/184、adapter46/46通过，8份同target静态SVG逐字；最终31owner文件含18production/3interfaces与Root全同，独立14a delta Native/JS各3组通过，实际XML/旧SVG最终packet仍待闭环。
-- 真实双卡Chrome14项/0errors，外部consumer Native/JS/actualinfo/fmt与Chrome41项/0errors已通过。
-- 中央actualinfo/fmt+13JS已过，唯一全套30284正在执行；clean模块包、实际Mooncakes/全新registry与GitHub四附件完整下载均尚未执行；当前不能标正式发布。
+- producer四目标各184/184、adapter46/46、8份同target旧SVG通过；31owner文件含18production/3interfaces与Root全同。三个真实反例均保留失败证据并修复。
+- 独立Native/JS各9 public与5 Scene组通过；18实际XML/18份旧SVG、432独立几何查询一致，精确14a Native/JS各3组delta通过，无剩余blocker。
+- 真实双卡Chrome14项/0errors，外部consumer Native/JS/actualinfo/fmt与Chrome41项/0errors通过。
+- 中央唯一full30284 terminal0/268.45s：W/WG22589、JS22642、Native22591；actualinfo/fmt、13JS、13页面Chrome162项/0errors、三静态SVG/docs/结构/diff全部过，无意外mbti。
+- clean模块包、实际Mooncakes/全新registry与GitHub四附件完整下载尚未执行，当前仍是待分发的候选；没有将dirty演练当正式包。
