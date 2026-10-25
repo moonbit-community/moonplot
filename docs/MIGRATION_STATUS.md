@@ -4,53 +4,46 @@
 
 ## 范围与用户决定
 
-- 实用MoonBit画图库，按能力/场景对齐，不复制Matplotlib完整API/Python动态协议，不恢复旧D55或编造完成百分比。
-- 用户要求“一直往后对齐”；M1至M10及0.3.0提示片已验收交付，当前推进M11线等值线。
-- 已授权合理复用、独立subagents、小步verified local commits/push至moonbit-community/moonplot；2026-10-24明确授权实际Mooncakes发布，前缀Lampese/，统一Lampese/mathplotlib module。
+- 实用MoonBit画图库，按能力/场景对齐，不复制Matplotlib完整API/Python动态协议，不恢复D55或编造完成百分比。
+- 用户要求“一直往后对齐”；M1至M11及0.3.0提示片已完整验收交付，继续M12填色等值区。
+- 已授权合理复用、独立subagents、小步verified local commits/push至moonbit-community/moonplot；明确允许实际Mooncakes发布，前缀Lampese/，统一Lampese/mathplotlib module。
 - 根facade api.mbt；consumer tests/api，global tests/integration，owning implementation/wbtests；维护mbt<2000行，结构检查必跑。
 
-## 当前切片：M11 Contour（源码验收通过，正式交付准备）
+## 当前切片：M12 ContourF（已授权独立实现，尚未验收）
 
-- 范围[M11](MILESTONE_M11.md)，目标0.12.0；Root/consumer已置0.12.0开发候选；正式registry仍0.11.0。首核心4717ae9已审合为Root7f9c8f0，新语义尚未完成验收/发布。
-- 从正式0.11源0177b0cd77cc3cb05f108a2af49f561e3a0fd036继续，仅regular contour、tricontour及委托wrapper；filled多环/孔洞独立后片，不扩完整API或重开19图调查。
-- 仅新HitKind::Contour，value精确resolved level/callseries；其他cell/vector/band/error/fraction不填，不新增ContourInfo。
-- point_index原ContourSet.segments生成path槽，inline两片保留；artist_index实际当前fragment。dataXY实际emitted valid-run边clip前安全midpoint，screenXY可见clip中点；不是grid/input观察或指针插值。
-- 实际非零Segment/两modephysical，无Point/全panelXsnap/跨invalid-Log gap连线/闭环fill。actualLine paint和provenance为准，失配保static且不generic回退。
-- 保签名、ContourSet复制getters/level/path/stitch/mask/locator、Container/legend/颜色与正常SVG。默认inline原按几何相等擦线范围不变，各已知call独立迁移level/slot/label，不给普通Line/Barbs串贴，失效intent不借新fragment复活。
-- O(generated geometry)：共享小lineage、每fragment一次snapshot/guard、每edge O1；prepare cursor保持线性，避免image/inline后交错Barbs反复全扫；不每边扫描path或复制grid。
-- 额外仅修两线API无path串改前series，保静态legend/颜色/空Container；不扩大filled行为。
-- Root .moonagent/checkpoints/M11-contour/active-scope.md为已明确生产合同，producer-design/{design,handoff,source-manifest}已复制。固定合同可行，技术注意为inline原几何擦线范围和cursor线性。
-- m3_donut已从精确0177在own managed worktree建codex/m11-contour生产，拥有core/IR/Scene/backend/Drawing/tooltip/own tests和CONTOUR_INTERACTION.md；不得Root tracked写/版本/中央docs/consumer/UI/全库/push/publish/新agent。先Native与coherent小SHA让UI/review并行，再有限四target/adapter/info/fmt/结构。
-  最新coherent提交4717ae9已交（基于0177，18文件，公开仅Contour kind）；首Native6/6，all-target check77tasks/0errors，真实info/fmt/结构/diff过。Root7f9c8f0已审合；56348 terminal0、六公开fixture×四目标共24 SVG与精确0177逐字且Drawing/static一致。producer继续bounded guards/paint/lifecycle/guide及必要四目标/adapter：最新Native15＋geometry/facade6共21专项过，覆盖4096边、NaN/Inf/Log、prepared mismatch、paint/反轴clip/CSS/multi-panel/closedloop/safe midpoint。1e308的默认locator InvalidTicks已在0177/current双实证同旧行为，fixed ticks两边同SVG且新中点finite，无locator改动。最终b71cc1c已Root审合为304d3f8：限定Native199/199、W/WG/JS各198/198、adapter44/44；实际info/fmt/结构/diff过。唯一生产delta为BarbIntent改priv及scene mbti去未用opaque，无Contour行为变化。指南CONTOUR_INTERACTION.md和七专项已合入。
-- m4_area独立复审已明确授权精确4717，own ignored immutable0177旧SVG/公开consumer/actualXML oracle；旧基线Native97718 terminal0八fixture已冻结，现Native/JS各11public＋4白盒均过，actualXML16/同target旧SVG16与34Contour targets匹配，最大误差1.1368683772161603e-13，无blocker，无live；最终packet待收sourcehash。保留M10最终packet，不重跑旧M10/M9。
-- m3_browser从五文件ignored草稿按精确4717完成七文件真实部署；拥有UI而不改core/版本/consumer/中央docs/其他UI，不full/commit/publish。详见下方实测结果。
-- 旧只读c9六小公开Native23053 terminal0、六SVG/返回paths/levels/artist顺序已存browser-design/：regular4path/18generic Points、仅末7点series Field/value为几何Y；inline7片series全空；tri仅末path有label；filled evenodd双环0targets。这些只是旧行为，不算新交互通过。
-- [x] UI真实七文件已freeze：isolated95259/info/Chrome49823 terminal0，14/14、0errors；31实际整数事件、21边最大.971035CSSpx≤2、真实inline gap4.91008px拒绝；11typedframes与实际SVG/返回path/midpoint一致。真实1280×1015 PNG83701bytes/SHA ddf502eb9151f7d95287e0a494b119e2e00bb661991f5298c5d35ab4b8dcefb4已Root目视。证据draft/FINAL_HANDOFF.md和browser/final-evidence.json。
-- [x] Root新publicconsumer Native85615与JS app build71283 terminal0；Chrome80341 terminal0/36项/0errors，四实际contourevents≤.0583CSSpx，默认/自定level、两inline片与tri clip/空白/375px通过；Area前后两mode遮挡行为Native过。最初自己的range/未导出constructor编译错误已修consumer并留原log，非core故障。actual app/static package-info、fmt过且mbti逐字未变。证据public-summary.json。
-- m3_browser和m3_donut已转有限只读M12-contourf-prep（两个旧fixture/真实复合Path/孔洞设计），不生产/不改Roottracked/不重开全图调查；M11七文件保持freeze。
-- 精确下一动作：producer最终27owner文件含16production/3interfaces与Root逐一SHA相同，证据producer-final/root-match.json；接收独立精确4717全部通过（public Native51301/JS57106各11组、16actualXML/16同target旧SVG、每target34Contour targets；Native48652/JS98320各4白盒、1536边和private identity/provenance/inline/image/remove/clear无blocker，均terminal0）→正式源码提交/push→clean包/实际发布和下载闭环；已过中央full与12Chrome不重复。不得把首6Native当全部验收；继续复用定点资料，不重调查。
-- Root中央37734 terminal0：info/fmt/12JS、full268.44s（W/WG22564、JS22615、Native22566）、12Chrome148项/0errors、静态三SVG与preview/gallery逐字、docs/结构/diff全过；无意外mbti。证据central-summary.json和final-validation-progress.json。Root无测试/发布/下载live；UI e3901c3和public consumer/0.12候选925d742已commit。M10 release-live.json已complete，tracked freeze已在完整网络审计后解除。唯一有意预览8765/session43005/PID70622。
+- 范围[M12](MILESTONE_M12.md)，目标0.13.0；Root/consumer仍正式0.12.0，尚无M12合入/验收/发布。基线为正式ae1ce6b4c45d17fd2c1fbee388525f5c7f713307。
+- 完整合同Root .moonagent/checkpoints/M12-contourf/active-scope.md；只existing contourf/tricontourf/wrapper，保生成/union/ContourSet getter算术/签名/Container/legend/颜色/旧SVG，不重开全图调查。
+- 新kind ContourF/shape FilledRegion(opaque FilledRegion)。filled_region(rings,even_odd~Bool=false)两层deepcopy，rings()返回deepcopy，even_odd()只读；最小factory/type reexport根facade。valid_shape用immutable预验证cache。
+- interval实际finite scalar clip阈值，value保旧finite代表值bitwise，只有finite endpoints sum overflow时safehalf；不改legacy layers/segment_levels，不新增ContourFInfo，不伪Area band/cell/vector/fraction/category。默认Range/Representative，产品不展示XY。
+- point_index原logical band/color槽含requested空under/over洞，不是layers去空去重索引、segments展平环索引或grid/input观察。series原call，artist_index当前actualPolygon/Compound。
+- 单Polygon按真实nonzero，Compound按evenodd，成功writer后一次实际filtered loops回调；一个band artist一个完整region，孔洞/分离岛间bbox空白不填，hole可透选更早paint。两mode只plot内physical fill，margin旧可见paint保持static，无axesclip声明/静态裁剪改动。
+- 非零按actual mapped screen边判断。可见boundary：data是实际emitted边clip前safe midpoint，screen是visibleclip midpoint。无边交plot：一次center rule确认覆盖才capture，screen=plotcenter/data=首真实非零finite边midpoint；两个是不同几何锚点，不是inverse/grid/pointer。零/collinear/少点可static，不能仅signedarea0拒绝所有crossing。
+- known-slot/outer+inner identity/content每artist每frame一次guard，mismatch/prepared unknown无genericPolygon回退或归属复活；linear cursor维护image/inline/remove/clear及Contour/Barbs。O(totalgeneratedgeometry+artists)，pointer O(relevant edges)，无每ring复制grid/每edge完整Region。额外只条件legend修filled emptylabel leak。
+- producer m3_donut已明确授权：复用own managed worktree，从精确ae1建立codex/m12-contourf，负责core/IR/Scene/backend/Drawing/tooltip、own tests和CONTOURF_INTERACTION.md。先两fixture/alias/holes的Native与早coherent SHA，再必要bounded4target/adapter/info/fmt/structure；不Roottracked/版本/中央docs/consumer/UI/full/push/publish/新agent。
+- m4_area有限独立baseline准备已授权：own ignored immutable ae1、复用两fixture冻结Native/JS实际XML/旧SVG与oracle；首Native56291/JS30951 live，待实际收取，未授权新语义复审，等coherent exactSHA。
+- m3_browser仅ignored五文件UI/runner草稿已授权，future7file部署名rabbita/cmd/filled_contours、rabbita/filled-contours.html/css、filled_contours_browser_test.cjs、assets/filled-contours.png。暂无M12编译/mbti/Chrome/PNG/tracked部署。
+- M12只读准备Root .moonagent/checkpoints/M12-contourf-prep/：SOURCE_MAP/HANDOFF、producer-design三文件；独立feasibility packet在m4own worktree可按需复制。正式0177两Native39962 terminal0：regular5loops→3artists/layers.25,1,1.75，tri4loops→1Compound/layer1，两SVG0targets且无clipPath；实际XML孔洞/间隙/band映射已冻结，属于旧行为不算M12验收。两value/anchor决定已独立复核无blocker。
+- 精确下一动作：Root先commit/push M11真实交付与M12当前文档；producer独立生产不中断→收到首coherent SHA做source review/审合→明确授权7file UI部署和独立exactSHA新语义复审→Root publicconsumer/组合并行→中央一次全套和真实交付。不要重跑已通过M11验收或旧调查。
+- Root无测试/发布/下载live；M11 release-live.json complete/source_frozen=false，最终网络audit已解除tracked freeze。唯一有意预览8765/session43005/PID70622。M12 delegates各自记录own会话，不擅自归为通过。
 
-## 最新交付：M10 / 0.11.0（2026-10-25）
+## 最新交付：M11 /0.12.0（2026-10-25）
 
-- [x] Barbs原pivot前X/Y、原i/U/V与value原V，实际shaft/羽枝Segment、flag填三角Quad+三edge、calm全Sector；共享call+常数1/2/3点view O(N+P)，两mode仅physical。原签名/Unit/无Container/静态和有效错误前缀保留。
-- [x] 空/zero无component不改前series、高级派生非finite/不可表示总量在转换展开前报错；无任意小cap。identity copy退generic独立反例以known-slot/disabled共享view修复，维护image/inline/remove/clear，普通Line原行为保留。
-- [x] producer final7cdaece→Root49f6d75（生产自edb6559/Root7fcb70c不变），Native197/W-WG-JS各195/Rabbita42与32同target旧SVG过；Root29owner文件/16production SHA一致。
-- [x] 独立core Native/JS各17组、各10XML/36targets、20同target旧SVG，2048输入→8192组件；identity fix Native98906/JS5376各4组，唯一blocker解除；最终16production与Root一致。
-- [x] 中央full54039子步terminal0/266.67s：W/WG各22543，Native22545，JS22592。info/fmt/11JS、11Chrome134/0errors、三SVG/preview与gallery逐字、44MD/509本地链接及结构/diff过，无意外mbti。
-  首Node Barbs legend即时count失败原证据保留，真实3→0/0→3异步时序证明runner race；仅状态/DOM等待后retry29449过12项，新runnerf66c575，未改产品/放宽断言/加sleep或重跑已过full。其余十Chrome19741过122项。
-- [x] 正式source0177b0cd77cc3cb05f108a2af49f561e3a0fd036，push87697 terminal0；clean41056 terminal0/dirty=false，外部四目标静态/Chrome32。
-  module2346216bytes/573files/SHA b87b76d3471b185124458e5b992dba1983456d47cde679b0632ef4aae48520e0；source2386461bytes/594files/SHA ab9188c5c881f8c46f4176de83342c904067a289631328750ed44d08087ecc9d。
-- [x] actual publish10237 terminal0/200，公开0.11/buildsuccess/haspackage/notyanked/checksum同正式包；registry75023 terminal0，无workspace全新安装573源逐一相同、四静态/Chrome32过。
-- [x] GHcreate63983与整下载68272均terminal0；整个下载完成后四附件字节/digest/size/tag source SHA全过。[GitHub v0.11.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.11.0)。正式builder至网络闭环Root HEAD0177不变且gitclean，无tracked写/commit；dirty未上传。
-- 证据Root .moonagent/checkpoints/M10-barbs/：producer-final、final-review/root-production-match、central-summary、browser-final-barbs-retry（真实时序与runnerSHA）、release-final/artifacts及download-check、registry-consumer/report、release-live phase=complete/no live。原失败和before保持。
+- [x] regular/tri lineContours：value精确level，原callseries/pathslot，inline两片保留，actualSegment双modephysical；clip前data safe midpoint/visibleclip screen midpoint，默认Level。不fakegrid或连invalidLoggap，closedinterior无填面。
+- [x] known-slot/guard/linear cursor和Barbs/Line/Area组合、clear/remove/image/inline、oldDrawing；empty/no-path两线API不改前series，保静态输出。首4717→Root7f9c8f0，finalb71→304d3f8，除priv BarbIntent无生产变化。
+- [x] producer Native199/其他三目标198/adapter44、24同target旧SVG；Root27owner文件(16production/3interfaces)SHA同。独立Native/JS各11public+4白盒、16actualXML/16旧SVG、每target34ContourSegments与1536edgeguard过，无blocker；16最终production与Root相同。
+- [x] 真实UI e3901c3：Chrome14/0errors、31整数事件，21边最大.971035CSSpx≤2、真实inline gap4.91008px拒绝。真实PNG1280×1015/83701bytes/SHAddf502eb9151f7d95287e0a494b119e2e00bb661991f5298c5d35ab4b8dcefb4已目视。publicconsumer925d742：Native/JS/Chrome36过。
+- [x] 中央37734 terminal0/full268.44s：W/WG22564、JS22615、Native22566，12Chrome148项/0errors、info/fmt/12JS/三静态SVG与preview-gallery逐字/docs46/522链接/结构/diff，无意外mbti、无full重复。
+- [x] 正式源ae1ce6b4c45d17fd2c1fbee388525f5c7f713307/push41390；clean39728 terminal0/dirty=false，四静态/Chrome36。module2433308bytes/581files/SHA ada8b34efaa9e013c285043fba697a7eb5696c16bc4c2f5aed5c5ee050a76666；source2476895bytes/604files/SHA15584bc5159d339d5f23feda5e62e4ec0d4357a835fb0569d7982dc1dae8663e。
+- [x] actualpublish40580 terminal0/200、publicAPI38331 0.12/buildsuccess/haspackage/notyanked/checksum匹配；无workspace全新registry28365 terminal0/581源逐一同正式ZIP/四静态/Chrome36过。
+- [x] GHcreate39288和整下载61598均terminal0，完整四附件字节/digest/size/tag ae1全过；最终audit ROOTHEADae1＋gitclean，从正式builder至网络闭环无tracked写/commit，随后解除freeze。[GitHub v0.12.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.12.0)。
+- 证据Root .moonagent/checkpoints/M11-contour/：producer-final/root-match、final-review/root-production-match、central-summary、browser-final-contours、release-final/artifacts/download-check、registry-consumer/report、release-live phase=complete/no live。原consumer编译错误与巨大坐标旧locator失败保持，不改测试掩盖。
 
-## 早期交付与源码地图
+## 历史与源码地图
 
-- M9/0.10正式c9eb6bec526a2f6d2b1f6330a60ef616dd83a16a，Quiver；M8/0.9 Stem，M7/0.8 Step/Stairs/ECDF，M6/0.7 Hex与Violin，M5/0.6 meshes/hist2d，M1至M4及提示片均已完整实际交付，无需重跑。
-- [M10完整历史](archive/migration-status-through-2026-10-25-m10.md)、[M9](archive/migration-status-through-2026-10-25-m9.md)、[M8](archive/migration-status-through-2026-10-25-m8.md)、[M7](archive/migration-status-through-2026-10-25-m7.md)、[早期](archive/migration-status-through-2026-10-25-m4.md)保留失败定位与旧tag/附件。
-- 可访问正式预览http://127.0.0.1:8765/rabbita/barbs.html，默认JS4521282bytes/SHA1cc7844347208de0e8776d184a81050b8c91ecc9ac583e40414b47625e2b61aa；HTML/JS/三CSS实际HTTP200逐字。open_in_codex queued未声称前台；仅connection refused才重启并更新session/PID。
-- 主master，SSH origin=git@github.com:moonbit-community/moonplot.git；独立分支codex/，静态核心不import UI，统一module的Rabbita子包只支持JS。
-- JS-only接口用tools/update_interfaces.py真实compiler生成，最后info/fmt、预期mbti审查、python3 tools/check_structure.py与适当tests；版本/发布由Root统一收口。
+- M10/0.11 Barbs、M9/0.10 Quiver、M8/0.9 Stem、M7/0.8离散曲线、M6/0.7 Hex/Violin、M5/0.6 mesh/hist2d与M1至M4及提示片均完整正式交付，无需重跑。
+- [M11完整历史](archive/migration-status-through-2026-10-25-m11.md)、[M10](archive/migration-status-through-2026-10-25-m10.md)、[M9](archive/migration-status-through-2026-10-25-m9.md)、[M8](archive/migration-status-through-2026-10-25-m8.md)、[早期](archive/migration-status-through-2026-10-25-m4.md)保留既有决策/失败/附件证明。
+- 正式预览http://127.0.0.1:8765/rabbita/contours.html，默认JS4668239bytes/SHA f0845c3dbee48534ed31ad019723b0b4e98a0801e9c453db55157cfb2138d603；HTML/JS/三CSS实际HTTP200逐字。open_in_codex queued未声称前台，仅connectionrefused才重启并更新session/PID。
+- master，SSH origin=git@github.com:moonbit-community/moonplot.git；独立分支codex/。静态core不importUI，统一module Rabbita只JS。
+- JS-only接口用tools/update_interfaces.py真实compiler生成；最后info/fmt、预期mbti审查、python3 tools/check_structure.py与适当tests；版本/发布Root统一收口。
 
 [路线图](MIGRATION_PLAN.md) · [能力](CAPABILITIES.md) · [架构](ARCHITECTURE.md) · [安装](PUBLISHING.md)

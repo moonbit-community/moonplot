@@ -4,13 +4,12 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 当前工作复用已有的数据、图表、坐标轴和 SVG 实现，以完整使用场景判断效果。
 本页区分实现、历史验证与本轮验收，不把原型的全部参数和组合标为完成。
 
-**当前状态：M1至M10已验收交付，覆盖常用二维、统计区间、网格计数、分布、离散曲线、Stem、Quiver及Barbs交互。**
-[M10 Barbs](MILESTONE_M10.md)0.11.0已实际发布Mooncakes与GitHub：573安装源逐一匹配、四目标静态/Chrome32与四附件完整下载通过。风羽实际分部提供原输入位置/U/V提示；空数据名称串改、高级计数溢出和底层身份替换回退已修复并独立复审。
-中央W/WG各22543、Native22545、JS22592与11页面Chrome134项/0errors通过。下一片[M11线等值线](MILESTONE_M11.md)补精确级别与inline拆线后的语义，核心、真实DOM、中央四目标全套与独立复审已过；12页面Chrome148项/0errors，0.12.0正式交付准备中。
-历史 M1 四目标353/353见 [M1 记录](MILESTONE_M1.md)，初批 DOM 见[DOM 记录](RABBITA_DOM.md)。
+**当前状态：M1至M11已验收交付，覆盖常用二维、统计区间、网格计数、分布、离散曲线、Stem、Quiver、Barbs及线等值线交互。**
+[M11线等值线](MILESTONE_M11.md)0.12.0已实际发布Mooncakes与GitHub：精确level/series、原生成path槽及inline拆线归属已交付。581安装源逐一匹配正式ZIP、四目标静态/Chrome36与GitHub四附件完整下载通过。
+中央W/WG22564、Native22566、JS22615与12页面Chrome148项/0errors通过；独立Native/JS各11公开组及4白盒无blocker。下一片[M12填色等值区](MILESTONE_M12.md)推进多环/孔洞及区间提示，独立实现中，尚未验收。
 
 **M2 v0.2.0** 补齐多图 SVG 资源隔离和独立接入版本包，详见 [M2 历史记录](MILESTONE_M2.md)。
-当前正式分发为 **`Lampese/mathplotlib@0.11.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
+当前正式分发为 **`Lampese/mathplotlib@0.12.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
 发布状态和安装方式见 [接入说明](PUBLISHING.md)。
 
 ## 如何理解状态
@@ -36,7 +35,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 | 杆线图 | 竖向/横向stem | 实际杆段与默认圆头保留原head值、原索引、非零起点和正负方向；全局baseline静态 |
 | 向量箭头 | quiver原始位置与U/V分量 | 实际shaft及双wing命中，zero保留原索引洞，clip保留原tail；通用value明确为V，不计算magnitude |
 | 风羽图 | barbs与barbs_with_options的原输入位置/U/V | 实际羽枝Segment、旗面与三条描边、完整静风disk；pivot不改原始输入位置，value为原V。边界见M10 |
-| 线等值线（0.12开发候选） | regular contour与tricontour精确level/series | 实际生成边Segment，原path槽、inline双片、clip前数据中点与可见屏幕中点；两mode物理命中，见[M11](MILESTONE_M11.md)，源码验收通过、正式交付中 |
+| 线等值线 | regular contour与tricontour精确level/series | 实际生成边Segment，原path槽、inline双片、clip前数据中点与可见屏幕中点；两mode物理命中，见[M11](MILESTONE_M11.md)，已正式交付 |
 | 图像与网格 | 标量图、RGB(A) 图像、热图、颜色映射和归一化 | 包含掩码、图像方向及部分插值路径 |
 | 科学绘图 | 误差线、填充区域、等值线、三角网格、向量场、流线 | 已有专项实现，复杂组合仍需按场景确认 |
 | 坐标轴 | 数值范围、刻度与格式器、线性及多种非线性尺度 | 包含显式设置和自动计算路径 |
@@ -44,7 +43,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 | 图形组合 | 多面板、共享轴、嵌套网格、次坐标轴 | 支持标题、轴标签、网格、图例、表格与标注 |
 | 可变折线 | `Line2D` 数据、可见性、颜色、透明度、线宽、线型等 | 支持缓存更新、移除和保留渲染输入的相关生命周期 |
 | 输出 | 自包含 SVG 字符串 | 可保存为文件，用浏览器或 SVG 工具查看 |
-| 浏览器组件 | `Figure::to_drawing()` 与 `rabbita` JS 子包 | 真实 SVG DOM；折线/散点、柱形/直方图/饼环图、nearest 标量热图、flat矩形网格、二维计数及误差/面积/箱线/六角格/小提琴/离散曲线/Stem/Quiver/Barbs的语义命中与自定义提示；应用控制图例与数据更新；仅 JS 浏览器 |
+| 浏览器组件 | `Figure::to_drawing()` 与 `rabbita` JS 子包 | 真实 SVG DOM；折线/散点、柱形/直方图/饼环图、nearest 标量热图、flat矩形网格、二维计数及误差/面积/箱线/六角格/小提琴/离散曲线/Stem/Quiver/Barbs/线等值线的语义命中与自定义提示；应用控制图例与数据更新；仅 JS 浏览器 |
 
 常用入口可从根包使用，较细的功能分布在 `scene`、`ticker`、`transforms` 等包。
 当前模块导入名为 `Lampese/mathplotlib`，展示名为 MoonPlot；浏览器组件导入 `Lampese/mathplotlib/rabbita`。
@@ -110,6 +109,8 @@ Gallery SVG 解析、数据计数、面板边界与 2400×840 展示预览已检
 - 小提琴body命中表示最近已有KDE估计采样，不代表观测点；统计线有独立部位身份，详见[小提琴交互](VIOLIN_INTERACTION.md)。
 - 离散曲线不把合成转折点当新增观测；ECDF索引属于实际返回数组，压缩后不等于唯一原输入索引。
   非单调/有被删除顶点的filled stairs保留静态，不捏造矩形；完整dash空隙几何尚未纳入，见[Step](STEP_INTERACTION.md)、[Stairs](STAIRS_INTERACTION.md)、[ECDF](ECDF_INTERACTION.md)。
+
+- 填色等值区当前保留静态多环/孔洞；M12正在补其区间与完整区域交互，不将已有线等值线提示算作填面提示。
 
 这些限制用于描述当前行为，不表示相关能力没有后续价值。
 新功能按实际需求和可验证的使用场景逐步纳入。

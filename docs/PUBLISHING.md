@@ -1,7 +1,7 @@
 # 安装与发布
 
-当前源码准备 **`Lampese/mathplotlib@0.12.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
-0.12.0源码验收已通过，正在正式交付，正式clean包、Mooncakes与GitHub尚待本轮交付；当前已实际发布的registry版本为0.11.0。下面的0.12.0命令面向本轮发布包；发布前可使用源码workspace验证。
+当前分发模块为 **`Lampese/mathplotlib@0.12.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
+0.12.0已实际发布Mooncakes与GitHub，公开构建成功且未撤回；无workspace全新安装581份源文件与正式包逐一相同，四目标静态/Chrome36及四附件完整下载均核验通过。
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
 
@@ -253,4 +253,7 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 - producer限定Native199、其余三目标各198、Rabbita44通过，24份同target旧SVG与正式0177逐字相同。
 - 首核心4717已合Root7f9c8f0；最终b71cc1c已合304d3f8，27owner文件（16production/3interfaces）逐一SHA一致。除BarbIntent私有类型可见性外，Contour生产自首核心未变。
 - 真实双卡Chrome14项、0errors；31整数事件验证inline gap、mask、替换、独立图例、重挂载、CSS/letterbox及375px。外部public consumer Native/JS与Chrome36项、0errors通过。
-- 中央W/WG22564、Native22566、JS22615与12页面Chrome148项/0errors全部通过；真实info/fmt/静态三SVG/docs/结构/diff过，无意外mbti。独立Native/JS各11公开组与4白盒、16实际XML与16旧SVG通过且无blocker。正式clean/registry/GitHub附件交付仍在进行，本段不将源码验收当作实际发布。
+- 中央W/WG22564、Native22566、JS22615与12页面Chrome148项/0errors全部通过；真实info/fmt/静态三SVG/docs/结构/diff过，无意外mbti。独立Native/JS各11公开组与4白盒、16实际XML与16旧SVG通过且无blocker。正式clean39728与无workspace全新registry28365均四静态/Chrome36通过，581份安装源逐一匹配。
+- 正式源ae1ce6b4c45d17fd2c1fbee388525f5c7f713307/push41390；actualpublish40580 terminal0/200，公开API38331版本0.12/buildsuccess/haspackage/notyanked，metadata.checksum与正式module相同。
+- [GitHub v0.12.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.12.0)创建39288与四附件整下载61598均terminal0，字节/远端digest/size/tag源码SHA全过；从clean builder至最终网络审计Root HEAD ae1不变且gitclean，无tracked写/commit。
+- 模块ZIP2433308bytes/581files，SHA256 `ada8b34efaa9e013c285043fba697a7eb5696c16bc4c2f5aed5c5ee050a76666`；源码ZIP2476895bytes/604files，SHA256 `15584bc5159d339d5f23feda5e62e4ec0d4357a835fb0569d7982dc1dae8663e`。

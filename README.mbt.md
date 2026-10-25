@@ -296,6 +296,7 @@ clipping and geometry midpoint anchors.
 - [Current capabilities and milestone acceptance](docs/CAPABILITIES.md)
 - [Installation, module paths and release status](docs/PUBLISHING.md)
 - [M2 interactive plotting and source-release history](docs/MILESTONE_M2.md)
+- [Current M12: filled contour regions and holes](docs/MILESTONE_M12.md)
 - [Four capability goals](docs/MIGRATION_PLAN.md)
 - [Rabbita interactive DOM and acceptance](docs/RABBITA_DOM.md)
 - [Dependencies and integration notes](docs/DEPENDENCIES.md)
