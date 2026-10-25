@@ -578,9 +578,37 @@ fn render_panel(
         opacity
       ) =>
         append_violin(
-          writer, scale, left, top, plot_width, plot_height, stats, positions, widths,
-          horizontal, side, showmeans, showextrema, showmedians, body_style, line_style,
+          writer,
+          scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          stats,
+          positions,
+          widths,
+          horizontal,
+          side,
+          showmeans,
+          showextrema,
+          showmedians,
+          body_style,
+          line_style,
           opacity,
+          on_body=capture.map(hits => {
+            body => {
+              collect_drawing_violin_body(
+                hits, panel_index, artist_index, body, scale, position, metadata,
+              )
+            }
+          }),
+          on_line=capture.map(hits => {
+            line => {
+              collect_drawing_violin_line(
+                hits, panel_index, artist_index, line, metadata, position,
+              )
+            }
+          }),
         )
     }
   }

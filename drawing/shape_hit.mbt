@@ -65,6 +65,23 @@ fn valid_info(info : HitInfo) -> Bool {
         _ => true
       })
     None => true
+  }) &&
+  (match info.violin {
+    Some(violin) =>
+      violin.group_index >= 0 &&
+      finite(violin.position) &&
+      finite(violin.mean) &&
+      finite(violin.median) &&
+      finite(violin.minimum) &&
+      finite(violin.maximum) &&
+      violin.minimum <= violin.maximum &&
+      (match violin.part {
+        Body(index, coordinate, density) =>
+          index >= 0 && finite(coordinate) && finite(density) && density >= 0.0
+        Quantile(index, value) => index >= 0 && finite(value)
+        _ => true
+      })
+    None => true
   })
 }
 
@@ -241,6 +258,7 @@ fn Drawing::target_hit(
   }
   let mut best : HitPoint? = None
   let mut best_distance = radius
+  let mut best_violin = false
   for target in self.targets {
     if self.excluded(target.info.point.panel_index, x, y) ||
       (
@@ -256,9 +274,18 @@ fn Drawing::target_hit(
     guard target_distance(target, x, y, scale) is Some(distance) else {
       continue
     }
-    if distance <= best_distance && (best is None || distance < best_distance) {
+    if distance <= best_distance &&
+      (
+        best is None ||
+        distance < best_distance ||
+        (
+          distance == best_distance &&
+          (best_violin || target.info.kind == Violin)
+        )
+      ) {
       best = Some(point)
       best_distance = distance
+      best_violin = target.info.kind == Violin
     }
   }
   if best is Some(_) || mode == Nearest {

@@ -13,6 +13,7 @@ pub(all) enum HitKind {
   ErrorBar
   Area
   BoxPlot
+  Violin
 } derive(Eq, Debug)
 
 ///|
@@ -75,6 +76,7 @@ pub struct HitInfo {
   band : BandInfo?
   box : BoxInfo?
   hexbin : HexbinInfo?
+  violin : ViolinInfo?
 } derive(Eq, Debug)
 
 ///|
@@ -97,6 +99,7 @@ pub fn hit_info(
   band~ : BandInfo? = None,
   box~ : BoxInfo? = None,
   hexbin~ : HexbinInfo? = None,
+  violin~ : ViolinInfo? = None,
 ) -> HitInfo {
   {
     point,
@@ -111,6 +114,7 @@ pub fn hit_info(
     band,
     box,
     hexbin,
+    violin,
   }
 }
 

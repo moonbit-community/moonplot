@@ -177,6 +177,10 @@ pub using @scene {type SubFigure}
 
 pub using @scene {type ViolinBandwidth}
 
+pub using @drawing {type ViolinInfo}
+
+pub using @drawing {type ViolinPart}
+
 pub using @scene {type ViolinSide}
 
 pub using @scene {type ViolinStats}

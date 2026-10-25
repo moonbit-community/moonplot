@@ -41,6 +41,7 @@ fn append_violin_body(
   body_style : @core.Style,
   line_style : @core.Style,
   opacity : Double,
+  on_body~ : ((Array[@core.Point], Array[@core.Point]) -> Unit)? = None,
 ) -> Unit {
   let coords = stat.coords()
   let vals = stat.vals()
@@ -99,6 +100,9 @@ fn append_violin_body(
       ("stroke", line_style.color()),
       ("stroke-width", float_text(line_style.width())),
     ])
+    if on_body is Some(collect) {
+      collect(upper, lower)
+    }
   }
 }
 
@@ -116,7 +120,9 @@ fn append_violin_perpendicular(
   horizontal : Bool,
   side : @render.ViolinSide,
   style : @core.Style,
+  on_line~ : (((Double, Double, Double, Double)) -> Unit)? = None,
 ) -> Unit {
+  let segments : Array[(Double, Double, Double, Double)]? = on_line.map(_ => [])
   let (first, second) = violin_side_bounds(position, width, side)
   if horizontal {
     if scale.x_axis_scale.is_valid(value) &&
@@ -129,6 +135,7 @@ fn append_violin_perpendicular(
         map_x(scale, left, plot_width, value),
         map_y(scale, top, plot_height, second),
         style,
+        segments~,
       )
     }
   } else if scale.y_axis_scale.is_valid(value) &&
@@ -141,7 +148,13 @@ fn append_violin_perpendicular(
       map_x(scale, left, plot_width, second),
       map_y(scale, top, plot_height, value),
       style,
+      segments~,
     )
+  }
+  if on_line is Some(collect) {
+    for segment in segments.unwrap() {
+      collect(segment)
+    }
   }
 }
 
@@ -158,7 +171,9 @@ fn append_violin_parallel(
   position : Double,
   horizontal : Bool,
   style : @core.Style,
+  on_line~ : (((Double, Double, Double, Double)) -> Unit)? = None,
 ) -> Unit {
+  let segments : Array[(Double, Double, Double, Double)]? = on_line.map(_ => [])
   if horizontal {
     if scale.x_axis_scale.is_valid(lower) &&
       scale.x_axis_scale.is_valid(upper) &&
@@ -170,6 +185,7 @@ fn append_violin_parallel(
         map_x(scale, left, plot_width, upper),
         map_y(scale, top, plot_height, position),
         style,
+        segments~,
       )
     }
   } else if scale.y_axis_scale.is_valid(lower) &&
@@ -182,7 +198,13 @@ fn append_violin_parallel(
       map_x(scale, left, plot_width, position),
       map_y(scale, top, plot_height, upper),
       style,
+      segments~,
     )
+  }
+  if on_line is Some(collect) {
+    for segment in segments.unwrap() {
+      collect(segment)
+    }
   }
 }
 
@@ -205,18 +227,54 @@ fn append_violin(
   body_style : @core.Style,
   line_style : @core.Style,
   opacity : Double,
+  on_body~ : ((RenderedViolinBody) -> Unit)? = None,
+  on_line~ : ((RenderedViolinLine) -> Unit)? = None,
 ) -> Unit {
   let count = Int32::min(
     stats.length(),
     Int32::min(positions.length(), widths.length()),
   )
+  let mut base_index = 0
   for index in 0..<count {
     let stat = stats[index]
     let position = positions[index]
     let width = widths[index]
+    let sample_count = Int32::min(stat.coords().length(), stat.vals().length())
+    let group : RenderedViolinGroup = {
+      index,
+      base_index,
+      stat,
+      position,
+      horizontal,
+    }
+    base_index += sample_count + 5 + stat.quantiles().length()
     append_violin_body(
-      writer, scale, left, top, plot_width, plot_height, stat, position, width, horizontal,
-      side, body_style, line_style, opacity,
+      writer,
+      scale,
+      left,
+      top,
+      plot_width,
+      plot_height,
+      stat,
+      position,
+      width,
+      horizontal,
+      side,
+      body_style,
+      line_style,
+      opacity,
+      on_body=on_body.map(collect => {
+        (upper, lower) => {
+          collect({
+            group,
+            upper,
+            lower,
+            fill_visible: statistics_paint_visible(body_style.fill()) &&
+            !(opacity <= 0.0),
+            stroke_visible: statistics_stroke_visible(line_style),
+          })
+        }
+      }),
     )
     if showmeans {
       append_violin_perpendicular(
@@ -232,6 +290,14 @@ fn append_violin(
         horizontal,
         side,
         line_style,
+        on_line=violin_line_callback(
+          on_line,
+          group,
+          Mean,
+          stat.mean(),
+          sample_count,
+          line_style,
+        ),
       )
     }
     if showmedians {
@@ -248,6 +314,14 @@ fn append_violin(
         horizontal,
         side,
         line_style,
+        on_line=violin_line_callback(
+          on_line,
+          group,
+          Median,
+          stat.median(),
+          sample_count + 1,
+          line_style,
+        ),
       )
     }
     if showextrema {
@@ -264,6 +338,14 @@ fn append_violin(
         horizontal,
         side,
         line_style,
+        on_line=violin_line_callback(
+          on_line,
+          group,
+          Minimum,
+          stat.min(),
+          sample_count + 2,
+          line_style,
+        ),
       )
       append_violin_perpendicular(
         writer,
@@ -278,6 +360,14 @@ fn append_violin(
         horizontal,
         side,
         line_style,
+        on_line=violin_line_callback(
+          on_line,
+          group,
+          Maximum,
+          stat.max(),
+          sample_count + 3,
+          line_style,
+        ),
       )
       append_violin_parallel(
         writer,
@@ -291,12 +381,38 @@ fn append_violin(
         position,
         horizontal,
         line_style,
+        on_line=violin_line_callback(
+          on_line,
+          group,
+          Range,
+          stat.median(),
+          sample_count + 4,
+          line_style,
+        ),
       )
     }
-    for quantile in stat.quantiles() {
+    for quantile_index, quantile in stat.quantiles() {
       append_violin_perpendicular(
-        writer, scale, left, top, plot_width, plot_height, quantile, position, width,
-        horizontal, side, line_style,
+        writer,
+        scale,
+        left,
+        top,
+        plot_width,
+        plot_height,
+        quantile,
+        position,
+        width,
+        horizontal,
+        side,
+        line_style,
+        on_line=violin_line_callback(
+          on_line,
+          group,
+          Quantile(quantile_index, quantile),
+          quantile,
+          sample_count + 5 + quantile_index,
+          line_style,
+        ),
       )
     }
   }

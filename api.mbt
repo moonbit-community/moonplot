@@ -37,6 +37,8 @@ pub using @drawing {
   type BoxPart,
   type HexbinInfo,
   type HexbinReduction,
+  type ViolinInfo,
+  type ViolinPart,
   type HitKind,
   type HitMode,
   type HitShape,

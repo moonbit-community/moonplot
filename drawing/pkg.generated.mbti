@@ -18,11 +18,13 @@ pub fn error_info((Double, Double), (Double, Double)) -> ErrorInfo
 
 pub fn hexbin_info(Int, Int, Int, reduction? : HexbinReduction) -> HexbinInfo
 
-pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?, band? : BandInfo?, box? : BoxInfo?, hexbin? : HexbinInfo?) -> HitInfo
+pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?, band? : BandInfo?, box? : BoxInfo?, hexbin? : HexbinInfo?, violin? : ViolinInfo?) -> HitInfo
 
 pub fn hit_point(Int, Int, Int, Double, Double, Double, Double) -> HitPoint
 
 pub fn hit_target(HitInfo, HitShape, (Double, Double, Double, Double)) -> HitTarget
+
+pub fn violin_info(Int, position~ : Double, mean~ : Double, median~ : Double, minimum~ : Double, maximum~ : Double, part~ : ViolinPart, horizontal? : Bool) -> ViolinInfo
 
 // Errors
 
@@ -128,6 +130,7 @@ pub struct HitInfo {
   band : BandInfo?
   box : BoxInfo?
   hexbin : HexbinInfo?
+  violin : ViolinInfo?
 } derive(Eq, @debug.Debug)
 pub fn HitInfo::equal(Self, Self) -> Bool
 pub fn HitInfo::not_equal(Self, Self) -> Bool
@@ -146,6 +149,7 @@ pub(all) enum HitKind {
   ErrorBar
   Area
   BoxPlot
+  Violin
 } derive(Eq, @debug.Debug)
 pub fn HitKind::equal(Self, Self) -> Bool
 pub fn HitKind::not_equal(Self, Self) -> Bool
@@ -192,6 +196,33 @@ pub struct HitTarget {
 pub fn HitTarget::equal(Self, Self) -> Bool
 pub fn HitTarget::not_equal(Self, Self) -> Bool
 pub fn HitTarget::to_repr(Self) -> @debug.Repr
+
+pub struct ViolinInfo {
+  group_index : Int
+  position : Double
+  horizontal : Bool
+  mean : Double
+  median : Double
+  minimum : Double
+  maximum : Double
+  part : ViolinPart
+} derive(Eq, @debug.Debug)
+pub fn ViolinInfo::equal(Self, Self) -> Bool
+pub fn ViolinInfo::not_equal(Self, Self) -> Bool
+pub fn ViolinInfo::to_repr(Self) -> @debug.Repr
+
+pub(all) enum ViolinPart {
+  Body(Int, Double, Double)
+  Mean
+  Median
+  Minimum
+  Maximum
+  Range
+  Quantile(Int, Double)
+} derive(Eq, @debug.Debug)
+pub fn ViolinPart::equal(Self, Self) -> Bool
+pub fn ViolinPart::not_equal(Self, Self) -> Bool
+pub fn ViolinPart::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

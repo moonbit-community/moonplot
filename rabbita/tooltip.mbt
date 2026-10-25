@@ -31,6 +31,7 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     ErrorBar => "errorbar"
     Area => "area"
     BoxPlot => "boxplot"
+    Violin => "violin"
   }
 }
 
@@ -122,6 +123,41 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
         rows.push(("Whiskers", "\{lower} – \{upper}"))
         if box.part is Outlier(value) {
           rows.push(("Outlier", value.to_string()))
+        }
+      } else {
+        rows.push(("Value", info.value.to_string()))
+      }
+    Violin =>
+      if info.violin is Some(violin) {
+        rows.push(("Group", (violin.group_index + 1).to_string()))
+        rows.push(("Mean", violin.mean.to_string()))
+        rows.push(("Median", violin.median.to_string()))
+        rows.push(("Range", "\{violin.minimum} – \{violin.maximum}"))
+        match violin.part {
+          Body(_, coordinate, density) => {
+            rows.push(("KDE coordinate", coordinate.to_string()))
+            rows.push(("Density", density.to_string()))
+          }
+          Quantile(index, value) => {
+            rows.push(("Quantile", (index + 1).to_string()))
+            rows.push(("Value", value.to_string()))
+          }
+          Range => ()
+          part => {
+            rows.push(
+              (
+                "Part",
+                match part {
+                  Mean => "Mean"
+                  Median => "Median"
+                  Minimum => "Minimum"
+                  Maximum => "Maximum"
+                  _ => "Range"
+                },
+              ),
+            )
+            rows.push(("Value", info.value.to_string()))
+          }
         }
       } else {
         rows.push(("Value", info.value.to_string()))
