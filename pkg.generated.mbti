@@ -76,6 +76,8 @@ pub fn series(Array[Double], Array[Double]) -> @core.Series raise @core.DataErro
 
 pub fn str_method_formatter(String) -> @ticker.Formatter
 
+pub fn streamplot_info(Int, Double, Double, color_value? : Double?) -> @drawing.StreamplotInfo
+
 pub fn style(String, width? : Double, radius? : Double, fill? : String, font_size? : Double, marker? : String, line_alpha? : Double?, line_stroke? : @core.LineStroke, line_gapcolor? : String?) -> @core.Style
 
 pub fn tricolor_info((Int, Int, Int), vertex_mean? : Bool) -> @drawing.TriColorInfo
@@ -174,6 +176,8 @@ pub using @scene {type SecondaryAxisAlignment}
 pub using @scene {type SecondaryAxisLocation}
 
 pub using @core {type Series}
+
+pub using @drawing {type StreamplotInfo}
 
 pub using @scene {type StreamplotSet}
 

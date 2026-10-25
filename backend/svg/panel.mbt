@@ -171,7 +171,30 @@ fn render_panel(
         data.matches_points(points) => Some(data)
       _ => None
     }
-    let capture = if (metadata.tricolor() is Some(_) && tricolor is None) ||
+    let streamplot_conflict = metadata.mesh() is Some(_) ||
+      metadata.hexbin() is Some(_) ||
+      metadata.discrete() is Some(_) ||
+      metadata.stem() is Some(_) ||
+      metadata.vector() is Some(_) ||
+      metadata.barb() is Some(_) ||
+      metadata.contour() is Some(_) ||
+      metadata.contourf() is Some(_) ||
+      metadata.tricolor() is Some(_) ||
+      metadata.band_horizontal() is Some(_)
+    let streamplot_domain = match artist {
+      @render.Artist::Line(_, _) => true
+      _ => false
+    }
+    let capture = if (
+        metadata.streamplot() is Some(view) &&
+        (
+          !view.enabled() ||
+          !view.body() ||
+          !streamplot_domain ||
+          streamplot_conflict
+        )
+      ) ||
+      (metadata.tricolor() is Some(_) && tricolor is None) ||
       (metadata.barb() is Some(view) && !view.enabled()) ||
       (metadata.contour() is Some(view) && !view.enabled()) ||
       (
@@ -186,7 +209,8 @@ fn render_panel(
       @render.Artist::Line(points, style) =>
         match panel.prepare_line(points) {
           Some(context) => {
-            let prepared_discrete = if metadata.barb() is Some(_) ||
+            let prepared_discrete = if metadata.streamplot() is Some(_) ||
+              metadata.barb() is Some(_) ||
               metadata.contour() is Some(_) {
               None
             } else {
@@ -221,6 +245,7 @@ fn render_panel(
             )
             if capture is Some(hits) &&
               discrete is None &&
+              metadata.streamplot() is None &&
               metadata.stem() is None &&
               metadata.barb() is None &&
               metadata.contour() is None &&
@@ -248,6 +273,11 @@ fn render_panel(
             }
           }
           None => {
+            let streamplot = streamplot_line_for_paint(
+              metadata.streamplot(),
+              points,
+              style,
+            )
             let contour = contour_line_for_paint(
               metadata.contour(),
               points,
@@ -269,7 +299,11 @@ fn render_panel(
               plot_height,
               points,
               style,
-              on_segment=if contour is Some(_) {
+              on_segment=if streamplot is Some(_) {
+                streamplot_line_capture(
+                  capture, streamplot, panel_index, artist_index, scale, position,
+                )
+              } else if contour is Some(_) {
                 contour_line_capture(
                   capture, contour, panel_index, artist_index, scale, position,
                 )
@@ -301,6 +335,7 @@ fn render_panel(
             )
             if capture is Some(hits) &&
               discrete is None &&
+              metadata.streamplot() is None &&
               metadata.stem() is None &&
               metadata.barb() is None &&
               metadata.contour() is None &&

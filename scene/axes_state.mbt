@@ -8,6 +8,7 @@ struct AxesData {
   contour_intents : Map[Int32, ContourIntent]
   contourf_intents : Map[Int32, ContourFIntent]
   tricolor_intents : Map[Int32, TripcolorIntent]
+  streamplot_intents : Map[Int32, StreamplotIntent]
   x_axis : @axis.Axis
   y_axis : @axis.Axis
   mut title : String?
@@ -81,6 +82,7 @@ fn AxesData::clear_presentation(self : AxesData) -> Unit {
   self.contour_intents.clear()
   self.contourf_intents.clear()
   self.tricolor_intents.clear()
+  self.streamplot_intents.clear()
   self.line_originals.clear()
   self.title = None
   self.explicit_bounds = None
@@ -145,6 +147,7 @@ fn Axes::push_artist(self : Axes, artist : Artist) -> Unit {
     contour: None,
     contourf: None,
     tricolor: None,
+    streamplot: None,
   })
   self.update_artist_data_limits(artist)
   match artist {
@@ -203,6 +206,7 @@ fn new_axes_state(
     contour_intents: Map([]),
     contourf_intents: Map([]),
     tricolor_intents: Map([]),
+    streamplot_intents: Map([]),
     x_axis: @axis.axis(),
     y_axis: @axis.axis(horizontal=false),
     title: None,

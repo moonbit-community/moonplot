@@ -140,6 +140,7 @@ fn add_stream_arrows(
   color_grid : Array[Array[Double]]?,
   color_norm : @colors.ColorNorm?,
   color_map : @colors.ColorMap?,
+  series : String,
 ) -> Array[Artist] raise @core.DataError {
   let result : Array[Artist] = []
   if count <= 0 || line.length() < 2 {
@@ -194,7 +195,7 @@ fn add_stream_arrows(
       stream_style_at(
         xs, ys, tail, linewidth, color, linewidth_grid, color_grid, color_norm, color_map,
       ) {
-      Some(value) => value
+      Some((color, width, _)) => (color, width)
       None => continue
     }
     let line_style = @core.style(arrow_color, width=arrow_width)
@@ -245,7 +246,7 @@ fn add_stream_arrows(
     let shaft_start = if start_head { base_start } else { tail }
     let shaft_end = if end_head { base_end } else { tip }
     let line_artist = Artist::Line([shaft_start, shaft_end], line_style)
-    axes.push_artist(line_artist)
+    axes.push_streamplot_arrow(line_artist, series)
     if arrowstyle == "-" {
       result.push(line_artist)
     }
@@ -267,7 +268,7 @@ fn add_stream_arrows(
             x_pixels, y_pixels, head_style,
           )
         }
-        axes.push_artist(head)
+        axes.push_streamplot_arrow(head, series)
         result.push(head)
       }
       if end_head {
@@ -287,7 +288,7 @@ fn add_stream_arrows(
             y_pixels, head_style,
           )
         }
-        axes.push_artist(head)
+        axes.push_streamplot_arrow(head, series)
         result.push(head)
       }
     }
@@ -295,14 +296,14 @@ fn add_stream_arrows(
       let bar = streamplot_arrow_bar(
         tail, direction_x, direction_y, head_width, x_pixels, y_pixels, line_style,
       )
-      axes.push_artist(bar)
+      axes.push_streamplot_arrow(bar, series)
       result.push(bar)
     }
     if end_bar {
       let bar = streamplot_arrow_bar(
         tip, direction_x, direction_y, head_width, x_pixels, y_pixels, line_style,
       )
-      axes.push_artist(bar)
+      axes.push_streamplot_arrow(bar, series)
       result.push(bar)
     }
   }

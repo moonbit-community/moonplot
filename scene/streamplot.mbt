@@ -659,13 +659,13 @@ fn stream_style_at(
   color_grid : Array[Array[Double]]?,
   color_norm : @colors.ColorNorm?,
   color_map : @colors.ColorMap?,
-) -> (String, Double)? {
+) -> (String, Double, Double?)? {
   let width = match linewidth_grid {
     None => Some(linewidth)
     Some(values) => stream_sample_scalar(xs, ys, values, point.x(), point.y())
   }
   let line_color = match color_grid {
-    None => Some(color)
+    None => Some((color, None))
     Some(values) => {
       let value = match
         stream_sample_scalar(xs, ys, values, point.x(), point.y()) {
@@ -673,13 +673,17 @@ fn stream_style_at(
         None => return None
       }
       match (color_norm, color_map) {
-        (Some(norm), Some(cmap)) => stream_color_from_value(value, norm, cmap)
+        (Some(norm), Some(cmap)) =>
+          stream_color_from_value(value, norm, cmap).map(color => {
+            (color, Some(value))
+          })
         _ => None
       }
     }
   }
   match (line_color, width) {
-    (Some(line_color), Some(width)) => Some((line_color, width))
+    (Some((line_color, color_value)), Some(width)) =>
+      Some((line_color, width, color_value))
     _ => None
   }
 }
@@ -689,6 +693,8 @@ fn stream_line_artists(
   axes : Axes,
   xs : Array[Double],
   ys : Array[Double],
+  us : Array[Array[Double]],
+  vs : Array[Array[Double]],
   line : Array[@core.Point],
   linewidth : Double,
   color : String,
@@ -696,36 +702,78 @@ fn stream_line_artists(
   color_grid : Array[Array[Double]]?,
   color_norm : @colors.ColorNorm?,
   color_map : @colors.ColorMap?,
+  seed_index : Int32,
+  series : String,
 ) -> Array[Artist] {
-  let result : Array[Artist] = []
-  if linewidth_grid is None && color_grid is None {
-    let artist = Artist::Line(line, @core.style(color, width=linewidth))
-    axes.push_artist(artist)
-    result.push(artist)
-    return result
-  }
+  let styled = linewidth_grid is Some(_) || color_grid is Some(_)
+  let samples : Array[@render.StreamplotDatum?] = []
+  let body : Array[(Artist, Int32)] = []
   for index in 1..<line.length() {
     let first = line[index - 1]
     let second = line[index]
+    // Keep the old arithmetic used for painting style-grid bodies.
     let midpoint = @core.point(
       (first.x() + second.x()) / 2.0,
       (first.y() + second.y()) / 2.0,
     )
-    match
-      stream_style_at(
-        xs, ys, midpoint, linewidth, color, linewidth_grid, color_grid, color_norm,
-        color_map,
-      ) {
-      Some((line_color, line_width)) => {
-        let artist = Artist::Line(
-          [first, second],
-          @core.style(line_color, width=line_width),
-        )
-        axes.push_artist(artist)
-        result.push(artist)
+    if styled {
+      match
+        stream_style_at(
+          xs, ys, midpoint, linewidth, color, linewidth_grid, color_grid, color_norm,
+          color_map,
+        ) {
+        Some((line_color, line_width, color_value)) => {
+          samples.push(
+            streamplot_sample_datum(
+              xs,
+              ys,
+              us,
+              vs,
+              midpoint,
+              index - 1,
+              seed_index,
+              color_value,
+            ),
+          )
+          body.push(
+            (
+              Artist::Line(
+                [first, second],
+                @core.style(line_color, width=line_width),
+              ),
+              index - 1,
+            ),
+          )
+        }
+        None => samples.push(None)
       }
-      None => ()
+    } else {
+      samples.push(
+        streamplot_sample_datum(
+          xs,
+          ys,
+          us,
+          vs,
+          midpoint,
+          index - 1,
+          seed_index,
+          None,
+        ),
+      )
     }
+  }
+  if !styled {
+    body.push((Artist::Line(line, @core.style(color, width=linewidth)), 0))
+  }
+  let source = @render.streamplot_hit_data(line, samples)
+  let result = []
+  for (artist, first_edge) in body {
+    guard artist is Artist::Line(points, _) else { continue }
+    axes.push_streamplot_owned(
+      artist,
+      @render.streamplot_body_hit(source, points, first_edge, series),
+    )
+    result.push(artist)
   }
   result
 }
@@ -831,6 +879,7 @@ fn add_streamlines(
   color_grid : Array[Array[Double]]?,
   color_norm : @colors.ColorNorm?,
   color_map : @colors.ColorMap?,
+  series : String,
 ) -> StreamplotSet raise @core.DataError {
   let x_span = xs[xs.length() - 1] - xs[0]
   let y_span = ys[ys.length() - 1] - ys[0]
@@ -859,7 +908,7 @@ fn add_streamlines(
   } else {
     maxlength
   }
-  for seed in seeds {
+  for seed_index, seed in seeds {
     let touched : Array[Int32] = []
     let (seed_can_continue, _) = stream_update_mask(
       seed,
@@ -936,8 +985,8 @@ fn add_streamlines(
     let line = stream_join(backward, forward)
     if line.length() >= 2 && stream_length(line, x_span, y_span) >= minlength {
       let line_artists = stream_line_artists(
-        axes, xs, ys, line, linewidth, color, linewidth_grid, color_grid, color_norm,
-        color_map,
+        axes, xs, ys, us, vs, line, linewidth, color, linewidth_grid, color_grid,
+        color_norm, color_map, seed_index, series,
       )
       for artist in line_artists {
         lines.push(artist)
@@ -945,7 +994,7 @@ fn add_streamlines(
       if arrows {
         let arrow_artists = add_stream_arrows(
           axes, line, num_arrows, color, linewidth, arrow_size, arrowstyle, x_span,
-          y_span, xs, ys, linewidth_grid, color_grid, color_norm, color_map,
+          y_span, xs, ys, linewidth_grid, color_grid, color_norm, color_map, series,
         )
         for artist in arrow_artists {
           arrows_result.push(artist)
@@ -1169,6 +1218,7 @@ fn Axes::streamplot_impl(
     color_grid,
     color_norm,
     color_map,
+    label,
   )
   self.add_auto_legend(
     label,

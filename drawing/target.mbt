@@ -23,6 +23,7 @@ pub(all) enum HitKind {
   Contour
   ContourF
   Tripcolor
+  Streamplot
 } derive(Eq, Debug)
 
 ///|
@@ -90,6 +91,7 @@ pub struct HitInfo {
   violin : ViolinInfo?
   vector : VectorInfo?
   tricolor : TriColorInfo?
+  streamplot : StreamplotInfo?
 } derive(Eq, Debug)
 
 ///|
@@ -115,6 +117,7 @@ pub fn hit_info(
   violin~ : ViolinInfo? = None,
   vector~ : VectorInfo? = None,
   tricolor~ : TriColorInfo? = None,
+  streamplot~ : StreamplotInfo? = None,
 ) -> HitInfo {
   {
     point,
@@ -132,6 +135,7 @@ pub fn hit_info(
     violin,
     vector,
     tricolor,
+    streamplot,
   }
 }
 

@@ -6,7 +6,8 @@ fn discrete_kind(kind : HitKind) -> Bool {
   kind == Stem ||
   kind == Quiver ||
   kind == Barbs ||
-  kind == Contour
+  kind == Contour ||
+  kind == Streamplot
 }
 
 ///|

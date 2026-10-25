@@ -41,6 +41,7 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     Contour => "contour"
     ContourF => "contourf"
     Tripcolor => "tripcolor"
+    Streamplot => "streamplot"
   }
 }
 
@@ -130,6 +131,17 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
           info.value.to_string(),
         ),
       )
+    Streamplot =>
+      match info.streamplot {
+        Some(flow) => {
+          rows.push(("U", flow.u.to_string()))
+          rows.push(("V", flow.v.to_string()))
+          if flow.color_value is Some(value) {
+            rows.push(("Color value", value.to_string()))
+          }
+        }
+        None => rows.push(("Value", info.value.to_string()))
+      }
     Contour => rows.push(("Level", info.value.to_string()))
     ContourF => {
       if info.interval is Some((lower, upper)) {

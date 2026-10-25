@@ -43,6 +43,8 @@ pub using @drawing {
   type ViolinPart,
   type VectorInfo,
   type TriColorInfo,
+  type StreamplotInfo,
+  streamplot_info,
   tricolor_info,
   type HitKind,
   type HitMode,

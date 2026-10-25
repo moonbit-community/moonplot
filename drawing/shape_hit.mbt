@@ -10,6 +10,17 @@ fn valid_point(point : HitPoint) -> Bool {
 fn valid_info(info : HitInfo) -> Bool {
   valid_point(info.point) &&
   finite(info.value) &&
+  (match info.streamplot {
+    Some(flow) =>
+      flow.seed_index >= 0 &&
+      finite(flow.u) &&
+      finite(flow.v) &&
+      (match flow.color_value {
+        Some(value) => finite(value)
+        None => true
+      })
+    None => true
+  }) &&
   (match info.tricolor {
     Some(face) => {
       let (a, b, c) = face.vertices

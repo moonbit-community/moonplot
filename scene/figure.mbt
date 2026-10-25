@@ -44,6 +44,7 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
     contour_intents: Map([]),
     contourf_intents: Map([]),
     tricolor_intents: Map([]),
+    streamplot_intents: Map([]),
     x_axis: @axis.axis(),
     y_axis: @axis.axis(horizontal=false),
     title: None,

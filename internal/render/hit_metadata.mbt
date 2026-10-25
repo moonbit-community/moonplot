@@ -15,6 +15,7 @@ pub struct HitMetadata {
   priv contour : ContourHitView?
   priv contourf : ContourFHitData?
   priv tricolor : TripcolorHitData?
+  priv streamplot : StreamplotHitView?
 }
 
 ///|
@@ -32,6 +33,7 @@ pub fn hit_metadata(
   contour~ : ContourHitView? = None,
   contourf~ : ContourFHitData? = None,
   tricolor~ : TripcolorHitData? = None,
+  streamplot~ : StreamplotHitView? = None,
 ) -> HitMetadata {
   {
     series,
@@ -47,6 +49,7 @@ pub fn hit_metadata(
     contour,
     contourf,
     tricolor,
+    streamplot,
   }
 }
 
@@ -141,4 +144,9 @@ pub fn HitMetadata::contourf(self : HitMetadata) -> ContourFHitData? {
 ///|
 pub fn HitMetadata::tricolor(self : HitMetadata) -> TripcolorHitData? {
   self.tricolor
+}
+
+///|
+pub fn HitMetadata::streamplot(self : HitMetadata) -> StreamplotHitView? {
+  self.streamplot
 }

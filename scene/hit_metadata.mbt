@@ -14,6 +14,7 @@ priv struct ArtistHitData {
   mut contour : ContourSource?
   mut contourf : ContourFSource?
   mut tricolor : TripcolorSource?
+  mut streamplot : StreamplotSource?
 }
 
 ///|
@@ -58,6 +59,7 @@ fn ArtistHitData::render_metadata(self : ArtistHitData) -> @render.HitMetadata {
     contour=self.contour.map(source => source.view),
     contourf=self.contourf.map(source => source.data),
     tricolor=self.tricolor.map(source => source.data),
+    streamplot=self.streamplot.map(source => source.view),
   )
 }
 
@@ -93,6 +95,15 @@ fn AxesData::hit_metadata(
   index : Int32,
   cursor : @ref.Ref[Int32],
 ) -> @render.HitMetadata {
+  if self.streamplot_intents.get(index) is Some(intent) {
+    cursor.val = intent.source.cursor.val
+    let view = if same_hit_artist(intent.artist, artist) {
+      intent.source.view
+    } else {
+      intent.source.view.invalidated()
+    }
+    return @render.hit_metadata(view.series(), streamplot=Some(view))
+  }
   if self.tricolor_intents.get(index) is Some(intent) {
     cursor.val = intent.source.cursor.val
     let data = if same_hit_artist(intent.artist, artist) {

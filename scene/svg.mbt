@@ -363,6 +363,9 @@ fn Figure::to_render_figure(
     let discrete_sources = []
     if capture_points {
       for record_index, record in state.artist_hits {
+        if record.streamplot is Some(source) {
+          source.cursor.val = record_index + 1
+        }
         if record.tricolor is Some(source) {
           source.cursor.val = record_index + 1
         }
