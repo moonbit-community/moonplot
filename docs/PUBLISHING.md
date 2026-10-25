@@ -1,7 +1,7 @@
 # 安装与发布
 
-本次发布模块为 **`Lampese/mathplotlib@0.11.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
-0.11.0源码已通过本轮验收，正在执行clean打包、实际Mooncakes/全新registry与GitHub附件核验；这些网络步骤尚未标为完成。此前0.10.0已实际发布并核验。
+当前分发模块为 **`Lampese/mathplotlib@0.11.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
+0.11.0已实际发布Mooncakes与GitHub，公开构建成功且未撤回；全新安装573份源文件、静态四目标/Chrome32与四附件完整下载均核验通过。
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
 
@@ -229,7 +229,7 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 
 正式构建至网络闭环未tracked写入或commit；dirty演练未上传。
 
-## 0.11.0 Barbs 源码验收与交付准备
+## 0.11.0 Barbs 发布验收
 
 风羽实际shaft/羽枝、旗面及三边、完整calm disk携带原输入位置、原i和U/V，value明确为原V；middle/tip及rounded calm不改变原数据语义。两个旧入口签名、Unit、无Container、有效错误前缀与正常静态SVG保留。
 
@@ -238,6 +238,10 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 - 定向Native197、W/WG/JS各195、Rabbita42全过；immutable c9八fixture×四目标32SVG逐字，未复制旧writer或改golden。
 - 中央W/WG各22543、Native22545、JS22592全过；info/fmt/11JS builds、11页面Chrome134项/0errors、三SVG与结构通过。
 - 首Barbs浏览器runner即时读legend DOM导致失败，原证据保留；真实3→0/0→3响应式时序已记录，改为状态/DOM条件等待后12项通过，无sleep/生产改动或放宽断言，已过全库未重复。
-- 外部dirty演练静态四目标/Chrome32与8真实整数风羽事件通过，未上传。正式clean包、实际registry安装与GitHub完整下载仍须执行。
+- 外部dirty演练静态四目标/Chrome32与8真实整数风羽事件通过，未上传。正式clean41056和无workspace全新registry75023均静态四目标/Chrome32通过；573份安装源逐一匹配正式ZIP。
+- 正式源码`0177b0cd77cc3cb05f108a2af49f561e3a0fd036`；实际publish10237 terminal0/200，公开success/has_package=true/yanked=false且checksum相同。
+- [GitHub v0.11.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.11.0)四附件整下载68272 terminal0，字节/远端digest及size/tag源码SHA全部通过，未在下载中途比较。
+- 模块ZIP2346216bytes，SHA256 `b87b76d3471b185124458e5b992dba1983456d47cde679b0632ef4aae48520e0`。
+- 独立源码ZIP2386461bytes，SHA256 `ab9188c5c881f8c46f4176de83342c904067a289631328750ed44d08087ecc9d`。
 
-正式源码和归档校验值在实际交付闭环后记录；只有clean正式归档用于发布。
+正式builder至实际网络闭环Root HEAD保持0177且gitclean，无tracked写入或commit；dirty演练未上传。

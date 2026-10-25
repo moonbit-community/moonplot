@@ -1,6 +1,6 @@
 # M10：Barbs 风羽图交互
 
-创建日期：2026-10-25。状态：**源码、独立复审与浏览器验收通过，正式交付进行中**。候选0.11.0，当前正式版本0.10.0。
+创建日期：2026-10-25。状态：**已验收交付0.11.0**。Mooncakes与GitHub实际发布及全新安装核验通过。
 只扩已有barbs及barbs_with_options，不扩Streamplot、一般样式参数或Matplotlib完整API。
 
 ## 固定合同
@@ -25,7 +25,7 @@
 - [x] input副本/identity/content/旧Drawing、samecolor/多panel、图像/contour/Line移除、有效prefix与既有Line行为。
 - [x] 每target旧/新SVG逐字基线、独立实际XML/公开consumer复审、必要四目标与adapter测试。
 - [x] 可运行DOM，真实shaft/羽枝/旗面/圆内触发原X/Y/U/V、独立显隐/更新/重挂载、CSS/letterbox与375px。
-- [ ] 中央info/fmt/结构/全套与既有浏览器回归；clean包、实际Mooncakes/registry与GitHub四附件完整下载。
+- [x] 中央info/fmt/结构/全套与既有浏览器回归；clean包、实际Mooncakes/registry与GitHub四附件完整下载。
 
 ## 已运行依据与待办
 
@@ -36,7 +36,9 @@
 - Root组合19355：四目标各3项通过，覆盖flag/Area、calm/Hex和普通Line既有XNearest优先规则。
 - 独立Native69717发现同值points.copy导致Scene identity miss后退generic Line/Scatter端点。edb6559（Root7fcb70c）已合入O(1) known-slot intent/disabled共享view；Native43项及独立Native/JS各4组复审通过，唯一blocker解除。
 - 最终专项Native197、W/WG/JS各195与Rabbita42全部过；32份同target旧新SVG逐字。Root29文件SHA精确匹配最终producer。
-- 中央四目标全套通过：W/WG各22543、Native22545、JS22592；11页面Chrome134项/0errors、info/fmt/11JS、三静态SVG和结构通过。首Barbs runner的legend即时count失败已保留；真实异步时序证实为runner race，状态/DOM完成等待后12项通过，未重跑已过full。clean包和实际Mooncakes/registry/GitHub交付正在准备。
+- 中央四目标全套通过：W/WG各22543、Native22545、JS22592；11页面Chrome134项/0errors、info/fmt/11JS、三静态SVG和结构通过。首Barbs runner的legend即时count失败已保留；真实异步时序证实为runner race，状态/DOM完成等待后12项通过，未重跑已过full。
+- 正式源0177b0cd77cc3cb05f108a2af49f561e3a0fd036；clean41056与registry75023均静态四目标/Chrome32通过，573安装源逐一相同。publish10237实际200/公开success/haspackage/notyanked/checksum相同；GitHub四附件整下载68272后字节/digest/size/tagSHA全过。
+- 正式builder至网络闭环Root HEAD0177及gitclean保持，无tracked写入或commit，dirty演练未上传。[发布记录](PUBLISHING.md#0110-barbs-发布验收)与[GitHub v0.11.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.11.0)。
 
 定点只读Native62148与独立98036保存正式c9旧SVG及prefix/label/count controls，它们属于旧generic基线，不算新语义验收。
 高级Inf→Int2147483647仅安全计数probe，未实际运行巨量循环；累计计数边界测试也只检查计数，不展开。
