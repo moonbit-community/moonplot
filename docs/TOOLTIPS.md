@@ -117,6 +117,14 @@ let chart = @plot_dom.view(
 不依赖浏览器时可以调用 `hit_test(x,y,mode=XNearest)`；
 `hit_test_client(...)` 另外处理 CSS 比例、滚动和 `xMidYMid meet` letterbox。
 
+## 三角面着色（M13）
+
+`Tripcolor` 使用 `HitInfo.value` 保留原逐面标量或原顶点算术均值，
+`HitInfo.tricolor.vertices` 给出实际有序顶点三元组，`vertex_mean` 区分两种来源。
+`point_index` 保留原面槽与掩码空位；两种模式只命中 plot 内实际填色。
+默认显示系列与 Value 或 Vertex mean，自定义回调可提供中文与单位；
+不把几何锚点当作原始网格观测。见[三角面指南](TRIPCOLOR_INTERACTION.md)和[M13验收状态](MILESTONE_M13.md)。
+
 ## 实际预览
 
 ![六类图表的真实浏览器提示](../assets/tooltips.png)

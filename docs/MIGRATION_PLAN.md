@@ -132,4 +132,4 @@ violin真实密度体与统计线。两者复用既有统计和绘制，不在�
 ## M13：三角网格着色的原面与顶点信息
 
 [M13](MILESTONE_M13.md)接续已有tripcolor/direct/wrapper，显示原逐面标量或旧顶点均值，保留原面槽和实际有序顶点三元组。复用actual Polygon与nonzero FilledRegion，不伪矩阵行列，保mask洞与原normalization/均值/Unit/0Container/SVG。
-目标0.14.0，正式基线0.13源87a3280f31fb3ba043da415f89eab6ad5a8ef59e，已授权独立实现；当前正式仍0.13.0，M13尚未验收。
+目标0.14.0，正式基线0.13源87a3280f31fb3ba043da415f89eab6ad5a8ef59e。实现、独立Native/JS复审、Chrome14与外部consumer46专项已过；当前工作树为0.14.0候选，中央全套与实际发布待完成，正式分发仍0.13.0。

@@ -88,6 +88,14 @@ output once per band. `drawing/region.mbt` owns the opaque whole-region
 value, cached validity and physical nonzero/evenodd containment. Separate rings
 share one region; no grid or entire region is copied for each captured edge.
 
+Tripcolor keeps a separate original face slot, raw scalar and ordered vertex
+triple in `scene/tricolor_hit.mbt` / `internal/render/tricolor_hit.mbt`.
+Each face validates only its own three-point identity, content and source area
+once. `backend/svg/tricolor_hit.mbt` and the contourf collector share the small
+`filled_region_hit.mbt` helper for actual writer geometry, clipping and anchors;
+scalar semantics and source ownership remain separate. `drawing/tricolor.mbt`
+provides readonly metadata. No full mesh is copied or searched per face.
+
 ## Generated data and reference tests
 
 `internal/color_names` owns the complete pinned named-color table. Its three

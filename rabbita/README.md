@@ -5,7 +5,7 @@ Interactive MoonPlot SVG components built with public
 real SVG DOM inside composable `Html`; your application owns its state.
 
 The component is the **`Lampese/mathplotlib/rabbita` package** in the unified
-`Lampese/mathplotlib@0.10.0` module. See [installation and release status](../docs/PUBLISHING.md)
+`Lampese/mathplotlib@0.14.0` candidate module. See [installation and release status](../docs/PUBLISHING.md)
 for the current publication result. There is no separate adapter module to install.
 
 ![Two interactive charts](https://raw.githubusercontent.com/moonbit-community/moonplot/master/assets/rabbita-interactive.png)
@@ -15,7 +15,7 @@ for the current publication result. There is no separate adapter module to insta
 From your application's module directory:
 
 ```sh
-moon add Lampese/mathplotlib@0.10.0
+moon add Lampese/mathplotlib@0.14.0
 ```
 
 Import the packages used by your application's view in `moon.pkg`:
@@ -212,7 +212,7 @@ and intrinsic SVG coordinates. ECDF indices refer to the returned distribution
 slots; other exact identities are described in each chart guide. Picking covers
 point anchors, bar and histogram regions, pie/donut sectors, matrix cells, error
 and area geometry, boxplot parts, hexagonal faces, violin parts, discrete strokes,
-stems, quiver arrows, wind barbs, line contours and filled contour bands. Contour indices identify
+stems, quiver arrows, wind barbs, line contours, filled contour bands and triangular faces. Contour indices identify
 generated paths and values identify exact levels; their coordinates describe
 generated-edge midpoints. Filled contours expose the finite clip interval,
 representative value and original logical band slot. Whole nonzero/evenodd regions
@@ -248,6 +248,14 @@ is built with `moon build rabbita/cmd/filled_contours --target js`. Its two card
 cover nested bands, holes, disconnected islands, masks and replacement data.
 The [filled contour guide](../docs/CONTOURF_INTERACTION.md) explains original band
 slots, range-only tooltips, immutable region inspection and static margin paint.
+
+The [triangular mesh example](http://127.0.0.1:8765/rabbita/triangles.html)
+is built with `moon build rabbita/cmd/triangles --target js`. It exposes original
+face slots and values or the existing vertex arithmetic mean, with ordered
+`HitInfo.tricolor.vertices` and a `vertex_mean` flag. Both hit modes require the
+actual nondegenerate face fill inside the plot; masks leave real gaps. Tooltips
+show Value or Vertex mean, with no geometric X/Y rows. See the
+[tripcolor guide](../docs/TRIPCOLOR_INTERACTION.md).
 
 ## Develop and verify
 

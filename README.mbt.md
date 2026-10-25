@@ -48,11 +48,11 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.13.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
+This working tree is the **`Lampese/mathplotlib@0.14.0`** release candidate. Registry publication is pending; see [installation and migration instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.13.0
+moon add Lampese/mathplotlib@0.14.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add
@@ -290,12 +290,26 @@ See the [filled contour guide](docs/CONTOURF_INTERACTION.md).
 
 ![Nested bands and separate filled contour regions in Rabbita](assets/filled-contours.png)
 
+### Triangular face values and vertex means
+
+```sh
+moon build rabbita/cmd/triangles --target js
+```
+
+Open [the triangular mesh example](http://127.0.0.1:8765/rabbita/triangles.html)
+to inspect original face values or vertex arithmetic means. Whole-face picking
+preserves masked gaps, original face indices and ordered vertex triples through
+normalization, data and visibility updates. Default and Chinese custom tooltips
+share the same typed metadata. See the [tripcolor guide](docs/TRIPCOLOR_INTERACTION.md).
+
+![Face values and vertex means in Rabbita](assets/triangles.png)
+
 ### Current scope
 
 - SVG is the static output backend; Rabbita DOM is an optional browser component.
   Standalone PNG/PDF export and a desktop GUI backend are not available.
 - Interactive picking includes line/scatter anchors, bar and histogram regions,
-  pie/donut sectors, matrix cells, statistical areas, distribution parts, discrete curves, stems, quiver arrows, wind barbs, line contours and filled contour bands.
+  pie/donut sectors, matrix cells, statistical areas, distribution parts, discrete curves, stems, quiver arrows, wind barbs, line contours, filled contour bands and triangular faces.
   Touch gestures, zoom/pan, and keyboard navigation remain future work.
 - 3D plotting, animation, and full mathtext/TeX and font layout are not available.
 - The library is not a drop-in Matplotlib implementation. Python's dynamic

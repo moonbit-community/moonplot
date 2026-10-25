@@ -17,6 +17,7 @@ Start with the [project README](../README.md) to render a chart.
 - [Wind barbs, flags, calm disks and original vector components](BARBS_INTERACTION.md)
 - [Contour exact levels, generated paths and inline labels](CONTOUR_INTERACTION.md)
 - [Filled contour bands, holes and range tooltips](CONTOURF_INTERACTION.md)
+- [Triangular face values, vertex means and original triples](TRIPCOLOR_INTERACTION.md)
 
 - [Install the unified module and migrate package paths](PUBLISHING.md)
 - [Current capabilities and M1 acceptance](CAPABILITIES.md)
