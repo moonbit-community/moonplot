@@ -11,15 +11,20 @@
 - 用户已于2026-10-24明确授权实际发布Mooncakes，前缀Lampese/，并要求核心与Rabbita合并单一Lampese/mathplotlib module。
 - 不用历史API指数或未经调查的估算表示整体完成率。
 
-## 当前切片：M7 离散曲线（待开工）
+## 当前切片：M7 离散曲线（已开工）
 
 - 继续用户“一直往后对齐”：下一片step/stairs/ECDF原数据语义，目标0.8.0；尚未升级版本或改M7生产源。
-- 第一未完成步骤：收敛m3_donut own ignored设计，建立公共DiscreteLineHitData/实际provider snapshot guard，复用实际valid-run线段。
+- [x] 范围冻结于MILESTONE_M7.md，定点设计已复制Root .moonagent/checkpoints/M7-discrete/design/。
+- [ ] 第一未完成步骤：m3_donut在own worktree从正式f5b55cd起codex/m7-discrete，实施完整Step+公共DiscreteLineHitData/provider snapshot guard/实际valid-run捕获。
+  之后同一owner依次做Stairs/ECDF；每片专项四目标/adapter/旧SVG控制/info/fmt/结构后coherent commit交接，不在child跑全套。
   step保留原采样项；stairs保留原values/edges与baseline；ECDF保留既有返回值/概率索引，不反推合成转折点。
-- 当前stage独立设计，不重开19图调查；m3_donut只读设计step/stairs/ECDF，m4_area只读stem（后续片），m3_browser已完成M6。
-- Root拥有合入/公开冲突、consumer、中央文档与实际发布。各agent不push/发布，不改Root版本或当前检查点。
-- 精确下一动作：M6已全部闭环，通知m3_donut从f5b55cd起新codex/m7-discrete实现三图及公共捕获；先小步公共IR/guard，再图类与定向四目标。
-  建立M7验收范围与UI ignored草稿，复用现有架构，不新增whole-API清单。
+- m4_area独立只读复审/原始path oracle准备中；等Step精确hash再实际外部消费，不改生产。
+  m3_browser已授权只写Root ignored M7-discrete/draft四卡草稿；与owner对齐字段/transition，未授权部署或宣称编译/Chrome通过。
+- Root拥有合入/公开冲突、consumer、中央文档与实际发布；不新开agent。各agent不push/发布，不改Root版本或当前检查点。
+- 精确下一动作：收首Step可编译commit与独立复审 → cherry-pick并扩公开consumer/组合回归；同owner接Stairs/ECDF。
+  UI先ignored草稿，功能合入后明确授权部署；Root再做最终全套/Chrome/实际发布，不重开19图调查。
+- M6 post-delivery记录52a5e94，push82801进行中；无生产变更，正式tag仍f5b55cd。0.7全部发布核验已经结束。
+- 当前M7主工作树仅文档；版本仍0.7.0，无未提交生产源码。唯一有意服务仍8765/session43005/PID70622。
 
 ## 最新交付：M6 六边形分箱与小提琴分布（2026-10-25）
 
@@ -33,7 +38,7 @@
   hexbin_grid.mbt=3fa918907588b5b938f5d67aec85fe544bda371ab2028a496babca7e22dae821。
 - [x] 全套85340 terminal0：Wasm/Wasm-GC/Native各22452/22452、JS22489/22489；接口/fmt/七JS例build35183 terminal0。
   默认Chrome35813 terminal0：新分布13（10个源点实际SVG包含+mouse hover）、网格11、统计14、M3图14、提示14，0errors。
-  静态60444三SVG可解析，preview6886/gallery14246与资产逐字相同；34份MD453本地链接/结构/diff通过（文档新链接后只需重验links）。
+  静态60444三SVG可解析，preview6886/gallery14246与资产逐字相同；34份MD453本地链接/结构/diff通过；post-delivery34份456本地链接亦通过。
 - [x] 新图实际JS4536157bytes/SHA19599131a9a6a052b4d9bc5650e30330b586f201a307adcc415bdaf1ed952b8c，默认与隔离一致、HTTP200。
   asset97879bytes/SHA1b584d6f32f1a65e19d6b327bb8d961d939eaa5629d100d971ed6d76eac2e66e，Root目视桌面真实输出通过。
 - [x] f5b55cd已push93634 terminal0；clean builder85610 terminal0/dirty=false，外部静态4+Chrome17。

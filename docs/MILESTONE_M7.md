@@ -1,0 +1,33 @@
+# M7：阶梯图、区间阶梯图与累计分布
+
+创建日期：2026-10-25。状态：**已开工，尚未完成或发布**。目标0.8.0；当前正式版本仍为0.7.0。
+继续补齐已有静态图的交互能力，复用现有绘制、排序与权重计算。
+
+## 原始数据与实际几何
+
+- [ ] `step`的pre/post/mid保留原采样下标、x/y/value与plateau区间；生成的转折点不作为新增观测。
+  plateau和riser复用同一原数据项，跳变归进入的新值；倒序输入不交换原索引或区间方向。
+- [ ] `stairs`的outline支持横竖向，保留原values下标与原edges区间；filled仅在严格单调、全有效的实际完整polygon可证明为各区间strip并集时提供区域命中。
+  NaN或域外顶点被renderer删除后，不为剩余复杂面捏造矩形目标。
+- [ ] `ecdf`保存既有返回槽、原值与实际累计概率；覆盖weights/complementary/compress/duplicates/横竖方向。
+  压缩后的返回索引不宣称为唯一原输入观测索引，不重排或重写已有统计算法。
+
+## 共享实现与生命周期
+
+- [ ] 使用同一私有datum/path-edge载体、实际valid-run回调和Scene身份记录，避免UI反推路径。
+- [ ] provider在实际`points_snapshot_checked`之后验证独立expected path及当前cache；不只凭数组身份、长度或stale标记附旧语义。
+  set_data、drawstyle、借用数组、remove/clear、延迟绘制和旧Drawing快照均明确处理。
+- [ ] 复用`HitInfo.value/interval/fraction/band`与新增Step/Stairs/Ecdf kind；不引入公共可变数组。
+- [ ] 可见性、面板裁剪、CSS半径、图例排除和实际绘制顺序沿用Drawing契约；不顺带重写普通Line2D或单位转换。
+- [ ] 先固定旧SVG控制，静态签名、返回值与SVG保持；首片不推断一般Line2D的steps drawstyle，不实现完整dash空隙几何。
+
+## 可用性与交付
+
+- [ ] 默认及自定义Rabbita提示可读取原值、区间和概率。
+- [ ] 四图真实DOM示例，检查实际线段/区域、切换模式、独立显隐/更新/重挂载、CSS/letterbox和375px。
+- [ ] 独立专项与复审、中央组合回归、四目标全套、adapter、接口/fmt/结构通过。
+- [ ] clean正式包、实际Mooncakes安装、仓库外静态/DOM消费及GitHub四附件完整下载核验。
+
+公共carrier/guard/三图由同一owner按Step→Stairs→ECDF分可验收commit，Root负责中央合入与交付。
+Stem的杆/头语义已有定点设计，保留后续切片；不因已有静态入口就宣称所有图已交互对齐。
+精确进度见[检查点](MIGRATION_STATUS.md)，当前发布见[安装说明](PUBLISHING.md)。
