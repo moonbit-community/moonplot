@@ -211,7 +211,8 @@ legend buttons retain their accessibility attributes.
 and intrinsic SVG coordinates. ECDF indices refer to the returned distribution
 slots; other exact identities are described in each chart guide. Picking covers
 point anchors, bar and histogram regions, pie/donut sectors, matrix cells, error
-and area geometry, boxplot parts, hexagonal faces, violin parts, discrete strokes, stems and quiver arrows. Lines can also snap by X; segment interpolation is not provided;
+and area geometry, boxplot parts, hexagonal faces, violin parts, discrete strokes,
+stems, quiver arrows and wind barbs. Lines can also snap by X; segment interpolation is not provided;
 indices belong to the current frame, not persistent identities across reordering.
 
 The SVG uses responsive width and `xMidYMid meet`. Picking uses client coordinates,
@@ -224,6 +225,12 @@ Every `view` parses its snapshot and scans points for picking. Dense-data perfor
 and caching remain future work. Only JS browser interaction is claimed. The unified
 module pins Rabbita 0.16.7 and XML 0.5.0; dependency resolution happens for the whole
 module, while the static plotting packages do not compile or link this UI package.
+
+The [wind example](http://127.0.0.1:8765/rabbita/barbs.html) is built with
+`moon build rabbita/cmd/barbs --target js`. Its two cards cover real feather
+strokes, filled flags and calm disks with the original input position and U/V.
+The [Barbs guide](../docs/BARBS_INTERACTION.md) explains pivot, rounding and
+physical-only picking in both hit modes.
 
 ## Develop and verify
 

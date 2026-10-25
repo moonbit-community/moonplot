@@ -6,11 +6,11 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 
 **当前状态：M1至M9已验收交付，覆盖常用二维、统计区间、网格计数、分布、离散曲线、Stem及Quiver交互。**
 0.10.0已实际发布Mooncakes与GitHub：566份安装源逐一匹配、四目标静态/Chrome28及四附件完整下载通过；[M9](MILESTONE_M9.md)记录W/WG22520、Native22521、JS22567与十页面Chrome122项验收。
-下一片[M10 Barbs](MILESTONE_M10.md)补风羽实际分部的原输入位置/U/V提示，并修复空数据串改前线名称及高级派生计数溢出；尚未实现或验收。
+[M10 Barbs](MILESTONE_M10.md)0.11.0源码已验收：风羽实际分部提供原输入位置/U/V提示，修复空数据串改前线名称及高级派生计数溢出。独立源码复审、四目标全套与11页面Chrome134项/0errors均过，正在执行正式交付；尚未把实际发布算完成。
 历史 M1 四目标353/353见 [M1 记录](MILESTONE_M1.md)，初批 DOM 见[DOM 记录](RABBITA_DOM.md)。
 
 **M2 v0.2.0** 补齐多图 SVG 资源隔离和独立接入版本包，详见 [M2 历史记录](MILESTONE_M2.md)。
-当前分发为 **`Lampese/mathplotlib@0.8.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
+当前正式分发为 **`Lampese/mathplotlib@0.10.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
 发布状态和安装方式见 [接入说明](PUBLISHING.md)。
 
 ## 如何理解状态
@@ -35,6 +35,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 | 离散曲线 | step、区间stairs与加权ECDF/CCDF | 实际线段保留原采样或返回槽；有效filled stairs提供完整区间strip命中 |
 | 杆线图 | 竖向/横向stem | 实际杆段与默认圆头保留原head值、原索引、非零起点和正负方向；全局baseline静态 |
 | 向量箭头 | quiver原始位置与U/V分量 | 实际shaft及双wing命中，zero保留原索引洞，clip保留原tail；通用value明确为V，不计算magnitude |
+| 风羽图 | barbs与barbs_with_options的原输入位置/U/V | 实际羽枝Segment、旗面与三条描边、完整静风disk；pivot不改原始输入位置，value为原V。候选状态见M10 |
 | 图像与网格 | 标量图、RGB(A) 图像、热图、颜色映射和归一化 | 包含掩码、图像方向及部分插值路径 |
 | 科学绘图 | 误差线、填充区域、等值线、三角网格、向量场、流线 | 已有专项实现，复杂组合仍需按场景确认 |
 | 坐标轴 | 数值范围、刻度与格式器、线性及多种非线性尺度 | 包含显式设置和自动计算路径 |
@@ -42,7 +43,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 | 图形组合 | 多面板、共享轴、嵌套网格、次坐标轴 | 支持标题、轴标签、网格、图例、表格与标注 |
 | 可变折线 | `Line2D` 数据、可见性、颜色、透明度、线宽、线型等 | 支持缓存更新、移除和保留渲染输入的相关生命周期 |
 | 输出 | 自包含 SVG 字符串 | 可保存为文件，用浏览器或 SVG 工具查看 |
-| 浏览器组件 | `Figure::to_drawing()` 与 `rabbita` JS 子包 | 真实 SVG DOM；折线/散点、柱形/直方图/饼环图、nearest 标量热图、flat矩形网格、二维计数及误差/面积/箱线/六角格/小提琴/离散曲线/Stem/Quiver的语义命中与自定义提示；应用控制图例与数据更新；仅 JS 浏览器 |
+| 浏览器组件 | `Figure::to_drawing()` 与 `rabbita` JS 子包 | 真实 SVG DOM；折线/散点、柱形/直方图/饼环图、nearest 标量热图、flat矩形网格、二维计数及误差/面积/箱线/六角格/小提琴/离散曲线/Stem/Quiver/Barbs的语义命中与自定义提示；应用控制图例与数据更新；仅 JS 浏览器 |
 
 常用入口可从根包使用，较细的功能分布在 `scene`、`ticker`、`transforms` 等包。
 当前模块导入名为 `Lampese/mathplotlib`，展示名为 MoonPlot；浏览器组件导入 `Lampese/mathplotlib/rabbita`。

@@ -65,6 +65,13 @@ Axes lifecycle/settings, and color-cycle state.
 These splits move complete `///|` blocks within the same compilation unit.
 They do not add public helper functions or introduce another layout algorithm.
 
+Barbs metadata has separate owners: `scene/barbs_hit.mbt` records immutable input
+positions, vectors and the call label; `internal/render/barb_hit.mbt` shares that
+table through constant-size component views; `backend/svg/barb_hit.mbt` captures
+actual line runs, triangular flag paint and filled calm circles. Geometry stays
+in the existing writers. Each component checks only its own points, so metadata
+storage and validation remain O(N+P) for N inputs and P expanded components.
+
 ## Generated data and reference tests
 
 `internal/color_names` owns the complete pinned named-color table. Its three

@@ -48,11 +48,11 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.10.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
+MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.11.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.10.0
+moon add Lampese/mathplotlib@0.11.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add
@@ -248,12 +248,26 @@ reference band. See the [Quiver guide](docs/QUIVER_INTERACTION.md).
 
 ![Vector components and reference band in Rabbita](assets/vectors.png)
 
+### Wind barbs, flags and calm symbols
+
+```sh
+moon build rabbita/cmd/barbs --target js
+```
+
+Open [the wind example](http://127.0.0.1:8765/rabbita/barbs.html) to inspect
+the shaft, feathers, filled flags and calm disks. Tooltips retain original input
+positions, indices and signed U/V, including nonzero vectors rounded to calm.
+The second card switches the existing anchor, feather direction and calm
+visibility options. See the [Barbs guide](docs/BARBS_INTERACTION.md).
+
+![Wind barbs and calm symbols in Rabbita](assets/barbs.png)
+
 ### Current scope
 
 - SVG is the static output backend; Rabbita DOM is an optional browser component.
   Standalone PNG/PDF export and a desktop GUI backend are not available.
 - Interactive picking includes line/scatter anchors, bar and histogram regions,
-  pie/donut sectors, matrix cells, statistical areas, distribution parts, discrete curves, stems and quiver arrows.
+  pie/donut sectors, matrix cells, statistical areas, distribution parts, discrete curves, stems, quiver arrows and wind barbs.
   Touch gestures, zoom/pan, and keyboard navigation remain future work.
 - 3D plotting, animation, and full mathtext/TeX and font layout are not available.
 - The library is not a drop-in Matplotlib implementation. Python's dynamic
