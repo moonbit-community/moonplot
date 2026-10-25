@@ -74,7 +74,9 @@ fn polar_consumer_attrs(
   ignore(attrs.data_set(prefix + "-artists", artists.length().to_string()))
   for i, artist in artists {
     match artist {
-      @plot.Artist::Line(points, _) | @plot.Artist::Scatter(points, _) => {
+      @plot.Artist::Line(points, _)
+      | @plot.Artist::Scatter(points, _)
+      | @plot.Artist::Bar(points, _) => {
         ignore(
           attrs.data_set("\{prefix}-\{i}-count", points.length().to_string()),
         )
@@ -116,6 +118,12 @@ fn polar_consumer_state_attrs(
         ignore(attrs.data_set(key + "-radius", point.data_y.to_string()))
         ignore(attrs.data_set(key + "-value", info.value.to_string()))
         ignore(attrs.data_set(key + "-series", info.series))
+        ignore(
+          attrs.data_set(
+            key + "-polar-bar",
+            (info.kind == @drawing.HitKind::PolarBar).to_string(),
+          ),
+        )
         ignore(attrs.data_set(key + "-category", info.category.unwrap_or("")))
         ignore(
           attrs.data_set(

@@ -32,6 +32,10 @@ struct Model {
   polar_selected : @drawing.HitPoint?
   radar_hover : @drawing.HitPoint?
   radar_selected : @drawing.HitPoint?
+  polar_bar_hover : @drawing.HitPoint?
+  polar_bar_selected : @drawing.HitPoint?
+  rose_hover : @drawing.HitPoint?
+  rose_selected : @drawing.HitPoint?
 } derive(Eq)
 
 ///|
@@ -63,6 +67,8 @@ enum Msg {
   StreamplotStyle(@plot_dom.Interaction)
   Polar(@plot_dom.Interaction)
   Radar(@plot_dom.Interaction)
+  PolarBar(@plot_dom.Interaction)
+  Rose(@plot_dom.Interaction)
 }
 
 ///|
@@ -111,6 +117,10 @@ fn update(model : Model, message : Msg) -> Model {
         polar_selected: None,
         radar_hover: None,
         radar_selected: None,
+        polar_bar_hover: None,
+        polar_bar_selected: None,
+        rose_hover: None,
+        rose_selected: None,
       }
     Bar(Hover(point)) => { ..model, bar_hover: point, }
     Bar(_) => model
@@ -165,6 +175,12 @@ fn update(model : Model, message : Msg) -> Model {
     Radar(Hover(point)) => { ..model, radar_hover: point, }
     Radar(Click(point)) => { ..model, radar_selected: point, }
     Radar(_) => model
+    PolarBar(Hover(point)) => { ..model, polar_bar_hover: point, }
+    PolarBar(Click(point)) => { ..model, polar_bar_selected: point, }
+    PolarBar(_) => model
+    Rose(Hover(point)) => { ..model, rose_hover: point, }
+    Rose(Click(point)) => { ..model, rose_selected: point, }
+    Rose(_) => model
   }
 }
 
@@ -366,6 +382,8 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
     streamplot_consumer_view(model, emit),
     @html.h2("Polar coordinates and radar outlines"),
     polar_consumer_view(model, emit),
+    @html.h2("Polar bars and rose sectors"),
+    polar_bars_consumer_view(model, emit),
     @html.h2("Nonuniform mesh"),
     @plot_dom.view(
       make_mesh_drawing(model),
@@ -564,6 +582,10 @@ fn main {
         polar_selected: None,
         radar_hover: None,
         radar_selected: None,
+        polar_bar_hover: None,
+        polar_bar_selected: None,
+        rose_hover: None,
+        rose_selected: None,
       },
       update~,
     )

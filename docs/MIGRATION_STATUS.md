@@ -20,19 +20,25 @@ Mooncakes Lampese/统一module与GitHub交付。root facade/owning tests/mbt<200
   宽度独立于capture guard可静态画变异typedBar，手工Bar无角宽仍checked unsupported。
   两mode按面积，圆逐候选gate；只窄补newBar上的laterPolar物理overlay，不改旧Pie/普通tie。
 - [ ] Producer在独立m3-donut工作区从formalcedbf16建codex/m17-polar-bars，owns Scene/IR/SVG、
-  own tests/接口和POLAR.md；先coherent snapshot再affected四目标/RabbitaJS/旧SVG控制。
-- [ ] Browser在独立ignored工作区准备既有polar页面接入；owns示例UI/runner/PNG，等coherentcore再实际DOM。
-- [ ] Independent在m4-filled-area ignored准备必要数学/源guard核对，等coherentcore再Native/JS；不写生产。
+  own tests/接口和POLAR.md；早coherent dfdd611已合Root0acec48，4生产+2tests+2预期接口。
+  Native14371/IR17845终0，新targets6/1/1、两mode/paintorder和3旧polarSVG同formal；最终专项/guide继续。
+- [ ] Browser在独立ignored工作区准备既有polar页面接入；owns示例UI/runner/PNG，已授权exactdfdd实际实施/DOM与唯一viewguard。
+- [ ] Independent在m4-filled-area ignored准备必要数学/源guard核对，已授权exactdfdd实际Native/JS；不写生产。
 - [x] Root底层Drawing与默认tooltip首步：PolarBar enum、逐候选circle gate、真实扇区面积、
   仅newarea允许laterPolar物理overlay。fractional(cx200,cy129,R43.8)西边界实际before71387
   0/1后窄修通过；旧Pie严格Sector不变。四目标Drawing各64、RabbitaJS54及actualinfo/fmt/
   structure/diff33374均终0，唯一接口差异为HitKind::PolarBar。原自写pattern缺括号编译失败已单列保留。
-- [ ] Root owns外部consumer、docs/version/中央、实际分发。已有M16全套不重跑，M17源变化才针对验证。
+- [x] Root外部consumer7源已实际Native/JS/Chrome52330终0：63checks、9新bar整数events、8旧polar
+  events、0errors；全扇形interior/nativeSVG fill、updated原值、clipped rawr、两mode巨大radius空角/
+  圆外拒绝、点击circle clip、375中文通过。actualinfo/fmt5631终0，11库源SHA不变/两private接口逐字同。
+  自写consumer Result优先级与audit误含已排除WBtests失败独立保留并修，无生产变更。
+- [ ] Root ownsdocs/version/中央、实际分发。已有M16全套不重跑，M17源变化才针对验证。
 
-精确下一动作：Root已接手Drawing/tooltip并通过首步验证，给producer可编译patch以继续Scene/IR/SVG。
-等待producer首个coherent snapshot后并行browser/reviewer。M16已交付docs已提交并push373715b（19212终0）。Root已在ignored consumer-draft准备静态/DOM与focused JS用例，
-只有JS语法检查通过，尚未编译新API或当作接入通过。根目录不新增杂文件。active scope与draft/15源prep保ignored
-`.moonagent/checkpoints/M17-polar-bars/ACTIVE_SCOPE.md`；这里只记实际状态，未验收不勾完成。
+精确下一动作：consumer已通过，提交此coherent接入；等producer最终bounded/guide及browser真实UI/
+独立NativeJS复审。有反例保before最窄修，否则保production。之后一次中央回归，再clean实际发布。
+Root7 consumer源、draft/active scope、actual源码workspaces与全部日志留ignored
+`.moonagent/checkpoints/M17-polar-bars/`。M16已交付docs373715b和RootDrawingeb00d7b已push；
+Rootearlycore0acec48是producerdfdd611的8源cherry-pick，Root无验证live。
 
 ## 最近已实际交付：M16 / 0.17.0
 
@@ -50,8 +56,8 @@ Native67/其余66、Rabbita51；四目标全套9480：W/WG22658、Native22662、
 
 ## 现场与约束
 
-Root唯一存活session43005/PID70622是8765预览；M16发布/核验均终态，无需重跑。
-canonical M16 polar JS/截图已更新；本轮未刷新前台tab，不声称用户当前已看到新图。
+Root无验证live；session43005/PID70622是8765预览。M16发布/核验均终态，无需重跑。
+canonical M16 polar JS/HTML已经HTTP逐字核同25f074；未刷新前台tab，不声称用户已看到新玫瑰图。
 三个agent在自己的目录工作，禁止Root tracked互写，Root合并通过SHA和coherent提交。
 master，SSH origin git@github.com:moonbit-community/moonplot.git；新branch codex/。
 一个module，核心不importUI；Rabbita JS-only，pins0.16.7/XML0.5.0保持；README.md symlink保留。

@@ -23,7 +23,9 @@
 - [ ] Scene/IR/SVG核心、原始数据归属；own四目标及少量旧SVG控制。
 - [ ] 独立Native/JS几何与来源核对。
 - [ ] 真实RabbitaDOM、hover/click、更新/图例/重挂载和375px。
-- [ ] 外部consumer、生成接口/格式/结构、中央相关回归。
+- [x] 外部consumer Native/JS/Chrome52330通过：63项、9新bar整数事件、0errors；
+  两mode全扇形/原始值/空角与圆外、点击clip、375中文。actualinfo/fmt5631及两private接口通过。
+- [ ] 最终生成接口/格式/结构与中央相关回归。
 - [ ] clean包、实际Mooncakes与GitHub交付。
 
 [执行检查点](MIGRATION_STATUS.md) · [极坐标指南](POLAR.md) · [能力](CAPABILITIES.md)

@@ -260,5 +260,6 @@ fn main raise {
   verify_tripcolor_consumer()
   verify_streamplot_consumer()
   verify_polar_consumer()
+  verify_polar_bars_consumer()
   println(drawing.svg())
 }

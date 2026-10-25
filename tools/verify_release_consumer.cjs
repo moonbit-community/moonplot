@@ -6,6 +6,7 @@ const fs = require('node:fs/promises');
 const http = require('node:http');
 const path = require('node:path');
 const polar = require('./verify_polar_consumer.cjs');
+const polarBars = require('./verify_polar_bars_consumer.cjs');
 
 async function main() {
   assert(process.argv[2], 'Pass the unpacked release bundle directory.');
@@ -41,6 +42,7 @@ async function main() {
   const tripcolorEvents = [];
   const streamplotEvents = [];
   const polarEvents = [];
+  const polarBarEvents = [];
   const errors = [];
   try {
     await new Promise((resolve, reject) => {
@@ -67,6 +69,7 @@ async function main() {
       getComputedStyle(node).getPropertyValue('--moonplot-text').trim()), '#263443');
     checks.push('Independent public consumer renders real SVG DOM and bundled component CSS');
     const polarInitial = await polar.snapshot(page);
+    const polarBarsInitial = await polarBars.snapshot(page);
 
     async function point(index = 0) {
       return page.locator('#release-chart-svg').evaluate((svg, index) => {
@@ -900,6 +903,7 @@ async function main() {
     checks.push('Installed visible open arrowhead stays static away from the body instead of reviving generic generated-Y point data');
 
     await polar.desktop(page, checks, polarEvents, polarInitial);
+    await polarBars.desktop(page, checks, polarBarEvents, polarBarsInitial);
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);
@@ -922,18 +926,19 @@ async function main() {
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     checks.push('375px installed streamplot keeps physical continuous picking and readable typed Chinese field metadata');
     polarEvents.push(...await polar.mobile(page, checks));
+    await polarBars.mobile(page, checks, polarBarEvents);
     await page.screenshot({ path: path.join(output, 'consumer-mobile.png'), fullPage: true });
     checks.push('375px independent consumer retains responsive hit coordinates');
     await page.setViewportSize({ width: 1100, height: 850 });
     await page.screenshot({ path: path.join(output, 'consumer.png'), fullPage: true });
     assert.deepEqual(errors, []);
-    const report = { bundle: root, browser: browser.version(), checks, vectorEvents, barbEvents, contourEvents, filledEvents, tripcolorEvents, streamplotEvents, polarEvents, pageErrors: errors };
+    const report = { bundle: root, browser: browser.version(), checks, vectorEvents, barbEvents, contourEvents, filledEvents, tripcolorEvents, streamplotEvents, polarEvents, polarBarEvents, pageErrors: errors };
     await fs.writeFile(path.join(output, 'report.json'), JSON.stringify(report, null, 2) + '\n');
     console.log(JSON.stringify(report, null, 2));
   } catch (error) {
     if (page) await page.screenshot({ path: path.join(output, 'failure.png'), fullPage: true }).catch(() => {});
     await fs.writeFile(path.join(output, 'failure.json'), JSON.stringify({ error: String(error),
-      checks, vectorEvents, barbEvents, contourEvents, filledEvents, tripcolorEvents, streamplotEvents, polarEvents, pageErrors: errors }, null, 2) + '\n');
+      checks, vectorEvents, barbEvents, contourEvents, filledEvents, tripcolorEvents, streamplotEvents, polarEvents, polarBarEvents, pageErrors: errors }, null, 2) + '\n');
     throw error;
   } finally {
     try {
