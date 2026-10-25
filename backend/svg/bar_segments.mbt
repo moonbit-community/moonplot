@@ -27,8 +27,10 @@ fn bar_segment_extent(
 }
 
 ///|
-// A segment can cross a logarithmic domain boundary. Clip only that edge to
-// the valid viewport boundary; inverted axes still use the numeric lower edge.
+// A segment can cross one or both scale-domain boundaries. A bounded domain
+// such as Logit may lie entirely between two invalid endpoints; retain its real
+// intersection with the valid viewport. Single-edge clipping keeps its existing
+// geometry, including inverted axes and ordinary Log bars.
 fn bar_segment_axis_edges(
   first : Double,
   last : Double,
@@ -39,7 +41,14 @@ fn bar_segment_axis_edges(
   let first_valid = axis_scale.is_valid(first)
   let last_valid = axis_scale.is_valid(last)
   if !first_valid && !last_valid {
-    return None
+    let lower = Double::max(first, Double::min(view_first, view_last))
+    let upper = Double::min(last, Double::max(view_first, view_last))
+    if lower >= upper ||
+      !axis_scale.is_valid(lower) ||
+      !axis_scale.is_valid(upper) {
+      return None
+    }
+    return Some((lower, upper))
   }
   let valid = if first_valid { first } else { last }
   Some(
