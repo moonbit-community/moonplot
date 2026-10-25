@@ -13,7 +13,7 @@
 | **G1：基础二维 SVG 可用版（M1）** | 折线、散点、柱状图；标题、轴标签、刻度、网格、图例；可运行多图示例 | 已验收：修复 grid 单轴与柱宽范围错误、补四角图例，实际出图与相关四目标回归通过 |
 | **G2：Rabbita 交互 DOM** | 在 Rabbit-TEA/Rabbita 应用中返回可组合的 DOM，响应悬停、点击和数据更新 | G2.1/M2 已验收；0.3.0 补齐六类图表语义命中与自定义提示，见[提示功能](TOOLTIPS.md)；其余交互缺口逐项推进 |
 | **G3：常用数据与科学绘图场景** | 日期趋势、分类对比、分布统计、热图及更复杂的组合图 | 已有大量静态实现；[M3](MILESTONE_M3.md) 接续热图交互、分组/堆叠柱与真正环形图 |
-| **G4：导出、接入与持续交付** | 清晰的安装和错误信息、稳定的库入口、更多输出方式、小步发布 | SVG、单一 Lampese/mathplotlib module 与独立接入验证；0.12.0 已交付；PNG/PDF与性能按需推进 |
+| **G4：导出、接入与持续交付** | 清晰的安装和错误信息、稳定的库入口、更多输出方式、小步发布 | SVG、单一 Lampese/mathplotlib module 与独立接入验证；0.13.0 已交付；PNG/PDF与性能按需推进 |
 
 G4 的文档和质量工作随每个里程碑推进。M1 与 G2.1 已完成验收；后续继续按具体场景扩展 G2/G3。
 G3 不需要等全部图表参数一致才交付；其内部顺序由实际使用需求决定。
@@ -127,4 +127,9 @@ violin真实密度体与统计线。两者复用既有统计和绘制，不在�
 ## M12：填色等值区
 
 [M12](MILESTONE_M12.md)接续已有contourf/tricontourf的多环、孔洞和区间代表值提示。单Polygon与Compound分别保留真实nonzero/evenodd规则，原逻辑band槽不冒充layers或展平环索引；实际填色只在plot内交互，保留旧SVG margin行为。
-目标0.13.0，已从正式0.12源ae1ce6b实现实际区域捕获。真实双卡Chrome14项与外部consumer41项通过；独立Native/JS复审无blocker，四目标全套与13页面Chrome162项通过。能力已验收，0.13.0待clean包与实际分发；当前正式分发仍0.12.0。
+目标0.13.0，已从正式0.12源ae1ce6b实现实际区域捕获。真实双卡Chrome14项与外部consumer41项通过；独立Native/JS复审无blocker，四目标全套与13页面Chrome162项通过。0.13.0已实际发布：clean包/590全新registry源、四静态/Chrome41与GitHub四附件整下载均过，正式源87a在整个网络audit中保持不变。
+
+## M13：三角网格着色的原面与顶点信息
+
+[M13](MILESTONE_M13.md)接续已有tripcolor/direct/wrapper，显示原逐面标量或旧顶点均值，保留原面槽和实际有序顶点三元组。复用actual Polygon与nonzero FilledRegion，不伪矩阵行列，保mask洞与原normalization/均值/Unit/0Container/SVG。
+目标0.14.0，正式基线0.13源87a3280f31fb3ba043da415f89eab6ad5a8ef59e，已授权独立实现；当前正式仍0.13.0，M13尚未验收。

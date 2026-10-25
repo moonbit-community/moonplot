@@ -1,6 +1,6 @@
 # M12：填色等值区、孔洞与区间提示
 
-创建日期：2026-10-25。状态：**能力验收通过，0.13.0 发布候选**。目标0.13.0，当前正式版本0.12.0。
+创建日期：2026-10-25。状态：**已验收并实际发布0.13.0**。当前正式版本0.13.0。
 从正式源`ae1ce6b4c45d17fd2c1fbee388525f5c7f713307`继续，补已有`contourf`、`tricontourf`及三角网格wrapper；不重新计算标量场或复制全部Matplotlib参数。
 
 ## 能力合同
@@ -25,7 +25,7 @@
 - [x] 精确0.12源的同target旧SVG、独立Native/JS实际XML及必要四目标/adapter。
 - [x] 真实双卡DOM，默认/中文区间代表值、更新/图例/重挂载、CSS与375px；Chrome以实际Path/Polygon的`isPointInFill`及plot边界作独立oracle。
 - [x] 中央info/fmt/结构/一次全套、13页面Chrome162项与三静态SVG。
-- [ ] clean包、实际Mooncakes/registry与GitHub四附件完整下载。
+- [x] clean包、实际Mooncakes/registry与GitHub四附件完整下载。
 
 ## 实际验收记录
 
@@ -36,6 +36,8 @@
 - 外部consumer Native/JS、实际info/fmt及Chrome41项/10个填色整数事件/0pageerrors通过，两份实际mbti无变化。
 - Root prelude16307及postlude47933均terminal0；唯一full30284 terminal0/268.45s：W/WG22589、JS22642、Native22591。13页面Chrome162项/0errors、三静态SVG（preview/gallery逐字）、48文档538链接/结构/diff通过，无额外mbti；未重复全套。
 
-本页记录能力验收和候选版本；clean包与真实分发仍待闭环，不能将其写成已经发布。producer负责core/IR/Scene/backend/Drawing/tooltip、own tests与专项指南；Root负责组合、consumer、UI、版本与交付。
+正式源87a3280f31fb3ba043da415f89eab6ad5a8ef59e/push68683；clean20806、actualpublish46591/200、publicAPI64558 buildsuccess/haspackage/notyanked/checksum匹配、全新registry60742四静态/Chrome41与590安装源逐一匹配均通过。GHcreate21562及整下载72398核验四附件bytes/digest/size/tag通过；最终audit2026-10-25T14:19:05.947223Z，Root全程HEAD固定87a且gitclean、无tracked写/commit，然后解除freeze。
+
+[GitHub v0.13.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.13.0)。producer负责core/IR/Scene/backend/Drawing/tooltip、own tests与专项指南；Root负责组合、consumer、UI、版本与交付。
 
 [执行检查点](MIGRATION_STATUS.md) · [能力](CAPABILITIES.md) · [专项指南](CONTOURF_INTERACTION.md) · [安装与发布](PUBLISHING.md)
