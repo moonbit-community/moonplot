@@ -17,6 +17,8 @@ pub fn annotation(Double, Double, Double, Double, String, String, String, String
 
 pub fn barb_hit_data(Array[@core.Point], Array[@core.Point], String) -> BarbHitData?
 
+pub fn contour_hit_view(Array[@core.Point], Int, Double, String) -> ContourHitView
+
 pub fn discrete_datum(Int, @core.Point, Double, interval? : (Double, Double)?, fraction? : Double?, band? : @drawing.BandInfo?) -> DiscreteDatum
 
 pub fn discrete_line_hit_data(@drawing.HitKind, Array[@core.Point], Array[DiscreteDatum], Array[Int]) -> DiscreteLineHitData?
@@ -27,7 +29,7 @@ pub fn figure_with_subfigures(Int, Int, Int, Array[Panel], Array[@colorbar.Color
 
 pub fn hexbin_hit_data(Int, @core.Point, Double, @drawing.HexbinInfo) -> HexbinHitData
 
-pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?, mesh? : MeshHitData?, hexbin? : HexbinHitData?, discrete? : DiscreteLineHitData?, stem? : StemHitView?, vector? : VectorHitData?, barb? : BarbHitView?) -> HitMetadata
+pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?, mesh? : MeshHitData?, hexbin? : HexbinHitData?, discrete? : DiscreteLineHitData?, stem? : StemHitView?, vector? : VectorHitData?, barb? : BarbHitView?, contour? : ContourHitView?) -> HitMetadata
 
 pub fn legend_entry(String, String, LegendKind) -> LegendEntry
 
@@ -140,6 +142,17 @@ pub fn BarbHitView::invalidated(Self) -> Self
 pub fn BarbHitView::matches_points(Self, Array[@core.Point]) -> Bool
 pub fn BarbHitView::series(Self) -> String
 
+pub struct ContourHitView {
+  // private fields
+}
+pub fn ContourHitView::enabled(Self) -> Bool
+pub fn ContourHitView::fragment(Self, Array[@core.Point]) -> Self
+pub fn ContourHitView::invalidated(Self) -> Self
+pub fn ContourHitView::level(Self) -> Double
+pub fn ContourHitView::matches_points(Self, Array[@core.Point]) -> Bool
+pub fn ContourHitView::series(Self) -> String
+pub fn ContourHitView::slot(Self) -> Int
+
 pub struct DiscreteDatum {
   index : Int
   point : @core.Point
@@ -190,6 +203,7 @@ pub fn HitMetadata::band_horizontal(Self) -> Bool?
 pub fn HitMetadata::band_stacked(Self) -> Bool
 pub fn HitMetadata::band_value(Self, Int) -> Double?
 pub fn HitMetadata::barb(Self) -> BarbHitView?
+pub fn HitMetadata::contour(Self) -> ContourHitView?
 pub fn HitMetadata::discrete(Self) -> DiscreteLineHitData?
 pub fn HitMetadata::hexbin(Self) -> HexbinHitData?
 pub fn HitMetadata::interval(Self, Int) -> (Double, Double)?

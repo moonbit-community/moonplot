@@ -917,7 +917,7 @@ pub fn Axes::contour(
       }
     }
     for path in contour_stitch_segments(raw_segments) {
-      self.push_artist(Artist::Line(path, style))
+      self.push_contour_path(path, style, segments.length(), level, label)
       segments.push(path.copy())
       segment_levels.push(level)
     }
@@ -926,6 +926,7 @@ pub fn Axes::contour(
     label,
     contour_line_color(resolved_color, colors, 0),
     LegendKind::Line,
+    record_series=self.state.val.artists.length() > start,
   )
   self.add_container(ContainerKind::Contour, start, label)
   {
@@ -1142,19 +1143,28 @@ fn Axes::erase_inline_contour_segment(
 ) -> Unit {
   let updated : Array[Artist] = []
   let barb_intents = Map([])
+  let contour_intents = Map([])
   for index, artist in self.state.val.artists {
     let barb_intent = self.state.val.barb_intents.get(index)
+    let contour_intent = self.state.val.contour_intents.get(index)
     match artist {
       Artist::Line(points, style) if contour_same_segment(points, target) =>
         for part in contour_inline_parts(points) {
           if barb_intent is Some(intent) {
             barb_intents[updated.length()] = intent
           }
-          updated.push(Artist::Line(part, style))
+          let fragment = Artist::Line(part, style)
+          if contour_intent is Some(intent) {
+            contour_intents[updated.length()] = intent.split(artist, fragment)
+          }
+          updated.push(fragment)
         }
       _ => {
         if barb_intent is Some(intent) {
           barb_intents[updated.length()] = intent
+        }
+        if contour_intent is Some(intent) {
+          contour_intents[updated.length()] = intent
         }
         updated.push(artist)
       }
@@ -1167,6 +1177,10 @@ fn Axes::erase_inline_contour_segment(
   self.state.val.barb_intents.clear()
   for index, intent in barb_intents {
     self.state.val.barb_intents[index] = intent
+  }
+  self.state.val.contour_intents.clear()
+  for index, intent in contour_intents {
+    self.state.val.contour_intents[index] = intent
   }
   self.prune_line_originals()
 }

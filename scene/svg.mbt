@@ -362,7 +362,10 @@ fn Figure::to_render_figure(
     let lines = state.line_originals.copy()
     let discrete_sources = []
     if capture_points {
-      for record in state.artist_hits {
+      for record_index, record in state.artist_hits {
+        if record.contour is Some(source) {
+          source.cursor.val = record_index + 1
+        }
         if record.discrete is Some(source) {
           discrete_sources.push(source)
         }

@@ -159,6 +159,7 @@ pub(all) enum HitKind {
   Stem
   Quiver
   Barbs
+  Contour
 } derive(Eq, @debug.Debug)
 pub fn HitKind::equal(Self, Self) -> Bool
 pub fn HitKind::not_equal(Self, Self) -> Bool

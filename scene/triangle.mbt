@@ -516,7 +516,7 @@ pub fn Axes::tricontour(
       }
     }
     for path in contour_stitch_segments(raw_segments) {
-      self.push_artist(Artist::Line(path, style))
+      self.push_contour_path(path, style, segments.length(), level, label)
       segments.push(path.copy())
       segment_levels.push(level)
     }
@@ -525,6 +525,7 @@ pub fn Axes::tricontour(
     label,
     contour_line_color(resolved_color, colors, 0),
     LegendKind::Line,
+    record_series=self.state.val.artists.length() > start,
   )
   self.add_container(ContainerKind::Contour, start, label)
   {

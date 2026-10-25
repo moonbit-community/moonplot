@@ -11,6 +11,7 @@ priv struct ArtistHitData {
   mut stem : @render.StemHitView?
   mut vector : @render.VectorHitData?
   mut barb : @render.BarbHitView?
+  mut contour : ContourSource?
 }
 
 ///|
@@ -51,6 +52,7 @@ fn ArtistHitData::render_metadata(self : ArtistHitData) -> @render.HitMetadata {
     stem=self.stem,
     vector=self.vector,
     barb=self.barb,
+    contour=self.contour.map(source => source.view),
   )
 }
 
@@ -86,6 +88,15 @@ fn AxesData::hit_metadata(
   index : Int32,
   cursor : @ref.Ref[Int32],
 ) -> @render.HitMetadata {
+  if self.contour_intents.get(index) is Some(intent) {
+    cursor.val = intent.source.cursor.val
+    let view = if same_hit_artist(intent.artist, artist) {
+      intent.view
+    } else {
+      intent.view.invalidated()
+    }
+    return @render.hit_metadata(view.series(), contour=Some(view))
+  }
   // A known component that changed identity stays static. Returning empty
   // metadata would incorrectly reactivate ordinary Line/Scatter endpoints.
   if self.barb_intents.get(index) is Some(intent) &&

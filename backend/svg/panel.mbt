@@ -147,15 +147,18 @@ fn render_panel(
   }
   for artist_index, artist in panel.artists() {
     let metadata = panel.hit_metadata(artist_index)
-    let capture = match metadata.barb() {
-      Some(view) if !view.enabled() => None
-      _ => capture
+    let capture = if (metadata.barb() is Some(view) && !view.enabled()) ||
+      (metadata.contour() is Some(view) && !view.enabled()) {
+      None
+    } else {
+      capture
     }
     match artist {
       @render.Artist::Line(points, style) =>
         match panel.prepare_line(points) {
           Some(context) => {
-            let prepared_discrete = if metadata.barb() is Some(_) {
+            let prepared_discrete = if metadata.barb() is Some(_) ||
+              metadata.contour() is Some(_) {
               None
             } else {
               context.discrete()
@@ -191,6 +194,7 @@ fn render_panel(
               discrete is None &&
               metadata.stem() is None &&
               metadata.barb() is None &&
+              metadata.contour() is None &&
               (
                 metadata.discrete() is None ||
                 discrete_line_visible(context.first_style())
@@ -215,6 +219,11 @@ fn render_panel(
             }
           }
           None => {
+            let contour = contour_line_for_paint(
+              metadata.contour(),
+              points,
+              style,
+            )
             let barb = barb_stroke_for_paint(metadata.barb(), points, style)
             let stem = stem_rod_for_paint(metadata.stem(), points, style)
             let discrete = discrete_line_for_paint(
@@ -231,7 +240,11 @@ fn render_panel(
               plot_height,
               points,
               style,
-              on_segment=if barb is Some(_) {
+              on_segment=if contour is Some(_) {
+                contour_line_capture(
+                  capture, contour, panel_index, artist_index, scale, position,
+                )
+              } else if barb is Some(_) {
                 barb_stroke_capture(
                   capture, barb, panel_index, artist_index, scale, position,
                 )
@@ -261,6 +274,7 @@ fn render_panel(
               discrete is None &&
               metadata.stem() is None &&
               metadata.barb() is None &&
+              metadata.contour() is None &&
               (metadata.discrete() is None || discrete_line_visible(style)) &&
               style.width() > 0.0 &&
               style.line_stroke().linestyle() != "None" {

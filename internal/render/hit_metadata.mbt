@@ -12,6 +12,7 @@ pub struct HitMetadata {
   priv stem : StemHitView?
   priv vector : VectorHitData?
   priv barb : BarbHitView?
+  priv contour : ContourHitView?
 }
 
 ///|
@@ -26,6 +27,7 @@ pub fn hit_metadata(
   stem~ : StemHitView? = None,
   vector~ : VectorHitData? = None,
   barb~ : BarbHitView? = None,
+  contour~ : ContourHitView? = None,
 ) -> HitMetadata {
   {
     series,
@@ -38,6 +40,7 @@ pub fn hit_metadata(
     stem,
     vector,
     barb,
+    contour,
   }
 }
 
@@ -117,4 +120,9 @@ pub fn HitMetadata::mesh(self : HitMetadata) -> MeshHitData? {
 ///|
 pub fn HitMetadata::hexbin(self : HitMetadata) -> HexbinHitData? {
   self.hexbin
+}
+
+///|
+pub fn HitMetadata::contour(self : HitMetadata) -> ContourHitView? {
+  self.contour
 }

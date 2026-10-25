@@ -20,6 +20,7 @@ pub(all) enum HitKind {
   Stem
   Quiver
   Barbs
+  Contour
 } derive(Eq, Debug)
 
 ///|

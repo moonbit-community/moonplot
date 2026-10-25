@@ -464,6 +464,7 @@ pub fn Line2D::remove(self : Line2D) -> Unit raise @core.DataError {
   }
   let removed = artists.remove(index)
   parent.state.val.remove_barb_slot(index)
+  parent.state.val.remove_contour_slot(index)
   parent.state.val.artist_hits.retain(record => {
     !same_hit_artist(record.artist, removed)
   })

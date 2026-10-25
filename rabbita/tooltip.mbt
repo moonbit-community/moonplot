@@ -38,6 +38,7 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     Stem => "stem"
     Quiver => "quiver"
     Barbs => "barbs"
+    Contour => "contour"
   }
 }
 
@@ -116,6 +117,7 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
         rows.push(("Baseline", band.lower.to_string()))
       }
     }
+    Contour => rows.push(("Level", info.value.to_string()))
     Quiver | Barbs => {
       rows.push(("X", info.point.data_x.to_string()))
       rows.push(("Y", info.point.data_y.to_string()))
