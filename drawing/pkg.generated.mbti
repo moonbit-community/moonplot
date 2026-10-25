@@ -6,13 +6,15 @@ import {
 }
 
 // Values
+pub fn band_info(Double, Double, horizontal? : Bool, stacked? : Bool) -> BandInfo
+
 pub fn cell_info(Int, Int, (Double, Double), (Double, Double)) -> CellInfo
 
 pub fn drawing(Int, Int, String, Array[HitPoint], targets? : Array[HitTarget], exclusions? : Array[(Int, (Double, Double, Double, Double))]) -> Drawing
 
 pub fn error_info((Double, Double), (Double, Double)) -> ErrorInfo
 
-pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?) -> HitInfo
+pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?, band? : BandInfo?) -> HitInfo
 
 pub fn hit_point(Int, Int, Int, Double, Double, Double, Double) -> HitPoint
 
@@ -21,6 +23,16 @@ pub fn hit_target(HitInfo, HitShape, (Double, Double, Double, Double)) -> HitTar
 // Errors
 
 // Types and methods
+pub struct BandInfo {
+  lower : Double
+  upper : Double
+  horizontal : Bool
+  stacked : Bool
+} derive(Eq, @debug.Debug)
+pub fn BandInfo::equal(Self, Self) -> Bool
+pub fn BandInfo::not_equal(Self, Self) -> Bool
+pub fn BandInfo::to_repr(Self) -> @debug.Repr
+
 pub struct CellInfo {
   row : Int
   column : Int
@@ -62,6 +74,7 @@ pub struct HitInfo {
   fraction : Double?
   cell : CellInfo?
   error : ErrorInfo?
+  band : BandInfo?
 } derive(Eq, @debug.Debug)
 pub fn HitInfo::equal(Self, Self) -> Bool
 pub fn HitInfo::not_equal(Self, Self) -> Bool
@@ -76,6 +89,7 @@ pub(all) enum HitKind {
   Pie
   Heatmap
   ErrorBar
+  Area
 } derive(Eq, @debug.Debug)
 pub fn HitKind::equal(Self, Self) -> Bool
 pub fn HitKind::not_equal(Self, Self) -> Bool
@@ -108,6 +122,7 @@ pub(all) enum HitShape {
   Rectangle(Double, Double, Double, Double)
   Sector(Double, Double, Double, Double, Double)
   AnnularSector(Double, Double, Double, Double, Double, Double)
+  Quadrilateral(Double, Double, Double, Double, Double, Double, Double, Double)
 } derive(Eq, @debug.Debug)
 pub fn HitShape::equal(Self, Self) -> Bool
 pub fn HitShape::not_equal(Self, Self) -> Bool

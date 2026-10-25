@@ -122,7 +122,13 @@ fn Figure::default_axes_data(self : Figure) -> @ref.Ref[AxesData] {
 ///|
 fn Axes::push_artist(self : Axes, artist : Artist) -> Unit {
   self.state.val.artists.push(artist)
-  self.state.val.artist_hits.push({ artist, series: "", histogram_edges: None, })
+  self.state.val.artist_hits.push({
+    artist,
+    series: "",
+    histogram_edges: None,
+    band_horizontal: None,
+    band_values: None,
+  })
   self.update_artist_data_limits(artist)
   match artist {
     Artist::Text(_, _, _, _) | Artist::Annotation(_) | Artist::Table(_) => ()

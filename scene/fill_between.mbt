@@ -52,6 +52,7 @@ fn Axes::add_fill_between(
       @core.style(resolved_color, width=0.0, fill=resolved_color),
     ),
   )
+  self.record_band(horizontal)
   self.add_auto_legend(label, resolved_color, LegendKind::Patch)
 }
 

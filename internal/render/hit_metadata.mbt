@@ -1,17 +1,26 @@
 ///|
-/// Source labels and optional histogram edges for one stable artist identity.
+/// Source labels, histogram edges and area semantics for one stable identity.
 /// Coordinates and current category units are resolved by the actual renderer.
 pub struct HitMetadata {
   priv series : String
   priv edges : Array[Double]?
+  priv band_horizontal : Bool?
+  priv band_values : Array[Double]?
 }
 
 ///|
 pub fn hit_metadata(
   series : String,
   edges~ : Array[Double]? = None,
+  band_horizontal~ : Bool? = None,
+  band_values~ : Array[Double]? = None,
 ) -> HitMetadata {
-  { series, edges: edges.map(values => values.copy()), }
+  {
+    series,
+    edges: edges.map(values => values.copy()),
+    band_horizontal,
+    band_values: band_values.map(values => values.copy()),
+  }
 }
 
 ///|
@@ -41,5 +50,23 @@ pub fn Panel::hit_metadata(self : Panel, index : Int32) -> HitMetadata {
     self.hit_metadata[index]
   } else {
     hit_metadata("")
+  }
+}
+
+///|
+pub fn HitMetadata::band_horizontal(self : HitMetadata) -> Bool? {
+  self.band_horizontal
+}
+
+///|
+pub fn HitMetadata::band_stacked(self : HitMetadata) -> Bool {
+  self.band_values is Some(_)
+}
+
+///|
+pub fn HitMetadata::band_value(self : HitMetadata, index : Int32) -> Double? {
+  match self.band_values {
+    Some(values) => values.get(index)
+    None => None
   }
 }

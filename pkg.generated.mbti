@@ -87,6 +87,8 @@ pub using @scene {type Axes}
 
 pub using @axis {type Axis}
 
+pub using @drawing {type BandInfo}
+
 pub using @core {type BarSegment}
 
 pub using @core {type Bounds}

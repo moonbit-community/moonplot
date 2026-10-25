@@ -27,6 +27,7 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     Pie => "pie"
     Heatmap => "heatmap"
     ErrorBar => "errorbar"
+    Area => "area"
   }
 }
 
@@ -58,6 +59,23 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
         rows.push(("Share", "\{percent}%"))
       }
     }
+    Area =>
+      if info.band is Some(band) {
+        rows.push(
+          if band.horizontal {
+            ("y", info.point.data_y.to_string())
+          } else {
+            ("x", info.point.data_x.to_string())
+          },
+        )
+        rows.push(("Lower", band.lower.to_string()))
+        rows.push(("Upper", band.upper.to_string()))
+        if band.stacked {
+          rows.push(("Value", info.value.to_string()))
+        }
+      } else {
+        rows.push(("Value", info.value.to_string()))
+      }
     Bar | BarH => rows.push(("Value", info.value.to_string()))
     ErrorBar => {
       rows.push(("x", info.point.data_x.to_string()))

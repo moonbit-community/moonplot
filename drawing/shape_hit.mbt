@@ -39,6 +39,10 @@ fn valid_info(info : HitInfo) -> Bool {
       error.x_range.0 <= error.x_range.1 &&
       error.y_range.0 <= error.y_range.1
     None => true
+  }) &&
+  (match info.band {
+    Some(band) => finite(band.lower) && finite(band.upper)
+    None => true
   })
 }
 
@@ -91,6 +95,8 @@ fn valid_shape(shape : HitShape) -> Bool {
     Point => true
     Segment(x0, y0, x1, y1) =>
       finite(x0) && finite(y0) && finite(x1) && finite(y1)
+    Quadrilateral(ax, ay, bx, by, cx, cy, dx, dy) =>
+      valid_quad((ax, ay), (bx, by), (cx, cy), (dx, dy))
     Rectangle(left, top, width, height) =>
       valid_rect((left, top, width, height))
     Sector(cx, cy, radius, start, sweep) =>
@@ -128,6 +134,8 @@ fn degrees_normalized(angle : Double) -> Double {
 fn shape_contains(shape : HitShape, x : Double, y : Double) -> Bool {
   match shape {
     Point | Segment(_, _, _, _) => false
+    Quadrilateral(ax, ay, bx, by, cx, cy, dx, dy) =>
+      quad_contains((ax, ay), (bx, by), (cx, cy), (dx, dy), x, y)
     Rectangle(left, top, width, height) =>
       rect_contains((left, top, width, height), x, y)
     Sector(cx, cy, radius, start, sweep) => {

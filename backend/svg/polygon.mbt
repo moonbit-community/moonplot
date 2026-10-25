@@ -39,6 +39,8 @@ fn append_fill_segment(
   upper : Array[@core.Point],
   lower : Array[@core.Point],
   style : @core.Style,
+  source_start~ : Int32 = 0,
+  on_segment~ : ((Array[@core.Point], Array[@core.Point], Int32) -> Unit)? = None,
 ) -> Unit {
   if upper.length() < 2 || lower.length() < 2 {
     return
@@ -54,6 +56,9 @@ fn append_fill_segment(
     ("fill", fill),
     ("stroke", "none"),
   ])
+  if fill != "none" && fill != "transparent" && on_segment is Some(capture) {
+    capture(upper, lower, source_start)
+  }
 }
 
 ///|
@@ -67,9 +72,11 @@ fn append_fill_between(
   upper : Array[@core.Point],
   lower : Array[@core.Point],
   style : @core.Style,
+  on_segment~ : ((Array[@core.Point], Array[@core.Point], Int32) -> Unit)? = None,
 ) -> Unit {
   let mut upper_segment : Array[@core.Point] = []
   let mut lower_segment : Array[@core.Point] = []
+  let mut source_start = 0
   let count = Int32::min(upper.length(), lower.length())
   for i in 0..<count {
     let up = upper[i]
@@ -79,16 +86,35 @@ fn append_fill_between(
       lower_segment.push(low)
     } else {
       append_fill_segment(
-        writer, scale, left, top, plot_width, plot_height, upper_segment, lower_segment,
+        writer,
+        scale,
+        left,
+        top,
+        plot_width,
+        plot_height,
+        upper_segment,
+        lower_segment,
         style,
+        source_start~,
+        on_segment~,
       )
       upper_segment = []
       lower_segment = []
+      source_start = i + 1
     }
   }
   append_fill_segment(
-    writer, scale, left, top, plot_width, plot_height, upper_segment, lower_segment,
+    writer,
+    scale,
+    left,
+    top,
+    plot_width,
+    plot_height,
+    upper_segment,
+    lower_segment,
     style,
+    source_start~,
+    on_segment~,
   )
 }
 

@@ -18,7 +18,7 @@ pub fn figure(Int, Int, Int, Array[Panel], Array[@colorbar.Colorbar], String?) -
 
 pub fn figure_with_subfigures(Int, Int, Int, Array[Panel], Array[@colorbar.Colorbar], Array[SubFigure], String?) -> Figure
 
-pub fn hit_metadata(String, edges? : Array[Double]?) -> HitMetadata
+pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?) -> HitMetadata
 
 pub fn legend_entry(String, String, LegendKind) -> LegendEntry
 
@@ -124,6 +124,9 @@ pub fn Figure::width(Self) -> Int
 pub struct HitMetadata {
   // private fields
 }
+pub fn HitMetadata::band_horizontal(Self) -> Bool?
+pub fn HitMetadata::band_stacked(Self) -> Bool
+pub fn HitMetadata::band_value(Self, Int) -> Double?
 pub fn HitMetadata::interval(Self, Int) -> (Double, Double)?
 pub fn HitMetadata::series(Self) -> String
 

@@ -292,7 +292,23 @@ fn render_panel(
         )
       @render.Artist::FillBetween(upper, lower, style) =>
         append_fill_between(
-          writer, scale, left, top, plot_width, plot_height, upper, lower, style,
+          writer,
+          scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          upper,
+          lower,
+          style,
+          on_segment=capture.map(hits => {
+            (segment_upper, segment_lower, source_start) => {
+              collect_drawing_band(
+                hits, panel_index, artist_index, segment_upper, segment_lower, source_start,
+                scale, position, metadata,
+              )
+            }
+          }),
         )
       @render.Artist::Polygon(points, style) =>
         append_polygon(

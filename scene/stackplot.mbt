@@ -152,6 +152,7 @@ fn Axes::add_stackplot_layer(
   upper : Array[Double],
   color : String,
   label : String,
+  values : Array[Double],
 ) -> Artist {
   let lower_points = Array(capacity=xs.length())
   let upper_points = Array(capacity=xs.length())
@@ -165,6 +166,7 @@ fn Axes::add_stackplot_layer(
     @core.style(color, width=0.0, fill=color),
   )
   self.push_artist(artist)
+  self.record_band(false, values=Some(values))
   self.add_auto_legend(label, color, LegendKind::Patch)
   artist
 }
@@ -232,6 +234,7 @@ pub fn Axes::stackplot(
       upper,
       color,
       stackplot_label(labels, row_index),
+      ys[row_index],
     )
     result.push(copy_artist(artist))
     lower = upper

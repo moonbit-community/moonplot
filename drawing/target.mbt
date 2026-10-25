@@ -9,6 +9,7 @@ pub(all) enum HitKind {
   Pie
   Heatmap
   ErrorBar
+  Area
 } derive(Eq, Debug)
 
 ///|
@@ -38,6 +39,8 @@ pub extend HitMode with @debug.Debug::{to_repr}
 /// sector edges are included, and sweeps of at least 360 degrees are full circles.
 /// Annular sectors use center X/Y, inner radius, outer radius, start and sweep.
 /// Inner/outer edges are included; a positive inner radius excludes the hole.
+/// Quadrilaterals list four consecutive vertices, with included edges and an
+/// even-odd interior. They retain only immutable numeric coordinates.
 pub(all) enum HitShape {
   Point
   /// A finite centerline segment; proximity uses the caller's CSS pixel radius.
@@ -45,6 +48,7 @@ pub(all) enum HitShape {
   Rectangle(Double, Double, Double, Double)
   Sector(Double, Double, Double, Double, Double)
   AnnularSector(Double, Double, Double, Double, Double, Double)
+  Quadrilateral(Double, Double, Double, Double, Double, Double, Double, Double)
 } derive(Eq, Debug)
 
 ///|
@@ -65,6 +69,7 @@ pub struct HitInfo {
   fraction : Double?
   cell : CellInfo?
   error : ErrorInfo?
+  band : BandInfo?
 } derive(Eq, Debug)
 
 ///|
@@ -84,8 +89,20 @@ pub fn hit_info(
   fraction~ : Double? = None,
   cell~ : CellInfo? = None,
   error~ : ErrorInfo? = None,
+  band~ : BandInfo? = None,
 ) -> HitInfo {
-  { point, kind, series, category, value, interval, fraction, cell, error, }
+  {
+    point,
+    kind,
+    series,
+    category,
+    value,
+    interval,
+    fraction,
+    cell,
+    error,
+    band,
+  }
 }
 
 ///|
