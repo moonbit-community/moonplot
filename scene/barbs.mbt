@@ -220,8 +220,13 @@ fn add_barb_advanced_artists(
   flip : Bool,
   fill_empty : Bool,
   pivot : String,
-) -> Unit {
+) -> Unit raise @core.DataError {
   let magnitude = (u * u + v * v).sqrt()
+  if !barb_derived_finite(magnitude) {
+    raise @core.DataError::InvalidQuiver(
+      message="barb derived magnitude must be finite",
+    )
+  }
   let (start, end) = barb_anchor(x, y, u, v, pivot)
   let style = @core.style(color, width=linewidth, fill=color)
   if magnitude == 0.0 {
@@ -245,6 +250,11 @@ fn add_barb_advanced_artists(
   } else {
     magnitude
   }
+  if !barb_derived_finite(effective_magnitude) {
+    raise @core.DataError::InvalidQuiver(
+      message="barb derived magnitude must be finite",
+    )
+  }
   if effective_magnitude < half_increment {
     if fill_empty {
       axes.push_artist(
@@ -256,13 +266,14 @@ fn add_barb_advanced_artists(
     }
     return
   }
+  let (flag_count, full_count, half_count) = checked_barb_counts(
+    effective_magnitude,
+    half_increment,
+    full_increment,
+    flag_increment,
+    axes.state.val.artists.length(),
+  )
   axes.push_artist(Artist::Line([start, end], style))
-  let flag_count = (effective_magnitude / flag_increment).floor().to_int()
-  let after_flags = effective_magnitude -
-    Double::from_int(flag_count) * flag_increment
-  let full_count = (after_flags / full_increment).floor().to_int()
-  let remainder = after_flags - Double::from_int(full_count) * full_increment
-  let half_count = if remainder + 1.0e-12 >= half_increment { 1 } else { 0 }
   let span = Double::min(barb_length, magnitude * 0.35)
   let mut cursor = 0.0
   for _ in 0..<flag_count {
