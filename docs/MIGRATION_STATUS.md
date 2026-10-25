@@ -18,13 +18,17 @@
 - [ ] 第一未完成步骤：m3_donut在own worktree从正式f5b55cd起codex/m7-discrete，实施完整Step+公共DiscreteLineHitData/provider snapshot guard/实际valid-run捕获。
   之后同一owner依次做Stairs/ECDF；每片专项四目标/adapter/旧SVG控制/info/fmt/结构后coherent commit交接，不在child跑全套。
   step保留原采样项；stairs保留原values/edges与baseline；ECDF保留既有返回值/概率索引，不反推合成转折点。
+- m3_donut已完成Step首版共享IR/guard/source_start callback，all-target check54589在其own worktree进行中；尚未交commit，不算验证完成。
+  14旧SVG已在生产改动前native固定。精确原sample Point优先，合成corner后edge/incoming；重复source坐标后原序Point胜出。
 - m4_area独立只读复审/原始path oracle准备中；等Step精确hash再实际外部消费，不改生产。
-  m3_browser已授权只写Root ignored M7-discrete/draft四卡草稿；与owner对齐字段/transition，未授权部署或宣称编译/Chrome通过。
+  m3_browser Root ignored M7-discrete/draft四卡/14组runner/HANDOFF已完成，仅moonfmt/Node语法通过；未授权部署或宣称编译/Chrome通过。
 - Root拥有合入/公开冲突、consumer、中央文档与实际发布；不新开agent。各agent不push/发布，不改Root版本或当前检查点。
 - 精确下一动作：收首Step可编译commit与独立复审 → cherry-pick并扩公开consumer/组合回归；同owner接Stairs/ECDF。
   UI先ignored草稿，功能合入后明确授权部署；Root再做最终全套/Chrome/实际发布，不重开19图调查。
-- M6 post-delivery记录52a5e94，push82801进行中；无生产变更，正式tag仍f5b55cd。0.7全部发布核验已经结束。
-- 当前M7主工作树仅文档；版本仍0.7.0，无未提交生产源码。唯一有意服务仍8765/session43005/PID70622。
+- M6 post-delivery记录52a5e94已push82801 terminal0；M7范围cba03bb亦push39709 terminal0。正式tag仍f5b55cd，0.7全部发布核验已结束。
+- Root三组组合回归也在ignored consumer-draft/discrete_overlay_wbtest.mbt准备（仅moonfmt，未编译）：Step/Area、Step/Hex、ECDF/Stairs，均验证两paint顺序与两HitMode。
+- Root仓库外consumer三图片段已在ignored consumer-draft准备：static_step/static_distributions、app_step/app_distributions、browser_step/browser_distributions；moonfmt与Node语法通过，未部署/编译，不算实现验收。
+- 当前M7主工作树干净；版本仍0.7.0，无未提交生产源码。唯一有意服务仍8765/session43005/PID70622。
 
 ## 最新交付：M6 六边形分箱与小提琴分布（2026-10-25）
 
