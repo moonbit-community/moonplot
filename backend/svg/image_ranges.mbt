@@ -52,6 +52,13 @@ pub fn artist_sticky_edges(
             for _ in points {
               result.push(0.0)
             }
+          @render.Artist::BarSegments(segments, sideways, _) if sideways ==
+            horizontal =>
+            for segment in segments {
+              if bar_segment_extent(segment, sideways) is Some(_) {
+                result.push(segment.baseline)
+              }
+            }
           _ => ()
         }
     }

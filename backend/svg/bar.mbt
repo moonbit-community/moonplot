@@ -2,6 +2,7 @@
 priv struct RenderedBar {
   source_index : Int32
   point : @core.Point
+  segment : @core.BarSegment?
   left : Double
   top : Double
   width : Double
@@ -130,6 +131,7 @@ fn bar_rectangles(
     result.push({
       source_index: source_indices[i],
       point: p,
+      segment: None,
       left: x,
       top: y,
       width,

@@ -83,6 +83,15 @@ fn include_artist(scale : Scale, artist : @render.Artist) -> Scale {
       }
       result
     }
+    @render.Artist::BarSegments(segments, horizontal, _) => {
+      let mut result = scale
+      for segment in segments {
+        if bar_segment_extent(segment, horizontal) is Some(extent) {
+          result = include_image_extent(result, extent)
+        }
+      }
+      result
+    }
     @render.Artist::FillBetween(upper, lower, _) => {
       let upper_scale = upper.fold(init=scale, (current, p) => {
         include_point(current, p)

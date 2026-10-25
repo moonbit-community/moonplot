@@ -1,6 +1,8 @@
 ///|
 /// Public core values are re-exported from the facade package.
 pub using @core {
+  type BarSegment,
+  bar_segment,
   type Bounds,
   type DataError,
   type Limits,

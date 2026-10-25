@@ -70,6 +70,7 @@ pub(all) enum Artist {
   PathCollection(PathCollection)
   Bar(Array[@core.Point], @core.Style)
   BarH(Array[@core.Point], @core.Style)
+  BarSegments(Array[@core.BarSegment], Bool, @core.Style)
   FillBetween(Array[@core.Point], Array[@core.Point], @core.Style)
   Polygon(Array[@core.Point], @core.Style)
   CompoundPolygon(Array[Array[@core.Point]], @core.Style)
@@ -160,6 +161,7 @@ pub fn Axes::get_ylabel(Self) -> String?
 pub fn Axes::get_ylim(Self) -> @core.Limits?
 pub fn Axes::get_ylim_checked(Self) -> @core.Limits raise @core.DataError
 pub fn Axes::grid(Self, visible? : Bool, which? : String, color? : String, linewidth? : Double, axis? : String) -> Unit raise @core.DataError
+pub fn Axes::grouped_bar(Self, Array[String], Array[Array[Double]], labels? : Array[String], colors? : Array[String], horizontal? : Bool, width? : Double, gap? : Double, baseline? : Double) -> Unit raise @core.DataError
 pub fn Axes::hexbin(Self, Array[Double], Array[Double], values? : Array[Double], gridsize? : Int, mincnt? : Int, cmap? : String, vmin? : Double, vmax? : Double, color? : String, label? : String, reduce? : String, edgecolor? : String, linewidth? : Double, bins? : String, extent? : Array[Double], marginals? : Bool, reduce_fn? : HexbinReducer?) -> Hexbin raise @core.DataError
 pub fn Axes::hist(Self, Array[Double], bins? : Int, color? : String, label? : String) -> Histogram raise @core.DataError
 pub fn Axes::hist2d(Self, Array[Double], Array[Double], bins_x? : Int, bins_y? : Int, cmap? : String) -> Unit raise @core.DataError
@@ -308,6 +310,7 @@ pub fn Axes::set_yticks(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn Axes::spine(Self, SpineSide) -> Spine
 pub fn Axes::spines(Self) -> Array[Spine]
 pub fn Axes::spy(Self, Array[Array[Double]], precision? : Double, color? : String, label? : String, markersize? : Double, origin? : String, aspect? : String, marker? : String) -> Unit raise @core.DataError
+pub fn Axes::stacked_bar(Self, Array[String], Array[Array[Double]], labels? : Array[String], colors? : Array[String], horizontal? : Bool, width? : Double, baseline? : Double) -> Unit raise @core.DataError
 pub fn Axes::stackplot(Self, Array[Double], Array[Array[Double]], labels? : Array[String], colors? : Array[String], baseline? : String) -> Array[Artist] raise @core.DataError
 pub fn Axes::stairs(Self, Array[Double], edges? : Array[Double], orientation? : String, baseline? : Double, fill? : Bool, color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Axes::stem(Self, Array[Double], locs? : Array[Double], bottom? : Double, orientation? : String, color? : String, label? : String) -> Unit raise @core.DataError
@@ -477,6 +480,7 @@ pub fn Figure::get_legend_handles_labels(Self) -> Array[LegendEntry]
 pub fn Figure::grid(Self, visible? : Bool, which? : String, color? : String, linewidth? : Double, axis? : String) -> Unit raise @core.DataError
 pub fn Figure::grid_cells(Self, Int, Int, hspace? : Double, vspace? : Double, width_ratios? : Array[Double], height_ratios? : Array[Double]) -> Array[@gridspec.Rect] raise @gridspec.LayoutError
 pub fn Figure::grid_spec(Self, Int, Int, hspace? : Double, vspace? : Double, width_ratios? : Array[Double], height_ratios? : Array[Double]) -> @gridspec.GridSpec raise @gridspec.LayoutError
+pub fn Figure::grouped_bar(Self, Array[String], Array[Array[Double]], labels? : Array[String], colors? : Array[String], horizontal? : Bool, width? : Double, gap? : Double, baseline? : Double) -> Unit raise @core.DataError
 pub fn Figure::height(Self) -> Int
 pub fn Figure::hexbin(Self, Array[Double], Array[Double], values? : Array[Double], gridsize? : Int, mincnt? : Int, cmap? : String, vmin? : Double, vmax? : Double, color? : String, label? : String, reduce? : String, edgecolor? : String, linewidth? : Double, bins? : String, extent? : Array[Double], marginals? : Bool, reduce_fn? : HexbinReducer) -> Hexbin raise @core.DataError
 pub fn Figure::hist(Self, Array[Double], bins? : Int, color? : String, label? : String) -> Histogram raise @core.DataError
@@ -607,6 +611,7 @@ pub fn Figure::set_yticks(Self, Array[Double]) -> Unit raise @core.DataError
 pub fn Figure::spine(Self, SpineSide) -> Spine
 pub fn Figure::spines(Self) -> Array[Spine]
 pub fn Figure::spy(Self, Array[Array[Double]], precision? : Double, color? : String, label? : String, markersize? : Double, origin? : String, aspect? : String, marker? : String) -> Unit raise @core.DataError
+pub fn Figure::stacked_bar(Self, Array[String], Array[Array[Double]], labels? : Array[String], colors? : Array[String], horizontal? : Bool, width? : Double, baseline? : Double) -> Unit raise @core.DataError
 pub fn Figure::stackplot(Self, Array[Double], Array[Array[Double]], labels? : Array[String], colors? : Array[String], baseline? : String) -> Array[Artist] raise @core.DataError
 pub fn Figure::stairs(Self, Array[Double], edges? : Array[Double], orientation? : String, baseline? : Double, fill? : Bool, color? : String, label? : String) -> Unit raise @core.DataError
 pub fn Figure::stem(Self, Array[Double], locs? : Array[Double], bottom? : Double, orientation? : String, color? : String, label? : String) -> Unit raise @core.DataError

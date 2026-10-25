@@ -172,13 +172,20 @@ fn collect_drawing_bar(
   } else {
     @drawing.HitKind::Bar
   }
-  let value = if horizontal { point.x() } else { point.y() }
+  let value = match rectangle.segment {
+    Some(segment) => segment.value
+    None => if horizontal { point.x() } else { point.y() }
+  }
+  let category = match rectangle.segment {
+    Some(segment) => segment.category
+    None => drawing_point_category(panel, point, horizontal)
+  }
   let info = @drawing.hit_info(
     hit,
     kind,
     value~,
     series=metadata.series(),
-    category=drawing_point_category(panel, point, horizontal),
+    category~,
     interval~,
   )
   output.points.push(hit)

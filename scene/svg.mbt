@@ -42,6 +42,8 @@ fn to_render_artist(artist : Artist) -> @render.Artist {
       @render.Artist::PathCollection(collection.points(), collection.styles())
     Artist::Bar(points, style) => @render.Artist::Bar(points, style)
     Artist::BarH(points, style) => @render.Artist::BarH(points, style)
+    Artist::BarSegments(segments, horizontal, style) =>
+      @render.Artist::BarSegments(segments, horizontal, style)
     Artist::FillBetween(upper, lower, style) =>
       @render.Artist::FillBetween(upper, lower, style)
     Artist::Polygon(points, style) => @render.Artist::Polygon(points, style)

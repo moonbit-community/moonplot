@@ -270,6 +270,26 @@ fn render_panel(
             }
           }),
         )
+      @render.Artist::BarSegments(segments, horizontal, style) =>
+        append_bar_segments(
+          writer,
+          scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          segments,
+          horizontal,
+          style,
+          on_bar=capture.map(hits => {
+            rectangle => {
+              collect_drawing_bar(
+                hits, panel_index, artist_index, rectangle, panel, metadata, position,
+                horizontal,
+              )
+            }
+          }),
+        )
       @render.Artist::FillBetween(upper, lower, style) =>
         append_fill_between(
           writer, scale, left, top, plot_width, plot_height, upper, lower, style,

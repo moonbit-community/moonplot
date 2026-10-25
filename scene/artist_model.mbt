@@ -6,6 +6,8 @@ pub(all) enum Artist {
   PathCollection(PathCollection)
   Bar(Array[@core.Point], @core.Style)
   BarH(Array[@core.Point], @core.Style)
+  /// Explicit position, width and baseline for grouped or stacked bar segments.
+  BarSegments(Array[@core.BarSegment], Bool, @core.Style)
   FillBetween(Array[@core.Point], Array[@core.Point], @core.Style)
   Polygon(Array[@core.Point], @core.Style)
   CompoundPolygon(Array[Array[@core.Point]], @core.Style)
@@ -102,6 +104,8 @@ fn copy_artist(artist : Artist) -> Artist {
       Artist::PathCollection(copy_path_collection(collection))
     Artist::Bar(points, style) => Artist::Bar(copy_points(points), style)
     Artist::BarH(points, style) => Artist::BarH(copy_points(points), style)
+    Artist::BarSegments(segments, horizontal, style) =>
+      Artist::BarSegments(segments.copy(), horizontal, style)
     Artist::FillBetween(upper, lower, style) =>
       Artist::FillBetween(copy_points(upper), copy_points(lower), style)
     Artist::Polygon(points, style) =>

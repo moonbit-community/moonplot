@@ -80,6 +80,7 @@ pub(all) enum Artist {
   PathCollection(Array[@core.Point], Array[@core.Style])
   Bar(Array[@core.Point], @core.Style)
   BarH(Array[@core.Point], @core.Style)
+  BarSegments(Array[@core.BarSegment], Bool, @core.Style)
   FillBetween(Array[@core.Point], Array[@core.Point], @core.Style)
   Polygon(Array[@core.Point], @core.Style)
   CompoundPolygon(Array[Array[@core.Point]], @core.Style)

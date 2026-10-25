@@ -6,6 +6,8 @@ import {
 }
 
 // Values
+pub fn bar_segment(Double, Double, baseline? : Double, width? : Double, category? : String?) -> BarSegment
+
 pub fn bounds(Double, Double, Double, Double) -> Bounds
 
 pub fn bounds_from_points(Array[Point]) -> Bounds?
@@ -49,6 +51,14 @@ pub(all) suberror MaskError {
 }
 
 // Types and methods
+pub struct BarSegment {
+  position : Double
+  value : Double
+  baseline : Double
+  width : Double
+  category : String?
+}
+
 pub struct Bounds {
   xmin : Double
   xmax : Double

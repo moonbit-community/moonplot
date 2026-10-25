@@ -7,6 +7,8 @@ pub(all) enum Artist {
   PathCollection(Array[@core.Point], Array[@core.Style])
   Bar(Array[@core.Point], @core.Style)
   BarH(Array[@core.Point], @core.Style)
+  /// Explicit position, width and baseline for grouped or stacked bar segments.
+  BarSegments(Array[@core.BarSegment], Bool, @core.Style)
   FillBetween(Array[@core.Point], Array[@core.Point], @core.Style)
   Polygon(Array[@core.Point], @core.Style)
   CompoundPolygon(Array[Array[@core.Point]], @core.Style)

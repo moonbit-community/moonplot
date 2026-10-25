@@ -18,6 +18,8 @@ pub fn asinh_scale(linear_width? : Double) -> @scale.Scale raise @core.DataError
 
 pub fn axis(horizontal? : Bool) -> @axis.Axis
 
+pub fn bar_segment(Double, Double, baseline? : Double, width? : Double, category? : String?) -> @core.BarSegment
+
 pub fn bounds(Double, Double, Double, Double) -> @core.Bounds
 
 pub fn bounds_from_points(Array[@core.Point]) -> @core.Bounds?
@@ -84,6 +86,8 @@ pub using @scene {type Artist}
 pub using @scene {type Axes}
 
 pub using @axis {type Axis}
+
+pub using @core {type BarSegment}
 
 pub using @core {type Bounds}
 
