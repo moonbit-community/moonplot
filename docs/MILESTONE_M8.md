@@ -1,6 +1,6 @@
 # M8：Stem 杆线图交互
 
-创建日期：2026-10-25。状态：**功能、UI、中央及独立复审均通过，准备正式发布**。目标0.9.0，当前正式版本为0.8.0。
+创建日期：2026-10-25。状态：**已验收交付**。0.9.0已实际发布Mooncakes与GitHub。
 继续复用现有静态stem，补原样本语义和真实杆/头命中，不扩一般格式字符串或可变Container API。
 
 ## 固定合同
@@ -24,7 +24,7 @@
 - [x] 旧stem实际SVG控制；独立公开消费/真实几何复审；受影响四目标和Rabbita定向测试通过。
 - [x] 默认/自定义提示、独立显隐/更新/重挂载、CSS半径/letterbox与375px的真实DOM示例。
 - [x] 中央接口/fmt/结构、最终四目标全套及适当既有示例回归通过。
-- [ ] clean正式包、实际Mooncakes全新安装、四目标静态/浏览器消费、GitHub四附件完整下载核验。
+- [x] clean正式包、实际Mooncakes全新安装、四目标静态/浏览器消费、GitHub四附件完整下载核验。
 
 m3_donut负责独立worktree生产实现；m4_area准备独立oracle与旧SVG控制，精确commit后复审；m3_browser先只写ignored草稿，生产合入后再授权七文件部署。
 Root负责中央合入、版本/文档、外部consumer和实际交付。M7已发布闭环；每片结果只在实际通过后记完成。
@@ -39,4 +39,8 @@ Root三组合四目标各3/3、仓库外dirty包静态四目标+Chrome25通过�
 九页面Chrome共110项通过、0errors；三native SVG可解析，preview6886/gallery14246与资产逐字一致；40份MD/488本地链接通过。
 默认/隔离Stem JS4504167bytes/SHA3768e880572a77db935bf3cae8293efdc31238b9642b23278b83b1ec6d0dec14一致，实际8765 HTML/CSS/JS HTTP200逐字相同。
 Root已目视真实PNG。独立复审cf4de322：Native/JS各23公开组、各8实际SVG与23个真实primitive匹配、旧Native8份SVG逐字、Scene2+context1组全部通过，无blocker。4096datum/8192targets两端通过；源码确认单源表、常数view与heads全guard一次，未使用耗时阈值。11个生产源hash与Root逐一相同。
-0.9.0尚未实际发布，下一步是clean包与实际registry/GitHub交付。
+正式源95a34c3dc154f48fb3b83b7f37ecad3a0e8273c8，clean builder21070 terminal0；实际publish84366 terminal0/200，公开success/has_package=true。
+全新无workspace registry51252 terminal0：560份安装源逐一相同、静态四目标与Chrome25全部通过。
+GitHub创建55397与完整下载30349均terminal0，四附件逐字/远端digest和size/tag源码SHA通过；[v0.9.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.9.0)。
+模块ZIP2179542bytes/SHA352a7d165124952f0d13bf988e60c9927991c88a1a1d8fbcced6fbfa008562c5；sourceZIP2212594bytes/SHA99934cca03b701938b30fe18acf0a42844b5ffb9fa6509002b3acf26e52d3a39。
+正式构建至下载闭环期间未改tracked文件或commit。

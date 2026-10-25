@@ -1,7 +1,7 @@
 # 安装与发布
 
-本次发布目标为 **`Lampese/mathplotlib@0.9.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
-0.9.0功能、外部演练与中央全套已通过，独立复审已通过，尚未实际发布；上一公开版本0.8.0可安装。
+当前分发模块为 **`Lampese/mathplotlib@0.9.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
+0.9.0已实际发布Mooncakes与GitHub，公开构建成功、包可安装且未撤回；全新registry与四附件完整下载核验均通过。
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
 
@@ -10,7 +10,7 @@
 0.7.0 接续[六边形分箱](HEXBIN_INTERACTION.md)与[小提琴分布](VIOLIN_INTERACTION.md)，
 同时修正旧 hexbin 分桶与轮廓错位；新示例为 `rabbita/distributions.html`。
 0.8.0 接续[Step](STEP_INTERACTION.md)、[Stairs](STAIRS_INTERACTION.md)与[ECDF](ECDF_INTERACTION.md)的原采样、区间及概率提示，
-新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。下方安装命令对应本次0.9.0发布目标；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
+新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。下方安装命令对应0.9.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
 查看 registry 版本。维护者使用 `tools/verify_registry.py` 从全新、无 `moon.work` 的应用
 安装并验证静态四目标和真实浏览器交互。
 GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0)
@@ -199,7 +199,7 @@ PLAYWRIGHT_MODULE=/path/to/node_modules/playwright \
 
 所有dirty演练包仅保留开发记录，实际发布只使用clean正式归档；旧版本tag和附件不变。
 
-## 0.9.0 Stem 发布验收（候选）
+## 0.9.0 Stem 发布验收
 
 Stem原样本、真实杆段和圆头通过既有字段进入默认/自定义提示；旧签名、Unit返回、Container/N+2 artist及10份旧Stem/14份离散SVG保持。
 
@@ -207,4 +207,9 @@ Stem原样本、真实杆段和圆头通过既有字段进入默认/自定义提
 - 中央全套Wasm/Wasm-GC/Native各22505/22505、JS22550/22550；info/fmt/九JS构建、结构和40份MD/488本地链接通过。
 - 九个真实Chrome示例110项通过、0errors；新Stem三卡12项含原索引洞、非零起点正负值、actual rod/head组件、clip、Area、显隐/更新/重挂载、CSS与375px。
 - 独立Native/JS各23公开组、各8实际SVG与23个真实primitive匹配、旧Native8份SVG逐字、Scene2+context1组全部通过，11个生产源hash与中央匹配。
-- clean正式包/实际registry/GitHub四附件验收尚未执行；以上不作为实际发布记录，dirty包不得上传。
+- 正式源码`95a34c3dc154f48fb3b83b7f37ecad3a0e8273c8`，clean包与全新无workspace registry均通过静态四目标/Chrome25；560份安装源与正式ZIP逐一相同。
+- 实际publish200、公开success/has_package=true/yanked=false；[GitHub v0.9.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.9.0)四附件完整下载逐字、远端digest/size与tag源码SHA全部通过。
+- 模块ZIP2179542bytes，SHA256 `352a7d165124952f0d13bf988e60c9927991c88a1a1d8fbcced6fbfa008562c5`。
+- 独立源码ZIP2212594bytes，SHA256 `99934cca03b701938b30fe18acf0a42844b5ffb9fa6509002b3acf26e52d3a39`。
+
+正式构建至网络验收闭环未改tracked文件；dirty演练包未上传。
