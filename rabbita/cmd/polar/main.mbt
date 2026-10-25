@@ -1,13 +1,19 @@
 ///|
+struct ChartState {
+  hover : @drawing.HitPoint?
+  selected : @drawing.HitPoint?
+  hover_events : Int32
+  click_events : Int32
+  clicks : Int32
+} derive(Eq)
+
+///|
 struct Model {
+  charts : Array[ChartState]
   visible : Array[Array[Bool]]
   revision : Int32
   mounted : Bool
   clockwise : Bool
-  hover_events : Array[Int32]
-  click_events : Array[Int32]
-  unexpected_hovers : Array[Int32]
-  unexpected_clicks : Array[Int32]
 } derive(Eq)
 
 ///|
@@ -19,35 +25,53 @@ enum Msg {
 }
 
 ///|
+fn cleared(chart : ChartState) -> ChartState {
+  { ..chart, hover: None, selected: None, }
+}
+
+///|
+fn clear_chart(model : Model, index : Int32) -> Array[ChartState] {
+  let charts = model.charts.copy()
+  charts[index] = cleared(charts[index])
+  charts
+}
+
+///|
 fn update(model : Model, message : Msg) -> Model {
   match message {
-    Update => { ..model, revision: model.revision + 1, }
-    Mount => { ..model, mounted: !model.mounted, }
-    Direction => { ..model, clockwise: !model.clockwise, }
+    Update =>
+      {
+        ..model,
+        charts: model.charts.map(cleared),
+        revision: model.revision + 1,
+      }
+    Mount =>
+      { ..model, charts: model.charts.map(cleared), mounted: !model.mounted, }
+    Direction =>
+      { ..model, charts: clear_chart(model, 0), clockwise: !model.clockwise, }
     Chart(index, ToggleSeries(key)) => {
       let visible = model.visible.copy()
       visible[index] = visible[index].copy()
       let series = if key == "spiral" || key == "baseline" { 0 } else { 1 }
       visible[index][series] = !visible[index][series]
-      { ..model, visible, }
+      { ..model, visible, charts: clear_chart(model, index), }
     }
-    Chart(index, Hover(point)) => {
-      let hover_events = model.hover_events.copy()
-      hover_events[index] += 1
-      let unexpected_hovers = model.unexpected_hovers.copy()
-      if point is Some(_) {
-        unexpected_hovers[index] += 1
+    Chart(index, event) => {
+      let charts = model.charts.copy()
+      let chart = charts[index]
+      charts[index] = match event {
+        Hover(point) =>
+          { ..chart, hover: point, hover_events: chart.hover_events + 1, }
+        Click(point) =>
+          {
+            ..chart,
+            selected: point,
+            click_events: chart.click_events + 1,
+            clicks: chart.clicks + (if point is Some(_) { 1 } else { 0 }),
+          }
+        ToggleSeries(_) => chart
       }
-      { ..model, hover_events, unexpected_hovers, }
-    }
-    Chart(index, Click(point)) => {
-      let click_events = model.click_events.copy()
-      click_events[index] += 1
-      let unexpected_clicks = model.unexpected_clicks.copy()
-      if point is Some(_) {
-        unexpected_clicks[index] += 1
-      }
-      { ..model, click_events, unexpected_clicks, }
+      { ..model, charts, }
     }
   }
 }
@@ -100,7 +124,7 @@ fn input_theta(model : Model, index : Int32, series : Int32) -> Array[Double] {
         }
       ]
     } else {
-      [0.0, pi() / 2.0, pi(), 3.0 * pi() / 2.0, pi() / 4.0]
+      [0.0, pi() / 2.0, pi(), 3.0 * pi() / 2.0, pi() / 4.0, 7.0 * pi()]
     }
   } else {
     [
@@ -123,9 +147,9 @@ fn input_radius(model : Model, index : Int32, series : Int32) -> Array[Double] {
         }
       ]
     } else if model.revision % 2 == 0 {
-      [0.4, 0.65, 0.8, 1.0, 1.2]
+      [0.4, 0.65, 0.8, 1.0, 1.2, 0.0]
     } else {
-      [0.55, 0.7, 0.45, 0.85, 1.2]
+      [0.55, 0.7, 0.45, 0.85, 1.2, 0.0]
     }
   } else if series == 0 {
     if model.revision % 2 == 0 {
@@ -259,23 +283,151 @@ fn source_attrs(attrs : @html.Attrs, model : Model, index : Int32) -> Unit {
 }
 
 ///|
+fn semantic_attrs(
+  attrs : @html.Attrs,
+  prefix : String,
+  info : @drawing.HitInfo,
+) -> Unit {
+  let point = info.point
+  ignore(
+    attrs.data_set(
+      prefix + "kind",
+      if info.kind is Polar {
+        "polar"
+      } else {
+        "other"
+      },
+    ),
+  )
+  int_attr(attrs, prefix + "panel", point.panel_index)
+  int_attr(attrs, prefix + "artist", point.artist_index)
+  int_attr(attrs, prefix + "point", point.point_index)
+  double_attr(attrs, prefix + "theta", point.data_x)
+  double_attr(attrs, prefix + "radius", point.data_y)
+  double_attr(attrs, prefix + "value", info.value)
+  double_attr(attrs, prefix + "screen-x", point.screen_x)
+  double_attr(attrs, prefix + "screen-y", point.screen_y)
+  ignore(attrs.data_set(prefix + "series", info.series))
+  ignore(
+    attrs.data_set(
+      prefix + "category-present",
+      (info.category is Some(_)).to_string(),
+    ),
+  )
+  if info.category is Some(category) {
+    ignore(attrs.data_set(prefix + "category", category))
+  }
+  for
+    (name, present) in [
+      ("interval", info.interval is Some(_)),
+      ("fraction", info.fraction is Some(_)),
+      ("cell", info.cell is Some(_)),
+      ("error", info.error is Some(_)),
+      ("band", info.band is Some(_)),
+      ("box", info.box is Some(_)),
+      ("hexbin", info.hexbin is Some(_)),
+      ("violin", info.violin is Some(_)),
+      ("vector", info.vector is Some(_)),
+      ("tricolor", info.tricolor is Some(_)),
+      ("streamplot", info.streamplot is Some(_)),
+    ] {
+    ignore(attrs.data_set(prefix + name + "-present", present.to_string()))
+  }
+}
+
+///|
+fn display_number(value : Double) -> String {
+  ((value * 1000.0).round() / 1000.0).to_string()
+}
+
+///|
+fn reading_row(label : String, value : String) -> @html.Html {
+  @html.span(class="moonplot-coordinate", [
+    @html.span(class="moonplot-coordinate-label", label),
+    @html.b(value),
+  ])
+}
+
+///|
+fn custom_tooltip(info : @drawing.HitInfo) -> @html.Html {
+  let rows = [@html.b(info.series)]
+  if info.category is Some(category) {
+    rows.push(reading_row("类别", category))
+  }
+  rows.push(
+    reading_row("角度（弧度）", display_number(info.point.data_x)),
+  )
+  rows.push(reading_row("半径", display_number(info.point.data_y)))
+  @html.div(class="moonplot-tooltip-content", rows)
+}
+
+///|
 fn chart_card(
   model : Model,
   index : Int32,
   emit : @rabbita.Emit[Msg],
 ) -> @html.Html raise {
   let id = if index == 0 { "polar-spiral" } else { "polar-radar" }
+  let state = model.charts[index]
   let (drawing, normal_equal) = chart_frame(model, index)
   let attrs = @html.Attrs::build()
     .data_set("revision", model.revision.to_string())
     .data_set("normal-equal", normal_equal.to_string())
     .data_set("hit-mode", if index == 0 { "nearest" } else { "x-nearest" })
+    .data_set("hovered", (state.hover is Some(_)).to_string())
+    .data_set("selected", (state.selected is Some(_)).to_string())
+  int_attr(attrs, "circle-panel", 0)
+  double_attr(attrs, "hit-radius", 8.0)
   int_attr(attrs, "point-count", drawing.points().length())
   int_attr(attrs, "target-count", drawing.targets().length())
-  int_attr(attrs, "hover-events", model.hover_events[index])
-  int_attr(attrs, "click-events", model.click_events[index])
-  int_attr(attrs, "unexpected-hovers", model.unexpected_hovers[index])
-  int_attr(attrs, "unexpected-clicks", model.unexpected_clicks[index])
+  int_attr(attrs, "hover-events", state.hover_events)
+  int_attr(attrs, "click-events", state.click_events)
+  int_attr(attrs, "clicks", state.clicks)
+  match drawing.polar_circle(0) {
+    Some((cx, cy, radius)) => {
+      ignore(attrs.data_set("circle-present", "true"))
+      double_attr(attrs, "circle-cx", cx)
+      double_attr(attrs, "circle-cy", cy)
+      double_attr(attrs, "circle-r", radius)
+    }
+    None => ignore(attrs.data_set("circle-present", "false"))
+  }
+  for i, target in drawing.targets() {
+    let prefix = "target-\{i}-"
+    semantic_attrs(attrs, prefix, target.info)
+    ignore(
+      attrs.data_set(
+        prefix + "shape",
+        if target.shape is Point {
+          "point"
+        } else {
+          "other"
+        },
+      ),
+    )
+    let (left, top, width, height) = target.bounds
+    double_attr(attrs, prefix + "left", left)
+    double_attr(attrs, prefix + "top", top)
+    double_attr(attrs, prefix + "width", width)
+    double_attr(attrs, prefix + "height", height)
+  }
+  if state.hover is Some(point) {
+    if drawing.hit_info(point) is Some(info) {
+      semantic_attrs(attrs, "", info)
+    }
+  }
+  let summary = match state.selected {
+    Some(point) =>
+      match drawing.hit_info(point) {
+        Some(info) => {
+          semantic_attrs(attrs, "selected-", info)
+          let name = info.category.unwrap_or(info.series)
+          "\{name} · θ \{display_number(point.data_x)} · r \{display_number(point.data_y)}"
+        }
+        None => "Click to keep a selection."
+      }
+    None => "Click to keep a selection."
+  }
   source_attrs(attrs, model, index)
   @html.div(class="chart-card", [
     @html.div(class="chart-heading", [
@@ -290,9 +442,9 @@ fn chart_card(
         @html.p(
           class="chart-caption",
           if index == 0 {
-            "Two ways to describe the same circle."
+            "Explore the angle and radius of each sample."
           } else {
-            "Two profiles share one scale."
+            "Compare categories on one shared scale."
           },
         ),
       ]),
@@ -328,8 +480,11 @@ fn chart_card(
       drawing,
       id~,
       on_event=event => emit(Chart(index, event)),
+      hovered?=state.hover,
+      selected?=state.selected,
       hit_mode=if index == 0 { Nearest } else { XNearest },
-      hit_radius=300.0,
+      hit_radius=8.0,
+      tooltip?=if index == 1 { Some(custom_tooltip) } else { None },
       legend=[
         for series in 0..<2 => {
           @plot_dom.legend_item(
@@ -342,16 +497,10 @@ fn chart_card(
       ],
     ),
     @html.div(class="chart-footer", [
-      @html.div(
-        id=id + "-status",
-        class="selection-summary",
-        attrs~,
-        if index == 0 {
-          "Spiral and samples"
-        } else {
-          "A shared 0–100 scale"
-        },
-      ),
+      @html.div(id=id + "-status", class="selection-summary", attrs~, [
+        @html.span(class="selection-mark", ""),
+        @html.span(summary),
+      ]),
     ]),
   ])
 }
@@ -401,14 +550,21 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
 fn main {
   @rabbita.new(() => {
     let initial : Model = {
+      charts: [
+        for _ in 0..<2 => {
+          {
+            hover: None,
+            selected: None,
+            hover_events: 0,
+            click_events: 0,
+            clicks: 0,
+          }
+        }
+      ],
       visible: [[true, true], [true, true]],
       revision: 0,
       mounted: true,
       clockwise: false,
-      hover_events: [0, 0],
-      click_events: [0, 0],
-      unexpected_hovers: [0, 0],
-      unexpected_clicks: [0, 0],
     }
     let (state, emit) = @rabbita.create_pure_state(initial, update~)
     state.view(model => {

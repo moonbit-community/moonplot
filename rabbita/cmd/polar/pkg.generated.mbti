@@ -6,6 +6,8 @@ package "Lampese/mathplotlib/rabbita/cmd/polar"
 // Errors
 
 // Types and methods
+type ChartState derive(Eq)
+
 type Model derive(Eq)
 
 type Msg
