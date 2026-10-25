@@ -82,3 +82,16 @@ test "filled region preserves self crossing lobes while rejecting invalid and co
     assert_eq(region_test_frame(region).hit_test(2.0, 2.0, radius=0.0), None)
   }
 }
+
+///|
+test "filled region mixed area and collinear rings never turn an empty line into a filled target" {
+  let square = [(10.0, 10.0), (40.0, 10.0), (40.0, 40.0), (10.0, 40.0)]
+  let line = [(60.0, 60.0), (70.0, 70.0), (80.0, 80.0)]
+  for even_odd in [false, true] {
+    let region = filled_region([square, line], even_odd~)
+    let frame = region_test_frame(region)
+    assert_true(frame.hit_test(20.0, 20.0, radius=0.0) is Some(_))
+    assert_eq(frame.hit_test(70.0, 70.0, radius=0.0), None)
+    assert_eq(region.rings(), [square, line])
+  }
+}

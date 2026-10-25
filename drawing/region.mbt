@@ -6,6 +6,7 @@ pub struct FilledRegion {
   priv rings : Array[Array[(Double, Double)]]
   priv even_odd : Bool
   priv valid : Bool
+  priv filled_rings : Array[Bool]
   priv bounds : (Double, Double, Double, Double)
 } derive(Eq, Debug)
 
@@ -23,12 +24,14 @@ pub fn filled_region(
   let copied = rings.map(ring => ring.copy())
   let mut valid = true
   let mut area = false
+  let filled_rings = []
   let mut xmin = 1.0 / 0.0
   let mut xmax = -1.0 / 0.0
   let mut ymin = 1.0 / 0.0
   let mut ymax = -1.0 / 0.0
   for ring in copied {
     if ring.length() < 3 {
+      filled_rings.push(false)
       continue
     }
     let first = ring[0]
@@ -47,15 +50,18 @@ pub fn filled_region(
     }
     // Signed area may cancel for a real self-crossing fill. Reject only an
     // entirely collinear ring, not a bow tie or opposite-oriented components.
+    let mut ring_area = false
     for p in ring {
       if quad_cross(first, second, p) != 0.0 {
-        area = true
+        ring_area = true
       }
     }
+    filled_rings.push(ring_area)
+    area = area || ring_area
   }
   let bounds = (xmin, ymin, xmax - xmin, ymax - ymin)
   valid = valid && area && valid_rect(bounds)
-  { rings: copied, even_odd, valid, bounds, }
+  { rings: copied, even_odd, valid, filled_rings, bounds, }
 }
 
 ///|
@@ -77,8 +83,8 @@ fn FilledRegion::contains(self : FilledRegion, x : Double, y : Double) -> Bool {
   }
   let mut winding = 0
   let mut parity = false
-  for ring in self.rings {
-    if ring.length() < 3 {
+  for ring_index, ring in self.rings {
+    if !self.filled_rings[ring_index] {
       continue
     }
     for i, a in ring {
