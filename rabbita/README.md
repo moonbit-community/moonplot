@@ -5,7 +5,7 @@ Interactive MoonPlot SVG components built with public
 real SVG DOM inside composable `Html`; your application owns its state.
 
 The component is the **`Lampese/mathplotlib/rabbita` package** in the unified
-`Lampese/mathplotlib@0.5.0` module. See [installation and release status](../docs/PUBLISHING.md)
+`Lampese/mathplotlib@0.6.0` module. See [installation and release status](../docs/PUBLISHING.md)
 for the current publication result. There is no separate adapter module to install.
 
 ![Two interactive charts](https://raw.githubusercontent.com/moonbit-community/moonplot/master/assets/rabbita-interactive.png)
@@ -15,7 +15,7 @@ for the current publication result. There is no separate adapter module to insta
 From your application's module directory:
 
 ```sh
-moon add Lampese/mathplotlib@0.5.0
+moon add Lampese/mathplotlib@0.6.0
 ```
 
 Import the packages used by your application's view in `moon.pkg`:
@@ -68,6 +68,14 @@ interiors expose `info.band`; box bodies, whiskers, caps and outliers expose
 SVG draw. Default and custom tooltips share the typed metadata. See the
 [statistics guide](../docs/STATISTICS.md); build `rabbita/cmd/statistics --target js`
 and open `/rabbita/statistics.html` for five charts and a real error-bar overlay.
+
+## Nonuniform meshes and 2D counts (0.6.0)
+
+Flat 1D-boundary `pcolor` / `pcolormesh` reuse `Heatmap` and `info.cell` for
+original scalar values and both boundary intervals. `hist2d` uses `Histogram2D`
+with x/y bin intervals and raw counts, including zero-count cells. See the
+[mesh guide](../docs/MESH_INTERACTION.md); build `rabbita/cmd/grids --target js`
+and open `/rabbita/grids.html` for three independent, responsive charts.
 
 ## Component API
 

@@ -33,8 +33,9 @@ an SVG rendering pipeline.
   updates, scoped SVG resources, and customizable semantic tooltips.
 - **Statistical interactions:** error arms/caps, confidence and stacked-area interiors,
   and boxplot bodies/whiskers/outliers expose typed ranges and statistics. See the [statistics guide](docs/STATISTICS.md).
-- **Matrix interactions:** nearest scalar heatmaps expose original row, column,
-  value and data intervals across whole cells. See the [new chart guide](docs/M3_CHARTS.md).
+- **Matrix and bin interactions:** nearest scalar images and flat rectangular
+  meshes expose original row, column, value and data intervals across whole cells;
+  2D histograms expose both bin intervals and their original counts. See the [mesh guide](docs/MESH_INTERACTION.md).
 
 Support varies by chart and option. See the
 [usage guide](docs/USAGE.md) for examples and the
@@ -43,11 +44,11 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.5.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
+MoonPlot uses one Mooncakes module, **`Lampese/mathplotlib@0.6.0`**. See [installation and migration instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.5.0
+moon add Lampese/mathplotlib@0.6.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add

@@ -161,6 +161,33 @@ async function main() {
     await page.waitForFunction(() => document.querySelector('[data-testid="consumer-box-tooltip"]')?.textContent === 'Box: 2.25 / 3.5 / 4.75; value=20');
     checks.push('Installed boxplot outlier carries original quartiles, median and outlier value to a custom tooltip');
 
+    async function polygonPoint(id, index, fraction = 0.5) {
+      await page.locator(`#${id}`).scrollIntoViewIfNeeded();
+      return page.locator(`#${id} polygon`).nth(index).evaluate((polygon, fraction) => {
+        const points = [...polygon.points];
+        const xs = points.map(p => p.x), ys = points.map(p => p.y);
+        const x = Math.min(...xs) + (Math.max(...xs) - Math.min(...xs)) * fraction;
+        const y = Math.min(...ys) + (Math.max(...ys) - Math.min(...ys)) * fraction;
+        const p = new DOMPoint(x, y).matrixTransform(polygon.ownerSVGElement.getScreenCTM());
+        return { x: p.x, y: p.y };
+      }, fraction);
+    }
+    const meshCell = await polygonPoint('release-mesh-svg', 0, 0.05);
+    await page.mouse.move(meshCell.x, meshCell.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-mesh-tooltip"]')?.textContent === 'Mesh 0,0: 3; x=0..1; y=-1..2');
+    checks.push('Installed nonuniform flat mesh exposes its original scalar and both data intervals near a cell corner');
+
+    const zeroBin = await polygonPoint('release-bins-svg', 2);
+    await page.mouse.move(zeroBin.x, zeroBin.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-bins-tooltip"]')?.textContent === 'Count 0; x=0..1; y=1..2');
+    assert.equal(await page.locator('[data-testid="consumer-bins-tooltip"]').getAttribute('data-histogram2d'), 'true');
+    checks.push('Installed Histogram2D distinguishes a zero-count bin and preserves its exact x/y intervals');
+
+    const maximumBin = await polygonPoint('release-bins-svg', 3);
+    await page.mouse.move(maximumBin.x, maximumBin.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-bins-tooltip"]')?.textContent === 'Count 2; x=1..2; y=1..2');
+    checks.push('Installed two-dimensional histogram includes repeated maximum-boundary samples in the last bin');
+
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);

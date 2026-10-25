@@ -1,11 +1,12 @@
 # 安装与发布
 
-当前分发模块为 **`Lampese/mathplotlib@0.5.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
+当前源码目标模块为 **`Lampese/mathplotlib@0.6.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
 
 0.5.0 接续[统计图与区间交互](STATISTICS.md)，新示例为 `rabbita/statistics.html`。
-本页安装命令对应 0.5.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
+0.6.0 接续[矩形网格与二维计数交互](MESH_INTERACTION.md)，新示例为 `rabbita/grids.html`。
+本页安装命令对应 0.6.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
 查看 registry 版本。维护者使用 `tools/verify_registry.py` 从全新、无 `moon.work` 的应用
 安装并验证静态四目标和真实浏览器交互。
 GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0)
@@ -16,7 +17,7 @@ GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.
 在应用的模块目录运行：
 
 ```sh
-moon add Lampese/mathplotlib@0.5.0
+moon add Lampese/mathplotlib@0.6.0
 ```
 
 静态出图只需在对应 executable 的 `moon.pkg` 导入根包：

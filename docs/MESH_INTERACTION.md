@@ -1,5 +1,7 @@
 # 矩形网格与二维直方图交互
 
+0.6.0 在已有静态入口上增加本页的语义交互。
+
 `pcolor` / `pcolormesh` 的一维单元格边界入口现在支持整格 hover/click，
 包括 `*_with_norm`、`*_with_norm_and_colormap` 与 masked 版本。
 边界可以不等间距、递增或递减；其长度仍需比列数、行数各多一个。
@@ -58,3 +60,22 @@ Drawing 保留独立快照，修改输入数组或重建图后，旧帧数据不
 二维坐标的 `pcolor_grid` / `pcolormesh_grid`、nearest/Gouraud、曲线或不规则四边形、
 hexbin、二维密度与加权分箱不在本次交互范围内，已有静态绘制继续可用。
 新增 `Histogram2D` 枚举变体后，穷尽匹配 `HitKind` 的调用方需要增加相应分支。
+
+## 可运行三图示例
+
+```sh
+moon build rabbita/cmd/grids --target js
+python3 -m http.server 8765 --bind 127.0.0.1
+```
+
+从仓库根服务，打开 [网格与二维计数示例](http://127.0.0.1:8765/rabbita/grids.html)。
+[示例源码](../rabbita/cmd/grids/main.mbt)包括非均匀缺失网格、计数直方图和反向边界网格，
+支持自定义中文单位、原始区间、独立显隐、更新与重新挂载。
+
+0.6.0 同时修复旧普通 bar/barh 在 Logit 值轴上端点越域、区间却穿过有效视图时被丢弃的问题。
+沿用已有分段柱区间计算，保留原值、类别、原始索引与实际矩形命中；
+合法端点、线性和 Log 图的 SVG 保持逐字一致。类别轴仍沿用原先的有效性检查。
+
+验收与当前交付状态见 [M5](MILESTONE_M5.md) 和 [执行检查点](MIGRATION_STATUS.md)。
+
+![网格实际浏览器示例](../assets/grids.png)

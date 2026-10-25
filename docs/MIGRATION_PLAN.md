@@ -87,5 +87,5 @@ M3 三项目标已实现：规则 nearest 标量热图的整格提示、多系�
 
 ## M5：矩形网格与二维计数分箱
 
-[M5](MILESTONE_M5.md) 在独立工作区接续 flat pcolor/pcolormesh、hist2d 双区间计数提示，
-以及旧普通柱跨 Logit 有效视图的遗留边界。0.5.0 交付后合入，目标0.6.0。
+[M5](MILESTONE_M5.md) 已合入 flat pcolor/pcolormesh、hist2d 双区间计数提示，
+以及旧普通柱跨 Logit 有效视图的遗留边界。四目标全套和三图 DOM 已通过，正在交付0.6.0。

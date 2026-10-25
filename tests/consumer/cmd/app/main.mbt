@@ -9,6 +9,8 @@ struct Model {
   cell_hover : @drawing.HitPoint?
   statistics_hover : @drawing.HitPoint?
   box_hover : @drawing.HitPoint?
+  mesh_hover : @drawing.HitPoint?
+  bins_hover : @drawing.HitPoint?
 } derive(Eq)
 
 ///|
@@ -19,6 +21,8 @@ enum Msg {
   Cell(@plot_dom.Interaction)
   Statistics(@plot_dom.Interaction)
   Box(@plot_dom.Interaction)
+  Mesh(@plot_dom.Interaction)
+  Bins(@plot_dom.Interaction)
 }
 
 ///|
@@ -44,6 +48,8 @@ fn update(model : Model, message : Msg) -> Model {
         cell_hover: None,
         statistics_hover: None,
         box_hover: None,
+        mesh_hover: None,
+        bins_hover: None,
       }
     Bar(Hover(point)) => { ..model, bar_hover: point, }
     Bar(_) => model
@@ -53,6 +59,10 @@ fn update(model : Model, message : Msg) -> Model {
     Statistics(_) => model
     Box(Hover(point)) => { ..model, box_hover: point, }
     Box(_) => model
+    Mesh(Hover(point)) => { ..model, mesh_hover: point, }
+    Mesh(_) => model
+    Bins(Hover(point)) => { ..model, bins_hover: point, }
+    Bins(_) => model
   }
 }
 
@@ -188,6 +198,39 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
         )
       },
     ),
+    @html.h2("Nonuniform mesh"),
+    @plot_dom.view(
+      make_mesh_drawing(model),
+      id="release-mesh",
+      on_event=event => emit(Mesh(event)),
+      hovered?=model.mesh_hover,
+      tooltip=info => {
+        let cell = info.cell.unwrap()
+        @html.b(
+          attrs=@html.Attrs::build().data_set("testid", "consumer-mesh-tooltip"),
+          "Mesh \{cell.row},\{cell.column}: \{info.value}; x=\{cell.x_range.0}..\{cell.x_range.1}; y=\{cell.y_range.0}..\{cell.y_range.1}",
+        )
+      },
+    ),
+    @html.h2("Two-dimensional counts"),
+    @plot_dom.view(
+      make_bins_drawing(model),
+      id="release-bins",
+      on_event=event => emit(Bins(event)),
+      hovered?=model.bins_hover,
+      tooltip=info => {
+        let cell = info.cell.unwrap()
+        @html.b(
+          attrs=@html.Attrs::build()
+            .data_set("testid", "consumer-bins-tooltip")
+            .data_set(
+              "histogram2d",
+              (info.kind == @drawing.HitKind::Histogram2D).to_string(),
+            ),
+          "Count \{info.value}; x=\{cell.x_range.0}..\{cell.x_range.1}; y=\{cell.y_range.0}..\{cell.y_range.1}",
+        )
+      },
+    ),
   ])
 }
 
@@ -249,6 +292,34 @@ fn make_box_drawing() -> @drawing.Drawing raise {
 }
 
 ///|
+fn make_mesh_drawing(model : Model) -> @drawing.Drawing raise {
+  let figure = @plot.figure(width=600, height=240)
+  figure.legend([])
+  figure.pcolormesh(
+    [[2.0 + model.revision.to_double(), 0.0 / 0.0], [7.0, 9.0]],
+    x=[0.0, 1.0, 4.0],
+    y=[-1.0, 2.0, 5.0],
+    vmin=0.0,
+    vmax=10.0,
+  )
+  figure.to_drawing()
+}
+
+///|
+fn make_bins_drawing(model : Model) -> @drawing.Drawing raise {
+  let figure = @plot.figure(width=600, height=240)
+  figure.legend([])
+  let xs = [0.0, 0.2, 1.8, 2.0]
+  let ys = [0.0, 0.2, 0.0, 2.0]
+  if model.revision % 2 == 1 {
+    xs.push(2.0)
+    ys.push(2.0)
+  }
+  figure.hist2d(xs, ys, bins_x=2, bins_y=2)
+  figure.to_drawing()
+}
+
+///|
 fn main {
   @rabbita.new(() => {
     let (state, emit) = @rabbita.create_pure_state(
@@ -262,6 +333,8 @@ fn main {
         cell_hover: None,
         statistics_hover: None,
         box_hover: None,
+        mesh_hover: None,
+        bins_hover: None,
       },
       update~,
     )

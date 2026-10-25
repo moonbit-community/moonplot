@@ -126,5 +126,60 @@ fn main raise {
     }
   }
   assert_true(saw_outlier)
+  let mesh = @plot.figure(width=400, height=240)
+  mesh.legend([])
+  mesh.pcolormesh([[2.0, 0.0 / 0.0], [7.0, 9.0]], x=[0.0, 1.0, 4.0], y=[
+    -1.0, 2.0, 5.0,
+  ])
+  let mesh_frame = mesh.to_drawing()
+  assert_eq(mesh_frame.svg(), mesh.to_svg_checked())
+  let mesh_targets = mesh_frame.targets()
+  assert_eq(mesh_targets.map(t => t.info.point.point_index), [0, 2, 3])
+  assert_eq(mesh_targets.map(t => t.info.value), [2.0, 7.0, 9.0])
+  let first_mesh = mesh_targets[0].info.cell.unwrap()
+  assert_eq((first_mesh.row, first_mesh.column), (0, 0))
+  assert_eq((first_mesh.x_range, first_mesh.y_range), ((0.0, 1.0), (-1.0, 2.0)))
+  let binned = @plot.figure(width=400, height=240)
+  binned.legend([])
+  binned.hist2d([0.0, 0.2, 1.8, 2.0], [0.0, 0.2, 0.0, 2.0], bins_x=2, bins_y=2)
+  let bins_frame = binned.to_drawing()
+  assert_eq(bins_frame.svg(), binned.to_svg_checked())
+  let count_targets = bins_frame.targets()
+  assert_eq(count_targets.map(t => t.info.value), [2.0, 1.0, 0.0, 1.0])
+  for target in count_targets {
+    assert_eq(target.info.kind, @plot.HitKind::Histogram2D)
+    let cell = target.info.cell.unwrap()
+    assert_eq(target.info.point.point_index, cell.row * 2 + cell.column)
+  }
+  assert_eq(count_targets[2].info.cell.unwrap().x_range, (0.0, 1.0))
+  assert_eq(count_targets[2].info.cell.unwrap().y_range, (1.0, 2.0))
+  for horizontal in [false, true] {
+    let probabilities = @plot.figure(width=400, height=240)
+    probabilities.legend([])
+    if horizontal {
+      probabilities.set_x_scale(@plot.logit_scale())
+      probabilities.set_x_limits(0.01, 0.99)
+      probabilities.set_y_limits(0.0, 2.0)
+      probabilities.barh([1.0], [1.0])
+    } else {
+      probabilities.set_y_scale(@plot.logit_scale())
+      probabilities.set_x_limits(0.0, 2.0)
+      probabilities.set_y_limits(0.01, 0.99)
+      probabilities.bar([@plot.point(1.0, 1.0)])
+    }
+    let frame = probabilities.to_drawing()
+    assert_eq(frame.svg(), probabilities.to_svg_checked())
+    assert_eq(frame.targets().length(), 1)
+    let target = frame.targets()[0]
+    assert_eq(target.info.value, 1.0)
+    guard target.shape is @plot.HitShape::Rectangle(x, y, width, height) else {
+      fail("Installed ordinary Logit bar has no real rectangle")
+    }
+    assert_true(width > 0.0 && height > 0.0)
+    assert_eq(
+      frame.hit_test(x + width / 2.0, y + height / 2.0, radius=0.0),
+      Some(target.info.point),
+    )
+  }
   println(drawing.svg())
 }

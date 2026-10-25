@@ -1,0 +1,20 @@
+.chart-heading { min-height: 88px; }
+.chart-unit { white-space: nowrap; }
+.chart-card .moonplot { padding-bottom: 10px; }
+.chart-card .moonplot-legend { min-height: 40px; }
+.chart-footer { min-height: 49px; }
+.grid-reading { display: flex; flex-direction: column; gap: 4px; }
+.grid-reading > b { color: #244d55; font-size: 12px; font-weight: 600; }
+.grid-reading .moonplot-coordinate-label { font-size: 11px; }
+.grid-reading .moonplot-coordinate b { font-size: 12px; }
+.grid-tooltip { --moonplot-tooltip-background: #fbfdfd; }
+.grid-scale { display: flex; align-items: center; gap: 8px; margin: 0 24px 16px 72px; color: #7a8793; font-size: 10px; }
+.grid-gradient { flex: 1; height: 6px; border-radius: 4px; background: linear-gradient(90deg, #440154, #31688e, #35b779, #fde725); }
+.missing-key { display: flex; align-items: center; gap: 5px; margin-left: 10px; }
+.missing-key i { display: inline-block; width: 8px; height: 8px; border: 1px solid #cdd6dc; border-radius: 2px; background: #fff; }
+#grids-unmounted { display: grid; place-content: center; min-height: 360px; border: 1px dashed #d5dde3; border-radius: 12px; color: #697784; }
+#grids-error { padding: 20px; border-radius: 8px; background: #fff0ef; color: #9b3c3c; }
+@media (max-width: 480px) {
+  .chart-heading { min-height: 84px; }
+  .grid-scale { margin-left: 40px; margin-right: 18px; }
+}
