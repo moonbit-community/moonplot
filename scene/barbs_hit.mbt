@@ -1,4 +1,10 @@
 ///|
+struct BarbIntent {
+  artist : Artist
+  view : @render.BarbHitView
+}
+
+///|
 fn barb_source(
   xs : Array[Double],
   ys : Array[Double],
@@ -34,4 +40,27 @@ fn Axes::push_barb_component(
   let record = records[records.length() - 1]
   record.barb = Some(view)
   record.series = view.series()
+  self.state.val.barb_intents[self.state.val.artists.length() - 1] = {
+    artist,
+    view,
+  }
+}
+
+///|
+// Normal Line removal shifts known component slots, independently of the
+// metadata record cursor (which can omit images and expanded contour lines).
+fn AxesData::remove_barb_slot(self : AxesData, removed : Int32) -> Unit {
+  if self.barb_intents.is_empty() {
+    return
+  }
+  let next = Map([])
+  for slot, intent in self.barb_intents {
+    if slot != removed {
+      next[if slot > removed { slot - 1 } else { slot }] = intent
+    }
+  }
+  self.barb_intents.clear()
+  for slot, intent in next {
+    self.barb_intents[slot] = intent
+  }
 }

@@ -86,6 +86,12 @@ fn AxesData::hit_metadata(
   index : Int32,
   cursor : @ref.Ref[Int32],
 ) -> @render.HitMetadata {
+  // A known component that changed identity stays static. Returning empty
+  // metadata would incorrectly reactivate ordinary Line/Scatter endpoints.
+  if self.barb_intents.get(index) is Some(intent) &&
+    !same_hit_artist(intent.artist, artist) {
+    return @render.hit_metadata("", barb=Some(intent.view.invalidated()))
+  }
   if !same_hit_artist(artist, artist) {
     return @render.hit_metadata("")
   }
@@ -112,7 +118,11 @@ fn AxesData::hit_metadata(
       return record.render_metadata()
     }
   }
-  @render.hit_metadata("")
+  match self.barb_intents.get(index) {
+    Some(intent) =>
+      @render.hit_metadata("", barb=Some(intent.view.invalidated()))
+    None => @render.hit_metadata("")
+  }
 }
 
 ///|

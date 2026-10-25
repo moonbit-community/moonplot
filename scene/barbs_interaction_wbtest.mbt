@@ -90,7 +90,9 @@ test "barbs source copies retain original values and constant component guards r
     fail("Expected shaft")
   }
   let copied = copy_artist(ax.state.val.artists[0])
-  assert_true(ax.state.val.hit_metadata(copied, 0, @ref.Ref(0)).barb() is None)
+  assert_true(
+    !ax.state.val.hit_metadata(copied, 0, @ref.Ref(0)).barb().unwrap().enabled(),
+  )
   points[0] = @core.point(1.0, 2.0)
   assert_eq(
     fig

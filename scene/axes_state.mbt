@@ -4,6 +4,7 @@ struct AxesData {
   artists : Array[Artist]
   line_originals : Array[Line2D]
   artist_hits : Array[ArtistHitData]
+  barb_intents : Map[Int32, BarbIntent]
   x_axis : @axis.Axis
   y_axis : @axis.Axis
   mut title : String?
@@ -73,6 +74,7 @@ fn AxesData::clear_presentation(self : AxesData) -> Unit {
   }
   self.artists.clear()
   self.artist_hits.clear()
+  self.barb_intents.clear()
   self.line_originals.clear()
   self.title = None
   self.explicit_bounds = None
@@ -188,6 +190,7 @@ fn new_axes_state(
     artists: [],
     line_originals: [],
     artist_hits: [],
+    barb_intents: Map([]),
     x_axis: @axis.axis(),
     y_axis: @axis.axis(horizontal=false),
     title: None,

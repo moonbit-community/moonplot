@@ -135,6 +135,8 @@ pub struct BarbHitView {
 }
 pub fn BarbHitView::component(Self) -> BarbComponent
 pub fn BarbHitView::datum(Self) -> VectorDatum?
+pub fn BarbHitView::enabled(Self) -> Bool
+pub fn BarbHitView::invalidated(Self) -> Self
 pub fn BarbHitView::matches_points(Self, Array[@core.Point]) -> Bool
 pub fn BarbHitView::series(Self) -> String
 

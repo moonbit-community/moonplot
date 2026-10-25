@@ -147,6 +147,10 @@ fn render_panel(
   }
   for artist_index, artist in panel.artists() {
     let metadata = panel.hit_metadata(artist_index)
+    let capture = match metadata.barb() {
+      Some(view) if !view.enabled() => None
+      _ => capture
+    }
     match artist {
       @render.Artist::Line(points, style) =>
         match panel.prepare_line(points) {

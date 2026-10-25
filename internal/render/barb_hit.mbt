@@ -19,6 +19,7 @@ pub struct BarbHitView {
   priv index : Int32
   priv component : BarbComponent
   priv expected : Array[@core.Point]
+  priv enabled : Bool
 }
 
 ///|
@@ -45,7 +46,24 @@ pub fn BarbHitData::view(
   if self.source.datum(index) is None || points.length() != size {
     return None
   }
-  Some({ source: self, index, component, expected: points.copy(), })
+  Some({
+    source: self,
+    index,
+    component,
+    expected: points.copy(),
+    enabled: true,
+  })
+}
+
+///|
+/// Preserve known Barbs intent after an identity miss, without authorizing hits.
+pub fn BarbHitView::invalidated(self : BarbHitView) -> BarbHitView {
+  { ..self, enabled: false, }
+}
+
+///|
+pub fn BarbHitView::enabled(self : BarbHitView) -> Bool {
+  self.enabled
 }
 
 ///|
@@ -69,7 +87,7 @@ pub fn BarbHitView::matches_points(
   self : BarbHitView,
   points : Array[@core.Point],
 ) -> Bool {
-  if points.length() != self.expected.length() {
+  if !self.enabled || points.length() != self.expected.length() {
     return false
   }
   for i, point in points {

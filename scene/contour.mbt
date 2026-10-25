@@ -1141,18 +1141,32 @@ fn Axes::erase_inline_contour_segment(
   target : Array[@core.Point],
 ) -> Unit {
   let updated : Array[Artist] = []
-  for artist in self.state.val.artists {
+  let barb_intents = Map([])
+  for index, artist in self.state.val.artists {
+    let barb_intent = self.state.val.barb_intents.get(index)
     match artist {
       Artist::Line(points, style) if contour_same_segment(points, target) =>
         for part in contour_inline_parts(points) {
+          if barb_intent is Some(intent) {
+            barb_intents[updated.length()] = intent
+          }
           updated.push(Artist::Line(part, style))
         }
-      _ => updated.push(artist)
+      _ => {
+        if barb_intent is Some(intent) {
+          barb_intents[updated.length()] = intent
+        }
+        updated.push(artist)
+      }
     }
   }
   self.state.val.artists.clear()
   for artist in updated {
     self.state.val.artists.push(artist)
+  }
+  self.state.val.barb_intents.clear()
+  for index, intent in barb_intents {
+    self.state.val.barb_intents[index] = intent
   }
   self.prune_line_originals()
 }
