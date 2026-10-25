@@ -246,6 +246,29 @@ async function main() {
     assert.equal(await page.locator('[data-testid="consumer-step-tooltip"]').getAttribute('data-source-y'), '7');
     checks.push('Installed step jump selects the incoming real sample instead of interpolating a new observation');
 
+    async function stairsInterior(index) {
+      await page.locator('#release-stairs-svg').scrollIntoViewIfNeeded();
+      return page.locator('#release-stairs-svg polygon').evaluate((polygon, index) => {
+        const points = [...polygon.points];
+        const [a, b, c] = index === 0 ? [points[0], points[1], points[2]] : [points[3], points[4], points[5]];
+        const p = new DOMPoint(index === 0 ? (a.x + b.x) / 2 : (a.x + c.x) / 2,
+          index === 0 ? (a.y + c.y) / 2 : (a.y + b.y) / 2)
+          .matrixTransform(polygon.ownerSVGElement.getScreenCTM());
+        return { x: p.x, y: p.y };
+      }, index);
+    }
+    const positiveStair = await stairsInterior(0);
+    await page.mouse.move(positiveStair.x, positiveStair.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-stairs-tooltip"]')?.textContent === 'Stairs 0: 4; range=0..1; baseline=1');
+    assert.equal(await page.locator('[data-testid="consumer-stairs-tooltip"]').getAttribute('data-stairs'), 'true');
+    assert.equal(await page.locator('[data-testid="consumer-stairs-tooltip"]').getAttribute('data-horizontal'), 'true');
+    checks.push('Installed horizontal filled stairs expose their original nonuniform interval and value across the actual positive strip');
+    const negativeStair = await stairsInterior(1);
+    await page.mouse.move(negativeStair.x, negativeStair.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-stairs-tooltip"]')?.textContent === 'Stairs 1: -2; range=1..4; baseline=1');
+    checks.push('Installed negative stairs retain the original value and baseline rather than reporting rectangle height');
+
+
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);

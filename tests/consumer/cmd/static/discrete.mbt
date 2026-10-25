@@ -74,3 +74,53 @@ fn verify_step_roundtrip_consumer() -> Unit raise {
   assert_eq((info.point.point_index, info.value), (0, 2.3))
   assert_eq((info.point.data_x, info.point.data_y), (0.2, 2.3))
 }
+
+///|
+fn verify_stairs_consumer() -> Unit raise {
+  for horizontal in [false, true] {
+    for filled in [false, true] {
+      let figure = @plot.figure(width=400, height=240)
+      figure.legend([])
+      if horizontal {
+        figure.set_x_limits(-3.0, 4.0)
+        figure.set_y_limits(0.0, 4.0)
+      } else {
+        figure.set_x_limits(0.0, 4.0)
+        figure.set_y_limits(-3.0, 4.0)
+      }
+      figure.stairs(
+        [3.0, -2.0],
+        edges=[0.0, 1.0, 4.0],
+        orientation=if horizontal { "horizontal" } else { "vertical" },
+        baseline=1.0,
+        fill=filled,
+        label="Intervals",
+      )
+      let frame = figure.to_drawing()
+      assert_eq(frame.svg(), figure.to_svg_checked())
+      assert_true(!frame.targets().is_empty())
+      for target in frame.targets() {
+        let info = target.info
+        assert_eq(info.kind, @plot.HitKind::Stairs)
+        assert_eq(info.series, "Intervals")
+        let i = info.point.point_index
+        assert_true(i == 0 || i == 1)
+        let value = if i == 0 { 3.0 } else { -2.0 }
+        let start = if i == 0 { 0.0 } else { 1.0 }
+        let end = if i == 0 { 1.0 } else { 4.0 }
+        assert_eq(info.value, value)
+        assert_eq(info.interval, Some((start, end)))
+        assert_eq((info.point.data_x, info.point.data_y), if horizontal { (value, start) } else { (start, value) })
+        assert_eq(frame.hit_info(info.point), Some(info))
+        if filled {
+          let band = info.band.unwrap()
+          assert_eq((band.lower, band.upper), (1.0, value))
+          assert_eq(band.horizontal, horizontal)
+          assert_true(!band.stacked)
+        } else {
+          assert_eq(info.band, None)
+        }
+      }
+    }
+  }
+}

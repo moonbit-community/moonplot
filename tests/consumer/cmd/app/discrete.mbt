@@ -42,3 +42,48 @@ fn step_consumer_view(
     },
   )
 }
+
+///|
+fn make_stairs_drawing(model : Model) -> @drawing.Drawing raise {
+  let figure = @plot.figure(width=600, height=240)
+  figure.legend([])
+  figure.set_x_limits(-3.0, 5.0)
+  figure.set_y_limits(0.0, 4.0)
+  figure.stairs(
+    [3.0 + model.revision.to_double(), -2.0],
+    edges=[0.0, 1.0, 4.0],
+    orientation="horizontal",
+    baseline=1.0,
+    fill=true,
+    color="#75a6b3",
+    label="Intervals",
+  )
+  figure.to_drawing()
+}
+
+///|
+fn stairs_consumer_view(
+  model : Model,
+  emit : @rabbita.Emit[Msg],
+) -> @html.Html raise {
+  @plot_dom.view(
+    make_stairs_drawing(model),
+    id="release-stairs",
+    on_event=event => emit(Stairs(event)),
+    hovered?=model.stairs_hover,
+    tooltip=info => {
+      let (a, b) = info.interval.unwrap()
+      let band = info.band.unwrap()
+      @html.b(
+        attrs=@html.Attrs::build()
+          .data_set("testid", "consumer-stairs-tooltip")
+          .data_set(
+            "stairs",
+            (info.kind == @drawing.HitKind::Stairs).to_string(),
+          )
+          .data_set("horizontal", band.horizontal.to_string()),
+        "Stairs \{info.point.point_index}: \{info.value}; range=\{a}..\{b}; baseline=\{band.lower}",
+      )
+    },
+  )
+}
