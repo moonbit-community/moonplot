@@ -17,6 +17,7 @@ struct Model {
   stairs_hover : @drawing.HitPoint?
   ecdf_hover : @drawing.HitPoint?
   stem_hover : @drawing.HitPoint?
+  vector_hover : @drawing.HitPoint?
 } derive(Eq)
 
 ///|
@@ -35,6 +36,7 @@ enum Msg {
   Stairs(@plot_dom.Interaction)
   Ecdf(@plot_dom.Interaction)
   Stem(@plot_dom.Interaction)
+  Vector(@plot_dom.Interaction)
 }
 
 ///|
@@ -68,6 +70,7 @@ fn update(model : Model, message : Msg) -> Model {
         stairs_hover: None,
         ecdf_hover: None,
         stem_hover: None,
+        vector_hover: None,
       }
     Bar(Hover(point)) => { ..model, bar_hover: point, }
     Bar(_) => model
@@ -93,6 +96,8 @@ fn update(model : Model, message : Msg) -> Model {
     Ecdf(_) => model
     Stem(Hover(point)) => { ..model, stem_hover: point, }
     Stem(_) => model
+    Vector(Hover(point)) => { ..model, vector_hover: point, }
+    Vector(_) => model
   }
 }
 
@@ -280,6 +285,8 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
     ecdf_consumer_view(model, emit),
     @html.h2("Stems from a nonzero baseline"),
     stem_consumer_view(model, emit),
+    @html.h2("Vector components"),
+    vector_consumer_view(model, emit),
     @html.h2("Nonuniform mesh"),
     @plot_dom.view(
       make_mesh_drawing(model),
@@ -463,6 +470,7 @@ fn main {
         stairs_hover: None,
         ecdf_hover: None,
         stem_hover: None,
+        vector_hover: None,
       },
       update~,
     )

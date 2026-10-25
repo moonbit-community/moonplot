@@ -18,14 +18,19 @@
 - 保留静态SVG、旧签名/Unit/单artist与Container、非finite整call报错；zero/scaleinvalid/endpoint overflow/clip跳过保留原i洞。
 - points+vectors身份及immutable源/实际prepared-context必须guard；不得用error/band/fraction假装U/V，不改变global finite政策。
 - normoverflow可真实发生：x=y=-8e307,u=v=1.7e308在SymLog可画但norm Inf；首片不新增magnitude接口，不截断、不假0。
-- m3_donut定点只读packet已收Root M9-quiver/design，16源SHA与正式0.9 Root精确匹配。Native20060 terminal0保存6旧SVG，旧targets0，未来panel交点只作预期9/9/3/1/1/3。
-- 已明确授权m3_donut从正式0.9 source95a34c3dc154f48fb3b83b7f37ecad3a0e8273c8在own managed worktree建codex/m9-quiver，拥有核心/API/IR/scene/backend/tooltip/own测试与QUIVER_INTERACTION.md。按固定合同实现、定向4目标/adapter、真实info/fmt/结构后coherent commits；不跑全库全套、不push/publish/新agent、不动Root。
-- m4_area已被明确授权own ignored M9-quiver-review独立baseline/oracle准备；m3_browser已被明确授权ignored UI草稿/实际DOM测试设计；review/UI均不可写Root tracked、commit/push或提前生产。
-- Root ignored M9-quiver/consumer-draft已备static-vector.mbt、app-vector.mbt、vector-checks.cjs.txt与integrate_consumer.py，尚未部署/编译：原样本/输入副本/zero洞/反轴/跨panel，真实shaft+两wing独立整数MouseEvent、公开u/v callback，不能记新验收。
-- Root29994 terminal0 Native只保存自己外部fixture的3份旧SVG，真实线数9/9/3、首shaft分别(80,160→240,120)/(320,80→160,120)/(-200,120→600,120)，匹配独立手算坐标，旧targets0；M9-quiver/baseline-consumer-report.json与SVG已冻结。部署新源后核对旧字节，不重复旧测试。
-- M8交付/M9范围f1e3058已push65943 terminal0，Root clean；本阶段最初未建workdir的probe启动被工具拒绝未执行，建目录后29994成功，非生产错误。
-- 精确下一动作：M8实际发布闭环全部完成，交付文档commit/push → M9 producer实际实现/精确commit → Root合入+独立消费/组合与版本/文档 → 精确commit独立复审+显式UI部署 → 中央验收/发布。
-- Root无测试/发布/下载live；唯一有意预览8765/session43005/PID70622。producer已授权M9生产，review/UI仅准备，无M8未决blocker。
+- m3_donut只读packet已收Root M9-quiver/design，16生产源SHA与正式0.9一致；6旧SVG Native20060 terminal0。首完整核心e475dd7390749bb4bd8e55cb4853cb2fe00c4733已合Root4403974（base正式95a）。
+- [x] 核心e475：call级points/vectors复制源、双arrayidentity、once O(N)完整guard、actual三write后原i回调，Segment clip/actual style gate、VectorInfo/vector?/Quiver及X/Y/U/V提示/facade。旧计算/Unit/Container/非finite整call验证保持。
+  all-target check64133 129tasks/0errors、Native43097 10/10含6旧SVG逐字，实际compiler info/fmt/结构/diff通过；尚未四目标/adapter最终验收，producer继续有限paint/provider/facade/tooltip/tests与guide后续commit，不跑全库全套。
+- [x] m4独立准备从正式95a：Native66949 terminal0，8旧SVG+3公开control，actualXML独立oracle最大差1.14e-13、旧targets0。Root已收baseline-review/5文件+8SVG；未来visibleparts9/9/6/6/6/1/3/1尚只是预期。
+  已明确授权m4 exact e475 immutable archive Native/JS独立复审、实际geometry/guards/旧SVG，无Root/生产写/全套/新agent。Quiver不使用Line prepare_line，不虚构provider协议；只验实际source/content/provider边界。
+- [x] Root0.10候选与公开consumer/3组合已部署，info/fmt与Node语法通过。88431 terminal0四目标overlay各3/3：Quiver/Area、Quiver/Stem真实compound身份、Quiver/Hex，两顺序/两mode。
+  26693 terminal0 dirty外部演练：静态四目标+真实Chrome28项/0errors，4次actual integer MouseEvent与请求相同，shaft/双wing各自独立dist<.23px、距其他线>1.36px（radius1）；原tail/u/v、zero洞、负v、输入副本/反轴/clip通过。dirty包不上传。
+  Root29994保存3旧Native SVG，90255新实际各targets9/9/1且三个SVG逐字相同；M9-quiver/consumer-svg-check.json与baseline-consumer-report留证，基线实际source82471d9仅docs异于formal95a。
+- UI双卡草稿已显式授权七文件部署，隔离53444 terminal0/69tasks0errors。首Chrome18129为runner dataset数字连字键错误（segments0应为segments-0），实际frame3/0/3/3及9SVG线、0pageerrors；owner仅修runner后重跑，不改生产hit。尚未计UI验收，guide待producer后续。
+- Root helpers M9-quiver/verify_final/check_docs/check_static/verify_github/release-notes已准备未执行；integrate_consumer.py已执行一次，不可重复部署。
+- M8交付/M9范围f1e3058已push65943 terminal0，定点准备82471d9已push20460 terminal0；最初probe未建workdir的工具拒绝未执行，建目录后29994成功，非生产问题。
+- 精确下一动作：M8实际发布闭环全部完成，交付文档commit/push → 核心e475已合、Root独立消费/组合通过 → 收producer后续commit/四目标与adapter结果 → m4 exact复审+UI实际通过冻结 → 文档/中央验收 → clean0.10实际交付。
+- Root无测试/发布/下载live；唯一有意预览8765/session43005/PID70622。producer补定向/tests/guide，review与UI实际验收进行中，无M8未决blocker。
 
 ## 最新交付：M8 / 0.9.0（2026-10-25）
 

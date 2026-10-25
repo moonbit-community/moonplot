@@ -253,5 +253,6 @@ fn main raise {
   verify_ecdf_consumer()
   verify_discrete_coincident_consumer()
   verify_stem_consumer()
+  verify_vector_consumer()
   println(drawing.svg())
 }

@@ -1,6 +1,6 @@
 # M9：Quiver 向量箭头交互
 
-创建日期：2026-10-25。状态：**已授权独立实现，尚未验收**。目标0.10.0，当前正式版本0.9.0。
+创建日期：2026-10-25。状态：**核心与外部接入演练通过，独立复审与DOM验收中**。目标0.10.0，当前正式版本0.9.0。
 用户要求持续按绘图能力推进；本片复用已有quiver，不增加Barbs/Streamplot、向量长度或一般箭头样式参数。
 
 ## 固定合同
@@ -29,6 +29,9 @@ Root负责合入、公开consumer与组合测试、版本/文档和实际发布�
 
 - [x] 正式0.9源固定；producer定点旧行为packet/6SVG与16源SHA已收，全部与Root一致，实际旧targets0。
 - [x] Root独立公开consumer旧Native3SVG保存通过，实际线段9/9/3和手算shaft坐标相符；此项只验证基线，不是M9命中验收。
-- [ ] producer新实现/精确commit与定向验收。
+- [x] producer首核心e475已合4403974：129task check/Native10项/旧6SVG控制/info/fmt/结构通过。
+- [x] Root实际外部dirty演练静态四目标+Chrome28项/0errors，三组合四目标各3/3；三个自选旧SVG逐字相同。
+- [ ] producer四目标/adapter最终定向、独立复审、DOM专项与中央验收。
 
-Root外部静态/浏览器fixture及部署脚本、UI双卡、reviewer独立oracle均在ignored准备；尚未对新Quiver接口编译。
+UI隔离编译通过，真实Chrome首轮发现runner dataset数字连字键错误，已定位修runner重跑，无生产反例；不将未完成UI标验收。
+Root外部fixture已使用真实新接口通过；所有dirty演练只保留开发记录，不上传。

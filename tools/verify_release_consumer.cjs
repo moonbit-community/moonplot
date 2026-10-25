@@ -33,6 +33,7 @@ async function main() {
   let page;
   let listening = false;
   const checks = [];
+  const vectorEvents = [];
   const errors = [];
   try {
     await new Promise((resolve, reject) => {
@@ -323,6 +324,62 @@ async function main() {
     assert.equal(await page.locator('[data-testid="consumer-stem-tooltip"]').getAttribute('data-source-y'), '3');
     checks.push('Installed negative stems return the original sample index and signed head instead of a rod endpoint index or height');
 
+    async function vectorPart(index) {
+      await page.locator('#release-vector-svg').scrollIntoViewIfNeeded();
+      return page.locator('#release-vector-svg').evaluate((svg, index) => {
+        const lines = [...svg.querySelectorAll('line[stroke="#0f766e"]')];
+        if (lines.length !== 6) throw new Error(`Expected six actual strokes, saw ${lines.length}`);
+        const segments = lines.map(line => {
+          const a = new DOMPoint(Number(line.getAttribute('x1')), Number(line.getAttribute('y1'))).matrixTransform(line.getScreenCTM());
+          const b = new DOMPoint(Number(line.getAttribute('x2')), Number(line.getAttribute('y2'))).matrixTransform(line.getScreenCTM());
+          return [a.x, a.y, b.x, b.y];
+        });
+        const distance = (x, y, s) => {
+          const dx = s[2] - s[0], dy = s[3] - s[1];
+          const t = Math.max(0, Math.min(1, ((x - s[0]) * dx + (y - s[1]) * dy) / (dx * dx + dy * dy)));
+          return Math.hypot(x - s[0] - t * dx, y - s[1] - t * dy);
+        };
+        const chosen = segments[index];
+        const candidates = [];
+        for (let x = Math.floor(Math.min(chosen[0], chosen[2])); x <= Math.ceil(Math.max(chosen[0], chosen[2])); x++) {
+          for (let y = Math.floor(Math.min(chosen[1], chosen[3])); y <= Math.ceil(Math.max(chosen[1], chosen[3])); y++) {
+            const own = distance(x, y, chosen);
+            const others = Math.min(...segments.filter((_, i) => i !== index).map(s => distance(x, y, s)));
+            if (x > 0 && x < innerWidth && y > 0 && y < innerHeight && own < 0.85 && others > 1.2)
+              candidates.push({ x, y, ownDistance: own, otherDistance: others, index });
+          }
+        }
+        candidates.sort((a, b) => a.ownDistance - b.ownDistance || b.otherDistance - a.otherDistance);
+        if (!candidates.length) throw new Error(`No integer event isolates actual vector part ${index}`);
+        svg.addEventListener('mousemove', event => {
+          window.__releaseVectorEvent = { clientX: event.clientX, clientY: event.clientY };
+        }, { once: true });
+        return candidates[0];
+      }, index);
+    }
+    async function checkVectorPart(index, expectedText, expectedX, expectedY, expectedV) {
+      await page.mouse.move(5, 5);
+      await page.waitForFunction(() => !document.querySelector('[data-testid="consumer-vector-tooltip"]'));
+      const p = await vectorPart(index);
+      await page.mouse.move(p.x, p.y);
+      await page.waitForFunction(expected => document.querySelector('[data-testid="consumer-vector-tooltip"]')?.textContent === expected, expectedText);
+      const actualEvent = await page.evaluate(() => window.__releaseVectorEvent);
+      assert.deepEqual(actualEvent, { clientX: p.x, clientY: p.y });
+      const tip = page.locator('[data-testid="consumer-vector-tooltip"]');
+      assert.equal(await tip.getAttribute('data-quiver'), 'true');
+      assert.equal(await tip.getAttribute('data-source-x'), String(expectedX));
+      assert.equal(await tip.getAttribute('data-source-y'), String(expectedY));
+      assert.equal(await tip.getAttribute('data-value'), String(expectedV));
+      vectorEvents.push({ ...p, actualEvent, expectedText });
+    }
+    await checkVectorPart(0, 'Vector 0: U=3; V=3', 1, 1, 3);
+    checks.push('Installed quiver shaft exposes original X/Y/U/V after update through a public custom tooltip');
+    await checkVectorPart(1, 'Vector 0: U=3; V=3', 1, 1, 3);
+    await checkVectorPart(2, 'Vector 0: U=3; V=3', 1, 1, 3);
+    checks.push('Each installed arrow wing independently triggers from its actual stroke at a verified integer MouseEvent');
+    await checkVectorPart(3, 'Vector 2: U=-2; V=-4', 6, 6, -4);
+    checks.push('Installed negative quiver components retain the original input index after a zero-vector gap and value means V');
+
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);
@@ -335,7 +392,7 @@ async function main() {
     await page.setViewportSize({ width: 1100, height: 850 });
     await page.screenshot({ path: path.join(output, 'consumer.png'), fullPage: true });
     assert.deepEqual(errors, []);
-    const report = { bundle: root, browser: browser.version(), checks, pageErrors: errors };
+    const report = { bundle: root, browser: browser.version(), checks, vectorEvents, pageErrors: errors };
     await fs.writeFile(path.join(output, 'report.json'), JSON.stringify(report, null, 2) + '\n');
     console.log(JSON.stringify(report, null, 2));
   } catch (error) {
