@@ -17,7 +17,7 @@
 - [ ] 同次实际三线段捕获；共享源表与逐样本O(1)回调，无逐箭全量复制/扫描。
 - [ ] 独立旧SVG、原u/v与负值、反轴、非线性、clip、zero与normoverflow有限分量案例。
 - [ ] 普通Line/Scatter/其他图层、同色多call、输入副本/旧Drawing、实际paint/clip与component身份不倒退。
-- [ ] 可运行DOM示例，真实shaft/wing触发默认/自定义提示，独立显隐、更新/重挂载、CSS/letterbox与375px。
+- [x] 可运行DOM示例，真实shaft/wing触发默认/自定义提示，独立显隐、更新/重挂载、CSS/letterbox与375px。
 - [ ] 中央接口/fmt/结构、必要四目标与既有浏览器回归；独立公开consumer/实际几何复审。
 - [ ] clean正式包、实际Mooncakes全新安装、四目标静态/浏览器消费与GitHub四附件完整下载。
 
@@ -35,3 +35,7 @@ Root负责合入、公开consumer与组合测试、版本/文档和实际发布�
 
 UI隔离编译通过，真实Chrome首轮发现runner dataset数字连字键错误，已定位修runner重跑，无生产反例；不将未完成UI标验收。
 Root外部fixture已使用真实新接口通过；所有dirty演练只保留开发记录，不上传。
+
+双卡七文件已冻结：隔离53444/info91925、真实Chrome91091 terminal0，12/12、0pageerrors。
+24次实际shaft/wing MouseEvent距对应真实Segment最大1.1154CSSpx（radius2）；open-head空白点离全部9线4.4868px，实际nohit。
+Root已目视真实desktop PNG1280×1015/75274bytes与手机结果，七SHA匹配final-evidence。初两轮仅runner dataset键与临时zoom被卡裁切，已保留失败证据并修正，无生产政策改动。

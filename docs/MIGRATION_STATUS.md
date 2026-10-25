@@ -26,9 +26,11 @@
 - [x] Root0.10候选与公开consumer/3组合已部署，info/fmt与Node语法通过。88431 terminal0四目标overlay各3/3：Quiver/Area、Quiver/Stem真实compound身份、Quiver/Hex，两顺序/两mode。
   26693 terminal0 dirty外部演练：静态四目标+真实Chrome28项/0errors，4次actual integer MouseEvent与请求相同，shaft/双wing各自独立dist<.23px、距其他线>1.36px（radius1）；原tail/u/v、zero洞、负v、输入副本/反轴/clip通过。dirty包不上传。
   Root29994保存3旧Native SVG，90255新实际各targets9/9/1且三个SVG逐字相同；M9-quiver/consumer-svg-check.json与baseline-consumer-report留证，基线实际source82471d9仅docs异于formal95a。
-- UI双卡草稿已显式授权七文件部署，隔离53444 terminal0/69tasks0errors。首Chrome18129为runner dataset数字连字键错误（segments0应为segments-0），实际frame3/0/3/3及9SVG线、0pageerrors；owner仅修runner后重跑，不改生产hit。尚未计UI验收，guide待producer后续。
+- UI七文件已freeze，隔离53444/info91925与真实Chrome91091 terminal0，12/12/0pageerrors；24实际shaft/wing事件最大距1.1154CSSpx（radius2），open head空白点到9线clearance4.4868px实际nohit。
+  Root已目视真实desktop/mobile并逐一核七SHA，asset1280×1015/75274bytes/SHA9bab68fb64b8bfc66c3eac9c586efad7cebc1844ab25fa53fbe146f7278e1b01；实际JS4509800bytes/SHA9fb452af149cda424cf7c472bf18c50bd8cfa8b4f755129df0bbe0a421b09c9c。
+  初Chrome18129/65682分别runner dataset数字连字键、临时zoom头部被卡裁切，已只修runner并保留失败证据；main从草稿部署未改，未扩大生产epsilon。证据M9-quiver/browser-final/final-evidence与draft/FINAL_HANDOFF，无UI live。
 - Root helpers M9-quiver/verify_final/check_docs/check_static/verify_github/release-notes已准备未执行；integrate_consumer.py已执行一次，不可重复部署。
-- M8交付/M9范围f1e3058已push65943 terminal0，定点准备82471d9已push20460 terminal0；最初probe未建workdir的工具拒绝未执行，建目录后29994成功，非生产问题。
+- M8交付/M9范围f1e3058已push65943 terminal0，定点准备82471d9已push20460 terminal0，Root消费6dfee94已push82568 terminal0；最初probe未建workdir的工具拒绝未执行，建目录后29994成功，非生产问题。
 - 精确下一动作：M8实际发布闭环全部完成，交付文档commit/push → 核心e475已合、Root独立消费/组合通过 → 收producer后续commit/四目标与adapter结果 → m4 exact复审+UI实际通过冻结 → 文档/中央验收 → clean0.10实际交付。
 - Root无测试/发布/下载live；唯一有意预览8765/session43005/PID70622。producer补定向/tests/guide，review与UI实际验收进行中，无M8未决blocker。
 
