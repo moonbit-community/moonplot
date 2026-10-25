@@ -57,6 +57,9 @@ fn render_with_hits_checked(
   for index, panel in figure.panels() {
     let position = positioned_panel_rect(figure, panel, scales[index])
     positions.push(position)
+    if panel.polar() is Some(_) {
+      continue
+    }
     panel
     .x_axis()
     .set_tick_layout(position.2, true, active=true, origin=position.0)
@@ -72,6 +75,9 @@ fn render_with_hits_checked(
     panel.y_axis().set_tick_view(scales[index].ymin, scales[index].ymax)
   }
   for index, panel in figure.panels() {
+    if panel.polar() is Some(_) {
+      continue
+    }
     let (left, top, width, height) = positions[index]
     for (_, _, axis, _) in ordered_secondary_axes(panel) {
       if !axis.positioned_aspect(left, top, width, height) {

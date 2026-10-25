@@ -161,6 +161,10 @@ pub using @core {type MaskedMatrix}
 
 pub using @core {type Point}
 
+pub using @scene {type PolarAxes}
+
+pub using @scene {type PolarDirection}
+
 pub using @gridspec {type Rect}
 
 pub using @colors {type Rgb}

@@ -13,6 +13,7 @@ import {
   "Lampese/mathplotlib/ticker/date",
   "Lampese/mathplotlib/ticker/scale",
   "Lampese/mathplotlib/transforms",
+  "moonbitlang/core/debug",
   "moonbitlang/core/ref",
 }
 
@@ -428,6 +429,7 @@ pub struct Figure {
 }
 pub fn Figure::acorr(Self, Array[Double], normed? : Bool, usevlines? : Bool, maxlags? : Int, color? : String, label? : String, detrend? : (Array[Double]) -> Array[Double]) -> Correlation raise @core.DataError
 pub fn Figure::add_axes(Self, Double, Double, Double, Double) -> Axes raise @gridspec.LayoutError
+pub fn Figure::add_polar_axes(Self, Double, Double, Double, Double) -> PolarAxes raise @gridspec.LayoutError
 pub fn Figure::add_subfigure(Self, @gridspec.SubplotSpec) -> SubFigure
 pub fn Figure::add_subplot(Self, @gridspec.SubplotSpec) -> Axes
 pub fn Figure::annotate(Self, String, Double, Double, offset_x? : Double, offset_y? : Double, arrow? : Bool, color? : String, arrowcolor? : String, linewidth? : Double, head_length? : Double, head_width? : Double, fontsize? : Int, xycoords? : String, textcoords? : String, connector? : String) -> Unit raise @core.DataError
@@ -771,6 +773,32 @@ pub struct PathCollection {
 pub fn PathCollection::length(Self) -> Int
 pub fn PathCollection::points(Self) -> Array[@core.Point]
 pub fn PathCollection::styles(Self) -> Array[@core.Style]
+
+pub struct PolarAxes {
+  // private fields
+}
+pub fn PolarAxes::clear(Self) -> Unit
+pub fn PolarAxes::legend(Self, Array[LegendEntry]) -> Unit
+pub fn PolarAxes::legend_entries(Self) -> Array[LegendEntry]
+pub fn PolarAxes::plot(Self, Array[Double], Array[Double], closed? : Bool, color? : String, linewidth? : Double, label? : String) -> Unit raise @core.DataError
+pub fn PolarAxes::radar(Self, Array[Double], Array[String], color? : String, linewidth? : Double, label? : String) -> Unit raise @core.DataError
+pub fn PolarAxes::scatter(Self, Array[Double], Array[Double], color? : String, size? : Double, label? : String) -> Unit raise @core.DataError
+pub fn PolarAxes::set_direction(Self, PolarDirection) -> Unit
+pub fn PolarAxes::set_legend(Self, Array[LegendEntry]) -> Unit
+pub fn PolarAxes::set_legend_position(Self, @core.LegendPosition) -> Unit
+pub fn PolarAxes::set_radius_max(Self, Double) -> Unit raise @core.DataError
+pub fn PolarAxes::set_radius_ticks(Self, Array[Double], labels? : Array[String]) -> Unit raise @core.DataError
+pub fn PolarAxes::set_theta_offset(Self, Double) -> Unit raise @core.DataError
+pub fn PolarAxes::set_theta_ticks(Self, Array[Double], labels? : Array[String]) -> Unit raise @core.DataError
+pub fn PolarAxes::set_title(Self, String) -> Unit
+
+pub(all) enum PolarDirection {
+  CounterClockwise
+  Clockwise
+} derive(Eq, @debug.Debug)
+pub fn PolarDirection::equal(Self, Self) -> Bool
+pub fn PolarDirection::not_equal(Self, Self) -> Bool
+pub fn PolarDirection::to_repr(Self) -> @debug.Repr
 
 pub struct SecondaryAxis {
   mut label : String?

@@ -361,7 +361,7 @@ fn Figure::to_render_figure(
     // A later clear/new attachment must not redirect an old IR completion.
     let lines = state.line_originals.copy()
     let discrete_sources = []
-    if capture_points {
+    if capture_points && state.polar is None {
       for record_index, record in state.artist_hits {
         if record.streamplot is Some(source) {
           source.cursor.val = record_index + 1
@@ -381,7 +381,7 @@ fn Figure::to_render_figure(
       }
     }
     let artists = Array(capacity=state.artists.length())
-    let hit_metadata = if capture_points {
+    let hit_metadata = if capture_points && state.polar is None {
       let cursor = @ref.Ref(0)
       let result = Array(capacity=state.artists.length())
       for index, artist in state.artists {
@@ -438,6 +438,7 @@ fn Figure::to_render_figure(
         secondary_y,
         legend_position=state.legend_position,
         hit_metadata~,
+        polar=state.polar_projection(),
         show_x_tick_labels=state.show_x_tick_labels,
         show_y_tick_labels=state.show_y_tick_labels,
         frame_visible=state.frame_visible,

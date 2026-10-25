@@ -2,6 +2,7 @@
 /// Mutable state owned by one independent axes panel.
 struct AxesData {
   artists : Array[Artist]
+  mut polar : PolarState?
   line_originals : Array[Line2D]
   artist_hits : Array[ArtistHitData]
   barb_intents : Map[Int32, BarbIntent]
@@ -77,6 +78,10 @@ fn AxesData::clear_presentation(self : AxesData) -> Unit {
     line.clear_attachment()
   }
   self.artists.clear()
+  if self.polar is Some(polar) {
+    polar.closed.clear()
+    polar.radar_labels = None
+  }
   self.artist_hits.clear()
   self.barb_intents.clear()
   self.contour_intents.clear()
@@ -149,6 +154,9 @@ fn Axes::push_artist(self : Axes, artist : Artist) -> Unit {
     tricolor: None,
     streamplot: None,
   })
+  if self.state.val.polar is Some(_) {
+    return
+  }
   self.update_artist_data_limits(artist)
   match artist {
     Artist::Text(_, _, _, _) | Artist::Annotation(_) | Artist::Table(_) => ()
@@ -200,6 +208,7 @@ fn new_axes_state(
 ) -> @ref.Ref[AxesData] {
   @ref.new({
     artists: [],
+    polar: None,
     line_originals: [],
     artist_hits: [],
     barb_intents: Map([]),

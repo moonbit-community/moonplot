@@ -185,16 +185,22 @@ fn Axes::resolve_aspect_view(
 ///|
 fn Figure::apply_position_aspects(self : Figure) -> Unit raise @core.DataError {
   if !self.axes.any(state => {
-      state.val.box_aspect is Some(_) ||
-      (state.val.adjustable == "datalim" && state.val.data_aspect is Some(_))
+      state.val.polar is None &&
+      (
+        state.val.box_aspect is Some(_) ||
+        (state.val.adjustable == "datalim" && state.val.data_aspect is Some(_))
+      )
     }) {
     return
   }
   let figure = self.to_render_figure()
   let views = []
   for index, state in self.axes {
-    if state.val.box_aspect is Some(_) ||
-      (state.val.adjustable == "datalim" && state.val.data_aspect is Some(_)) {
+    if state.val.polar is None &&
+      (
+        state.val.box_aspect is Some(_) ||
+        (state.val.adjustable == "datalim" && state.val.data_aspect is Some(_))
+      ) {
       let view = @svg.panel_view(figure, index).unwrap()
       views.push(({ figure: self, state, }, view))
     }

@@ -11,6 +11,9 @@ fn has_shared_axis(
     target.share_y_group()
   }
   for other, panel in figure.panels() {
+    if panel.polar() is Some(_) {
+      continue
+    }
     if other == index {
       continue
     }
@@ -45,6 +48,10 @@ fn resolve_panel_scale(
   index : Int32,
 ) -> Scale raise @core.DataError {
   let panel = figure.panels()[index]
+  if panel.polar() is Some(_) {
+    validate_polar_panel(panel)
+    return polar_display_scale()
+  }
   if panel.adjustable() != "box" && panel.adjustable() != "datalim" {
     raise @core.DataError::InvalidReference(
       message="adjustable must be box or datalim",

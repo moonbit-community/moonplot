@@ -38,6 +38,7 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
   }
   let default_axes = @ref.new({
     artists: [],
+    polar: None,
     line_originals: [],
     artist_hits: [],
     barb_intents: Map([]),

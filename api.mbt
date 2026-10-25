@@ -61,6 +61,8 @@ pub using @colors {type Rgb, type Rgba, rgb, rgba}
 pub using @scene {
   type Artist,
   type Axes,
+  type PolarAxes,
+  type PolarDirection,
   type Figure,
   type Line2D,
   type LineData,

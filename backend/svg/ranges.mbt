@@ -340,6 +340,9 @@ fn same_group(
 // explicitly bound providers, including failures, remain authoritative.
 fn bind_render_data_minima(figure : @render.Figure) -> Unit {
   for index, panel in figure.panels() {
+    if panel.polar() is Some(_) {
+      continue
+    }
     for horizontal in [true, false] {
       let axis = if horizontal { panel.x_axis() } else { panel.y_axis() }
       axis.bind_render_autoscale_minpos(() => {
@@ -350,6 +353,9 @@ fn bind_render_data_minima(figure : @render.Figure) -> Unit {
         }
         let values : Array[Double] = []
         for other_index, other in figure.panels() {
+          if other.polar() is Some(_) {
+            continue
+          }
           let group = if horizontal {
             other.share_x_group()
           } else {
@@ -382,6 +388,9 @@ fn bind_render_data_minima(figure : @render.Figure) -> Unit {
           }
           let values : Array[Double] = []
           for other_index, other in figure.panels() {
+            if other.polar() is Some(_) {
+              continue
+            }
             let group = if horizontal {
               other.share_x_group()
             } else {
@@ -417,6 +426,9 @@ fn ir_group_axes(
   }
   let result : Array[@axis.Axis] = []
   for index, panel in figure.panels() {
+    if panel.polar() is Some(_) {
+      continue
+    }
     let group = if horizontal {
       panel.share_x_group()
     } else {
@@ -443,6 +455,9 @@ fn ir_group_data_endpoints(
   }
   let result : Array[Double] = []
   for index, panel in figure.panels() {
+    if panel.polar() is Some(_) {
+      continue
+    }
     let group = if horizontal {
       panel.share_x_group()
     } else {

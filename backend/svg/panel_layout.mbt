@@ -103,6 +103,9 @@ fn positioned_panel_rect(
   panel : @render.Panel,
   scale : Scale,
 ) -> (Double, Double, Double, Double) {
+  if panel.polar() is Some(_) {
+    return polar_panel_rect(figure, panel)
+  }
   let (raw_left, raw_top, raw_width, raw_height) = panel_rect(figure, panel)
   if panel.adjustable() == "datalim" {
     return box_aspect_panel_rect(figure, panel)

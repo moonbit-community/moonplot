@@ -903,6 +903,7 @@ pub struct Panel {
   rect : @gridspec.Rect?
   artists : Array[Artist]
   hit_metadata : Array[HitMetadata]
+  polar : PolarProjection?
   line_provider : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)?
   title : String?
   legend : Array[LegendEntry]
@@ -948,6 +949,7 @@ pub fn panel(
   box_aspect? : Double,
   line_provider~ : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)? = None,
   legend_position~ : LegendPosition = UpperRight,
+  polar~ : PolarProjection? = None,
 ) -> Panel {
   panel_with_sharing(
     rect,
@@ -968,6 +970,7 @@ pub fn panel(
     box_aspect?,
     line_provider~,
     legend_position~,
+    polar~,
   )
 }
 
@@ -1002,11 +1005,13 @@ pub fn panel_with_sharing(
   line_provider~ : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)? = None,
   legend_position~ : LegendPosition = UpperRight,
   hit_metadata~ : Array[HitMetadata] = [],
+  polar~ : PolarProjection? = None,
 ) -> Panel {
   {
     rect,
     artists,
     hit_metadata: hit_metadata.copy(),
+    polar,
     line_provider,
     title,
     legend,
