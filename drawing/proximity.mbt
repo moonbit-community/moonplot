@@ -40,7 +40,7 @@ fn Drawing::statistical_overlay_hit(
 ) -> HitPoint? {
   let mut best : HitPoint? = None
   let mut best_distance = radius
-  let eligible_errors : Map[(Int32, Int32), Bool] = {}
+  let eligible_errors : Map[(Int32, Int32), Bool] = Map([])
   for index in (area_index + 1)..<self.targets.length() {
     let target = self.targets[index]
     let point = target.info.point
