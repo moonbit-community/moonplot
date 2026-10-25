@@ -9,7 +9,7 @@
 - 已授权合理复用、独立subagents、coherent verified commits/push到moonbit-community/moonplot、实际Mooncakes Lampese/统一单module。
 - root facade api.mbt；consumer tests/api；global tests/integration；implementation/own wbtests留own package；维护mbt<2000行，structure必跑。
 
-## 当前切片：M14 Streamplot（专项完成，0.15.0 候选中央验收待跑）
+## 当前切片：M14 Streamplot（中央验收通过，0.15.0 实际交付待做）
 
 - 合同见 `.moonagent/checkpoints/M14-streamplot/active-scope.md` 与[M14](MILESTONE_M14.md)。正式基线0.14源 `1215721c9e63e7036be9580ecd1560e7eabe0be3`。Root与consumer已改0.15.0候选；尚未发布，当前正式仍0.14.0。
 - 既有streamplot/mesh/style-grids只接连续body实际非零Segment，plot内双mode物理命中。Streamplot kind、readonly StreamplotInfo{seed_index原尝试槽,u,v,color_value?}/HitInfo.streamplot/facade；point_index原joined edge、artist_index实际bodyLine、series原call、value恒V。u/v为原有限(a+b)/2处旧bilinear样本，color来自同次旧style原scalar；不换safehalf/反推色值/鼠标处采样/magnitude/原网格观测。默认U/V及真实可选Color value；typedNone安全Value回退。
@@ -21,9 +21,11 @@
 - [x] precise b29独立复审无blocker：public Native44769/JS67353 terminal0，各三例12/12/6、六XML/六同目标旧SVG、240真实物理检查；Scene6+Backend2 Native1521/JS46768各8/8。变量old sampler、seed/style洞、missingmidpoint、alias/crosskind/prepared completion/ordinaryNone、五kind生命周期、反Log/clip/paint/CSS通过。Root22源接口/46proof SHA核copy、两archive原处核SHA、六旧数学块直接同formal121；independent-review/root-production-match.json。
 - [x] UI41e7977精确七files；isolated build63626、info/fmt080f41及最终c87424全0；Chrome首60052/最终93748均14/0errors，最终26整数事件/20callbacks/12geometry/6negative。三位小数仅展示，raw metadata逐值不变；实际PNG56728bytes/SHA36c487d354de33ae74653da8d8292a5511bea524cbbc9e24fe53e27407234e8e已Root目视，ui-root-match.json七SHA相同。Helper误把README symlink当blob的失败保留并修，仅证据helper失败。
 - [x] Rootconsumer b3ddbc5：actual Native65048/JS25542和e85669/Chrome73264全0；51checks/13新流线整数事件/0errors；actualinfo82d8d7/afab8e、fmt dbd96f与两private接口未变。3fixture12/12/6、Setaliases/oldDrawing、更新U1.5/V.25、拒seed0→1/六原edge/rawcolor5+x超norm、openhead静态、双mode空白/CSS375过。首Root算术括号语法718fc8与误cwd后重复c10f84有记录并修harness，无production改动。
-- [ ] 一次中央：prelude actual info/fmt+15JS→唯一moon test --target all→15真实页面/三static SVG/文档链接/structure/diff。脚本verify_final.py/collect_central.py已准备，还没跑；正式clean/发布/public API/fresh registry/GitHub四附件整下载与finalaudit均待做。
-- 精确下一动作：commit候选版本和中央文档、push coherent步骤；跑prelude→唯一full→postlude并检查实际结果/接口，不因验证失败停滞、不无因重复full。之后正式clean源码commit/freeze through网络audit；M13不重跑。
-- Root tracked freeze目前解除；各agent已收bounded，无production/UI修改或live。当前HEAD41e7977加本次候选文档待commit，origin/masterb00fe95；Root无验证/网络live。intentional预览8765/session43005/PID70622仍triangles.html；新streamlines待Root实际build并HTTP逐字核后切换。open_in_codex queued不声称前台，仅connectionrefused才重启。
+- [x] central prelude87978 terminal0：actual info/fmt+15JS全部通过，无额外接口diff。唯一full73204 terminal0/265.69s：Wasm/WG各22631、Native22635、JS22688全部通过。
+- [x] postlude40698 terminal0：15真实页面Chrome190/0errors、三static SVG/52MD576links/structure/diff过，流线JS与PNG同UI实际产物，无额外mbti。22步骤均0，central-summary.json及central-streamlines-artifact.json已保存。仅发布忽略补齐8个科学图开发HTML/CSS，不改build/test输入，故不重复已过full。
+- [ ] 正式clean/发布/public API/fresh registry/GitHub四附件整下载与finalaudit待做。
+- 精确下一动作：commit本次正式验收源码并push；确认gitclean，建立release-live.json冻结此HEAD，跑tools/build_release.py正式clean（不用allowdirty），核archive19production/3interface/guide与八开发页排除、四静态/Chrome51，再实际moon publish/publicchecksum/fresh registry/GitHub四附件整下载/finalaudit。整个网络audit前保持Roottracked/HEAD不变；M13不重跑。
+- Root tracked freeze目前解除；各agent已收bounded，无production/UI修改或live。当前候选6167df5已push89099 terminal0；本次正式验收文档与发布忽略待commit。Root中央全部已终，无验证/网络live。intentional预览8765/session43005/PID70622已核streamlines.html、JS4785354bytes/SHAe2f3c76c1f56a0a4f1f6023bbf551d87c8360481ddddf3ddd5fa08d301b21391及三CSS全200逐字；open_in_codex已queued。open_in_codex queued不声称前台，仅connectionrefused才重启。
 
 ## 最新交付：M13 /0.14.0（2026-10-25）
 

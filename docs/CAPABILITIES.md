@@ -8,7 +8,7 @@ MoonPlot 面向实际绘图需求，先提供可用的小功能，再逐步完�
 [M13](MILESTONE_M13.md)0.14.0已发布Mooncakes与GitHub；600安装源逐一等于正式包，
 四目标静态/Chrome46和GitHub四附件完整下载核验通过。中央W/WG22611、Native22614、
 JS22666及14页面Chrome176/0errors通过，独立Native/JS复审无剩余blocker。
-当前正在[M14](MILESTONE_M14.md)推进连续流线的生成场值提示：首核心、独立 Native/JS 和外部 Chrome51 已通过，中央与发布验收待完成。
+当前正在[M14](MILESTONE_M14.md)推进连续流线的生成场值提示：首核心、独立 Native/JS、外部 Chrome51、中央四目标和15页面Chrome190均已通过；0.15.0实际交付待完成。
 
 **M2 v0.2.0** 补齐多图 SVG 资源隔离和独立接入版本包，详见 [M2 历史记录](MILESTONE_M2.md)。
 当前正式分发为 **`Lampese/mathplotlib@0.14.0`** 单一 module，静态根包与 Rabbita 子包一起安装；
@@ -40,7 +40,7 @@ JS22666及14页面Chrome176/0errors通过，独立Native/JS复审无剩余blocke
 | 线等值线 | regular contour与tricontour精确level/series | 实际生成边Segment，原path槽、inline双片、clip前数据中点与可见屏幕中点；两mode物理命中，见[M11](MILESTONE_M11.md)，已正式交付 |
 | 填色等值区 | contourf与tricontourf完整band region | 实际nonzero/evenodd多环保持孔洞和分岛空白，有限区间/代表值与原逻辑band槽；M12已实际交付0.13.0，见[专项指南](CONTOURF_INTERACTION.md) |
 | 三角面着色 | tripcolor/direct/wrapper逐面值或顶点均值 | 原面槽、实际有序顶点和均值标志；mask空白/物理填面，两mode不跨空角。M13已交付0.14.0，见[指南](TRIPCOLOR_INTERACTION.md) |
-| 连续流线 | streamplot / mesh / style-grid 的生成场值提示 | 原 seed/edge、边中点 U/V 与可选原颜色标量；实际非零线身物理命中，箭头静态。0.15.0 候选专项已通过，见[指南](STREAMPLOT_INTERACTION.md) |
+| 连续流线 | streamplot / mesh / style-grid 的生成场值提示 | 原 seed/edge、边中点 U/V 与可选原颜色标量；实际非零线身物理命中，箭头静态。0.15.0 候选专项和中央已通过，见[指南](STREAMPLOT_INTERACTION.md) |
 | 图像与网格 | 标量图、RGB(A) 图像、热图、颜色映射和归一化 | 包含掩码、图像方向及部分插值路径 |
 | 科学绘图 | 误差线、填充区域、等值线、三角网格、向量场、流线 | 已有专项实现，复杂组合仍需按场景确认 |
 | 坐标轴 | 数值范围、刻度与格式器、线性及多种非线性尺度 | 包含显式设置和自动计算路径 |

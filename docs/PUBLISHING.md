@@ -2,7 +2,7 @@
 
 当前候选为 **`Lampese/mathplotlib@0.15.0`**：核心绘图与 Rabbita 组件仍是一个 module。
 新增[连续流线的生成场值](STREAMPLOT_INTERACTION.md)，示例为 `rabbita/streamlines.html`。
-候选已完成专项接入验证，中央验收和实际发布尚待执行；当前已交付版本仍为 0.14.0。
+候选已通过专项、中央四目标与 15 页面 Chrome190 验收；实际分发尚待完成，当前已交付版本仍为 0.14.0。
 0.14.0 的公开构建、600 份全新安装源、四目标静态/Chrome46 与 GitHub 四附件已核验。
 
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
@@ -293,4 +293,4 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 新增连续线身的原 seed/edge、有限中点 U/V、同次样式原颜色标量及默认/自定义提示。
 箭头仍静态，无法证明的样本和 prepared Line 不生成推测数据。
 外部 consumer 已通过 Native/JS、真实 Chrome51（13 次流线整数事件、0 页面错误），
-实际 info/fmt 与两个 private 接口核对通过。中央全套、clean 包和实际分发待完成。
+实际 info/fmt 与两个 private 接口核对通过。中央 prelude87978、唯一 full73204（265.69s）、postlude40698 全部通过：Wasm/Wasm-GC22631、Native22635、JS22688；15 页面 Chrome190/0errors，三静态 SVG、52 文档576本地链接、结构与差异检查通过，无额外接口变化。clean 包和实际分发待完成。

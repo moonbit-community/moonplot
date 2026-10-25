@@ -137,4 +137,4 @@ violin真实密度体与统计线。两者复用既有统计和绘制，不在�
 ## M14：连续流线的生成场值
 
 [M14](MILESTONE_M14.md)复用streamplot/mesh/style-grids，接续实际body线段、原seed尝试槽与生成edge，显示原有限中点的双线性U/V及同次style颜色标量。保旧积分/样式/返回Set/1Container和SVG；箭头首片保静态。
-目标0.15.0，正式基线0.14源1215721c9e63e7036be9580ecd1560e7eabe0be3。核心与 owning tests/指南已审合；精确旧 Native/JS baseline、独立新语义复审和外部 Chrome51 已通过。中央全套与实际发布待完成，不计为已发布能力。
+目标0.15.0，正式基线0.14源1215721c9e63e7036be9580ecd1560e7eabe0be3。核心与 owning tests/指南已审合；精确旧 Native/JS baseline、独立新语义复审和外部 Chrome51 已通过。中央四目标全套与15页面Chrome190已通过；clean包和实际发布待完成，不计为已发布能力。
