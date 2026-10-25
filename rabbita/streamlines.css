@@ -1,0 +1,18 @@
+.chart-heading { min-height: 86px; }
+.chart-unit { white-space: nowrap; }
+.chart-options { display: flex; flex-wrap: wrap; align-items: center; gap: 2px; min-height: 40px; padding: 0 18px; }
+.chart-options .button { min-height: 30px; padding: 4px 7px; font-size: 10px; }
+.chart-card .moonplot-legend { min-height: 40px; }
+.chart-footer { min-height: 49px; }
+.stream-reading { display: flex; flex-direction: column; gap: 4px; }
+.stream-reading > b { color: #244d55; font-size: 12px; font-weight: 600; }
+.stream-reading .moonplot-coordinate-label { font-size: 11px; }
+.stream-reading .moonplot-coordinate b { font-size: 12px; }
+.stream-tooltip { --moonplot-tooltip-background: #fbfdfd; }
+#streamlines-unmounted { display: grid; place-content: center; min-height: 360px; border: 1px dashed #d5dde3; border-radius: 12px; color: #697784; }
+#streamlines-error { padding: 20px; border-radius: 8px; background: #fff0ef; color: #9b3c3c; }
+@media (max-width: 480px) {
+  .chart-options { padding: 0 12px; }
+  .chart-options .button { flex: none; }
+  .stream-reading .moonplot-coordinate { gap: 5px; }
+}
