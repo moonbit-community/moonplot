@@ -3,8 +3,8 @@
 `Figure::add_polar_axes(left, bottom, width, height)` creates a typed
 `PolarAxes` at a normalized Figure rectangle, using the same lower-left layout
 coordinates as `add_axes`. Polar and ordinary panels can share a Figure.
-This first slice produces static SVG and composable Rabbita DOM. Polar panels
-currently provide no hover targets or tooltips.
+Polar panels produce SVG and composable Rabbita DOM, with hover and click
+metadata for eligible original samples.
 
 ```mbt
 let figure = @plot.figure(width=460, height=300)
@@ -79,14 +79,57 @@ polar.radar([60.0, 85.0, 65.0, 95.0, 75.0],
 sets an explicitly empty in-SVG legend when an application supplies its own DOM
 controls. Data is clipped independently of the grid, labels, title and legend.
 
+## Original sample interaction
+
+`to_drawing()` captures `HitKind::Polar` point targets. `HitInfo.point.data_x`
+is the original angle in radians, `point.data_y` and `value` are the original
+radius, and the panel, artist and point indices identify the original source
+slot. They never describe projected Cartesian coordinates or a value inferred
+from the mouse position. The series name is retained from the plotting call.
+For radar, `category` is the original category for that call and source slot;
+changing ticks or legend presentation does not relabel earlier observations.
+The default Rabbita tooltip shows **Theta (rad)**, **Radius** and, when present,
+**Category**. A custom formatter receives the same immutable metadata.
+
+Both `Nearest` and `XNearest` use physical point distance for polar targets.
+There is no chord interpolation, screen-X fallback or angle snapping. A sample
+must be an endpoint of an actual nonzero painted chord or a visible positive-size
+marker. Singleton and entirely coincident lines, zero-width/invisible strokes,
+zero-size markers and missing samples do not create targets. A closing chord
+can qualify the original first point, while the appended closing vertex never
+creates another identity. Coincident eligible points retain the existing stable
+point tie order; each remains in the frame's target list.
+
+The original radius must be within `[0, rmax]` and its projected center must be
+inside the same circular data clip. Radius zero retains its original angle.
+An outside-center marker or chord may be partly visible after clipping without
+creating a new observation inside the circle. Source indices retain holes.
+`Drawing::polar_circle(panel_index)` returns a copied scalar `(cx, cy, radius)`
+for that frame, or `None` when absent or invalid. Each candidate is admitted by
+its own panel's circle, so a circle corner cannot select polar data even with a
+large hover radius, and it does not block a different polar or ordinary panel.
+A small binary64 projection-roundoff allowance preserves exact boundary anchors;
+it is independent of the caller's hover radius and CSS scale.
+
+`hit_test_client` uses CSS-pixel radius with the documented uniform meet mapping;
+its rectangle is the actual SVG content viewport. `hit_test` uses intrinsic SVG
+coordinates. The raw angle, radius and category remain unchanged in either path.
+The drawing factory's optional `polar_circles` records are copied into the frame;
+invalid or conflicting records fail closed for their panel. A manually constructed
+Polar target without a valid circle also fails closed. Existing drawings without
+circle records preserve their ordinary point behavior.
+
 ## Lifecycle and scope
 
 Input arrays, tick settings and labels are copied. Ordinary artist inspection
 through `figure.axes_list()[index].artists()` returns independent copies with
 raw theta/r points. Projection happens at render time, so changing the radial
 maximum or direction affects every series consistently. A previously built
-Drawing retains its immutable SVG. Per-frame projection and grid work are
-O(samples + ticks); the original source never grows for outline closure.
+Drawing retains its immutable SVG, circle and sample metadata. Source snapshots
+and per-artist validation, projection and capture take O(samples + series), with
+grid work O(ticks); outline closure never grows the original source. The same-draw
+writer callbacks establish eligibility without repeated source copies per point.
+Unproven or invalidated source identity/content stays static.
 
 `PolarAxes::clear()` removes series, title and legend while keeping the polar
 projection and its range/direction/tick configuration. Public `Figure::clear()`
@@ -102,9 +145,10 @@ mutable Line2D conversion method on `PolarAxes`.
 
 This slice covers a full circle with radial minimum zero. It does not add
 logarithmic or reversed radii, nonzero inner radii, angular wedges, filled radar,
-arbitrary artist projection or polar semantic hits. `to_drawing()` and ordinary
-SVG share the exact draw, while the polar branch captures no legacy Cartesian
-points or targets. Ordinary panels keep their existing interaction.
+arbitrary artist projection, interpolated polar observations or whole-disk
+selection. `to_drawing()` and ordinary SVG share the exact draw, while polar
+targets retain their original polar semantics. Ordinary panels keep their
+existing interaction.
 
 [Capabilities](CAPABILITIES.md) · [Architecture](ARCHITECTURE.md) ·
 [Rabbita DOM](RABBITA_DOM.md)

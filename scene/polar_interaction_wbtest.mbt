@@ -71,7 +71,7 @@ test "polar exact outer sample at noncardinal angle remains selectable under the
   p.scatter([@math.PI / 6.0], [1.0], label="Boundary")
   let frame = fig.to_drawing()
   println(
-    "POLAR_BOUNDARY targets=\{frame.targets().length()} circle=\{frame.polar_circle(0).unwrap()}",
+    "POLAR_BOUNDARY targets=\{frame.targets().length()} circle=\{@debug.Repr(frame.polar_circle(0).unwrap())}",
   )
   assert_eq(frame.targets().length(), 1)
   let point = frame.targets()[0].info.point
