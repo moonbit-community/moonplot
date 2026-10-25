@@ -46,7 +46,12 @@ test "quiver capture follows actual stroke attributes and after-write shaft wing
     ] {
     let writer = @xml.Writer::new()
     writer.start_element("svg", [])
-    let hits : DrawingCapture = { points: [], targets: [], exclusions: [], }
+    let hits : DrawingCapture = {
+      points: [],
+      targets: [],
+      exclusions: [],
+      polar_circles: [],
+    }
     append_quiver(
       writer,
       scale,

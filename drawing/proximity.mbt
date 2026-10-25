@@ -54,7 +54,7 @@ fn Drawing::statistical_overlay_hit(
         target.info.kind != Violin &&
         !discrete_kind(target.info.kind)
       ) ||
-      self.excluded(point.panel_index, x, y) ||
+      self.excluded(point.panel_index, x, y, polar=target.info.kind == Polar) ||
       !valid_info(target.info) ||
       !valid_shape(target.shape) ||
       !rect_contains(target.bounds, x, y) {
@@ -91,7 +91,7 @@ fn Drawing::statistical_overlay_hit(
     if target.info.kind != ErrorBar ||
       target.shape != Point ||
       eligible_errors.get((point.panel_index, point.artist_index)) is None ||
-      self.excluded(point.panel_index, x, y) ||
+      self.excluded(point.panel_index, x, y, polar=target.info.kind == Polar) ||
       !valid_info(target.info) ||
       !rect_contains(target.bounds, x, y) ||
       !rect_contains(target.bounds, point.screen_x, point.screen_y) {

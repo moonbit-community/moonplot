@@ -11,6 +11,7 @@ pub struct PolarProjection {
   priv radius_labels : Array[String]
   priv closed : Array[Bool]
   priv cartesian_compatible : Bool
+  priv hit_data : Array[PolarHitData]
 }
 
 ///|
@@ -24,6 +25,7 @@ pub fn polar_projection(
   radius_labels : Array[String],
   closed : Array[Bool],
   cartesian_compatible~ : Bool = true,
+  hit_data~ : Array[PolarHitData] = [],
 ) -> PolarProjection {
   {
     radius_max,
@@ -35,6 +37,7 @@ pub fn polar_projection(
     radius_labels: radius_labels.copy(),
     closed: closed.copy(),
     cartesian_compatible,
+    hit_data: hit_data.copy(),
   }
 }
 
@@ -91,4 +94,12 @@ pub fn Panel::polar(self : Panel) -> PolarProjection? {
 ///|
 pub fn PolarProjection::cartesian_compatible(self : PolarProjection) -> Bool {
   self.cartesian_compatible
+}
+
+///|
+pub fn PolarProjection::hit_data(
+  self : PolarProjection,
+  index : Int32,
+) -> PolarHitData? {
+  self.hit_data.get(index)
 }

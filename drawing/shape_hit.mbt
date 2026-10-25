@@ -141,7 +141,11 @@ fn Drawing::excluded(
   panel_index : Int32,
   x : Double,
   y : Double,
+  polar~ : Bool = false,
 ) -> Bool {
+  if !self.polar_admits(panel_index, x, y, polar) {
+    return true
+  }
   for (panel, rectangle) in self.exclusions {
     if panel == panel_index && rect_contains(rectangle, x, y) {
       return true
@@ -269,7 +273,12 @@ fn Drawing::target_hit(
   for index = self.targets.length() - 1; index >= 0; index = index - 1 {
     let target = self.targets[index]
     if valid_info(target.info) &&
-      !self.excluded(target.info.point.panel_index, x, y) &&
+      !self.excluded(
+        target.info.point.panel_index,
+        x,
+        y,
+        polar=target.info.kind == Polar,
+      ) &&
       valid_shape(target.shape) &&
       rect_contains(target.bounds, x, y) &&
       shape_contains(target.shape, x, y) {
@@ -284,7 +293,12 @@ fn Drawing::target_hit(
   let mut best_distance = radius
   let mut best_target : HitTarget? = None
   for target in self.targets {
-    if self.excluded(target.info.point.panel_index, x, y) ||
+    if self.excluded(
+        target.info.point.panel_index,
+        x,
+        y,
+        polar=target.info.kind == Polar,
+      ) ||
       (
         mode == XNearest &&
         (target.info.kind == Line || target.info.kind == ErrorBar)
@@ -315,7 +329,12 @@ fn Drawing::target_hit(
   let mut best_dx = 0.0
   let mut best_dy = 0.0
   for target in self.targets {
-    if self.excluded(target.info.point.panel_index, x, y) ||
+    if self.excluded(
+        target.info.point.panel_index,
+        x,
+        y,
+        polar=target.info.kind == Polar,
+      ) ||
       (
         target.info.kind != Line &&
         target.info.kind != ErrorBar &&

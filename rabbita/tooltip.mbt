@@ -42,6 +42,7 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     ContourF => "contourf"
     Tripcolor => "tripcolor"
     Streamplot => "streamplot"
+    Polar => "polar"
   }
 }
 
@@ -53,6 +54,10 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
     rows.push(("Category", category))
   }
   match info.kind {
+    Polar => {
+      rows.push(("Theta (rad)", info.point.data_x.to_string()))
+      rows.push(("Radius", info.value.to_string()))
+    }
     Line | Scatter =>
       if info.category is None {
         rows.push(("x", info.point.data_x.to_string()))

@@ -231,11 +231,16 @@ fn append_polar_panel(
   config : @render.PolarProjection,
   panel_index : Int32,
   position : (Double, Double, Double, Double),
+  capture~ : DrawingCapture? = None,
 ) -> Unit raise @core.DataError {
   let (left, top, width, height) = position
   let cx = left + width / 2.0
   let cy = top + height / 2.0
   let radius = width / 2.0
+  let circle = (cx, cy, radius)
+  if capture is Some(hits) {
+    hits.polar_circles.push((panel_index, circle))
+  }
   let maximum = polar_radius_max(panel, config)
   let (raw_left, raw_top, raw_width, raw_height) = panel_rect(figure, panel)
   if panel.title() is Some(title) {
@@ -319,6 +324,9 @@ fn append_polar_panel(
     for i, artist in panel.artists() {
       match artist {
         @render.Artist::Line(points, style) => {
+          let source = config
+            .hit_data(i)
+            .filter(data => capture is Some(_) && data.matches_points(points))
           let mapped = polar_project_points(
             points,
             config,
@@ -327,14 +335,41 @@ fn append_polar_panel(
             config.closed(i),
           )
           append_line_artist(
-            writer, scale, left, top, width, height, mapped, style,
+            writer,
+            scale,
+            left,
+            top,
+            width,
+            height,
+            mapped,
+            style,
+            on_segment=polar_line_capture(
+              capture, source, style, panel_index, i, position, circle,
+            ),
           )
         }
         @render.Artist::Scatter(points, style) => {
+          let source = config
+            .hit_data(i)
+            .filter(data => {
+              capture is Some(_) && data.matches_points(points, scatter=true)
+            })
           let mapped = polar_project_points(
             points, config, maximum, position, false,
           )
-          append_scatter(writer, scale, left, top, width, height, mapped, style)
+          append_scatter(
+            writer,
+            scale,
+            left,
+            top,
+            width,
+            height,
+            mapped,
+            style,
+            on_circle=polar_marker_capture(
+              capture, source, style, panel_index, i, position, circle,
+            ),
+          )
         }
         _ => () // validate_polar_panel already rejects unsupported input.
       }

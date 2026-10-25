@@ -30,7 +30,12 @@ test "Barbs actual flag paint separates fill and stroke independently of absent 
     ] {
     let writer = @xml.Writer::new()
     writer.start_element("svg", [])
-    let hits : DrawingCapture = { points: [], targets: [], exclusions: [], }
+    let hits : DrawingCapture = {
+      points: [],
+      targets: [],
+      exclusions: [],
+      polar_circles: [],
+    }
     append_polygon(
       writer,
       scale,
@@ -146,7 +151,12 @@ test "Barbs calm full disk follows actual circle fill and radius independently o
     )
     let writer = @xml.Writer::new()
     writer.start_element("svg", [])
-    let hits : DrawingCapture = { points: [], targets: [], exclusions: [], }
+    let hits : DrawingCapture = {
+      points: [],
+      targets: [],
+      exclusions: [],
+      polar_circles: [],
+    }
     append_scatter(
       writer,
       scale,

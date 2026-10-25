@@ -39,7 +39,12 @@ test "stem head capture follows actually written circles and original missing in
       width=0.0,
       line_alpha=Some(0.0),
     )
-    let hits : DrawingCapture = { points: [], targets: [], exclusions: [], }
+    let hits : DrawingCapture = {
+      points: [],
+      targets: [],
+      exclusions: [],
+      polar_circles: [],
+    }
     append_scatter(
       writer,
       scale,

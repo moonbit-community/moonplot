@@ -19,7 +19,8 @@ test "polar typed and public Figure clear preserve projection settings while rem
       (Clockwise, @math.PI / 2.0, Some(100.0)),
     )
     p.plot([0.0, @math.PI / 2.0], [25.0, 50.0])
-    assert_eq(fig.to_drawing().targets().length(), 0)
+    assert_eq(fig.to_drawing().targets().length(), 2)
+    assert_eq(old.targets().length(), 10)
     assert_true(old.svg().contains("Radar"))
     assert_true(!fig.to_svg_checked().contains("Radar"))
   }
@@ -64,11 +65,21 @@ test "mixed Cartesian and polar panels keep old ordinary hit data and independen
   let polar = fig.add_polar_axes(0.5, 0.0, 0.5, 1.0)
   polar.plot([0.0, 1.0, 2.0], [1.0, 2.0, 1.0])
   let now = fig.to_drawing()
-  assert_eq(now.targets(), old.targets())
-  assert_eq(now.points(), old.points())
+  assert_eq(
+    now.targets().filter(t => t.info.point.panel_index == 0),
+    old.targets(),
+  )
+  assert_eq(now.points().filter(p => p.panel_index == 0), old.points())
+  assert_eq(
+    now.targets().filter(t => t.info.point.panel_index == 1).length(),
+    3,
+  )
   assert_eq(now.svg(), fig.to_svg_checked())
   for mode in [@drawing.HitMode::Nearest, XNearest] {
-    assert_eq(now.hit_test(525.0, 150.0, radius=1.0e6, mode~), None)
+    let point = now.hit_test(525.0, 150.0, radius=1.0e6, mode~).unwrap()
+    assert_eq(now.hit_info(point).unwrap().kind, Polar)
+    let (cx, cy, r) = now.polar_circle(1).unwrap()
+    assert_eq(now.hit_test(cx - r, cy - r, radius=1.0e6, mode~), None)
   }
   let second = fig.add_polar_axes(0.75, 0.05, 0.2, 0.25)
   second.scatter([0.0], [1.0])

@@ -47,6 +47,7 @@ pub struct Drawing {
   priv points : Array[HitPoint]
   priv targets : Array[HitTarget]
   priv exclusions : Array[(Int32, (Double, Double, Double, Double))]
+  priv polar_circles : Map[Int32, (Double, Double, Double)?]
 }
 
 ///|
@@ -59,6 +60,7 @@ pub fn drawing(
   points : Array[HitPoint],
   targets~ : Array[HitTarget] = [],
   exclusions~ : Array[(Int32, (Double, Double, Double, Double))] = [],
+  polar_circles~ : Array[(Int32, (Double, Double, Double))] = [],
 ) -> Drawing {
   {
     width,
@@ -67,6 +69,7 @@ pub fn drawing(
     points: points.copy(),
     targets: targets.copy(),
     exclusions: exclusions.copy(),
+    polar_circles: copy_polar_circles(polar_circles),
   }
 }
 

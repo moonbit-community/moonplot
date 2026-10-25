@@ -21,14 +21,15 @@ priv struct PolarState {
   mut radius_ticks : Array[Double]?
   mut radius_labels : Array[String]
   closed : Array[Bool]
+  hit_data : Array[@render.PolarHitData]
   mut radar_labels : Array[String]?
   mut cartesian_grid : Array[(Bool, String, Double, Bool, String, Double)]
   mut cartesian_margins : (Double, Double)
 }
 
 ///|
-/// A static polar panel. Plot helpers keep raw theta/radius and return no
-/// mutable Cartesian Line2D handle. Interaction is deliberately absent.
+/// A polar panel retaining original theta/radius samples independently of its
+/// projected SVG. Plot helpers return no mutable Cartesian Line2D handle.
 pub struct PolarAxes {
   priv axes : Axes
 }
@@ -56,6 +57,7 @@ pub fn Figure::add_polar_axes(
     radius_ticks: None,
     radius_labels: [],
     closed: [],
+    hit_data: [],
     radar_labels: None,
     cartesian_grid: [
       polar_grid_signature(axes.x_axis()),
@@ -86,6 +88,7 @@ fn AxesData::polar_projection(self : AxesData) -> @render.PolarProjection? {
       cartesian_compatible=p.cartesian_grid ==
         [polar_grid_signature(self.x_axis), polar_grid_signature(self.y_axis)] &&
         p.cartesian_margins == (self.x_margin, self.y_margin),
+      hit_data=p.hit_data,
     )
   })
 }
@@ -138,6 +141,7 @@ pub fn PolarAxes::plot(
   let resolved = self.axes.resolve_color(color)
   self.axes.push_artist(Line(points, @core.style(resolved, width=linewidth)))
   self.config().closed.push(closed)
+  self.config().hit_data.push(@render.polar_hit_data(points, label))
   self.axes.add_auto_legend(label, resolved, LegendKind::Line)
 }
 
@@ -158,6 +162,9 @@ pub fn PolarAxes::scatter(
     Scatter(points, @core.style(resolved, width=0.0, radius=size)),
   )
   self.config().closed.push(false)
+  self.config().hit_data.push(
+    @render.polar_hit_data(points, label, scatter=true),
+  )
   self.axes.add_auto_legend(label, resolved, LegendKind::Marker)
 }
 
@@ -196,6 +203,8 @@ pub fn PolarAxes::radar(
     }
   ]
   self.plot(theta, values, closed=true, color~, linewidth~, label~)
+  let last = config.hit_data.length() - 1
+  config.hit_data[last] = config.hit_data[last].with_categories(labels)
   config.radar_labels = Some(labels.copy())
   config.theta_ticks = theta
   config.theta_labels = labels.copy()

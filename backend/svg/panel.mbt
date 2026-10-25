@@ -9,7 +9,15 @@ fn render_panel(
   capture~ : DrawingCapture? = None,
 ) -> Unit raise @core.DataError {
   if panel.polar() is Some(config) {
-    append_polar_panel(writer, figure, panel, config, panel_index, position)
+    append_polar_panel(
+      writer,
+      figure,
+      panel,
+      config,
+      panel_index,
+      position,
+      capture~,
+    )
     return
   }
   let (left, top, plot_width, plot_height) = position

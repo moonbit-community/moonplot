@@ -80,7 +80,12 @@ test "hexbin actual vertex capture excludes incomplete faces and leaves centers 
       ),
     ),
   )
-  let capture : DrawingCapture = { points: [], targets: [], exclusions: [], }
+  let capture : DrawingCapture = {
+    points: [],
+    targets: [],
+    exclusions: [],
+    polar_circles: [],
+  }
   collect_drawing_hexbin(
     capture,
     0,
@@ -116,7 +121,12 @@ test "hexbin actual vertex capture excludes incomplete faces and leaves centers 
         vertices[5],
       ],
     ] {
-    let invalid : DrawingCapture = { points: [], targets: [], exclusions: [], }
+    let invalid : DrawingCapture = {
+      points: [],
+      targets: [],
+      exclusions: [],
+      polar_circles: [],
+    }
     collect_drawing_hexbin(
       invalid,
       0,
@@ -130,7 +140,12 @@ test "hexbin actual vertex capture excludes incomplete faces and leaves centers 
     assert_eq(invalid.targets.length(), 0)
   }
   let outside_scale : Scale = { ..scale, xmin: 2.0, xmax: 3.0, }
-  let outside : DrawingCapture = { points: [], targets: [], exclusions: [], }
+  let outside : DrawingCapture = {
+    points: [],
+    targets: [],
+    exclusions: [],
+    polar_circles: [],
+  }
   collect_drawing_hexbin(
     outside,
     0,

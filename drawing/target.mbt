@@ -24,6 +24,7 @@ pub(all) enum HitKind {
   ContourF
   Tripcolor
   Streamplot
+  Polar
 } derive(Eq, Debug)
 
 ///|

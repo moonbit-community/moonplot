@@ -43,7 +43,9 @@ pub fn panel(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.
 
 pub fn panel_with_sharing(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.Bounds?, @axis.Axis, @axis.Axis, Int?, Int?, Bool, Array[SecondaryAxis], Array[SecondaryAxis], show_x_tick_labels? : Bool, show_y_tick_labels? : Bool, frame_visible? : Bool, x_margin? : Double, y_margin? : Double, spines? : Array[Spine], aspect? : Double, anchor? : (Double, Double), adjustable? : String, box_aspect? : Double, line_provider? : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)?, legend_position? : @core.LegendPosition, hit_metadata? : Array[HitMetadata], polar? : PolarProjection?) -> Panel
 
-pub fn polar_projection(Double?, Double, Bool, Array[Double], Array[String], Array[Double]?, Array[String], Array[Bool], cartesian_compatible? : Bool) -> PolarProjection
+pub fn polar_hit_data(Array[@core.Point], String, scatter? : Bool, categories? : Array[String]?) -> PolarHitData
+
+pub fn polar_projection(Double?, Double, Bool, Array[Double], Array[String], Array[Double]?, Array[String], Array[Bool], cartesian_compatible? : Bool, hit_data? : Array[PolarHitData]) -> PolarProjection
 
 pub fn secondary_axis(SecondaryLocation, (Double) -> Double, (Double) -> Double, String?, Int, Array[Double]?, @ticker.Locator?, @ticker.Formatter?, named_formatter? : @ticker.BaseFormatter?, minor_named_formatter? : @ticker.BaseFormatter?, formatter_provider? : ((Bool) -> @ticker.BaseFormatter?)?, legacy_formatter_provider? : (() -> @ticker.Formatter?)?, null_group_provider? : ((Bool) -> Bool)?, major_formatter_locations_provider? : (() -> @ticker.FormatterLocations raise @core.DataError)?, minor_formatter_locations_provider? : (() -> @ticker.FormatterLocations raise @core.DataError)?, tick_label_size? : Double, minor_locator? : @ticker.MinorLocator?, minor_ticks_provider? : (() -> Array[Double] raise @core.DataError)?, synchronize_view_provider? : (() -> Unit raise @core.DataError)?, prepare_draw_provider? : (() -> Unit raise @core.DataError)?, positioned_aspect_provider? : ((Double, Double, Double, Double) -> Unit raise @core.DataError)?, drawing_context_provider? : (() -> SecondaryDrawingContext)?, placement_provider? : (() -> SecondaryPlacement)?, locator_provider? : (() -> @ticker.Locator?)?, minor_locator_provider? : (() -> @ticker.MinorLocator?)?, fixed_ticks_provider? : (() -> Array[Double]?)?, formatter_view_provider? : (() -> (Double, Double))?, draw_order? : Int?) -> SecondaryAxis
 
@@ -355,12 +357,23 @@ pub fn Panel::x_margin(Self) -> Double
 pub fn Panel::y_axis(Self) -> @axis.Axis
 pub fn Panel::y_margin(Self) -> Double
 
+pub struct PolarHitData {
+  // private fields
+}
+pub fn PolarHitData::category(Self, Int) -> String?
+pub fn PolarHitData::length(Self) -> Int
+pub fn PolarHitData::matches_points(Self, Array[@core.Point], scatter? : Bool) -> Bool
+pub fn PolarHitData::point(Self, Int) -> @core.Point?
+pub fn PolarHitData::series(Self) -> String
+pub fn PolarHitData::with_categories(Self, Array[String]) -> Self
+
 pub struct PolarProjection {
   // private fields
 }
 pub fn PolarProjection::cartesian_compatible(Self) -> Bool
 pub fn PolarProjection::clockwise(Self) -> Bool
 pub fn PolarProjection::closed(Self, Int) -> Bool
+pub fn PolarProjection::hit_data(Self, Int) -> PolarHitData?
 pub fn PolarProjection::radius_labels(Self) -> Array[String]
 pub fn PolarProjection::radius_max(Self) -> Double?
 pub fn PolarProjection::radius_ticks(Self) -> Array[Double]?

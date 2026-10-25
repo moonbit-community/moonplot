@@ -51,7 +51,7 @@ fn polar_control_figure(case : Int32) -> (Figure, PolarAxes) raise {
 }
 
 ///|
-test "polar three real SVG scenes retain raw originals true circle clipping and deliberately no semantic capture" {
+test "polar three real SVG scenes retain raw originals true circle clipping and original sample capture" {
   for case in 0..<3 {
     let (fig, _) = polar_control_figure(case)
     let drawing = fig.to_drawing()
@@ -62,9 +62,23 @@ test "polar three real SVG scenes retain raw originals true circle clipping and 
     assert_true(
       !drawing.svg().contains("NaN") && !drawing.svg().contains("Infinity"),
     )
-    assert_eq((drawing.points().length(), drawing.targets().length()), (0, 0))
+    let expected = [10, 10, 3][case]
+    assert_eq(
+      (drawing.points().length(), drawing.targets().length()),
+      (expected, expected),
+    )
+    let (cx, cy, radius) = drawing.polar_circle(0).unwrap()
+    for target in drawing.targets() {
+      assert_eq(target.info.kind, Polar)
+      assert_true(target.info.point.point_index < 5)
+      assert_eq(target.info.value, target.info.point.data_y)
+    }
     for mode in [@drawing.HitMode::Nearest, XNearest] {
-      assert_eq(drawing.hit_test(200.0, 120.0, radius=1.0e6, mode~), None)
+      assert_true(drawing.hit_test(cx, cy, radius=1.0e6, mode~) is Some(_))
+      assert_eq(
+        drawing.hit_test(cx - radius, cy - radius, radius=1.0e6, mode~),
+        None,
+      )
     }
     for artist in fig.artists() {
       let points = match artist {

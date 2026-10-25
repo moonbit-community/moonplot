@@ -80,6 +80,7 @@ fn AxesData::clear_presentation(self : AxesData) -> Unit {
   self.artists.clear()
   if self.polar is Some(polar) {
     polar.closed.clear()
+    polar.hit_data.clear()
     polar.radar_labels = None
   }
   self.artist_hits.clear()

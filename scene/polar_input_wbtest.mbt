@@ -24,7 +24,8 @@ test "polar inputs and tick labels are copied while source arrays retain exactly
   assert_eq(fig.to_drawing().svg(), before.svg())
   assert_true(before.svg().contains("east&lt;&amp;"))
   assert_true(!before.svg().contains("Changed"))
-  assert_eq(fig.to_drawing().targets().length(), 0)
+  assert_eq(fig.to_drawing().targets(), before.targets())
+  assert_true(before.targets().any(t => t.info.kind == Polar))
 }
 
 ///|

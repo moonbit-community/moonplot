@@ -162,7 +162,12 @@ test "contourf anchor ignores mapped zero edges even when original data endpoint
   let source = @render.contourf_hit_data([ring], 2, 0.0, 1.0, "Mapped")
   assert_true(source.matches_polygon(ring))
   let style = @core.style("red", width=0.0, fill="red")
-  let hits : DrawingCapture = { points: [], targets: [], exclusions: [], }
+  let hits : DrawingCapture = {
+    points: [],
+    targets: [],
+    exclusions: [],
+    polar_circles: [],
+  }
   let writer = @xml.Writer::new()
   writer.start_element("svg", [])
   append_polygon(

@@ -12,7 +12,7 @@ pub fn box_info(Int, q1~ : Double, median~ : Double, q3~ : Double, lower_whisker
 
 pub fn cell_info(Int, Int, (Double, Double), (Double, Double)) -> CellInfo
 
-pub fn drawing(Int, Int, String, Array[HitPoint], targets? : Array[HitTarget], exclusions? : Array[(Int, (Double, Double, Double, Double))]) -> Drawing
+pub fn drawing(Int, Int, String, Array[HitPoint], targets? : Array[HitTarget], exclusions? : Array[(Int, (Double, Double, Double, Double))], polar_circles? : Array[(Int, (Double, Double, Double))]) -> Drawing
 
 pub fn error_info((Double, Double), (Double, Double)) -> ErrorInfo
 
@@ -90,6 +90,7 @@ pub fn Drawing::hit_info(Self, HitPoint) -> HitInfo?
 pub fn Drawing::hit_test(Self, Double, Double, radius? : Double, mode? : HitMode) -> HitPoint?
 pub fn Drawing::hit_test_client(Self, Double, Double, Double, Double, Double, Double, radius? : Double, mode? : HitMode) -> HitPoint?
 pub fn Drawing::points(Self) -> Array[HitPoint]
+pub fn Drawing::polar_circle(Self, Int) -> (Double, Double, Double)?
 pub fn Drawing::svg(Self) -> String
 pub fn Drawing::targets(Self) -> Array[HitTarget]
 pub fn Drawing::viewport_point(Self, Double, Double, Double, Double, Double, Double) -> (Double, Double)?
@@ -180,6 +181,7 @@ pub(all) enum HitKind {
   ContourF
   Tripcolor
   Streamplot
+  Polar
 } derive(Eq, @debug.Debug)
 pub fn HitKind::equal(Self, Self) -> Bool
 pub fn HitKind::not_equal(Self, Self) -> Bool
