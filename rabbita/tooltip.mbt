@@ -109,6 +109,9 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
         rows.push(("Range", "\{start} – \{end}"))
       }
       rows.push(("Value", info.value.to_string()))
+      if info.kind == Stairs && info.band is Some(band) {
+        rows.push(("Baseline", band.lower.to_string()))
+      }
     }
     Ecdf => {
       rows.push(("Value", info.value.to_string()))

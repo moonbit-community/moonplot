@@ -34,6 +34,23 @@ fn Axes::record_discrete_line(
 }
 
 ///|
+// A filled stairs polygon shares the same copied path/datum carrier. Its
+// validated boundary-edge map is not a second line stroke or a hit bbox.
+fn Axes::record_discrete_face(
+  self : Axes,
+  data : @render.DiscreteLineHitData,
+) -> Unit {
+  let records = self.state.val.artist_hits
+  if records.is_empty() {
+    return
+  }
+  let record = records[records.length() - 1]
+  if record.artist is Artist::Polygon(_, _) {
+    record.discrete = Some({ data, line: None, x: None, y: None, })
+  }
+}
+
+///|
 fn discrete_same_original(first : LineData, second : LineData?) -> Bool {
   match (first, second) {
     (Numeric(a), Some(Numeric(b))) => physical_equal(a, b)

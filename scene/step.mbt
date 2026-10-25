@@ -182,6 +182,9 @@ pub fn Axes::stairs(
   validate_stairs(values, edges, orientation)
   let actual_edges = stairs_edges(values, edges)
   let points = stairs_points(values, actual_edges, orientation, baseline, fill)
+  let source = stairs_hit_data(
+    values, actual_edges, orientation, baseline, fill, points,
+  )
   if fill {
     let resolved_color = self.resolve_color(color)
     self.push_artist(
@@ -190,6 +193,7 @@ pub fn Axes::stairs(
         @core.style(resolved_color, width=0.0, fill=resolved_color),
       ),
     )
+    self.record_discrete_face(source)
     self.add_auto_legend(label, resolved_color, LegendKind::Patch)
   } else {
     self.line(
@@ -197,5 +201,6 @@ pub fn Axes::stairs(
       color~,
       label~,
     )
+    self.record_discrete_line(source)
   }
 }

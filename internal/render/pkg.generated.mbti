@@ -127,6 +127,7 @@ pub struct DiscreteLineHitData {
   // private fields
 }
 pub fn DiscreteLineHitData::datum(Self, Int) -> DiscreteDatum?
+pub fn DiscreteLineHitData::datum_count(Self) -> Int
 pub fn DiscreteLineHitData::matches_path(Self, Array[@core.Point]) -> Bool
 pub fn DiscreteLineHitData::matches_xy(Self, Array[Double], Array[Double]) -> Bool
 pub fn DiscreteLineHitData::owner(Self, Int) -> Int?

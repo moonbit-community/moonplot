@@ -381,6 +381,10 @@ fn render_panel(
                 hits, panel_index, artist_index, visible, scale, position, metadata,
                 style,
               )
+              collect_drawing_stairs_face(
+                hits, panel_index, artist_index, visible, scale, position, metadata,
+                style,
+              )
             }
           }),
         )

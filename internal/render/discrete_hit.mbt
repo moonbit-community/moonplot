@@ -64,6 +64,11 @@ pub fn DiscreteLineHitData::datum(
 }
 
 ///|
+pub fn DiscreteLineHitData::datum_count(self : DiscreteLineHitData) -> Int32 {
+  self.datums.length()
+}
+
+///|
 pub fn DiscreteLineHitData::owner(
   self : DiscreteLineHitData,
   edge : Int32,
