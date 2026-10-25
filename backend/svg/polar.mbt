@@ -23,6 +23,23 @@ fn polar_display_scale() -> Scale {
 ///|
 fn validate_polar_panel(panel : @render.Panel) -> Unit raise @core.DataError {
   guard panel.polar() is Some(p) else { return }
+  if !p.cartesian_compatible() ||
+    !panel.show_x_tick_labels() ||
+    !panel.show_y_tick_labels() ||
+    panel.anchor() != (0.5, 0.5) {
+    raise polar_error(
+      "Cartesian grids, margins, tick-label visibility and anchors are unsupported",
+    )
+  }
+  for spine in panel.spines() {
+    if !spine.visible() ||
+      spine.color() != "#374151" ||
+      spine.linewidth() != 1.2 ||
+      !(spine.position() is @render.SpinePosition::Axes) ||
+      spine.bounds() is Some(_) {
+      raise polar_error("Cartesian spine settings are unsupported")
+    }
+  }
   if panel.explicit_bounds() is Some(_) ||
     !panel.frame_visible() ||
     panel.share_x_group() is Some(_) ||
@@ -45,6 +62,7 @@ fn validate_polar_panel(panel : @render.Panel) -> Unit raise @core.DataError {
       !axis.is_default_locator() ||
       !axis.is_default_formatter() ||
       axis.ticks() is Some(_) ||
+      axis.tick_position() is Some(_) ||
       !axis.is_default_locator(minor=true) ||
       !axis.is_default_formatter(minor=true) {
       raise polar_error(

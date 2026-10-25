@@ -116,6 +116,13 @@ fn AxesData::clear_presentation(self : AxesData) -> Unit {
   self.data_aspect = None
   self.secondary_x.clear()
   self.secondary_y.clear()
+  if self.polar is Some(polar) {
+    polar.cartesian_grid = [
+      polar_grid_signature(self.x_axis),
+      polar_grid_signature(self.y_axis),
+    ]
+    polar.cartesian_margins = (self.x_margin, self.y_margin)
+  }
 }
 
 ///|

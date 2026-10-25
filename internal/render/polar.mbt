@@ -10,6 +10,7 @@ pub struct PolarProjection {
   priv radius_ticks : Array[Double]?
   priv radius_labels : Array[String]
   priv closed : Array[Bool]
+  priv cartesian_compatible : Bool
 }
 
 ///|
@@ -22,6 +23,7 @@ pub fn polar_projection(
   radius_ticks : Array[Double]?,
   radius_labels : Array[String],
   closed : Array[Bool],
+  cartesian_compatible~ : Bool = true,
 ) -> PolarProjection {
   {
     radius_max,
@@ -32,6 +34,7 @@ pub fn polar_projection(
     radius_ticks: radius_ticks.map(values => values.copy()),
     radius_labels: radius_labels.copy(),
     closed: closed.copy(),
+    cartesian_compatible,
   }
 }
 
@@ -83,4 +86,9 @@ pub fn PolarProjection::closed(self : PolarProjection, index : Int32) -> Bool {
 ///|
 pub fn Panel::polar(self : Panel) -> PolarProjection? {
   self.polar
+}
+
+///|
+pub fn PolarProjection::cartesian_compatible(self : PolarProjection) -> Bool {
+  self.cartesian_compatible
 }

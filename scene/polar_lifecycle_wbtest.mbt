@@ -76,3 +76,23 @@ test "mixed Cartesian and polar panels keep old ordinary hit data and independen
   assert_true(text.contains("moonplot-polar-clip-1-"))
   assert_true(text.contains("moonplot-polar-clip-2-"))
 }
+
+///|
+test "polar inherited custom Cartesian grid and hidden spine cannot be silently ignored" {
+  let rejected = []
+  for case in 0..<5 {
+    let (fig, _) = polar_control_figure(0)
+    let axes = fig.axes_list()[0]
+    match case {
+      0 => axes.grid(visible=true, color="red", linewidth=3.0)
+      1 => axes.spine(Left).set_visible(false)
+      2 => axes.set_x_margin(0.5)
+      3 => axes.set_anchor(Anchor::Named("SW"))
+      _ => axes.set_x_tick_position(@axis.TickPosition::Top)
+    }
+    let result = try? fig.to_svg_checked()
+    rejected.push(result is Err(@core.DataError::InvalidReference(..)))
+  }
+  println("polar-inherited-grid-spine rejected=\{rejected}")
+  assert_eq(rejected, [true, true, true, true, true])
+}

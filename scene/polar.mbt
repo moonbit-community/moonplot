@@ -22,6 +22,8 @@ priv struct PolarState {
   mut radius_labels : Array[String]
   closed : Array[Bool]
   mut radar_labels : Array[String]?
+  mut cartesian_grid : Array[(Bool, String, Double, Bool, String, Double)]
+  mut cartesian_margins : (Double, Double)
 }
 
 ///|
@@ -55,6 +57,11 @@ pub fn Figure::add_polar_axes(
     radius_labels: [],
     closed: [],
     radar_labels: None,
+    cartesian_grid: [
+      polar_grid_signature(axes.x_axis()),
+      polar_grid_signature(axes.y_axis()),
+    ],
+    cartesian_margins: axes.margins(),
   })
   { axes, }
 }
@@ -76,6 +83,9 @@ fn AxesData::polar_projection(self : AxesData) -> @render.PolarProjection? {
       p.radius_ticks,
       p.radius_labels,
       p.closed,
+      cartesian_compatible=p.cartesian_grid ==
+        [polar_grid_signature(self.x_axis), polar_grid_signature(self.y_axis)] &&
+        p.cartesian_margins == (self.x_margin, self.y_margin),
     )
   })
 }
@@ -83,6 +93,20 @@ fn AxesData::polar_projection(self : AxesData) -> @render.PolarProjection? {
 ///|
 fn polar_finite(value : Double) -> Bool {
   !value.is_nan() && !value.is_inf()
+}
+
+///|
+fn polar_grid_signature(
+  axis : @axis.Axis,
+) -> (Bool, String, Double, Bool, String, Double) {
+  (
+    axis.grid_visible(),
+    axis.grid_color(),
+    axis.grid_width(),
+    axis.minor_grid_visible(),
+    axis.minor_grid_color(),
+    axis.minor_grid_width(),
+  )
 }
 
 ///|
@@ -291,5 +315,5 @@ pub fn PolarAxes::legend_entries(self : PolarAxes) -> Array[LegendEntry] {
 ///|
 /// Remove series/title/legend while retaining the polar projection and settings.
 pub fn PolarAxes::clear(self : PolarAxes) -> Unit {
-  self.axes.state.val.clear_presentation()
+  self.axes.clear()
 }
