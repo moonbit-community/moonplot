@@ -248,5 +248,6 @@ fn main raise {
   }
   assert_true(saw_density && saw_quantile)
   verify_step_consumer()
+  verify_step_roundtrip_consumer()
   println(drawing.svg())
 }

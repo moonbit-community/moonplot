@@ -43,3 +43,34 @@ fn verify_step_consumer() -> Unit raise {
     assert_true(saw_segment)
   }
 }
+
+///|
+fn verify_step_roundtrip_consumer() -> Unit raise {
+  let figure = @plot.figure(width=401, height=257)
+  let axes = figure.add_axes(0.0, 0.0, 1.0, 1.0)
+  axes.set_x_limits(-1.7, 4.8)
+  axes.set_y_limits(-3.2, 10.3)
+  axes.legend([])
+  axes.step([0.2, 1.9, 4.1], [2.3, 7.2, 4.4], where_="pre")
+  let frame = figure.to_drawing()
+  let mut endpoint = None
+  for target in frame.targets() {
+    if target.info.kind == @plot.HitKind::Step &&
+      target.info.point.point_index == 0 &&
+      target.shape == @plot.HitShape::Point {
+      endpoint = Some(target.info.point)
+    }
+  }
+  let source = endpoint.unwrap()
+  let left = 17.7
+  let top = 5.8999999999999995
+  let width = 377.7
+  let height = 255.7
+  let scale = (width / 401.0).min(height / 257.0)
+  let client_x = left + (width - 401.0 * scale) / 2.0 + source.screen_x * scale
+  let client_y = top + (height - 257.0 * scale) / 2.0 + source.screen_y * scale
+  let picked = frame.hit_test_client(client_x, client_y, left, top, width, height, radius=1.0e-6).unwrap()
+  let info = frame.hit_info(picked).unwrap()
+  assert_eq((info.point.point_index, info.value), (0, 2.3))
+  assert_eq((info.point.data_x, info.point.data_y), (0.2, 2.3))
+}
