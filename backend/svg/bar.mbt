@@ -33,6 +33,11 @@ fn bar_rectangles(
   } else {
     scale.y_axis_scale
   }
+  let category_scale = if horizontal {
+    scale.y_axis_scale
+  } else {
+    scale.x_axis_scale
+  }
   let minimum = if horizontal { scale.xmin } else { scale.ymin }
   let maximum = if horizontal { scale.xmax } else { scale.ymax }
   let baseline_value = if axis_scale.is_log() {
@@ -48,8 +53,30 @@ fn bar_rectangles(
   let result = []
   for i in 0..<visible.length() {
     let p = visible[i]
-    if !valid_point(scale, p) {
+    if !category_scale.is_valid(if horizontal { p.y() } else { p.x() }) {
       continue
+    }
+    let raw_value = if horizontal { p.x() } else { p.y() }
+    let value_endpoint = if axis_scale.is_valid(raw_value) {
+      raw_value
+    } else {
+      // A probability interval can cover the valid viewport even though its
+      // raw value and zero baseline are both outside Logit's open domain.
+      // Keep the old mapping untouched for all valid value endpoints.
+      if !axis_scale.is_logit() {
+        continue
+      }
+      guard bar_segment_axis_edges(
+          Double::min(0.0, raw_value),
+          Double::max(0.0, raw_value),
+          minimum,
+          maximum,
+          axis_scale,
+        )
+        is Some((_, endpoint)) else {
+        continue
+      }
+      endpoint
     }
     let half = bar_data_half_span(visible, i, horizontal)
     let (first, last) = if horizontal {
@@ -109,9 +136,9 @@ fn bar_rectangles(
     }
     let thickness = Double::max(Double::abs(last - first), 1.0)
     let value = if horizontal {
-      map_x(scale, left, plot_width, p.x())
+      map_x(scale, left, plot_width, value_endpoint)
     } else {
-      map_y(scale, top, plot_height, p.y())
+      map_y(scale, top, plot_height, value_endpoint)
     }
     let (x, y, width, height) = if horizontal {
       (
