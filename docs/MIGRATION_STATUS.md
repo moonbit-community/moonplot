@@ -12,7 +12,7 @@
 
 ## 当前切片：M10 Barbs（已明确授权独立生产，尚未验收）
 
-- 范围[M10](MILESTONE_M10.md)，目标0.11.0；当前Root/consumer仍正式0.10.0，尚未实现/验收/发布M10。
+- 范围[M10](MILESTONE_M10.md)，目标0.11.0；当前Root/consumer仍正式0.10.0；两个修复已实现并合入，Barbs语义交互仍在实现，未验收/发布M10。
 - 仅Barbs两旧API，不扩Streamplot/一般样式；保留签名、Unit、多component顺序、无Container、按i校验并push/后项错误保留有效前缀。
 - HitKind::Barbs，复用VectorInfo U/V，value原V、原i、原pivot前input x/y和call label；middle/tip不能把输入都叫tail。
 - 实际Line仅非零valid-run Segment；真实Flag填面用Quad(a,b,c,c)，可见stroke三edges；calm用实际filled disk全Sector，无新Shape/Part/magnitude。两mode只physical，无XNearest fallback或伪端点。
@@ -24,8 +24,15 @@
   basic/advanced后项NaN保留4/3artists；zero/empty公开实证改前Line series；安全count probe Inf→Int2147483647，未执行巨大循环。无producer live。
 - 已明确授权m3_donut从精确正式0.10 source c9eb6bec526a2f6d2b1f6330a60ef616dd83a16a在own managed worktree建codex/m10-barbs生产，拥有core/IR/Scene/Backend/Drawing/tooltip+own tests及BARBS_INTERACTION.md。先真实bugfix小verified commits再能力；必要Native→四target/adapter/info/fmt/结构，不全库/Root写/push/publish/新agent，尽早给coherent SHA供并行。
 - 已明确授权m4_area仅own ignored immutable c9独立旧SVG/公开consumer/oracle准备，m3_browser仅ignored紧凑双卡草稿/实际DOM计划；两者不可提前生产/Roottracked写/commit/发布，全套由Root收口。
-- 精确下一动作：M9交付/M10范围文档commit/push → producer实现（含两修复）+reviewer独立baseline/UI ignored草稿已派 → coherent SHA合入/Root公开消费与组合 → 精确source复审/UI实际部署 → 中央一次全套/实际发布。
-- Root无测试/发布/下载live；唯一有意预览8765/session43005/PID70622；三个agent现均M10工作；producer实际实现、review/UI仅准备。
+- [x] 标签修复716565e已cherry为46e5e3b：没有新component时不再改前一artist的series；保留原静态legend/颜色。Native40554 terminal0/5项，actual info/fmt/结构/diff过，无mbti变化。
+  Root公开consumer59142 terminal0：普通Line仍回调Original（旧为Empty wind），实际SVG2570bytes与正式c9逐字，证明静态不变；.moonagent/checkpoints/M10-barbs/label-fixed-public-report.json留证。
+- [x] 高级计数修复1a3392f已cherry为f586978：派生finite、单项与累计components可表示后才转换/循环，保留已画前缀，无任意小cap。Native37673及W/WG/JS89839均terminal0/各8项；info/fmt/结构/diff过，无mbti变化。
+  helper测试只检查最大可表示计数，不实际展开大循环；后项溢出保留有效55前缀，SVG与单独前缀相同。独立反例单项可表示但总数2600000001也已覆盖。
+- [x] Root独立git archive正式c9并运行五公开fixture89973 terminal0：basic/反轴各8artists/8polyline，advanced各9artists/5polyline+2polygon+2circle，empty-label控制；原SVG及计数存baseline-consumer-report.json。旧generic targets不算Barbs通过。
+- [x] m4_area旧基线98036 terminal0/13项，8份实际XML组件几何及5控制，保存10SVG；21生产源SHA和oracle/fixtures已复制到Root baseline-review/。最大几何差5.684341886080802e-14px；仅冻结正式c9旧行为，等待精确语义SHA复审，无live。
+- [x] m3_browser ignored draft/HANDOFF已收，main465/runner305行，basic/options双卡及12组真实DOM计划；moonfmt/Node语法/ignore检查通过。尚无tracked部署/编译/Chrome/截图/生成mbti，等待Root明确授权。
+- 精确下一动作：提交/推送上述verified修复与检查点 → Root准备ignored公开static/app/browser和组合fixture；producer完成共享carrier及实际Segment/flag/disk语义 → coherent SHA合入 → 明确授权独立精确source复审与UI实际部署 → 中央一次全套/实际0.11发布。不得重跑已闭环M9或重新调查19图种。
+- Root无测试/发布/下载live；唯一有意预览8765/session43005/PID70622。producer仍实现；reviewer已冻结旧基线，UI已交ignored草稿等待；当前无Barbs语义验收结果。
 
 ## 最新交付：M9 / 0.10.0（2026-10-25）
 

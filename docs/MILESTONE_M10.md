@@ -14,8 +14,8 @@
 
 ## 两个已证实修复
 
-- [ ] zero/empty/fill_empty=false无新component时，不串改前一普通Line或旧Barbs的series；保留旧静态auto-legend条目与颜色行为。
-- [ ] advanced在to_int与展开循环前拒绝非finite派生magnitude/effective值、不可表示的flag/full/总component计数，复用InvalidQuiver错误。正常计算顺序/正常SVG不变；不新增任意小数量cap。
+- [x] zero/empty/fill_empty=false无新component时，不串改前一普通Line或旧Barbs的series；保留旧静态auto-legend条目与颜色行为。46e5e3b及公开SVG逐字控制已验证。
+- [x] advanced在to_int与展开循环前拒绝非finite派生magnitude/effective值、不可表示的flag/full/总component计数，复用InvalidQuiver错误。正常计算顺序/正常SVG不变；不新增任意小数量cap。f586978，相关四目标各8项通过。
 - [ ] basic有限U/V导致norm溢出时仍保留实际合法shaft；tiny norm underflow、无效scale与calm原行为保持，不修造不存在的羽枝。
 
 ## 验收与交付
