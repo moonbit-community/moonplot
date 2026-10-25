@@ -24,8 +24,9 @@
 - [x] central prelude87978 terminal0：actual info/fmt+15JS全部通过，无额外接口diff。唯一full73204 terminal0/265.69s：Wasm/WG各22631、Native22635、JS22688全部通过。
 - [x] postlude40698 terminal0：15真实页面Chrome190/0errors、三static SVG/52MD576links/structure/diff过，流线JS与PNG同UI实际产物，无额外mbti。22步骤均0，central-summary.json及central-streamlines-artifact.json已保存。仅发布忽略补齐8个科学图开发HTML/CSS，不改build/test输入，故不重复已过full。
 - [ ] 正式clean/发布/public API/fresh registry/GitHub四附件整下载与finalaudit待做。
-- 精确下一动作：commit本次正式验收源码并push；确认gitclean，建立release-live.json冻结此HEAD，跑tools/build_release.py正式clean（不用allowdirty），核archive19production/3interface/guide与八开发页排除、四静态/Chrome51，再实际moon publish/publicchecksum/fresh registry/GitHub四附件整下载/finalaudit。整个网络audit前保持Roottracked/HEAD不变；M13不重跑。
-- Root tracked freeze目前解除；各agent已收bounded，无production/UI修改或live。当前候选6167df5已push89099 terminal0；本次正式验收文档与发布忽略待commit。Root中央全部已终，无验证/网络live。intentional预览8765/session43005/PID70622已核streamlines.html、JS4785354bytes/SHAe2f3c76c1f56a0a4f1f6023bbf551d87c8360481ddddf3ddd5fa08d301b21391及三CSS全200逐字；open_in_codex已queued。open_in_codex queued不声称前台，仅connectionrefused才重启。
+- 首 clean80513 terminal0、四静态/Chrome51通过，但正式5551a36文档误称开发页面保留在发布源码包；实际bundle是library+consumer。发布前保留首artifacts/logs于release-first-doc-correction并解除旧freeze，仅修此事实文字，不改任何绘图源、不重跑full。尚未moon publish。
+- 精确下一动作：commit/push此文档更正，冻结新gitclean HEAD；重建正式clean包，核archive19production/3interface/guide与八开发页排除、四静态/Chrome51，再实际publish/publicchecksum/fresh registry/GitHub整下载/finalaudit。新的网络audit期间Roottracked/HEAD必须不变。
+- Root tracked freeze目前解除；各agent已收bounded，无production/UI修改或live。候选6167df5、原5551a36均已push（89099/3009各0），首clean80513已终；本次只改事实文档待commit，无验证/网络live。intentional预览8765/session43005/PID70622已核streamlines.html、JS4785354bytes/SHAe2f3c76c1f56a0a4f1f6023bbf551d87c8360481ddddf3ddd5fa08d301b21391及三CSS全200逐字；open_in_codex已queued。open_in_codex queued不声称前台，仅connectionrefused才重启。
 
 ## 最新交付：M13 /0.14.0（2026-10-25）
 

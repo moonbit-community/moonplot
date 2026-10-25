@@ -47,6 +47,7 @@ reviewer 精确 b29 的 Native/JS public 与有限反例复审无 blocker；brow
 
 [执行检查点](MIGRATION_STATUS.md) · [能力](CAPABILITIES.md) · [既有流线输入与积分](STREAMPLOT_PARITY.md)
 
-中央之后只补发布忽略：科学图示例的八份开发 HTML/CSS 不进入库模块，完整源码包保留。
+中央之后只补发布忽略：科学图示例的八份开发 HTML/CSS 不进入库模块；Git 仓库保留这些开发页面。
+发布源码包包含库与独立 consumer 示例。
 它不改变 build/test 输入；没有为文档或发布忽略重复已通过的整库回归。
 正式源提交后保持 Root tracked 文件和 HEAD 不变，直到实际网络交付核验结束。
