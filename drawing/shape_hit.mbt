@@ -220,7 +220,7 @@ fn Drawing::target_hit(
     scale <= 0.0 {
     return None
   }
-  // Areas have priority over point anchors; the last painted area wins.
+  // The last painted area wins, except for actually hit statistics above it.
   for index = self.targets.length() - 1; index >= 0; index = index - 1 {
     let target = self.targets[index]
     if valid_info(target.info) &&
@@ -228,7 +228,11 @@ fn Drawing::target_hit(
       valid_shape(target.shape) &&
       rect_contains(target.bounds, x, y) &&
       shape_contains(target.shape, x, y) {
-      return Some(target.info.point)
+      return match
+        self.statistical_overlay_hit(index, x, y, radius, scale, mode) {
+        Some(point) => Some(point)
+        None => Some(target.info.point)
+      }
     }
   }
   let mut best : HitPoint? = None
@@ -245,26 +249,8 @@ fn Drawing::target_hit(
       continue
     }
     let point = target.info.point
-    let distance = match target.shape {
-      Point => {
-        if !rect_contains(target.bounds, point.screen_x, point.screen_y) {
-          continue
-        }
-        let dx = (point.screen_x - x) * scale
-        let dy = (point.screen_y - y) * scale
-        if !finite(dx) || !finite(dy) {
-          continue
-        }
-        hit_distance(dx, dy)
-      }
-      Segment(x0, y0, x1, y1) => {
-        guard segment_distance(x0, y0, x1, y1, target.bounds, x, y)
-          is Some(distance) else {
-          continue
-        }
-        distance * scale
-      }
-      _ => continue
+    guard target_distance(target, x, y, scale) is Some(distance) else {
+      continue
     }
     if distance <= best_distance && (best is None || distance < best_distance) {
       best = Some(point)

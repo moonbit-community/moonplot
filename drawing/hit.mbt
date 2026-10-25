@@ -58,7 +58,8 @@ fn Drawing::nearest(
 }
 
 ///|
-/// Hit-test intrinsic drawing coordinates. Areas win in reverse paint order;
+/// Hit-test intrinsic drawing coordinates. Areas win in reverse paint order,
+/// with visible error-bar/box-plot strokes and outliers above an area selectable;
 /// point anchors and clipped segments use radius and stable distance ties.
 /// XNearest prioritizes nearby non-line/error points, then selects real line
 /// or error-bar samples by screen X inside the panel.

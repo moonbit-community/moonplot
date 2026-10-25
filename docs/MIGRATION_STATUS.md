@@ -26,8 +26,9 @@
 - [x] 四目标全套、晚修后受影响回归、接口/fmt/check/结构、旧 SVG 与旧浏览器回归。
 - [x] 0.4.0 dirty ZIP 演练：仓库外四目标静态断言 + Chrome 七项通过；仅为 rehearsal，禁止上传。
 - [x] clean 正式包、Mooncakes 实际发布/独立 registry 消费、GitHub v0.4.0 四附件回下载核验。
-- 精确下一动作：先合入 ErrorBar 5707f896，再合 Area b9d7ff9、Box d7c97df 增量；保留全部 typed 字段，重新生成接口。
-  修复独立复审发现的区域吞掉后画 ErrorBar、none/transparent 仍有误差命中目标，再部署 M4 五图草稿与中央验收。
+- 精确下一动作：等待/合入 m3_donut 的统计不可见色 capture 小修，等待新统计五图真实 Chrome；
+  随后最终 info/fmt/结构、完整四目标测试、扩展0.5独立消费者，clean包/registry/GitHub交付。
+  三份M4已合入：ErrorBar9be5098、Area7fa861b、Boxb5b87c8；冲突均保留三种metadata，并用编译器重生接口。
 
 ### M3 源码、修复与验证
 
@@ -58,18 +59,18 @@
   https://github.com/moonbit-community/moonplot/releases/tag/v0.4.0 。旧tag/附件未改。
   正式交付无残留测试会话；本页后补记录不移动正式tag。
 
-### M4：独立实现中，目标 0.5.0
+### M4：中央整合中，目标 0.5.0
 
-- [x] 误差棒独立实现/定向验收，未合入：5707f896e52dbdd67d75a246c2458f38740bc9d3。
+- [x] 误差棒独立实现/定向验收，原提交：5707f896e52dbdd67d75a246c2458f38740bc9d3。
   ErrorInfo、ErrorBar、Segment；实际中心/误差臂/端帽，范围溢出拒绝、原样本吸附、旧 SVG 不变。
   四目标受影响各1803（JS1823），adapter20/20；info/fmt/结构通过。
   worktree /Users/lampese/.codex/worktrees/m3-multiseries-bars/mathplotlib，现已交回。
-- [x] 面积独立实现/定向验收，未合入：b9d7ff9c0b07558189e2f4b9466b12ed748b128e。
+- [x] 面积独立实现/定向验收，原提交：b9d7ff9c0b07558189e2f4b9466b12ed748b128e。
   Area/BandInfo/Quadrilateral、fill_between/x 与 stackplot 四基线，stack 原值单独保留；
   真实填充按屏幕主方向中点归最近原样本；非单调/重复位置不生成交互目标，静态照常。
   四目标受影响各1800/1800、adapter20/20；info/fmt/结构通过。
   worktree /Users/lampese/.codex/worktrees/m4-filled-area/mathplotlib，已交回。
-- [x] 箱线独立实现/定向验收，未合入：d7c97df062bc11dec1d1fc3284c7df344d8874c3。
+- [x] 箱线独立实现/定向验收，原提交：d7c97df062bc11dec1d1fc3284c7df344d8874c3。
   worktree /Users/lampese/.codex/worktrees/m3-donut-charts/mathplotlib，底座含 ErrorBar，本commit仅Box增量。
   复用 BoxStats 与实际箱/须/帽/离群点；精准四目标各49/49、adapter22/22，4份旧SVG14723bytes相同。
   info/fmt/check/结构通过，已交回。
@@ -79,8 +80,16 @@
   bar→errorbar 后画误差线/中心被area-first吞掉；none/transparent仍有不可见端帽目标。
   还需独立mode回归：两真实中心+长横臂中，Nearest按真线段，XNearest仍按中心x而不选须。
   审查证据在 m4-filled-area worktree 的 .moonagent/checkpoints/M4-error-review/review.md，源未改。
-- M4 并未完成中央合入/浏览器/独立消费/发布；范围见 MILESTONE_M4.md。
-  Root 完成 0.4 发布后先合 ErrorBar，再合 Area/Box，保留全部 typed metadata 分支并重新生成接口。
+- [x] 中央合并后的显式4包回归74931 terminal0：四目标各1841/1841；adapter32147 terminal0，JS24/24。
+- [x] Root修统计叠加优先级：drawing/proximity.mbt、shape_hit/hit 与scene/statistical_overlay_wbtest。
+  仅实际命中的后画 ErrorBar/BoxPlot 描边/点可压过区域；XNearest按激活系列原中心选择。
+  最终45323 terminal0：5组真实 Scene 组合反例四目标各5/5，含顺序/模式/无关系列/CSS/箱线部位。
+  初筛9906是部分名字匹配4组，不能混作最终5组；原先 browser 已真实复现该问题。
+- [ ] m3_donut 独立处理none/transparent与零宽统计图采集，不改实际SVG输出；完成后小commit合入。
+- [ ] m3_browser 已获授权部署新统计五图并独立target-dir验收；不改旧示例。
+  草稿已部署，首轮证明误差/带/箱/堆叠单图语义通过，真实叠加错误已留证据；现用Root修正重build。
+- M4 尚未完成最终全套/浏览器/独立消费/发布；范围见 MILESTONE_M4.md。
+  Root已完成0.4发布，M4合并和第一轮定向已过，继续上述精确下一动作。
 - 只有有意预览 session8304/PID74453 保留，根目录服务：
   http://127.0.0.1:8765/rabbita/tooltips.html 与 http://127.0.0.1:8765/rabbita/charts.html 。
   open_in_codex 返回 queued，不宣称已切换用户页面。测试临时 HTTP/Chrome 均 finally 关闭。

@@ -46,3 +46,6 @@ if info.box is Some(summary) {
 
 新增 `HitKind::BoxPlot`、`BoxInfo`、`BoxPart` 与 `HitInfo.box`；
 调用方若穷尽匹配 `HitKind`，需要增加箱线分支。`BoxPart::Outlier` 的参数是原始数值。
+
+后画在填充区域上的须、端帽与离群点，仍可按真实几何读取对应箱线组及部位；
+后画的填充区域保持对底层箱线的遮挡。零距离共享边界沿用实际目标顺序。
