@@ -258,5 +258,6 @@ fn main raise {
   verify_contour_consumer()
   verify_filled_contour_consumer()
   verify_tripcolor_consumer()
+  verify_streamplot_consumer()
   println(drawing.svg())
 }

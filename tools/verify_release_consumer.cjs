@@ -38,6 +38,7 @@ async function main() {
   const contourEvents = [];
   const filledEvents = [];
   const tripcolorEvents = [];
+  const streamplotEvents = [];
   const errors = [];
   try {
     await new Promise((resolve, reject) => {
@@ -764,6 +765,137 @@ async function main() {
     for (const face of [0, 1, 2, 3]) await checkTripcolorMean(face);
     checks.push('Installed triangulation wrapper exposes all exact updated vertex means and ordered source triples through a Chinese custom tooltip');
 
+    async function moveStreamplot(id, request) {
+      await page.mouse.move(5, 5);
+      await page.locator(`#${id}`).scrollIntoViewIfNeeded();
+      const sample = await page.locator(`#${id}`).evaluate((svg, { id, request }) => {
+        const styled = id.includes('-style-');
+        const nodes = [...svg.querySelectorAll('polyline, polygon')];
+        if (nodes.length !== (styled ? 8 : 6)) throw Error('Unexpected actual streamplot paint count');
+        const matrix = svg.getScreenCTM(), inverse = matrix.inverse();
+        const rect = svg.getBoundingClientRect();
+        const state = document.querySelector('#streamplot-consumer');
+        const prefix = styled ? 'style' : 'body';
+        const bounds = ['Left', 'Top', 'Width', 'Height'].map(key => Number(state.dataset[prefix + key]));
+        if (!bounds.every(Number.isFinite)) throw Error('Missing actual streamplot plot bounds');
+        const bodyArtists = styled ? [0, 1, 2, 3, 4, 5] : [0, 3];
+        const segments = [], arrows = [];
+        nodes.forEach((node, artist) => {
+          const points = [...node.points].map(p => {
+            const screen = new DOMPoint(p.x, p.y).matrixTransform(node.getScreenCTM());
+            return { x: screen.x, y: screen.y, svgX: p.x, svgY: p.y };
+          });
+          for (let edge = 0; edge + 1 < points.length; edge++) {
+            const segment = { a: points[edge], b: points[edge + 1], artist,
+              edge: styled ? artist : edge, seed: styled ? 1 : artist / 3 };
+            (bodyArtists.includes(artist) ? segments : arrows).push(segment);
+          }
+        });
+        if (segments.length !== (styled ? 6 : 12)) throw Error('Unexpected actual streamplot body edge count');
+        const distance = (x, y, s) => {
+          const dx = s.b.x - s.a.x, dy = s.b.y - s.a.y;
+          const t = Math.max(0, Math.min(1, ((x - s.a.x) * dx + (y - s.a.y) * dy) / (dx * dx + dy * dy)));
+          return { distance: Math.hypot(x - s.a.x - t * dx, y - s.a.y - t * dy), t };
+        };
+        const classify = (x, y) => {
+          const p = new DOMPoint(x, y).matrixTransform(inverse);
+          const closest = segments.map(s => ({ ...s, ...distance(x, y, s) }))
+            .sort((a, b) => a.distance - b.distance || b.artist - a.artist || b.edge - a.edge);
+          const arrowDistance = Math.min(...arrows.map(s => distance(x, y, s).distance));
+          const first = closest[0];
+          return { x, y, svgX: p.x, svgY: p.y, distance: first.distance,
+            t: first.t, seed: first.seed, edge: first.edge, artist: first.artist,
+            midpointX: ((first.a.svgX + first.b.svgX) / 2 - bounds[0]) / bounds[2] * 2,
+            otherDistance: closest[1].distance, arrowDistance,
+            inPlot: p.x >= bounds[0] && p.y >= bounds[1] &&
+              p.x <= bounds[0] + bounds[2] && p.y <= bounds[1] + bounds[3] };
+        };
+        const radius = styled ? 1 : 10;
+        let selected;
+        if (request.negative === 'blank') {
+          const p = new DOMPoint(bounds[0] + bounds[2] * .6, bounds[1] + bounds[3] * .1).matrixTransform(matrix);
+          selected = classify(Math.round(p.x), Math.round(p.y));
+          if (!selected.inPlot || selected.distance < radius + 5) throw Error('Actual body does not prove blank space');
+        } else {
+          const candidates = [];
+          for (let y = Math.max(1, Math.ceil(rect.top) + 1); y < Math.min(innerHeight - 1, rect.bottom - 1); y++) {
+            for (let x = Math.max(1, Math.ceil(rect.left) + 1); x < Math.min(innerWidth - 1, rect.right - 1); x++) {
+              const p = classify(x, y);
+              if (!p.inPlot) continue;
+              if (request.negative === 'arrow') {
+                if (p.arrowDistance < .65 && p.distance > radius + .75 &&
+                  [[-1, 0], [1, 0], [0, -1], [0, 1]].every(([dx, dy]) => classify(x + dx, y + dy).distance > radius))
+                  candidates.push(p);
+              } else if (p.seed === request.seed && p.edge === request.edge &&
+                p.distance < .65 && p.otherDistance > 1.2 && p.t > .12 && p.t < .32 &&
+                [[-1, 0], [1, 0], [0, -1], [0, 1]].every(([dx, dy]) => {
+                  const q = classify(x + dx, y + dy);
+                  return q.inPlot && q.seed === p.seed && q.edge === p.edge && q.artist === p.artist;
+                })) candidates.push(p);
+            }
+          }
+          candidates.sort((a, b) => request.negative ? b.distance - a.distance :
+            a.distance - b.distance || Math.abs(a.t - .2) - Math.abs(b.t - .2));
+          selected = candidates[0];
+          if (!selected) throw Error('No stable integer event matches actual streamplot strokes');
+        }
+        window.__releaseStreamplotEvent = null;
+        svg.addEventListener('mousemove', event => {
+          window.__releaseStreamplotEvent = { clientX: event.clientX, clientY: event.clientY };
+        }, { once: true });
+        return { ...selected, id, request, bounds, radius };
+      }, { id, request });
+      await page.mouse.move(sample.x, sample.y);
+      const actualEvent = await page.evaluate(() => window.__releaseStreamplotEvent);
+      assert.deepEqual(actualEvent, { clientX: sample.x, clientY: sample.y });
+      streamplotEvents.push({ ...sample, actualEvent });
+      return sample;
+    }
+    for (const [seed, edge] of [[0, 0], [0, 3], [1, 5]]) {
+      const sample = await moveStreamplot('release-streamplot-svg', { seed, edge });
+      await page.waitForFunction(({ seed, edge }) => {
+        const d = document.querySelector('#streamplot-consumer')?.dataset;
+        return d?.seed === String(seed) && d?.edge === String(edge);
+      }, { seed, edge });
+      const tip = page.locator('[data-testid="release-streamplot-tooltip"]');
+      await tip.waitFor();
+      assert.equal(await tip.getAttribute('data-moonplot-kind'), 'streamplot');
+      assert.equal(await tip.locator('.moonplot-tooltip-series').textContent(), 'Flow samples');
+      assert.deepEqual(await tip.locator('.moonplot-coordinate-label').allTextContents(), ['U', 'V']);
+      assert.deepEqual(await tip.locator('.moonplot-coordinate b').allTextContents(), ['1.5', '0.25']);
+      const typed = await page.locator('#streamplot-consumer').evaluate(node => ({
+        artist: node.dataset.artist, value: node.dataset.value, color: node.dataset.colorPresent
+      }));
+      assert.deepEqual(typed, { artist: String(sample.artist), value: '0.25', color: 'false' });
+    }
+    checks.push('Installed continuous streamplot body exposes actual seed/edge/artist and updated U/V on edge interiors; default rows do not invent observational X/Y or color');
+    async function checkStreamplotStyle(edge) {
+      const sample = await moveStreamplot('release-streamplot-style-svg', { seed: 1, edge });
+      await page.waitForFunction(edge => document.querySelector('[data-testid="consumer-streamplot-tooltip"]')?.dataset.edge === String(edge), edge);
+      const tip = page.locator('[data-testid="consumer-streamplot-tooltip"]');
+      assert.equal(await tip.getAttribute('data-kind'), 'true');
+      assert.equal(await tip.getAttribute('data-seed'), '1');
+      assert.equal(await tip.getAttribute('data-artist'), String(edge));
+      assert.equal(await tip.getAttribute('data-u'), '1.5');
+      assert.equal(await tip.getAttribute('data-v'), '0.25');
+      assert.equal(await tip.getAttribute('data-value'), '0.25');
+      const color = Number(await tip.getAttribute('data-color'));
+      assert(color > 5 && Math.abs(color - (5 + sample.midpointX)) < 1e-5,
+        'Raw color must match this actual original edge midpoint, without norm clamping or pointer resampling');
+      assert((await tip.textContent()).startsWith('采样 U 1.5；V 0.25；颜色 '));
+    }
+    for (const edge of [0, 1, 2, 3, 4, 5]) await checkStreamplotStyle(edge);
+    checks.push('Installed style-grid streamplot preserves rejected seed slot zero, every original edge and raw midpoint color beyond normalization through a Chinese custom tooltip');
+    await moveStreamplot('release-streamplot-svg', { negative: 'blank' });
+    await page.waitForFunction(() => document.querySelector('#streamplot-consumer')?.dataset.seed === '-1');
+    assert.equal(await page.locator('[data-testid="release-streamplot-tooltip"]').count(), 0);
+    await moveStreamplot('release-streamplot-style-svg', { negative: 'blank' });
+    await page.waitForFunction(() => !document.querySelector('[data-testid="consumer-streamplot-tooltip"]'));
+    checks.push('Installed streamplot requires physical stroke proximity in both modes and leaves real empty plot space unselected');
+    await moveStreamplot('release-streamplot-style-svg', { negative: 'arrow' });
+    await page.waitForFunction(() => !document.querySelector('[data-testid="consumer-streamplot-tooltip"]'));
+    checks.push('Installed visible open arrowhead stays static away from the body instead of reviving generic generated-Y point data');
+
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);
@@ -782,18 +914,21 @@ async function main() {
     await checkTripcolorMean(3);
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     checks.push('375px installed tripcolor keeps physical polygon picking and readable Chinese vertex-mean metadata without overflow');
+    await checkStreamplotStyle(3);
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    checks.push('375px installed streamplot keeps physical continuous picking and readable typed Chinese field metadata');
     await page.screenshot({ path: path.join(output, 'consumer-mobile.png'), fullPage: true });
     checks.push('375px independent consumer retains responsive hit coordinates');
     await page.setViewportSize({ width: 1100, height: 850 });
     await page.screenshot({ path: path.join(output, 'consumer.png'), fullPage: true });
     assert.deepEqual(errors, []);
-    const report = { bundle: root, browser: browser.version(), checks, vectorEvents, barbEvents, contourEvents, filledEvents, tripcolorEvents, pageErrors: errors };
+    const report = { bundle: root, browser: browser.version(), checks, vectorEvents, barbEvents, contourEvents, filledEvents, tripcolorEvents, streamplotEvents, pageErrors: errors };
     await fs.writeFile(path.join(output, 'report.json'), JSON.stringify(report, null, 2) + '\n');
     console.log(JSON.stringify(report, null, 2));
   } catch (error) {
     if (page) await page.screenshot({ path: path.join(output, 'failure.png'), fullPage: true }).catch(() => {});
     await fs.writeFile(path.join(output, 'failure.json'), JSON.stringify({ error: String(error),
-      checks, vectorEvents, barbEvents, contourEvents, filledEvents, tripcolorEvents, pageErrors: errors }, null, 2) + '\n');
+      checks, vectorEvents, barbEvents, contourEvents, filledEvents, tripcolorEvents, streamplotEvents, pageErrors: errors }, null, 2) + '\n');
     throw error;
   } finally {
     try {

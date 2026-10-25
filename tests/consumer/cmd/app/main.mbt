@@ -26,6 +26,8 @@ struct Model {
   trifilled_contour_hover : @drawing.HitPoint?
   tripcolor_hover : @drawing.HitPoint?
   tripcolor_mean_hover : @drawing.HitPoint?
+  streamplot_hover : @drawing.HitPoint?
+  streamplot_style_hover : @drawing.HitPoint?
 } derive(Eq)
 
 ///|
@@ -53,6 +55,8 @@ enum Msg {
   TriFilledContour(@plot_dom.Interaction)
   Tripcolor(@plot_dom.Interaction)
   TripcolorMean(@plot_dom.Interaction)
+  Streamplot(@plot_dom.Interaction)
+  StreamplotStyle(@plot_dom.Interaction)
 }
 
 ///|
@@ -95,6 +99,8 @@ fn update(model : Model, message : Msg) -> Model {
         trifilled_contour_hover: None,
         tripcolor_hover: None,
         tripcolor_mean_hover: None,
+        streamplot_hover: None,
+        streamplot_style_hover: None,
       }
     Bar(Hover(point)) => { ..model, bar_hover: point, }
     Bar(_) => model
@@ -139,6 +145,10 @@ fn update(model : Model, message : Msg) -> Model {
     Tripcolor(_) => model
     TripcolorMean(Hover(point)) => { ..model, tripcolor_mean_hover: point, }
     TripcolorMean(_) => model
+    Streamplot(Hover(point)) => { ..model, streamplot_hover: point, }
+    Streamplot(_) => model
+    StreamplotStyle(Hover(point)) => { ..model, streamplot_style_hover: point, }
+    StreamplotStyle(_) => model
   }
 }
 
@@ -336,6 +346,8 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
     filled_contour_consumer_view(model, emit),
     @html.h2("Triangular face values and vertex arithmetic means"),
     tripcolor_consumer_view(model, emit),
+    @html.h2("Continuous flow samples"),
+    streamplot_consumer_view(model, emit),
     @html.h2("Nonuniform mesh"),
     @plot_dom.view(
       make_mesh_drawing(model),
@@ -528,6 +540,8 @@ fn main {
         trifilled_contour_hover: None,
         tripcolor_hover: None,
         tripcolor_mean_hover: None,
+        streamplot_hover: None,
+        streamplot_style_hover: None,
       },
       update~,
     )
