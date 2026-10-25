@@ -25,6 +25,7 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     BarH => "barh"
     Histogram => "histogram"
     Histogram2D => "histogram2d"
+    Hexbin => "hexbin"
     Pie => "pie"
     Heatmap => "heatmap"
     ErrorBar => "errorbar"
@@ -62,6 +63,18 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
         rows.push(("y range", "\{ymin} – \{ymax}"))
       }
       rows.push(("Count", info.value.to_string()))
+    }
+    Hexbin => {
+      rows.push(("x", info.point.data_x.to_string()))
+      rows.push(("y", info.point.data_y.to_string()))
+      if info.hexbin is Some(bin) {
+        rows.push(("Count", bin.count.to_string()))
+        if bin.reduction != Count {
+          rows.push(("Value", info.value.to_string()))
+        }
+      } else {
+        rows.push(("Value", info.value.to_string()))
+      }
     }
     Pie => {
       rows.push(("Value", info.value.to_string()))

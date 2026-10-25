@@ -7,6 +7,7 @@ pub struct HitMetadata {
   priv band_horizontal : Bool?
   priv band_values : Array[Double]?
   priv mesh : MeshHitData?
+  priv hexbin : HexbinHitData?
 }
 
 ///|
@@ -16,6 +17,7 @@ pub fn hit_metadata(
   band_horizontal~ : Bool? = None,
   band_values~ : Array[Double]? = None,
   mesh~ : MeshHitData? = None,
+  hexbin~ : HexbinHitData? = None,
 ) -> HitMetadata {
   {
     series,
@@ -23,6 +25,7 @@ pub fn hit_metadata(
     band_horizontal,
     band_values: band_values.map(values => values.copy()),
     mesh,
+    hexbin,
   }
 }
 
@@ -77,4 +80,9 @@ pub fn HitMetadata::band_value(self : HitMetadata, index : Int32) -> Double? {
 ///|
 pub fn HitMetadata::mesh(self : HitMetadata) -> MeshHitData? {
   self.mesh
+}
+
+///|
+pub fn HitMetadata::hexbin(self : HitMetadata) -> HexbinHitData? {
+  self.hexbin
 }

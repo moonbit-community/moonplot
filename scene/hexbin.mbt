@@ -606,6 +606,7 @@ pub fn Axes::hexbin(
   let centers : Array[@core.Point] = []
   let bin_values : Array[Double] = []
   let counts : Array[Int32] = []
+  let bin_indices : Array[(Int32, Int32)] = []
   for cell in cells {
     if cell.count >= mincnt {
       let center_x = xmin + radius + Double::from_int(cell.col) * diameter
@@ -625,6 +626,7 @@ pub fn Axes::hexbin(
       )
       bin_values.push(value)
       counts.push(cell.count)
+      bin_indices.push((cell.row, cell.col))
     }
   }
   if bins == "log" {
@@ -637,6 +639,7 @@ pub fn Axes::hexbin(
     }
   }
   let mut legend_color = color
+  let hit_paints : Array[Bool] = []
   let fill_color = if color == "" {
     let color_map = resolve_colormap(cmap)
     let norm = hexbin_color_norm(bins, vmin, vmax)
@@ -644,11 +647,12 @@ pub fn Axes::hexbin(
     let style_values = Array(capacity=bin_values.length())
     for value in bin_values {
       if norm.is_valid(value) {
-        style_values.push(
-          color_map.sample_extended(mesh_transform(norm, value)).to_css(),
-        )
+        let paint = color_map.sample_extended(mesh_transform(norm, value))
+        style_values.push(paint.to_css())
+        hit_paints.push(paint.alpha() > 0.0)
       } else {
         style_values.push("#000000")
+        hit_paints.push(false)
       }
     }
     if style_values.length() > 0 {
@@ -661,6 +665,7 @@ pub fn Axes::hexbin(
     let style_values = Array(capacity=bin_values.length())
     for _ in bin_values {
       style_values.push(color)
+      hit_paints.push(true)
     }
     style_values
   }
@@ -683,6 +688,26 @@ pub fn Axes::hexbin(
         @core.style(stroke_color, width=linewidth, fill=fill_color[index]),
       ),
     )
+    // Marginal rectangles are painted above the cells in the same axes. Keep
+    // this first interaction slice wholly static for that mode, rather than
+    // selecting an obscured cell through a marginal's paint.
+    if !marginals && hit_paints[index] && hexbin_finite(bin_values[index]) {
+      let (row, column) = bin_indices[index]
+      self.record_hit_series(label)
+      self.record_hexbin(
+        @render.hexbin_hit_data(
+          index,
+          center,
+          bin_values[index],
+          @drawing.hexbin_info(
+            row,
+            column,
+            counts[index],
+            reduction=hexbin_reduction(values.length() > 0, reduce, reduce_fn),
+          ),
+        ),
+      )
+    }
   }
   if marginals && cells.length() > 0 {
     let mut maximum_count = 1

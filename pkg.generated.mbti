@@ -115,6 +115,10 @@ pub using @ticker {type Formatter}
 
 pub using @gridspec {type GridSpec}
 
+pub using @drawing {type HexbinInfo}
+
+pub using @drawing {type HexbinReduction}
+
 pub using @scene {type Histogram}
 
 pub using @drawing {type HitInfo}

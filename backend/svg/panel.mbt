@@ -325,6 +325,10 @@ fn render_panel(
               collect_drawing_mesh(
                 hits, panel_index, artist_index, visible, scale, position, metadata,
               )
+              collect_drawing_hexbin(
+                hits, panel_index, artist_index, visible, scale, position, metadata,
+                style,
+              )
             }
           }),
         )

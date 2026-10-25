@@ -7,6 +7,7 @@ pub(all) enum HitKind {
   BarH
   Histogram
   Histogram2D
+  Hexbin
   Pie
   Heatmap
   ErrorBar
@@ -73,6 +74,7 @@ pub struct HitInfo {
   error : ErrorInfo?
   band : BandInfo?
   box : BoxInfo?
+  hexbin : HexbinInfo?
 } derive(Eq, Debug)
 
 ///|
@@ -94,6 +96,7 @@ pub fn hit_info(
   error~ : ErrorInfo? = None,
   band~ : BandInfo? = None,
   box~ : BoxInfo? = None,
+  hexbin~ : HexbinInfo? = None,
 ) -> HitInfo {
   {
     point,
@@ -107,6 +110,7 @@ pub fn hit_info(
     error,
     band,
     box,
+    hexbin,
   }
 }
 

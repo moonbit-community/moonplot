@@ -16,7 +16,9 @@ pub fn drawing(Int, Int, String, Array[HitPoint], targets? : Array[HitTarget], e
 
 pub fn error_info((Double, Double), (Double, Double)) -> ErrorInfo
 
-pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?, band? : BandInfo?, box? : BoxInfo?) -> HitInfo
+pub fn hexbin_info(Int, Int, Int, reduction? : HexbinReduction) -> HexbinInfo
+
+pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?, band? : BandInfo?, box? : BoxInfo?, hexbin? : HexbinInfo?) -> HitInfo
 
 pub fn hit_point(Int, Int, Int, Double, Double, Double, Double) -> HitPoint
 
@@ -91,6 +93,28 @@ pub fn ErrorInfo::equal(Self, Self) -> Bool
 pub fn ErrorInfo::not_equal(Self, Self) -> Bool
 pub fn ErrorInfo::to_repr(Self) -> @debug.Repr
 
+pub struct HexbinInfo {
+  row : Int
+  column : Int
+  count : Int
+  reduction : HexbinReduction
+} derive(Eq, @debug.Debug)
+pub fn HexbinInfo::equal(Self, Self) -> Bool
+pub fn HexbinInfo::not_equal(Self, Self) -> Bool
+pub fn HexbinInfo::to_repr(Self) -> @debug.Repr
+
+pub(all) enum HexbinReduction {
+  Count
+  Mean
+  Sum
+  Min
+  Max
+  Custom
+} derive(Eq, @debug.Debug)
+pub fn HexbinReduction::equal(Self, Self) -> Bool
+pub fn HexbinReduction::not_equal(Self, Self) -> Bool
+pub fn HexbinReduction::to_repr(Self) -> @debug.Repr
+
 pub struct HitInfo {
   point : HitPoint
   kind : HitKind
@@ -103,6 +127,7 @@ pub struct HitInfo {
   error : ErrorInfo?
   band : BandInfo?
   box : BoxInfo?
+  hexbin : HexbinInfo?
 } derive(Eq, @debug.Debug)
 pub fn HitInfo::equal(Self, Self) -> Bool
 pub fn HitInfo::not_equal(Self, Self) -> Bool
@@ -115,6 +140,7 @@ pub(all) enum HitKind {
   BarH
   Histogram
   Histogram2D
+  Hexbin
   Pie
   Heatmap
   ErrorBar

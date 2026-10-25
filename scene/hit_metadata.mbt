@@ -6,6 +6,7 @@ priv struct ArtistHitData {
   mut band_horizontal : Bool?
   mut band_values : Array[Double]?
   mut mesh : @render.MeshHitData?
+  mut hexbin : @render.HexbinHitData?
 }
 
 ///|
@@ -35,6 +36,7 @@ fn ArtistHitData::render_metadata(self : ArtistHitData) -> @render.HitMetadata {
     band_horizontal=self.band_horizontal,
     band_values=self.band_values,
     mesh=self.mesh,
+    hexbin=self.hexbin,
   )
 }
 
@@ -112,5 +114,13 @@ fn Axes::record_mesh_cell(self : Axes, mesh : @render.MeshHitData) -> Unit {
   let records = self.state.val.artist_hits
   if records.length() > 0 {
     records[records.length() - 1].mesh = Some(mesh)
+  }
+}
+
+///|
+fn Axes::record_hexbin(self : Axes, bin : @render.HexbinHitData) -> Unit {
+  let records = self.state.val.artist_hits
+  if records.length() > 0 {
+    records[records.length() - 1].hexbin = Some(bin)
   }
 }

@@ -35,6 +35,8 @@ pub using @drawing {
   type BandInfo,
   type BoxInfo,
   type BoxPart,
+  type HexbinInfo,
+  type HexbinReduction,
   type HitKind,
   type HitMode,
   type HitShape,

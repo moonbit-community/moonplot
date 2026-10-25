@@ -10,6 +10,10 @@ fn valid_point(point : HitPoint) -> Bool {
 fn valid_info(info : HitInfo) -> Bool {
   valid_point(info.point) &&
   finite(info.value) &&
+  (match info.hexbin {
+    Some(bin) => bin.row >= 0 && bin.column >= 0 && bin.count > 0
+    None => true
+  }) &&
   (match info.interval {
     Some((start, end)) => finite(start) && finite(end)
     None => true
