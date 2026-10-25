@@ -35,6 +35,7 @@ async function main() {
   const checks = [];
   const vectorEvents = [];
   const barbEvents = [];
+  const contourEvents = [];
   const errors = [];
   try {
     await new Promise((resolve, reject) => {
@@ -476,6 +477,77 @@ async function main() {
     });
     checks.push('Installed full calm disks select beyond point proximity and retain nonzero rounded components and exact-zero input independently');
 
+    async function contourStroke(id, polyline) {
+      await page.mouse.move(5, 5);
+      await page.locator(`#${id}`).scrollIntoViewIfNeeded();
+      return page.locator(`#${id}`).evaluate((svg, polyline) => {
+        const matrix = svg.getScreenCTM(), box = svg.getBoundingClientRect();
+        const segments = [...svg.querySelectorAll('polyline')].flatMap((line, path) => {
+          const values = line.getAttribute('points').trim().split(/[\s,]+/).map(Number);
+          const points = [];
+          for (let i = 0; i < values.length; i += 2)
+            points.push(new DOMPoint(values[i], values[i + 1]).matrixTransform(matrix));
+          return points.slice(1).map((b, i) => ({ path, edge: i, a: points[i], b }));
+        });
+        const distance = (x, y, { a, b }) => {
+          const dx = b.x - a.x, dy = b.y - a.y;
+          const t = Math.max(0, Math.min(1, ((x - a.x) * dx + (y - a.y) * dy) / (dx * dx + dy * dy)));
+          return Math.hypot(x - a.x - t * dx, y - a.y - t * dy);
+        };
+        const candidates = [];
+        for (const segment of segments.filter(s => s.path === polyline)) {
+          for (let step = 1; step < 100; step++) {
+            const t = step / 100;
+            const x = Math.round(segment.a.x + t * (segment.b.x - segment.a.x));
+            const y = Math.round(segment.a.y + t * (segment.b.y - segment.a.y));
+            if (x <= box.left + 2 || x >= box.right - 2 || y <= box.top + 2 || y >= box.bottom - 2 ||
+                x < 0 || x >= innerWidth || y < 0 || y >= innerHeight) continue;
+            const ownDistance = distance(x, y, segment);
+            const otherDistance = Math.min(...segments.filter(s => s.path !== polyline).map(s => distance(x, y, s)));
+            if (ownDistance < 1.0 && otherDistance > 2.5)
+              candidates.push({ x, y, ownDistance, otherDistance: Number.isFinite(otherDistance) ? otherDistance : null,
+                polyline, edge: segment.edge });
+          }
+        }
+        candidates.sort((a, b) => a.ownDistance - b.ownDistance);
+        if (!candidates.length) throw Error(`No integer contour event for polyline ${polyline}`);
+        svg.addEventListener('mousemove', event => {
+          window.__releaseContourEvent = { clientX: event.clientX, clientY: event.clientY };
+        }, { once: true });
+        return candidates[0];
+      }, polyline);
+    }
+    async function moveContour(id, polyline) {
+      const position = await contourStroke(id, polyline);
+      await page.mouse.move(position.x, position.y);
+      await page.waitForSelector(`[data-testid="${id.replace(/-svg$/, '')}-tooltip"]`);
+      const actualEvent = await page.evaluate(() => window.__releaseContourEvent);
+      assert.deepEqual(actualEvent, { clientX: position.x, clientY: position.y });
+      contourEvents.push({ id, ...position, actualEvent });
+    }
+    for (const fragment of [0, 1]) {
+      await moveContour('release-contours-svg', fragment);
+      const tip = page.locator('[data-testid="release-contours-tooltip"]');
+      assert.equal(await tip.getAttribute('data-moonplot-kind'), 'contour');
+      assert.equal(await tip.locator('.moonplot-tooltip-series').textContent(), 'Field');
+      assert.equal(await tip.locator('.moonplot-coordinate-label').textContent(), 'Level');
+      assert.equal(await tip.locator('.moonplot-coordinate b').textContent(), '1.5');
+    }
+    checks.push('Installed regular contours retain the exact updated level and default Level tooltip on both real inline fragments');
+    await moveContour('release-tricontours-svg', 0);
+    const contourTip = page.locator('[data-testid="consumer-contour-tooltip"]');
+    assert.equal(await contourTip.textContent(), 'Mesh: Level 2');
+    for (const [key, value] of Object.entries({ contour: true, path: 0, 'midpoint-x': 0.5, 'midpoint-y': 0.5 }))
+      assert.equal(await contourTip.getAttribute(`data-${key}`), String(value));
+    checks.push('Installed triangular contour clips the actual stroke while preserving its generated preclip midpoint and exact level');
+    const blankContour = await page.locator('#release-tricontours-svg').evaluate(svg => {
+      const p = new DOMPoint(300, 270).matrixTransform(svg.getScreenCTM());
+      return { x: Math.round(p.x), y: Math.round(p.y) };
+    });
+    await page.mouse.move(blankContour.x, blankContour.y);
+    await page.waitForFunction(() => !document.querySelector('[data-testid="consumer-contour-tooltip"]'));
+    checks.push('Installed XNearest contour does not select an empty panel position away from the visible stroke');
+
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);
@@ -483,12 +555,16 @@ async function main() {
     await page.mouse.click(mobile.x, mobile.y);
     await state({ selected: true, point: 2, x: 3, y: 4, clicks: 3 });
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    await moveContour('release-tricontours-svg', 0);
+    assert.equal(await page.locator('[data-testid="consumer-contour-tooltip"]').textContent(), 'Mesh: Level 2');
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    checks.push('375px installed contour retains a real clipped stroke hit and readable exact-level custom tooltip');
     await page.screenshot({ path: path.join(output, 'consumer-mobile.png'), fullPage: true });
     checks.push('375px independent consumer retains responsive hit coordinates');
     await page.setViewportSize({ width: 1100, height: 850 });
     await page.screenshot({ path: path.join(output, 'consumer.png'), fullPage: true });
     assert.deepEqual(errors, []);
-    const report = { bundle: root, browser: browser.version(), checks, vectorEvents, barbEvents, pageErrors: errors };
+    const report = { bundle: root, browser: browser.version(), checks, vectorEvents, barbEvents, contourEvents, pageErrors: errors };
     await fs.writeFile(path.join(output, 'report.json'), JSON.stringify(report, null, 2) + '\n');
     console.log(JSON.stringify(report, null, 2));
   } catch (error) {

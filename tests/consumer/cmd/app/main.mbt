@@ -20,6 +20,8 @@ struct Model {
   vector_hover : @drawing.HitPoint?
   barb_hover : @drawing.HitPoint?
   barb_symbol_hover : @drawing.HitPoint?
+  contour_hover : @drawing.HitPoint?
+  tricontour_hover : @drawing.HitPoint?
 } derive(Eq)
 
 ///|
@@ -41,6 +43,8 @@ enum Msg {
   Vector(@plot_dom.Interaction)
   Barb(@plot_dom.Interaction)
   BarbSymbol(@plot_dom.Interaction)
+  Contour(@plot_dom.Interaction)
+  TriContour(@plot_dom.Interaction)
 }
 
 ///|
@@ -77,6 +81,8 @@ fn update(model : Model, message : Msg) -> Model {
         vector_hover: None,
         barb_hover: None,
         barb_symbol_hover: None,
+        contour_hover: None,
+        tricontour_hover: None,
       }
     Bar(Hover(point)) => { ..model, bar_hover: point, }
     Bar(_) => model
@@ -108,6 +114,10 @@ fn update(model : Model, message : Msg) -> Model {
     Barb(_) => model
     BarbSymbol(Hover(point)) => { ..model, barb_symbol_hover: point, }
     BarbSymbol(_) => model
+    Contour(Hover(point)) => { ..model, contour_hover: point, }
+    Contour(_) => model
+    TriContour(Hover(point)) => { ..model, tricontour_hover: point, }
+    TriContour(_) => model
   }
 }
 
@@ -299,6 +309,8 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
     vector_consumer_view(model, emit),
     @html.h2("Wind barbs and calm symbols"),
     barb_consumer_view(model, emit),
+    @html.h2("Contour levels on regular and triangular grids"),
+    contour_consumer_view(model, emit),
     @html.h2("Nonuniform mesh"),
     @plot_dom.view(
       make_mesh_drawing(model),
@@ -485,6 +497,8 @@ fn main {
         vector_hover: None,
         barb_hover: None,
         barb_symbol_hover: None,
+        contour_hover: None,
+        tricontour_hover: None,
       },
       update~,
     )

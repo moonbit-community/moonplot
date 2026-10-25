@@ -24,6 +24,10 @@ the application clears stale selection when the dataset changes.
 
 The static executable asserts that the public drawing export retains the same
 SVG and sample anchors, then prints the SVG. It has no browser package import.
+It also checks generated contour path slots, exact levels, inline fragments,
+clipped triangle-edge anchors and ordering against filled areas. The browser
+includes regular-grid and triangular contours with default and custom level
+tooltips; both use actual visible strokes for picking.
 
 The repository's `tools/verify_release_consumer.cjs` runs real mouse-event
 acceptance against an unpacked, built bundle. It accepts the bundle directory

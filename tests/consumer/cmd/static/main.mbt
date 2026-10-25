@@ -255,5 +255,6 @@ fn main raise {
   verify_stem_consumer()
   verify_vector_consumer()
   verify_barb_consumer()
+  verify_contour_consumer()
   println(drawing.svg())
 }
