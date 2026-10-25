@@ -9,7 +9,7 @@
 - 已授权合理复用、独立subagents、coherent verified commits/push到moonbit-community/moonplot、实际Mooncakes Lampese/统一module。
 - root facade api.mbt；consumer tests/api；globals tests/integration；implementation/own wbtests留owner包；维护mbt<2000行，structure必跑。
 
-## 当前切片：M15 Polar / Radar（首批实现已合入，整体验收进行中）
+## 当前切片：M15 Polar / Radar（代码与中央验收完成，待正式发布）
 
 合同 `.moonagent/checkpoints/M15-polar/active-scope.md` 和[M15](MILESTONE_M15.md)。基线为实际交付0.15正式源 `67c095118a45d27f6f3ab3d8fb3d3dff2a0e8877`。
 
@@ -24,17 +24,17 @@
 - [x] producer-prep/96行A/B设计+31必要source SHA；review-prep/五角度独立公式、非方形真圆、闭合原N及未来圆盘门控要点。仅准备，不当新功能通过。
 - [x] M14 finalaudit290642 terminal0已确认正式67全过程gitclean/HEAD不变并解除freeze；M15A精确合同已冻结，Root允许新工作。
 - [x] m3_donut首批core335bcb71b376ba614943e549f86f9b4e41d4a48e，Root逐审15production/3expectedinterfaces/1own test后cherry-pick为1b48850。19源SHA、15首批proof复制producer-first并核同；Native85721 terminal0，3tests包含三实际新SVG与两旧SVG控制；新XML/math最大误差2.85e-14，actual info/fmt/structure/diff0。这是首批验收，不代表M15完成。
-- [ ] producer继续bounded输入/config/clear/publicAxes不支持设置/mixed/huge及四targets、docs/POLAR.md。已发现并修复继承axis-off静默忽略：50ca4ed→Roota0e018d，仅frame_visible guard+debug显式import+3回归，before58048终2/after90727终0且正常三SVG逐字不变。Root指出grid/spine相邻疑点后，Native52483终2实证两者均被静默忽略；65a1bdc已审合为0313aa6：创建时grid/margin signature与内部IR compatible位、固定spine默认guard、tickposition/anchor近邻；Native14632 5/5、正常三SVG逐字同335，actualinfo/fmt0，仅IRmbti预期变更。生产已冻结65a，最终tests/guide401883d已逐审5文件并合为764770c，production保持65a；owner71159 Native103/其余各101/Rabbita50、旧控制11186十二逐字均0，最终26源/proof packet待Root核。
+- [x] producer完成bounded输入/config/clear/publicAxes不支持设置/mixed/huge及四targets、docs/POLAR.md。已发现并修复继承axis-off静默忽略：50ca4ed→Roota0e018d，仅frame_visible guard+debug显式import+3回归，before58048终2/after90727终0且正常三SVG逐字不变。Root指出grid/spine相邻疑点后，Native52483终2实证两者均被静默忽略；65a1bdc已审合为0313aa6：创建时grid/margin signature与内部IR compatible位、固定spine默认guard、tickposition/anchor近邻；Native14632 5/5、正常三SVG逐字同335，actualinfo/fmt0，仅IRmbti预期变更。生产已冻结65a，最终tests/guide401883d已逐审5文件并合为764770c，production保持65a；owner71159 Native103/其余各101/Rabbita50、旧控制11186十二逐字均0，最终26源与71proof均已Root核同，producer-final/root-match.json；旧b29参考19production已Root git核同formal67，12同target旧实际SVG provenance保留。
 - [x] 独立旧baseline准备：exact67 Native59670/JS均0，普通Line3anchors/streamplot12targets，4实际SVG。Root核10源SHA、25proof与archive；review-baseline/root-match.json。只作旧控制。
-- [ ] m4_area已获exact335新Native/JS独立数学/XML授权，三新scene、缺失/零/负/溢出/真圆/闭合原N/零capture/mixed及有限生命周期反例，335独立Native30508/JS40977、extras45928/JS均0，22新XML数学误差5.684e-14；两旧控Native16667/JS的4SVG/metadata逐字同67。50 delta before Native85538终134/JS57242终1，after97247/10933均0。19源/72proof/2archive Root核同、proof复制independent-phase50；65a新delta明确授权、另开immutableworkspace，结果待收。无旧大矩阵/full/生产/Roottracked写。
+- [x] m4_area完成exact335新Native/JS独立数学/XML复审，三新scene、缺失/零/负/溢出/真圆/闭合原N/零capture/mixed及有限生命周期反例，335独立Native30508/JS40977、extras45928/JS均0，22新XML数学误差5.684e-14；两旧控Native16667/JS的4SVG/metadata逐字同67。50 delta before Native85538终134/JS57242终1，after97247/10933均0。19源/72proof/2archive Root核同、proof复制independent-phase50；65a新delta Native89151/JS均0，controls Native56877/JS均0，12XML数学误差2.842e-14；19源与44增量proof已Root核同复制independent-final，65archive原处SHA核同，与owner16prod+3mbti完全一致，无剩余blocker。无旧大矩阵/full/生产/Roottracked写。
 - [x] m3_browser五文件ignored草稿的standaloneMoonfmt/Node syntax均0，未冒充编译/浏览器通过。
 - [x] UI1efb4e3真实七文件：build/info/fmt74235f均0、Chrome74155 14/14、33实际整数事件/0errors。7源及servedJS4657775bytes/SHA60a7f20b63a3256de66a05d4124f4b7f79a5dce0959320cb0b12dd576903ef91 Root核同；PNG101640bytes/SHA2963a8131358fc706690558e3ee63a46848e676119c39c85230809012263bbe2已Root目视。ui-root-match.json；CTM类型/float32 reader与runner样式恢复失败保记录，不是core失败。
 - [x] Root consumer97f2b78：Native96487/JS6483/axis-off后appbuild145a36/Chrome26756均0，56checks含原51+5极坐标组、两整数事件与真实原SVG栅格circle-clip反例；actualinfo79875/四文件fmt0，两private接口逐字未变。首CSS url引号reader及SVGPoint/AnimatedLength float32 reader失败已保before，仅改harness读实际serialized doubles，原1e-8数学断言和native raster保留。
 - Root负责publicM15/版本/consumer/7UI/一次中央全套/真实发布；当前源码0.16.0候选，实际已发布仍0.15.0，不重跑M14已闭环检查。
 
-精确下一动作：收producer65a冻结后的最终bounded四目标/guide增量与独立65a Native/JS delta；Root已bump0.16候选、中央prelude57456 terminal0（actualinfo/fmt、16JSbuild均0，无额外mbti）。最终test/guide已合入764770c；核候选文档链接后接一次suite→postlude，独立65a delta并行收口。中央通过后clean包和实际Mooncakes/全新registry/GitHub完整附件核验。必要失败留before并排查，不因失败停滞。
+精确下一动作：producer26源/71proof与独立最终19源/44delta proof已核同，无blocker；Root已bump0.16候选、中央prelude57456 terminal0（actualinfo/fmt、16JSbuild均0，无额外mbti）。最终test/guide已合入764770c，候选02392dc与54MD/594links通过；唯一full93615/264.29s与postlude83376均0，W/WG22644、Native22648、JS22701、16Chrome204、三静态SVG、54MD594links/structure/diff/预期mbti全过；central-summary.json共23step/全部0。下一步提交正式候选、保持HEAD与gitclean冻结，再clean包和实际Mooncakes/全新registry/GitHub完整四附件核验。发布阶段live session/source_commit记在ignored M15-polar/release-live.json；从formal builder到final audit不得写Root tracked或另commit，audit确认后才解除freeze。必要失败留before并排查，不因失败停滞。
 
-Root prelude57456已终0，目前无live；M14freeze已解除。M15 owner/reviewer在各自worktree，UI已冻结；browser只在ignored M16-polar-interaction/browser-prep做B点提示/圆盘门控只读设计，无实现授权。intentional预览8765/session43005/PID70622已可访问polar.html；HTML/3CSS/真实新JS4663158bytes/SHAfc341f7e90daa9ee3df2855c2a5d7e0be1db2aaf89aae115013a7cffd6ad4039实际200同Root，preview-http.json。open_in_codex queued，不声称前台。仅connectionrefused才重启预览。
+Root中央prelude57456/full93615/postlude83376全部terminal0，目前无验证/网络live。0.16候选02392dc；代码不再变化。中央collector首4121ea因旧22唯一步骤计数失败，修23后90defa汇总0；不重跑full。M14freeze已解除。M15 owner/reviewer在各自worktree，UI已冻结；browser只在ignored M16-polar-interaction/browser-prep做B点提示/圆盘门控只读设计，无实现授权。intentional预览8765/session43005/PID70622已可访问polar.html；HTML/3CSS/真实新JS4663158bytes/SHAfc341f7e90daa9ee3df2855c2a5d7e0be1db2aaf89aae115013a7cffd6ad4039实际200同Root，preview-http.json。open_in_codex queued，不声称前台。仅connectionrefused才重启预览。
 
 ## 最新实际交付：M14 /0.15.0
 

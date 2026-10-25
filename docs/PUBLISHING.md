@@ -1,7 +1,7 @@
 # 安装与发布
 
 当前源码候选为 **`Lampese/mathplotlib@0.16.0`**，新增[极坐标折线、散点和闭合雷达](POLAR.md)，
-示例为 `rabbita/polar.html`。专项与外部consumer验证已通过，中央验收和实际发布尚未完成。
+示例为 `rabbita/polar.html`。专项、外部consumer与中央完整验收已通过；正式包、全新安装和实际发布尚未完成。
 下方0.16.0安装命令用于本次正式发布后；最近实际已发布版本仍为0.15.0。
 核心绘图与 Rabbita 组件仍是一个 module。
 
@@ -305,5 +305,7 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 原theta/r及N点保持，数据独立圆形裁剪；非方形面板仍为真圆。显式方向/角偏移、径上限、刻度、
 分类标签、标题与图例可设置。首片SVG和RabbitaDOM均可用，应用可更新数据和切换系列；极坐标悬停留后续片。
 
-外部consumer Native/JS、Chrome56及真实SVG栅格裁剪检查已通过；中央完整验收与实际
+外部consumer Native/JS、Chrome56及真实SVG栅格裁剪检查已通过。中央唯一完整回归93615
+在264.29秒内通过W/WG22644、Native22648、JS22701；16页面Chrome204/0errors、
+三静态SVG、54份文档594本地链接、结构与预期接口检查均通过。正式clean包与实际
 Mooncakes/全新registry/GitHub四附件核验仍待完成。当前进度见[M15](MILESTONE_M15.md)与[执行检查点](MIGRATION_STATUS.md)。

@@ -144,4 +144,4 @@ violin真实密度体与统计线。两者复用既有统计和绘制，不在�
 [M15](MILESTONE_M15.md)从实际0.15源67c0951扩展typed极坐标折线、散点和闭合轮廓雷达。
 先提供真实圆形投影/裁剪的静态SVG与RabbitaDOM，应用可更新数据和切换系列；全部polar捕获禁用，
 原始theta/r点提示与圆盘CSS门控独立后片。目标0.16.0，首批实现与axis-off窄修复已合入，
-外部consumer Native/JS及Chrome56通过；独立复审、四目标与中央验收正在收尾，尚未发布。
+外部consumer Native/JS及Chrome56通过；独立复审与中央23步骤已通过：W/WG22644、Native22648、JS22701、16页面Chrome204和三静态SVG/结构/文档均0；尚待正式包与实际发布。
