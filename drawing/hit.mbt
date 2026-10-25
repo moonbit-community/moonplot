@@ -59,8 +59,9 @@ fn Drawing::nearest(
 
 ///|
 /// Hit-test intrinsic drawing coordinates. Areas win in reverse paint order;
-/// point anchors use radius and stable distance ties. XNearest prioritizes
-/// nearby non-line points, then selects line samples by screen X inside the panel.
+/// point anchors and clipped segments use radius and stable distance ties.
+/// XNearest prioritizes nearby non-line/error points, then selects real line
+/// or error-bar samples by screen X inside the panel.
 /// Legacy drawings without semantic targets retain nearest-point behavior.
 pub fn Drawing::hit_test(
   self : Drawing,

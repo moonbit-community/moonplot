@@ -111,7 +111,7 @@ fn event_hit(
 ///|
 /// Build real SVG nodes and HTML event handlers using public Rabbita APIs.
 /// The application supplies a new drawing when its data or visibility changes.
-/// Use XNearest to select actual line samples by horizontal position in a panel.
+/// Use XNearest to select actual line/error-bar samples by horizontal position in a panel.
 /// tooltip replaces the floating content; tooltip_class and CSS variables style it.
 /// Turning tooltip_visible off keeps all interaction messages enabled.
 pub fn view(

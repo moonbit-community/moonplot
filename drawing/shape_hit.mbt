@@ -29,6 +29,16 @@ fn valid_info(info : HitInfo) -> Bool {
       cell.x_range.0 != cell.x_range.1 &&
       cell.y_range.0 != cell.y_range.1
     None => true
+  }) &&
+  (match info.error {
+    Some(error) =>
+      finite(error.x_range.0) &&
+      finite(error.x_range.1) &&
+      finite(error.y_range.0) &&
+      finite(error.y_range.1) &&
+      error.x_range.0 <= error.x_range.1 &&
+      error.y_range.0 <= error.y_range.1
+    None => true
   })
 }
 
@@ -79,6 +89,8 @@ fn Drawing::excluded(
 fn valid_shape(shape : HitShape) -> Bool {
   match shape {
     Point => true
+    Segment(x0, y0, x1, y1) =>
+      finite(x0) && finite(y0) && finite(x1) && finite(y1)
     Rectangle(left, top, width, height) =>
       valid_rect((left, top, width, height))
     Sector(cx, cy, radius, start, sweep) =>
@@ -115,7 +127,7 @@ fn degrees_normalized(angle : Double) -> Double {
 ///|
 fn shape_contains(shape : HitShape, x : Double, y : Double) -> Bool {
   match shape {
-    Point => false
+    Point | Segment(_, _, _, _) => false
     Rectangle(left, top, width, height) =>
       rect_contains((left, top, width, height), x, y)
     Sector(cx, cy, radius, start, sweep) => {
@@ -197,24 +209,37 @@ fn Drawing::target_hit(
   let mut best_distance = radius
   for target in self.targets {
     if self.excluded(target.info.point.panel_index, x, y) ||
-      target.shape != Point ||
-      (mode == XNearest && target.info.kind == Line) ||
+      (
+        mode == XNearest &&
+        (target.info.kind == Line || target.info.kind == ErrorBar)
+      ) ||
       !valid_info(target.info) ||
-      !rect_contains(target.bounds, x, y) ||
-      !rect_contains(
-        target.bounds,
-        target.info.point.screen_x,
-        target.info.point.screen_y,
-      ) {
+      !valid_shape(target.shape) ||
+      !rect_contains(target.bounds, x, y) {
       continue
     }
     let point = target.info.point
-    let dx = (point.screen_x - x) * scale
-    let dy = (point.screen_y - y) * scale
-    if !finite(dx) || !finite(dy) {
-      continue
+    let distance = match target.shape {
+      Point => {
+        if !rect_contains(target.bounds, point.screen_x, point.screen_y) {
+          continue
+        }
+        let dx = (point.screen_x - x) * scale
+        let dy = (point.screen_y - y) * scale
+        if !finite(dx) || !finite(dy) {
+          continue
+        }
+        hit_distance(dx, dy)
+      }
+      Segment(x0, y0, x1, y1) => {
+        guard segment_distance(x0, y0, x1, y1, target.bounds, x, y)
+          is Some(distance) else {
+          continue
+        }
+        distance * scale
+      }
+      _ => continue
     }
-    let distance = hit_distance(dx, dy)
     if distance <= best_distance && (best is None || distance < best_distance) {
       best = Some(point)
       best_distance = distance
@@ -227,7 +252,7 @@ fn Drawing::target_hit(
   let mut best_dy = 0.0
   for target in self.targets {
     if self.excluded(target.info.point.panel_index, x, y) ||
-      target.info.kind != Line ||
+      (target.info.kind != Line && target.info.kind != ErrorBar) ||
       target.shape != Point ||
       !valid_info(target.info) ||
       !rect_contains(target.bounds, x, y) ||

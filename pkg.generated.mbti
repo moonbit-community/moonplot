@@ -101,6 +101,8 @@ pub using @core {type DataError}
 
 pub using @drawing {type Drawing}
 
+pub using @drawing {type ErrorInfo}
+
 pub using @scene {type Figure}
 
 pub using @ticker {type Formatter}

@@ -53,6 +53,25 @@ pub fn Axes::errorbar(
   }
   validate_error_values(yerr)
   validate_error_values(xerr)
+  for index, point in points {
+    if point.is_finite() {
+      let dx = if xerr.is_empty() { 0.0 } else { xerr[index] }
+      let dy = if yerr.is_empty() { 0.0 } else { yerr[index] }
+      for
+        endpoint in [
+          point.x() - dx,
+          point.x() + dx,
+          point.y() - dy,
+          point.y() + dy,
+        ] {
+        if endpoint.is_inf() {
+          raise @core.DataError::InvalidErrorBar(
+            message="error bar endpoints must be finite",
+          )
+        }
+      }
+    }
+  }
   let resolved_color = self.resolve_color(color)
   let start = self.state.val.artists.length()
   self.push_artist(

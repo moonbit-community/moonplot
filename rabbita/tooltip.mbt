@@ -26,6 +26,7 @@ fn tooltip_kind(kind : @drawing.HitKind) -> String {
     Histogram => "histogram"
     Pie => "pie"
     Heatmap => "heatmap"
+    ErrorBar => "errorbar"
   }
 }
 
@@ -58,6 +59,16 @@ fn tooltip_rows(info : @drawing.HitInfo) -> Array[(String, String)] {
       }
     }
     Bar | BarH => rows.push(("Value", info.value.to_string()))
+    ErrorBar => {
+      rows.push(("x", info.point.data_x.to_string()))
+      rows.push(("y", info.point.data_y.to_string()))
+      if info.error is Some(error) {
+        let (xmin, xmax) = error.x_range
+        let (ymin, ymax) = error.y_range
+        rows.push(("x range", "\{xmin} – \{xmax}"))
+        rows.push(("y range", "\{ymin} – \{ymax}"))
+      }
+    }
     Heatmap => {
       if info.cell is Some(cell) {
         rows.push(("Row", cell.row.to_string()))

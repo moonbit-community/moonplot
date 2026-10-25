@@ -10,7 +10,9 @@ pub fn cell_info(Int, Int, (Double, Double), (Double, Double)) -> CellInfo
 
 pub fn drawing(Int, Int, String, Array[HitPoint], targets? : Array[HitTarget], exclusions? : Array[(Int, (Double, Double, Double, Double))]) -> Drawing
 
-pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?) -> HitInfo
+pub fn error_info((Double, Double), (Double, Double)) -> ErrorInfo
+
+pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?) -> HitInfo
 
 pub fn hit_point(Int, Int, Int, Double, Double, Double, Double) -> HitPoint
 
@@ -42,6 +44,14 @@ pub fn Drawing::targets(Self) -> Array[HitTarget]
 pub fn Drawing::viewport_point(Self, Double, Double, Double, Double, Double, Double) -> (Double, Double)?
 pub fn Drawing::width(Self) -> Int
 
+pub struct ErrorInfo {
+  x_range : (Double, Double)
+  y_range : (Double, Double)
+} derive(Eq, @debug.Debug)
+pub fn ErrorInfo::equal(Self, Self) -> Bool
+pub fn ErrorInfo::not_equal(Self, Self) -> Bool
+pub fn ErrorInfo::to_repr(Self) -> @debug.Repr
+
 pub struct HitInfo {
   point : HitPoint
   kind : HitKind
@@ -51,6 +61,7 @@ pub struct HitInfo {
   interval : (Double, Double)?
   fraction : Double?
   cell : CellInfo?
+  error : ErrorInfo?
 } derive(Eq, @debug.Debug)
 pub fn HitInfo::equal(Self, Self) -> Bool
 pub fn HitInfo::not_equal(Self, Self) -> Bool
@@ -64,6 +75,7 @@ pub(all) enum HitKind {
   Histogram
   Pie
   Heatmap
+  ErrorBar
 } derive(Eq, @debug.Debug)
 pub fn HitKind::equal(Self, Self) -> Bool
 pub fn HitKind::not_equal(Self, Self) -> Bool
@@ -92,6 +104,7 @@ pub fn HitPoint::to_repr(Self) -> @debug.Repr
 
 pub(all) enum HitShape {
   Point
+  Segment(Double, Double, Double, Double)
   Rectangle(Double, Double, Double, Double)
   Sector(Double, Double, Double, Double, Double)
   AnnularSector(Double, Double, Double, Double, Double, Double)

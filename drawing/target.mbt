@@ -8,6 +8,7 @@ pub(all) enum HitKind {
   Histogram
   Pie
   Heatmap
+  ErrorBar
 } derive(Eq, Debug)
 
 ///|
@@ -17,7 +18,7 @@ pub extend HitKind with Eq::{equal, not_equal}
 pub extend HitKind with @debug.Debug::{to_repr}
 
 ///|
-/// XNearest falls back to a real line sample nearest in screen X inside a panel.
+/// XNearest falls back to a real line/error-bar sample nearest in screen X inside a panel.
 pub(all) enum HitMode {
   Nearest
   XNearest
@@ -39,6 +40,8 @@ pub extend HitMode with @debug.Debug::{to_repr}
 /// Inner/outer edges are included; a positive inner radius excludes the hole.
 pub(all) enum HitShape {
   Point
+  /// A finite centerline segment; proximity uses the caller's CSS pixel radius.
+  Segment(Double, Double, Double, Double)
   Rectangle(Double, Double, Double, Double)
   Sector(Double, Double, Double, Double, Double)
   AnnularSector(Double, Double, Double, Double, Double, Double)
@@ -61,6 +64,7 @@ pub struct HitInfo {
   interval : (Double, Double)?
   fraction : Double?
   cell : CellInfo?
+  error : ErrorInfo?
 } derive(Eq, Debug)
 
 ///|
@@ -79,8 +83,9 @@ pub fn hit_info(
   interval~ : (Double, Double)? = None,
   fraction~ : Double? = None,
   cell~ : CellInfo? = None,
+  error~ : ErrorInfo? = None,
 ) -> HitInfo {
-  { point, kind, series, category, value, interval, fraction, cell, }
+  { point, kind, series, category, value, interval, fraction, cell, error, }
 }
 
 ///|

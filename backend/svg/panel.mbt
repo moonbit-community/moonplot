@@ -350,8 +350,23 @@ fn render_panel(
         )
       @render.Artist::ErrorBar(points, yerr, xerr, style) =>
         append_errorbar(
-          writer, scale, left, top, plot_width, plot_height, points, yerr, xerr,
+          writer,
+          scale,
+          left,
+          top,
+          plot_width,
+          plot_height,
+          points,
+          yerr,
+          xerr,
           style,
+          on_sample=capture.map(hits => {
+            sample => {
+              collect_drawing_errorbar(
+                hits, panel_index, artist_index, sample, metadata, position,
+              )
+            }
+          }),
         )
       @render.Artist::Image(data, vmin, vmax, cmap) => {
         let norm = match (vmin, vmax) {
