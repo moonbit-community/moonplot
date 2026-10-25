@@ -15,6 +15,7 @@ struct Model {
   violin_hover : @drawing.HitPoint?
   step_hover : @drawing.HitPoint?
   stairs_hover : @drawing.HitPoint?
+  ecdf_hover : @drawing.HitPoint?
 } derive(Eq)
 
 ///|
@@ -31,6 +32,7 @@ enum Msg {
   Violin(@plot_dom.Interaction)
   Step(@plot_dom.Interaction)
   Stairs(@plot_dom.Interaction)
+  Ecdf(@plot_dom.Interaction)
 }
 
 ///|
@@ -62,6 +64,7 @@ fn update(model : Model, message : Msg) -> Model {
         violin_hover: None,
         step_hover: None,
         stairs_hover: None,
+        ecdf_hover: None,
       }
     Bar(Hover(point)) => { ..model, bar_hover: point, }
     Bar(_) => model
@@ -83,6 +86,8 @@ fn update(model : Model, message : Msg) -> Model {
     Step(_) => model
     Stairs(Hover(point)) => { ..model, stairs_hover: point, }
     Stairs(_) => model
+    Ecdf(Hover(point)) => { ..model, ecdf_hover: point, }
+    Ecdf(_) => model
   }
 }
 
@@ -266,6 +271,8 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
     step_consumer_view(model, emit),
     @html.h2("Interval stairs"),
     stairs_consumer_view(model, emit),
+    @html.h2("Weighted cumulative probabilities"),
+    ecdf_consumer_view(model, emit),
     @html.h2("Nonuniform mesh"),
     @plot_dom.view(
       make_mesh_drawing(model),
@@ -447,6 +454,7 @@ fn main {
         violin_hover: None,
         step_hover: None,
         stairs_hover: None,
+        ecdf_hover: None,
       },
       update~,
     )

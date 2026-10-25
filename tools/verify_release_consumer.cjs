@@ -269,6 +269,30 @@ async function main() {
     checks.push('Installed negative stairs retain the original value and baseline rather than reporting rectangle height');
 
 
+    async function ecdfEdge(index) {
+      await page.locator('#release-ecdf-svg').scrollIntoViewIfNeeded();
+      return page.locator('#release-ecdf-svg polyline').first().evaluate((line, index) => {
+        const a = line.points.getItem(index), b = line.points.getItem(index + 1);
+        const p = new DOMPoint((a.x + b.x) / 2, (a.y + b.y) / 2)
+          .matrixTransform(line.ownerSVGElement.getScreenCTM());
+        return { x: p.x, y: p.y };
+      }, index);
+    }
+    const probabilityJump = await ecdfEdge(0);
+    await page.mouse.move(probabilityJump.x, probabilityJump.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-ecdf-tooltip"]')?.textContent === 'ECDF 0: 1; probability=0.625; jump=1..0.625');
+    assert.equal(await page.locator('[data-testid="consumer-ecdf-tooltip"]').getAttribute('data-ecdf'), 'true');
+    assert.equal(await page.locator('[data-testid="consumer-ecdf-tooltip"]').getAttribute('data-source-x'), '0.625');
+    assert.equal(await page.locator('[data-testid="consumer-ecdf-tooltip"]').getAttribute('data-source-y'), '1');
+    const probabilityPlateau = await ecdfEdge(1);
+    await page.mouse.move(probabilityPlateau.x, probabilityPlateau.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-ecdf-tooltip"]')?.textContent === 'ECDF 0: 1; probability=0.625; jump=1..0.625');
+    checks.push('Installed compressed weighted complementary ECDF retains the exact returned value/probability on both the jump and outgoing plateau');
+    const nextProbabilityJump = await ecdfEdge(2);
+    await page.mouse.move(nextProbabilityJump.x, nextProbabilityJump.y);
+    await page.waitForFunction(() => document.querySelector('[data-testid="consumer-ecdf-tooltip"]')?.textContent === 'ECDF 1: 3; probability=0.25; jump=0.625..0.25');
+    checks.push('Installed ECDF point indices follow returned compressed slots while directed before/after probabilities remain intact');
+
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);

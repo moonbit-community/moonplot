@@ -32,19 +32,22 @@
 - [x] m4_area固定2dbf50fa独立Stairs复审冻结：Native/JS各29/29、22实际XML path、5000个point-in-polygon/实际rect并集控制、两个专用Native guard各1/1，全terminal0无阻塞。
   覆盖横竖/正负非零baseline/双轴反向、NaN整面拒绝、Log0删baseline、原/映射回折与退化、双Log/zero-area索引洞、clip及outline有效run。
   Root已复制stairs-review/三个冻结证据，manifest全部7份production SHA逐一匹配；无ECDF验收外推。
-- [ ] m3_donut own codex/m7-discrete当前ECDF首production check2545 terminal0/0errors，正在加returned slot/weights/compress/CCDF/zero-weight duplicates与callback定向测试。
-  仅builder和共享actual-run capture小改，不改原排序/累加/静态SVG；需定向重验Step/Stairs，Root最终再全套。
-  每片专项、adapter/旧SVG/info/fmt/结构后coherent commit交Root；不改版本/中央docs、不push发布。
-- [ ] m3_browser Root ignored draft四卡/14组runner/HANDOFF已完成，仅moonfmt/Node语法通过；未授权部署/编译/Chrome/截图。
-- Root consumer的Step/Stairs已部署并真实验过；ignored consumer-draft内Ecdf片段待最后源实现，尚未部署。
-  三组合回归第三组ECDF/Stairs只在ignored全量草稿，尚未部署；后续补回完整文件。
-- 精确下一动作：Stairs源/公开消费已提交且独立复审已收 → 合ECDF/扩完整consumer与第三组合 → 授权UI七文件部署/Chrome14 → 最终全套/正式0.8包/实际发布。
-  不重开19图调查；Stem定点设计保留next-stem-notes.md，尚未实现。
+- [x] ECDF owner a05ac95384e853d003a0c509f7907a239390a34c 已合873ce68：实际returned slot/value/after fraction/outgoing interval/原before→after band，CCDF保留递减方向；不改旧排序/累加/SVG。
+  共享actual-run只映射一次，非零真实stroke连通run中的零边允许canonical Point，不造零Segment；三图相邻槽保留末尾零权重源点。
+  owner Native24/24、四目标定向各117/117、adapter36/36、14旧SVG逐字/info/fmt/checkall/结构通过；无公共mbti增量，own clean/no live。
+- [ ] m4_area已收到a05ac953固定ECDF独立复审，重点returned slot/weights/compress/duplicates/零权重末点/横竖CCDF、实际SVG与共享capture旧图控制；不跑全套，不碰owner WIP。
+- [x] Root完整ECDF公开consumer与第三组合回归：overlay76936 terminal0，四目标各3/3；dirty包演练66446 terminal0，静态四目标+Chrome23项通过。
+  证据ecdf-rehearsal/；不是正式包，绝不可上传。覆盖压缩/未压缩、权重、CCDF、横竖与getter副本、真实jump/plateau/返回索引；Root只owns consumer/中央docs/发布。
+- [ ] m3_browser已明确授权部署七文件：rabbita/cmd/discrete/{main.mbt,moon.pkg,pkg.generated.mbti}、discrete.html/css/browser_test与真实assets/discrete.png；隔离构建+实际Chrome14、真实compiler接口与截图后冻结。
+  五手写文件已部署；owner隔离build99477 terminal0/69tasks、0errors；Chrome14正在运行，compiler接口与截图待交，尚不算验收。
+  Root已加discrete.html/css的包排除；UI不改中央docs/consumer/生产/版本，不commit/push。
+- 精确下一动作：收三组合/完整仓库外消费与ECDF独立复审，收UI七文件冻结 → 中央info/fmt/八build/四目标全套/实际浏览器 → clean正式0.8包/实际发布。
+  不重开19图调查；Stem定点设计保留next-stem-notes.md，尚未实现，M7交付闭环后再开。
 - Rootowns合入/公开冲突、consumer、中央文档/版本和实际发布；不新开agent。精确设计Root .moonagent/checkpoints/M7-discrete/design/。
 - Root Step源b27f6a9、验证5f010cd、consumer/0.8候选版与两组合回归47d1435已push65503 terminal0。
   Root source fix88bf8ad/public endpoint回归92e81ea已push55820 terminal0。
-  Root Stairs源f451acd与consumer/checkpoint419075b均已push70680 terminal0；仅后续checkpoint更新未提交，所有改动均Root自身。
-- 无Root测试/下载live，唯一有意服务8765/session43005/PID70622；M6发布与核验都已闭环。
+  Root Stairs源f451acd与consumer/checkpoint419075b均已push70680 terminal0；Stairs独立验收349c586已push62897 terminal0；ECDF873ce68尚待push，Root consumer/checkpoint未提交，UI七文件由m3_browser正在部署。
+- 无Root测试/下载live；UI owner Chrome运行中（会话ID待交）；有意服务8765/session43005/PID70622。M6发布与核验均已闭环。
 
 ## 最新交付：M6 六边形分箱与小提琴分布（2026-10-25）
 

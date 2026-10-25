@@ -9,7 +9,7 @@
   plateau和riser复用同一原数据项，跳变归进入的新值；倒序输入不交换原索引或区间方向。
 - [x] `stairs`的outline支持横竖向，保留原values下标与原edges区间；filled仅在严格单调、全有效的实际完整polygon可证明为各区间strip并集时提供区域命中。
   NaN或域外顶点被renderer删除后，不为剩余复杂面捏造矩形目标。
-- [ ] `ecdf`保存既有返回槽、原值与实际累计概率；覆盖weights/complementary/compress/duplicates/横竖方向。
+- [x] `ecdf`保存既有返回槽、原值与实际累计概率；覆盖weights/complementary/compress/duplicates/横竖方向。
   压缩后的返回索引不宣称为唯一原输入观测索引，不重排或重写已有统计算法。
 
 ## 共享实现与生命周期
@@ -38,4 +38,5 @@ Step实现与共享底座已合入，独立专项四目标各95/95、adapter32/3
 Root仓库外dirty演练已通过静态四目标与Chrome19项；这些结果限于当前Step片，不是0.8.0正式发布或后两图验收。
 独立Native/JS公开消费各15组、guard各4组、14 SVG路径/字节控制通过；真实CSS端点误选已修，Native/JS各810次与各12边界控制复核通过。
 Stairs已合入：Native16/16、四目标专项各80/80、adapter34/34；Root仓库外静态四目标与Chrome21通过；独立Native/JS各29组、22实际XML路径、5000个几何包含样本和两个guard均过，无阻塞。
-ECDF源语义正在实现，整个M7尚未验收或发布。
+ECDF已合入：四目标专项各117/117、adapter36/36；完整仓库外dirty演练静态四目标+Chrome23项通过，中央三组合四目标各3/3。
+ECDF独立复审和四图真实DOM验收仍在进行，整个M7尚未验收或发布。

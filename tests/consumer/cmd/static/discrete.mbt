@@ -124,3 +124,61 @@ fn verify_stairs_consumer() -> Unit raise {
     }
   }
 }
+
+///|
+fn verify_ecdf_consumer() -> Unit raise {
+  for horizontal in [false, true] {
+    for complementary in [false, true] {
+      for compressed in [false, true] {
+        let figure = @plot.figure(width=400, height=240)
+        figure.legend([])
+        if horizontal {
+          figure.set_x_limits(-0.1, 1.1)
+          figure.set_y_limits(0.0, 5.0)
+        } else {
+          figure.set_x_limits(0.0, 5.0)
+          figure.set_y_limits(-0.1, 1.1)
+        }
+        let computed = figure.ecdf(
+          [4.0, 1.0, 1.0, 3.0],
+          weights=[2.0, 1.0, 2.0, 3.0],
+          complementary~,
+          horizontal~,
+          compress=compressed,
+          label="Weighted cumulative",
+        )
+        let values = computed.values()
+        let probabilities = computed.probabilities()
+        // Accessors return copies; changing them must not rewrite the Drawing.
+        let copy_values = computed.values()
+        let copy_probabilities = computed.probabilities()
+        copy_values[0] = 999.0
+        copy_probabilities[0] = 999.0
+        let frame = figure.to_drawing()
+        assert_eq(frame.svg(), figure.to_svg_checked())
+        assert_true(!frame.targets().is_empty())
+        for target in frame.targets() {
+          let info = target.info
+          let i = info.point.point_index
+          assert_eq(info.kind, @plot.HitKind::Ecdf)
+          assert_eq(info.series, "Weighted cumulative")
+          assert_true(i >= 0 && i < values.length())
+          assert_eq(info.value, values[i])
+          assert_eq(info.fraction, Some(probabilities[i]))
+          assert_eq(info.interval, if i + 1 < values.length() { Some((values[i], values[i + 1])) } else { None })
+          let before = if i == 0 { if complementary { 1.0 } else { 0.0 } } else { probabilities[i - 1] }
+          let band = info.band.unwrap()
+          assert_eq((band.lower, band.upper), (before, probabilities[i]))
+          assert_eq(band.horizontal, horizontal)
+          assert_true(!band.stacked)
+          assert_eq((info.point.data_x, info.point.data_y), if horizontal { (probabilities[i], values[i]) } else { (values[i], probabilities[i]) })
+          assert_eq(frame.hit_info(info.point), Some(info))
+        }
+        if compressed {
+          assert_eq(values, [1.0, 3.0, 4.0])
+          assert_eq(probabilities, if complementary { [0.625, 0.25, 0.0] } else { [0.375, 0.75, 1.0] })
+        }
+      }
+    }
+  }
+}

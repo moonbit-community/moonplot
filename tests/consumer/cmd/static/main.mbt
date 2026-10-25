@@ -250,5 +250,6 @@ fn main raise {
   verify_step_consumer()
   verify_step_roundtrip_consumer()
   verify_stairs_consumer()
+  verify_ecdf_consumer()
   println(drawing.svg())
 }
