@@ -1,5 +1,5 @@
 ///|
-struct BarbIntent {
+priv struct BarbIntent {
   artist : Artist
   view : @render.BarbHitView
 }
