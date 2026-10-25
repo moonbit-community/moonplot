@@ -1,7 +1,7 @@
 # 安装与发布
 
-本次发布目标为 **`Lampese/mathplotlib@0.10.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
-0.10.0功能、独立复审与中央最终均通过，尚未实际发布；上一正式0.9.0可安装且实际registry/GitHub核验已完成。
+当前分发模块为 **`Lampese/mathplotlib@0.10.0`**：核心绘图与 Rabbita 组件合并为一个 Mooncakes module。
+0.10.0已实际发布Mooncakes与GitHub，公开构建成功、包可安装且未撤回；全新registry与四附件完整下载核验均通过。
 新增[图表悬停与提示](TOOLTIPS.md)包括柱形、直方图、饼图、折线横轴吸附和自定义格式。
 0.4.0 接续[热图单元格、分组/堆叠柱与环形图](M3_CHARTS.md)，新示例为 `rabbita/charts.html`。
 
@@ -10,7 +10,7 @@
 0.7.0 接续[六边形分箱](HEXBIN_INTERACTION.md)与[小提琴分布](VIOLIN_INTERACTION.md)，
 同时修正旧 hexbin 分桶与轮廓错位；新示例为 `rabbita/distributions.html`。
 0.8.0 接续[Step](STEP_INTERACTION.md)、[Stairs](STAIRS_INTERACTION.md)与[ECDF](ECDF_INTERACTION.md)的原采样、区间及概率提示，
-新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。0.10.0接续[Quiver原位置与U/V分量](QUIVER_INTERACTION.md)，新示例为 `rabbita/vectors.html`。下方安装命令对应本次0.10.0发布目标；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
+新示例为 `rabbita/discrete.html`。0.9.0接续[Stem原样本、实际杆段与圆头](STEM_INTERACTION.md)，新示例为 `rabbita/stems.html`。0.10.0接续[Quiver原位置与U/V分量](QUIVER_INTERACTION.md)，新示例为 `rabbita/vectors.html`。下方安装命令对应0.10.0；使用 [Mooncakes 模块页](https://mooncakes.io/docs/Lampese/mathplotlib)
 查看 registry 版本。维护者使用 `tools/verify_registry.py` 从全新、无 `moon.work` 的应用
 安装并验证静态四目标和真实浏览器交互。
 GitHub [v0.2.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.2.0)
@@ -214,7 +214,7 @@ Stem原样本、真实杆段和圆头通过既有字段进入默认/自定义提
 
 正式构建至网络验收闭环未改tracked文件；dirty演练包未上传。
 
-## 0.10.0 Quiver 发布验收（候选）
+## 0.10.0 Quiver 发布验收
 
 实际箭杆与双箭翼带原tail X/Y、原i和只读VectorInfo U/V；通用value明确原V。双mode只physical，open head不增加填面或横轴吸附。原签名/Unit/Container/非finite整call校验与旧SVG保持。
 
@@ -222,4 +222,9 @@ Root外部dirty演练静态四目标/Chrome28项、三组合四目标各3/3、�
 - 定向W/WG/JS各155、Native156、Rabbita40全部通过；24份同target旧/新SVG逐字。Native golden限定本target，未以libm末位差误报生产回归。
 - 独立Native/JS各18公开组、各8XML41targets、Native8旧SVG、Scene2+Backend2通过；14生产SHA与中央匹配。
 - 中央Wasm/Wasm-GC各22520、Native22521、JS22567；十页面Chrome122项/0errors、三个SVG、42MD/498本地链接、info/fmt/10JS builds和结构全部通过。
-- clean正式包、实际Mooncakes全新安装与GitHub四附件完整下载尚待，未完成项目不算发布。
+- 正式源码`c9eb6bec526a2f6d2b1f6330a60ef616dd83a16a`，clean包和全新无workspace registry静态四目标/Chrome28通过；566安装源与正式ZIP逐一相同。
+- 实际publish200，公开success/has_package=true/yanked=false；[GitHub v0.10.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.10.0)四附件完整下载逐字、远端digest/size与tag源码SHA全部通过。
+- 模块ZIP2258118bytes，SHA256 `1bea6b23cbce9a240e004e22be02fbfbe7c70e335173ad8d132cf66eb7e9968f`。
+- 独立源码ZIP2294805bytes，SHA256 `4f1552295d07ff44b02383d0b5e83ff200a823abaf1bf42cf6788aa449cf73dd`。
+
+正式构建至网络闭环未tracked写入或commit；dirty演练未上传。
