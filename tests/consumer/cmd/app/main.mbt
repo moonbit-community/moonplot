@@ -22,6 +22,8 @@ struct Model {
   barb_symbol_hover : @drawing.HitPoint?
   contour_hover : @drawing.HitPoint?
   tricontour_hover : @drawing.HitPoint?
+  filled_contour_hover : @drawing.HitPoint?
+  trifilled_contour_hover : @drawing.HitPoint?
 } derive(Eq)
 
 ///|
@@ -45,6 +47,8 @@ enum Msg {
   BarbSymbol(@plot_dom.Interaction)
   Contour(@plot_dom.Interaction)
   TriContour(@plot_dom.Interaction)
+  FilledContour(@plot_dom.Interaction)
+  TriFilledContour(@plot_dom.Interaction)
 }
 
 ///|
@@ -83,6 +87,8 @@ fn update(model : Model, message : Msg) -> Model {
         barb_symbol_hover: None,
         contour_hover: None,
         tricontour_hover: None,
+        filled_contour_hover: None,
+        trifilled_contour_hover: None,
       }
     Bar(Hover(point)) => { ..model, bar_hover: point, }
     Bar(_) => model
@@ -118,6 +124,11 @@ fn update(model : Model, message : Msg) -> Model {
     Contour(_) => model
     TriContour(Hover(point)) => { ..model, tricontour_hover: point, }
     TriContour(_) => model
+    FilledContour(Hover(point)) => { ..model, filled_contour_hover: point, }
+    FilledContour(_) => model
+    TriFilledContour(Hover(point)) =>
+      { ..model, trifilled_contour_hover: point, }
+    TriFilledContour(_) => model
   }
 }
 
@@ -311,6 +322,8 @@ fn content(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html raise {
     barb_consumer_view(model, emit),
     @html.h2("Contour levels on regular and triangular grids"),
     contour_consumer_view(model, emit),
+    @html.h2("Filled contour bands and holes"),
+    filled_contour_consumer_view(model, emit),
     @html.h2("Nonuniform mesh"),
     @plot_dom.view(
       make_mesh_drawing(model),
@@ -499,6 +512,8 @@ fn main {
         barb_symbol_hover: None,
         contour_hover: None,
         tricontour_hover: None,
+        filled_contour_hover: None,
+        trifilled_contour_hover: None,
       },
       update~,
     )

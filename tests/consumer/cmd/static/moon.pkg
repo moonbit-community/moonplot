@@ -1,4 +1,5 @@
 import {
+  "Lampese/mathplotlib/scene",
   "Lampese/mathplotlib" @plot,
 }
 

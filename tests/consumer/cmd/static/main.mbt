@@ -1,5 +1,5 @@
 ///|
-/// This executable imports only the public facade, without browser packages.
+/// This executable imports public core packages, without browser packages.
 fn main raise {
   let figure = @plot.figure(width=600, height=360)
   figure.set_title("MoonPlot from a release archive")
@@ -256,5 +256,6 @@ fn main raise {
   verify_vector_consumer()
   verify_barb_consumer()
   verify_contour_consumer()
+  verify_filled_contour_consumer()
   println(drawing.svg())
 }

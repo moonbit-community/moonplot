@@ -36,6 +36,7 @@ async function main() {
   const vectorEvents = [];
   const barbEvents = [];
   const contourEvents = [];
+  const filledEvents = [];
   const errors = [];
   try {
     await new Promise((resolve, reject) => {
@@ -548,6 +549,110 @@ async function main() {
     await page.waitForFunction(() => !document.querySelector('[data-testid="consumer-contour-tooltip"]'));
     checks.push('Installed XNearest contour does not select an empty panel position away from the visible stroke');
 
+    async function filledSample(id, request) {
+      await page.mouse.move(5, 5);
+      await page.locator(`#${id}`).scrollIntoViewIfNeeded();
+      return page.locator(`#${id}`).evaluate((svg, { id, request }) => {
+        const nodes = [...svg.querySelectorAll('polygon,path')];
+        const inverse = svg.getScreenCTM().inverse(), matrix = svg.getScreenCTM();
+        const rect = svg.getBoundingClientRect();
+        const regionBox = nodes[0].getBBox();
+        const regionMidX = regionBox.x + regionBox.width / 2;
+        const state = document.querySelector('#filled-contour-consumer');
+        const prefix = id.includes('trifilled') ? 'tri' : 'regular';
+        const bounds = ['Left','Top','Width','Height'].map(key => Number(state.dataset[prefix + key]));
+        if (!bounds.every(Number.isFinite)) throw Error('Missing actual public Drawing plot bounds');
+        const classify = (x, y) => {
+          const p = new DOMPoint(x, y).matrixTransform(inverse);
+          const nativeFill = nodes.map(node => node.isPointInFill(p));
+          const top = nativeFill.lastIndexOf(true);
+          const inPlot = p.x >= bounds[0] && p.y >= bounds[1] &&
+            p.x <= bounds[0] + bounds[2] && p.y <= bounds[1] + bounds[3];
+          return { x, y, svgX:p.x, svgY:p.y, nativeFill, top, inPlot };
+        };
+        let selected;
+        if (request.negative) {
+          // Use actual emitted subpath vertices only to propose hole/gap points;
+          // the real whole element's native fill predicate remains the oracle.
+          const tokens = nodes[0].getAttribute('d').match(/[MLZ]|[-+]?(?:\d*\.\d+|\d+)(?:[eE][-+]?\d+)?/g);
+          const rings = []; let ring = [];
+          for (let i=0; i<tokens.length;) {
+            const command=tokens[i++];
+            if (command==='Z') { rings.push(ring); ring=[]; }
+            else if (command==='M' || command==='L') ring.push([Number(tokens[i++]),Number(tokens[i++])]);
+            else throw Error('Unexpected emitted filled-contour path command');
+          }
+          const boxes = rings.map(points => [Math.min(...points.map(p=>p[0])),Math.min(...points.map(p=>p[1])),
+            Math.max(...points.map(p=>p[0])),Math.max(...points.map(p=>p[1]))]);
+          const centers = [...new Map(boxes.map(box => {
+            const p=new DOMPoint((box[0]+box[2])/2,(box[1]+box[3])/2).matrixTransform(matrix);
+            const value=classify(Math.round(p.x),Math.round(p.y));
+            return [`${value.x},${value.y}`,value];
+          })).values()].sort((a,b)=>a.x-b.x);
+          if (centers.length!==2) throw Error('Expected two actual annulus centers');
+          if (request.negative==='gap') {
+            selected=classify(Math.round((centers[0].x+centers[1].x)/2),Math.round((centers[0].y+centers[1].y)/2));
+          } else selected=centers[request.negative==='left-hole'?0:1];
+          if (selected.top!==-1 || !selected.inPlot) throw Error('Actual whole Path does not prove a blank hole/gap');
+        } else {
+          const wanted = candidate => candidate.top===request.artist &&
+            candidate.inPlot!==Boolean(request.margin) &&
+            (!request.side || (request.side==='left' ? candidate.svgX < regionMidX : candidate.svgX > regionMidX));
+          outer: for(let y=Math.max(1,Math.ceil(rect.top)+2);y<Math.min(innerHeight-1,rect.bottom-2);y+=3) {
+            for(let x=Math.max(1,Math.ceil(rect.left)+2);x<Math.min(innerWidth-1,rect.right-2);x+=3) {
+              const candidate=classify(x,y);
+              if (wanted(candidate) && [[-1,0],[1,0],[0,-1],[0,1]].every(([dx,dy])=>wanted(classify(x+dx,y+dy)))) {
+                selected=candidate; break outer;
+              }
+            }
+          }
+          if (!selected) throw Error('No stable integer event matches the actual filled DOM and plot rule');
+        }
+        svg.addEventListener('mousemove',event=>{
+          window.__releaseFilledEvent={clientX:event.clientX,clientY:event.clientY};
+        },{once:true});
+        return { ...selected, id, request, bounds };
+      }, { id, request });
+    }
+    async function moveFilled(id, request) {
+      const sample=await filledSample(id,request);
+      await page.mouse.move(sample.x,sample.y);
+      const actualEvent=await page.evaluate(()=>window.__releaseFilledEvent);
+      assert.deepEqual(actualEvent,{clientX:sample.x,clientY:sample.y});
+      filledEvents.push({...sample,actualEvent});
+      return sample;
+    }
+    for (const [artist, band, range, representative] of [[0,1,'0.5 – 1.5','1'],[1,2,'1.5 – 2.5','2'],[2,3,'2.5 – 3.5','3']]) {
+      const sample=await moveFilled('release-filled-contours-svg',{artist});
+      await page.waitForFunction(band=>document.querySelector('#filled-contour-consumer')?.dataset.band===String(band),band);
+      const tip=page.locator('[data-testid="release-filled-contours-tooltip"]');
+      await tip.waitFor();
+      assert.equal(await tip.getAttribute('data-moonplot-kind'),'contourf');
+      assert.equal(await tip.locator('.moonplot-tooltip-series').textContent(),'Regular bands');
+      assert.deepEqual(await tip.locator('.moonplot-coordinate-label').allTextContents(),['Range','Representative']);
+      assert.deepEqual(await tip.locator('.moonplot-coordinate b').allTextContents(),[range,representative]);
+      if (artist===0) assert.deepEqual(sample.nativeFill,[true,false,false]);
+    }
+    checks.push('Installed filled contours expose exact finite intervals, representatives and original noncompressed band slots; a real hole reveals the earlier band');
+    for (const side of ['left','right']) {
+      await moveFilled('release-trifilled-contours-svg',{artist:0,side});
+      await page.waitForFunction(()=>document.querySelector('[data-testid="consumer-filled-contour-tooltip"]')?.textContent==='填色区间 1.5..2.5；代表值 2');
+      const tip=page.locator('[data-testid="consumer-filled-contour-tooltip"]');
+      assert.equal(await tip.getAttribute('data-contourf'),'true');
+      assert.equal(await tip.getAttribute('data-band'),'0');
+    }
+    checks.push('Installed triangulation wrapper exposes one whole evenodd region and one band across both disconnected painted islands');
+    for (const negative of ['left-hole','right-hole','gap']) {
+      await moveFilled('release-trifilled-contours-svg',{negative});
+      await page.waitForFunction(()=>!document.querySelector('[data-testid="consumer-filled-contour-tooltip"]'));
+    }
+    checks.push('Installed XNearest filled contours keep both native whole-Path holes and the between-island bbox gap unselectable');
+    const margin=await moveFilled('release-filled-contours-svg',{artist:2,margin:true});
+    assert.equal(margin.inPlot,false); assert.equal(margin.top,2);
+    await page.waitForFunction(()=>document.querySelector('#filled-contour-consumer')?.dataset.band==='-1');
+    assert.equal(await page.locator('[data-testid="release-filled-contours-tooltip"]').count(),0);
+    checks.push('Installed legacy margin paint remains visible in native SVG geometry and outside the interactive plot without fabricated clipping');
+
     await page.setViewportSize({ width: 375, height: 812 });
     await page.locator('#release-chart-svg').scrollIntoViewIfNeeded();
     const mobile = await point(2);
@@ -559,12 +664,16 @@ async function main() {
     assert.equal(await page.locator('[data-testid="consumer-contour-tooltip"]').textContent(), 'Mesh: Level 2');
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     checks.push('375px installed contour retains a real clipped stroke hit and readable exact-level custom tooltip');
+    await moveFilled('release-trifilled-contours-svg',{artist:0,side:'right'});
+    await page.waitForFunction(()=>document.querySelector('[data-testid="consumer-filled-contour-tooltip"]')?.textContent==='填色区间 1.5..2.5；代表值 2');
+    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+    checks.push('375px installed filled-region picking keeps its actual whole-Path geometry and Chinese range tooltip without overflow');
     await page.screenshot({ path: path.join(output, 'consumer-mobile.png'), fullPage: true });
     checks.push('375px independent consumer retains responsive hit coordinates');
     await page.setViewportSize({ width: 1100, height: 850 });
     await page.screenshot({ path: path.join(output, 'consumer.png'), fullPage: true });
     assert.deepEqual(errors, []);
-    const report = { bundle: root, browser: browser.version(), checks, vectorEvents, barbEvents, contourEvents, pageErrors: errors };
+    const report = { bundle: root, browser: browser.version(), checks, vectorEvents, barbEvents, contourEvents, filledEvents, pageErrors: errors };
     await fs.writeFile(path.join(output, 'report.json'), JSON.stringify(report, null, 2) + '\n');
     console.log(JSON.stringify(report, null, 2));
   } catch (error) {
