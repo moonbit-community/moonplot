@@ -364,7 +364,7 @@ stays inside the actual circle. See the [polar guide](docs/POLAR.md).
 - [Continuous streamline field samples: completed M14](docs/MILESTONE_M14.md)
 - [Polar plots and radar outlines: completed M15](docs/MILESTONE_M15.md)
 - [Delivered M16: original polar values and circular picking](docs/MILESTONE_M16.md)
-- [Current M17: polar bars and rose plots](docs/MILESTONE_M17.md)
+- [Polar bars and rose plots: 0.18.0 acceptance](docs/MILESTONE_M17.md)
 - [Four capability goals](docs/MIGRATION_PLAN.md)
 - [Rabbita interactive DOM and acceptance](docs/RABBITA_DOM.md)
 - [Dependencies and integration notes](docs/DEPENDENCIES.md)

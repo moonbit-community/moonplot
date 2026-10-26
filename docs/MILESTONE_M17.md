@@ -1,7 +1,7 @@
 # M17：极坐标柱形与玫瑰图
 
 2026-10-26启动，基线为已交付0.17.0正式源`cedbf1651a8645fe3b77cce91fdfaa708437bdd0`，
-目标0.18.0。核心、DOM与专项已完成；正在收尾中央回归和0.18.0实际发布。
+目标0.18.0。核心、DOM与专项已完成；0.18.0已实际发布，中央回归与分发核验全部通过。
 
 ## 固定范围
 
@@ -31,6 +31,6 @@
   两mode全扇形/原始值/空角与圆外、点击clip、375中文。actualinfo/fmt5631及两private接口通过。
 - [x] 中央23steps全0：实际info/fmt、16JS、唯一全套70573（269.77秒）
   W/WG22678、Native22682、JS22740；16页面Chrome204、三静态、文档/结构/预期接口均通过。
-- [ ] clean包、实际Mooncakes与GitHub交付。
+- [x] clean包、实际Mooncakes/publicsuccess、全新registry四目标/Chrome63及GitHub四附件完整下载核验通过。
 
 [执行检查点](MIGRATION_STATUS.md) · [极坐标指南](POLAR.md) · [能力](CAPABILITIES.md)
