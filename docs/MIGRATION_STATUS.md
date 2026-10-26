@@ -1,64 +1,54 @@
 # MoonPlot 当前执行检查点
 
-更新时间：2026-10-26（Asia/Shanghai）。恢复先读本页，按下一动作继续。
+更新时间：2026-10-26。恢复先读本页。当前用户要求“先把现在的事情发个新版本”，
+本轮仅收尾现有极坐标柱形／玫瑰图并发布0.18.0，不启动新图类或新milestone。
 
-## 用户决定与范围
+## 用户约束
 
-实用MoonBit画图库，按能力/场景持续对齐；用户要求“一直往后对齐”。不恢复全部Python API克隆，
-不编造整体百分比。已授权合理复用、独立subagents、coherent verified Git commits/push及实际
-Mooncakes Lampese/统一module与GitHub交付。root facade/owning tests/mbt<2000/实际info-fmt及结构检查保持。
+实用MoonBit画图库，按能力验收，不恢复全部Python API克隆，不编造整体百分比。
+已授权本地commit/push、Mooncakes Lampese/单module及GitHub发布。用户指出里程碑拆得过碎，
+本次发布后停止扩展，汇报结果。root facade/owner tests/mbt<2000/actualinfo-fmt/structure保持。
 
-## 当前：M17 极坐标柱形／玫瑰图实施中
+## 0.18.0 现有功能与已验证
 
-[M17](MILESTONE_M17.md)目标0.18.0，正式基线是已交付0.17.0的
-`cedbf1651a8645fe3b77cce91fdfaa708437bdd0`。当前module/consumer仍0.17.0，不提前冒充新版本已交付。
+[M17](MILESTONE_M17.md)：typed PolarAxes.bar，必填统一角宽弧度、中心对齐、零起点填充扇形，
+真实full2π圆。原θ/r/i/calllabel保留，等长/宽度原子拒绝，missing/负r保洞、r0无面积。
+径上限先cap后ratio，可见面提示原域外rawr。Bar来源独立于Line/Scatter；宽度用于静态几何，
+变异来源无旧提示；无角宽手工Bar checked unsupported。两mode实际面积/逐panel圆门控，
+仅newBar允许laterPolar物理overlay；默认Theta(rad)/Radius和中文回调。无新Info/伪interval。
 
-- [x] 必填单scalar角宽弧度、中心对齐、bottom0/fill-only；原θ/r/i/calllabel、单call颜色。
-  等长/finite0<width<=2π在append和颜色cycle前原子校验；missing/负r保洞、r0无面积。
-- [x] 复用既有Bar/IR圆盘/CTM；新增PolarBar种类与实际扇区面积命中，不增Info或伪interval。
-  r>显式max的可见填面可提示rawr，先min后比避免溢出；full2π真圆、hugeθ先约简。
-  宽度独立于capture guard可静态画变异typedBar，手工Bar无角宽仍checked unsupported。
-  两mode按面积，圆逐候选gate；只窄补newBar上的laterPolar物理overlay，不改旧Pie/普通tie。
-- [ ] Producer在独立m3-donut工作区从formalcedbf16建codex/m17-polar-bars，owns Scene/IR/SVG、
-  own tests/接口和POLAR.md；早coherent dfdd611已合Root0acec48，4生产+2tests+2预期接口。
-  Native14371/IR17845终0，新targets6/1/1、两mode/paintorder和3旧polarSVG同formal；最终专项/guide继续。
-- [ ] Browser在独立ignored工作区准备既有polar页面接入；owns示例UI/runner/PNG，已授权exactdfdd实际实施/DOM与唯一viewguard。
-- [ ] Independent在m4-filled-area ignored准备必要数学/源guard核对，已授权exactdfdd实际Native/JS；不写生产。
-- [x] Root底层Drawing与默认tooltip首步：PolarBar enum、逐候选circle gate、真实扇区面积、
-  仅newarea允许laterPolar物理overlay。fractional(cx200,cy129,R43.8)西边界实际before71387
-  0/1后窄修通过；旧Pie严格Sector不变。四目标Drawing各64、RabbitaJS54及actualinfo/fmt/
-  structure/diff33374均终0，唯一接口差异为HitKind::PolarBar。原自写pattern缺括号编译失败已单列保留。
-- [x] Root外部consumer7源已实际Native/JS/Chrome52330终0：63checks、9新bar整数events、8旧polar
-  events、0errors；全扇形interior/nativeSVG fill、updated原值、clipped rawr、两mode巨大radius空角/
-  圆外拒绝、点击circle clip、375中文通过。actualinfo/fmt5631终0，11库源SHA不变/两private接口逐字同。
-  自写consumer Result优先级与audit误含已排除WBtests失败独立保留并修，无生产变更。
-- [ ] Root ownsdocs/version/中央、实际分发。已有M16全套不重跑，M17源变化才针对验证。
+- [x] 基线为已交付0.17.0正式cedbf1651a8645fe3b77cce91fdfaa708437bdd0。
+  Root已有commit373715b→eb00d7b→0acec48（ownerdfdd611）→b710c88，早步已push。
+- [x] Root Drawing初步四目标64与RabbitaJS54；实际fractional西边界before71387保留，修复只限PolarBar。
+- [x] 独立30476/5800与producer23978发现真实东边界：circlecx+R=243.8但boundsright舍入成
+  243.79999999999998。Rootbefore66290保留，4eps intrinsic newBar area-bounds窄修23929终0，
+  Drawing四目标65。原独立反例Root66369 Native/JS都过，不改旧Pie边界。
+- [x] Root接手代理未完成tests/guide/UI（代理均额度错误，无剩余代理live）。own四目标5084各38通过；
+  adapter47753通过、actualinfo/fmt/structure均0。private stub无意外，测试草稿误参/错误空角已保before并修harness。
+- [x] Root补完公共数学oracle13370 Native/JS各6实际SVG、426明确内部/空区查询全过。
+  首函数签名草稿编译失败只在ignored harness，保日志后修；不冒称额外独立复审完成。
+- [x] public consumer52330 Native/JS/Chrome63、9新整数events/8旧polar、0errors通过，
+  actualinfo/fmt5631，两private接口不变。后续area-bounds修和viewguard会由正式clean consumer复验。
+- [x] Root真实UI17648终0：14项/27整数事件/0errors，desktop/375已实际截图并目视desktop；
+  assets/polar.png已取该真实截图。blank候选早先落角边界的oracle问题已保before，改选明确空角；
+  未改生产断言或命中政策。正式runner删不可用optional入口，中央再跑。
+- [x] 中央prelude2906实际info/fmt和16JS全0。唯一新full70573终0/269.77秒：
+  W/WG22678、Native22682、JS22740均通过；无意外mbti diff。
+- [x] postlude86130终0：16页面Chrome204/0errors、三静态、docs56/603links、结构/diff全部通过；collector c7ac2a共23steps均0。
+- [ ] 干净正式commit/push→clean包→实际publish/publicsuccess→fresh registry→GitHub四附件全下载。
 
-精确下一动作：consumer已通过，提交此coherent接入；等producer最终bounded/guide及browser真实UI/
-独立NativeJS复审。有反例保before最窄修，否则保production。之后一次中央回归，再clean实际发布。
-Root7 consumer源、draft/active scope、actual源码workspaces与全部日志留ignored
-`.moonagent/checkpoints/M17-polar-bars/`。M16已交付docs373715b和RootDrawingeb00d7b已push；
-Rootearlycore0acec48是producerdfdd611的8源cherry-pick，Root无验证live。
+精确下一动作：所有本地验收通过，正式commit/push，记录精确HEAD后freeze，执行clean build。full已通过不重跑。
+通过后提交正式源并freeze HEAD，直到clean与全部网络audit结束不写tracked/不commit；实际交付后才更新发布状态。
+Root当前无验证live；忽略目录M17-polar-bars保全部源/日志/失败/运行计划。不要重复已过相关检查。
 
-## 最近已实际交付：M16 / 0.17.0
+## 清理与现场
 
-正式源cedbf16，clean22726、publish92686、publicsuccess935e50、freshregistry37462、
-GitHubcreate44289和whole92054均终0；queued两次只读等待、未重复publish。
-612安装源同正式ZIP，四static/Chrome59/8整数events；GitHub四附件字节/大小/digest/tag完整核验。
-finalaudit2bb881在2026-10-25T18:36:13.211245Z确认formal builder至network audit全程HEAD/gitclean
-不变后解除freeze。0.17.0已公开可安装，不存在M16剩余实现/验收或网络live。
+按用户要求已删除D30–D54共25份tracked.tar（5304166400bytes），逐blob验证同保存Git提交后删除，
+HEAD/接口/日志保留；各目录archive-cleanup.json可给Git恢复命令。未删M17或正式分发归档。
+Root8765预览原session43005/PID70622；canonical JS已实际build新玫瑰图，但尚未HTTP核/刷新前台。
+所有旧M16发布会话均终0，最新公开仍0.17.0；新0.18.0尚未发布。
 
-M16本地：owner34源61proof、independent16源110proof3archive、UI10源70proof，Root核SHA；
-Native67/其余66、Rabbita51；四目标全套9480：W/WG22658、Native22662、JS22718，
-23steps与16Chrome204均0。closed原0/strict r>max/fractional circle实际反例均保before并闭环。
-全部源、日志、清洁归档与审计保ignored `.moonagent/checkpoints/M16-polar-interaction/`；
-[完整M16历史](archive/migration-status-through-2026-10-26-m16.md)保详细决定/结果及旧历史链接。
-
-## 现场与约束
-
-Root无验证live；session43005/PID70622是8765预览。M16发布/核验均终态，无需重跑。
-canonical M16 polar JS/HTML已经HTTP逐字核同25f074；未刷新前台tab，不声称用户已看到新玫瑰图。
-三个agent在自己的目录工作，禁止Root tracked互写，Root合并通过SHA和coherent提交。
-master，SSH origin git@github.com:moonbit-community/moonplot.git；新branch codex/。
-一个module，核心不importUI；Rabbita JS-only，pins0.16.7/XML0.5.0保持；README.md symlink保留。
-[路线图](MIGRATION_PLAN.md) · [能力](CAPABILITIES.md) · [架构](ARCHITECTURE.md) · [安装](PUBLISHING.md)
+master，SSH origin git@github.com:moonbit-community/moonplot.git。README.md symlink保持；
+核心不importUI，Rabbita JS-only，pins0.16.7/XML0.5.0保持。旧完整细节留
+[0.17交付历史](archive/migration-status-through-2026-10-26-m16.md)与ignored先前checkpoint。
+[能力](CAPABILITIES.md) · [安装](PUBLISHING.md) · [本次范围](MILESTONE_M17.md)

@@ -146,3 +146,35 @@ test "polar bar angular edges and full disk keep a fixed intrinsic boundary" {
   ])
   assert_eq(pie.hit_test(cx - r, cy, radius=1.0e9), None)
 }
+
+///|
+test "polar bar actual circle edge survives independently rounded rectangular bounds" {
+  let cx = 200.0
+  let cy = 129.0
+  let radius = 43.8
+  let point = hit_point(0, 0, 0, 0.0, 1.0, cx + radius / 2.0, cy)
+  let target = hit_target(
+    hit_info(point, PolarBar, value=1.0),
+    Sector(cx, cy, radius, 0.0, 360.0),
+    (156.2, 85.2, 87.6, 87.6),
+  )
+  assert_true(target.bounds.0 + target.bounds.2 < cx + radius)
+  let frame = drawing(400, 240, "", [], targets=[target], polar_circles=[
+    (0, (cx, cy, radius)),
+  ])
+  for mode in [Nearest, XNearest] {
+    for
+      (x, y) in [
+        (cx + radius, cy),
+        (cx - radius, cy),
+        (cx, cy + radius),
+        (cx, cy - radius),
+      ] {
+      assert_eq(frame.hit_test(x, y, radius=0.0, mode~), Some(point))
+    }
+    assert_eq(
+      frame.hit_test(cx + radius + 1.0e-8, cy, radius=1.0e9, mode~),
+      None,
+    )
+  }
+}

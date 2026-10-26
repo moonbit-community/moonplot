@@ -19,7 +19,7 @@ an SVG rendering pipeline.
   box, and violin plots.
 - **Scientific plots:** error bars, filled regions, contours, triangulated meshes,
   vector fields, and stream plots.
-- **Polar plots:** radial lines and scatter points, plus closed radar outlines
+- **Polar plots:** radial lines, scatter points, rose bars and closed radar outlines
   with category labels, angle direction, radial ticks, and circular clipping.
 - **Images and color:** scalar and RGB(A) images, heatmaps, color maps,
   normalization, masks, and colorbars.
@@ -50,11 +50,11 @@ Support varies by chart and option. See the
 
 ## Getting Started
 
-MoonPlot uses the **`Lampese/mathplotlib@0.17.0`** module. See [publication status and installation instructions](docs/PUBLISHING.md).
+MoonPlot uses the **`Lampese/mathplotlib@0.18.0`** module. See [publication status and installation instructions](docs/PUBLISHING.md).
 From your application's module directory, add it with:
 
 ```sh
-moon add Lampese/mathplotlib@0.17.0
+moon add Lampese/mathplotlib@0.18.0
 ```
 
 Import `Lampese/mathplotlib` for static plotting, and add
@@ -321,7 +321,7 @@ for generated midpoint semantics and the static arrow boundary.
 
 ![Continuous streamlines and sampled fields in Rabbita](assets/streamlines.png)
 
-### Polar plots and radar outlines
+### Polar plots, rose bars and radar outlines
 
 ```sh
 moon build rabbita/cmd/polar --target js
@@ -332,11 +332,12 @@ to change data, switch angle direction, toggle each series, and remount both
 charts. `Figure::add_polar_axes` accepts raw angles in radians and nonnegative
 radii. Radar profiles retain their original categories and share one radial
 scale. Both SVG and Rabbita DOM use a true circular clip in rectangular panels.
-Hover or click the original polar samples to see radians, radius and radar
-categories. Both hit modes require physical point proximity inside the actual
-circle; tooltip content and units can be customized. See the [polar guide](docs/POLAR.md).
+Hover or click anywhere inside a filled rose sector to read its original
+angle and radius. `PolarAxes::bar` takes an explicit angular width in radians.
+Line/scatter and radar observations use physical sample proximity; all picking
+stays inside the actual circle. See the [polar guide](docs/POLAR.md).
 
-![Polar lines, scatter points and radar outlines in Rabbita](assets/polar.png)
+![Polar rose sectors, scatter points and radar outlines in Rabbita](assets/polar.png)
 
 ### Current scope
 

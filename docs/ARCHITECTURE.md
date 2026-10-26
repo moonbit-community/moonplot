@@ -98,8 +98,13 @@ provides readonly metadata. No full mesh is copied or searched per face.
 
 Polar plots have a typed Scene owner in `scene/polar.mbt`, a copied readonly
 configuration in `internal/render/polar.mbt`, and a dedicated SVG path in
-`backend/svg/polar.mbt`. Original theta/radius pairs remain ordinary Line/Scatter
+`backend/svg/polar.mbt`. Original theta/radius pairs remain ordinary Line/Scatter/Bar
 data; projection and an optional closing vertex are produced only for painting.
+`backend/svg/polar_bar.mbt` writes centered filled sectors or complete circles
+and captures that same area. Per-call scalar width stays available for static
+paint even when capture provenance is invalid; source kinds prevent bar metadata
+from being reused for a different primitive. `drawing/polar_bar.mbt` contains
+only the new kind’s bounded arithmetic admission, leaving legacy Pie unchanged.
 The polar branch bypasses Cartesian range/tick/aspect preparation and emits a
 data-only circular clip. `internal/render/polar_hit.mbt` retains one original
 call snapshot and checks identity/content once per artist. Actual writer

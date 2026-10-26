@@ -45,7 +45,7 @@ fn frame_point_presentable(
 ) -> Bool {
   match tooltip_info(drawing, point) {
     Some(info) =>
-      if info.kind is Polar {
+      if info.kind is Polar || info.kind is PolarBar {
         drawing.polar_circle(point.panel_index) is Some(_)
       } else {
         true

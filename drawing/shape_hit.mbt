@@ -280,7 +280,7 @@ fn Drawing::target_hit(
         polar=target.info.kind.requires_polar_circle(),
       ) &&
       valid_shape(target.shape) &&
-      rect_contains(target.bounds, x, y) &&
+      target.area_bounds_contains(x, y) &&
       target.area_contains(x, y) {
       return match
         self.statistical_overlay_hit(index, x, y, radius, scale, mode) {

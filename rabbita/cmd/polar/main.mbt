@@ -14,6 +14,7 @@ struct Model {
   revision : Int32
   mounted : Bool
   clockwise : Bool
+  full_circle : Bool
 } derive(Eq)
 
 ///|
@@ -22,6 +23,7 @@ enum Msg {
   Update
   Mount
   Direction
+  FullCircle
 }
 
 ///|
@@ -49,6 +51,12 @@ fn update(model : Model, message : Msg) -> Model {
       { ..model, charts: model.charts.map(cleared), mounted: !model.mounted, }
     Direction =>
       { ..model, charts: clear_chart(model, 0), clockwise: !model.clockwise, }
+    FullCircle =>
+      {
+        ..model,
+        charts: clear_chart(model, 1),
+        full_circle: !model.full_circle,
+      }
     Chart(index, ToggleSeries(key)) => {
       let visible = model.visible.copy()
       visible[index] = visible[index].copy()
@@ -93,18 +101,18 @@ fn series_keys(index : Int32) -> Array[String] {
 ///|
 fn series_names(index : Int32) -> Array[String] {
   if index == 0 {
-    ["Spiral", "Samples"]
+    ["Rose", "Samples"]
   } else {
-    ["Baseline", "Current"]
+    ["Sectors", "Profile"]
   }
 }
 
 ///|
 fn series_colors(index : Int32) -> Array[String] {
   if index == 0 {
-    ["#398575", "#d29b53"]
+    ["#9ac3b6", "#d29b53"]
   } else {
-    ["#8a9db1", "#398575"]
+    ["#d3dfeb", "#398575"]
   }
 }
 
@@ -118,14 +126,16 @@ fn input_theta(model : Model, index : Int32, series : Int32) -> Array[Double] {
   if index == 0 {
     if series == 0 {
       [
-        for i in 0..<=48 => {
-          Double::from_int(i) * pi() / 16.0 +
-          (if model.revision % 2 == 0 { 0.0 } else { pi() / 6.0 })
+        for i in 0..<8 => {
+          Double::from_int(i) * pi() / 4.0 +
+          (if model.revision % 2 == 0 { 0.0 } else { pi() / 12.0 })
         }
       ]
     } else {
-      [0.0, pi() / 2.0, pi(), 3.0 * pi() / 2.0, pi() / 4.0, 7.0 * pi()]
+      [pi() / 4.0, pi(), 7.0 * pi() / 4.0]
     }
+  } else if series == 0 && model.full_circle {
+    [pi() / 3.0]
   } else {
     [
       for i in 0..<5 => 2.0 * pi() * Double::from_int(i) / 5.0
@@ -137,22 +147,20 @@ fn input_theta(model : Model, index : Int32, series : Int32) -> Array[Double] {
 fn input_radius(model : Model, index : Int32, series : Int32) -> Array[Double] {
   if index == 0 {
     if series == 0 {
-      [
-        for i in 0..<=48 => {
-          if model.revision % 2 == 0 {
-            0.15 + 0.85 * Double::from_int(i) / 48.0
-          } else {
-            0.10 + 0.75 * Double::from_int(i) / 48.0
-          }
-        }
-      ]
+      if model.revision % 2 == 0 {
+        [0.6, 0.85, 0.0, 1.2, 0.4, -0.2, 0.55, 0.75]
+      } else {
+        [0.75, 0.5, 0.0, 1.35, 0.6, -0.3, 0.8, 0.4]
+      }
     } else if model.revision % 2 == 0 {
-      [0.4, 0.65, 0.8, 1.0, 1.2, 0.0]
+      [0.55, 0.2, 0.6]
     } else {
-      [0.55, 0.7, 0.45, 0.85, 1.2, 0.0]
+      [0.35, 0.3, 0.55]
     }
   } else if series == 0 {
-    if model.revision % 2 == 0 {
+    if model.full_circle {
+      [72.0 + Double::from_int(model.revision % 4)]
+    } else if model.revision % 2 == 0 {
       [70.0, 85.0, 60.0, 90.0, 75.0]
     } else {
       [75.0, 80.0, 65.0, 85.0, 78.0]
@@ -161,6 +169,17 @@ fn input_radius(model : Model, index : Int32, series : Int32) -> Array[Double] {
     [82.0, 68.0, 88.0, 72.0, 92.0]
   } else {
     [88.0, 74.0, 92.0, 78.0, 85.0]
+  }
+}
+
+///|
+fn angular_width(model : Model, index : Int32) -> Double {
+  if index == 0 {
+    pi() / 6.0
+  } else if model.full_circle {
+    2.0 * pi()
+  } else {
+    pi() / 5.0
   }
 }
 
@@ -180,7 +199,7 @@ fn chart_frame(model : Model, index : Int32) -> (@drawing.Drawing, Bool) raise {
     },
   )
   if index == 0 {
-    panel.set_title("A sampled spiral")
+    panel.set_title("Angular width: π/6 rad")
     panel.set_theta_ticks([0.0, pi() / 2.0, pi(), 3.0 * pi() / 2.0], labels=[
       "0", "π/2", "π", "3π/2",
     ])
@@ -188,11 +207,11 @@ fn chart_frame(model : Model, index : Int32) -> (@drawing.Drawing, Bool) raise {
       "0.25", "0.5", "0.75", "1",
     ])
     if model.visible[index][0] {
-      panel.plot(
+      panel.bar(
         input_theta(model, index, 0),
         input_radius(model, index, 0),
+        width=angular_width(model, index),
         color=series_colors(index)[0],
-        linewidth=2.0,
         label=series_names(index)[0],
       )
     }
@@ -206,21 +225,34 @@ fn chart_frame(model : Model, index : Int32) -> (@drawing.Drawing, Bool) raise {
       )
     }
   } else {
-    panel.set_title("Shared scale")
-    panel.set_theta_ticks(input_theta(model, index, 0), labels=radar_labels())
+    panel.set_title(
+      if model.full_circle {
+        "Angular width: 2π rad"
+      } else {
+        "Angular width: π/5 rad"
+      },
+    )
+    panel.set_theta_ticks(input_theta(model, index, 1), labels=radar_labels())
     panel.set_radius_ticks([20.0, 40.0, 60.0, 80.0, 100.0], labels=[
       "20", "40", "60", "80", "100",
     ])
-    for series in 0..<2 {
-      if model.visible[index][series] {
-        panel.radar(
-          input_radius(model, index, series),
-          radar_labels(),
-          color=series_colors(index)[series],
-          linewidth=2.0,
-          label=series_names(index)[series],
-        )
-      }
+    if model.visible[index][0] {
+      panel.bar(
+        input_theta(model, index, 0),
+        input_radius(model, index, 0),
+        width=angular_width(model, index),
+        color=series_colors(index)[0],
+        label=series_names(index)[0],
+      )
+    }
+    if model.visible[index][1] {
+      panel.radar(
+        input_radius(model, index, 1),
+        radar_labels(),
+        color=series_colors(index)[1],
+        linewidth=2.0,
+        label=series_names(index)[1],
+      )
     }
   }
   let drawing = fig.to_drawing()
@@ -239,6 +271,10 @@ fn double_attr(attrs : @html.Attrs, key : String, value : Double) -> Unit {
 
 ///|
 fn source_attrs(attrs : @html.Attrs, model : Model, index : Int32) -> Unit {
+  ignore(
+    attrs.data_set("full-circle", (index == 1 && model.full_circle).to_string()),
+  )
+  double_attr(attrs, "angular-width", angular_width(model, index))
   double_attr(attrs, "radius-max", if index == 0 { 1.0 } else { 100.0 })
   double_attr(attrs, "theta-offset", if index == 0 { 0.0 } else { pi() / 2.0 })
   ignore(
@@ -266,14 +302,18 @@ fn source_attrs(attrs : @html.Attrs, model : Model, index : Int32) -> Unit {
     ignore(
       attrs.data_set(
         prefix + "geometry",
-        if index == 0 && series == 1 {
+        if series == 0 {
+          "bar"
+        } else if index == 0 {
           "scatter"
         } else {
           "line"
         },
       ),
     )
-    ignore(attrs.data_set(prefix + "closed", (index == 1).to_string()))
+    ignore(
+      attrs.data_set(prefix + "closed", (index == 1 && series == 1).to_string()),
+    )
     int_attr(attrs, prefix + "count", theta.length())
     for i, angle in theta {
       double_attr(attrs, prefix + "point-\{i}-theta", angle)
@@ -292,7 +332,9 @@ fn semantic_attrs(
   ignore(
     attrs.data_set(
       prefix + "kind",
-      if info.kind is Polar {
+      if info.kind is PolarBar {
+        "polar-bar"
+      } else if info.kind is Polar {
         "polar"
       } else {
         "other"
@@ -398,13 +440,22 @@ fn chart_card(
     ignore(
       attrs.data_set(
         prefix + "shape",
-        if target.shape is Point {
+        if target.shape is Sector(_, _, _, _, _) {
+          "sector"
+        } else if target.shape is Point {
           "point"
         } else {
           "other"
         },
       ),
     )
+    if target.shape is Sector(cx, cy, outer, start, sweep) {
+      double_attr(attrs, prefix + "sector-cx", cx)
+      double_attr(attrs, prefix + "sector-cy", cy)
+      double_attr(attrs, prefix + "sector-outer", outer)
+      double_attr(attrs, prefix + "sector-start", start)
+      double_attr(attrs, prefix + "sector-sweep", sweep)
+    }
     let (left, top, width, height) = target.bounds
     double_attr(attrs, prefix + "left", left)
     double_attr(attrs, prefix + "top", top)
@@ -432,19 +483,13 @@ fn chart_card(
   @html.div(class="chart-card", [
     @html.div(class="chart-heading", [
       @html.div([
-        @html.h2(
-          if index == 0 {
-            "A spiral, sampled"
-          } else {
-            "Five perspectives"
-          },
-        ),
+        @html.h2(if index == 0 { "A rose, sampled" } else { "Five directions" }),
         @html.p(
           class="chart-caption",
           if index == 0 {
-            "Explore the angle and radius of each sample."
+            "Eight angles, one linear radius scale."
           } else {
-            "Compare categories on one shared scale."
+            "Filled sectors with a shared linear profile."
           },
         ),
       ]),
@@ -473,7 +518,19 @@ fn chart_card(
           ),
         ]
       } else {
-        [@html.span(class="polar-note", "Top zero · Clockwise")]
+        [
+          @html.span(class="polar-note", "Top zero · Clockwise"),
+          @html.button(
+            id="polar-full-circle",
+            class="button button-quiet",
+            on_click=emit(FullCircle),
+            if model.full_circle {
+              "Show sectors"
+            } else {
+              "Full circle"
+            },
+          ),
+        ]
       },
     ),
     @plot_dom.view(
@@ -565,6 +622,7 @@ fn main {
       revision: 0,
       mounted: true,
       clockwise: false,
+      full_circle: false,
     }
     let (state, emit) = @rabbita.create_pure_state(initial, update~)
     state.view(model => {

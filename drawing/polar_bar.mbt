@@ -30,3 +30,33 @@ fn HitTarget::area_contains(self : HitTarget, x : Double, y : Double) -> Bool {
   offset - sweep <= angular_roundoff ||
   360.0 - offset <= angular_roundoff
 }
+
+///|
+// The circle center and rectangle's right edge are independently rounded.
+// Admit only that numeric discrepancy before testing the actual polar sector.
+fn HitTarget::area_bounds_contains(
+  self : HitTarget,
+  x : Double,
+  y : Double,
+) -> Bool {
+  if self.info.kind != PolarBar {
+    return rect_contains(self.bounds, x, y)
+  }
+  guard valid_rect(self.bounds) else { return false }
+  let (left, top, width, height) = self.bounds
+  let right = left + width
+  let bottom = top + height
+  let roundoff = 4.0 *
+    2.220446049250313e-16 *
+    x
+    .abs()
+    .max(y.abs())
+    .max(left.abs())
+    .max(top.abs())
+    .max(right.abs())
+    .max(bottom.abs())
+  (x >= left || left - x <= roundoff) &&
+  (x <= right || x - right <= roundoff) &&
+  (y >= top || top - y <= roundoff) &&
+  (y <= bottom || y - bottom <= roundoff)
+}

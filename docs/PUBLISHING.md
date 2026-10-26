@@ -1,5 +1,8 @@
 # 安装与发布
 
+仓库源码正在验收 **0.18.0** 极坐标柱形／玫瑰图；本次实际发布尚待完成。
+下述0.17.0为最近已核验的公开版本，完成正式分发核验后更新。
+
 当前分发为 **`Lampese/mathplotlib@0.17.0`**，新增[极坐标原始数据提示](POLAR.md)、
 雷达类别、逐面板圆盘命中与高亮。示例为 `rabbita/polar.html`。
 已实际发布Mooncakes与[GitHub v0.17.0](https://github.com/moonbit-community/moonplot/releases/tag/v0.17.0)；

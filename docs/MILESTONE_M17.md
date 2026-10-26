@@ -1,7 +1,7 @@
 # M17：极坐标柱形与玫瑰图
 
 2026-10-26启动，基线为已交付0.17.0正式源`cedbf1651a8645fe3b77cce91fdfaa708437bdd0`，
-目标0.18.0。当前仅范围与分工已固定，核心、DOM和验收均在推进；不将设计当成可用功能。
+目标0.18.0。核心、DOM与专项已完成；正在收尾中央回归和0.18.0实际发布。
 
 ## 固定范围
 
@@ -20,12 +20,17 @@
 - [x] M16实际交付已核验，正式基线与最小合同固定，三个独立工作区分工。
 - [x] Drawing/默认tooltip底层：PolarBar、圆盘门控、扇区面积及laterPolar物理overlay；
   fractional圆实际失败保留，窄舍入修复后Drawing四目标各64、RabbitaJS54通过。
-- [ ] Scene/IR/SVG核心、原始数据归属；own四目标及少量旧SVG控制。
-- [ ] 独立Native/JS几何与来源核对。
-- [ ] 真实RabbitaDOM、hover/click、更新/图例/重挂载和375px。
+- [x] Scene/IR/SVG与原始数据归属已合，相关四目标各38通过，旧三份polar Native SVG保持。
+- [x] 独立复审实际发现圆东边界被矩形舍入先排；Root窄修后重跑原Native/JS反例通过。
+  子代理额度用尽后的剩余核对由Root接手，不冒称独立完成：Native/JS各6实际SVG数学场景、
+  各426个明确内部/空区查询通过；来源变异/类型/原子输入等随own四目标验证。
+- [x] 真实双卡DOM14项、27组整数事件、0errors；实际SVG填色、全扇形、原值、CW、完整圆、
+  后绘点、更新、四图例、三重挂载、border/padding缩放、375px默认/中文提示均通过。
+  已移除未实现的可选fixture入口，中央正式runner也已通过14项。
 - [x] 外部consumer Native/JS/Chrome52330通过：63项、9新bar整数事件、0errors；
   两mode全扇形/原始值/空角与圆外、点击clip、375中文。actualinfo/fmt5631及两private接口通过。
-- [ ] 最终生成接口/格式/结构与中央相关回归。
+- [x] 中央23steps全0：实际info/fmt、16JS、唯一全套70573（269.77秒）
+  W/WG22678、Native22682、JS22740；16页面Chrome204、三静态、文档/结构/预期接口均通过。
 - [ ] clean包、实际Mooncakes与GitHub交付。
 
 [执行检查点](MIGRATION_STATUS.md) · [极坐标指南](POLAR.md) · [能力](CAPABILITIES.md)
