@@ -283,7 +283,7 @@ fn tooltip_node(
   info : @drawing.HitInfo,
   id : String,
   class_name : String,
-  render : ((@drawing.HitInfo) -> @rabbita.Html)?,
+  render : ((@drawing.HitInfo) -> @tea.Html)?,
 ) -> @html.Html {
   @html.div(
     class="moonplot-tooltip" +

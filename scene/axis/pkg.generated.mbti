@@ -24,10 +24,10 @@ pub struct Axis {
   mut auto_view : @core.Limits?
   mut inverted : Bool
   mut label : String?
-  mut tick_count : Int
+  mut tick_count : Int32
   mut category : @category.CategoryAxis?
   mut date_format : String?
-  mut date_offset_minutes : Int
+  mut date_offset_minutes : Int32
   mut date_timezone : @date.DateTimeZone?
   mut scale : @scale.Scale
   mut tick_position : TickPosition?
@@ -88,7 +88,7 @@ pub fn Axis::date_format(Self) -> String?
 pub fn Axis::date_formatter(Self) -> @date.DateFormatter?
 pub fn Axis::date_locator(Self) -> @date.DateLocator?
 pub fn Axis::date_nonsingular_bounds(Self, Double, Double) -> @core.Limits
-pub fn Axis::date_offset_minutes(Self) -> Int
+pub fn Axis::date_offset_minutes(Self) -> Int32
 pub fn Axis::date_timezone(Self) -> @date.DateTimeZone?
 pub fn Axis::formatter(Self) -> @ticker.Formatter?
 pub fn Axis::formatter_axis_binding(Self) -> @ticker.FormatterAxisBinding
@@ -146,7 +146,7 @@ pub fn Axis::set_date_converter(Self, @date.DateConverter) -> Unit raise @core.D
 pub fn Axis::set_date_format(Self, String) -> Unit raise @core.DataError
 pub fn Axis::set_date_formatter(Self, @date.DateFormatter) -> Unit
 pub fn Axis::set_date_locator(Self, @date.DateLocator) -> Unit raise @core.DataError
-pub fn Axis::set_date_offset(Self, Int) -> Unit raise @core.DataError
+pub fn Axis::set_date_offset(Self, Int32) -> Unit raise @core.DataError
 pub fn Axis::set_date_timezone(Self, @date.DateTimeZone) -> Unit raise @core.DataError
 pub fn Axis::set_explicit_category_converter(Self) -> Unit raise @core.DataError
 pub fn Axis::set_explicit_date_converter(Self, @date.DateConverter) -> Unit raise @core.DataError
@@ -164,7 +164,7 @@ pub fn Axis::set_minor_overlap_removal(Self, Bool) -> Unit
 pub fn Axis::set_named_formatter(Self, @ticker.BaseFormatter) -> Unit
 pub fn Axis::set_scale(Self, @scale.Scale) -> Unit raise @core.DataError
 pub fn Axis::set_source_ticks(Self, Array[Double]) -> Unit raise @core.DataError
-pub fn Axis::set_tick_count(Self, Int) -> Unit
+pub fn Axis::set_tick_count(Self, Int32) -> Unit
 pub fn Axis::set_tick_label_size(Self, Double) -> Unit
 pub fn Axis::set_tick_labels(Self, Array[String]) -> Unit raise @core.DataError
 pub fn Axis::set_tick_layout(Self, Double, Bool, active? : Bool, origin? : Double) -> Unit
@@ -176,7 +176,7 @@ pub fn Axis::set_view_limits(Self, Double, Double) -> Unit raise @core.DataError
 pub fn Axis::share_numeric_tickers(Self, Self) -> Unit
 pub fn Axis::shared_minpos_checked(Self) -> Array[Double] raise @core.DataError
 pub fn Axis::stored_view_limits(Self) -> @core.Limits
-pub fn Axis::tick_count(Self) -> Int
+pub fn Axis::tick_count(Self) -> Int32
 pub fn Axis::tick_group_is_null(Self, minor? : Bool) -> Bool
 pub fn Axis::tick_label_size(Self) -> Double
 pub fn Axis::tick_labels(Self, Array[Double]) -> Array[String]

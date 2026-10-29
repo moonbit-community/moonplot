@@ -81,7 +81,7 @@ fn default_rc_params() -> RcParams {
 }
 
 ///|
-let current : @ref.Ref[RcParams] = @ref.new(default_rc_params())
+let current : @ref.Ref[RcParams] = @ref.Ref(default_rc_params())
 
 ///|
 fn validate_margin(value : Double) -> Unit raise @core.DataError {

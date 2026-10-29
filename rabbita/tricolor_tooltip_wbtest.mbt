@@ -35,7 +35,7 @@ test "Tripcolor actual region callback carries frame value and ordered vertices 
   let p = frame.hit_test(80.0, 240.0, radius=0.0).unwrap()
   let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
   ignore(
-    view(frame, id="tripcolor", hovered=p, on_event=_ => @rabbita.none, tooltip=info => {
+    view(frame, id="tripcolor", hovered=p, on_event=_ => @tea.none, tooltip=info => {
       received.val = Some(info)
       @html.b("顶点均值")
     }),

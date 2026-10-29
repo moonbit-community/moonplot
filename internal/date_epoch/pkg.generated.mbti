@@ -10,7 +10,7 @@ pub fn parse(String) -> Result[Stamp, String]
 pub struct Stamp {
   source : String
   seconds : Int64
-  microsecond : Int
+  microsecond : Int32
 }
 
 // Type aliases

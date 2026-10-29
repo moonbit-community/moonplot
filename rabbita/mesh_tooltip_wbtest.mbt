@@ -29,7 +29,7 @@ test "real histogram2d drawing delivers raw zero counts and typed intervals to c
   let point = frame.hit_test(100.0, 50.0, radius=0.0).unwrap()
   let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
   ignore(
-    view(frame, id="bins", on_event=_ => @rabbita.none, hovered=point, tooltip=info => {
+    view(frame, id="bins", on_event=_ => @tea.none, hovered=point, tooltip=info => {
       received.val = Some(info)
       @html.b("频数：\{info.value}")
     }),

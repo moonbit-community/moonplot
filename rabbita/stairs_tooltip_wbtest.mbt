@@ -36,7 +36,7 @@ test "real filled horizontal stairs callback preserves signed band source edge a
   let point = frame.hit_test(125.0, 62.5, radius=0.0).unwrap()
   let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
   ignore(
-    view(frame, id="stairs", hovered=point, on_event=_ => @rabbita.none, tooltip=info => {
+    view(frame, id="stairs", hovered=point, on_event=_ => @tea.none, tooltip=info => {
       received.val = Some(info)
       @html.b("原始区间")
     }),

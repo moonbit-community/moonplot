@@ -36,7 +36,7 @@ pub fn figure(width~ : Int32 = 640, height~ : Int32 = 480) -> Figure {
   } else {
     0.0
   }
-  let default_axes = @ref.new({
+  let default_axes = @ref.Ref({
     artists: [],
     polar: None,
     line_originals: [],

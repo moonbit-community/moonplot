@@ -46,7 +46,7 @@ test "polar inherited Cartesian configuration and foreign artists are checked er
         .set_minor_locator(@ticker.FixedLocator::new([0.0]).as_minor_locator())
       _ => ax.set_axis_off()
     }
-    let result = try? fig.to_svg_checked()
+    let result = Ok(fig.to_svg_checked()) catch { e => Err(e) }
     assert_true(
       result is Err(@core.DataError::InvalidReference(..)),
       msg="unsupported case \{case}",
@@ -101,9 +101,9 @@ test "polar inherited custom Cartesian grid and hidden spine cannot be silently 
       3 => axes.set_anchor(Anchor::Named("SW"))
       _ => axes.set_x_tick_position(@axis.TickPosition::Top)
     }
-    let result = try? fig.to_svg_checked()
+    let result = Ok(fig.to_svg_checked()) catch { e => Err(e) }
     rejected.push(result is Err(@core.DataError::InvalidReference(..)))
   }
-  println("polar-inherited-grid-spine rejected=\{rejected}")
+  println("polar-inherited-grid-spine rejected=\{Repr(rejected)}")
   assert_eq(rejected, [true, true, true, true, true])
 }

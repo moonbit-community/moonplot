@@ -24,7 +24,7 @@ test "Contour actual inline line hit reaches custom tooltip with exact frame met
     let point = frame.hit_test(p.screen_x, p.screen_y, radius=1.0e-7).unwrap()
     let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
     ignore(
-      view(frame, id="contour", hovered=point, on_event=_ => @rabbita.none, tooltip=info => {
+      view(frame, id="contour", hovered=point, on_event=_ => @tea.none, tooltip=info => {
         received.val = Some(info)
         @html.b("等值线级别")
       }),

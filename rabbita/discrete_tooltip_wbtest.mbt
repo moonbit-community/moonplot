@@ -38,7 +38,7 @@ test "real step original endpoint and riser pass selected source data to the cus
     let point = frame.hit_test(x, y, radius=0.0).unwrap()
     let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
     ignore(
-      view(frame, id="step", hovered=point, on_event=_ => @rabbita.none, tooltip=info => {
+      view(frame, id="step", hovered=point, on_event=_ => @tea.none, tooltip=info => {
         received.val = Some(info)
         @html.b("原始样本")
       }),

@@ -33,18 +33,22 @@ test "polar invalid sizes ranges offsets and tick pairs fail atomically before a
   let (fig, p) = polar_control_figure(0)
   let before = fig.to_svg_checked()
   for case in 0..<10 {
-    let result = try? (match case {
-      0 => p.plot([0.0], [])
-      1 => p.scatter([0.0], [])
-      2 => p.plot([0.0], [1.0], linewidth=-1.0)
-      3 => p.scatter([0.0], [1.0], size=1.0 / 0.0)
-      4 => p.set_radius_max(0.0)
-      5 => p.set_radius_max(1.0 / 0.0)
-      6 => p.set_theta_offset(0.0 / 0.0)
-      7 => p.set_theta_ticks([0.0, 1.0], labels=["Only one"])
-      8 => p.set_radius_ticks([-1.0])
-      _ => p.set_theta_ticks([1.0 / 0.0])
-    })
+    let result = Ok(
+      match case {
+        0 => p.plot([0.0], [])
+        1 => p.scatter([0.0], [])
+        2 => p.plot([0.0], [1.0], linewidth=-1.0)
+        3 => p.scatter([0.0], [1.0], size=1.0 / 0.0)
+        4 => p.set_radius_max(0.0)
+        5 => p.set_radius_max(1.0 / 0.0)
+        6 => p.set_theta_offset(0.0 / 0.0)
+        7 => p.set_theta_ticks([0.0, 1.0], labels=["Only one"])
+        8 => p.set_radius_ticks([-1.0])
+        _ => p.set_theta_ticks([1.0 / 0.0])
+      },
+    ) catch {
+      e => Err(e)
+    }
     assert_true(result is Err(_))
     assert_eq(fig.to_svg_checked(), before)
     assert_eq(fig.axes_list()[0].artists().length(), 2)
@@ -58,14 +62,18 @@ test "radar keeps five raw values and category consistency without rotating the 
   let direction = p.config().direction
   let offset = p.config().theta_offset
   for case in 0..<3 {
-    let result = try? (match case {
-      0 => p.radar([1.0, 2.0], ["a", "b"])
-      1 => p.radar([1.0, 2.0, 3.0], ["a", "b"])
-      _ =>
-        p.radar([1.0, 2.0, 3.0, 4.0, 5.0], [
-          "different", "速度", "恢复", "耐力", "防御",
-        ])
-    })
+    let result = Ok(
+      match case {
+        0 => p.radar([1.0, 2.0], ["a", "b"])
+        1 => p.radar([1.0, 2.0, 3.0], ["a", "b"])
+        _ =>
+          p.radar([1.0, 2.0, 3.0, 4.0, 5.0], [
+            "different", "速度", "恢复", "耐力", "防御",
+          ])
+      },
+    ) catch {
+      e => Err(e)
+    }
     assert_true(result is Err(_))
     assert_eq(fig.to_svg_checked(), before)
   }

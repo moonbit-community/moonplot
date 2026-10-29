@@ -49,7 +49,7 @@ test "real Barbs stroke flag and nonzero rounded calm callback keep original inp
       .unwrap()
     let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
     ignore(
-      view(frame, id="barbs", hovered=point, on_event=_ => @rabbita.none, tooltip=info => {
+      view(frame, id="barbs", hovered=point, on_event=_ => @tea.none, tooltip=info => {
         received.val = Some(info)
         @html.b("原始风矢量")
       }),

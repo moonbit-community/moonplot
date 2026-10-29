@@ -16,7 +16,7 @@ test "Polar held state requires the current frame circle before tooltip presenta
       id="polar-current",
       hovered=point,
       selected=point,
-      on_event=_ => @rabbita.none,
+      on_event=_ => @tea.none,
       tooltip=info => {
         calls.val += 1
         received.val = Some(info)
@@ -43,7 +43,7 @@ test "Polar held state requires the current frame circle before tooltip presenta
       id="polar-unproven",
       hovered=point,
       selected=point,
-      on_event=_ => @rabbita.none,
+      on_event=_ => @tea.none,
       tooltip=_ => {
         calls.val += 1
         @html.b("must not render")
@@ -78,7 +78,7 @@ test "Ordinary held state in a mixed drawing does not require another panel circ
       id="普通 \" 🐇",
       hovered=ordinary,
       selected=ordinary,
-      on_event=_ => @rabbita.none,
+      on_event=_ => @tea.none,
       tooltip=info => {
         calls.val += 1
         received.val = Some(info)

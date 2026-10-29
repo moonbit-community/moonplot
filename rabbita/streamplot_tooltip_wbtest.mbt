@@ -47,7 +47,7 @@ test "Streamplot real body custom tooltip receives the exact generated edge reco
     .unwrap()
   let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
   ignore(
-    view(frame, id="streamplot", hovered=p, on_event=_ => @rabbita.none, tooltip=actual => {
+    view(frame, id="streamplot", hovered=p, on_event=_ => @tea.none, tooltip=actual => {
       received.val = Some(actual)
       @html.b("生成流线场值")
     }),

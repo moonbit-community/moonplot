@@ -145,7 +145,7 @@ test "view constructs checked public nodes with Unicode tooltip and legend witho
       id="unicode",
       on_event=_ => {
         calls.val += 1
-        @rabbita.none
+        @tea.none
       },
       hovered=point,
       selected=point,
@@ -167,8 +167,8 @@ test "actual MoonPlot line scatter and raster SVG all build through strict publi
   fig.scatter([@plot.point(1.25, 2.75)], color="#f97316", label="Point")
   let drawing = fig.to_drawing()
   assert_true(drawing.points().length() > 0)
-  ignore(view(drawing, id="actual", on_event=_ => @rabbita.none))
+  ignore(view(drawing, id="actual", on_event=_ => @tea.none))
   let image = @plot.figure(width=160, height=120)
   image.imshow([[0.0, 1.0], [1.0, 0.5]])
-  ignore(view(image.to_drawing(), id="image", on_event=_ => @rabbita.none))
+  ignore(view(image.to_drawing(), id="image", on_event=_ => @tea.none))
 }

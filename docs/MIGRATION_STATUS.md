@@ -34,3 +34,15 @@ HEAD/接口/日志保留，ignored archive-cleanup.json给恢复命令。不再�
 master，SSH origin git@github.com:moonbit-community/moonplot.git，README symlink/单module/
 核心不importUI/RabbitaJS-only及pins0.16.7/XML0.5.0保持。
 [能力](CAPABILITIES.md) · [安装](PUBLISHING.md) · [本次验收](MILESTONE_M17.md)
+
+
+## 2026-10-29 toolchain compatibility audit
+
+- Scope: preserve 0.18.0 plotting behavior while migrating removed `try?`, deprecated Ref construction, unused helper raises, and the Rabbita import alias collision. No new plotting features or release were requested in this repair.
+- Implementation: source and consumer migrations complete; stable/nightly CI added in `.github/workflows/check.yml`; generated interfaces refreshed with `tools/update_interfaces.py`.
+- Verified: strict all-target check; structure checker; independent published-version consumer all-target check, native static SVG/assertions, and JS app build. The published consumer archive still prints its existing Rabbita alias warning.
+- Verified: complete debug and release suites pass on every target: Wasm/Wasm-GC 22,678 each, JavaScript 22,740, native 22,682. No snapshots were updated.
+- Release handoff: the namespace owner must publish a version above Lampese/mathplotlib 0.18.0 after the source passes exact-head stable/nightly CI and is merged. No third-party publishing or unpublished dependency overrides were performed by this audit.
+- Local audit evidence: `.health/release-20261029/releases/moonplot-*` in the parent audit workspace. No local test session remains live. Next release action: the owner should follow the compatibility PR and release handoff issue, confirm green exact-head CI and merge, then publish and validate the new archive. Browser interaction acceptance is not rerun for this compatibility-only change; JS adapter unit tests and independent consumer builds pass.
+
+- CI blocker (2026-10-29): Ubuntu stable and nightly run 40817330126 failed before native test execution with compiler `link-core` stack overflow in ticker whitebox/blackbox and ticker/date blackbox. Upstream report: https://github.com/moonbitlang/moonbit-docs/issues/1339. Local complete test evidence above is macOS evidence. PR #1 remains unmerged and owner release is blocked until exact-head CI passes; do not increase the runtime/compiler stack or drop fixtures and count that as a compiler repair.

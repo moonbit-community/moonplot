@@ -74,7 +74,7 @@ test "custom tooltip receives this frame's metadata and can be suppressed withou
       id="custom",
       on_event=_ => {
         events.val += 1
-        @rabbita.none
+        @tea.none
       },
       hovered=point,
       tooltip=render,
@@ -88,14 +88,14 @@ test "custom tooltip receives this frame's metadata and can be suppressed withou
     view(
       drawing,
       id="hidden",
-      on_event=_ => @rabbita.none,
+      on_event=_ => @tea.none,
       hovered=point,
       tooltip=render,
       tooltip_visible=false,
     ),
   )
   assert_eq(rendered.val, 1)
-  ignore(view(drawing, id="empty", on_event=_ => @rabbita.none, tooltip=render))
+  ignore(view(drawing, id="empty", on_event=_ => @tea.none, tooltip=render))
   assert_eq(rendered.val, 1)
   let changed_point = @drawing.hit_point(0, 1, 2, 3.0, 5.0, 30.0, 50.0)
   assert_eq(tooltip_info(drawing, changed_point), None)
@@ -103,7 +103,7 @@ test "custom tooltip receives this frame's metadata and can be suppressed withou
     view(
       drawing,
       id="stale",
-      on_event=_ => @rabbita.none,
+      on_event=_ => @tea.none,
       hovered=changed_point,
       selected=changed_point,
       tooltip=render,
@@ -152,7 +152,7 @@ test "heatmap tooltip rows and callback carry original cell metadata" {
   )
   let received : @ref.Ref[@drawing.CellInfo?] = @ref.Ref(None)
   ignore(
-    view(snapshot, id="cell", on_event=_ => @rabbita.none, hovered=point, tooltip=info => {
+    view(snapshot, id="cell", on_event=_ => @tea.none, hovered=point, tooltip=info => {
       received.val = info.cell
       @html.b("\{info.value} 元")
     }),

@@ -21,7 +21,7 @@ fn stem_at(
   x : Double,
   y : Double,
   mode~ : @drawing.HitMode = Nearest,
-) -> @drawing.HitInfo raise {
+) -> @drawing.HitInfo {
   step_selected(frame, (x + 2.0) * 40.0, (8.0 - y) * 20.0, mode~)
 }
 

@@ -12,9 +12,9 @@ import {
 // Values
 pub fn asinh_default_minor_subs() -> AsinhSubsTuple
 
-pub fn auto_minor_locator(subdivisions? : Int) -> MinorLocator raise @core.DataError
+pub fn auto_minor_locator(subdivisions? : Int32) -> MinorLocator raise @core.DataError
 
-pub fn eng_formatter(unit? : String, places? : Int, sep? : String) -> Formatter raise @core.DataError
+pub fn eng_formatter(unit? : String, places? : Int32, sep? : String) -> Formatter raise @core.DataError
 
 pub fn fixed_formatter(Array[String]) -> Formatter
 
@@ -30,17 +30,17 @@ pub fn func_formatter((Double) -> String) -> Formatter
 
 pub fn index_formatter(Array[String]) -> Formatter
 
-pub fn linear_locator(count? : Int) -> Locator
+pub fn linear_locator(count? : Int32) -> Locator
 
-pub fn linear_ticks(@core.Limits, count? : Int) -> Array[Double]
+pub fn linear_ticks(@core.Limits, count? : Int32) -> Array[Double]
 
 pub fn log_formatter(base? : Double, label_only_base? : Bool) -> Formatter raise @core.DataError
 
-pub fn log_locator(count? : Int, base? : Double, subs? : Array[Double], numdecs? : Int) -> Locator raise @core.DataError
+pub fn log_locator(count? : Int32, base? : Double, subs? : Array[Double], numdecs? : Int32) -> Locator raise @core.DataError
 
-pub fn log_minor_locator(subdivisions? : Int, base? : Double) -> MinorLocator raise @core.DataError
+pub fn log_minor_locator(subdivisions? : Int32, base? : Double) -> MinorLocator raise @core.DataError
 
-pub fn maxn_locator(count? : Int, integer? : Bool, symmetric? : Bool, prune? : String) -> Locator raise @core.DataError
+pub fn maxn_locator(count? : Int32, integer? : Bool, symmetric? : Bool, prune? : String) -> Locator raise @core.DataError
 
 pub fn multiple_locator(base? : Double, offset? : Double) -> Locator raise @core.DataError
 
@@ -48,13 +48,13 @@ pub fn null_formatter() -> Formatter
 
 pub fn parse_float_text(String) -> Double raise @core.DataError
 
-pub fn percent_formatter(xmax? : Double, decimals? : Int, symbol? : String) -> Formatter raise @core.DataError
+pub fn percent_formatter(xmax? : Double, decimals? : Int32, symbol? : String) -> Formatter raise @core.DataError
 
 pub fn python_float_repr(Double) -> String
 
 pub fn python_string_repr(String) -> String
 
-pub fn scalar_formatter(use_offset? : Bool, use_math_text? : Bool, power_min? : Int, power_max? : Int) -> Formatter raise @core.DataError
+pub fn scalar_formatter(use_offset? : Bool, use_math_text? : Bool, power_min? : Int32, power_max? : Int32) -> Formatter raise @core.DataError
 
 pub fn str_method_formatter(String) -> Formatter
 
@@ -100,7 +100,7 @@ pub struct AsinhSubsTuple {
   // private fields
 }
 pub fn AsinhSubsTuple::equal(Self, Self) -> Bool
-pub fn AsinhSubsTuple::length(Self) -> Int
+pub fn AsinhSubsTuple::length(Self) -> Int32
 pub fn AsinhSubsTuple::new(Array[Double]) -> Self
 pub fn AsinhSubsTuple::not_equal(Self, Self) -> Bool
 pub fn AsinhSubsTuple::to_repr(Self) -> @debug.Repr
@@ -120,12 +120,12 @@ pub fn AutoLocator::call(Self) -> Array[Double] raise @core.DataError
 pub fn AutoLocator::copy(Self) -> Self
 pub fn AutoLocator::extended_steps(Self) -> Array[Double]
 pub fn AutoLocator::integer(Self) -> Bool
-pub fn AutoLocator::min_n_ticks(Self) -> Int
+pub fn AutoLocator::min_n_ticks(Self) -> Int32
 pub fn AutoLocator::nbins(Self) -> MaxNBins
 pub fn AutoLocator::new() -> Self
 pub fn AutoLocator::nonsingular(Self, Double, Double) -> (Double, Double)
 pub fn AutoLocator::prune(Self) -> String?
-pub fn AutoLocator::set_params(Self, nbins? : MaxNBins, steps? : TickValues?, integer? : Bool, symmetric? : Bool, prune? : String?, min_n_ticks? : Int) -> Unit raise @core.DataError
+pub fn AutoLocator::set_params(Self, nbins? : MaxNBins, steps? : TickValues?, integer? : Bool, symmetric? : Bool, prune? : String?, min_n_ticks? : Int32) -> Unit raise @core.DataError
 pub fn AutoLocator::steps(Self) -> TickValues
 pub fn AutoLocator::symmetric(Self) -> Bool
 pub fn AutoLocator::tick_space_provider(Self) -> (() -> Double)?
@@ -160,7 +160,7 @@ pub struct BaseFormatter {
   // private fields
 }
 pub fn BaseFormatter::axis(Self) -> FormatterAxisBinding?
-pub fn BaseFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn BaseFormatter::call(Self, Double, pos? : Int32) -> String raise @core.DataError
 pub fn BaseFormatter::copy(Self) -> Self
 pub fn BaseFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
 pub fn BaseFormatter::eng_formatter(Self) -> EngFormatter?
@@ -199,8 +199,8 @@ pub struct EngFormatter {
 pub fn EngFormatter::as_base_formatter(Self) -> BaseFormatter
 pub fn EngFormatter::as_scalar_formatter(Self) -> ScalarFormatter
 pub fn EngFormatter::axis(Self) -> FormatterAxisBinding?
-pub fn EngFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
-pub fn EngFormatter::call_value(Self, ScalarNumber, pos? : Int) -> String raise @core.DataError
+pub fn EngFormatter::call(Self, Double, pos? : Int32) -> String raise @core.DataError
+pub fn EngFormatter::call_value(Self, ScalarNumber, pos? : Int32) -> String raise @core.DataError
 pub fn EngFormatter::class_prefixes() -> EngPrefixes
 pub fn EngFormatter::clear_prefixes(Self) -> Unit
 pub fn EngFormatter::copy(Self) -> Self
@@ -248,7 +248,7 @@ pub fn EngPrefixes::copy(Self) -> Self
 pub fn EngPrefixes::get(Self, ScalarNumber) -> String? raise @core.DataError
 pub fn EngPrefixes::get_key(Self, EngPrefixKey) -> String? raise @core.DataError
 pub fn EngPrefixes::keys(Self) -> Array[EngPrefixKey]
-pub fn EngPrefixes::length(Self) -> Int
+pub fn EngPrefixes::length(Self) -> Int32
 pub fn EngPrefixes::new() -> Self
 pub fn EngPrefixes::remove(Self, ScalarNumber) -> Bool raise @core.DataError
 pub fn EngPrefixes::remove_key(Self, EngPrefixKey) -> Bool raise @core.DataError
@@ -261,7 +261,7 @@ pub struct FixedFormatter {
 }
 pub fn FixedFormatter::as_base_formatter(Self) -> BaseFormatter
 pub fn FixedFormatter::axis(Self) -> FormatterAxisBinding?
-pub fn FixedFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn FixedFormatter::call(Self, Double, pos? : Int32) -> String raise @core.DataError
 pub fn FixedFormatter::copy(Self) -> Self
 pub fn FixedFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
 pub fn FixedFormatter::format_data(Self, Double) -> String raise @core.DataError
@@ -300,7 +300,7 @@ pub struct FormatStrFormatter {
 }
 pub fn FormatStrFormatter::as_base_formatter(Self) -> BaseFormatter
 pub fn FormatStrFormatter::axis(Self) -> FormatterAxisBinding?
-pub fn FormatStrFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn FormatStrFormatter::call(Self, Double, pos? : Int32) -> String raise @core.DataError
 pub fn FormatStrFormatter::copy(Self) -> Self
 pub fn FormatStrFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
 pub fn FormatStrFormatter::fmt(Self) -> String
@@ -317,13 +317,13 @@ pub fn FormatStrFormatter::set_locs(Self, Array[Double]) -> Unit
 pub fn FormatStrFormatter::set_locs_view(Self, TickValues) -> Unit
 
 pub(all) enum Formatter {
-  Scalar(use_offset~ : Bool, use_math_text~ : Bool, power_min~ : Int, power_max~ : Int)
+  Scalar(use_offset~ : Bool, use_math_text~ : Bool, power_min~ : Int32, power_max~ : Int32)
   Fixed(Array[String])
   Index(Array[String])
   Format(String)
   StrMethod(String)
-  Eng(unit~ : String, places~ : Int, sep~ : String)
-  Percent(xmax~ : Double, decimals~ : Int, symbol~ : String)
+  Eng(unit~ : String, places~ : Int32, sep~ : String)
+  Percent(xmax~ : Double, decimals~ : Int32, symbol~ : String)
   Log(base~ : Double, label_only_base~ : Bool)
   Null
   Func((Double) -> String)
@@ -366,35 +366,35 @@ pub(all) enum FormatterLocations {
   Typed(NumericArray)
 }
 pub fn FormatterLocations::dtype(Self) -> String?
-pub fn FormatterLocations::get(Self, Int) -> Double raise @core.DataError
-pub fn FormatterLocations::get_value(Self, Int) -> ScalarNumber raise @core.DataError
-pub fn FormatterLocations::length(Self) -> Int
+pub fn FormatterLocations::get(Self, Int32) -> Double raise @core.DataError
+pub fn FormatterLocations::get_value(Self, Int32) -> ScalarNumber raise @core.DataError
+pub fn FormatterLocations::length(Self) -> Int32
 
 pub(all) enum FormatterViewInterval {
   Sequence(Array[Double])
   Integers(Array[@bigint.BigInt])
   NdArray(TickValues)
 }
-pub fn FormatterViewInterval::length(Self) -> Int
+pub fn FormatterViewInterval::length(Self) -> Int32
 
 pub struct FuncFormatter {
   // private fields
 }
 pub fn FuncFormatter::as_base_formatter(Self) -> BaseFormatter
 pub fn FuncFormatter::axis(Self) -> FormatterAxisBinding?
-pub fn FuncFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn FuncFormatter::call(Self, Double, pos? : Int32) -> String raise @core.DataError
 pub fn FuncFormatter::copy(Self) -> Self
 pub fn FuncFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
 pub fn FuncFormatter::format_data(Self, Double) -> String raise @core.DataError
 pub fn FuncFormatter::format_data_short(Self, Double) -> String raise @core.DataError
 pub fn FuncFormatter::format_ticks(Self, Array[Double]) -> Array[String] raise @core.DataError
 pub fn FuncFormatter::format_ticks_view(Self, TickValues) -> Array[String] raise @core.DataError
-pub fn FuncFormatter::func(Self) -> (Double, Int?) -> String raise @core.DataError
+pub fn FuncFormatter::func(Self) -> (Double, Int32?) -> String raise @core.DataError
 pub fn FuncFormatter::get_offset(Self) -> String
 pub fn FuncFormatter::locations(Self) -> FormatterLocations
-pub fn FuncFormatter::new((Double, Int?) -> String raise @core.DataError) -> Self
+pub fn FuncFormatter::new((Double, Int32?) -> String raise @core.DataError) -> Self
 pub fn FuncFormatter::set_axis(Self, FormatterAxisBinding?) -> Unit
-pub fn FuncFormatter::set_func(Self, (Double, Int?) -> String raise @core.DataError) -> Unit
+pub fn FuncFormatter::set_func(Self, (Double, Int32?) -> String raise @core.DataError) -> Unit
 pub fn FuncFormatter::set_locs(Self, Array[Double]) -> Unit
 pub fn FuncFormatter::set_locs_view(Self, TickValues) -> Unit
 pub fn FuncFormatter::set_offset_string(Self, String) -> Unit
@@ -420,14 +420,14 @@ pub struct LinearLocator {
 }
 pub fn LinearLocator::as_locator(Self) -> Locator
 pub fn LinearLocator::as_minor_locator(Self) -> MinorLocator
-pub fn LinearLocator::configured_numticks(Self) -> Int?
+pub fn LinearLocator::configured_numticks(Self) -> Int32?
 pub fn LinearLocator::copy(Self) -> Self
-pub fn LinearLocator::new(numticks? : Int, presets? : LinearLocatorPresets) -> Self
+pub fn LinearLocator::new(numticks? : Int32, presets? : LinearLocatorPresets) -> Self
 pub fn LinearLocator::nonsingular(Self, Double, Double) -> (Double, Double)
-pub fn LinearLocator::numticks(Self) -> Int
+pub fn LinearLocator::numticks(Self) -> Int32
 pub fn LinearLocator::presets(Self) -> LinearLocatorPresets
-pub fn LinearLocator::set_numticks(Self, Int?) -> Unit
-pub fn LinearLocator::set_params(Self, numticks? : Int, presets? : LinearLocatorPresets) -> Unit
+pub fn LinearLocator::set_numticks(Self, Int32?) -> Unit
+pub fn LinearLocator::set_params(Self, numticks? : Int32, presets? : LinearLocatorPresets) -> Unit
 pub fn LinearLocator::tick_values(Self, Double, Double) -> TickValues raise @core.DataError
 pub fn LinearLocator::view_limits(Self, Double, Double) -> (Double, Double) raise @core.DataError
 
@@ -436,7 +436,7 @@ pub struct LinearLocatorPresets {
 }
 pub fn LinearLocatorPresets::clear(Self) -> Unit
 pub fn LinearLocatorPresets::get(Self, Double, Double) -> TickValues?
-pub fn LinearLocatorPresets::length(Self) -> Int
+pub fn LinearLocatorPresets::length(Self) -> Int32
 pub fn LinearLocatorPresets::new() -> Self
 pub fn LinearLocatorPresets::set(Self, Double, Double, Array[Double]) -> Unit
 pub fn LinearLocatorPresets::set_view(Self, Double, Double, TickValues) -> Unit
@@ -453,11 +453,11 @@ pub(all) enum Locator {
   Index(IndexLocator)
   NamedFixed(FixedLocator)
   Multiple(MultipleLocator)
-  Linear(count~ : Int)
-  MaxN(count~ : Int, integer~ : Bool, symmetric~ : Bool, prune~ : String)
+  Linear(count~ : Int32)
+  MaxN(count~ : Int32, integer~ : Bool, symmetric~ : Bool, prune~ : String)
   Fixed(Array[Double])
-  Log(count~ : Int, base~ : Double)
-  LogWithSubs(count~ : Int, base~ : Double, subs~ : Array[Double], numdecs~ : Int)
+  Log(count~ : Int32, base~ : Double)
+  LogWithSubs(count~ : Int32, base~ : Double, subs~ : Array[Double], numdecs~ : Int32)
 }
 pub fn Locator::asinh_locator(Self) -> AsinhLocator?
 pub fn Locator::auto_locator(Self) -> AutoLocator?
@@ -483,8 +483,8 @@ pub struct LogFormatter {
 pub fn LogFormatter::as_base_formatter(Self) -> BaseFormatter
 pub fn LogFormatter::axis(Self) -> FormatterAxisBinding?
 pub fn LogFormatter::base(Self) -> Double
-pub fn LogFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
-pub fn LogFormatter::call_value(Self, ScalarNumber, pos? : Int) -> String raise @core.DataError
+pub fn LogFormatter::call(Self, Double, pos? : Int32) -> String raise @core.DataError
+pub fn LogFormatter::call_value(Self, ScalarNumber, pos? : Int32) -> String raise @core.DataError
 pub fn LogFormatter::copy(Self) -> Self
 pub fn LogFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
 pub fn LogFormatter::format_data(Self, Double) -> String raise @core.DataError
@@ -516,8 +516,8 @@ pub fn LogFormatterExponent::as_base_formatter(Self) -> BaseFormatter
 pub fn LogFormatterExponent::as_log_formatter(Self) -> LogFormatter
 pub fn LogFormatterExponent::axis(Self) -> FormatterAxisBinding?
 pub fn LogFormatterExponent::base(Self) -> Double
-pub fn LogFormatterExponent::call(Self, Double, pos? : Int) -> String raise @core.DataError
-pub fn LogFormatterExponent::call_value(Self, ScalarNumber, pos? : Int) -> String raise @core.DataError
+pub fn LogFormatterExponent::call(Self, Double, pos? : Int32) -> String raise @core.DataError
+pub fn LogFormatterExponent::call_value(Self, ScalarNumber, pos? : Int32) -> String raise @core.DataError
 pub fn LogFormatterExponent::copy(Self) -> Self
 pub fn LogFormatterExponent::create_dummy_axis(Self, minpos? : Double) -> Unit
 pub fn LogFormatterExponent::format_data(Self, Double) -> String raise @core.DataError
@@ -549,8 +549,8 @@ pub fn LogFormatterMathtext::as_base_formatter(Self) -> BaseFormatter
 pub fn LogFormatterMathtext::as_log_formatter(Self) -> LogFormatter
 pub fn LogFormatterMathtext::axis(Self) -> FormatterAxisBinding?
 pub fn LogFormatterMathtext::base(Self) -> Double
-pub fn LogFormatterMathtext::call(Self, Double, pos? : Int) -> String raise @core.DataError
-pub fn LogFormatterMathtext::call_value(Self, ScalarNumber, pos? : Int) -> String raise @core.DataError
+pub fn LogFormatterMathtext::call(Self, Double, pos? : Int32) -> String raise @core.DataError
+pub fn LogFormatterMathtext::call_value(Self, ScalarNumber, pos? : Int32) -> String raise @core.DataError
 pub fn LogFormatterMathtext::copy(Self) -> Self
 pub fn LogFormatterMathtext::create_dummy_axis(Self, minpos? : Double) -> Unit
 pub fn LogFormatterMathtext::format_data(Self, Double) -> String raise @core.DataError
@@ -583,8 +583,8 @@ pub fn LogFormatterSciNotation::as_log_formatter(Self) -> LogFormatter
 pub fn LogFormatterSciNotation::as_mathtext_formatter(Self) -> LogFormatterMathtext
 pub fn LogFormatterSciNotation::axis(Self) -> FormatterAxisBinding?
 pub fn LogFormatterSciNotation::base(Self) -> Double
-pub fn LogFormatterSciNotation::call(Self, Double, pos? : Int) -> String raise @core.DataError
-pub fn LogFormatterSciNotation::call_value(Self, ScalarNumber, pos? : Int) -> String raise @core.DataError
+pub fn LogFormatterSciNotation::call(Self, Double, pos? : Int32) -> String raise @core.DataError
+pub fn LogFormatterSciNotation::call_value(Self, ScalarNumber, pos? : Int32) -> String raise @core.DataError
 pub fn LogFormatterSciNotation::copy(Self) -> Self
 pub fn LogFormatterSciNotation::create_dummy_axis(Self, minpos? : Double) -> Unit
 pub fn LogFormatterSciNotation::format_data(Self, Double) -> String raise @core.DataError
@@ -664,8 +664,8 @@ pub struct LogThresholdTuple {
   // private fields
 }
 pub fn LogThresholdTuple::equal(Self, Self) -> Bool
-pub fn LogThresholdTuple::get(Self, Int) -> LogValue raise @core.DataError
-pub fn LogThresholdTuple::length(Self) -> Int
+pub fn LogThresholdTuple::get(Self, Int32) -> LogValue raise @core.DataError
+pub fn LogThresholdTuple::length(Self) -> Int32
 pub fn LogThresholdTuple::new(Array[LogValue]) -> Self
 pub fn LogThresholdTuple::not_equal(Self, Self) -> Bool
 pub fn LogThresholdTuple::to_repr(Self) -> @debug.Repr
@@ -696,9 +696,9 @@ pub struct LogitFormatter {
 }
 pub fn LogitFormatter::as_base_formatter(Self) -> BaseFormatter
 pub fn LogitFormatter::axis(Self) -> FormatterAxisBinding?
-pub fn LogitFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
-pub fn LogitFormatter::call_key(Self, LogitKey, pos? : Int) -> String raise @core.DataError
-pub fn LogitFormatter::call_value(Self, ScalarNumber, pos? : Int) -> String raise @core.DataError
+pub fn LogitFormatter::call(Self, Double, pos? : Int32) -> String raise @core.DataError
+pub fn LogitFormatter::call_key(Self, LogitKey, pos? : Int32) -> String raise @core.DataError
+pub fn LogitFormatter::call_value(Self, ScalarNumber, pos? : Int32) -> String raise @core.DataError
 pub fn LogitFormatter::copy(Self) -> Self
 pub fn LogitFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
 pub fn LogitFormatter::format_data(Self, Double) -> String raise @core.DataError
@@ -756,7 +756,7 @@ pub fn LogitLocator::new(minor? : Bool, nbins? : MaxNBins?) -> Self raise @core.
 pub fn LogitLocator::nonsingular(Self, Double, Double) -> (Double, Double) raise @core.DataError
 pub fn LogitLocator::projection_provider(Self) -> (() -> String raise @core.DataError)?
 pub fn LogitLocator::set_minor(Self, Bool?) -> Unit
-pub fn LogitLocator::set_params(Self, minor? : Bool?, nbins? : MaxNBins, steps? : TickValues?, integer? : Bool, symmetric? : Bool, prune? : String?, min_n_ticks? : Int) -> Unit raise @core.DataError
+pub fn LogitLocator::set_params(Self, minor? : Bool?, nbins? : MaxNBins, steps? : TickValues?, integer? : Bool, symmetric? : Bool, prune? : String?, min_n_ticks? : Int32) -> Unit raise @core.DataError
 pub fn LogitLocator::tick_space_provider(Self) -> (() -> Double)?
 pub fn LogitLocator::tick_values(Self, Double, Double) -> Array[Double] raise @core.DataError
 pub fn LogitLocator::view_interval_provider(Self) -> (() -> (Double, Double) raise @core.DataError)?
@@ -765,7 +765,7 @@ pub fn LogitLocator::warnings(Self) -> Array[String]
 
 pub(all) enum MaxNBins {
   Auto
-  Count(Int)
+  Count(Int32)
 } derive(Eq, @debug.Debug)
 pub fn MaxNBins::equal(Self, Self) -> Bool
 pub fn MaxNBins::not_equal(Self, Self) -> Bool
@@ -782,12 +782,12 @@ pub fn MaxNLocator::call(Self) -> Array[Double] raise @core.DataError
 pub fn MaxNLocator::copy(Self) -> Self
 pub fn MaxNLocator::extended_steps(Self) -> Array[Double]
 pub fn MaxNLocator::integer(Self) -> Bool
-pub fn MaxNLocator::min_n_ticks(Self) -> Int
+pub fn MaxNLocator::min_n_ticks(Self) -> Int32
 pub fn MaxNLocator::nbins(Self) -> MaxNBins
-pub fn MaxNLocator::new(nbins? : MaxNBins, steps? : TickValues, integer? : Bool, symmetric? : Bool, prune? : String, min_n_ticks? : Int) -> Self raise @core.DataError
+pub fn MaxNLocator::new(nbins? : MaxNBins, steps? : TickValues, integer? : Bool, symmetric? : Bool, prune? : String, min_n_ticks? : Int32) -> Self raise @core.DataError
 pub fn MaxNLocator::nonsingular(Self, Double, Double) -> (Double, Double)
 pub fn MaxNLocator::prune(Self) -> String?
-pub fn MaxNLocator::set_params(Self, nbins? : MaxNBins, steps? : TickValues?, integer? : Bool, symmetric? : Bool, prune? : String?, min_n_ticks? : Int) -> Unit raise @core.DataError
+pub fn MaxNLocator::set_params(Self, nbins? : MaxNBins, steps? : TickValues?, integer? : Bool, symmetric? : Bool, prune? : String?, min_n_ticks? : Int32) -> Unit raise @core.DataError
 pub fn MaxNLocator::steps(Self) -> TickValues
 pub fn MaxNLocator::symmetric(Self) -> Bool
 pub fn MaxNLocator::tick_space_provider(Self) -> (() -> Double)?
@@ -808,9 +808,9 @@ pub(all) enum MinorLocator {
   Index(IndexLocator)
   NamedFixed(FixedLocator)
   Multiple(MultipleLocator)
-  Auto(subdivisions~ : Int)
+  Auto(subdivisions~ : Int32)
   Fixed(Array[Double])
-  Log(subdivisions~ : Int, base~ : Double)
+  Log(subdivisions~ : Int32, base~ : Double)
 }
 pub fn MinorLocator::asinh_locator(Self) -> AsinhLocator?
 pub fn MinorLocator::auto_locator(Self) -> AutoLocator?
@@ -848,7 +848,7 @@ pub struct NullFormatter {
 }
 pub fn NullFormatter::as_base_formatter(Self) -> BaseFormatter
 pub fn NullFormatter::axis(Self) -> FormatterAxisBinding?
-pub fn NullFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn NullFormatter::call(Self, Double, pos? : Int32) -> String raise @core.DataError
 pub fn NullFormatter::copy(Self) -> Self
 pub fn NullFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
 pub fn NullFormatter::format_data(Self, Double) -> String raise @core.DataError
@@ -880,10 +880,10 @@ pub struct NumericArray {
   // private fields
 }
 pub fn NumericArray::dtype(Self) -> String
-pub fn NumericArray::get(Self, Int) -> Double raise @core.DataError
-pub fn NumericArray::get_uint64(Self, Int) -> UInt64 raise @core.DataError
-pub fn NumericArray::get_value(Self, Int) -> ScalarNumber raise @core.DataError
-pub fn NumericArray::length(Self) -> Int
+pub fn NumericArray::get(Self, Int32) -> Double raise @core.DataError
+pub fn NumericArray::get_uint64(Self, Int32) -> UInt64 raise @core.DataError
+pub fn NumericArray::get_value(Self, Int32) -> ScalarNumber raise @core.DataError
+pub fn NumericArray::length(Self) -> Int32
 
 pub(all) enum PercentDecimals {
   Automatic
@@ -901,7 +901,7 @@ pub struct PercentFormatter {
 }
 pub fn PercentFormatter::as_base_formatter(Self) -> BaseFormatter
 pub fn PercentFormatter::axis(Self) -> FormatterAxisBinding?
-pub fn PercentFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn PercentFormatter::call(Self, Double, pos? : Int32) -> String raise @core.DataError
 pub fn PercentFormatter::convert_to_pct(Self, Double) -> Double raise @core.DataError
 pub fn PercentFormatter::copy(Self) -> Self
 pub fn PercentFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
@@ -942,8 +942,8 @@ pub struct ScalarFormatter {
 }
 pub fn ScalarFormatter::as_base_formatter(Self) -> BaseFormatter
 pub fn ScalarFormatter::axis(Self) -> FormatterAxisBinding?
-pub fn ScalarFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
-pub fn ScalarFormatter::call_value(Self, ScalarNumber, pos? : Int) -> String raise @core.DataError
+pub fn ScalarFormatter::call(Self, Double, pos? : Int32) -> String raise @core.DataError
+pub fn ScalarFormatter::call_value(Self, ScalarNumber, pos? : Int32) -> String raise @core.DataError
 pub fn ScalarFormatter::copy(Self) -> Self
 pub fn ScalarFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
 pub fn ScalarFormatter::format_data(Self, Double) -> String raise @core.DataError
@@ -1005,7 +1005,7 @@ pub struct StrMethodFormatter {
 }
 pub fn StrMethodFormatter::as_base_formatter(Self) -> BaseFormatter
 pub fn StrMethodFormatter::axis(Self) -> FormatterAxisBinding?
-pub fn StrMethodFormatter::call(Self, Double, pos? : Int) -> String raise @core.DataError
+pub fn StrMethodFormatter::call(Self, Double, pos? : Int32) -> String raise @core.DataError
 pub fn StrMethodFormatter::copy(Self) -> Self
 pub fn StrMethodFormatter::create_dummy_axis(Self, minpos? : Double) -> Unit
 pub fn StrMethodFormatter::fmt(Self) -> String
@@ -1055,12 +1055,12 @@ pub struct TickValues {
 pub fn TickValues::copy(Self) -> Self raise @core.DataError
 pub fn TickValues::from_array(Array[Double]) -> Self
 pub fn TickValues::from_int64_array(Array[Int64]) -> Self
-pub fn TickValues::get(Self, Int) -> Double raise @core.DataError
-pub fn TickValues::length(Self) -> Int
+pub fn TickValues::get(Self, Int32) -> Double raise @core.DataError
+pub fn TickValues::length(Self) -> Int32
 pub fn TickValues::select_mask(Self, Array[Bool]) -> Self raise @core.DataError
-pub fn TickValues::set(Self, Int, Double) -> Unit raise @core.DataError
+pub fn TickValues::set(Self, Int32, Double) -> Unit raise @core.DataError
 pub fn TickValues::to_array(Self) -> Array[Double] raise @core.DataError
-pub fn TickValues::view(Self, Int, Int, Int) -> Self raise @core.DataError
+pub fn TickValues::view(Self, Int32, Int32, Int32) -> Self raise @core.DataError
 
 // Type aliases
 

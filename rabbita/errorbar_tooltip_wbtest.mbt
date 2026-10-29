@@ -47,7 +47,7 @@ test "errorbar default tooltip and custom callback expose the current original e
     view(
       current,
       id="error-current",
-      on_event=_ => @rabbita.none,
+      on_event=_ => @tea.none,
       hovered=point,
       tooltip=render,
     ),
@@ -58,7 +58,7 @@ test "errorbar default tooltip and custom callback expose the current original e
     view(
       current,
       id="error-hidden",
-      on_event=_ => @rabbita.none,
+      on_event=_ => @tea.none,
       hovered=point,
       tooltip=render,
       tooltip_visible=false,
@@ -70,7 +70,7 @@ test "errorbar default tooltip and custom callback expose the current original e
     view(
       current,
       id="error-stale",
-      on_event=_ => @rabbita.none,
+      on_event=_ => @tea.none,
       hovered=stale,
       tooltip=render,
     ),
@@ -91,7 +91,7 @@ test "real errorbar drawing can render public Rabbita nodes and typed metadata w
   assert_eq(frame.hit_info(point).unwrap().kind, @drawing.HitKind::ErrorBar)
   let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
   ignore(
-    view(frame, id="actual-error", on_event=_ => @rabbita.none, hovered=point, tooltip=info => {
+    view(frame, id="actual-error", on_event=_ => @tea.none, hovered=point, tooltip=info => {
       received.val = Some(info)
       @html.span("自定义误差范围")
     }),

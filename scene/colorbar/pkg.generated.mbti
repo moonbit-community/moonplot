@@ -16,15 +16,15 @@ pub struct Colorbar {
   cmap : @colors.ColorMap
   orientation : Orientation
   mut label : String?
-  mut tick_count : Int
+  mut tick_count : Int32
 }
 pub fn Colorbar::cmap(Self) -> @colors.ColorMap
 pub fn Colorbar::label(Self) -> String?
 pub fn Colorbar::norm(Self) -> @colors.ColorNorm
 pub fn Colorbar::orientation(Self) -> Orientation
 pub fn Colorbar::set_label(Self, String) -> Unit
-pub fn Colorbar::set_tick_count(Self, Int) -> Unit
-pub fn Colorbar::tick_count(Self) -> Int
+pub fn Colorbar::set_tick_count(Self, Int32) -> Unit
+pub fn Colorbar::tick_count(Self) -> Int32
 
 pub(all) enum Orientation {
   Vertical

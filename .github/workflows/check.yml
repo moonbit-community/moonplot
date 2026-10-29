@@ -1,0 +1,46 @@
+name: check
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master, main]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  MOON_WORK: "off"
+
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        toolchain: [latest, nightly]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hustcer/setup-moonbit@develop
+        with:
+          version: ${{ matrix.toolchain }}
+      - name: Check
+        run: |
+          moon version --all
+          moon update
+          moon check --target all --deny-warn
+      - name: Test debug and release
+        run: |
+          moon test --target all --deny-warn
+          moon test --target all --release --deny-warn
+      - name: Verify interfaces and formatting
+        run: |
+          python3 tools/update_interfaces.py
+          python3 tools/check_structure.py
+          git diff --exit-code
+      - name: Check independent release consumer
+        working-directory: tests/consumer
+        run: |
+          moon check --target all --deny-warn
+          moon run cmd/static --target native > consumer.svg
+          moon build cmd/app --target js

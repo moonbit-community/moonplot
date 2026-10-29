@@ -32,7 +32,7 @@ test "real ECDF jump and duplicate endpoints pass returned probability to custom
     let point = frame.hit_test(x, y, radius=0.0).unwrap()
     let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
     ignore(
-      view(frame, id="ecdf", hovered=point, on_event=_ => @rabbita.none, tooltip=info => {
+      view(frame, id="ecdf", hovered=point, on_event=_ => @tea.none, tooltip=info => {
         received.val = Some(info)
         @html.b("返回的累计概率")
       }),

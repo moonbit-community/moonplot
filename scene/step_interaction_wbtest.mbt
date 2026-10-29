@@ -15,7 +15,7 @@ fn step_selected(
   x : Double,
   y : Double,
   mode~ : @drawing.HitMode = Nearest,
-) -> @drawing.HitInfo raise {
+) -> @drawing.HitInfo {
   frame.hit_info(frame.hit_test(x, y, radius=0.0, mode~).unwrap()).unwrap()
 }
 

@@ -14,9 +14,9 @@ pub fn artist_minpos(Array[@render.Artist], Bool) -> Double
 
 pub fn artist_sticky_edges(Array[@render.Artist], Bool) -> Array[Double]
 
-pub fn panel_position(@render.Figure, Int) -> (Double, Double, Double, Double)?
+pub fn panel_position(@render.Figure, Int32) -> (Double, Double, Double, Double)?
 
-pub fn panel_view(@render.Figure, Int) -> ((Double, Double, Double, Double), @core.Limits, @core.Limits)? raise @core.DataError
+pub fn panel_view(@render.Figure, Int32) -> ((Double, Double, Double, Double), @core.Limits, @core.Limits)? raise @core.DataError
 
 pub fn render(@render.Figure) -> String
 

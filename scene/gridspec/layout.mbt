@@ -121,7 +121,7 @@ pub fn gridspec(
   validate_spacing(vspace.unwrap_or(0.1))
   let width_ratios = normalize_ratios(columns, width_ratios)
   let height_ratios = normalize_ratios(rows, height_ratios)
-  let layout_ref = @ref.new({
+  let layout_ref = @ref.Ref({
     rows,
     columns,
     hspace,
