@@ -182,16 +182,16 @@ fn event_hit(
 pub fn view(
   drawing : @drawing.Drawing,
   id~ : String,
-  on_event~ : (Interaction) -> @rabbita.Cmd,
+  on_event~ : (Interaction) -> @tea.Cmd,
   hovered? : @drawing.HitPoint,
   selected? : @drawing.HitPoint,
   legend~ : Array[LegendItem] = [],
   hit_radius~ : Double = 10.0,
   hit_mode~ : @drawing.HitMode = Nearest,
-  tooltip? : (@drawing.HitInfo) -> @rabbita.Html,
+  tooltip? : (@drawing.HitInfo) -> @tea.Html,
   tooltip_visible~ : Bool = true,
   tooltip_class~ : String = "",
-) -> @rabbita.Html raise AdapterError {
+) -> @tea.Html raise AdapterError {
   let parsed = parse_svg(drawing.svg())
   validate_drawing(drawing, parsed)
   let hovered = hovered.filter(point => frame_point_presentable(drawing, point))

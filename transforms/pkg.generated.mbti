@@ -147,10 +147,10 @@ pub struct BezierSegment {
   control_points : Array[@core.Point]
 }
 pub fn BezierSegment::control_points(Self) -> Array[@core.Point]
-pub fn BezierSegment::degree(Self) -> Int
+pub fn BezierSegment::degree(Self) -> Int32
 pub fn BezierSegment::evaluate(Self, Double) -> @core.Point raise BezierError
-pub fn BezierSegment::length(Self, steps? : Int) -> Double raise BezierError
-pub fn BezierSegment::sample(Self, Int) -> Array[@core.Point] raise BezierError
+pub fn BezierSegment::length(Self, steps? : Int32) -> Double raise BezierError
+pub fn BezierSegment::sample(Self, Int32) -> Array[@core.Point] raise BezierError
 pub fn BezierSegment::split(Self, Double) -> (Self, Self) raise BezierError
 
 pub struct Path {
@@ -161,7 +161,7 @@ pub fn Path::clip_to_bbox(Self, BBox, inside? : Bool) -> Self raise PathError
 pub fn Path::codes(Self) -> Array[PathCode]
 pub fn Path::contains_point(Self, @core.Point) -> Bool
 pub fn Path::extents(Self) -> BBox?
-pub fn Path::length(Self) -> Int
+pub fn Path::length(Self) -> Int32
 pub fn Path::transformed(Self, Affine2D) -> Self raise PathError
 pub fn Path::vertices(Self) -> Array[@core.Point]
 

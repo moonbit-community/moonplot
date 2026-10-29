@@ -52,7 +52,7 @@ test "real hexbin drawing delivers immutable stored raw reduction count and iden
   let point = frame.hit_test(120.0, 120.0, radius=0.0).unwrap()
   let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
   ignore(
-    view(frame, id="hexagons", on_event=_ => @rabbita.none, hovered=point, tooltip=info => {
+    view(frame, id="hexagons", on_event=_ => @tea.none, hovered=point, tooltip=info => {
       received.val = Some(info)
       @html.b("总值：\{info.value}")
     }),

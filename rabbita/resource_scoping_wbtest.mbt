@@ -144,7 +144,7 @@ test "all local href spellings follow gradient chains and the actual overridden 
   )
   ignore(
     view(@drawing.drawing(100, 50, source, []), id="chart-a", on_event=_ => {
-      @rabbita.none
+      @tea.none
     }),
   )
   let same_href = scope_svg_resources(
@@ -238,7 +238,7 @@ test "duplicate empty unresolved malformed and ambiguous resources fail before b
           [],
         ),
         id="a",
-        on_event=_ => @rabbita.none,
+        on_event=_ => @tea.none,
       ),
     )
     false

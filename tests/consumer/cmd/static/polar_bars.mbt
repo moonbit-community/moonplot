@@ -65,9 +65,9 @@ fn verify_polar_bars_consumer() -> Unit raise {
     )
   }
   let before = frame.svg()
-  let invalid_width = try? polar.bar([0.0], [1.0], width=0.0)
+  let invalid_width = try Ok(polar.bar([0.0], [1.0], width=0.0)) catch { e => Err(e) }
   assert_true(invalid_width is Err(_))
-  let invalid_lengths = try? polar.bar([0.0], [], width=pi / 4.0)
+  let invalid_lengths = try Ok(polar.bar([0.0], [], width=pi / 4.0)) catch { e => Err(e) }
   assert_true(invalid_lengths is Err(_))
   assert_eq(figure.to_svg_checked(), before)
   guard figure.axes_list()[0].artists()[0] is @plot.Artist::Bar(points, _) else {

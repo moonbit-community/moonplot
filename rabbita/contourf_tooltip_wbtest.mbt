@@ -29,7 +29,7 @@ test "ContourF actual fill reaches custom tooltip with exact immutable frame ban
   let point = frame.hit_test(200.0, 150.0, radius=0.0).unwrap()
   let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
   ignore(
-    view(frame, id="contourf", hovered=point, on_event=_ => @rabbita.none, tooltip=info => {
+    view(frame, id="contourf", hovered=point, on_event=_ => @tea.none, tooltip=info => {
       received.val = Some(info)
       @html.b("区间")
     }),

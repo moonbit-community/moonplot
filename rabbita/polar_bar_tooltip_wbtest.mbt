@@ -30,7 +30,7 @@ test "polar bar held state fails closed without its actual frame circle" {
       id="unproven-bars",
       hovered=point,
       selected=point,
-      on_event=_ => @rabbita.none,
+      on_event=_ => @tea.none,
       tooltip=_ => {
         calls.val += 1
         @html.b("must not present stale polar bar values")

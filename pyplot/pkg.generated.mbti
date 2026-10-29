@@ -15,9 +15,9 @@ import {
 }
 
 // Values
-pub fn acorr(Array[Double], normed? : Bool, usevlines? : Bool, maxlags? : Int, color? : String, label? : String, detrend? : (Array[Double]) -> Array[Double]) -> @scene.Correlation raise @core.DataError
+pub fn acorr(Array[Double], normed? : Bool, usevlines? : Bool, maxlags? : Int32, color? : String, label? : String, detrend? : (Array[Double]) -> Array[Double]) -> @scene.Correlation raise @core.DataError
 
-pub fn annotate(String, Double, Double, offset_x? : Double, offset_y? : Double, arrow? : Bool, color? : String, arrowcolor? : String, linewidth? : Double, head_length? : Double, head_width? : Double, fontsize? : Int, xycoords? : String, textcoords? : String, connector? : String) -> Unit raise @core.DataError
+pub fn annotate(String, Double, Double, offset_x? : Double, offset_y? : Double, arrow? : Bool, color? : String, arrowcolor? : String, linewidth? : Double, head_length? : Double, head_width? : Double, fontsize? : Int32, xycoords? : String, textcoords? : String, connector? : String) -> Unit raise @core.DataError
 
 pub fn arrow(Double, Double, Double, Double, color? : String, linewidth? : Double, head_length? : Double, head_width? : Double, label? : String) -> Unit raise @core.DataError
 
@@ -61,7 +61,7 @@ pub fn broken_barh(Array[(Double, Double)], (Double, Double), color? : String, l
 
 pub fn cla() -> Unit
 
-pub fn clabel(@scene.ContourSet, inline? : Bool, fontsize? : Int, color? : String) -> Unit raise @core.DataError
+pub fn clabel(@scene.ContourSet, inline? : Bool, fontsize? : Int32, color? : String) -> Unit raise @core.DataError
 
 pub fn clear() -> Unit
 
@@ -71,9 +71,9 @@ pub fn close() -> Unit
 
 pub fn colorbar(@colors.ColorNorm, cmap? : String, orientation? : @colorbar.Orientation) -> @colorbar.Colorbar raise @core.DataError
 
-pub fn contour(Array[Array[Double]], x? : Array[Double], y? : Array[Double], levels? : Array[Double], nlevels? : Int, color? : String, linewidth? : Double, label? : String, corner_mask? : Bool, locator? : @ticker.Locator, colors? : Array[String], linewidths? : Array[Double]) -> @scene.ContourSet raise @core.DataError
+pub fn contour(Array[Array[Double]], x? : Array[Double], y? : Array[Double], levels? : Array[Double], nlevels? : Int32, color? : String, linewidth? : Double, label? : String, corner_mask? : Bool, locator? : @ticker.Locator, colors? : Array[String], linewidths? : Array[Double]) -> @scene.ContourSet raise @core.DataError
 
-pub fn contourf(Array[Array[Double]], x? : Array[Double], y? : Array[Double], levels? : Array[Double], nlevels? : Int, colors? : Array[String], cmap? : String, label? : String, extend_mode? : String, corner_mask? : Bool, locator? : @ticker.Locator) -> @scene.ContourSet raise @core.DataError
+pub fn contourf(Array[Array[Double]], x? : Array[Double], y? : Array[Double], levels? : Array[Double], nlevels? : Int32, colors? : Array[String], cmap? : String, label? : String, extend_mode? : String, corner_mask? : Bool, locator? : @ticker.Locator) -> @scene.ContourSet raise @core.DataError
 
 pub fn delaxes(ax? : @scene.Axes) -> Unit raise @core.DataError
 
@@ -83,7 +83,7 @@ pub fn errorbar(Array[Double], Array[Double], yerr? : Array[Double], xerr? : Arr
 
 pub fn eventplot(Array[Array[Double]], orientation? : String, lineoffsets? : Array[Double], linelengths? : Array[Double], linewidth? : Double, color? : String) -> Unit raise @core.DataError
 
-pub fn figure(width? : Int, height? : Int) -> @scene.Figure
+pub fn figure(width? : Int32, height? : Int32) -> @scene.Figure
 
 pub fn fill(Array[Double], Array[Double], color? : String, label? : String) -> Unit raise @core.DataError
 
@@ -105,11 +105,11 @@ pub fn get_trifinder(@scene.Triangulation) -> @scene.TriFinder
 
 pub fn grid(visible? : Bool, which? : String, color? : String, linewidth? : Double, axis? : String) -> Unit raise @core.DataError
 
-pub fn hexbin(Array[Double], Array[Double], values? : Array[Double], gridsize? : Int, mincnt? : Int, cmap? : String, vmin? : Double, vmax? : Double, color? : String, label? : String, reduce? : String, edgecolor? : String, linewidth? : Double, bins? : String, extent? : Array[Double], marginals? : Bool, reduce_fn? : @scene.HexbinReducer) -> @scene.Hexbin raise @core.DataError
+pub fn hexbin(Array[Double], Array[Double], values? : Array[Double], gridsize? : Int32, mincnt? : Int32, cmap? : String, vmin? : Double, vmax? : Double, color? : String, label? : String, reduce? : String, edgecolor? : String, linewidth? : Double, bins? : String, extent? : Array[Double], marginals? : Bool, reduce_fn? : @scene.HexbinReducer) -> @scene.Hexbin raise @core.DataError
 
-pub fn hist(Array[Double], bins? : Int, color? : String, label? : String) -> @scene.Histogram raise @core.DataError
+pub fn hist(Array[Double], bins? : Int32, color? : String, label? : String) -> @scene.Histogram raise @core.DataError
 
-pub fn hist2d(Array[Double], Array[Double], bins_x? : Int, bins_y? : Int, cmap? : String) -> Unit raise @core.DataError
+pub fn hist2d(Array[Double], Array[Double], bins_x? : Int32, bins_y? : Int32, cmap? : String) -> Unit raise @core.DataError
 
 pub fn hlines(Array[Double], Double, Double, color? : String, label? : String) -> Unit raise @core.DataError
 
@@ -239,17 +239,17 @@ pub fn stem(Array[Double], locs? : Array[Double], bottom? : Double, orientation?
 
 pub fn step(Array[Double], Array[Double], where_? : String, color? : String, label? : String) -> Unit raise @core.DataError
 
-pub fn streamplot(Array[Double], Array[Double], Array[Array[Double]], Array[Array[Double]], density? : Double, density_x? : Double, density_y? : Double, color? : String, linewidth? : Double, max_steps? : Int, minlength? : Double, start_points? : Array[@core.Point], maxlength? : Double, integration_direction? : String, broken_streamlines? : Bool, integration_max_step_scale? : Double, integration_max_error_scale? : Double, arrows? : Bool, arrow_size? : Double, num_arrows? : Int, arrowstyle? : String, label? : String) -> @scene.StreamplotSet raise @core.DataError
+pub fn streamplot(Array[Double], Array[Double], Array[Array[Double]], Array[Array[Double]], density? : Double, density_x? : Double, density_y? : Double, color? : String, linewidth? : Double, max_steps? : Int32, minlength? : Double, start_points? : Array[@core.Point], maxlength? : Double, integration_direction? : String, broken_streamlines? : Bool, integration_max_step_scale? : Double, integration_max_error_scale? : Double, arrows? : Bool, arrow_size? : Double, num_arrows? : Int32, arrowstyle? : String, label? : String) -> @scene.StreamplotSet raise @core.DataError
 
-pub fn streamplot_mesh(Array[Array[Double]], Array[Array[Double]], Array[Array[Double]], Array[Array[Double]], density? : Double, density_x? : Double, density_y? : Double, color? : String, linewidth? : Double, max_steps? : Int, minlength? : Double, start_points? : Array[@core.Point], maxlength? : Double, integration_direction? : String, broken_streamlines? : Bool, integration_max_step_scale? : Double, integration_max_error_scale? : Double, arrows? : Bool, arrow_size? : Double, num_arrows? : Int, arrowstyle? : String, label? : String) -> @scene.StreamplotSet raise @core.DataError
+pub fn streamplot_mesh(Array[Array[Double]], Array[Array[Double]], Array[Array[Double]], Array[Array[Double]], density? : Double, density_x? : Double, density_y? : Double, color? : String, linewidth? : Double, max_steps? : Int32, minlength? : Double, start_points? : Array[@core.Point], maxlength? : Double, integration_direction? : String, broken_streamlines? : Bool, integration_max_step_scale? : Double, integration_max_error_scale? : Double, arrows? : Bool, arrow_size? : Double, num_arrows? : Int32, arrowstyle? : String, label? : String) -> @scene.StreamplotSet raise @core.DataError
 
-pub fn streamplot_with_style_grids(Array[Double], Array[Double], Array[Array[Double]], Array[Array[Double]], linewidths? : Array[Array[Double]], color_values? : Array[Array[Double]], density? : Double, density_x? : Double, density_y? : Double, color? : String, linewidth? : Double, cmap? : String, vmin? : Double, vmax? : Double, max_steps? : Int, minlength? : Double, start_points? : Array[@core.Point], maxlength? : Double, integration_direction? : String, broken_streamlines? : Bool, integration_max_step_scale? : Double, integration_max_error_scale? : Double, arrows? : Bool, arrow_size? : Double, num_arrows? : Int, arrowstyle? : String, label? : String) -> @scene.StreamplotSet raise @core.DataError
+pub fn streamplot_with_style_grids(Array[Double], Array[Double], Array[Array[Double]], Array[Array[Double]], linewidths? : Array[Array[Double]], color_values? : Array[Array[Double]], density? : Double, density_x? : Double, density_y? : Double, color? : String, linewidth? : Double, cmap? : String, vmin? : Double, vmax? : Double, max_steps? : Int32, minlength? : Double, start_points? : Array[@core.Point], maxlength? : Double, integration_direction? : String, broken_streamlines? : Bool, integration_max_step_scale? : Double, integration_max_error_scale? : Double, arrows? : Bool, arrow_size? : Double, num_arrows? : Int32, arrowstyle? : String, label? : String) -> @scene.StreamplotSet raise @core.DataError
 
-pub fn subplots(rows? : Int, columns? : Int, width? : Int, height? : Int, hspace? : Double, vspace? : Double, share_x? : Bool, share_y? : Bool, width_ratios? : Array[Double], height_ratios? : Array[Double]) -> (@scene.Figure, Array[@scene.Axes]) raise @gridspec.LayoutError
+pub fn subplots(rows? : Int32, columns? : Int32, width? : Int32, height? : Int32, hspace? : Double, vspace? : Double, share_x? : Bool, share_y? : Bool, width_ratios? : Array[Double], height_ratios? : Array[Double]) -> (@scene.Figure, Array[@scene.Axes]) raise @gridspec.LayoutError
 
 pub fn subplots_adjust(left? : Double, bottom? : Double, right? : Double, top? : Double, wspace? : Double, hspace? : Double) -> Unit raise @gridspec.LayoutError
 
-pub fn subplots_with_grid(@gridspec.GridSpec, width? : Int, height? : Int) -> (@scene.Figure, Array[@scene.Axes]) raise @gridspec.LayoutError
+pub fn subplots_with_grid(@gridspec.GridSpec, width? : Int32, height? : Int32) -> (@scene.Figure, Array[@scene.Axes]) raise @gridspec.LayoutError
 
 pub fn suptitle(String) -> Unit
 
@@ -259,25 +259,25 @@ pub fn text(Double, Double, String, color? : String) -> Unit raise @core.DataErr
 
 pub fn title(String) -> Unit
 
-pub fn triangulation(Array[Double], Array[Double], triangles? : Array[Array[Int]], mask? : Array[Bool]) -> @scene.Triangulation raise @core.DataError
+pub fn triangulation(Array[Double], Array[Double], triangles? : Array[Array[Int32]], mask? : Array[Bool]) -> @scene.Triangulation raise @core.DataError
 
-pub fn tricontour(Array[Double], Array[Double], Array[Array[Int]], Array[Double], levels? : Array[Double], nlevels? : Int, color? : String, linewidth? : Double, label? : String, mask? : Array[Bool], locator? : @ticker.Locator, colors? : Array[String], linewidths? : Array[Double]) -> @scene.ContourSet raise @core.DataError
+pub fn tricontour(Array[Double], Array[Double], Array[Array[Int32]], Array[Double], levels? : Array[Double], nlevels? : Int32, color? : String, linewidth? : Double, label? : String, mask? : Array[Bool], locator? : @ticker.Locator, colors? : Array[String], linewidths? : Array[Double]) -> @scene.ContourSet raise @core.DataError
 
-pub fn tricontour_triangulation(@scene.Triangulation, Array[Double], levels? : Array[Double], nlevels? : Int, color? : String, linewidth? : Double, label? : String, locator? : @ticker.Locator, colors? : Array[String], linewidths? : Array[Double]) -> @scene.ContourSet raise @core.DataError
+pub fn tricontour_triangulation(@scene.Triangulation, Array[Double], levels? : Array[Double], nlevels? : Int32, color? : String, linewidth? : Double, label? : String, locator? : @ticker.Locator, colors? : Array[String], linewidths? : Array[Double]) -> @scene.ContourSet raise @core.DataError
 
-pub fn tricontourf(Array[Double], Array[Double], Array[Array[Int]], Array[Double], levels? : Array[Double], nlevels? : Int, colors? : Array[String], cmap? : String, label? : String, extend_mode? : String, mask? : Array[Bool], locator? : @ticker.Locator) -> @scene.ContourSet raise @core.DataError
+pub fn tricontourf(Array[Double], Array[Double], Array[Array[Int32]], Array[Double], levels? : Array[Double], nlevels? : Int32, colors? : Array[String], cmap? : String, label? : String, extend_mode? : String, mask? : Array[Bool], locator? : @ticker.Locator) -> @scene.ContourSet raise @core.DataError
 
-pub fn tricontourf_triangulation(@scene.Triangulation, Array[Double], levels? : Array[Double], nlevels? : Int, colors? : Array[String], cmap? : String, label? : String, extend_mode? : String, locator? : @ticker.Locator) -> @scene.ContourSet raise @core.DataError
+pub fn tricontourf_triangulation(@scene.Triangulation, Array[Double], levels? : Array[Double], nlevels? : Int32, colors? : Array[String], cmap? : String, label? : String, extend_mode? : String, locator? : @ticker.Locator) -> @scene.ContourSet raise @core.DataError
 
-pub fn tripcolor(Array[Double], Array[Double], Array[Array[Int]], Array[Double], vmin? : Double, vmax? : Double, cmap? : String, label? : String, mask? : Array[Bool]) -> Unit raise @core.DataError
+pub fn tripcolor(Array[Double], Array[Double], Array[Array[Int32]], Array[Double], vmin? : Double, vmax? : Double, cmap? : String, label? : String, mask? : Array[Bool]) -> Unit raise @core.DataError
 
 pub fn tripcolor_triangulation(@scene.Triangulation, Array[Double], vmin? : Double, vmax? : Double, cmap? : String, label? : String) -> Unit raise @core.DataError
 
-pub fn triplot(Array[Double], Array[Double], Array[Array[Int]], color? : String, linewidth? : Double, label? : String, mask? : Array[Bool]) -> Unit raise @core.DataError
+pub fn triplot(Array[Double], Array[Double], Array[Array[Int32]], color? : String, linewidth? : Double, label? : String, mask? : Array[Bool]) -> Unit raise @core.DataError
 
 pub fn triplot_triangulation(@scene.Triangulation, color? : String, linewidth? : Double, label? : String) -> Unit raise @core.DataError
 
-pub fn violinplot(Array[Array[Double]], positions? : Array[Double], width? : Double, widths? : Array[Double], horizontal? : Bool, side? : @scene.ViolinSide, showmeans? : Bool, showextrema? : Bool, showmedians? : Bool, quantiles? : Array[Array[Double]], points? : Int, bandwidth? : @scene.ViolinBandwidth, color? : String, facecolor? : String, linecolor? : String, label? : String) -> Array[@scene.ViolinStats] raise @core.DataError
+pub fn violinplot(Array[Array[Double]], positions? : Array[Double], width? : Double, widths? : Array[Double], horizontal? : Bool, side? : @scene.ViolinSide, showmeans? : Bool, showextrema? : Bool, showmedians? : Bool, quantiles? : Array[Array[Double]], points? : Int32, bandwidth? : @scene.ViolinBandwidth, color? : String, facecolor? : String, linecolor? : String, label? : String) -> Array[@scene.ViolinStats] raise @core.DataError
 
 pub fn vlines(Array[Double], Double, Double, color? : String, label? : String) -> Unit raise @core.DataError
 
@@ -289,7 +289,7 @@ pub fn xaxis_date_formatter(@date.DateFormatter) -> Unit raise @core.DataError
 
 pub fn xaxis_date_locator(@date.DateLocator) -> Unit raise @core.DataError
 
-pub fn xaxis_date_offset(Int) -> Unit raise @core.DataError
+pub fn xaxis_date_offset(Int32) -> Unit raise @core.DataError
 
 pub fn xaxis_date_timezone(@date.DateTimeZone) -> Unit raise @core.DataError
 
@@ -303,7 +303,7 @@ pub fn xaxis_minor_date_locator(@date.DateLocator) -> Unit raise @core.DataError
 
 pub fn xaxis_minor_locator(@ticker.MinorLocator) -> Unit raise @core.DataError
 
-pub fn xcorr(Array[Double], Array[Double], normed? : Bool, usevlines? : Bool, maxlags? : Int, color? : String, label? : String, detrend? : (Array[Double]) -> Array[Double]) -> @scene.Correlation raise @core.DataError
+pub fn xcorr(Array[Double], Array[Double], normed? : Bool, usevlines? : Bool, maxlags? : Int32, color? : String, label? : String, detrend? : (Array[Double]) -> Array[Double]) -> @scene.Correlation raise @core.DataError
 
 pub fn xlabel(String) -> Unit
 
@@ -321,7 +321,7 @@ pub fn yaxis_date_formatter(@date.DateFormatter) -> Unit raise @core.DataError
 
 pub fn yaxis_date_locator(@date.DateLocator) -> Unit raise @core.DataError
 
-pub fn yaxis_date_offset(Int) -> Unit raise @core.DataError
+pub fn yaxis_date_offset(Int32) -> Unit raise @core.DataError
 
 pub fn yaxis_date_timezone(@date.DateTimeZone) -> Unit raise @core.DataError
 

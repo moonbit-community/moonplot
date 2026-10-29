@@ -1,5 +1,5 @@
 ///|
-let current_figure : @ref.Ref[@scene.Figure?] = @ref.new(None)
+let current_figure : @ref.Ref[@scene.Figure?] = @ref.Ref(None)
 
 ///|
 fn require_figure() -> @scene.Figure {

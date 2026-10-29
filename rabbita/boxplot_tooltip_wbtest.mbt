@@ -63,7 +63,7 @@ test "boxplot custom tooltip reads immutable current-frame metadata and suppress
     view(
       old,
       id="box-old",
-      on_event=_ => @rabbita.none,
+      on_event=_ => @tea.none,
       hovered=outlier,
       tooltip=render,
     ),
@@ -77,7 +77,7 @@ test "boxplot custom tooltip reads immutable current-frame metadata and suppress
     view(
       current,
       id="box-stale",
-      on_event=_ => @rabbita.none,
+      on_event=_ => @tea.none,
       hovered=outlier,
       tooltip=render,
     ),
@@ -88,7 +88,7 @@ test "boxplot custom tooltip reads immutable current-frame metadata and suppress
     view(
       current,
       id="box-hidden",
-      on_event=_ => @rabbita.none,
+      on_event=_ => @tea.none,
       hovered=point,
       tooltip=render,
       tooltip_visible=false,
@@ -99,7 +99,7 @@ test "boxplot custom tooltip reads immutable current-frame metadata and suppress
     view(
       current,
       id="box-current",
-      on_event=_ => @rabbita.none,
+      on_event=_ => @tea.none,
       hovered=point,
       tooltip=render,
     ),

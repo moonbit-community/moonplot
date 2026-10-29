@@ -35,7 +35,7 @@ test "real stem rod and head custom DOM callbacks share raw datum with real comp
     let point = frame.hit_test(x, 100.0, radius=0.0).unwrap()
     let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
     ignore(
-      view(frame, id="stem", hovered=point, on_event=_ => @rabbita.none, tooltip=info => {
+      view(frame, id="stem", hovered=point, on_event=_ => @tea.none, tooltip=info => {
         received.val = Some(info)
         @html.b("原始茎叶值")
       }),

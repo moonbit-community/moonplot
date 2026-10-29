@@ -39,7 +39,7 @@ pub fn Scale::limit_range_for_scale(Self, Double, Double, Double) -> (Double, Do
 pub fn Scale::logit_nonpositive(Self) -> String?
 pub fn Scale::symlog_base(Self) -> Double?
 pub fn Scale::symlog_linthresh(Self) -> Double?
-pub fn Scale::tick_values(Self, @core.Limits, count? : Int) -> Array[Double]
+pub fn Scale::tick_values(Self, @core.Limits, count? : Int32) -> Array[Double]
 pub fn Scale::transform(Self, Double) -> Double
 
 // Type aliases

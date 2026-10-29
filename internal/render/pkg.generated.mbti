@@ -17,19 +17,19 @@ pub fn annotation(Double, Double, Double, Double, String, String, String, String
 
 pub fn barb_hit_data(Array[@core.Point], Array[@core.Point], String) -> BarbHitData?
 
-pub fn contour_hit_view(Array[@core.Point], Int, Double, String) -> ContourHitView
+pub fn contour_hit_view(Array[@core.Point], Int32, Double, String) -> ContourHitView
 
-pub fn contourf_hit_data(Array[Array[@core.Point]], Int, Double, Double, String) -> ContourFHitData
+pub fn contourf_hit_data(Array[Array[@core.Point]], Int32, Double, Double, String) -> ContourFHitData
 
-pub fn discrete_datum(Int, @core.Point, Double, interval? : (Double, Double)?, fraction? : Double?, band? : @drawing.BandInfo?) -> DiscreteDatum
+pub fn discrete_datum(Int32, @core.Point, Double, interval? : (Double, Double)?, fraction? : Double?, band? : @drawing.BandInfo?) -> DiscreteDatum
 
-pub fn discrete_line_hit_data(@drawing.HitKind, Array[@core.Point], Array[DiscreteDatum], Array[Int]) -> DiscreteLineHitData?
+pub fn discrete_line_hit_data(@drawing.HitKind, Array[@core.Point], Array[DiscreteDatum], Array[Int32]) -> DiscreteLineHitData?
 
-pub fn figure(Int, Int, Int, Array[Panel], Array[@colorbar.Colorbar], String?) -> Figure
+pub fn figure(Int32, Int32, Int32, Array[Panel], Array[@colorbar.Colorbar], String?) -> Figure
 
-pub fn figure_with_subfigures(Int, Int, Int, Array[Panel], Array[@colorbar.Colorbar], Array[SubFigure], String?) -> Figure
+pub fn figure_with_subfigures(Int32, Int32, Int32, Array[Panel], Array[@colorbar.Colorbar], Array[SubFigure], String?) -> Figure
 
-pub fn hexbin_hit_data(Int, @core.Point, Double, @drawing.HexbinInfo) -> HexbinHitData
+pub fn hexbin_hit_data(Int32, @core.Point, Double, @drawing.HexbinInfo) -> HexbinHitData
 
 pub fn hit_metadata(String, edges? : Array[Double]?, band_horizontal? : Bool?, band_values? : Array[Double]?, mesh? : MeshHitData?, hexbin? : HexbinHitData?, discrete? : DiscreteLineHitData?, stem? : StemHitView?, vector? : VectorHitData?, barb? : BarbHitView?, contour? : ContourHitView?, contourf? : ContourFHitData?, tricolor? : TripcolorHitData?, streamplot? : StreamplotHitView?) -> HitMetadata
 
@@ -37,11 +37,11 @@ pub fn legend_entry(String, String, LegendKind) -> LegendEntry
 
 pub fn line_drawing_context(Array[@core.Point], @core.Style, () -> Unit, foreground? : (() -> @core.Style raise @core.DataError)?, hit_points? : Array[@core.Point]?, discrete? : DiscreteLineHitData?) -> LineDrawingContext
 
-pub fn mesh_hit_data(Int, Int, Int, Double, (Double, Double), (Double, Double), histogram? : Bool) -> MeshHitData
+pub fn mesh_hit_data(Int32, Int32, Int32, Double, (Double, Double), (Double, Double), histogram? : Bool) -> MeshHitData
 
 pub fn panel(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.Bounds?, @axis.Axis, @axis.Axis, Bool, Array[SecondaryAxis], Array[SecondaryAxis], aspect? : Double, anchor? : (Double, Double), adjustable? : String, box_aspect? : Double, line_provider? : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)?, legend_position? : @core.LegendPosition, polar? : PolarProjection?) -> Panel
 
-pub fn panel_with_sharing(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.Bounds?, @axis.Axis, @axis.Axis, Int?, Int?, Bool, Array[SecondaryAxis], Array[SecondaryAxis], show_x_tick_labels? : Bool, show_y_tick_labels? : Bool, frame_visible? : Bool, x_margin? : Double, y_margin? : Double, spines? : Array[Spine], aspect? : Double, anchor? : (Double, Double), adjustable? : String, box_aspect? : Double, line_provider? : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)?, legend_position? : @core.LegendPosition, hit_metadata? : Array[HitMetadata], polar? : PolarProjection?) -> Panel
+pub fn panel_with_sharing(@gridspec.Rect?, Array[Artist], String?, Array[LegendEntry], @core.Bounds?, @axis.Axis, @axis.Axis, Int32?, Int32?, Bool, Array[SecondaryAxis], Array[SecondaryAxis], show_x_tick_labels? : Bool, show_y_tick_labels? : Bool, frame_visible? : Bool, x_margin? : Double, y_margin? : Double, spines? : Array[Spine], aspect? : Double, anchor? : (Double, Double), adjustable? : String, box_aspect? : Double, line_provider? : ((Array[@core.Point]) -> LineDrawingContext? raise @core.DataError)?, legend_position? : @core.LegendPosition, hit_metadata? : Array[HitMetadata], polar? : PolarProjection?) -> Panel
 
 pub fn polar_bar_hit_data(Array[@core.Point], String, Double) -> PolarHitData
 
@@ -49,15 +49,15 @@ pub fn polar_hit_data(Array[@core.Point], String, scatter? : Bool, categories? :
 
 pub fn polar_projection(Double?, Double, Bool, Array[Double], Array[String], Array[Double]?, Array[String], Array[Bool], cartesian_compatible? : Bool, hit_data? : Array[PolarHitData]) -> PolarProjection
 
-pub fn secondary_axis(SecondaryLocation, (Double) -> Double, (Double) -> Double, String?, Int, Array[Double]?, @ticker.Locator?, @ticker.Formatter?, named_formatter? : @ticker.BaseFormatter?, minor_named_formatter? : @ticker.BaseFormatter?, formatter_provider? : ((Bool) -> @ticker.BaseFormatter?)?, legacy_formatter_provider? : (() -> @ticker.Formatter?)?, null_group_provider? : ((Bool) -> Bool)?, major_formatter_locations_provider? : (() -> @ticker.FormatterLocations raise @core.DataError)?, minor_formatter_locations_provider? : (() -> @ticker.FormatterLocations raise @core.DataError)?, tick_label_size? : Double, minor_locator? : @ticker.MinorLocator?, minor_ticks_provider? : (() -> Array[Double] raise @core.DataError)?, synchronize_view_provider? : (() -> Unit raise @core.DataError)?, prepare_draw_provider? : (() -> Unit raise @core.DataError)?, positioned_aspect_provider? : ((Double, Double, Double, Double) -> Unit raise @core.DataError)?, drawing_context_provider? : (() -> SecondaryDrawingContext)?, placement_provider? : (() -> SecondaryPlacement)?, locator_provider? : (() -> @ticker.Locator?)?, minor_locator_provider? : (() -> @ticker.MinorLocator?)?, fixed_ticks_provider? : (() -> Array[Double]?)?, formatter_view_provider? : (() -> (Double, Double))?, draw_order? : Int?) -> SecondaryAxis
+pub fn secondary_axis(SecondaryLocation, (Double) -> Double, (Double) -> Double, String?, Int32, Array[Double]?, @ticker.Locator?, @ticker.Formatter?, named_formatter? : @ticker.BaseFormatter?, minor_named_formatter? : @ticker.BaseFormatter?, formatter_provider? : ((Bool) -> @ticker.BaseFormatter?)?, legacy_formatter_provider? : (() -> @ticker.Formatter?)?, null_group_provider? : ((Bool) -> Bool)?, major_formatter_locations_provider? : (() -> @ticker.FormatterLocations raise @core.DataError)?, minor_formatter_locations_provider? : (() -> @ticker.FormatterLocations raise @core.DataError)?, tick_label_size? : Double, minor_locator? : @ticker.MinorLocator?, minor_ticks_provider? : (() -> Array[Double] raise @core.DataError)?, synchronize_view_provider? : (() -> Unit raise @core.DataError)?, prepare_draw_provider? : (() -> Unit raise @core.DataError)?, positioned_aspect_provider? : ((Double, Double, Double, Double) -> Unit raise @core.DataError)?, drawing_context_provider? : (() -> SecondaryDrawingContext)?, placement_provider? : (() -> SecondaryPlacement)?, locator_provider? : (() -> @ticker.Locator?)?, minor_locator_provider? : (() -> @ticker.MinorLocator?)?, fixed_ticks_provider? : (() -> Array[Double]?)?, formatter_view_provider? : (() -> (Double, Double))?, draw_order? : Int32?) -> SecondaryAxis
 
 pub fn spine(SpineSide, Bool, String, Double, SpinePosition, (Double, Double)?) -> Spine
 
 pub fn stem_hit_data(Array[Double], Array[Double], Double, Bool) -> StemHitData?
 
-pub fn streamplot_body_hit(StreamplotHitData, Array[@core.Point], Int, String) -> StreamplotHitView
+pub fn streamplot_body_hit(StreamplotHitData, Array[@core.Point], Int32, String) -> StreamplotHitView
 
-pub fn streamplot_datum(Int, @core.Point, @drawing.StreamplotInfo) -> StreamplotDatum
+pub fn streamplot_datum(Int32, @core.Point, @drawing.StreamplotInfo) -> StreamplotDatum
 
 pub fn streamplot_hit_data(Array[@core.Point], Array[StreamplotDatum?]) -> StreamplotHitData
 
@@ -65,11 +65,11 @@ pub fn streamplot_static_hit(Array[@core.Point], String) -> StreamplotHitView
 
 pub fn subfigure(@gridspec.Rect, String?) -> SubFigure
 
-pub fn table(Array[TableCell], Int, Int, Double, Double, Double, Double, Array[Double]) -> Table
+pub fn table(Array[TableCell], Int32, Int32, Double, Double, Double, Double, Array[Double]) -> Table
 
-pub fn table_cell(Int, Int, String, String, String, String, String) -> TableCell
+pub fn table_cell(Int32, Int32, String, String, String, String, String) -> TableCell
 
-pub fn tripcolor_hit_data(Array[@core.Point], Int, Double, (Int, Int, Int), Bool, String) -> TripcolorHitData
+pub fn tripcolor_hit_data(Array[@core.Point], Int32, Double, (Int32, Int32, Int32), Bool, String) -> TripcolorHitData
 
 pub fn vector_hit_data(Array[@core.Point], Array[@core.Point]) -> VectorHitData?
 
@@ -148,7 +148,7 @@ pub(all) enum BarbComponent {
 pub struct BarbHitData {
   // private fields
 }
-pub fn BarbHitData::view(Self, Int, BarbComponent, Array[@core.Point]) -> BarbHitView?
+pub fn BarbHitData::view(Self, Int32, BarbComponent, Array[@core.Point]) -> BarbHitView?
 
 pub struct BarbHitView {
   // private fields
@@ -169,7 +169,7 @@ pub fn ContourFHitData::invalidated(Self) -> Self
 pub fn ContourFHitData::matches_polygon(Self, Array[@core.Point]) -> Bool
 pub fn ContourFHitData::matches_rings(Self, Array[Array[@core.Point]]) -> Bool
 pub fn ContourFHitData::series(Self) -> String
-pub fn ContourFHitData::slot(Self) -> Int
+pub fn ContourFHitData::slot(Self) -> Int32
 pub fn ContourFHitData::value(Self) -> Double
 
 pub struct ContourHitView {
@@ -181,10 +181,10 @@ pub fn ContourHitView::invalidated(Self) -> Self
 pub fn ContourHitView::level(Self) -> Double
 pub fn ContourHitView::matches_points(Self, Array[@core.Point]) -> Bool
 pub fn ContourHitView::series(Self) -> String
-pub fn ContourHitView::slot(Self) -> Int
+pub fn ContourHitView::slot(Self) -> Int32
 
 pub struct DiscreteDatum {
-  index : Int
+  index : Int32
   point : @core.Point
   value : Double
   interval : (Double, Double)?
@@ -196,31 +196,31 @@ pub struct DiscreteLineHitData {
   kind : @drawing.HitKind
   // private fields
 }
-pub fn DiscreteLineHitData::datum(Self, Int) -> DiscreteDatum?
-pub fn DiscreteLineHitData::datum_count(Self) -> Int
+pub fn DiscreteLineHitData::datum(Self, Int32) -> DiscreteDatum?
+pub fn DiscreteLineHitData::datum_count(Self) -> Int32
 pub fn DiscreteLineHitData::matches_path(Self, Array[@core.Point]) -> Bool
 pub fn DiscreteLineHitData::matches_xy(Self, Array[Double], Array[Double]) -> Bool
-pub fn DiscreteLineHitData::owner(Self, Int) -> Int?
+pub fn DiscreteLineHitData::owner(Self, Int32) -> Int32?
 
 pub struct Figure {
-  width : Int
-  height : Int
-  margin : Int
+  width : Int32
+  height : Int32
+  margin : Int32
   panels : Array[Panel]
   colorbars : Array[@colorbar.Colorbar]
   subfigures : Array[SubFigure]
   title : String?
 }
 pub fn Figure::colorbars(Self) -> Array[@colorbar.Colorbar]
-pub fn Figure::height(Self) -> Int
-pub fn Figure::margin(Self) -> Int
+pub fn Figure::height(Self) -> Int32
+pub fn Figure::margin(Self) -> Int32
 pub fn Figure::panels(Self) -> Array[Panel]
 pub fn Figure::subfigures(Self) -> Array[SubFigure]
 pub fn Figure::title(Self) -> String?
-pub fn Figure::width(Self) -> Int
+pub fn Figure::width(Self) -> Int32
 
 pub struct HexbinHitData {
-  index : Int
+  index : Int32
   center : @core.Point
   value : Double
   info : @drawing.HexbinInfo
@@ -231,13 +231,13 @@ pub struct HitMetadata {
 }
 pub fn HitMetadata::band_horizontal(Self) -> Bool?
 pub fn HitMetadata::band_stacked(Self) -> Bool
-pub fn HitMetadata::band_value(Self, Int) -> Double?
+pub fn HitMetadata::band_value(Self, Int32) -> Double?
 pub fn HitMetadata::barb(Self) -> BarbHitView?
 pub fn HitMetadata::contour(Self) -> ContourHitView?
 pub fn HitMetadata::contourf(Self) -> ContourFHitData?
 pub fn HitMetadata::discrete(Self) -> DiscreteLineHitData?
 pub fn HitMetadata::hexbin(Self) -> HexbinHitData?
-pub fn HitMetadata::interval(Self, Int) -> (Double, Double)?
+pub fn HitMetadata::interval(Self, Int32) -> (Double, Double)?
 pub fn HitMetadata::mesh(Self) -> MeshHitData?
 pub fn HitMetadata::series(Self) -> String
 pub fn HitMetadata::stem(Self) -> StemHitView?
@@ -300,7 +300,7 @@ pub fn LineDrawingContext::resolve_foreground_style(Self) -> @core.Style? raise 
 
 pub struct MeshHitData {
   cell : @drawing.CellInfo
-  columns : Int
+  columns : Int32
   value : Double
   histogram : Bool
 }
@@ -317,8 +317,8 @@ pub struct Panel {
   explicit_bounds : @core.Bounds?
   x_axis : @axis.Axis
   y_axis : @axis.Axis
-  share_x_group : Int?
-  share_y_group : Int?
+  share_x_group : Int32?
+  share_y_group : Int32?
   show_x_tick_labels : Bool
   show_y_tick_labels : Bool
   frame_visible : Bool
@@ -340,7 +340,7 @@ pub fn Panel::box_aspect(Self) -> Double?
 pub fn Panel::equal_aspect(Self) -> Bool
 pub fn Panel::explicit_bounds(Self) -> @core.Bounds?
 pub fn Panel::frame_visible(Self) -> Bool
-pub fn Panel::hit_metadata(Self, Int) -> HitMetadata
+pub fn Panel::hit_metadata(Self, Int32) -> HitMetadata
 pub fn Panel::legend(Self) -> Array[LegendEntry]
 pub fn Panel::legend_position(Self) -> @core.LegendPosition
 pub fn Panel::polar(Self) -> PolarProjection?
@@ -348,8 +348,8 @@ pub fn Panel::prepare_line(Self, Array[@core.Point]) -> LineDrawingContext? rais
 pub fn Panel::rect(Self) -> @gridspec.Rect?
 pub fn Panel::secondary_x(Self) -> Array[SecondaryAxis]
 pub fn Panel::secondary_y(Self) -> Array[SecondaryAxis]
-pub fn Panel::share_x_group(Self) -> Int?
-pub fn Panel::share_y_group(Self) -> Int?
+pub fn Panel::share_x_group(Self) -> Int32?
+pub fn Panel::share_y_group(Self) -> Int32?
 pub fn Panel::show_x_tick_labels(Self) -> Bool
 pub fn Panel::show_y_tick_labels(Self) -> Bool
 pub fn Panel::spines(Self) -> Array[Spine]
@@ -363,11 +363,11 @@ pub struct PolarHitData {
   // private fields
 }
 pub fn PolarHitData::bar_width(Self) -> Double?
-pub fn PolarHitData::category(Self, Int) -> String?
-pub fn PolarHitData::length(Self) -> Int
+pub fn PolarHitData::category(Self, Int32) -> String?
+pub fn PolarHitData::length(Self) -> Int32
 pub fn PolarHitData::matches_bar(Self, Array[@core.Point]) -> Bool
 pub fn PolarHitData::matches_points(Self, Array[@core.Point], scatter? : Bool) -> Bool
-pub fn PolarHitData::point(Self, Int) -> @core.Point?
+pub fn PolarHitData::point(Self, Int32) -> @core.Point?
 pub fn PolarHitData::series(Self) -> String
 pub fn PolarHitData::with_categories(Self, Array[String]) -> Self
 
@@ -376,18 +376,18 @@ pub struct PolarProjection {
 }
 pub fn PolarProjection::cartesian_compatible(Self) -> Bool
 pub fn PolarProjection::clockwise(Self) -> Bool
-pub fn PolarProjection::closed(Self, Int) -> Bool
-pub fn PolarProjection::hit_data(Self, Int) -> PolarHitData?
+pub fn PolarProjection::closed(Self, Int32) -> Bool
+pub fn PolarProjection::hit_data(Self, Int32) -> PolarHitData?
 pub fn PolarProjection::radius_labels(Self) -> Array[String]
 pub fn PolarProjection::radius_max(Self) -> Double?
 pub fn PolarProjection::radius_ticks(Self) -> Array[Double]?
-pub fn PolarProjection::series_count(Self) -> Int
+pub fn PolarProjection::series_count(Self) -> Int32
 pub fn PolarProjection::theta_labels(Self) -> Array[String]
 pub fn PolarProjection::theta_offset(Self) -> Double
 pub fn PolarProjection::theta_ticks(Self) -> Array[Double]
 
 pub struct SecondaryAxis {
-  draw_order : Int?
+  draw_order : Int32?
   formatter_view_provider : (() -> (Double, Double))?
   synchronize_view_provider : (() -> Unit raise @core.DataError)?
   prepare_draw_provider : (() -> Unit raise @core.DataError)?
@@ -411,12 +411,12 @@ pub struct SecondaryAxis {
   forward : (Double) -> Double
   inverse : (Double) -> Double
   label : String?
-  tick_count : Int
+  tick_count : Int32
   fixed_ticks : Array[Double]?
   locator : @ticker.Locator?
   formatter : @ticker.Formatter?
 }
-pub fn SecondaryAxis::draw_order(Self) -> Int?
+pub fn SecondaryAxis::draw_order(Self) -> Int32?
 pub fn SecondaryAxis::drawing_context(Self) -> SecondaryDrawingContext?
 pub fn SecondaryAxis::fixed_ticks(Self) -> Array[Double]?
 pub fn SecondaryAxis::formatter(Self) -> @ticker.Formatter?
@@ -436,7 +436,7 @@ pub fn SecondaryAxis::placement(Self) -> SecondaryPlacement?
 pub fn SecondaryAxis::positioned_aspect(Self, Double, Double, Double, Double) -> Bool raise @core.DataError
 pub fn SecondaryAxis::prepare_draw(Self) -> Bool raise @core.DataError
 pub fn SecondaryAxis::synchronize_view(Self) -> Bool raise @core.DataError
-pub fn SecondaryAxis::tick_count(Self) -> Int
+pub fn SecondaryAxis::tick_count(Self) -> Int32
 pub fn SecondaryAxis::tick_group_is_null(Self, minor? : Bool) -> Bool
 pub fn SecondaryAxis::tick_label_size(Self) -> Double
 
@@ -502,17 +502,17 @@ pub(all) enum SpineSide {
 pub struct StemHitData {
   // private fields
 }
-pub fn StemHitData::view(Self, rod? : Int?) -> StemHitView
+pub fn StemHitData::view(Self, rod? : Int32?) -> StemHitView
 
 pub struct StemHitView {
   // private fields
 }
-pub fn StemHitView::datum(Self, Int) -> DiscreteDatum?
+pub fn StemHitView::datum(Self, Int32) -> DiscreteDatum?
 pub fn StemHitView::matches_points(Self, Array[@core.Point]) -> Bool
-pub fn StemHitView::rod(Self) -> Int?
+pub fn StemHitView::rod(Self) -> Int32?
 
 pub struct StreamplotDatum {
-  index : Int
+  index : Int32
   point : @core.Point
   info : @drawing.StreamplotInfo
 }
@@ -525,7 +525,7 @@ pub struct StreamplotHitView {
   // private fields
 }
 pub fn StreamplotHitView::body(Self) -> Bool
-pub fn StreamplotHitView::datum(Self, Int) -> StreamplotDatum?
+pub fn StreamplotHitView::datum(Self, Int32) -> StreamplotDatum?
 pub fn StreamplotHitView::enabled(Self) -> Bool
 pub fn StreamplotHitView::invalidated(Self) -> Self
 pub fn StreamplotHitView::matches_points(Self, Array[@core.Point]) -> Bool
@@ -540,8 +540,8 @@ pub fn SubFigure::title(Self) -> String?
 
 pub struct Table {
   cells : Array[TableCell]
-  rows : Int
-  columns : Int
+  rows : Int32
+  columns : Int32
   x : Double
   y : Double
   width : Double
@@ -550,16 +550,16 @@ pub struct Table {
 }
 pub fn Table::cells(Self) -> Array[TableCell]
 pub fn Table::column_widths(Self) -> Array[Double]
-pub fn Table::columns(Self) -> Int
+pub fn Table::columns(Self) -> Int32
 pub fn Table::height(Self) -> Double
-pub fn Table::rows(Self) -> Int
+pub fn Table::rows(Self) -> Int32
 pub fn Table::width(Self) -> Double
 pub fn Table::x(Self) -> Double
 pub fn Table::y(Self) -> Double
 
 pub struct TableCell {
-  row : Int
-  column : Int
+  row : Int32
+  column : Int32
   text : String
   facecolor : String
   edgecolor : String
@@ -567,10 +567,10 @@ pub struct TableCell {
   visible_edges : String
 }
 pub fn TableCell::align(Self) -> String
-pub fn TableCell::column(Self) -> Int
+pub fn TableCell::column(Self) -> Int32
 pub fn TableCell::edgecolor(Self) -> String
 pub fn TableCell::facecolor(Self) -> String
-pub fn TableCell::row(Self) -> Int
+pub fn TableCell::row(Self) -> Int32
 pub fn TableCell::text(Self) -> String
 pub fn TableCell::visible_edges(Self) -> String
 
@@ -582,11 +582,11 @@ pub fn TripcolorHitData::info(Self) -> @drawing.TriColorInfo
 pub fn TripcolorHitData::invalidated(Self) -> Self
 pub fn TripcolorHitData::matches_points(Self, Array[@core.Point]) -> Bool
 pub fn TripcolorHitData::series(Self) -> String
-pub fn TripcolorHitData::slot(Self) -> Int
+pub fn TripcolorHitData::slot(Self) -> Int32
 pub fn TripcolorHitData::value(Self) -> Double
 
 pub struct VectorDatum {
-  index : Int
+  index : Int32
   point : @core.Point
   vector : @drawing.VectorInfo
 }
@@ -594,7 +594,7 @@ pub struct VectorDatum {
 pub struct VectorHitData {
   // private fields
 }
-pub fn VectorHitData::datum(Self, Int) -> VectorDatum?
+pub fn VectorHitData::datum(Self, Int32) -> VectorDatum?
 pub fn VectorHitData::matches(Self, Array[@core.Point], Array[@core.Point]) -> Bool
 
 pub(all) enum ViolinSide {

@@ -8,31 +8,31 @@ import {
 // Values
 pub fn band_info(Double, Double, horizontal? : Bool, stacked? : Bool) -> BandInfo
 
-pub fn box_info(Int, q1~ : Double, median~ : Double, q3~ : Double, lower_whisker~ : Double, upper_whisker~ : Double, part? : BoxPart) -> BoxInfo
+pub fn box_info(Int32, q1~ : Double, median~ : Double, q3~ : Double, lower_whisker~ : Double, upper_whisker~ : Double, part? : BoxPart) -> BoxInfo
 
-pub fn cell_info(Int, Int, (Double, Double), (Double, Double)) -> CellInfo
+pub fn cell_info(Int32, Int32, (Double, Double), (Double, Double)) -> CellInfo
 
-pub fn drawing(Int, Int, String, Array[HitPoint], targets? : Array[HitTarget], exclusions? : Array[(Int, (Double, Double, Double, Double))], polar_circles? : Array[(Int, (Double, Double, Double))]) -> Drawing
+pub fn drawing(Int32, Int32, String, Array[HitPoint], targets? : Array[HitTarget], exclusions? : Array[(Int32, (Double, Double, Double, Double))], polar_circles? : Array[(Int32, (Double, Double, Double))]) -> Drawing
 
 pub fn error_info((Double, Double), (Double, Double)) -> ErrorInfo
 
 pub fn filled_region(Array[Array[(Double, Double)]], even_odd? : Bool) -> FilledRegion
 
-pub fn hexbin_info(Int, Int, Int, reduction? : HexbinReduction) -> HexbinInfo
+pub fn hexbin_info(Int32, Int32, Int32, reduction? : HexbinReduction) -> HexbinInfo
 
 pub fn hit_info(HitPoint, HitKind, value~ : Double, series? : String, category? : String?, interval? : (Double, Double)?, fraction? : Double?, cell? : CellInfo?, error? : ErrorInfo?, band? : BandInfo?, box? : BoxInfo?, hexbin? : HexbinInfo?, violin? : ViolinInfo?, vector? : VectorInfo?, tricolor? : TriColorInfo?, streamplot? : StreamplotInfo?) -> HitInfo
 
-pub fn hit_point(Int, Int, Int, Double, Double, Double, Double) -> HitPoint
+pub fn hit_point(Int32, Int32, Int32, Double, Double, Double, Double) -> HitPoint
 
 pub fn hit_target(HitInfo, HitShape, (Double, Double, Double, Double)) -> HitTarget
 
-pub fn streamplot_info(Int, Double, Double, color_value? : Double?) -> StreamplotInfo
+pub fn streamplot_info(Int32, Double, Double, color_value? : Double?) -> StreamplotInfo
 
-pub fn tricolor_info((Int, Int, Int), vertex_mean? : Bool) -> TriColorInfo
+pub fn tricolor_info((Int32, Int32, Int32), vertex_mean? : Bool) -> TriColorInfo
 
 pub fn vector_info(Double, Double) -> VectorInfo
 
-pub fn violin_info(Int, position~ : Double, mean~ : Double, median~ : Double, minimum~ : Double, maximum~ : Double, part~ : ViolinPart, horizontal? : Bool) -> ViolinInfo
+pub fn violin_info(Int32, position~ : Double, mean~ : Double, median~ : Double, minimum~ : Double, maximum~ : Double, part~ : ViolinPart, horizontal? : Bool) -> ViolinInfo
 
 // Errors
 
@@ -48,7 +48,7 @@ pub fn BandInfo::not_equal(Self, Self) -> Bool
 pub fn BandInfo::to_repr(Self) -> @debug.Repr
 
 pub struct BoxInfo {
-  group_index : Int
+  group_index : Int32
   q1 : Double
   median : Double
   q3 : Double
@@ -73,8 +73,8 @@ pub fn BoxPart::not_equal(Self, Self) -> Bool
 pub fn BoxPart::to_repr(Self) -> @debug.Repr
 
 pub struct CellInfo {
-  row : Int
-  column : Int
+  row : Int32
+  column : Int32
   x_range : (Double, Double)
   y_range : (Double, Double)
 } derive(Eq, @debug.Debug)
@@ -85,16 +85,16 @@ pub fn CellInfo::to_repr(Self) -> @debug.Repr
 pub struct Drawing {
   // private fields
 }
-pub fn Drawing::height(Self) -> Int
+pub fn Drawing::height(Self) -> Int32
 pub fn Drawing::hit_info(Self, HitPoint) -> HitInfo?
 pub fn Drawing::hit_test(Self, Double, Double, radius? : Double, mode? : HitMode) -> HitPoint?
 pub fn Drawing::hit_test_client(Self, Double, Double, Double, Double, Double, Double, radius? : Double, mode? : HitMode) -> HitPoint?
 pub fn Drawing::points(Self) -> Array[HitPoint]
-pub fn Drawing::polar_circle(Self, Int) -> (Double, Double, Double)?
+pub fn Drawing::polar_circle(Self, Int32) -> (Double, Double, Double)?
 pub fn Drawing::svg(Self) -> String
 pub fn Drawing::targets(Self) -> Array[HitTarget]
 pub fn Drawing::viewport_point(Self, Double, Double, Double, Double, Double, Double) -> (Double, Double)?
-pub fn Drawing::width(Self) -> Int
+pub fn Drawing::width(Self) -> Int32
 
 pub struct ErrorInfo {
   x_range : (Double, Double)
@@ -114,9 +114,9 @@ pub fn FilledRegion::rings(Self) -> Array[Array[(Double, Double)]]
 pub fn FilledRegion::to_repr(Self) -> @debug.Repr
 
 pub struct HexbinInfo {
-  row : Int
-  column : Int
-  count : Int
+  row : Int32
+  column : Int32
+  count : Int32
   reduction : HexbinReduction
 } derive(Eq, @debug.Debug)
 pub fn HexbinInfo::equal(Self, Self) -> Bool
@@ -197,9 +197,9 @@ pub fn HitMode::not_equal(Self, Self) -> Bool
 pub fn HitMode::to_repr(Self) -> @debug.Repr
 
 pub struct HitPoint {
-  panel_index : Int
-  artist_index : Int
-  point_index : Int
+  panel_index : Int32
+  artist_index : Int32
+  point_index : Int32
   data_x : Double
   data_y : Double
   screen_x : Double
@@ -232,7 +232,7 @@ pub fn HitTarget::not_equal(Self, Self) -> Bool
 pub fn HitTarget::to_repr(Self) -> @debug.Repr
 
 pub struct StreamplotInfo {
-  seed_index : Int
+  seed_index : Int32
   u : Double
   v : Double
   color_value : Double?
@@ -242,7 +242,7 @@ pub fn StreamplotInfo::not_equal(Self, Self) -> Bool
 pub fn StreamplotInfo::to_repr(Self) -> @debug.Repr
 
 pub struct TriColorInfo {
-  vertices : (Int, Int, Int)
+  vertices : (Int32, Int32, Int32)
   vertex_mean : Bool
 } derive(Eq, @debug.Debug)
 pub fn TriColorInfo::equal(Self, Self) -> Bool
@@ -258,7 +258,7 @@ pub fn VectorInfo::not_equal(Self, Self) -> Bool
 pub fn VectorInfo::to_repr(Self) -> @debug.Repr
 
 pub struct ViolinInfo {
-  group_index : Int
+  group_index : Int32
   position : Double
   horizontal : Bool
   mean : Double
@@ -272,13 +272,13 @@ pub fn ViolinInfo::not_equal(Self, Self) -> Bool
 pub fn ViolinInfo::to_repr(Self) -> @debug.Repr
 
 pub(all) enum ViolinPart {
-  Body(Int, Double, Double)
+  Body(Int32, Double, Double)
   Mean
   Median
   Minimum
   Maximum
   Range
-  Quantile(Int, Double)
+  Quantile(Int32, Double)
 } derive(Eq, @debug.Debug)
 pub fn ViolinPart::equal(Self, Self) -> Bool
 pub fn ViolinPart::not_equal(Self, Self) -> Bool

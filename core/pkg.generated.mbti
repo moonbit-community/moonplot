@@ -28,7 +28,7 @@ pub fn style(String, width? : Double, radius? : Double, fill? : String, font_siz
 
 // Errors
 pub(all) suberror DataError {
-  LengthMismatch(expected~ : Int, actual~ : Int)
+  LengthMismatch(expected~ : Int32, actual~ : Int32)
   NonFiniteLimit(axis~ : String)
   InvalidErrorBar(message~ : String)
   InvalidBins
@@ -101,11 +101,11 @@ pub struct MaskedArray {
 }
 pub fn MaskedArray::all_masked(Self) -> Bool
 pub fn MaskedArray::compressed(Self) -> Array[Double]
-pub fn MaskedArray::count(Self) -> Int
+pub fn MaskedArray::count(Self) -> Int32
 pub fn MaskedArray::filled(Self, Double) -> Array[Double]
 pub fn MaskedArray::finite_values(Self) -> Array[Double]
-pub fn MaskedArray::is_masked(Self, Int) -> Bool
-pub fn MaskedArray::length(Self) -> Int
+pub fn MaskedArray::is_masked(Self, Int32) -> Bool
+pub fn MaskedArray::length(Self) -> Int32
 pub fn MaskedArray::map(Self, (Double) -> Double) -> Self
 pub fn MaskedArray::mask(Self) -> Array[Bool]
 pub fn MaskedArray::to_array(Self) -> Array[Double]
@@ -115,14 +115,14 @@ pub fn MaskedArray::zip_map(Self, Self, (Double, Double) -> Double) -> Self rais
 pub struct MaskedMatrix {
   // private fields
 }
-pub fn MaskedMatrix::columns(Self) -> Int
-pub fn MaskedMatrix::count(Self) -> Int
+pub fn MaskedMatrix::columns(Self) -> Int32
+pub fn MaskedMatrix::count(Self) -> Int32
 pub fn MaskedMatrix::filled(Self, Double) -> Array[Array[Double]]
 pub fn MaskedMatrix::finite_values(Self) -> Array[Double]
-pub fn MaskedMatrix::is_masked(Self, Int, Int) -> Bool
+pub fn MaskedMatrix::is_masked(Self, Int32, Int32) -> Bool
 pub fn MaskedMatrix::map(Self, (Double) -> Double) -> Self
 pub fn MaskedMatrix::mask(Self) -> Array[Array[Bool]]
-pub fn MaskedMatrix::rows(Self) -> Int
+pub fn MaskedMatrix::rows(Self) -> Int32
 pub fn MaskedMatrix::to_array(Self) -> Array[Array[Double]]
 pub fn MaskedMatrix::values(Self) -> Array[Array[Double]]
 
@@ -140,7 +140,7 @@ pub struct Series {
   ys : Array[Double]
 }
 pub fn Series::finite_bounds(Self) -> Bounds?
-pub fn Series::length(Self) -> Int
+pub fn Series::length(Self) -> Int32
 pub fn Series::points(Self) -> Array[Point]
 pub fn Series::x(Self) -> Array[Double]
 pub fn Series::y(Self) -> Array[Double]

@@ -4,7 +4,7 @@ package "Lampese/mathplotlib/core/colors"
 // Values
 pub fn boundary_color_norm(BoundaryNorm) -> ColorNorm
 
-pub fn boundary_norm(Array[Double], Int, clip? : Bool, extend_mode? : String) -> BoundaryNorm raise NormalizeError
+pub fn boundary_norm(Array[Double], Int32, clip? : Bool, extend_mode? : String) -> BoundaryNorm raise NormalizeError
 
 pub fn centered_color_norm(CenteredNorm) -> ColorNorm
 
@@ -63,7 +63,7 @@ pub(all) suberror NormalizeError {
 // Types and methods
 pub struct BoundaryNorm {
   boundaries : Array[Double]
-  ncolors : Int
+  ncolors : Int32
   clip : Bool
   extend_mode : String
 }
@@ -71,10 +71,10 @@ pub fn BoundaryNorm::autoscale_none(Self, Array[Double]) -> Unit
 pub fn BoundaryNorm::boundaries(Self) -> Array[Double]
 pub fn BoundaryNorm::clip(Self) -> Bool
 pub fn BoundaryNorm::extend_mode(Self) -> String
-pub fn BoundaryNorm::index(Self, Double) -> Int raise NormalizeError
+pub fn BoundaryNorm::index(Self, Double) -> Int32 raise NormalizeError
 pub fn BoundaryNorm::inverse(Self, Double) -> Double raise NormalizeError
 pub fn BoundaryNorm::is_valid(Self, Double) -> Bool
-pub fn BoundaryNorm::ncolors(Self) -> Int
+pub fn BoundaryNorm::ncolors(Self) -> Int32
 pub fn BoundaryNorm::scaled(Self) -> Bool
 pub fn BoundaryNorm::transform(Self, Double) -> Double raise NormalizeError
 

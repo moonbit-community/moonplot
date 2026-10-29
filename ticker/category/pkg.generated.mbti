@@ -12,7 +12,7 @@ pub struct CategoryAxis {
 }
 pub fn CategoryAxis::encode(Self, Array[String]) -> (Array[Double], Self)
 pub fn CategoryAxis::labels(Self) -> Array[String]
-pub fn CategoryAxis::length(Self) -> Int
+pub fn CategoryAxis::length(Self) -> Int32
 pub fn CategoryAxis::tick_labels(Self) -> Array[String]
 pub fn CategoryAxis::tick_positions(Self) -> Array[Double]
 pub fn CategoryAxis::with_labels(Self, Array[String]) -> Self

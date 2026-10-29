@@ -25,7 +25,7 @@ fn stairs_at(
   frame : @drawing.Drawing,
   x : Double,
   y : Double,
-) -> @drawing.HitInfo raise {
+) -> @drawing.HitInfo {
   step_selected(frame, (x + 3.0) * 50.0, (5.0 - y) * 25.0)
 }
 

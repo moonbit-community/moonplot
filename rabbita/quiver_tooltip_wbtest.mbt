@@ -39,7 +39,7 @@ test "actual quiver shaft and both wing callbacks receive the same original immu
       .unwrap()
     let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
     ignore(
-      view(frame, id="quiver", hovered=point, on_event=_ => @rabbita.none, tooltip=info => {
+      view(frame, id="quiver", hovered=point, on_event=_ => @tea.none, tooltip=info => {
         received.val = Some(info)
         @html.b("原始向量")
       }),

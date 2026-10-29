@@ -63,7 +63,7 @@ test "area custom tooltip receives typed immutable band from the current frame" 
   )
   let received : @ref.Ref[@drawing.HitInfo?] = @ref.Ref(None)
   ignore(
-    view(snapshot, id="band", on_event=_ => @rabbita.none, hovered=point, tooltip=metadata => {
+    view(snapshot, id="band", on_event=_ => @tea.none, hovered=point, tooltip=metadata => {
       received.val = Some(metadata)
       @html.b("\{metadata.series}：\{metadata.value} 元")
     }),

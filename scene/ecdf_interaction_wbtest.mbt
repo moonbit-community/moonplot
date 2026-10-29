@@ -27,7 +27,7 @@ fn ecdf_at(
   probability : Double,
   horizontal : Bool,
   mode~ : @drawing.HitMode = Nearest,
-) -> @drawing.HitInfo raise {
+) -> @drawing.HitInfo {
   if horizontal {
     step_selected(frame, probability * 400.0, (5.0 - value) * 40.0, mode~)
   } else {

@@ -15,7 +15,7 @@ pub fn Figure::add_subfigure(
   self : Figure,
   spec : @gridspec.SubplotSpec,
 ) -> SubFigure {
-  let data = @ref.new({ spec, title: None, axes: [], subfigures: [], })
+  let data = @ref.Ref({ spec, title: None, axes: [], subfigures: [], })
   self.subfigures.push(data)
   { figure: self, data, }
 }
@@ -155,7 +155,7 @@ pub fn SubFigure::add_subfigure(
   self : SubFigure,
   spec : @gridspec.SubplotSpec,
 ) -> SubFigure {
-  let data = @ref.new({ spec, title: None, axes: [], subfigures: [], })
+  let data = @ref.Ref({ spec, title: None, axes: [], subfigures: [], })
   self.data.val.subfigures.push(data)
   { figure: self.figure, data, }
 }

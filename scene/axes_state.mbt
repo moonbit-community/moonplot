@@ -214,7 +214,7 @@ fn new_axes_state(
   rect : @gridspec.Rect?,
   spec : @gridspec.SubplotSpec?,
 ) -> @ref.Ref[AxesData] {
-  @ref.new({
+  @ref.Ref({
     artists: [],
     polar: None,
     line_originals: [],

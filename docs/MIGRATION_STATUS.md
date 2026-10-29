@@ -34,3 +34,13 @@ HEAD/接口/日志保留，ignored archive-cleanup.json给恢复命令。不再�
 master，SSH origin git@github.com:moonbit-community/moonplot.git，README symlink/单module/
 核心不importUI/RabbitaJS-only及pins0.16.7/XML0.5.0保持。
 [能力](CAPABILITIES.md) · [安装](PUBLISHING.md) · [本次验收](MILESTONE_M17.md)
+
+
+## 2026-10-29 toolchain compatibility audit
+
+- Scope: preserve 0.18.0 plotting behavior while migrating removed `try?`, deprecated Ref construction, unused helper raises, and the Rabbita import alias collision. No new plotting features or release were requested in this repair.
+- Implementation: source and consumer migrations complete; stable/nightly CI added in `.github/workflows/check.yml`; generated interfaces refreshed with `tools/update_interfaces.py`.
+- Verified: strict all-target check; structure checker; independent published-version consumer all-target check, native static SVG/assertions, and JS app build. The published consumer archive still prints its existing Rabbita alias warning.
+- Verified: complete debug and release suites pass on every target: Wasm/Wasm-GC 22,678 each, JavaScript 22,740, native 22,682. No snapshots were updated.
+- Pending: exact-head stable/nightly CI, merge, and owner publication above Lampese/mathplotlib 0.18.0. No third-party publishing or unpublished dependency overrides.
+- Local audit evidence: `.health/release-20261029/releases/moonplot-*` in the parent audit workspace. No local test session remains live. Next action: require green stable/nightly CI for this exact source, then merge and leave the namespace owner a release handoff. Browser interaction acceptance is not rerun for this compatibility-only change; JS adapter unit tests and independent consumer builds pass.

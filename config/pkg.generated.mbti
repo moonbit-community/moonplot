@@ -138,8 +138,8 @@ pub struct NumericLocale {
   // private fields
 }
 pub fn NumericLocale::decimal_point(Self) -> String
-pub fn NumericLocale::grouping(Self) -> Array[Int]
-pub fn NumericLocale::new(decimal_point? : String, thousands_sep? : String, grouping? : Array[Int]) -> Self
+pub fn NumericLocale::grouping(Self) -> Array[Int32]
+pub fn NumericLocale::new(decimal_point? : String, thousands_sep? : String, grouping? : Array[Int32]) -> Self
 pub fn NumericLocale::thousands_sep(Self) -> String
 
 pub struct RcParams {
