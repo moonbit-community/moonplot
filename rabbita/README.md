@@ -170,8 +170,14 @@ Load the included stylesheet through your application's asset pipeline:
 ```
 
 Copy or serve [moonplot.css](moonplot.css) from the installed module's `rabbita/`
-directory. Its rules are scoped to `.moonplot`. Override `--moonplot-text`,
-`--moonplot-muted`, `--moonplot-border` and `--moonplot-accent` on the component.
+directory. Its rules are scoped to `.moonplot` and use CSS `light-dark(...)`
+tokens so both the SVG chrome (canvas background, axes, grid lines, default
+labels, legend box, and hover/selection markers) and the HTML tooltip/legend
+adapt automatically to the host's `color-scheme` or `data-theme="light"|"dark"`.
+Override `--moonplot-canvas-background`, `--moonplot-legend-background`,
+`--moonplot-text`, `--moonplot-muted`, `--moonplot-axis`, `--moonplot-grid`,
+`--moonplot-border`, `--moonplot-accent`, `--moonplot-tooltip-background`, and
+`--moonplot-series-hover` on the component as needed.
 The floating inspector does not resize the chart on hover. `demo.css` only
 styles the repository's example page.
 
